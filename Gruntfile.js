@@ -33,7 +33,7 @@ module.exports = function(grunt) {
        addbanner: {
           options: {
             position: 'top',
-            banner: '/*\nTheme Name: RCP Site Parent\n' +
+            banner: '/*\nTheme Name: RCP Parent Theme\n' +
                     'Theme URI: http://easydigitaldownloads.com/downloads/trustedd/\n' +
                     'Author: Andrew Munro\n' +
                     'Author URI: http://sumobi.com\n' +
