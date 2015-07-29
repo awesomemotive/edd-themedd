@@ -1,0 +1,56 @@
+.home #content section {
+	padding: 4rem 0;
+}
+
+.home section p:last-child {
+//	margin-bottom: 0;
+}
+
+.home #content section.feature {
+	padding: 4rem 2rem;
+}
+
+
+// section *:last-child {
+//   margin: 0;
+// }
+
+
+// make a section stand out
+section.feature {
+	background: @light-grey;
+	margin-left: -2rem;
+	margin-right: -2rem;
+
+	&.special {
+		background: @accent-color;
+
+		h1 {
+			color: #fff;
+		}
+	}
+}
+
+.intro h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.1;
+	color: #373737;
+}
+
+.intro h2 {
+	color: #a2a2a2;
+	font-weight: 400;
+}
+
+
+
+@media only screen and ( min-width : 768px ) {
+	.home #content section {
+		padding: 4rem 2rem;
+	}
+
+	.intro h1 {
+		font-size: 4rem;
+	}
+}

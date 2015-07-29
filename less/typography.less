@@ -1,0 +1,96 @@
+// site-title
+
+.site-title {
+	margin-bottom: 0;
+	font-size: 2rem;
+}
+
+.site-title a {
+	font-weight: 700;
+	color: @site-title-color;
+
+	&:hover {
+		color: @site-title-color;
+	}
+}
+
+// figcaption
+figcaption {
+	color: @body-text-color;
+	font-size: 0.875rem;
+}
+
+// site description
+.site-description {
+	font-size: 1.2rem;
+	margin-bottom: 0;
+	font-weight: 400;
+	color: @site-description-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	color: @heading-color;
+	margin: 0 0 1.62rem 0;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+h2 {
+	font-weight: 500;
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
+code {
+	color: @code-color;
+	word-wrap: break-word;
+}
+
+b, strong {
+	font-weight: 500;
+}
+
+p, figcaption {
+	line-height: 1.62;
+}
+
+p {
+	margin: 0 0 1.62rem 0;
+	font-weight: 300;
+}
+
+p, ul, ol, dl {
+	color: @body-text-color;
+	font-size: 1.2rem;
+}
+
+@media only screen and ( min-width: 720px ) {
+
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	h4 {
+		font-size: 1.25rem;
+	}
+
+}

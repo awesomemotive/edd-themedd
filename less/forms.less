@@ -1,0 +1,47 @@
+@label: darken( @light-grey, 40% );
+
+input,
+textarea {
+	width: 100%;
+	padding: 0.95rem;
+	color: @body-text-color;
+	background: #fff;
+	border: 1px solid darken( @light-grey, 3% );
+}
+
+input  {
+    display: inline-block;
+    line-height: 1;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	width: auto;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+label {
+	text-align: left;
+	display: inline-block;
+
+	input[type="checkbox"] {
+		margin-right: 0.25rem;
+	}
+
+}

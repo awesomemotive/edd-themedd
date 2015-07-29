@@ -1,0 +1,66 @@
+// site wrapper
+#page {
+	max-width: 1280px;
+	min-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// content area
+#content {
+	padding: 2rem 2rem 0 2rem;
+	background: @content-color;
+	flex: 1 0 auto;
+}
+
+// footer area
+#footer {
+	padding: 2rem;
+}
+
+#footer .wrapper {
+	max-width: 1180px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+// page widths
+.single-download .wrapper {
+	max-width: 980px;
+}
+
+// wrappers
+.wrapper {
+
+	margin-left: auto;
+	margin-right: auto;
+
+	&.slim {
+		max-width: 720px;
+	}
+
+	// slightly wider wrapper
+	&.wide {
+		max-width: 980px;
+	}
+
+	&.extra-wide {
+		max-width: 1180px;
+	}
+
+}
+
+// flexbox sticky footer
+#page {
+	display: flex;
+	flex-direction:column;
+}
+
+.entry-header {
+	margin-bottom: 2rem;
+}
+
+.post-thumbnail {
+	margin-bottom: 2rem;
+}

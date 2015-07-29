@@ -1,0 +1,124 @@
+// testimonials
+// split features
+// other features
+
+
+// pricing - to do
+// homepage top part - to do
+
+.grid {
+	display: -webkit-flex;
+	display: flex;
+
+	// allow the direct child elements to wrap if needed.
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+
+}
+
+.grid-wrap {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+.grid-wrap {
+ // max-width: 100%;
+ width: 100%;
+}
+
+.grid-child {
+  width: 100%;
+  //max-width: 100%;
+}
+
+
+
+
+
+.grid .grid-wrap .image {
+ //  width: 100%;
+ margin-bottom: 1rem;
+}
+
+
+
+// image and content styles
+.grid.split .grid-wrap {
+  padding: 0;
+}
+
+.grid.split .grid-wrap {
+  width: auto;
+}
+
+.grid.split .image {
+// display: none;
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 768px ) {
+
+// image and content styles
+.grid.split .grid-wrap {
+  display: -webkit-flex;
+  display: flex;
+}
+
+// standard layout with image on left.
+.grid .grid-wrap .image {
+  padding-right: 2rem;
+}
+
+.grid .grid-wrap.alt .content {
+    order: 1;
+}
+
+.grid .grid-wrap.alt .image {
+  order: 2;
+  padding-right: 0;
+  padding-left: 2rem;
+}
+
+
+  .grid .grid-wrap .image {
+     width: 50%;
+  }
+
+  .grid .grid-wrap .content {
+     width: 50%;
+  }
+
+  .grid-wrap {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .grid.columns-2 .grid-child {
+    width: 50%;
+  }
+
+  // .grid.columns-3 .grid-child {
+  //   width: 33.333333333%;
+  // }
+
+  .grid.columns-4 .grid-child {
+    width: 25%;
+
+  }
+
+}
+
+ // Medium Devices, Desktops
+    @media only screen and ( min-width : 992px ) {
+
+
+
+      // the default
+      .grid.columns-3 .grid-child {
+        width: 33.333333333%;
+      }
+
+
+    }

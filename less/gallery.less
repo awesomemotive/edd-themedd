@@ -1,0 +1,66 @@
+// WordPress galleries
+
+.gallery {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+
+	margin-right: -1rem;
+	margin-left: -1rem;
+
+	figure {
+		margin: 0;
+	}
+}
+
+
+.gallery-item {
+	width: 100%;
+
+	div {
+		margin: 1rem;
+	}
+
+	figcaption {
+		padding: 0 2rem;
+		margin-bottom: 1rem;
+		text-align: left;
+	}
+}
+
+.gallery-item a {
+	padding: 1rem;
+	display: block;
+	border-bottom: none;
+	border: 4px solid @light-grey;
+	.transition( border 0.1s linear );
+
+	&:hover {
+		border-color: @accent-color;
+	}
+
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 768px ) {
+
+	// default
+	.gallery .gallery-item {
+		width: 33.333333333%;
+	}
+
+	.gallery.gallery-columns-2 .gallery-item {
+		width: 50%;
+	}
+
+	.gallery.gallery-columns-3 .gallery-item {
+		width: 33.333333333%;
+	}
+
+	.gallery.gallery-columns-4 .gallery-item {
+		width: 25%;
+	}
+	
+}

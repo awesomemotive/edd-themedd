@@ -1,0 +1,58 @@
+.button,
+#submit {
+    background: @accent-color;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    outline: none;
+    .transition ( all 0.2s linear );
+}
+
+.button {
+
+    // normal size
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 1.25rem 2.25rem;
+
+    &.wide {
+        display: block;
+    }
+
+    // small
+    &.small {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    // large
+    &.large {
+        font-size: 1.5rem;
+        padding: 1.5rem 2.25rem;
+    }
+
+    // huge
+    &.huge {
+        font-size: 2rem;
+        padding: 1.5rem 2.5rem;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: #fff;
+        background: darken( @accent-color, 8% );
+        border: none;
+    }
+
+}
