@@ -40,17 +40,7 @@ add_filter( 'body_class', 'trustedd_edd_body_classes' );
  * Is EDD Software Licensing active
  */
 function trustedd_is_edd_sl_active() {
-
 	return class_exists( 'EDD_Software_Licensing' );
-	//
-	// if ( class_exists( 'EDD_Software_Licensing' ) ) {
-	// 	return;
-	// }
-	//
-	// $edd_sl_version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-	//
-	// return $edd_sl_version;
-
 }
 
 /**
@@ -60,7 +50,7 @@ function trustedd_is_edd_sl_active() {
  */
 function trustedd_purchase_link_defaults( $defaults ) {
 	// add a class of "small" to the add to cart button
-	$defaults['class'] .= ' small wide';
+	$defaults['class'] .= ' wide';
 
 	$defaults['price'] = (bool) false;
 
@@ -142,12 +132,16 @@ function trustedd_edd_purchase_link() {
 	if ( $external_download_url ) {
 		?>
 		<div class="edd_download_purchase_form">
-			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button small wide external" target="_blank">
+			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external" target="_blank">
 				<span><?php echo $text; ?></span>
 
-				<svg class="external" width="12px" height="12px">
+				<?php /*
+				<svg class="external" width="16px" height="16px">
 					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>
 				</svg>
+				*/ ?>
+
+				<img src="<?php echo get_template_directory_uri() . '/images/external.svg'; ?>" width="16" height="16">
 			</a>
 		</div>
 
@@ -188,3 +182,44 @@ function trustedd_edd_purchase_link_defaults( $args ) {
 	return $args;
 }
 add_filter( 'edd_purchase_link_defaults', 'trustedd_edd_purchase_link_defaults' );
+
+
+/**
+ * Changelog
+ */
+function trustedd_product_changelog() {
+
+	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+
+	if ( ! ( is_singular( 'download' ) || $changelog || ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) || is_front_page() ) ) {
+		return;
+	}
+
+	?>
+	<script type="text/javascript">
+
+		jQuery(document).ready(function($) {
+
+		//inline
+		$('.popup-content').magnificPopup({
+			type: 'inline',
+			fixedContentPos: true,
+			fixedBgPos: true,
+			overflowY: 'scroll',
+			closeBtnInside: true,
+			preloader: false,
+			callbacks: {
+				beforeOpen: function() {
+				this.st.mainClass = this.st.el.attr('data-effect');
+				}
+			},
+			midClick: true,
+			removalDelay: 300
+        });
+
+		});
+	</script>
+
+	<?php
+}
+add_action( 'wp_footer', 'trustedd_product_changelog', 100 );

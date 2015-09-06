@@ -8,6 +8,9 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+
+
+
 /**
  * Scripts
  *
@@ -15,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 */
 
 function trustedd_edd_download_meta_scripts( $hook ) {
+
+
 
 	if ( get_post_type() == 'download' && ( $hook == 'post.php' || $hook == 'post-new.php' ) ) {
 
@@ -276,7 +281,21 @@ add_action( 'save_post', 'trustedd_download_meta_save', 1 );
  * @since  1.0.0
  */
 function trustedd_has_download_meta( $download_id ) {
-	return get_post_meta( $download_id, '_trustedd_has_download_meta', true );
+
+	$return = false;
+
+	if ( get_post_meta( $download_id, '_trustedd_has_download_meta', true ) ) {
+		$return = true;
+	}
+
+	if ( trustedd_is_edd_sl_active() ) {
+		if ( get_post_meta( get_the_ID(), '_edd_sl_version', true ) || get_post_meta( get_the_ID(), '_edd_sl_changelog', true ) ) {
+			$return = true;
+		}
+
+	}
+
+	return $return;
 }
 
 /**
@@ -307,10 +326,6 @@ add_action( 'trustedd_sidebar_download', 'trustedd_show_download_meta' );
  */
 function trustedd_download_version() {
 
-    // changelog
-    // Show textarea if software licensing isn't installed
-	$changelog = stripslashes( wpautop( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ), true ) );
-
 	if ( trustedd_is_edd_sl_active() ) {
 		// EDD SL installed
 		$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
@@ -323,26 +338,49 @@ function trustedd_download_version() {
 
     <?php if ( $version ) : ?>
 		<li>
-			<img src="<?php echo get_template_directory_uri() . '/images/download-version.svg'; ?>" width="24" height="24">
+			<img src="<?php echo get_template_directory_uri() . '/images/download-version.svg'; ?>" width="24" />
 			<span>Version <?php echo esc_attr( $version ); ?></span>
 		</li>
+	<?php endif; ?>
 
-		<?php /*
-        <li><span>Version</span> v<?php echo esc_attr( $version ); ?>
-            <?php if ( $changelog ) : ?>
-                <br /><a href="#changelog" class="popup-content" data-effect="mfp-move-from-bottom">View changelog</a>
-
-                <div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
-                    <h1>Changelog</h1>
-                    <?php echo $changelog; ?>
-                </div>
-
-            <?php endif; ?>
-        </li>
-		*/?>
-    <?php endif; ?>
 <?php }
 add_action( 'trustedd_download_meta', 'trustedd_download_version' );
+
+/**
+ * Changelog
+ *
+ * @since 1.0.0
+ */
+function trustedd_download_changelog() {
+
+    // changelog
+    // Show textarea if software licensing isn't installed
+
+	if ( trustedd_is_edd_sl_active() ) {
+		// EDD SL installed
+		$changelog = stripslashes( wpautop( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ), true ) );
+	}
+
+?>
+
+    <?php if ( $changelog ) : ?>
+		<li>
+
+			<a href="#changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">
+				<img src="<?php echo get_template_directory_uri() . '/images/download-changelog.svg'; ?>" width="24" />
+				<span>View Changelog</span>
+			</a>
+
+			<div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
+				<h1>Changelog</h1>
+				<?php echo $changelog; ?>
+			</div>
+
+		</li>
+	    <?php endif; ?>
+
+<?php }
+add_action( 'trustedd_download_meta', 'trustedd_download_changelog' );
 
 /**
  * Download release date
@@ -354,7 +392,7 @@ function trustedd_download_released() {
 
 	if ( $released ) : ?>
         <li>
-			<img src="<?php echo get_template_directory_uri() . '/images/download-released.svg'; ?>" width="24" height="24">
+			<img src="<?php echo get_template_directory_uri() . '/images/download-released.svg'; ?>" width="24" />
 			<span>Released <?php echo esc_attr( $released ); ?></span>
 		</li>
     <?php endif; ?>
@@ -373,7 +411,7 @@ function trustedd_download_last_updated() {
 ?>
     <?php if ( $updated ) : ?>
     <li>
-		<img src="<?php echo get_template_directory_uri() . '/images/download-last-updated.svg'; ?>" width="24" height="24">
+		<img src="<?php echo get_template_directory_uri() . '/images/download-last-updated.svg'; ?>" width="24" />
 		<span>Updated <?php echo esc_attr( $updated ); ?></span>
 	</li>
     <?php endif; ?>
@@ -395,7 +433,7 @@ function trustedd_download_documentation() {
     <?php if ( $documentation_url ) : ?>
         <li>
 			<a href="<?php echo $documentation_url; ?>" class="download-meta-link"<?php echo $external; ?>>
-				<img src="<?php echo get_template_directory_uri() . '/images/download-documentation.svg'; ?>" width="24" height="24">
+				<img src="<?php echo get_template_directory_uri() . '/images/download-documentation.svg'; ?>" width="24" />
 				<span>View Documentation</span>
 			</a>
 		</li>
