@@ -25,5 +25,6 @@ function trustedd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/magnific-popup.js', array( 'jquery' ), TRUSTEDD_THEME_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'trustedd_enqueue_scripts' );
