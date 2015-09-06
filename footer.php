@@ -11,6 +11,9 @@
 <?php do_action( 'trustedd_content_after' ); ?>
 
 	<footer id="footer">
+
+		<?php do_action( 'trustedd_footer_start' ); ?>
+
 		<div class="wrapper aligncenter">
 			<section class="section copyright">
 				<div class="wrapper">
@@ -18,6 +21,9 @@
 				</div>
 			</section>
 		</div>
+
+		<?php do_action( 'trustedd_footer_end' ); ?>
+
 	</footer>
 
 </div>
