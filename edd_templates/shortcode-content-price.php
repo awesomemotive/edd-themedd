@@ -1,4 +1,4 @@
-<?php if ( '0' == edd_get_download_price( get_the_ID() ) ) : 
+<?php if ( '0' == edd_get_download_price( get_the_ID() ) ) :
 // Free download
 ?>
 	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-<?php elseif ( edd_has_variable_prices( get_the_ID() ) ) : 
+<?php elseif ( edd_has_variable_prices( get_the_ID() ) ) :
 // Variable priced download
 ?>
 
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-<?php elseif ( ! edd_has_variable_prices( get_the_ID() ) ) : 
+<?php elseif ( ! edd_has_variable_prices( get_the_ID() ) ) :
 // normal priced download
 ?>
 	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -26,4 +26,3 @@
 		</div>
 	</div>
 <?php endif; ?>
-
