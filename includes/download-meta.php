@@ -19,8 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function trustedd_edd_download_meta_scripts( $hook ) {
 
-
-
 	if ( get_post_type() == 'download' && ( $hook == 'post.php' || $hook == 'post-new.php' ) ) {
 
 		wp_enqueue_script( 'trustedd-download-info-datepicker', TRUSTEDD_THEME_URL . 'js/admin.js', array( 'jquery-ui-datepicker' ), TRUSTEDD_THEME_VERSION, true );
@@ -79,15 +77,15 @@ function trustedd_download_meta_add_fields( $post, $metabox ) {
  */
 function trustedd_download_meta_release_date( $post_id ) {
 
-	$release_date = ! empty( get_post_meta( $post_id, '_trustedd_download_date_released', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( $post_id, '_trustedd_download_date_released', true ) ) ) : '';
+	$release_date = ! empty( get_post_meta( $post_id, '_edd_download_meta_date_released', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( $post_id, '_edd_download_meta_date_released', true ) ) ) : '';
 ?>
 
 	<p><strong><?php _e( 'Date Released', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-download-release-date" class="screen-reader-text">
+		<label for="edd-download-meta-release-date" class="screen-reader-text">
 			<?php _e( 'Release Date', 'trustedd' ); ?>
 		</label>
-		<input class="widefat edd-download-meta-datepicker" type="text" name="trustedd_download_date_released" id="trustedd-download-release-date" value="<?php echo esc_attr( $release_date ); ?>" size="30" />
+		<input class="widefat edd-download-meta-datepicker" type="text" name="edd_download_meta_date_released" id="edd-download-meta-release-date" value="<?php echo esc_attr( $release_date ); ?>" size="30" />
 	</p>
 
 	<?php
@@ -101,15 +99,15 @@ add_action( 'trustedd_download_meta_add_fields', 'trustedd_download_meta_release
  */
 function trustedd_download_meta_last_updated( $post_id ) {
 
-	$release_date = ! empty( get_post_meta( $post_id, '_trustedd_download_date_updated', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( $post_id, '_trustedd_download_date_updated', true ) ) ) : '';
+	$release_date = ! empty( get_post_meta( $post_id, '_edd_download_meta_date_updated', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( $post_id, '_edd_download_meta_date_updated', true ) ) ) : '';
 ?>
 
 	<p><strong><?php _e( 'Date Last Updated', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-download-release-date" class="screen-reader-text">
+		<label for="edd-download-meta-date-updated" class="screen-reader-text">
 			<?php _e( 'Date Last Updated', 'trustedd' ); ?>
 		</label>
-		<input class="widefat edd-download-meta-datepicker" type="text" name="trustedd_download_date_updated" id="trustedd-download-date-updated" value="<?php echo esc_attr( $release_date ); ?>" size="30" />
+		<input class="widefat edd-download-meta-datepicker" type="text" name="edd_download_meta_date_updated" id="edd-download-meta-date-updated" value="<?php echo esc_attr( $release_date ); ?>" size="30" />
 	</p>
 
 	<?php
@@ -127,10 +125,10 @@ function trustedd_download_meta_version( $post_id ) {
 	<?php if ( ! trustedd_is_edd_sl_active() ) : ?>
 	<p><strong><?php _e( 'Version', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-download-version" class="screen-reader-text">
+		<label for="edd-download-meta-version" class="screen-reader-text">
 			<?php _e( 'Version', 'trustedd' ); ?>
 		</label>
-		<input class="widefat" type="text" name="trustedd_download_version" id="trustedd-download-version" value="<?php echo esc_attr( get_post_meta( $post_id, '_trustedd_download_version', true ) ); ?>" size="30" />
+		<input class="widefat" type="text" name="edd_download_meta_version" id="edd-download-meta-version" value="<?php echo esc_attr( get_post_meta( $post_id, '_edd_download_meta_version', true ) ); ?>" size="30" />
 	</p>
 	<?php endif; ?>
 
@@ -148,10 +146,10 @@ function trustedd_download_meta_url( $post_id ) {
 
 	<p><strong><?php _e( 'External Download URL', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-download-url" class="screen-reader-text">
+		<label for="edd-download-meta-url" class="screen-reader-text">
 			<?php _e( 'External Download URL', 'trustedd' ); ?>
 		</label>
-		<input class="widefat" type="text" name="trustedd_download_url" id="trustedd-download-url" value="<?php echo esc_attr( get_post_meta( $post_id, '_trustedd_download_url', true ) ); ?>" size="30" />
+		<input class="widefat" type="text" name="edd_download_meta_url" id="edd-download-meta-url" value="<?php echo esc_attr( get_post_meta( $post_id, '_edd_download_meta_url', true ) ); ?>" size="30" />
 	</p>
 
 	<?php
@@ -168,10 +166,10 @@ function trustedd_download_meta_doc_url( $post_id ) {
 
 	<p><strong><?php _e( 'Documentation URL', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-doc-url" class="screen-reader-text">
+		<label for="edd-download-meta-doc-url" class="screen-reader-text">
 			<?php _e( 'Documentation URL', 'trustedd' ); ?>
 		</label>
-		<input class="widefat" type="text" name="trustedd_doc_url" id="trustedd-doc-url" value="<?php echo esc_attr( get_post_meta( $post_id, '_trustedd_doc_url', true ) ); ?>" size="30" />
+		<input class="widefat" type="text" name="edd_download_meta_doc_url" id="edd-download-meta-doc-url" value="<?php echo esc_attr( get_post_meta( $post_id, '_edd_download_meta_doc_url', true ) ); ?>" size="30" />
 	</p>
 
 	<?php
@@ -210,11 +208,11 @@ function trustedd_download_meta_save( $post_id ) {
 	}
 
 	$fields = apply_filters( 'trustedd_download_meta_save', array(
-			'trustedd_download_date_released',
-			'trustedd_download_date_updated',
-			'trustedd_download_version',
-			'trustedd_download_url',
-			'trustedd_doc_url',
+			'edd_download_meta_date_released',
+			'edd_download_meta_date_updated',
+			'edd_download_meta_version',
+			'edd_download_meta_url',
+			'edd_download_meta_doc_url',
 		)
 	);
 
@@ -238,7 +236,7 @@ function trustedd_download_meta_save( $post_id ) {
 		$new = ( isset( $_POST[ $field ] ) ? esc_attr( $_POST[ $field ] ) : '' );
 
         // sanitize URL fields
-        if ( $field == 'trustedd_download_url' || $field == 'trustedd_doc_url' ) {
+        if ( $field == 'edd_download_meta_url' || $field == 'edd_download_meta_doc_url' ) {
             $new = esc_url_raw( $_POST[ $field ] );
         }
 
@@ -267,9 +265,9 @@ function trustedd_download_meta_save( $post_id ) {
 
 	// set a flag if there is download meta
 	if ( ! $empty_fields ) {
-		update_post_meta( $post_id, '_trustedd_has_download_meta', true );
+		update_post_meta( $post_id, '_edd_has_download_meta', true );
 	} else {
-		delete_post_meta( $post_id, '_trustedd_has_download_meta' );
+		delete_post_meta( $post_id, '_edd_has_download_meta' );
 	}
 
 }
@@ -284,7 +282,7 @@ function trustedd_has_download_meta( $download_id ) {
 
 	$return = false;
 
-	if ( get_post_meta( $download_id, '_trustedd_has_download_meta', true ) ) {
+	if ( get_post_meta( $download_id, '_edd_has_download_meta', true ) ) {
 		$return = true;
 	}
 
@@ -331,7 +329,7 @@ function trustedd_download_version() {
 		$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
 	} else {
 		// use fallback version number
-		$version = get_post_meta( get_the_ID(), '_trustedd_download_version', true );
+		$version = get_post_meta( get_the_ID(), '_edd_download_meta_version', true );
 	}
 
 ?>
@@ -388,7 +386,7 @@ add_action( 'trustedd_download_meta', 'trustedd_download_changelog' );
  * @since 1.0.0
  */
 function trustedd_download_released() {
-	$released = ! empty( get_post_meta( get_the_ID(), '_trustedd_download_date_released', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( get_the_ID(), '_trustedd_download_date_released', true ) ) ) : '';
+	$released = ! empty( get_post_meta( get_the_ID(), '_edd_download_meta_date_released', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( get_the_ID(), '_edd_download_meta_date_released', true ) ) ) : '';
 
 	if ( $released ) : ?>
         <li>
@@ -406,7 +404,7 @@ add_action( 'trustedd_download_meta', 'trustedd_download_released' );
  * @since 1.0.0
  */
 function trustedd_download_last_updated() {
-	$updated = ! empty( get_post_meta( get_the_ID(), '_trustedd_download_date_updated', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( get_the_ID(), '_trustedd_download_date_updated', true ) ) ) : '';
+	$updated = ! empty( get_post_meta( get_the_ID(), '_edd_download_meta_date_updated', true ) ) ? date_i18n( get_option( 'date_format' ), strtotime( get_post_meta( get_the_ID(), '_edd_download_meta_date_updated', true ) ) ) : '';
 
 ?>
     <?php if ( $updated ) : ?>
@@ -425,7 +423,7 @@ add_action( 'trustedd_download_meta', 'trustedd_download_last_updated' );
  */
 function trustedd_download_documentation() {
     // external doc url
-    $documentation_url = get_post_meta( get_the_ID(), '_trustedd_doc_url', true );
+    $documentation_url = get_post_meta( get_the_ID(), '_edd_download_meta_doc_url', true );
 
     $external = ' target="blank"';
 ?>
