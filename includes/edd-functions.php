@@ -127,7 +127,7 @@ function trustedd_edd_purchase_link() {
 
 //	var_dump( $external_download_url );
 
-	$text = edd_is_free_download( get_the_ID() ) ? __( 'Free', 'trustedd' ) : __( 'Purchase', 'trustedd' );
+	$text = edd_is_free_download( get_the_ID() ) ? __( 'Download Now', 'trustedd' ) : __( 'Purchase', 'trustedd' );
 
 	if ( $external_download_url ) {
 		?>
