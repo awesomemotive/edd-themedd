@@ -123,7 +123,7 @@ function trustedd_edd_price() {
  */
 function trustedd_edd_purchase_link() {
 
-	$external_download_url = trustedd_get_download_meta( '_trustedd_download_url' );
+	$external_download_url = trustedd_get_download_meta( '_edd_download_meta_url' );
 
 //	var_dump( $external_download_url );
 
