@@ -183,18 +183,12 @@ function trustedd_edd_purchase_link_defaults( $args ) {
 }
 add_filter( 'edd_purchase_link_defaults', 'trustedd_edd_purchase_link_defaults' );
 
-
 /**
- * Changelog
+ * Lightboxes
  */
-function trustedd_product_changelog() {
+function trustedd_load_popup() {
 
-	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
-
-	if ( ! ( is_singular( 'download' ) || $changelog || ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) || is_front_page() ) ) {
-		return;
-	}
-
+	if ( trustedd_enable_popup() ) :
 	?>
 	<script type="text/javascript">
 
@@ -220,6 +214,6 @@ function trustedd_product_changelog() {
 		});
 	</script>
 
-	<?php
+<?php endif;
 }
-add_action( 'wp_footer', 'trustedd_product_changelog', 100 );
+add_action( 'wp_footer', 'trustedd_load_popup', 100 );
