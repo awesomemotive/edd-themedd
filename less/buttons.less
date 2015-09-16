@@ -1,4 +1,5 @@
 .button,
+input[type=submit],
 #submit {
     background: @accent-color;
     color: #fff;
@@ -16,6 +17,15 @@
     user-select: none;
     outline: none;
     .transition ( all 0.2s linear );
+}
+
+.button:hover,
+.button:focus,
+input[type=submit]:hover {
+    text-decoration: none;
+    color: #fff;
+    background: darken( @accent-color, 8% );
+    border: none;
 }
 
 .button {
