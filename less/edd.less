@@ -36,6 +36,11 @@
 	// }
 }
 
+.edd-cart-added-alert {
+	padding: 1rem 0;
+	display: inline-block;
+}
+
 .single-download .entry-header {
 	text-align: center;
 	padding: 4rem 2rem 4rem 2rem;
@@ -59,16 +64,16 @@ svg.external {
 	display: inline-block;
 }
 
-.download-meta li {
-	padding: 0.5rem 0;
-}
+// .download-meta li {
+// 	padding: 0.5rem 0;
+// }
 
-.download-meta li img {
+.download-meta img {
 	vertical-align: middle;
 	margin-right: 0.5rem;
 }
 
-.download-meta li svg {
+.download-meta svg {
 	vertical-align: middle;
 	margin-right: 0.5rem;
 }
@@ -356,6 +361,32 @@ div[itemprop="offers"] {
 		}
 	}
 }
+
+#edd_checkout_cart {
+	width: 100%;
+	text-align: left;
+	margin-bottom: 2rem;
+	border: 2px solid @light-grey;
+
+	td, th {
+		padding: 1rem;
+	}
+}
+
+// checkout
+
+.edd_cart_header_row,
+.edd_cart_item {
+	border-bottom: 2px solid @light-grey;
+}
+
+// shows the total price at checkout
+.edd_cart_total {
+	text-align: right;
+}
+
+// end checkout
+
 
 // Purchase receipt styles
 #edd_purchase_receipt,
