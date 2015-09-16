@@ -36,7 +36,6 @@ require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'custom.php' );
 // EDD functions
 if ( trustedd_is_edd_active() ) {
 	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'edd-functions.php' );
-	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'download-meta.php' );
 }
 
 // temp
@@ -98,6 +97,7 @@ function trustedd_setup() {
 	 * See: https://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+
 	set_post_thumbnail_size( 720, 360, true );
 
 	add_image_size( 'trustedd-post-thumbnail', 566, 283, true );
@@ -139,9 +139,7 @@ function trustedd_widgets_init() {
 		'id'            => 'sidebar-downloads',
 		'description'   => __( 'Downloads sidebar', 'trustedd' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'after_widget'  => '</aside>'
 	) );
 
 }
