@@ -123,7 +123,8 @@ function trustedd_edd_price() {
  */
 function trustedd_edd_purchase_link() {
 
-	$external_download_url = trustedd_get_download_meta( '_edd_download_meta_url' );
+//	$external_download_url = trustedd_get_download_meta( '_edd_download_meta_url' );
+	$external_download_url = '';
 
 //	var_dump( $external_download_url );
 
@@ -217,3 +218,17 @@ function trustedd_load_popup() {
 <?php endif;
 }
 add_action( 'wp_footer', 'trustedd_load_popup', 100 );
+
+
+if ( ! function_exists( 'trustedd_edd_checkout_image_size' ) ) :
+/**
+ * Set the default EDD checkout image size
+ *
+ * @since 1.0
+ */
+function trustedd_edd_checkout_image_size() {
+	return array( 100, 50 );
+}
+endif;
+
+add_filter( 'edd_checkout_image_size', 'trustedd_edd_checkout_image_size' );
