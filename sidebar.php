@@ -6,10 +6,10 @@
  */
 ?>
 
-<?php if ( is_active_sidebar( 'sidebar-downloads' ) ) : ?>
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 <div id="secondary">
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-		<?php dynamic_sidebar( 'sidebar-downloads' ); ?>
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
 </div>
 <?php endif; ?>

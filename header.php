@@ -29,8 +29,6 @@
 
 	<?php do_action( 'trustedd_header' ); ?>
 
-
-
 	<?php do_action( 'trustedd_content_before' ); ?>
 
 	<div id="content" class="site-content">

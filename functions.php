@@ -125,6 +125,39 @@ function trustedd_setup() {
 endif;
 add_action( 'after_setup_theme', 'trustedd_setup' );
 
+
+
+/**
+ * Load our site navigation
+ *
+ * @since 1.0
+ */
+function trustedd_navigation() {
+	?>
+
+    <?php if ( has_nav_menu( 'primary' ) ) : ?>
+        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'twentysixteen' ); ?></button>
+    <?php endif; ?>
+
+    <div id="site-header-menu" class="site-header-menu">
+
+    	<nav id="site-navigation" class="main-navigation" role="navigation">
+            <?php
+    			wp_nav_menu(
+    				apply_filters( 'trustedd_navigation', array(
+    					'menu_id'        => 'primary-menu',
+    					'menu_class'     => 'menu',
+    					'theme_location' => 'primary',
+    					'container'      => '',
+    				))
+    			);
+    		?>
+    	</nav>
+    </div>
+	<?php
+}
+add_action( 'trustedd_masthead', 'trustedd_navigation' );
+
 /**
  * Register widget area
  *
@@ -135,12 +168,49 @@ add_action( 'after_setup_theme', 'trustedd_setup' );
 function trustedd_widgets_init() {
 
 	register_sidebar( array(
-		'name'          => __( 'Downloads Sidebar', 'trustedd' ),
-		'id'            => 'sidebar-downloads',
-		'description'   => __( 'Downloads sidebar', 'trustedd' ),
+		'name'          => esc_html__( 'Sidebar', 'trustedd' ),
+		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'trustedd' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>'
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Download Sidebar', 'trustedd' ),
+		'id'            => 'sidebar-download',
+		'description'   => esc_html__( 'Add widgets here to appear in your download sidebar.', 'trustedd' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	) );
 
 }
 add_action( 'widgets_init', 'trustedd_widgets_init' );
+
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @since 1.0.0
+ */
+function trustedd_body_classes( $classes ) {
+
+	// Adds a class of no-sidebar to sites without active sidebar.
+	if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
+		$classes[] = 'no-sidebar';
+	}
+
+	if (
+		is_page_template( 'page-templates/slim.php' ) ||
+		is_page_template( 'page-templates/wide.php' ) ||
+		is_page_template( 'page-templates/full-width.php' )
+	) {
+		$classes[] = 'no-sidebar';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'trustedd_body_classes' );

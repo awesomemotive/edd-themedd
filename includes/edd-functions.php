@@ -28,10 +28,6 @@ function trustedd_edd_body_classes( $classes ) {
 		$classes[] = 'edd-shop';
 	}
 
-    // if ( is_active_sidebar( 'sidebar-downloads' ) && is_singular( 'download' ) ) {
-	// 	$classes[] = 'has-sidebar-downloads';
-	// }
-
 	return $classes;
 }
 add_filter( 'body_class', 'trustedd_edd_body_classes' );
