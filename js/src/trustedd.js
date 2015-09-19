@@ -10,13 +10,4 @@ jQuery(document).ready(function($) {
 
     $( 'a > img' ).parent().addClass( 'has-image' ); 
 
-	var $menu = $('#site-navigation ul'),
-	$menulink = $('.menu-link');
-
-	$menulink.click(function() {
-		$menulink.toggleClass('active');
-		$menu.toggleClass('active');
-		return false;
-	});
-
 });
