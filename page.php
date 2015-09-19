@@ -7,10 +7,10 @@
 
 get_header(); ?>
 
-<div class="wrapper<?php echo trustedd_page_wrapper_classes();?>">
+<div class="wrapper">
 
 	<div id="primary" class="content-area">
-
+		<main id="main" class="site-main" role="main">
 		<?php
 			// Start the Loop.
 			while ( have_posts() ) : the_post();
@@ -20,7 +20,11 @@ get_header(); ?>
 
 			endwhile;
 		?>
+		</main>
 	</div>
+
+	<?php get_sidebar(); ?>
+
 </div>
 
 <?php
