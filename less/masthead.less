@@ -10,37 +10,25 @@
 	}
 }
 
-#masthead .wrapper {
+
+.site-header-main {
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	max-width: 1180px;
-	margin: 0 auto;
+	margin: 0 auto 1rem auto;
 }
-
-
-// magic
 
 .site-branding {
-	align-self: center;
-	margin-right: 2rem;
+	// auto value on right margin allows the element next to sit against the edge of the container
+	margin: 0 auto 0 0;
 }
-
-#site-navigation li {
-	 padding: 0;
-	-webkit-align-self: center;
-	align-self: center;
-}
-
-#site-navigation a {
-	// allow the links to inherit padding etc, similar to display: inline-block
-	display: -webkit-flex;
-	display: flex;
-
-	padding: 1rem;
-	color: #222;
-	font-weight: 500;
-}
-
-
-
 
 // turn off border bottom
 #masthead a {
@@ -49,53 +37,9 @@
 
 @media all and ( min-width: 481px ) {
 
-	#masthead .wrapper,
-	#site-navigation ul, {
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-	}
-
-	#masthead .wrapper {
-
-		// allows the child elements to be positioned on either side
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-
-		// allow the direct child elements to wrap if needed. Handy for navigation
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-	}
-
-	#site-navigation ul {
-		-webkit-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
-
-		// allow the nav links to wrap if needed. Handy for navigation
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-	}
-
-
-	#site-navigation {
-		// allows the UL inside to be vertically centered
-		// needed
-		display: -webkit-flex;
-		display: flex;
-	}
 
 }
 
 @media all and ( min-width: 1030px ) {
-  #site-navigation ul {
-    -webkit-flex: none;
-    flex: none;
-  }
 
-  #site-navigation li:last-child a {
-  	padding-right: 0;
-  }
 }

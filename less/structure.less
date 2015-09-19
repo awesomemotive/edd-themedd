@@ -13,10 +13,8 @@
 	flex: 1 0 auto;
 }
 
-
-
-// page widths
-.single-download .wrapper {
+.single-download .wrapper,
+.page .wrapper {
 	max-width: 980px;
 }
 
@@ -30,16 +28,17 @@
 		max-width: 720px;
 	}
 
-	// slightly wider wrapper
 	&.wide {
 		max-width: 980px;
 	}
 
-	&.extra-wide {
+	&.full-width {
 		max-width: 1180px;
 	}
 
 }
+
+
 
 // flexbox sticky footer
 #page {
@@ -53,4 +52,46 @@
 
 .post-thumbnail {
 	margin-bottom: 2rem;
+}
+
+.no-sidebar #content > .wrapper {
+	border-bottom: none;
+}
+
+@media only screen and ( min-width : 992px ) {
+
+	#primary {
+		width: 62%;
+	}
+
+	#content > .wrapper,
+	#content > span > .wrapper {
+		border-bottom: 2px solid @light-grey;
+	}
+
+	.no-sidebar #primary {
+		width: 100%;
+	}
+
+	// a default page with no sidebar
+	.page-template-default.no-sidebar .wrapper {
+		max-width: 720px;
+	}
+
+	#secondary {
+		border-left: 2px solid @light-grey;
+		width: 38%;
+		margin-left: 2rem;
+	}
+
+	#content > .wrapper,
+	#content > span > .wrapper
+	 {
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+	}
+
 }

@@ -1,57 +1,268 @@
-#site-navigation a.menu-link {
-    padding: 1em;
+
+// site header menu
+.site-header-menu {
+	display: none;
+	-webkit-flex: 0 1 100%;
+	-ms-flex: 0 1 100%;
+	flex: 0 1 100%;
+	margin-top: 2rem;
 }
 
-a.menu-link {
-	 margin-left: -1rem;
+.site-header-menu.toggled-on,
+.no-js .site-header-menu {
+	display: block;
 }
 
-#site-navigation ul {
-    margin-left: -1rem;
-    border-top: 1px solid @medium-grey;
+// menu buttonm shown at mobile sizes
+.menu-toggle {
+	background-color: transparent;
+	border: 1px solid @medium-grey;
+	color: #222;
+	margin: 0;
+	padding: 0.5rem 1rem;
 }
 
-.js #site-navigation ul {
-	overflow: hidden;
-	max-height: 0;
+button:hover,
+button:focus {
+	outline: none;
 }
 
-#site-navigation ul.active {
-	max-height: 30em;
+.menu-toggle:hover,
+.menu-toggle:focus {
+	border-color: @medium-grey;
 }
 
-#site-navigation a:hover {
-	color: @link-hover-color
+.menu-toggle.toggled-on,
+.menu-toggle.toggled-on:hover,
+.menu-toggle.toggled-on:focus {
+	background-color: #222;
+	border-color: #222;
+	color: #fff;
 }
 
-#site-navigation ul li a {
-	border-bottom: 1px solid @medium-grey;
+.no-js .menu-toggle {
+	display: none;
 }
 
-#site-navigation .current-menu-item a {
-    color: @accent-color;
+// main navigation
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
 }
 
-#site-navigation ul {
-	list-style-type: none;
+.main-navigation li {
+//	border-top: 1px solid @medium-grey;
+	border-top: 2px solid @light-grey;
+	position: relative;
+	padding: 0;
 }
 
-@media screen and ( min-width: 481px ) {
+.main-navigation a {
+	display: block;
+	line-height: 1.3125;
+	padding: 1rem 0;
+	font-size: 1rem;
+	padding: 0.84375rem 0;
+}
 
-	#site-navigation a.menu-link {
-	   display: none;
+.main-navigation a:hover,
+.main-navigation a:focus {
+	color: @primary-color;
+}
+
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a {
+//	font-weight: 700;
+	color: @primary-color;
+}
+
+.main-navigation ul ul {
+	display: none;
+	margin-left: 0.875em;
+}
+
+.no-js .main-navigation ul ul,
+.main-navigation ul .toggled-on {
+	display: block;
+}
+
+// leave margin for the button
+.main-navigation .menu-item-has-children > a {
+	margin: 0;
+	padding-right: 2.25em;
+}
+
+// dropdown toggles at mobile sizes
+.dropdown-toggle {
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	color: #1a1a1a;
+	content: "";
+	height: 48px;
+	padding: 0;
+	position: absolute;
+	text-transform: none;
+	top: 0;
+	right: 0;
+	width: 48px;
+}
+
+.dropdown-toggle:after {
+	border-left: 1px solid #e8e8e8;
+	content: "\f431";
+	font-size: 24px;
+	position: relative;
+	left: 1px;
+	width: 48px;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+	color: #007acc;
+}
+
+.dropdown-toggle.toggled-on:after {
+	content: "\f432";
+}
+
+
+@media only screen and ( min-width : 992px ) {
+
+	.site-header-menu {
+		display: block;
+		-webkit-flex: 0 1 auto;
+		-ms-flex: 0 1 auto;
+		flex: 0 1 auto;
+		align-self: center;
+		margin-top: 0;
 	}
 
-	.js #site-navigation ul {
-		max-height: none;
+	// sub menu padding
+	.main-navigation .sub-menu a {
+		padding: 0.5rem 1rem;
 	}
 
-	#site-navigation ul {
+	.main-navigation {
+		margin: 0 -0.875rem;
+	}
+
+	.main-navigation li {
+		border: 0;
+		float: left;
+	}
+
+	.main-navigation a {
+		outline-offset: -8px;
+		padding: 1rem;
+		white-space: nowrap;
+	}
+
+	.main-navigation li:hover > a,
+	.main-navigation li.focus > a {
+		color: @link-hover-color;
+	}
+
+	.main-navigation ul ul {
+		border-bottom: 1px solid @medium-grey;
+		display: block;
+		float: left;
+		margin: 0;
+		position: absolute;
+		left: -999em;
+		z-index: 99999;
+	}
+
+	.main-navigation ul ul ul {
+		left: -999em;
+		top: -1px;
+	}
+
+	.main-navigation ul ul ul:before,
+	.main-navigation ul ul ul:after {
 		border: 0;
 	}
 
-	#site-navigation ul li a {
-		border: 0;
+	.main-navigation ul ul li {
+		background-color: #fff;
+		border-color: @medium-grey;
+		border-style: solid;
+		border-width: 1px 1px 0;
 	}
+
+	.main-navigation ul ul li:hover > ul,
+	.main-navigation ul ul li.focus > ul {
+		left: 100%;
+	}
+
+	.main-navigation ul ul a {
+		white-space: normal;
+		width: 15em;
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+
+	.main-navigation ul ul:before,
+	.main-navigation ul ul:after {
+		content: "";
+		border-style: solid;
+		position: absolute;
+	}
+
+	// arrow
+	.main-navigation ul ul:before {
+		top: -9px;
+		left: 14px;
+		border-width: 0 10px 10px;
+		border-color: @medium-grey transparent;
+	}
+
+	// arrow
+	.main-navigation ul ul:after {
+		top: -7px;
+		left: 1rem;
+		border-width: 0 8px 8px;
+		border-color: #fff transparent;
+	}
+
+	.main-navigation li:hover > ul,
+	.main-navigation li.focus > ul {
+		left: auto;
+	}
+
+	.main-navigation .menu-item-has-children > a:after {
+		content: "\f431";
+		position: absolute;
+//		top: 2rem;
+		right: 0.625em;
+		top:50%;
+		margin-top: -9px;
+	}
+
+	.main-navigation ul ul .menu-item-has-children > a {
+		padding-right: 2.0625em;
+	}
+
+	// rotate the down error so it becomes a right arrow
+	.main-navigation ul ul .menu-item-has-children > a:after {
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	//	top: 0.75rem;
+		top:50%;
+		margin-top: -9px;
+		right: 0.5625em;
+	}
+
+	// don't show at desktop sizes
+	.dropdown-toggle,
+	.main-navigation ul .dropdown-toggle.toggled-on,
+	.menu-toggle,
+	.site-footer .main-navigation {
+		display: none;
+	}
+
+
 
 }
