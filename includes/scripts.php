@@ -15,6 +15,11 @@ function trustedd_enqueue_scripts() {
 	wp_register_script( 'trustedd-js', get_template_directory_uri() . '/js/trustedd.min.js', array( 'jquery' ), TRUSTEDD_THEME_VERSION, true );
 	wp_enqueue_script( 'trustedd-js' );
 
+	wp_localize_script( 'trustedd-js', 'screenReaderText', array(
+		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'trustedd' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'trustedd' ) . '</span>',
+	) );
+
 	/**
 	 * Comments
 	 */
@@ -25,6 +30,5 @@ function trustedd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/magnific-popup.js', array( 'jquery' ), TRUSTEDD_THEME_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'trustedd_enqueue_scripts' );
