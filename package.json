@@ -1,5 +1,5 @@
 {
-  "name": "trustedd",
+  "name": "rcp-parent-theme",
   "version": "1.0.0",
   "Dependencies": {
     "grunt-cli": "latest"

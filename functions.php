@@ -112,9 +112,13 @@ function trustedd_setup() {
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
+ 	add_theme_support( 'html5', array(
+ 		'search-form',
+ 		'comment-form',
+ 		'comment-list',
+ 		'gallery',
+ 		'caption',
+ 	) );
 
 	// add subtitles to downloads
 	add_post_type_support( 'download', 'subtitles' );
@@ -125,8 +129,6 @@ function trustedd_setup() {
 endif;
 add_action( 'after_setup_theme', 'trustedd_setup' );
 
-
-
 /**
  * Load our site navigation
  *
@@ -136,7 +138,7 @@ function trustedd_navigation() {
 	?>
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
-        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'twentysixteen' ); ?></button>
+        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'trustedd' ); ?></button>
     <?php endif; ?>
 
     <div id="site-header-menu" class="site-header-menu">
@@ -203,14 +205,80 @@ function trustedd_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+
+
+	return $classes;
+}
+//add_filter( 'body_class', 'trustedd_body_classes' );
+
+/**
+ * Filter sidebars
+ * Allows sidebars to be disabled completely or on a specific post/page/download
+ * Allows sidebars to be swapped out on specific posts/pages/downloads
+ */
+function trustedd_get_sidebar() {
+
+	// disable sidebar
+	if ( ! apply_filters( 'trustedd_show_sidebar', true ) ) {
+		return false;
+	}
+
+	$sidebar = '';
+
+	// switch out sidebar for singular download pages
+	if ( is_singular( 'download' ) ) {
+		$sidebar = 'download';
+	}
+
+	return get_sidebar( apply_filters( 'trustedd_get_sidebar', $sidebar ) );
+}
+
+/**
+ * Controls the CSS classes applied to the main wrapper
+ */
+function trustedd_wrapper_classes() {
+
+	$classes = array();
+
+	if ( apply_filters( 'trustedd_show_sidebar', true ) && is_active_sidebar( 'sidebar-1' ) ) {
+		$classes[] = 'has-sidebar';
+		$classes[] = 'wide';
+	} else {
+		// default classes
+		$classes[] = 'slim';
+		$classes[] = 'no-sidebar';
+	}
+
+	// all 3 page templates have no sidebar and are identical in code and, the only difference is the
+	// CSS classes added to them
 	if (
 		is_page_template( 'page-templates/slim.php' ) ||
 		is_page_template( 'page-templates/wide.php' ) ||
 		is_page_template( 'page-templates/full-width.php' )
 	) {
+		// reset class array
+		$classes = array();
 		$classes[] = 'no-sidebar';
+
 	}
 
-	return $classes;
+	// slim template
+	if ( is_page_template( 'page-templates/slim.php' ) ) {
+		$classes[] = 'slim';
+	}
+
+	// wide template
+	if ( is_page_template( 'page-templates/wide.php' ) ) {
+		$classes[] = 'wide';
+	}
+
+	// full-width template
+	if ( is_page_template( 'page-templates/full-width.php' ) ) {
+		$classes[] = 'full-width';
+	}
+
+	// allow filtering of the wrapper classes
+	$classes = apply_filters( 'trustedd_wrapper_classes', $classes );
+
+	return ' ' . implode( ' ', $classes );
 }
-add_filter( 'body_class', 'trustedd_body_classes' );

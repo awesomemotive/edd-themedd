@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<div class="primary content-area">
+<div id="primary" class="content-area">
 		<?php
 			if ( have_posts() ) :
 				// Start the Loop.

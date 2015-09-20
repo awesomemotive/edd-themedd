@@ -1,0 +1,52 @@
+
+// WordPress related
+figure.wp-caption {
+	max-width: 100%;
+	margin: 0 0 2rem 0;
+}
+
+
+article[class^="post-"] + article[class^="post-"] {
+    padding-top: 3.5em;
+}
+
+
+article[class^="post-"] {
+    padding-bottom: 3.5em;
+}
+
+.entry-title a {
+    border-bottom: none;
+}
+
+// align things right
+.alignright {
+    float: right;
+    margin: 0 0 2rem 2rem;
+}
+
+.entry-footer > span:not(:last-child):after {
+	content: "\002f";
+	display: inline-block;
+	opacity: 0.7;
+	padding: 0 0.538461538em;
+}
+
+.entry-header {
+	margin-bottom: 2rem;
+}
+
+.post-thumbnail {
+	margin-bottom: 2rem;
+}
+
+@media all and ( max-width: 1030px ) {
+
+    // images shouldn't be floated on small screens
+    .entry-content img {
+        display: block;
+        float: none;
+        margin: 0 auto 2rem auto;
+    }
+
+}

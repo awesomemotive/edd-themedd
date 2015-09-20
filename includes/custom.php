@@ -37,13 +37,11 @@ function trustedd_header() {
 
     <header id="masthead" class="site-header" role="banner">
 
-    <?php do_action( 'trustedd_masthead_start' ); ?>
+        <?php do_action( 'trustedd_masthead_start' ); ?>
 
-        <!-- <div class="wrapper"> -->
-            <div class="site-header-main">
-            <?php do_action( 'trustedd_masthead' ); ?>
-            </div>
-        <!-- </div> -->
+        <div class="site-header-main">
+        <?php do_action( 'trustedd_masthead' ); ?>
+        </div>
 
     </header>
 
@@ -61,16 +59,28 @@ function trustedd_site_branding() {
 
 	?>
 
-    	<div class="site-branding">
-    		<h1 class="site-title">
-    			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-    				<?php bloginfo( 'name' ); ?>
-    			</a>
-    		</h1>
-    		<?php if ( get_bloginfo( 'description' ) ) : ?>
-    		<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-    		<?php endif; ?>
-    	</div>
+    <div class="site-branding">
+
+        <?php do_action( 'test' ); ?>
+        <?php if ( is_front_page() && is_home() ) : ?>
+            <h1 class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <?php bloginfo( 'name' ); ?>
+                </a>
+            </h1>
+        <?php else : ?>
+            <p class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <?php bloginfo( 'name' ); ?>
+                </a>
+            </p>
+        <?php endif;
+
+        $description = get_bloginfo( 'description', 'display' );
+        if ( $description || is_customize_preview() ) : ?>
+            <p class="site-description"><?php echo $description; ?></p>
+        <?php endif; ?>
+    </div>
 
 	<?php
 }

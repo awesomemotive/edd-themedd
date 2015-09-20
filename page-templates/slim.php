@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<div class="wrapper slim">
+<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">

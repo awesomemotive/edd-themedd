@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="wrapper">
+<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area">
 
@@ -44,7 +44,7 @@ get_header(); ?>
 		</main>
 	</div>
 
-    <?php get_sidebar(); ?>
+	<?php trustedd_get_sidebar(); ?>
 
 </div>
 

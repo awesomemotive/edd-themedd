@@ -1,9 +1,15 @@
+// Structure
+
 // site wrapper
 #page {
 	max-width: 1280px;
 	min-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+
+	// flexbox sticky footer
+	display: flex;
+	flex-direction:column;
 }
 
 // content area
@@ -13,46 +19,41 @@
 	flex: 1 0 auto;
 }
 
-.single-download .wrapper,
-.page .wrapper {
+
+// all pages when a sidebar is active
+
+#content .wrapper.columns {
+	max-width: 1180px;
+}
+
+#primary-sidebar img {
+	max-width: 300px;
+}
+
+#primary-sidebar aside {
+	padding: 1rem 0;
+	border-bottom: 2px solid @light-grey;
+}
+
+// wrappers are always centered
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrapper.slim {
+	max-width: 720px;
+}
+
+.wrapper.wide {
 	max-width: 980px;
 }
 
-// wrappers
-.wrapper {
-
-	margin-left: auto;
-	margin-right: auto;
-
-	&.slim {
-		max-width: 720px;
-	}
-
-	&.wide {
-		max-width: 980px;
-	}
-
-	&.full-width {
-		max-width: 1180px;
-	}
-
+// this should be default
+.wrapper.full-width {
+	max-width: 1180px;
 }
 
-
-
-// flexbox sticky footer
-#page {
-	display: flex;
-	flex-direction:column;
-}
-
-.entry-header {
-	margin-bottom: 2rem;
-}
-
-.post-thumbnail {
-	margin-bottom: 2rem;
-}
 
 .no-sidebar #content > .wrapper {
 	border-bottom: none;
@@ -62,36 +63,40 @@
 
 	#primary {
 		width: 62%;
+
 	}
 
-	#content > .wrapper,
-	#content > span > .wrapper {
-		border-bottom: 2px solid @light-grey;
+	.has-sidebar #primary {
+		max-width: 588px;
 	}
 
 	.no-sidebar #primary {
 		width: 100%;
 	}
 
-	// a default page with no sidebar
-	.page-template-default.no-sidebar .wrapper {
-		max-width: 720px;
+	.wrapper.has-sidebar {
+		border-bottom: 2px solid @light-grey;
 	}
 
 	#secondary {
 		border-left: 2px solid @light-grey;
 		width: 38%;
+		max-width: 364px; // might not need this
 		margin-left: 2rem;
 	}
 
-	#content > .wrapper,
-	#content > span > .wrapper
-	 {
+	#primary-sidebar aside {
+		padding: 2rem;
+	}
+
+	#content .wrapper.has-sidebar:first-of-type {
 		display: -webkit-flex;
 		display: flex;
 
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
+
 	}
+
 
 }

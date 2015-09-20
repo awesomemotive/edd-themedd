@@ -17,7 +17,7 @@ while ( have_posts() ) : the_post(); ?>
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 </header>
 
-<div class="wrapper">
+<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area">
 
@@ -57,7 +57,9 @@ while ( have_posts() ) : the_post(); ?>
 		</main>
 	</div>
 
-    <?php get_sidebar( 'download' ); ?>
+    <?php
+        trustedd_get_sidebar();
+    ?>
 
 </div>
 

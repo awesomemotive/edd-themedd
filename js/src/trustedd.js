@@ -8,6 +8,6 @@ jQuery(document).ready(function($) {
 
 	$('body').addClass('js');
 
-    $( 'a > img' ).parent().addClass( 'has-image' ); 
+    $( 'a > img' ).parent().addClass( 'has-image' );
 
 });
