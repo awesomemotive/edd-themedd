@@ -240,7 +240,7 @@ function trustedd_wrapper_classes() {
 
 	$classes = array();
 
-	if ( apply_filters( 'trustedd_show_sidebar', true ) && is_active_sidebar( 'sidebar-1' ) ) {
+	if ( apply_filters( 'trustedd_show_sidebar', true ) && ( is_active_sidebar( 'sidebar-1' ) || is_singular( 'download' ) ) ) {
 		$classes[] = 'has-sidebar';
 		$classes[] = 'wide';
 	} else {
