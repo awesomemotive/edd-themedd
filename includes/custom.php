@@ -61,7 +61,8 @@ function trustedd_site_branding() {
 
     <div class="site-branding">
 
-        <?php do_action( 'test' ); ?>
+        <?php do_action( 'trustedd_site_branding_start' ); ?>
+
         <?php if ( is_front_page() && is_home() ) : ?>
             <h1 class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
