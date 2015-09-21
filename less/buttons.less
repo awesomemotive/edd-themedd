@@ -45,18 +45,6 @@ input[type=submit]:hover {
         padding: 1rem 1.5rem;
     }
 
-    // large
-    &.large {
-        font-size: 1.5rem;
-        padding: 1.5rem 2.25rem;
-    }
-
-    // huge
-    &.huge {
-        font-size: 2rem;
-        padding: 1.5rem 2.5rem;
-    }
-
     &:hover,
     &:focus {
         text-decoration: none;
@@ -65,4 +53,18 @@ input[type=submit]:hover {
         border: none;
     }
 
+}
+
+@media only screen and ( min-width: 720px ) {
+
+    // large
+    button.large {
+        font-size: 1.5rem;
+        padding: 1.5rem 2.25rem;
+    }
+
+    .button.huge {
+        font-size: 2rem;
+        padding: 1.5rem 2.5rem;
+    }
 }

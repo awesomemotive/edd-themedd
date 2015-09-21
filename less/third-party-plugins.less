@@ -1,7 +1,13 @@
 // https://wordpress.org/plugins/subtitles/
 .entry-subtitle {
 	display: block;
-	font-size: 1.8rem;
+
 	color: @body-text-color;
 	font-weight: 300;
+}
+
+@media only screen and ( min-width: 720px ) {
+	.entry-subtitle {
+		font-size: 1.8rem;
+	}
 }
