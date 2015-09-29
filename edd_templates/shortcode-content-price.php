@@ -3,7 +3,7 @@
 ?>
 	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 		<div itemprop="price" class="edd_price">
-			Free
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">Free</a>
 		</div>
 	</div>
 
@@ -13,7 +13,7 @@
 
 	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 		<div itemprop="price" class="edd_price">
-			From <?php edd_price( get_the_ID() ); ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">From <?php edd_price( get_the_ID() ); ?></a>
 		</div>
 	</div>
 
@@ -22,7 +22,7 @@
 ?>
 	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 		<div itemprop="price" class="edd_price">
-			<?php edd_price( get_the_ID() ); ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php edd_price( get_the_ID() ); ?></a>
 		</div>
 	</div>
 <?php endif; ?>
