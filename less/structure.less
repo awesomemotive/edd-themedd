@@ -62,12 +62,22 @@
 @media only screen and ( min-width : 992px ) {
 
 	#primary {
-		width: 62%;
+	//	width: 62%;
+	//	width: 100%;
+		width: 69%;
+	//	flex: 1 auto;
+	}
 
+	.single-download .has-sidebar #primary {
+			width: 62%;
 	}
 
 	.has-sidebar #primary {
-		max-width: 588px;
+	//	max-width: 588px;
+	}
+
+	.has-sidebar #main {
+	//	max-width: 720px;
 	}
 
 	.no-sidebar #primary {
@@ -75,22 +85,51 @@
 	}
 
 	.wrapper.has-sidebar {
+
+		.error-404,
+		#respond,
+		article[class^="post-"] {
+			max-width: 720px;
+			padding-right: 2rem;
+		}
+
+	}
+
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+		// fix for IE10
+		#primary {
+			width: 62%;
+		}
+	}
+
+
+	.wrapper.has-sidebar {
 		border-bottom: 2px solid @light-grey;
 	}
 
 	#secondary {
 		border-left: 2px solid @light-grey;
-		width: 38%;
-		max-width: 364px; // might not need this
-		margin-left: 2rem;
-	}
+		width: 31%;
 
+		// ensures the sidebar stays at the same width
+		-webkit-flex: 1 0 366px;
+	//	-ms-flex: 1 0 366px;
+		flex: 1 0 366px;
+//		 flex: 0 0 auto;
+	//	max-width: 364px; // might not need this
+	//	margin-left: 2rem;
+	}
+	#primary-sidebar {
+
+	}
 	#primary-sidebar aside {
 		padding: 2rem;
 	}
 
 	#content .wrapper.has-sidebar:first-of-type {
 		display: -webkit-flex;
+		display: -ms-flex;
 		display: flex;
 
 		-webkit-justify-content: space-between;

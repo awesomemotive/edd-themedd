@@ -1,0 +1,196 @@
+.edd_downloads_list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 5rem;
+}
+
+// download grid styles
+
+.edd_download_inner {
+	// so we can position the child elements like the button to the bottom of the div
+	display: flex;
+	width: 100%;
+	padding-bottom: 3rem;
+	flex-direction: column;
+	background: #fff;
+	.transition( all 0.1s ease-in);
+	position: relative;
+}
+
+// the main download box
+.edd_download {
+	background: @light-grey;
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+
+	p {
+		font-size: 1rem;
+	}
+}
+
+// style currency symbol for normal and variable prices
+.currency {
+	vertical-align: top;
+}
+
+.edd_download {
+
+	.edd_price,
+	.edd_price_options {
+		font-size: 1.2rem;
+
+		.currency {
+			font-size: 1rem;
+		}
+
+	}
+
+	.edd_price > .currency {
+		margin-right: 1px;
+	}
+
+}
+
+// download title
+.edd_download_title a {
+	color: lighten( @heading-color, 20% );
+	font-weight: 400;
+	display: block;
+
+	&:hover {
+		color: @primary-color;
+	}
+}
+
+// download image
+.edd_download_image {
+	margin: -1rem -1rem 2rem -1rem;
+
+	img {
+		display: block;
+	}
+}
+
+// remove borders
+.edd_download_title a,
+.edd_download_image a {
+	border: none;
+}
+
+// price options
+.edd_price_options {
+
+	ul {
+		list-style-type: none;
+		margin: 0 0 1rem 0;
+	}
+
+	li {
+		padding: 0.5rem 0;
+	}
+
+	li label {
+		padding: 0;
+		display: block;
+		cursor: pointer;
+
+		input {
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+
+// always align buy now button to bottom
+.edd_download_buy_button {
+	margin: auto 0 0 0;
+}
+
+// price (wrapped in microdata)
+div[itemprop="offers"] {
+    margin-bottom: 2rem;
+}
+
+// align price to bottom when there is no buy now button
+.has-price.no-buy-button div[itemprop="offers"] {
+	margin: auto 0 0 0;
+}
+
+// make EDD buy buttons slightly smaller than a typical button
+.edd_download_buy_button .button {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.edd_downloads_list .edd_price_options li {
+    font-size: 1rem;
+    padding: 0;
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 768px ) {
+
+	.edd_download_inner {
+		padding: 2.5rem;
+	}
+
+	.edd_download_columns_1 {
+		max-width: 50%;
+		margin: 0 auto;
+	}
+
+	// the default
+	.edd_download_columns_3 .edd_download {
+		width: 33.333333333%;
+	}
+
+	.edd_download_columns_2 .edd_download {
+		width: 50%;
+	}
+
+	.edd_download_columns_4 .edd_download {
+		width: 50%;
+
+	}
+
+	.edd_downloads_list {
+		border: 2px solid @light-grey;
+		border-right: none;
+		border-bottom: none;
+
+		.edd_download_inner {
+			border-right: 2px solid @light-grey;
+			border-bottom: 2px solid @light-grey;
+		}
+
+	}
+
+}
+
+// Medium Devices, Desktops
+@media only screen and ( min-width : 992px ) {
+	.edd_download_columns_4 .edd_download {
+		width: 25%;
+	}
+
+    .single-download .entry-header {
+    	text-align: center;
+    	padding: 3rem 2rem 3rem 2rem;
+    	margin: 0 -2rem 4rem -2rem;
+
+    	.entry-title {
+    		margin-bottom: 0;
+    	}
+
+    }
+
+	// the default
+	.edd_download_columns_3 .edd_download {
+		width: 33.333333333%;
+	}
+
+	.edd_download_columns_2 .edd_download {
+		width: 50%;
+	}
+}

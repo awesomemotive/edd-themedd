@@ -1,0 +1,36 @@
+.download-meta span {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+
+.download-meta img {
+	vertical-align: middle;
+	margin-right: 0.5rem;
+}
+
+.download-meta svg {
+	vertical-align: middle;
+	margin-right: 0.5rem;
+}
+
+// links that appear in the download meta
+.download-meta-link {
+	border-bottom: none;
+	font-size: 1rem;
+	display: inline-block;
+	color: @body-text-color;
+
+	span {
+		border-bottom: 1px solid #B0B0B0;
+		padding-bottom: 2px;
+	}
+
+	&:hover {
+		border-bottom: none;
+
+		span {
+			border-color: @link-hover-color;
+		}
+	}
+}

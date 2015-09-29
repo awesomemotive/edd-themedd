@@ -35,10 +35,6 @@ input[type=submit]:hover {
     line-height: 1;
     padding: 1.25rem 2.25rem;
 
-    &.wide {
-        display: block;
-    }
-
     // small
     &.small {
         font-size: 1rem;
@@ -66,5 +62,12 @@ input[type=submit]:hover {
     .button.huge {
         font-size: 2rem;
         padding: 1.5rem 2.5rem;
+    }
+}
+
+@media only screen and ( min-width: 992px ) {
+
+    .button.wide {
+        display: block;
     }
 }
