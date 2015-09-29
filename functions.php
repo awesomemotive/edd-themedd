@@ -240,9 +240,19 @@ function trustedd_wrapper_classes() {
 
 	$classes = array();
 
-	if ( apply_filters( 'trustedd_show_sidebar', true ) && ( is_active_sidebar( 'sidebar-1' ) || is_singular( 'download' ) ) ) {
-		$classes[] = 'has-sidebar';
-		$classes[] = 'wide';
+	if ( apply_filters( 'trustedd_show_sidebar', true ) ) {
+
+		if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
+			$classes[] = 'has-sidebar';
+			$classes[] = 'full-width';
+		} elseif ( is_singular( 'download' ) ) {
+			$classes[] = 'has-sidebar';
+			$classes[] = 'wide';
+		} else {
+			// default classes
+			$classes[] = 'slim';
+			$classes[] = 'no-sidebar';
+		}
 	} else {
 		// default classes
 		$classes[] = 'slim';
