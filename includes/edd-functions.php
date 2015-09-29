@@ -46,7 +46,10 @@ function trustedd_is_edd_sl_active() {
  */
 function trustedd_purchase_link_defaults( $defaults ) {
 	// add a class of "small" to the add to cart button
-	$defaults['class'] .= ' wide';
+	if ( is_singular( 'download' ) ) {
+		$defaults['class'] .= ' wide';
+	}
+
 
 	$defaults['price'] = (bool) false;
 
@@ -56,6 +59,41 @@ add_filter( 'edd_purchase_link_defaults', 'trustedd_purchase_link_defaults' );
 
 // get EDD currency
 $currency = function_exists( 'edd_get_currency' ) ? edd_get_currency() : '';
+
+
+
+
+
+
+function trustedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
+	$classes = array( $wrapper_class );
+
+	if ( $atts['price'] == 'yes' ) {
+		$classes[] = 'has-price';
+	} else {
+		$classes[] = 'no-price';
+	}
+
+	if ( $atts['excerpt'] == 'yes' ) {
+		$classes[] = 'has-excerpt';
+	}
+
+	if ( $atts['buy_button'] == 'yes' ) {
+		$classes[] = 'has-buy-button';
+	} else {
+		$classes[] = 'no-buy-button';
+	}
+
+	if ( $atts['thumbnails'] ) {
+		$classes[] = 'has-thumbnails';
+	} else {
+		$classes[] = 'no-thumbnails';
+	}
+
+	return implode( ' ', $classes );
+}
+add_filter( 'edd_downloads_list_wrapper_class', 'trustedd_edd_downloads_list_wrapper_class', 10, 2 );
+
 
 /**
  * Wrap currency symbol in span
