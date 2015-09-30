@@ -10,4 +10,12 @@ jQuery(document).ready(function($) {
 
     $( 'a > img' ).parent().addClass( 'has-image' );
 
+    $( document.body ).on( 'click', 'div.gallery, div.tiled-gallery', function(e) {
+         $('body').addClass( 'carousel-open');
+    });
+
+    $( document.body ).bind('jp_carousel.afterClose', function(e) {
+        $('body').removeClass('carousel-open');
+    });
+
 });
