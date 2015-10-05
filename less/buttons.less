@@ -1,4 +1,5 @@
 .button,
+button,
 input[type=submit],
 #submit {
     background: @accent-color;
@@ -21,6 +22,8 @@ input[type=submit],
     .transition ( all 0.2s linear );
 }
 
+#submit:hover,
+button:hover,
 .button:hover,
 .button:focus,
 input[type=submit]:hover {
@@ -30,6 +33,9 @@ input[type=submit]:hover {
     border: none;
 }
 
+#submit,
+input[type=submit],
+button,
 .button {
 
     // normal size
@@ -56,7 +62,7 @@ input[type=submit]:hover {
 @media only screen and ( min-width: 720px ) {
 
     // large
-    button.large {
+    .button.large {
         font-size: 1.5rem;
         padding: 1.5rem 2.25rem;
     }

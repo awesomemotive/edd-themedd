@@ -13,13 +13,20 @@
 	display: block;
 }
 
-// menu buttonm shown at mobile sizes
+// menu button shown at mobile sizes
 .menu-toggle {
 	background-color: transparent;
 	border: 1px solid @medium-grey;
 	color: #222;
 	margin: 0;
 	padding: 0.5rem 1rem;
+	font-size: 1rem;
+
+	&:hover {
+		background: transparent;
+		color: #222;
+		border: 1px solid @medium-grey;
+	}
 }
 
 button:hover,
@@ -233,7 +240,6 @@ button:focus {
 	.main-navigation .menu-item-has-children > a:after {
 		content: "\f431";
 		position: absolute;
-//		top: 2rem;
 		right: 0.625em;
 		top:50%;
 		margin-top: -9px;
@@ -249,8 +255,7 @@ button:focus {
 		-moz-transform: rotate(-90deg);
 		-ms-transform: rotate(-90deg);
 		transform: rotate(-90deg);
-	//	top: 0.75rem;
-		top:50%;
+		top: 50%;
 		margin-top: -9px;
 		right: 0.5625em;
 	}

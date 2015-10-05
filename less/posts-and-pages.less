@@ -10,11 +10,6 @@ article[class^="post-"] + article[class^="post-"] {
     padding-top: 3.5em;
 }
 
-
-article[class^="post-"] {
-    padding-bottom: 3.5em;
-}
-
 .entry-title a {
     border-bottom: none;
 }
@@ -76,6 +71,25 @@ article[class^="post-"] {
         display: block;
         float: none;
         margin: 0 auto 2rem auto;
+    }
+
+}
+
+// Medium Devices, Desktops
+@media only screen and ( min-width : 992px ) {
+
+	.no-sidebar .entry-header {
+		text-align: center;
+	}
+    .entry-header {
+
+    	padding: 3rem 2rem 3rem 2rem;
+    	margin: 0 -2rem 4rem -2rem;
+
+    	.entry-title {
+    		margin-bottom: 0;
+    	}
+
     }
 
 }

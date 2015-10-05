@@ -67,7 +67,64 @@ a.edd-add-to-cart .edd-loading {
 	display: inline-block;
 }
 
+.external svg {
+	margin-left: 0.5rem;
+}
 
+// add to cart spinner
+
+.edd-icon-spin {
+    display: inline-block;
+    -moz-animation: edd-icon-spin 2s infinite linear;
+    -o-animation: edd-icon-spin 2s infinite linear;
+    -webkit-animation: edd-icon-spin 2s infinite linear;
+    animation: edd-icon-spin 2s infinite linear;
+}
+
+@-moz-keyframes edd-icon-spin {
+    0% {
+        -moz-transform: rotate(0deg)
+    }
+    100% {
+        -moz-transform: rotate(359deg)
+    }
+}
+
+@-webkit-keyframes edd-icon-spin {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(359deg)
+    }
+}
+
+@-o-keyframes edd-icon-spin {
+    0% {
+        -o-transform: rotate(0deg)
+    }
+    100% {
+        -o-transform: rotate(359deg)
+    }
+}
+
+@-ms-keyframes edd-icon-spin {
+    0% {
+        -ms-transform: rotate(0deg)
+    }
+    100% {
+        -ms-transform: rotate(359deg)
+    }
+}
+
+@keyframes edd-icon-spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(359deg)
+    }
+}
 
 @media only screen and ( min-width: 992px ) {
 
