@@ -150,6 +150,7 @@ function trustedd_edd_price() {
 
 }
 
+if ( ! function_exists( 'trustedd_edd_purchase_link' ) ) :
 /**
  * Download purchase link
  *
@@ -157,26 +158,17 @@ function trustedd_edd_price() {
  */
 function trustedd_edd_purchase_link() {
 
-//	$external_download_url = trustedd_get_download_meta( '_edd_download_meta_url' );
-	$external_download_url = '';
+	$external_download_url  = function_exists( 'edd_download_meta_get_download_meta' ) ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
+	$external_download_text = apply_filters( 'trustedd_external_download_text', __( 'Visit site', 'trustedd' ) );
 
-//	var_dump( $external_download_url );
+	if ( $external_download_url ) { ?>
 
-	$text = edd_is_free_download( get_the_ID() ) ? __( 'Download Now', 'trustedd' ) : __( 'Purchase', 'trustedd' );
-
-	if ( $external_download_url ) {
-		?>
 		<div class="edd_download_purchase_form">
 			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external" target="_blank">
-				<span><?php echo $text; ?></span>
-
-				<?php /*
+				<span><?php echo $external_download_text; ?></span>
 				<svg class="external" width="16px" height="16px">
 					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>
 				</svg>
-				*/ ?>
-
-				<img src="<?php echo get_template_directory_uri() . '/images/external.svg'; ?>" width="16" height="16">
 			</a>
 		</div>
 
@@ -186,6 +178,7 @@ function trustedd_edd_purchase_link() {
 	}
 
 }
+endif;
 
 /**
  * The combined price and purchase button shown on the single download page
