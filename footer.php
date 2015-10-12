@@ -14,7 +14,7 @@
 
 		<?php do_action( 'trustedd_footer_start' ); ?>
 
-		<?php if ( has_nav_menu( 'primary' ) ) : ?>
+		<?php if ( has_nav_menu( 'primary' ) && apply_filters( 'trusted_footer_primary_menu', true ) ) : ?>
 			<nav class="main-navigation" role="navigation">
 				<?php
 					wp_nav_menu( array(
@@ -25,10 +25,10 @@
 			</nav>
 		<?php endif; ?>
 
+		<?php do_action( 'trustedd_footer_before_site_info' ); ?>
+
 		<div class="site-info">
-			<?php
-				do_action( 'trusted_footer' );
-			?>
+			<?php do_action( 'trusted_credits' ); ?>
 
 			<?php printf( __( 'Copyright &copy; %s, %s', 'trustedd' ), date('Y'), get_bloginfo( 'name' ) ); ?>
 		</div>
