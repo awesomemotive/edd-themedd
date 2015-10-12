@@ -8,24 +8,20 @@ if ( class_exists( 'Subtitles' ) && method_exists( 'Subtitles', 'subtitle_stylin
 }
 
 /**
- * Remove subtitles from download grid
+ * Remove subtitles from the download grid
  *
  * @since 1.0.0
  */
-function trustedd_remove_subtitles() {
-
+function trustedd_remove_subtitles( $title ) {
     global $post;
 
-    if ( ! class_exists( 'Subtitles' ) ) {
-        return;
+    if ( isset( $post->post_content ) && in_the_loop() && ! has_shortcode( $post->post_content, 'downloads' ) ) {
+         add_filter( 'subtitle_view_supported', '__return_false' );
     }
 
-    if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'downloads' ) ) {
-        remove_filter( 'the_title', array( Subtitles::getInstance(), 'the_subtitle' ), 10, 2 );
-    }
-
+	return $title;
 }
-add_action( 'template_redirect', 'trustedd_remove_subtitles' );
+add_filter( 'the_title', 'trustedd_remove_subtitles' );
 
 /**
  * Load the header
