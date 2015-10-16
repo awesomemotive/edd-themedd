@@ -27,7 +27,7 @@
 
 		<?php do_action( 'trustedd_footer_before_site_info' ); ?>
 
-		<div class="site-info">
+		<div class="wrapper full-width site-info">
 			<?php do_action( 'trusted_credits' ); ?>
 
 			<?php printf( __( 'Copyright &copy; %s, %s', 'trustedd' ), date('Y'), get_bloginfo( 'name' ) ); ?>

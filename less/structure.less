@@ -62,22 +62,11 @@
 @media only screen and ( min-width : 992px ) {
 
 	#primary {
-	//	width: 62%;
-	//	width: 100%;
 		width: 69%;
-	//	flex: 1 auto;
 	}
 
 	.single-download .has-sidebar #primary {
 			width: 62%;
-	}
-
-	.has-sidebar #primary {
-	//	max-width: 588px;
-	}
-
-	.has-sidebar #main {
-	//	max-width: 720px;
 	}
 
 	.no-sidebar #primary {
@@ -87,6 +76,7 @@
 	.wrapper.has-sidebar {
 
 		.error-404,
+		.no-results,
 		#respond,
 		article[class^="post-"] {
 			max-width: 720px;
@@ -103,7 +93,6 @@
 		}
 	}
 
-
 	.wrapper.has-sidebar {
 		border-bottom: 2px solid @light-grey;
 	}
@@ -114,15 +103,9 @@
 
 		// ensures the sidebar stays at the same width
 		-webkit-flex: 1 0 366px;
-	//	-ms-flex: 1 0 366px;
 		flex: 1 0 366px;
-//		 flex: 0 0 auto;
-	//	max-width: 364px; // might not need this
-	//	margin-left: 2rem;
 	}
-	#primary-sidebar {
 
-	}
 	#primary-sidebar aside {
 		padding: 2rem;
 	}
