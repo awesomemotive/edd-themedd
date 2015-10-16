@@ -38,10 +38,6 @@ if ( trustedd_is_edd_active() ) {
 	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'edd-functions.php' );
 }
 
-// temp
-require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'pricing.php' );
-
-
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
