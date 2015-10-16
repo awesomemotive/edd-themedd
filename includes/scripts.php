@@ -7,7 +7,7 @@
 function trustedd_enqueue_scripts() {
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'trustedd-css', get_stylesheet_uri(), array(), TRUSTEDD_THEME_VERSION );
+	wp_enqueue_style( 'trustedd', get_stylesheet_uri(), array(), TRUSTEDD_THEME_VERSION );
 
 	/**
 	 * Trustedd JS
