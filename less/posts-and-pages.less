@@ -64,7 +64,7 @@ article[class^="post-"] + article[class^="post-"] {
 }
 
 
-@media all and ( max-width: 1030px ) {
+@media all and ( max-width: @screen-sm-max ) {
 
     // images shouldn't be floated on small screens
     .entry-content img {
@@ -76,20 +76,20 @@ article[class^="post-"] + article[class^="post-"] {
 }
 
 // Medium Devices, Desktops
-@media only screen and ( min-width : 992px ) {
+@media only screen and ( min-width: @screen-md-min ) {
 
 	.no-sidebar .entry-header {
 		text-align: center;
+		padding: 3rem 2rem 3rem 2rem;
 	}
 
 	.has-sidebar .entry-header {
-		margin-bottom: 0;
+		margin-bottom: 3rem;
 	}
 
     .entry-header {
 
-    	padding: 3rem 2rem 3rem 2rem;
-    	margin: 0 -2rem 4rem -2rem;
+    	margin: 0 0 4rem 0;
 
     	.entry-title {
     		margin-bottom: 0;

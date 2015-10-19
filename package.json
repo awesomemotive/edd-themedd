@@ -1,6 +1,7 @@
 {
   "name": "rcp-parent-theme",
   "version": "1.0.0",
+  "theme_uri": "http://restrictcontentpro.com",
   "Dependencies": {
     "grunt-cli": "latest"
   },

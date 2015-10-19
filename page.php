@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
+<div class="section wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -22,7 +22,7 @@ get_header(); ?>
 				if ( comments_open() || get_comments_number() ) {
 					comments_template();
 				}
-				
+
 			endwhile;
 		?>
 		</main>

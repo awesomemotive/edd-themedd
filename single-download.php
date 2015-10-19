@@ -13,11 +13,11 @@ get_header(); ?>
 // Start the loop.
 while ( have_posts() ) : the_post(); ?>
 
-<header class="entry-header">
+<header class="section entry-header">
     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 </header>
 
-<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
+<div class="section wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area">
 

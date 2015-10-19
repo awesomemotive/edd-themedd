@@ -20,5 +20,12 @@
 @light-grey: #f5f5f5;
 @medium-grey: #ddd;
 
-// breakpoint
-@breakpoint: 820px;
+// breakpoints
+@screen-sm-min: 768px; // 48em
+@screen-md-min: 992px; // 62em
+@screen-lg-min: 1200px; // 75em
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);

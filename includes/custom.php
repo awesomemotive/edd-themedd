@@ -23,6 +23,20 @@ function trustedd_remove_subtitles( $title ) {
 }
 add_filter( 'the_title', 'trustedd_remove_subtitles' );
 
+
+/**
+ * Filter subtitle markup
+ *
+ * @since 1.0.0
+ */
+function trustedd_subtitle_markup( $markup ) {
+
+    $markup['before'] = '<span class="subtitle">';
+
+    return $markup;
+}
+add_filter( 'subtitle_markup', 'trustedd_subtitle_markup' );
+
 /**
  * Load the header
  *

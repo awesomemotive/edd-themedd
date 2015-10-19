@@ -17,6 +17,15 @@
 	}
 }
 
+// subtitles
+
+.subtitle {
+	display: block;
+	color: @body-text-color;
+	font-weight: 200;
+	line-height: 1.4;
+}
+
 // figcaption
 figcaption {
 	color: @body-text-color;
@@ -79,7 +88,7 @@ p, ul, ol, dl {
 	font-size: 1.2rem;
 }
 
-@media only screen and ( min-width: 720px ) {
+@media only screen and ( min-width: @screen-sm-min ) {
 
 	h1 {
 		font-size: 3.25rem;
@@ -99,6 +108,10 @@ p, ul, ol, dl {
 
 	.site-description {
 		display: block;
+	}
+
+	.subtitle {
+		font-size: 1.8rem;
 	}
 
 }
