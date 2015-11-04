@@ -15,17 +15,17 @@
 
 // menu button shown at mobile sizes
 .menu-toggle {
-	background-color: transparent;
-	border: 1px solid @medium-grey;
-	color: #222;
+	background-color: @menu-toggle-bg;
+	border: @menu-toggle-border;
+	color: @menu-toggle-color;
 	margin: 0;
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
 
 	&:hover {
 		background: transparent;
-		color: #222;
-		border: 1px solid @medium-grey;
+		color: @menu-toggle-hover-color;
+		border: @menu-toggle-hover-border;
 	}
 }
 
@@ -42,9 +42,9 @@ button:focus {
 .menu-toggle.toggled-on,
 .menu-toggle.toggled-on:hover,
 .menu-toggle.toggled-on:focus {
-	background-color: #222;
-	border-color: #222;
-	color: #fff;
+	background-color: @menu-toggle-on-background-color;
+	border-color: @menu-toggle-on-border-color;
+	color: @menu-toggle-on-color;
 }
 
 .no-js .menu-toggle {
@@ -58,10 +58,13 @@ button:focus {
 }
 
 .main-navigation li {
-//	border-top: 1px solid @medium-grey;
-	border-top: 2px solid @light-grey;
+	border-top: @menu-toggle-border-top;
 	position: relative;
 	padding: 0;
+}
+
+.site-footer .main-navigation li {
+	border-top: @menu-toggle-footer-border-top;
 }
 
 .main-navigation a {
@@ -70,16 +73,17 @@ button:focus {
 	padding: 1rem 0;
 	font-size: 1rem;
 	padding: 0.84375rem 0;
+	color: @nav-color;
 }
 
 .main-navigation a:hover,
 .main-navigation a:focus {
-	color: @primary-color;
+	color: @nav-hover-color;
 }
 
 .main-navigation .current-menu-item > a,
 .main-navigation .current_page_ancestor > a {
-	color: @primary-color;
+	color: @nav-active-color;
 }
 
 .main-navigation ul ul {
@@ -90,6 +94,21 @@ button:focus {
 .no-js .main-navigation ul ul,
 .main-navigation ul .toggled-on {
 	display: block;
+}
+
+// site footer navigation
+.site-footer .main-navigation a {
+	color: @nav-footer-color;
+}
+
+.site-footer .main-navigation a:hover,
+.site-footer .main-navigation a:focus {
+	color: @nav-footer-hover-color;
+}
+
+.site-footer .main-navigation .current-menu-item > a,
+.site-footer .main-navigation .current_page_ancestor > a {
+	color: @nav-footer-active-color;
 }
 
 // leave margin for the button
@@ -170,7 +189,7 @@ button:focus {
 
 	.main-navigation li:hover > a,
 	.main-navigation li.focus > a {
-		color: @link-hover-color;
+		color: @nav-hover-color;
 	}
 
 	.main-navigation ul ul {

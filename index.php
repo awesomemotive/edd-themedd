@@ -7,7 +7,7 @@ get_header(); ?>
 
 <div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area<?php echo trustedd_primary_classes(); ?>">
 
 		<main id="main" class="site-main" role="main">
 
@@ -21,13 +21,13 @@ get_header(); ?>
 						 * use this in a child theme, then include a file called called content-___.php
 						 * (where ___ is the post format) and that will be used instead.
 						 */
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'template-parts/content', get_post_format() );
 
 					endwhile;
 
 				else :
 					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
+					get_template_part( 'template-parts/content', 'none' );
 
 				endif;
 			?>

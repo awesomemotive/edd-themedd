@@ -6,29 +6,36 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
-		<?php
-			if ( have_posts() ) :
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
+<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
 
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
+	<div id="primary" class="content-area<?php echo trustedd_primary_classes(); ?>">
+		<main id="main" class="site-main" role="main">
+			<?php
+				if ( have_posts() ) :
+					// Start the Loop.
+					while ( have_posts() ) : the_post();
 
-				endwhile;
+						/*
+						 * Include the post format-specific template for the content. If you want to
+						 * use this in a child theme, then include a file called called content-___.php
+						 * (where ___ is the post format) and that will be used instead.
+						 */
+						get_template_part( 'template-parts/content', get_post_format() );
 
-			else :
-				// If no content, include the "No posts found" template.
-				get_template_part( 'content', 'none' );
+					endwhile;
 
-			endif;
-		?>
+				else :
+					// If no content, include the "No posts found" template.
+					get_template_part( 'template-parts/content', 'none' );
 
-</div><!-- #primary -->
+				endif;
+			?>
+		</main>
+	</div>
+
+	<?php trustedd_get_sidebar(); ?>
+
+</div>
 
 <?php
 get_footer();

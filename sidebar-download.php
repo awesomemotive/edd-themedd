@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 ?>
-<div id="secondary">
+<div id="secondary" class="<?php echo trustedd_secondary_classes(); ?>">
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
 		<?php do_action( 'trustedd_sidebar_download' ); ?>

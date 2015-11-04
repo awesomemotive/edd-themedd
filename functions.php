@@ -11,7 +11,7 @@
  * @since 1.0.0
 */
 if ( ! defined( 'TRUSTEDD_THEME_VERSION' ) ) {
-	define( 'TRUSTEDD_THEME_VERSION', '1.0.8' );
+	define( 'TRUSTEDD_THEME_VERSION', '1.0.9' );
 }
 
 if ( ! defined( 'TRUSTEDD_INCLUDES_DIR' ) ) {
@@ -188,25 +188,6 @@ function trustedd_widgets_init() {
 }
 add_action( 'widgets_init', 'trustedd_widgets_init' );
 
-
-/**
- * Adds custom classes to the array of body classes.
- *
- * @since 1.0.0
- */
-function trustedd_body_classes( $classes ) {
-
-	// Adds a class of no-sidebar to sites without active sidebar.
-	if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
-		$classes[] = 'no-sidebar';
-	}
-
-
-
-	return $classes;
-}
-//add_filter( 'body_class', 'trustedd_body_classes' );
-
 /**
  * Filter sidebars
  * Allows sidebars to be disabled completely or on a specific post/page/download
@@ -229,6 +210,50 @@ function trustedd_get_sidebar() {
 	return get_sidebar( apply_filters( 'trustedd_get_sidebar', $sidebar ) );
 }
 
+function trustedd_primary_classes() {
+	$classes = array();
+
+	if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
+		$classes[] = 'col-xs-12';
+	} else {
+
+		if (
+			is_page_template( 'page-templates/slim.php' ) ||
+			is_page_template( 'page-templates/wide.php' ) ||
+			is_page_template( 'page-templates/full-width.php' )
+		) {
+			$classes[] = 'col-xs-12';
+
+		} else {
+			$classes[] = 'col-xs-12 col-md-8';
+		}
+
+
+	}
+
+	return ' ' . implode( ' ', $classes );
+}
+
+function trustedd_secondary_classes() {
+	$classes = array();
+
+	$classes[] = 'col-xs-12 col-md-4';
+
+
+	return implode( ' ', $classes );
+}
+
+
+function trustedd_page_header_classes() {
+	$classes = array();
+
+	$classes[] = 'col-xs-12 pv-xs-2 pv-lg-3';
+
+
+	return ' ' . implode( ' ', $classes );
+}
+
+
 /**
  * Controls the CSS classes applied to the main wrapper
  */
@@ -240,18 +265,14 @@ function trustedd_wrapper_classes() {
 
 		if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
 			$classes[] = 'has-sidebar';
-			$classes[] = 'full-width';
 		} elseif ( is_singular( 'download' ) ) {
 			$classes[] = 'has-sidebar';
-			$classes[] = 'wide';
 		} else {
 			// default classes
-			$classes[] = 'slim';
 			$classes[] = 'no-sidebar';
 		}
 	} else {
 		// default classes
-		$classes[] = 'slim';
 		$classes[] = 'no-sidebar';
 	}
 
@@ -266,21 +287,6 @@ function trustedd_wrapper_classes() {
 		$classes = array();
 		$classes[] = 'no-sidebar';
 
-	}
-
-	// slim template
-	if ( is_page_template( 'page-templates/slim.php' ) ) {
-		$classes[] = 'slim';
-	}
-
-	// wide template
-	if ( is_page_template( 'page-templates/wide.php' ) ) {
-		$classes[] = 'wide';
-	}
-
-	// full-width template
-	if ( is_page_template( 'page-templates/full-width.php' ) ) {
-		$classes[] = 'full-width';
 	}
 
 	// allow filtering of the wrapper classes

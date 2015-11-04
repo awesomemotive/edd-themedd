@@ -7,7 +7,7 @@ figure.wp-caption {
 
 
 article[class^="post-"] + article[class^="post-"] {
-    padding-top: 3.5em;
+    padding-top: 2rem;
 }
 
 .entry-title a {
@@ -20,19 +20,41 @@ article[class^="post-"] + article[class^="post-"] {
     margin: 0 0 2rem 2rem;
 }
 
-.entry-footer > span:not(:last-child):after {
+.site-main > article {
+	margin-bottom: 2rem;
+}
+
+// entry footer
+
+.entry-footer {
+	line-height: 1.62;
+}
+#primary-sidebar .entry-footer {
+	padding: 2rem;
+}
+
+.entry-footer > span:not(:first-child):before {
 	content: "\002f";
 	display: inline-block;
 	opacity: 0.7;
 	padding: 0 0.538461538em;
 }
 
-.entry-header {
-	margin-bottom: 2rem;
+.entry-footer .avatar {
+	display: block;
 }
+
+// .entry-footer > span:not(:last-child):after {
+// 	content: "\002f";
+// 	display: inline-block;
+// 	opacity: 0.7;
+// 	padding: 0 0.5rem;
+// }
+
 
 .post-thumbnail {
 	margin-bottom: 2rem;
+	display: block;
 }
 
 // comments
@@ -43,16 +65,72 @@ article[class^="post-"] + article[class^="post-"] {
 
 .comment-metadata,
 .pingback .edit-link {
-		font-size: 1rem;
+	font-size: 1rem;
 }
 
 .comment {
 	padding: 2rem;
+	margin-right: -2rem;
 }
 
-.comment-list > .comment {
+.comment a {
+	border-bottom: none;
+}
+
+.comment-author .avatar {
+	float: left;
+	height: 28px;
+	margin-right: 0.875rem;
+	position: relative;
+	width: 28px;
+}
+.comment-metadata,
+.pingback .edit-link {
+	color: @body-text-color;
+//	font-family: Montserrat, "Helvetica Neue", sans-serif;
+//	font-size: 13px;
+	font-size: 0.875rem;
+	line-height: 1.62;
+}
+
+.comment-metadata {
+	margin-bottom: 2rem;
+}
+
+.comment-metadata a,
+.pingback .comment-edit-link {
+	color: @body-text-color;
+}
+
+// add bottom border to comments and also blog posts
+.comment-list > .comment,
+.blog .wrapper.has-sidebar article {
 	border-bottom: 2px solid @light-grey;
 	padding-left: 0;
+}
+
+.comments-title, .comment-reply-title {
+
+}
+
+#respond {
+	margin-top: 2rem;
+}
+
+.comment-reply-link,
+#cancel-comment-reply-link,
+.logged-in-as {
+	font-size: 0.875rem;
+}
+
+#cancel-comment-reply-link {
+	float: right;
+}
+
+// remove border on last post
+
+.blog .wrapper.has-sidebar article:last-child {
+	border-bottom: none;
 }
 
 .children {
@@ -63,6 +141,24 @@ article[class^="post-"] + article[class^="post-"] {
 	border-left: 2px solid @light-grey;
 }
 
+
+/**
+ * IE8 and earlier will drop any block with CSS3 selectors.
+ * Do not combine these styles with the next block.
+ */
+.updated:not(.published) {
+	display: none;
+}
+
+
+.posted-on a {
+	border-bottom: none;
+	color: @body-text-color;
+}
+
+.page-header h1 {
+	margin-bottom: 0;
+}
 
 @media all and ( max-width: @screen-sm-max ) {
 
@@ -78,23 +174,55 @@ article[class^="post-"] + article[class^="post-"] {
 // Medium Devices, Desktops
 @media only screen and ( min-width: @screen-md-min ) {
 
-	.no-sidebar .entry-header {
+	// .no-sidebar .page-header {
+	// 	text-align: center;
+	// 	padding: 3rem 0;
+	// }
+
+	.has-sidebar .posted-on {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	.has-sidebar .posted-on a {
+		display: block;
+		margin-bottom: 0.25rem;
+	}
+
+	.has-sidebar .entry-footer > span:not(:first-child):before {
+		display: none;
+	}
+
+	.has-sidebar .entry-footer > span {
+		display: block;
+	//	margin-bottom: 0.5rem;
+		padding: 0.5rem 0;
+	}
+
+	.page-header {
 		text-align: center;
-		padding: 3rem 2rem 3rem 2rem;
+		padding: 3rem 0;
 	}
 
 	.has-sidebar .entry-header {
-		margin-bottom: 3rem;
+	//	margin-bottom: 3rem;
 	}
 
-    .entry-header {
 
-    	margin: 0 0 4rem 0;
+}
 
-    	.entry-title {
-    		margin-bottom: 0;
-    	}
+.has-sidebar #secondary .entry-footer {
+	display: none;
+}
 
-    }
+@media only screen and ( min-width: @screen-lg-min ) {
 
+	// hide entry meta since it is now shown in the sidebar
+	.has-sidebar #main .entry-footer {
+		display: none;
+	}
+
+	.has-sidebar #secondary .entry-footer {
+		display: block;
+	}
 }

@@ -118,6 +118,7 @@ if ( ! function_exists( 'trustedd_entry_taxonomies' ) ) :
  * @since 1.0
  */
 function trustedd_entry_taxonomies() {
+
 	$categories_list = get_the_category_list( esc_html_x( ', ', 'Used between list items, there is a space after the comma.', 'trustedd' ) );
 	if ( $categories_list && trustedd_categorized_blog() ) {
 		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
@@ -127,13 +128,39 @@ function trustedd_entry_taxonomies() {
 	}
 
 	$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'Used between list items, there is a space after the comma.', 'trustedd' ) );
+
 	if ( $tags_list ) {
 		printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
 			esc_html_x( 'Tags', 'Used before tag names.', 'trustedd' ),
 			$tags_list
 		);
 	}
+
 }
+endif;
+
+
+if ( ! function_exists( 'trustedd_excerpt' ) ) :
+	/**
+	 * Displays the optional excerpt.
+	 *
+	 * Wraps the excerpt in a div element.
+	 *
+	 * Create your own trustedd_excerpt() function to override in a child theme.
+	 *
+	 * @since 1.0
+	 *
+	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
+	 */
+	function trustedd_excerpt( $class = 'entry-summary' ) {
+		$class = esc_attr( $class );
+
+		if ( has_excerpt() || is_search() ) : ?>
+			<div class="<?php echo $class; ?>">
+				<?php the_excerpt(); ?>
+			</div><!-- .<?php echo $class; ?> -->
+		<?php endif;
+	}
 endif;
 
 
@@ -163,6 +190,7 @@ endif;
  * @return bool True if there is more than one category, false otherwise.
  */
 function trustedd_categorized_blog() {
+
 	if ( false === ( $all_the_cool_cats = get_transient( 'trustedd_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -185,6 +213,7 @@ function trustedd_categorized_blog() {
 		// This blog has only 1 category so trustedd_categorized_blog should return false.
 		return false;
 	}
+
 }
 
 if ( ! function_exists( 'trustedd_post_thumbnail' ) ) :

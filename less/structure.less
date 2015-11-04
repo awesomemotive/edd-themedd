@@ -2,15 +2,18 @@
 
 // sections
 
-.section {
-	padding-left: 2rem;
-	padding-right: 2rem;
-}
+// .section {
+// 	padding-left: 2rem;
+// 	padding-right: 2rem;
+// }
 
+.has-sidebar #main {
+	padding-top: 2rem;
+}
 
 // site wrapper
 #page {
-	max-width: 1280px;
+	max-width: @page-max-width;
 	min-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -33,9 +36,9 @@
 	max-width: 1180px;
 }
 
-#primary-sidebar img {
-	max-width: 300px;
-}
+// #primary-sidebar img {
+// 	max-width: 300px;
+// }
 
 #primary-sidebar aside {
 	padding: 1rem 0;
@@ -48,37 +51,80 @@
 	margin-right: auto;
 }
 
-.wrapper.slim {
-	max-width: 720px;
-}
-
-.wrapper.wide {
-	max-width: 980px;
-}
-
-// this should be default
-.wrapper.full-width {
-	max-width: 1180px;
-}
-
-
 .no-sidebar #content > .wrapper {
 	border-bottom: none;
 }
 
+#secondary {
+	border-left: 2px solid @light-grey;
+//	width: 31%;
+
+	// ensures the sidebar stays at the same width
+//	-webkit-flex: 1 0 366px;
+//	flex: 1 0 366px;
+}
+
+
+// so far only used for page templates
+
+//.wrapper.slim {	max-width: 784px; }
+
+.wrapper.has-sidebar { max-width: 1080px; }
+
+
+
+
+
+.wrapper.no-sidebar { max-width: 784px; padding-top: 3rem; }
+.wrapper.wide { max-width: 1080px; }
+.wrapper.full-width { max-width: 100%; }
+
+
+
 @media only screen and ( min-width: @screen-md-min ) {
 
 	#primary {
-		width: 69%;
+	//	width: 69%;
+//	padding-right: 0;
 	}
 
 	.single-download .has-sidebar #primary {
-			width: 62%;
+	//	width: 62%;
 	}
+
+	// .single-download .wrapper.wide {
+	// 	max-width: 980px;
+	// }
 
 	.no-sidebar #primary {
 		width: 100%;
 	}
+
+	.wrapper .entry-content {
+		margin: 0 auto;
+	}
+
+
+
+	// no sidebars
+	// .wrapper.slim.no-sidebar .entry-content {
+	// 	max-width: 720px;
+	// }
+	//
+	// .wrapper.wide.no-sidebar .entry-content {
+	// 	max-width: 980px;
+	// }
+
+	// sidebars
+	.wrapper.has-sidebar {
+	//	max-width: 1150px;
+	}
+
+
+
+	// .wrapper.full-width .entry-content {
+	// 	max-width: 1180px;
+	// }
 
 	.wrapper.has-sidebar {
 
@@ -86,17 +132,23 @@
 		.no-results,
 		#respond,
 		article[class^="post-"] {
-			max-width: 720px;
-			padding-right: 2rem;
+		//	max-width: 720px;
+		//	padding-right: 2rem;
 		}
 
+	}
+
+	// let blog page go full-width
+	.blog .wrapper.has-sidebar article {
+	//	max-width: none;
+	//	padding-right: 0;
 	}
 
 	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
 		// fix for IE10
 		#primary {
-			width: 62%;
+		//	width: 62%;
 		}
 	}
 
@@ -104,14 +156,7 @@
 		border-bottom: 2px solid @light-grey;
 	}
 
-	#secondary {
-		border-left: 2px solid @light-grey;
-		width: 31%;
 
-		// ensures the sidebar stays at the same width
-		-webkit-flex: 1 0 366px;
-		flex: 1 0 366px;
-	}
 
 	#primary-sidebar aside {
 		padding: 2rem;
@@ -128,4 +173,11 @@
 	}
 
 
+}
+
+@media only screen and ( min-width: @screen-lg-min ) {
+	.wrapper.has-sidebar #primary {	padding-left: 0; }
+	.wrapper.has-sidebar #secondary { padding-right: 0; }
+
+	#secondary { padding-left: 0; }
 }

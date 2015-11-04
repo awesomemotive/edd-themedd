@@ -1,15 +1,15 @@
 <?php
 /**
- * The template used for displaying a download's content
+ * The template used for displaying page content
  */
 ?>
 
-<header class="entry-header">
-    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-</header>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+<?php /*
+	<header class="page-header">
+		<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
+	</header>
+*/ ?>
 
 	<div class="entry-content">
 
