@@ -57,44 +57,26 @@
 
 #secondary {
 	border-left: 2px solid @light-grey;
-//	width: 31%;
-
-	// ensures the sidebar stays at the same width
-//	-webkit-flex: 1 0 366px;
-//	flex: 1 0 366px;
 }
 
 
 // so far only used for page templates
+.wrapper.slim { max-width: @wrapper-slim; }
+.wrapper.wide { max-width: @wrapper-wide; }
 
-//.wrapper.slim {	max-width: 784px; }
+.wrapper.full-width { max-width: 100%; }
+
 
 .wrapper.has-sidebar { max-width: 1080px; }
-
-
-
-
-
 .wrapper.no-sidebar { max-width: 784px; padding-top: 3rem; }
-.wrapper.wide { max-width: 1080px; }
-.wrapper.full-width { max-width: 100%; }
+
+.wrapper.wide.no-sidebar {
+	max-width: @wrapper-wide;
+}
 
 
 
 @media only screen and ( min-width: @screen-md-min ) {
-
-	#primary {
-	//	width: 69%;
-//	padding-right: 0;
-	}
-
-	.single-download .has-sidebar #primary {
-	//	width: 62%;
-	}
-
-	// .single-download .wrapper.wide {
-	// 	max-width: 980px;
-	// }
 
 	.no-sidebar #primary {
 		width: 100%;
@@ -103,7 +85,6 @@
 	.wrapper .entry-content {
 		margin: 0 auto;
 	}
-
 
 
 	// no sidebars

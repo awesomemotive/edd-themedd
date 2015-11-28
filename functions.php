@@ -135,23 +135,26 @@ function trustedd_navigation() {
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
         <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'trustedd' ); ?></button>
+
+		<div id="site-header-menu" class="site-header-menu">
+
+	    	<nav id="site-navigation" class="main-navigation" role="navigation">
+	            <?php
+	    			wp_nav_menu(
+	    				apply_filters( 'trustedd_navigation', array(
+	    					'menu_id'        => 'primary-menu',
+	    					'menu_class'     => 'menu',
+	    					'theme_location' => 'primary',
+	    					'container'      => '',
+	    				))
+	    			);
+	    		?>
+	    	</nav>
+	    </div>
+		
     <?php endif; ?>
 
-    <div id="site-header-menu" class="site-header-menu">
 
-    	<nav id="site-navigation" class="main-navigation" role="navigation">
-            <?php
-    			wp_nav_menu(
-    				apply_filters( 'trustedd_navigation', array(
-    					'menu_id'        => 'primary-menu',
-    					'menu_class'     => 'menu',
-    					'theme_location' => 'primary',
-    					'container'      => '',
-    				))
-    			);
-    		?>
-    	</nav>
-    </div>
 	<?php
 }
 add_action( 'trustedd_masthead', 'trustedd_navigation' );

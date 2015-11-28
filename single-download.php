@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <header class="page-header<?php echo trustedd_page_header_classes(); ?>">
-    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    <?php the_title( '<h1 class="download-title">', '</h1>' ); ?>
 </header>
 
 <div class="wrapper wide<?php echo trustedd_wrapper_classes(); ?>">

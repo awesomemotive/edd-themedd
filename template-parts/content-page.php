@@ -5,11 +5,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<?php /*
-	<header class="page-header">
-		<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-	</header>
-*/ ?>
 
 	<div class="entry-content">
 
