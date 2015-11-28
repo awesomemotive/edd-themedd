@@ -11,7 +11,7 @@
  * @since 1.0.0
 */
 if ( ! defined( 'TRUSTEDD_THEME_VERSION' ) ) {
-	define( 'TRUSTEDD_THEME_VERSION', '1.0.9' );
+	define( 'TRUSTEDD_THEME_VERSION', '1.1.0' );
 }
 
 if ( ! defined( 'TRUSTEDD_INCLUDES_DIR' ) ) {
@@ -151,7 +151,7 @@ function trustedd_navigation() {
 	    		?>
 	    	</nav>
 	    </div>
-		
+
     <?php endif; ?>
 
 
