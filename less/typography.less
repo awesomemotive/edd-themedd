@@ -4,8 +4,8 @@ input,
 select,
 textarea {
 	color: @body-text-color;
-	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
-	font-size: 1rem;
+	font-family: @font-stack;
+	font-size: 1.1rem;
 	line-height: 1.62;
 }
 
@@ -17,7 +17,7 @@ textarea {
 	font-weight: 600;
 	line-height: 1;
 	color: @heading-color;
-	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	font-family: @font-stack;
 }
 
 .site-title a,
@@ -49,7 +49,7 @@ figcaption {
 
 // headings
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	font-family: @font-stack;
 	color: @heading-color;
 	line-height: 1.2;
 	margin: 0 0 1.62rem 0;
@@ -128,11 +128,7 @@ p {
 
 p, ul, ol, dl {
 	color: @body-text-color;
-	font-size: 1.2rem;
 }
-
-
-
 
 dfn,
 cite,

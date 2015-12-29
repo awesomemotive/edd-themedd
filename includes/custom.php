@@ -13,19 +13,19 @@ if ( class_exists( 'Subtitles' ) && method_exists( 'Subtitles', 'subtitle_stylin
  * @since 1.0.0
  */
 function trustedd_modify_subtitles( $title ) {
-    global $post;
+  global $post;
 
-    // Remove subtitles from the download grid
-    if ( isset( $post->post_content ) && in_the_loop() && ! has_shortcode( $post->post_content, 'downloads' ) ) {
-         add_filter( 'subtitle_view_supported', '__return_false' );
-    }
+  // Remove subtitles from the download grid
+  if ( isset( $post->post_content ) && in_the_loop() && ! has_shortcode( $post->post_content, 'downloads' ) ) {
+    add_filter( 'subtitle_view_supported', '__return_false' );
+  }
 
-    // allow subtitles on pages, and outside of the loop
-    if ( is_singular() ) {
-        add_filter( 'subtitle_view_supported', '__return_true' );
-    }
+  // allow subtitles on pages, and outside of the loop
+  if ( is_singular() ) {
+      add_filter( 'subtitle_view_supported', '__return_true' );
+  }
 
-	return $title;
+  return $title;
 }
 add_filter( 'the_title', 'trustedd_modify_subtitles' );
 

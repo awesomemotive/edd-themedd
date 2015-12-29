@@ -167,9 +167,10 @@ button:focus {
 		margin-top: 0;
 	}
 
-	// sub menu padding
+	// sub menu
 	.main-navigation .sub-menu a {
 		padding: 0.5rem 1rem;
+		color: @nav-sub-color;
 	}
 
 	.main-navigation {
@@ -183,13 +184,18 @@ button:focus {
 
 	.main-navigation a {
 		outline-offset: -8px;
-		padding: 1rem;
+		padding: @nav-md-padding;
 		white-space: nowrap;
 	}
 
 	.main-navigation li:hover > a,
 	.main-navigation li.focus > a {
 		color: @nav-hover-color;
+	}
+
+	.main-navigation .sub-menu li:hover > a,
+	.main-navigation .sub-menu li.focus > a {
+		color: @nav-sub-hover-color;
 	}
 
 	.main-navigation ul ul {
