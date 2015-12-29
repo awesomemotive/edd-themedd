@@ -11,7 +11,7 @@
  * @since 1.0.0
 */
 if ( ! defined( 'TRUSTEDD_THEME_VERSION' ) ) {
-	define( 'TRUSTEDD_THEME_VERSION', '1.1.2' );
+	define( 'TRUSTEDD_THEME_VERSION', '1.1.3' );
 }
 
 if ( ! defined( 'TRUSTEDD_INCLUDES_DIR' ) ) {
@@ -233,6 +233,8 @@ function trustedd_primary_classes() {
 
 
 	}
+
+	$classes = apply_filters( 'trustedd_primary_classes', $classes );
 
 	return ' ' . implode( ' ', $classes );
 }
