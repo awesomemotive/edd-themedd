@@ -11,7 +11,7 @@
  * @since 1.0.0
 */
 if ( ! defined( 'TRUSTEDD_THEME_VERSION' ) ) {
-	define( 'TRUSTEDD_THEME_VERSION', '1.1.1' );
+	define( 'TRUSTEDD_THEME_VERSION', '1.1.2' );
 }
 
 if ( ! defined( 'TRUSTEDD_INCLUDES_DIR' ) ) {
