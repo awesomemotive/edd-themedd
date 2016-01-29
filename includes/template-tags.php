@@ -232,8 +232,12 @@ function trustedd_post_thumbnail() {
 		return;
 	}
 
-	if ( is_singular() ) :
-	?>
+
+	if ( ! apply_filters( 'trusted_post_thumbnail', true ) ) {
+		return;
+	}
+
+	if ( is_singular() ) : ?>
 
 	<div class="post-thumbnail">
 		<?php the_post_thumbnail(); ?>
