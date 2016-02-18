@@ -87,17 +87,17 @@ function trustedd_setup() {
 	// This theme styles the visual editor to resemble the theme style.
 	add_editor_style( 'css/editor-style.css' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * See: https://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	add_theme_support( 'post-thumbnails' );
-
-	set_post_thumbnail_size( 720, 360, true );
+	 /*
+ 	 * Enable support for Post Thumbnails on posts and pages.
+ 	 *
+ 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+ 	 */
+ 	add_theme_support( 'post-thumbnails' );
+ 	set_post_thumbnail_size( 1200, 0, true );
 
 	add_image_size( 'trustedd-post-thumbnail', 566, 283, true );
-	add_image_size( 'trustedd-large', 720, 360, true );
+	add_image_size( 'trustedd-medium', 720, 360, true );
+	add_image_size( 'trustedd-large', 1200, 600, true );
 
 	// Register menu
 	register_nav_menus( array(
