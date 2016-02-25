@@ -139,7 +139,7 @@ add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_after', 'truste
 function trustedd_edd_price() {
 
 	if ( edd_is_free_download( get_the_ID() ) ) {
-		 $price = '<span class="edd_price">Free</span>';
+		 $price = '<span class="edd_price">' . __( 'Free', 'trustedd' ) . '</span>';
 	} elseif (  edd_has_variable_prices( get_the_ID() ) ) {
 		$price =  '<div itemprop="price" class="edd_price">' . __( 'From', 'trustedd' ) . ' ' . edd_price( get_the_ID(), false ) . '</div>';
 	} else {
