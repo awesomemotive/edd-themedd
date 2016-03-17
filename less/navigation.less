@@ -1,4 +1,6 @@
 
+
+
 // site header menu
 .site-header-menu {
 	display: none;
@@ -134,6 +136,7 @@ button:focus {
 
 	&:hover {
 		background: transparent;
+		border-bottom: none;
 	}
 }
 
@@ -156,7 +159,18 @@ button:focus {
 }
 
 
+
 @media only screen and ( min-width: @screen-md-min ) {
+
+	// clearfix
+	#site-navigation ul.menu:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
 
 	.site-header-menu {
 		display: block;

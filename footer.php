@@ -10,7 +10,7 @@
 
 <?php do_action( 'trustedd_content_after' ); ?>
 
-	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
+	<footer id="colophon" class="site-footer" role="contentinfo">
 
 		<?php do_action( 'trustedd_footer_start' ); ?>
 
