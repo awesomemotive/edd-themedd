@@ -5,7 +5,8 @@ textarea {
 	padding: 0.95rem;
 	color: @body-text-color;
 	background: #fff;
-	border: 1px solid darken( @light-grey, 3% );
+//	border: 2px solid darken( @light-grey, 3% );
+	border: 2px solid @light-grey;
 }
 
 input[type="text"],
@@ -31,6 +32,7 @@ textarea:focus {
 input[type="checkbox"],
 input[type="radio"] {
 	width: auto;
+	cursor: pointer;
 }
 
 fieldset {
@@ -40,17 +42,25 @@ fieldset {
 }
 
 legend {
-	font-size: 1rem;
+	font-size: 1.5rem;
 	margin-bottom: 1rem;
 	text-align: left;
 }
 
 label {
 	text-align: left;
-	display: inline-block;
+//	display: inline-block;
+	display: block;
+	margin-bottom: 0.5rem;
+	cursor: pointer;
 
 	input[type="checkbox"] {
 		margin-right: 0.25rem;
 	}
 
+}
+
+input[type="checkbox"] + label {
+	display: inline-block;
+	margin: 0;
 }

@@ -63,6 +63,8 @@ function trustedd_header() {
         <?php do_action( 'trustedd_masthead' ); ?>
         </div>
 
+        <?php do_action( 'trustedd_masthead_end' ); ?>
+
     </header>
 
     <?php do_action( 'trustedd_header_end' ); ?>

@@ -10,6 +10,16 @@ function trustedd_is_edd_active() {
 }
 
 /**
+ * Is AffiliateWP active
+ *
+ * @return bool
+ */
+function trustedd_is_affiliatewp_active() {
+	return class_exists( 'Affiliate_WP' );
+}
+
+
+/**
  * Posts that should have the lightbox code included
  */
 function trustedd_enable_popup( $post_id = 0 ) {

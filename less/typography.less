@@ -23,14 +23,6 @@ textarea {
 .site-title a,
 .site-title a:hover { color: @site-title-color; }
 
-// subtitles
-
-.subtitle {
-	display: block;
-	color: @body-text-color;
-	font-weight: 200;
-	line-height: 1.4;
-}
 
 // figcaption
 figcaption {
@@ -61,7 +53,7 @@ h2 { font-weight: 500; }
 h3, h4, h5, h6 { font-weight: 400; }
 
 h1 { font-size: 1.75rem; }
-h2, .subtitle { font-size: 1.5rem; }
+h2 { font-size: 1.5rem; }
 h3 { font-size: 1.4rem; }
 h4 { font-size: 1.3rem; }
 h5 { font-size: 1.2rem; }
@@ -123,11 +115,12 @@ p, figcaption {
 
 p {
 	margin: 0 0 1.62rem 0;
-	font-weight: 300;
+
 }
 
 p, ul, ol, dl {
 	color: @body-text-color;
+	font-weight: 300;
 }
 
 dfn,
@@ -216,8 +209,7 @@ pre {
 }
 
 code {
-	background-color: #d1d1d1;
-	padding: 0.125em 0.25em;
+	padding: 0.125rem 0.25rem;
 }
 
 abbr,
@@ -241,7 +233,7 @@ big {
 @media only screen and ( min-width: @screen-sm-min ) {
 
 	h1 { font-size: 2.25rem; }
-	h2, .subtitle { font-size: 2rem; }
+	h2 { font-size: 2rem; }
 	h3 { font-size: 1.75rem; }
 	h4 { font-size: 1.5rem; }
 	h5 { font-size: 1.25rem; }
@@ -253,10 +245,6 @@ big {
 		max-width: 1080px;
 		margin-left: auto;
 		margin-right: auto;
-	}
-
-	.subtitle {
-		font-size: 1.8rem;
 	}
 
 }

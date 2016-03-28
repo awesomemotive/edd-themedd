@@ -86,7 +86,7 @@ table {
 	border-spacing: 0;
 	border-width: 2px 0 0 2px;
 	margin: 0 0 1.62rem;
-	table-layout: fixed;
+//	table-layout: fixed;
 	// Prevents HTML tables from becoming too wide
 	width: 100%;
 }
@@ -100,7 +100,8 @@ td {
 
 th {
 	border-width: 0 2px 2px 0;
-	font-weight: 600;
+	font-weight: 500;
+	background: lighten( @light-grey, 3% );
 }
 
 td {
@@ -110,4 +111,17 @@ td {
 th,
 td {
 	padding: 0.5rem;
+}
+
+.box {
+    padding: 2rem;
+    border: 2px solid @light-grey;
+    background: lighten( @light-grey, 3% );
+
+
+}
+
+// remove any bottom margin from paragraph tags included inside boxes
+.box p:last-of-type {
+	margin-bottom: 0;
 }

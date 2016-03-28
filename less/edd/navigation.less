@@ -1,0 +1,21 @@
+.action.checkout {
+    display: none;
+}
+
+#masthead .nav-cart.mobile {
+    display: -webkit-flex;
+    display: flex;
+    border: 1px solid #ddd;
+    border-right: none;
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+    // hide cart icon at mobile sizes
+    .action.checkout {
+        display: block;
+    }
+
+    #masthead .nav-cart.mobile {
+    	  display: none;
+    }
+}

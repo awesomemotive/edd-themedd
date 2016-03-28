@@ -33,8 +33,16 @@ require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'template-tags.php' );
 require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'custom.php' );
 
+
+// Compatibility with other plugins
+
+if ( trustedd_is_affiliatewp_active() ) {
+	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'compatibility/affiliatewp.php' );
+}
+
 // EDD functions
 if ( trustedd_is_edd_active() ) {
+	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'compatibility/edd.php' );
 	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'edd-functions.php' );
 }
 
@@ -134,7 +142,12 @@ function trustedd_navigation() {
 	?>
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
-        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'trustedd' ); ?></button>
+
+		<div id="menu-toggle-wrap">
+			<?php do_action( 'trustedd_menu_toggle_before' ); ?>
+			<button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'trustedd' ); ?></button>
+			<?php do_action( 'trustedd_menu_toggle_after' ); ?>
+		</div>
 
 		<div id="site-header-menu" class="site-header-menu">
 

@@ -6,8 +6,9 @@ jQuery(document).ready(function($) {
         $('html, body').animate({scrollTop:offset}, 800);
     });
 
+
 	$('body').addClass('js');
 
     $( 'a > img' ).parent().addClass( 'has-image' );
-
+    
 });

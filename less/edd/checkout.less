@@ -8,11 +8,51 @@
 
 }
 
-.edd_cart_item_name {
-    display: -webkit-flex;
-    display: flex;
+// .edd_cart_item_name {
+//     display: -webkit-flex;
+//     display: flex;
+// }
+
+
+
+// payment icons
+
+.edd-payment-icons {
+    margin-bottom: 2rem;
 }
 
+.edd-payment-icons img {
+    display: inline-block;
+
+}
+
+.edd-required-indicator {
+    color: #DE2626;
+    font-size: 1.5rem;
+}
+
+// fieldset styling
+#edd_checkout_user_info,
+#edd_cc_address,
+#edd_cc_fields,
+#edd_payment_mode_select {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border: 2px solid @light-grey;
+    background: lighten( @light-grey, 3% );
+
+    p:last-child {
+//        background: red;
+        margin-bottom: 0;
+    }
+}
+
+.edd-payment-mode-label,
+#edd_purchase_form legend {
+    font-size: 1.5rem;
+}
+
+//
 .edd_checkout_cart_item_title {
     align-self: center;
 }
@@ -24,10 +64,7 @@
     color: lighten( @body-text-color, 10% );
 }
 
-// Personal info legend
-#edd_checkout_user_info legend {
-    font-size: 1.5rem;
-}
+
 
 .edd_cart_actions {
     text-align: right;
@@ -43,12 +80,16 @@
     margin-bottom: 1rem;
     background: #FF7B7B;
 
-
     p {
         margin-bottom: 0;
         color: #fff;
     }
 }
+
+.edd_error {
+
+}
+
 
 .edd_cart_header_row,
 .edd_cart_item {
@@ -64,9 +105,85 @@
 	width: 100%;
 	text-align: left;
 	margin-bottom: 2rem;
-	border: 2px solid @light-grey;
+//	border: 2px solid @light-grey;
 
 	td, th {
 		padding: 1rem;
 	}
+}
+
+// payment icons
+
+#edd-payment-mode-wrap {
+    // margin-top: 2rem;
+    // margin-bottom: 2rem;
+    // padding: 2rem;
+}
+
+.edd-payment-mode-label {
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.edd-gateway,
+.edd-gateway-option {
+    cursor: pointer;
+}
+
+.edd-gateway {
+    margin-right: 0.5rem;
+}
+
+.edd-gateway-option {
+    margin-right: 2rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+//.edd-gateway-option:hover,
+.edd-gateway-option-selected {
+//    border-color: darken( @light-grey, 5% );
+//    border-color: @primary-color;
+}
+
+#edd_checkout_form_wrap span.card-type {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 43px;
+	height: 32px;
+	background-size: 43px 32px!important;
+}
+
+// cart type that
+label[for=card_number] {
+    position: relative;
+}
+
+label[for=edds-confirm-update-default] {
+    width: 95%;
+}
+
+#edds-confirm-update-default {
+    vertical-align: top;
+}
+
+#edd_checkout_form_wrap span.card-type.off {
+	display: none;
+}
+
+#edd_checkout_form_wrap span.card-type.visa {
+	background: url(images/icons/visa.gif ) no-repeat;
+}
+
+#edd_checkout_form_wrap span.card-type.mastercard {
+	background: url(images/icons/mastercard.gif ) no-repeat;
+}
+
+#edd_checkout_form_wrap span.card-type.discover {
+	background: url(images/icons/discover.gif ) no-repeat;
+}
+
+#edd_checkout_form_wrap span.card-type.amex {
+	background: url(images/icons/americanexpress.gif ) no-repeat;
 }
