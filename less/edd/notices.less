@@ -1,0 +1,43 @@
+// notices
+
+@error: #DE6363;
+@success: #8DD68C;
+@notice: #AAD9E8;
+
+.edd-alert {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.edd_errors {
+    background: @error;
+    border: 1px solid darken( @error, 5% );
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.edd-alert.edd-alert-success {
+    background: @success;
+    border: 1px solid darken( @success, 5% );
+    color: darken( @success, 40% );
+}
+
+// warning/notice
+.edd-alert.edd-alert-warn {
+    background: @notice;
+    border: 1px solid darken( @notice, 5% );
+
+    p {
+        color: darken( @notice, 50% );
+    }
+}
+
+.edd_errors p,
+p.edd_error {
+    margin-bottom: 0;
+    color: #fff;
+}
