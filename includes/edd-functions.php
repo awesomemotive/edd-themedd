@@ -57,8 +57,6 @@ function trustedd_purchase_link_defaults( $defaults ) {
 }
 add_filter( 'edd_purchase_link_defaults', 'trustedd_purchase_link_defaults' );
 
-// get EDD currency
-$currency = function_exists( 'edd_get_currency' ) ? edd_get_currency() : '';
 
 
 
@@ -94,6 +92,9 @@ function trustedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'trustedd_edd_downloads_list_wrapper_class', 10, 2 );
 
+// get EDD currency
+$currency = function_exists( 'edd_get_currency' ) ? edd_get_currency() : '';
+
 
 /**
  * Wrap currency symbol in span
@@ -101,6 +102,11 @@ add_filter( 'edd_downloads_list_wrapper_class', 'trustedd_edd_downloads_list_wra
  * @since 1.0
  */
 function trustedd_currency_before( $formatted, $currency, $price ) {
+
+	// prevent filter when returning discount amount at checkout
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return $formatted;
+	}
 
 	$symbol = edd_currency_symbol( $currency );
 
@@ -119,6 +125,11 @@ add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_before', 'trust
  */
 function trustedd_currency_after( $formatted, $currency, $price ) {
 
+	// prevent filter when returning discount amount at checkout
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return $formatted;
+	}
+	
 	$symbol = edd_currency_symbol( $currency );
 
 	if ( $symbol ) {
