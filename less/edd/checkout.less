@@ -8,9 +8,30 @@
 
 }
 
+// discounts
+#edd-discount {
+    margin-bottom: 1rem;
+}
+
+#edd_discount_code {
+    background: @lighter-grey;
+    border: 2px solid @light-grey;
+    padding: 1rem;
+}
+
 #edd_terms_agreement {
     margin-bottom: 2rem;
 }
+
+#edd-discount-code-wrap,
+#edd_show_discount {
+    margin-bottom: 0;
+}
+
+#edd_discount_code {
+    margin-bottom: 2rem;
+}
+// end discounts
 
 #edd_agree_to_terms {
     margin-right: 0.5rem;
@@ -46,10 +67,9 @@ label[for=edd_agree_to_terms] {
     margin-bottom: 2rem;
     padding: 2rem;
     border: 2px solid @light-grey;
-    background: lighten( @light-grey, 3% );
+    background: @lighter-grey;
 
     p:last-child {
-//        background: red;
         margin-bottom: 0;
     }
 }
@@ -71,8 +91,6 @@ label[for=edd_agree_to_terms] {
     color: lighten( @body-text-color, 10% );
 }
 
-
-
 .edd_cart_actions {
     text-align: right;
 }
@@ -80,9 +98,6 @@ label[for=edd_agree_to_terms] {
 #edd-purchase-button {
     width: auto;
 }
-
-
-
 
 .edd_cart_header_row,
 .edd_cart_item {
