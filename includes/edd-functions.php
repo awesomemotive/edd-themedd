@@ -129,7 +129,7 @@ function trustedd_currency_after( $formatted, $currency, $price ) {
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 		return $formatted;
 	}
-	
+
 	$symbol = edd_currency_symbol( $currency );
 
 	if ( $symbol ) {
