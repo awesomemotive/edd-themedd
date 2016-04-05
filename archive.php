@@ -6,9 +6,9 @@
 
 get_header(); ?>
 
-<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
+<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area<?php echo trustedd_primary_classes(); ?>">
+	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">
 			<?php
 				if ( have_posts() ) :
@@ -33,7 +33,7 @@ get_header(); ?>
 		</main>
 	</div>
 
-	<?php trustedd_get_sidebar(); ?>
+	<?php themedd_get_sidebar(); ?>
 
 </div>
 

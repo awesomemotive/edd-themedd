@@ -20,7 +20,7 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  *
  * @since 1.0
  */
-function trustedd_edd_body_classes( $classes ) {
+function themedd_edd_body_classes( $classes ) {
 	global $post;
 
 	// add a shop class if we're on a page where the [downloads] shortcode is used
@@ -30,12 +30,12 @@ function trustedd_edd_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'trustedd_edd_body_classes' );
+add_filter( 'body_class', 'themedd_edd_body_classes' );
 
 /**
  * Is EDD Software Licensing active
  */
-function trustedd_is_edd_sl_active() {
+function themedd_is_edd_sl_active() {
 	return class_exists( 'EDD_Software_Licensing' );
 }
 
@@ -44,7 +44,7 @@ function trustedd_is_edd_sl_active() {
  *
  * @since 1.0
  */
-function trustedd_purchase_link_defaults( $defaults ) {
+function themedd_purchase_link_defaults( $defaults ) {
 	// add a class of "small" to the add to cart button
 	if ( is_singular( 'download' ) ) {
 		$defaults['class'] .= ' wide';
@@ -55,7 +55,7 @@ function trustedd_purchase_link_defaults( $defaults ) {
 
 	return $defaults;
 }
-add_filter( 'edd_purchase_link_defaults', 'trustedd_purchase_link_defaults' );
+add_filter( 'edd_purchase_link_defaults', 'themedd_purchase_link_defaults' );
 
 
 
@@ -63,7 +63,7 @@ add_filter( 'edd_purchase_link_defaults', 'trustedd_purchase_link_defaults' );
 
 
 
-function trustedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
+function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 	$classes = array( $wrapper_class );
 
 	if ( $atts['price'] == 'yes' ) {
@@ -90,7 +90,7 @@ function trustedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 
 	return implode( ' ', $classes );
 }
-add_filter( 'edd_downloads_list_wrapper_class', 'trustedd_edd_downloads_list_wrapper_class', 10, 2 );
+add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
 
 // get EDD currency
 $currency = function_exists( 'edd_get_currency' ) ? edd_get_currency() : '';
@@ -101,7 +101,7 @@ $currency = function_exists( 'edd_get_currency' ) ? edd_get_currency() : '';
  *
  * @since 1.0
  */
-function trustedd_currency_before( $formatted, $currency, $price ) {
+function themedd_currency_before( $formatted, $currency, $price ) {
 
 	// prevent filter when returning discount amount at checkout
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -116,14 +116,14 @@ function trustedd_currency_before( $formatted, $currency, $price ) {
 
 	return $formatted;
 }
-add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_before', 'trustedd_currency_before', 10, 3 );
+add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_before', 'themedd_currency_before', 10, 3 );
 
 /**
  * Wrap currency symbol in span
  *
  * @since 1.0
  */
-function trustedd_currency_after( $formatted, $currency, $price ) {
+function themedd_currency_after( $formatted, $currency, $price ) {
 
 	// prevent filter when returning discount amount at checkout
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -140,19 +140,19 @@ function trustedd_currency_after( $formatted, $currency, $price ) {
 }
 
 // remove decimal places when not needed
-add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_after', 'trustedd_currency_after', 10, 3 );
+add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_after', 'themedd_currency_after', 10, 3 );
 
 /**
  * Download price
  *
  * @since 1.0.0
  */
-function trustedd_edd_price() {
+function themedd_edd_price() {
 
 	if ( edd_is_free_download( get_the_ID() ) ) {
-		 $price = '<span class="edd_price">' . __( 'Free', 'trustedd' ) . '</span>';
+		 $price = '<span class="edd_price">' . __( 'Free', 'themedd' ) . '</span>';
 	} elseif (  edd_has_variable_prices( get_the_ID() ) ) {
-		$price =  '<div itemprop="price" class="edd_price">' . __( 'From', 'trustedd' ) . ' ' . edd_price( get_the_ID(), false ) . '</div>';
+		$price =  '<div itemprop="price" class="edd_price">' . __( 'From', 'themedd' ) . ' ' . edd_price( get_the_ID(), false ) . '</div>';
 	} else {
 		$price = edd_price( get_the_ID() );
 	}
@@ -161,16 +161,16 @@ function trustedd_edd_price() {
 
 }
 
-if ( ! function_exists( 'trustedd_edd_purchase_link' ) ) :
+if ( ! function_exists( 'themedd_edd_purchase_link' ) ) :
 /**
  * Download purchase link
  *
  * @since 1.0.0
  */
-function trustedd_edd_purchase_link() {
+function themedd_edd_purchase_link() {
 
 	$external_download_url  = function_exists( 'edd_download_meta_get_download_meta' ) ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
-	$external_download_text = apply_filters( 'trustedd_external_download_text', __( 'Visit site', 'trustedd' ) );
+	$external_download_text = apply_filters( 'themedd_external_download_text', __( 'Visit site', 'themedd' ) );
 
 	if ( $external_download_url ) { ?>
 
@@ -196,38 +196,38 @@ endif;
  *
  * @since 1.0.0
  */
-function trustedd_edd_pricing() {
+function themedd_edd_pricing() {
 	?>
 	<aside>
-		<?php echo trustedd_edd_price(); ?>
-		<?php trustedd_edd_purchase_link(); ?>
+		<?php echo themedd_edd_price(); ?>
+		<?php themedd_edd_purchase_link(); ?>
 	</aside>
 <?php
 }
-add_action( 'trustedd_sidebar_download', 'trustedd_edd_pricing' );
+add_action( 'themedd_sidebar_download', 'themedd_edd_pricing' );
 
 /**
  * Filter the purchase link defaults
  *
  * @since 1.0.0
  */
-function trustedd_edd_purchase_link_defaults( $args ) {
+function themedd_edd_purchase_link_defaults( $args ) {
 
 	// free downloads
 	if ( edd_is_free_download( get_the_ID() ) ) {
-		$args['text'] = __( 'Add to cart', 'trustedd' );
+		$args['text'] = __( 'Add to cart', 'themedd' );
 	}
 
 	return $args;
 }
-add_filter( 'edd_purchase_link_defaults', 'trustedd_edd_purchase_link_defaults' );
+add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' );
 
 /**
  * Lightboxes
  */
-function trustedd_load_popup() {
+function themedd_load_popup() {
 
-	if ( trustedd_enable_popup() ) :
+	if ( themedd_enable_popup() ) :
 	?>
 	<script type="text/javascript">
 
@@ -255,18 +255,18 @@ function trustedd_load_popup() {
 
 <?php endif;
 }
-add_action( 'wp_footer', 'trustedd_load_popup', 100 );
+add_action( 'wp_footer', 'themedd_load_popup', 100 );
 
 
-if ( ! function_exists( 'trustedd_edd_checkout_image_size' ) ) :
+if ( ! function_exists( 'themedd_edd_checkout_image_size' ) ) :
 /**
  * Set the default EDD checkout image size
  *
  * @since 1.0
  */
-function trustedd_edd_checkout_image_size() {
+function themedd_edd_checkout_image_size() {
 	return array( 100, 50 );
 }
 endif;
 
-add_filter( 'edd_checkout_image_size', 'trustedd_edd_checkout_image_size' );
+add_filter( 'edd_checkout_image_size', 'themedd_edd_checkout_image_size' );

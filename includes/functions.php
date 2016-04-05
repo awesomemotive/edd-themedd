@@ -5,7 +5,7 @@
  *
  * @return bool
  */
-function trustedd_is_edd_active() {
+function themedd_is_edd_active() {
 	return class_exists( 'Easy_Digital_Downloads' );
 }
 
@@ -14,7 +14,7 @@ function trustedd_is_edd_active() {
  *
  * @return bool
  */
-function trustedd_is_affiliatewp_active() {
+function themedd_is_affiliatewp_active() {
 	return class_exists( 'Affiliate_WP' );
 }
 
@@ -22,11 +22,11 @@ function trustedd_is_affiliatewp_active() {
 /**
  * Posts that should have the lightbox code included
  */
-function trustedd_enable_popup( $post_id = 0 ) {
+function themedd_enable_popup( $post_id = 0 ) {
 
 	$lightbox = false;
 
-	$posts = apply_filters( 'trustedd_lightbox_posts',
+	$posts = apply_filters( 'themedd_lightbox_posts',
 		array()
 	);
 
@@ -36,5 +36,5 @@ function trustedd_enable_popup( $post_id = 0 ) {
 		$lightbox = true;
 	}
 
-	return apply_filters( 'trustedd_enable_popup', $lightbox );
+	return apply_filters( 'themedd_enable_popup', $lightbox );
 }

@@ -6,13 +6,13 @@
 
 get_header(); ?>
 
-<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+<header class="page-header<?php echo themedd_page_header_classes(); ?>">
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 
-<div class="wrapper slim<?php echo trustedd_wrapper_classes(); ?>">
+<div class="wrapper slim<?php echo themedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area <?php echo trustedd_primary_classes(); ?>">
+	<div id="primary" class="content-area <?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">
 		<?php
 			// Start the Loop.

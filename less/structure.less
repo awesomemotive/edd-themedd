@@ -68,7 +68,8 @@
 
 
 .wrapper.has-sidebar { max-width: 1080px; }
-.wrapper.no-sidebar { max-width: 784px; padding-top: 3rem; }
+
+.wrapper.no-sidebar { max-width: 784px; }
 
 .wrapper.wide.no-sidebar {
 	max-width: @wrapper-wide;
@@ -160,7 +161,16 @@
 
 }
 
+// Small Devices, Tablets
+@media only screen and ( min-width : @screen-md-min) {
+
+}
+
 @media only screen and ( min-width: @screen-md-min ) {
+
+	#content {
+		padding-bottom: 8rem;
+	}
 
 	#secondary { padding-left: 0; }
 

@@ -13,19 +13,19 @@
 get_header(); ?>
 
 <?php if ( is_singular( 'page' ) ) : ?>
-    <header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+    <header class="page-header<?php echo themedd_page_header_classes(); ?>">
 		<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
 	</header>
 
 <?php else : ?>
-    <header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+    <header class="page-header<?php echo themedd_page_header_classes(); ?>">
 		<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
 	</header>
 <?php endif; ?>
 
 
-<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
-    <div id="primary" class="content-area<?php echo trustedd_primary_classes(); ?>">
+<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
+    <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
     	<main id="main" class="site-main" role="main">
     		<?php
     		// Start the loop.
@@ -46,7 +46,7 @@ get_header(); ?>
     			if ( is_singular( 'attachment' ) ) {
     				// Parent post navigation
     				the_post_navigation( array(
-    					'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'trustedd' ),
+    					'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'themedd' ),
     				) );
     			}
 
@@ -60,7 +60,7 @@ get_header(); ?>
 
     </div>
 
-    <?php trustedd_get_sidebar(); ?>
+    <?php themedd_get_sidebar(); ?>
 
 </div>
 

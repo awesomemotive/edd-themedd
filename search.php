@@ -6,12 +6,12 @@
 get_header(); ?>
 
 <header class="page-header">
-	<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'trustedd' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
+	<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'themedd' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
 </header>
 
-<div class="wrapper<?php echo trustedd_wrapper_classes(); ?>">
+<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area<?php echo trustedd_primary_classes(); ?>">
+	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">
 
 			<?php if ( have_posts() ) : ?>
@@ -32,9 +32,9 @@ get_header(); ?>
 
 				// Previous/next page navigation.
 				the_posts_pagination( array(
-					'prev_text'          => esc_html__( 'Previous page', 'trustedd' ),
-					'next_text'          => esc_html__( 'Next page', 'trustedd' ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'trustedd' ) . ' </span>',
+					'prev_text'          => esc_html__( 'Previous page', 'themedd' ),
+					'next_text'          => esc_html__( 'Next page', 'themedd' ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'themedd' ) . ' </span>',
 				) );
 
 			// If no content, include the "No posts found" template.
@@ -47,7 +47,7 @@ get_header(); ?>
 		</main>
 	</div>
 
-	<?php trustedd_get_sidebar(); ?>
+	<?php themedd_get_sidebar(); ?>
 
 </div>
 

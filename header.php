@@ -5,8 +5,8 @@
  * Displays all of the head element and everything up until the "site-content" div.
  *
  * @package WordPress
- * @subpackage Trustedd
- * @since Trustedd 1.0
+ * @subpackage Themedd
+ * @since Themedd 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -21,16 +21,16 @@
 
 <body <?php body_class(); ?>>
 
-<?php do_action( 'trustedd_site_before' ); ?>
+<?php do_action( 'themedd_site_before' ); ?>
 
 <div id="page" class="hfeed site">
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'trustedd' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themedd' ); ?></a>
 
-	<?php do_action( 'trustedd_header' ); ?>
+	<?php do_action( 'themedd_header' ); ?>
 
-	<?php do_action( 'trustedd_content_before' ); ?>
+	<?php do_action( 'themedd_content_before' ); ?>
 
 	<div id="content" class="site-content">
 
-		<?php do_action( 'trustedd_content_start' ); ?>
+		<?php do_action( 'themedd_content_start' ); ?>

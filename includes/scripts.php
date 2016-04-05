@@ -4,20 +4,20 @@
  *
  * @since  1.0
  */
-function trustedd_enqueue_scripts() {
+function themedd_enqueue_scripts() {
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'trustedd', get_stylesheet_uri(), array(), TRUSTEDD_THEME_VERSION );
+	wp_enqueue_style( 'themedd', get_stylesheet_uri(), array(), THEMEDD_THEME_VERSION );
 
 	/**
-	 * Trustedd JS
+	 * Themedd JS
 	 */
-	wp_register_script( 'trustedd-js', get_template_directory_uri() . '/js/rcp-parent-theme.min.js', array( 'jquery' ), TRUSTEDD_THEME_VERSION, true );
-	wp_enqueue_script( 'trustedd-js' );
+	wp_register_script( 'themedd-js', get_template_directory_uri() . '/js/rcp-parent-theme.min.js', array( 'jquery' ), THEMEDD_THEME_VERSION, true );
+	wp_enqueue_script( 'themedd-js' );
 
-	wp_localize_script( 'trustedd-js', 'screenReaderText', array(
-		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'trustedd' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'trustedd' ) . '</span>',
+	wp_localize_script( 'themedd-js', 'screenReaderText', array(
+		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'themedd' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>',
 	) );
 
 	/**
@@ -31,4 +31,4 @@ function trustedd_enqueue_scripts() {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'trustedd_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'themedd_enqueue_scripts' );

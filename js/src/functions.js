@@ -50,7 +50,7 @@
 		// Add an initial values for the attribute.
 		menuToggle.add( siteNavigation ).attr( 'aria-expanded', 'false' );
 
-		menuToggle.on( 'click.trustedd', function() {
+		menuToggle.on( 'click.themedd', function() {
 			$( this ).add( siteHeaderMenu ).toggleClass( 'toggled-on' );
 
 			// jscs:disable
@@ -66,7 +66,7 @@
 		}
 
 		if ( 'ontouchstart' in window ) {
-			siteNavigation.find( '.menu-item-has-children > a' ).on( 'touchstart.trustedd', function( e ) {
+			siteNavigation.find( '.menu-item-has-children > a' ).on( 'touchstart.themedd', function( e ) {
 				var el = $( this ).parent( 'li' );
 
 				if ( ! el.hasClass( 'focus' ) ) {
@@ -77,7 +77,7 @@
 			} );
 		}
 
-		siteNavigation.find( 'a' ).on( 'focus.trustedd blur.trustedd', function() {
+		siteNavigation.find( 'a' ).on( 'focus.themedd blur.themedd', function() {
 			$( this ).parents( '.menu-item' ).toggleClass( 'focus' );
 		} );
 	} )();
@@ -109,8 +109,8 @@
 		$body = $( document.body );
 
 		$( window )
-			.on( 'load.trustedd', onResizeARIA )
-			.on( 'resize.trustedd', function() {
+			.on( 'load.themedd', onResizeARIA )
+			.on( 'resize.themedd', function() {
 				onResizeARIA();
 			} );
 	} );

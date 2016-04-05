@@ -12,7 +12,7 @@ if ( class_exists( 'Subtitles' ) && method_exists( 'Subtitles', 'subtitle_stylin
  * @todo move to child theme
  * @since 1.0.0
  */
-function trustedd_modify_subtitles( $title ) {
+function themedd_modify_subtitles( $title ) {
   global $post;
 
   // Remove subtitles from the download grid
@@ -27,7 +27,7 @@ function trustedd_modify_subtitles( $title ) {
 
   return $title;
 }
-add_filter( 'the_title', 'trustedd_modify_subtitles' );
+add_filter( 'the_title', 'themedd_modify_subtitles' );
 
 
 
@@ -37,41 +37,41 @@ add_filter( 'the_title', 'trustedd_modify_subtitles' );
  *
  * @since 1.0.0
  */
-function trustedd_subtitle_markup( $markup ) {
+function themedd_subtitle_markup( $markup ) {
 
     $markup['before'] = '<span class="subtitle">';
 
     return $markup;
 }
-add_filter( 'subtitle_markup', 'trustedd_subtitle_markup' );
+add_filter( 'subtitle_markup', 'themedd_subtitle_markup' );
 
 /**
  * Load the header
  *
  * @since 1.0
  */
-function trustedd_header() {
+function themedd_header() {
     ?>
 
-    <?php do_action( 'trustedd_header_start' ); ?>
+    <?php do_action( 'themedd_header_start' ); ?>
 
     <header id="masthead" class="site-header" role="banner">
 
-        <?php do_action( 'trustedd_masthead_start' ); ?>
+        <?php do_action( 'themedd_masthead_start' ); ?>
 
         <div class="site-header-main">
-        <?php do_action( 'trustedd_masthead' ); ?>
+        <?php do_action( 'themedd_masthead' ); ?>
         </div>
 
-        <?php do_action( 'trustedd_masthead_end' ); ?>
+        <?php do_action( 'themedd_masthead_end' ); ?>
 
     </header>
 
-    <?php do_action( 'trustedd_header_end' ); ?>
+    <?php do_action( 'themedd_header_end' ); ?>
 
     <?php
 }
-add_action( 'trustedd_header', 'trustedd_header' );
+add_action( 'themedd_header', 'themedd_header' );
 
 
 /**
@@ -79,28 +79,28 @@ add_action( 'trustedd_header', 'trustedd_header' );
  *
  * @since 1.0
  */
-function trustedd_site_branding() {
+function themedd_site_branding() {
 
 	?>
 
     <div class="site-branding">
 
-        <?php do_action( 'trustedd_site_branding_start' ); ?>
+        <?php do_action( 'themedd_site_branding_start' ); ?>
 
         <?php if ( is_front_page() && is_home() ) : ?>
             <h1 class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'trustedd_site_branding_before_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
                     <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'trustedd_site_branding_after_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
                 </a>
             </h1>
         <?php else : ?>
             <p class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'trustedd_site_branding_before_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
                     <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'trustedd_site_branding_after_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
                 </a>
             </p>
         <?php endif;
@@ -110,20 +110,20 @@ function trustedd_site_branding() {
             <p class="site-description"><?php echo $description; ?></p>
         <?php endif; ?>
 
-        <?php do_action( 'trustedd_site_branding_end' ); ?>
+        <?php do_action( 'themedd_site_branding_end' ); ?>
 
     </div>
 
 	<?php
 }
-add_action( 'trustedd_masthead', 'trustedd_site_branding' );
+add_action( 'themedd_masthead', 'themedd_site_branding' );
 
 /**
  * Post/entry meta shown in sidebar
  *
  * @since 1.0.0
  */
-function trustedd_post_meta() {
+function themedd_post_meta() {
 
     if ( ! is_singular( 'post' ) ) {
         return;
@@ -132,12 +132,12 @@ function trustedd_post_meta() {
     ?>
 
     <footer class="entry-footer">
-		<?php trustedd_entry_meta(); ?>
+		<?php themedd_entry_meta(); ?>
 		<?php
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					__( 'Edit %s', 'trustedd' ),
+					__( 'Edit %s', 'themedd' ),
 					the_title( '<span class="screen-reader-text">', '</span>', false )
 				),
 				'<span class="edit-link">',
@@ -148,4 +148,4 @@ function trustedd_post_meta() {
 
     <?php
 }
-add_action( 'trustedd_primary_sidebar_start', 'trustedd_post_meta' );
+add_action( 'themedd_primary_sidebar_start', 'themedd_post_meta' );

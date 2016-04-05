@@ -10,16 +10,16 @@
  *
  * @since 1.0.0
 */
-if ( ! defined( 'TRUSTEDD_THEME_VERSION' ) ) {
-	define( 'TRUSTEDD_THEME_VERSION', '1.2.6' );
+if ( ! defined( 'THEMEDD_THEME_VERSION' ) ) {
+	define( 'THEMEDD_THEME_VERSION', '1.2.7' );
 }
 
-if ( ! defined( 'TRUSTEDD_INCLUDES_DIR' ) ) {
-	define( 'TRUSTEDD_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' );
+if ( ! defined( 'THEMEDD_INCLUDES_DIR' ) ) {
+	define( 'THEMEDD_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' );
 }
 
-if ( ! defined( 'TRUSTEDD_THEME_URL' ) ) {
-	define( 'TRUSTEDD_THEME_URL', trailingslashit( get_template_directory_uri() ) );
+if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
+	define( 'THEMEDD_THEME_URL', trailingslashit( get_template_directory_uri() ) );
 }
 
 
@@ -28,22 +28,22 @@ if ( ! defined( 'TRUSTEDD_THEME_URL' ) ) {
  *
  * @since 1.0.0
 */
-require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'functions.php' );
-require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'scripts.php' );
-require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'template-tags.php' );
-require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'custom.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'functions.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'template-tags.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'custom.php' );
 
 
 // Compatibility with other plugins
 
-if ( trustedd_is_affiliatewp_active() ) {
-	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'compatibility/affiliatewp.php' );
+if ( themedd_is_affiliatewp_active() ) {
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/affiliatewp.php' );
 }
 
 // EDD functions
-if ( trustedd_is_edd_active() ) {
-	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'compatibility/edd.php' );
-	require_once( trailingslashit( TRUSTEDD_INCLUDES_DIR ) . 'edd-functions.php' );
+if ( themedd_is_edd_active() ) {
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd-functions.php' );
 }
 
 /**
@@ -53,15 +53,15 @@ if ( trustedd_is_edd_active() ) {
  *
  * @global int $content_width
  */
-function trustedd_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'trustedd_content_width', 585 );
+function themedd_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 585 );
 }
-add_action( 'after_setup_theme', 'trustedd_content_width', 0 );
+add_action( 'after_setup_theme', 'themedd_content_width', 0 );
 
-if ( ! function_exists( 'trustedd_setup' ) ) :
+if ( ! function_exists( 'themedd_setup' ) ) :
 
 /**
- * Trustedd setup.
+ * Themedd setup.
  *
  * Set up theme defaults and registers support for various WordPress features.
  *
@@ -71,15 +71,15 @@ if ( ! function_exists( 'trustedd_setup' ) ) :
  *
  * @since 1.0
  */
-function trustedd_setup() {
+function themedd_setup() {
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on trustedd, use a find and replace
-	 * to change 'trustedd' to the name of your theme in all the template files
+	 * If you're building a theme based on themedd, use a find and replace
+	 * to change 'themedd' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'trustedd', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'themedd', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -103,13 +103,13 @@ function trustedd_setup() {
  	add_theme_support( 'post-thumbnails' );
  	set_post_thumbnail_size( 1200, 0, true );
 
-	add_image_size( 'trustedd-post-thumbnail', 566, 283, true );
-	add_image_size( 'trustedd-medium', 720, 360, true );
-	add_image_size( 'trustedd-large', 1200, 600, true );
+	add_image_size( 'themedd-post-thumbnail', 566, 283, true );
+	add_image_size( 'themedd-medium', 720, 360, true );
+	add_image_size( 'themedd-large', 1200, 600, true );
 
 	// Register menu
 	register_nav_menus( array(
-		'primary'   => __( 'Primary Menu', 'trustedd' ),
+		'primary'   => __( 'Primary Menu', 'themedd' ),
 	) );
 
 	/*
@@ -131,22 +131,22 @@ function trustedd_setup() {
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 endif;
-add_action( 'after_setup_theme', 'trustedd_setup' );
+add_action( 'after_setup_theme', 'themedd_setup' );
 
 /**
  * Load our site navigation
  *
  * @since 1.0
  */
-function trustedd_navigation() {
+function themedd_navigation() {
 	?>
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
 
 		<div id="menu-toggle-wrap">
-			<?php do_action( 'trustedd_menu_toggle_before' ); ?>
-			<button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'trustedd' ); ?></button>
-			<?php do_action( 'trustedd_menu_toggle_after' ); ?>
+			<?php do_action( 'themedd_menu_toggle_before' ); ?>
+			<button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
+			<?php do_action( 'themedd_menu_toggle_after' ); ?>
 		</div>
 
 		<div id="site-header-menu" class="site-header-menu">
@@ -154,7 +154,7 @@ function trustedd_navigation() {
 	    	<nav id="site-navigation" class="main-navigation" role="navigation">
 	            <?php
 	    			wp_nav_menu(
-	    				apply_filters( 'trustedd_navigation', array(
+	    				apply_filters( 'themedd_navigation', array(
 	    					'menu_id'        => 'primary-menu',
 	    					'menu_class'     => 'menu',
 	    					'theme_location' => 'primary',
@@ -170,7 +170,7 @@ function trustedd_navigation() {
 
 	<?php
 }
-add_action( 'trustedd_masthead', 'trustedd_navigation' );
+add_action( 'themedd_masthead', 'themedd_navigation' );
 
 /**
  * Register widget area
@@ -179,12 +179,12 @@ add_action( 'trustedd_masthead', 'trustedd_navigation' );
  *
  * @return void
  */
-function trustedd_widgets_init() {
+function themedd_widgets_init() {
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'trustedd' ),
+		'name'          => esc_html__( 'Sidebar', 'themedd' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'trustedd' ),
+		'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'themedd' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -192,9 +192,9 @@ function trustedd_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Download Sidebar', 'trustedd' ),
+		'name'          => __( 'Download Sidebar', 'themedd' ),
 		'id'            => 'sidebar-download',
-		'description'   => esc_html__( 'Add widgets here to appear in your download sidebar.', 'trustedd' ),
+		'description'   => esc_html__( 'Add widgets here to appear in your download sidebar.', 'themedd' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -202,17 +202,17 @@ function trustedd_widgets_init() {
 	) );
 
 }
-add_action( 'widgets_init', 'trustedd_widgets_init' );
+add_action( 'widgets_init', 'themedd_widgets_init' );
 
 /**
  * Filter sidebars
  * Allows sidebars to be disabled completely or on a specific post/page/download
  * Allows sidebars to be swapped out on specific posts/pages/downloads
  */
-function trustedd_get_sidebar() {
+function themedd_get_sidebar() {
 
 	// disable sidebar
-	if ( ! apply_filters( 'trustedd_show_sidebar', true ) ) {
+	if ( ! apply_filters( 'themedd_show_sidebar', true ) ) {
 		return false;
 	}
 
@@ -223,10 +223,10 @@ function trustedd_get_sidebar() {
 		$sidebar = 'download';
 	}
 
-	return get_sidebar( apply_filters( 'trustedd_get_sidebar', $sidebar ) );
+	return get_sidebar( apply_filters( 'themedd_get_sidebar', $sidebar ) );
 }
 
-function trustedd_primary_classes() {
+function themedd_primary_classes() {
 	$classes = array();
 
 	if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
@@ -247,12 +247,12 @@ function trustedd_primary_classes() {
 
 	}
 
-	$classes = apply_filters( 'trustedd_primary_classes', $classes );
+	$classes = apply_filters( 'themedd_primary_classes', $classes );
 
 	return ' ' . implode( ' ', $classes );
 }
 
-function trustedd_secondary_classes() {
+function themedd_secondary_classes() {
 	$classes = array();
 
 	$classes[] = 'col-xs-12 col-md-4';
@@ -262,7 +262,7 @@ function trustedd_secondary_classes() {
 }
 
 
-function trustedd_page_header_classes() {
+function themedd_page_header_classes() {
 	$classes = array();
 
 	$classes[] = 'col-xs-12 pv-xs-2 pv-lg-3';
@@ -275,11 +275,11 @@ function trustedd_page_header_classes() {
 /**
  * Controls the CSS classes applied to the main wrapper
  */
-function trustedd_wrapper_classes() {
+function themedd_wrapper_classes() {
 
 	$classes = array();
 
-	if ( apply_filters( 'trustedd_show_sidebar', true ) ) {
+	if ( apply_filters( 'themedd_show_sidebar', true ) ) {
 
 		if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
 			$classes[] = 'has-sidebar';
@@ -308,7 +308,7 @@ function trustedd_wrapper_classes() {
 	}
 
 	// allow filtering of the wrapper classes
-	$classes = apply_filters( 'trustedd_wrapper_classes', $classes );
+	$classes = apply_filters( 'themedd_wrapper_classes', $classes );
 
 	return ' ' . implode( ' ', $classes );
 }

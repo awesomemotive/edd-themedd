@@ -6,34 +6,34 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php trustedd_post_thumbnail(); ?>
+	<?php themedd_post_thumbnail(); ?>
 
-	<?php //trustedd_entry_date(); ?>
+	<?php //themedd_entry_date(); ?>
 
 	<div class="entry-content">
 
-		<?php do_action( 'trustedd_entry_content_start' ); ?>
+		<?php do_action( 'themedd_entry_content_start' ); ?>
 
 		<?php the_content(); ?>
 
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'trustedd' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'themedd' ),
 				'after'  => '</div>',
 			) );
 		?>
 
-		<?php do_action( 'trustedd_entry_content_end' ); ?>
+		<?php do_action( 'themedd_entry_content_end' ); ?>
 
 	</div>
 
 	<footer class="entry-footer">
-		<?php trustedd_entry_meta(); ?>
+		<?php themedd_entry_meta(); ?>
 		<?php
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					__( 'Edit %s', 'trustedd' ),
+					__( 'Edit %s', 'themedd' ),
 					the_title( '<span class="screen-reader-text">', '</span>', false )
 				),
 				'<span class="edit-link">',

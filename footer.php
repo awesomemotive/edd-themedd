@@ -4,17 +4,17 @@
  */
 ?>
 
-<?php do_action( 'trustedd_content_end' ); ?>
+<?php do_action( 'themedd_content_end' ); ?>
 
 </div>
 
-<?php do_action( 'trustedd_content_after' ); ?>
+<?php do_action( 'themedd_content_after' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
-		<?php do_action( 'trustedd_footer_start' ); ?>
+		<?php do_action( 'themedd_footer_start' ); ?>
 
-		<?php if ( has_nav_menu( 'primary' ) && apply_filters( 'trusted_footer_primary_menu', true ) ) : ?>
+		<?php if ( has_nav_menu( 'primary' ) && apply_filters( 'themedd_footer_primary_menu', true ) ) : ?>
 			<nav class="main-navigation" role="navigation">
 				<?php
 					wp_nav_menu( array(
@@ -25,15 +25,15 @@
 			</nav>
 		<?php endif; ?>
 
-		<?php do_action( 'trustedd_footer_before_site_info' ); ?>
+		<?php do_action( 'themedd_footer_before_site_info' ); ?>
 
 		<div class="wrapper full-width site-info">
-			<?php do_action( 'trusted_credits' ); ?>
+			<?php do_action( 'themedd_credits' ); ?>
 
-			<?php printf( __( 'Copyright &copy; %s, %s', 'trustedd' ), date('Y'), get_bloginfo( 'name' ) ); ?>
+			<?php printf( __( 'Copyright &copy; %s, %s', 'themedd' ), date('Y'), get_bloginfo( 'name' ) ); ?>
 		</div>
 
-		<?php do_action( 'trustedd_footer_end' ); ?>
+		<?php do_action( 'themedd_footer_end' ); ?>
 
 	</footer>
 

@@ -5,13 +5,13 @@
 
 get_header(); ?>
 
-<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+<header class="page-header<?php echo themedd_page_header_classes(); ?>">
     <?php the_title( '<h1 class="download-title">', '</h1>' ); ?>
 </header>
 
-<div class="wrapper wide<?php echo trustedd_wrapper_classes(); ?>">
+<div class="wrapper wide<?php echo themedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area <?php echo trustedd_primary_classes(); ?>">
+	<div id="primary" class="content-area <?php echo themedd_primary_classes(); ?>">
 
 		<main id="main" class="site-main" role="main">
 
@@ -39,7 +39,7 @@ get_header(); ?>
 	</div>
 
     <?php
-        trustedd_get_sidebar();
+        themedd_get_sidebar();
     ?>
 
 </div>

@@ -6,9 +6,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php trustedd_post_thumbnail(); ?>
+	<?php themedd_post_thumbnail(); ?>
 
-	<?php trustedd_entry_date(); ?>
+	<?php themedd_entry_date(); ?>
 
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
@@ -16,7 +16,7 @@
 
 	<?php if ( is_search() || is_archive() || is_home() ) : ?>
 
-		<?php trustedd_excerpt(); ?>
+		<?php themedd_excerpt(); ?>
 
 	<?php else : ?>
 
@@ -24,16 +24,16 @@
 			<?php
 				/* translators: %s: Name of current post */
 				the_content( sprintf(
-					__( 'Continue reading %s', 'trustedd' ),
+					__( 'Continue reading %s', 'themedd' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 
 				wp_link_pages( array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'trustedd' ) . '</span>',
+					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'themedd' ) . '</span>',
 					'after'       => '</div>',
 					'link_before' => '<span>',
 					'link_after'  => '</span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'trustedd' ) . ' </span>%',
+					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'themedd' ) . ' </span>%',
 					'separator'   => '<span class="screen-reader-text">, </span>',
 				) );
 			?>

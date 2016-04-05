@@ -6,10 +6,10 @@
  * @since 1.0
  * @return void
  */
-function trustedd_dequeue_affwp_styles() {
+function themedd_dequeue_affwp_styles() {
     wp_dequeue_style( 'affwp-forms' );
 }
-add_action( 'wp_enqueue_scripts', 'trustedd_dequeue_affwp_styles' );
+add_action( 'wp_enqueue_scripts', 'themedd_dequeue_affwp_styles' );
 
 /**
  * Forces the affiliate area page to be full-width
@@ -17,7 +17,7 @@ add_action( 'wp_enqueue_scripts', 'trustedd_dequeue_affwp_styles' );
  * @since 1.0
  * @return array
  */
-function trustedd_affwp_force_full_width( $classes ) {
+function themedd_affwp_force_full_width( $classes ) {
 
 	if ( is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) && is_user_logged_in() ) {
 		$classes[] = 'full-width';
@@ -30,11 +30,11 @@ function trustedd_affwp_force_full_width( $classes ) {
 	return $classes;
 
 }
-add_filter( 'trustedd_wrapper_classes', 'trustedd_affwp_force_full_width' );
+add_filter( 'themedd_wrapper_classes', 'themedd_affwp_force_full_width' );
 
 
 remove_shortcode( 'affiliate_area', array( affiliate_wp(), 'affiliate_area' ) );
-add_shortcode( 'affiliate_area', 'trustedd_affiliate_area' );
+add_shortcode( 'affiliate_area', 'themedd_affiliate_area' );
 
 /**
  *  Renders the affiliate area
@@ -42,7 +42,7 @@ add_shortcode( 'affiliate_area', 'trustedd_affiliate_area' );
  *  @since 1.0
  *  @return string
  */
-function trustedd_affiliate_area( $atts, $content = null ) {
+function themedd_affiliate_area( $atts, $content = null ) {
 
     // See https://github.com/AffiliateWP/AffiliateWP/issues/867
     if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {

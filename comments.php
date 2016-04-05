@@ -21,12 +21,12 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'trustedd' ),
+				printf( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'themedd' ),
 					number_format_i18n( get_comments_number() ), get_the_title() );
 			?>
 		</h2>
 
-		<?php trustedd_comment_nav(); ?>
+		<?php themedd_comment_nav(); ?>
 
 		<ol class="comment-list">
 			<?php
@@ -38,7 +38,7 @@ if ( post_password_required() ) {
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php trustedd_comment_nav(); ?>
+		<?php themedd_comment_nav(); ?>
 
 	<?php endif; // Check for have_comments(). ?>
 
@@ -46,7 +46,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'trustedd' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'themedd' ); ?></p>
 	<?php endif; ?>
 
 	<?php comment_form(); ?>
