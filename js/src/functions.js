@@ -35,9 +35,9 @@
 	initMainNavigation( $( '.main-navigation' ) );
 
 	masthead         = $( '#masthead' );
-	menuToggle       = masthead.find( '#menu-toggle' );
-	siteHeaderMenu   = masthead.find( '#site-header-menu' );
-	siteNavigation   = masthead.find( '#site-navigation' );
+	menuToggle       = $( '#menu-toggle' );
+	siteHeaderMenu   = $( '#site-header-menu' );
+	siteNavigation   = $( '#site-navigation' );
 
 	// Enable menuToggle.
 	( function() {

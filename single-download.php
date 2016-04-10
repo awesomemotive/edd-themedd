@@ -5,11 +5,11 @@
 
 get_header(); ?>
 
-<header class="page-header<?php echo themedd_page_header_classes(); ?>">
+<header class="aligncenter page-header<?php echo themedd_page_header_classes(); ?>">
     <?php the_title( '<h1 class="download-title">', '</h1>' ); ?>
 </header>
 
-<div class="wrapper wide<?php echo themedd_wrapper_classes(); ?>">
+<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area <?php echo themedd_primary_classes(); ?>">
 

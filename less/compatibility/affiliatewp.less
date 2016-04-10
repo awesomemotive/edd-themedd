@@ -1,79 +1,21 @@
-// tabs for account page
+@import '../variables';
 
-
-
-.tab-wrapper {
+#affwp-affiliate-dashboard {
     overflow: hidden;
-    display: flex;
-    flex-flow: column;
+}
+
+#affwp-affiliate-dashboard-tabs {
+    margin: 0 0 2rem 0;
+    list-style-type: none;
 }
 
 #affwp-affiliate-dashboard-tabs li {
     display: inline-block;
-    padding: 0;
-}
-
-#affwp-affiliate-dashboard-tabs {
-    margin: 0;
-}
-
-
-
-.affwp-tab-content {
-    padding: 2rem;
-    border: 2px solid @light-grey;
-    border-top: none;
-}
-
-// .ui-tabs-nav {
-//     margin: 0;
-//     position: relative;
-// }
-
-#affwp-affiliate-dashboard-tabs a {
-    display: block;
-    padding: 1rem;
-    transition: none;
-    border-bottom: none;
-}
-
-li.affwp-affiliate-dashboard-tab {
-    border: 2px solid @light-grey;
-    border-bottom: none;
-    position: relative;
-    background: #fdfdfd;
-}
-
-li.affwp-affiliate-dashboard-tab.active {
-    padding-top: 5px;
-    background: #fff;
 }
 
 li.affwp-affiliate-dashboard-tab.active a {
     color: @primary-color;
 }
-
-
-
-
-li.affwp-affiliate-dashboard-tab.active:before,
-li.affwp-affiliate-dashboard-tab.active:after {
-	content: '';
-	position: absolute;
-	height: 2px;
-	right: 100%;
-	bottom: 0;
-	width: 1200px;
-	background: @light-grey;
-}
-
-li.affwp-affiliate-dashboard-tab.active:after {
-	right: auto;
-	left: 100%;
-	width: 4000px;
-    z-index: 1;
-}
-
 
 .affwp-wrap {
 	margin-bottom: 2rem;
@@ -110,10 +52,62 @@ li.affwp-affiliate-dashboard-tab.active:after {
 	padding-bottom: 0;
 }
 
-// .no-js #tabs ul {
-//     display: none;
-// }
-
 #affwp-affiliate-dashboard .affwp-graph table {
 	width: auto;
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+
+    #affwp-affiliate-dashboard-tabs {
+        margin: 0;
+    }
+
+    li.affwp-affiliate-dashboard-tab.active {
+        padding-top: 5px;
+        background: #fff;
+    }
+
+    .affwp-tab-content {
+        padding: 2rem;
+        border: 2px solid @light-grey;
+        border-top: none;
+    }
+
+    li.affwp-affiliate-dashboard-tab {
+        border: 2px solid @light-grey;
+        border-bottom: none;
+        position: relative;
+        background: #fdfdfd;
+    }
+
+    #affwp-affiliate-dashboard-tabs a {
+        display: block;
+        padding: 1rem;
+        transition: none;
+        border-bottom: none;
+    }
+
+    li.affwp-affiliate-dashboard-tab.active:before,
+    li.affwp-affiliate-dashboard-tab.active:after {
+    	content: '';
+    	position: absolute;
+    	height: 2px;
+    	right: 100%;
+    	bottom: 0;
+    	width: 1200px;
+    	background: @light-grey;
+    }
+
+    li.affwp-affiliate-dashboard-tab.active:after {
+    	right: auto;
+    	left: 100%;
+    	width: 4000px;
+        z-index: 1;
+    }
+}
+
+@media only screen and ( max-width: @screen-sm-max ) {
+    #affwp-affiliate-dashboard-tabs a {
+        margin: 0 1rem 0 0;
+    }
 }

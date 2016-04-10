@@ -2,6 +2,15 @@
     line-height: 1.62;
 }
 
+.widget ul {
+    margin: 0;
+    list-style-type: none;
+}
+
+.widget table {
+    margin-bottom: 0;
+}
+
 aside li {
     font-weight: 300;
     font-size: 1rem;
@@ -11,4 +20,17 @@ aside li {
 // remove bottom border on very last widget
 #primary-sidebar aside:last-child {
     border-bottom: none;
+}
+
+// calendar
+#wp-calendar caption {
+    margin-bottom: 0.5rem;
+}
+#wp-calendar th,
+#wp-calendar td:not( #prev ) {
+    text-align: center;
+}
+
+#wp-calendar td#next {
+    text-align: right;
 }

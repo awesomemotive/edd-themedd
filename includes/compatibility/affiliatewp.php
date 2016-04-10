@@ -6,31 +6,24 @@
  * @since 1.0
  * @return void
  */
-function themedd_dequeue_affwp_styles() {
+function themedd_affwp_styles() {
+
+    global $post;
+
+    // Dequeue AffiliateWP's forms.css file
     wp_dequeue_style( 'affwp-forms' );
-}
-add_action( 'wp_enqueue_scripts', 'themedd_dequeue_affwp_styles' );
 
-/**
- * Forces the affiliate area page to be full-width
- *
- * @since 1.0
- * @return array
- */
-function themedd_affwp_force_full_width( $classes ) {
+    if ( ! is_object( $post ) ) {
+        return;
+    }
 
-	if ( is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) && is_user_logged_in() ) {
-		$classes[] = 'full-width';
-	}
-
-    if ( is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) && ! is_user_logged_in() && affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
-		$classes[] = 'wide';
-	}
-
-	return $classes;
+    if ( has_shortcode( $post->post_content, 'affiliate_area' ) || has_shortcode( $post->post_content, 'affiliate_registration' ) || apply_filters( 'affwp_force_frontend_scripts', false ) ) {
+        // Enqueue our own styling for AffiliateWP
+        wp_enqueue_style( 'themedd-affiliatewp', get_template_directory_uri() . '/css/affiliatewp.min.css', array(), THEMEDD_VERSION );
+    }
 
 }
-add_filter( 'themedd_wrapper_classes', 'themedd_affwp_force_full_width' );
+add_action( 'wp_enqueue_scripts', 'themedd_affwp_styles' );
 
 
 remove_shortcode( 'affiliate_area', array( affiliate_wp(), 'affiliate_area' ) );

@@ -44,17 +44,14 @@ article[class^="post-"] + article[class^="post-"] {
 	display: block;
 }
 
-// .entry-footer > span:not(:last-child):after {
-// 	content: "\002f";
-// 	display: inline-block;
-// 	opacity: 0.7;
-// 	padding: 0 0.5rem;
-// }
-
-
 .post-thumbnail {
-	margin-bottom: 2rem;
+	margin: 0 0 2rem 0;
 	display: block;
+}
+
+.single-post .post-thumbnail,
+.blog .post-thumbnail {
+	margin-bottom: 2rem;
 }
 
 .post-thumbnail .wp-post-image {
@@ -107,7 +104,6 @@ article[class^="post-"] + article[class^="post-"] {
 // add bottom border to comments and also blog posts
 .comment-list > .comment,
 .blog .wrapper.has-sidebar article {
-//	border-bottom: 2px solid @light-grey;
 	padding-left: 0;
 }
 
@@ -156,7 +152,6 @@ article[class^="post-"] + article[class^="post-"] {
 	display: none;
 }
 
-
 .posted-on a {
 	border-bottom: none;
 	color: @body-text-color;
@@ -164,6 +159,11 @@ article[class^="post-"] + article[class^="post-"] {
 
 .page-header h1 {
 	margin-bottom: 0;
+}
+
+// center headers
+.no-sidebar .page-header {
+	text-align: center;
 }
 
 @media all and ( max-width: @screen-sm-max ) {
@@ -179,11 +179,6 @@ article[class^="post-"] + article[class^="post-"] {
 
 // Medium Devices, Desktops
 @media only screen and ( min-width: @screen-md-min ) {
-
-	// .no-sidebar .page-header {
-	// 	text-align: center;
-	// 	padding: 3rem 0;
-	// }
 
 	.has-sidebar .posted-on {
 		display: block;
@@ -201,19 +196,12 @@ article[class^="post-"] + article[class^="post-"] {
 
 	.has-sidebar .entry-footer > span {
 		display: block;
-	//	margin-bottom: 0.5rem;
 		padding: 0.5rem 0;
 	}
 
 	.page-header {
-		text-align: center;
 		padding: 3rem 0;
 	}
-
-	.has-sidebar .entry-header {
-	//	margin-bottom: 3rem;
-	}
-
 
 }
 
@@ -222,6 +210,12 @@ article[class^="post-"] + article[class^="post-"] {
 }
 
 @media only screen and ( min-width: @screen-lg-min ) {
+
+	.single-post .post-thumbnail,
+	.blog .post-thumbnail {
+		margin-left: -4rem;
+		margin-right: -4rem;
+	}
 
 	// hide entry meta since it is now shown in the sidebar
 	.has-sidebar #main .entry-footer {

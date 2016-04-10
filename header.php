@@ -1,12 +1,6 @@
 <?php
 /**
  * The template for displaying the header
- *
- * Displays all of the head element and everything up until the "site-content" div.
- *
- * @package WordPress
- * @subpackage Themedd
- * @since Themedd 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -28,8 +22,6 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themedd' ); ?></a>
 
 	<?php do_action( 'themedd_header' ); ?>
-
-	<?php do_action( 'themedd_content_before' ); ?>
 
 	<div id="content" class="site-content">
 

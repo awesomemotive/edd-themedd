@@ -8,8 +8,6 @@
 
 	<?php themedd_post_thumbnail(); ?>
 
-	<?php //themedd_entry_date(); ?>
-
 	<div class="entry-content">
 
 		<?php do_action( 'themedd_entry_content_start' ); ?>

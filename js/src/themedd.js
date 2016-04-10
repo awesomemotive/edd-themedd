@@ -6,9 +6,12 @@ jQuery(document).ready(function($) {
         $('html, body').animate({scrollTop:offset}, 800);
     });
 
-
 	$('body').addClass('js');
 
     $( 'a > img' ).parent().addClass( 'has-image' );
+
+    $('body').on('click.eddAddToCart', '.edd-add-to-cart', function (e) {
+        $( '.nav-cart' ).removeClass('empty');
+    });
 
 });

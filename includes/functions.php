@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Is EDD active
+ * Is EDD active?
  *
  * @return bool
  */
@@ -10,12 +10,21 @@ function themedd_is_edd_active() {
 }
 
 /**
- * Is AffiliateWP active
+ * Is AffiliateWP active?
  *
  * @return bool
  */
 function themedd_is_affiliatewp_active() {
 	return class_exists( 'Affiliate_WP' );
+}
+
+/**
+ * Is Subtitles active?
+ *
+ * @return bool
+ */
+function themedd_is_subtitles_active() {
+	return class_exists( 'Subtitles' );
 }
 
 

@@ -10,8 +10,8 @@
  *
  * @since 1.0.0
 */
-if ( ! defined( 'THEMEDD_THEME_VERSION' ) ) {
-	define( 'THEMEDD_THEME_VERSION', '1.2.7' );
+if ( ! defined( 'THEMEDD_VERSION' ) ) {
+	define( 'THEMEDD_VERSION', '1.2.8' );
 }
 
 if ( ! defined( 'THEMEDD_INCLUDES_DIR' ) ) {
@@ -31,11 +31,13 @@ if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'template-tags.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'header.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'custom.php' );
 
 
 // Compatibility with other plugins
 
+// AffiliateWP
 if ( themedd_is_affiliatewp_active() ) {
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/affiliatewp.php' );
 }
@@ -44,6 +46,11 @@ if ( themedd_is_affiliatewp_active() ) {
 if ( themedd_is_edd_active() ) {
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd-functions.php' );
+}
+
+// Subtitles
+if ( themedd_is_subtitles_active() ) {
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/subtitles.php' );
 }
 
 /**
@@ -107,9 +114,10 @@ function themedd_setup() {
 	add_image_size( 'themedd-medium', 720, 360, true );
 	add_image_size( 'themedd-large', 1200, 600, true );
 
-	// Register menu
+	// Register menus
 	register_nav_menus( array(
 		'primary'   => __( 'Primary Menu', 'themedd' ),
+		'secondary' => __( 'Secondary Menu', 'themedd' ),
 	) );
 
 	/*
@@ -132,45 +140,6 @@ function themedd_setup() {
 }
 endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
-
-/**
- * Load our site navigation
- *
- * @since 1.0
- */
-function themedd_navigation() {
-	?>
-
-    <?php if ( has_nav_menu( 'primary' ) ) : ?>
-
-		<div id="menu-toggle-wrap">
-			<?php do_action( 'themedd_menu_toggle_before' ); ?>
-			<button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
-			<?php do_action( 'themedd_menu_toggle_after' ); ?>
-		</div>
-
-		<div id="site-header-menu" class="site-header-menu">
-
-	    	<nav id="site-navigation" class="main-navigation" role="navigation">
-	            <?php
-	    			wp_nav_menu(
-	    				apply_filters( 'themedd_navigation', array(
-	    					'menu_id'        => 'primary-menu',
-	    					'menu_class'     => 'menu',
-	    					'theme_location' => 'primary',
-	    					'container'      => '',
-	    				))
-	    			);
-	    		?>
-	    	</nav>
-	    </div>
-
-    <?php endif; ?>
-
-
-	<?php
-}
-add_action( 'themedd_masthead', 'themedd_navigation' );
 
 /**
  * Register widget area
@@ -226,6 +195,11 @@ function themedd_get_sidebar() {
 	return get_sidebar( apply_filters( 'themedd_get_sidebar', $sidebar ) );
 }
 
+/**
+ * Themedd primary div classes
+ *
+ * @since 1.0.0
+ */
 function themedd_primary_classes() {
 	$classes = array();
 
@@ -236,7 +210,8 @@ function themedd_primary_classes() {
 		if (
 			is_page_template( 'page-templates/slim.php' ) ||
 			is_page_template( 'page-templates/wide.php' ) ||
-			is_page_template( 'page-templates/full-width.php' )
+			is_page_template( 'page-templates/full-width.php' ) ||
+			is_page_template( 'page-templates/no-sidebar.php' )
 		) {
 			$classes[] = 'col-xs-12';
 
@@ -252,6 +227,11 @@ function themedd_primary_classes() {
 	return ' ' . implode( ' ', $classes );
 }
 
+/**
+ * Themedd secondary div classes
+ *
+ * @since 1.0.0
+ */
 function themedd_secondary_classes() {
 	$classes = array();
 
@@ -261,54 +241,121 @@ function themedd_secondary_classes() {
 	return implode( ' ', $classes );
 }
 
-
+/**
+ * Themedd page header div classes
+ *
+ * @since 1.0.0
+ */
 function themedd_page_header_classes() {
 	$classes = array();
 
-	$classes[] = 'col-xs-12 pv-xs-2 pv-lg-3';
-
+	$classes[] = 'col-xs-12 pv-xs-2 pv-sm-3 pv-lg-4';
 
 	return ' ' . implode( ' ', $classes );
 }
 
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @since 1.0
+ */
+function themedd_body_classes( $classes ) {
+
+	if ( is_page_template() ) {
+
+		// page templates don't have a sidebar
+		if (
+			is_page_template( 'page-templates/slim.php' ) ||
+			is_page_template( 'page-templates/wide.php' ) ||
+			is_page_template( 'page-templates/full-width.php' ) ||
+			is_page_template( 'page-templates/no-sidebar.php' )
+		) {
+			$classes[] = 'no-sidebar';
+		}
+
+		// full-width template
+		if ( is_page_template( 'page-templates/full-width.php' ) ) {
+			$classes[] = 'width-full';
+		}
+
+		// wide template
+		if ( is_page_template( 'page-templates/wide.php' ) ) {
+			$classes[] = 'width-wide';
+		}
+
+		// slim template
+		if ( is_page_template( 'page-templates/slim.php' ) ) {
+			$classes[] = 'width-slim';
+		}
+
+
+	} else {
+
+		/**
+		 * If a sidebar has been removed make
+		 */
+		if ( apply_filters( 'themedd_show_sidebar', true ) ) {
+
+			if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
+				$classes[] = 'has-sidebar';
+			} elseif ( is_singular( 'download' ) ) {
+				$classes[] = 'has-sidebar';
+			} else {
+				// default classes
+				$classes[] = 'no-sidebar';
+			}
+		} else {
+			// default classes
+			$classes[] = 'no-sidebar';
+		}
+
+		/**
+		 * Single download pages will always have a sidebar
+		 */
+		// if (
+		// 	is_active_sidebar( 'sidebar-1' ) ||
+		// 	is_singular( 'download' ) )
+		// {
+		// 	$classes[] = 'has-sidebar';
+		// } else {
+		// 	$classes[] = 'no-sidebar';
+		// }
+
+	}
+
+	// Primary menu active
+	if ( has_nav_menu( 'primary' ) ) {
+		$classes[] = 'has-primary-menu';
+	}
+
+	// Secondary menu active
+	//if ( has_nav_menu( 'secondary' ) && wp_get_nav_menu_items( 'secondary' ) ) {
+	if ( has_nav_menu( 'secondary' ) ) {
+		$classes[] = 'has-secondary-menu';
+	}
+
+	// allow filtering of the wrapper classes
+	$classes = apply_filters( 'themedd_body_classes', $classes );
+
+	return $classes;
+
+}
+add_filter( 'body_class', 'themedd_body_classes' );
 
 /**
- * Controls the CSS classes applied to the main wrapper
+ * Controls the CSS classes applied to the main wrappers
+ * Useful for overriding the wrapper widths etc
  */
 function themedd_wrapper_classes() {
 
 	$classes = array();
 
-	if ( apply_filters( 'themedd_show_sidebar', true ) ) {
-
-		if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
-			$classes[] = 'has-sidebar';
-		} elseif ( is_singular( 'download' ) ) {
-			$classes[] = 'has-sidebar';
-		} else {
-			// default classes
-			$classes[] = 'no-sidebar';
-		}
-	} else {
-		// default classes
-		$classes[] = 'no-sidebar';
-	}
-
-	// all 3 page templates have no sidebar and are identical in code and, the only difference is the
-	// CSS classes added to them
-	if (
-		is_page_template( 'page-templates/slim.php' ) ||
-		is_page_template( 'page-templates/wide.php' ) ||
-		is_page_template( 'page-templates/full-width.php' )
-	) {
-		// reset class array
-		$classes = array();
-		$classes[] = 'no-sidebar';
-
-	}
-
 	// allow filtering of the wrapper classes
 	$classes = apply_filters( 'themedd_wrapper_classes', $classes );
 
-	return ' ' . implode( ' ', $classes );
+	if ( $classes ) {
+		return ' ' . implode( ' ', $classes );
+	}
+
+	return implode( ' ', $classes );
 }

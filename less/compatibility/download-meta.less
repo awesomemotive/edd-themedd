@@ -1,0 +1,43 @@
+.download-meta span {
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 1rem;
+    margin-right: 0.3rem;
+}
+
+// download meta
+.download-meta {
+	margin-bottom: 1rem;
+    display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+
+	&:last-child { margin-bottom: 0; }
+}
+
+.download-meta img {
+	vertical-align: middle;
+	margin-right: 1rem;
+}
+
+.download-meta svg {
+	vertical-align: middle;
+	margin-right: 0.5rem;
+}
+
+// links that appear in the download meta
+.download-meta a {
+	border-bottom: 1px solid #B0B0B0;
+	font-size: 1rem;
+	display: inline-block;
+	color: @body-text-color;
+
+	&:hover {
+		border-color: @link-hover-color;
+	}
+}
+
+.meta-categories .title,
+.meta-tags .title {
+    display: none;
+}

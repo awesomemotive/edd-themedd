@@ -1,44 +1,73 @@
 
+// #menu-toggle-wrap holds the nav cart icon and the button to expand the mobile menu
+// .site-header-menu is a class given to the main navigation
+// #site-header-secondary-menu is a wrap that contains the secondary navigation and the nav cart by default
+// #secondary-navigation is the secondary navigation
+// .menu-toggle is the button shown at mobile sizes to expand the navigation
 
+//
+//
+// General navigation styling
+//
+//
 
-// site header menu
-.site-header-menu {
-	display: none;
-	-webkit-flex: 0 1 100%;
-	-ms-flex: 0 1 100%;
-	flex: 0 1 100%;
-	margin-top: 2rem;
-}
-
-.site-header-menu.toggled-on,
-.no-js .site-header-menu {
-	display: block;
-}
-
-// menu button shown at mobile sizes
-.menu-toggle {
-	background-color: @menu-toggle-bg;
-	border: @menu-toggle-border;
-	color: @menu-toggle-color;
-	margin: 0;
-	padding: 0.5rem 1rem;
-	font-size: 1rem;
-
-	&:hover {
-		background: transparent;
-		color: @menu-toggle-hover-color;
-		border: @menu-toggle-hover-border;
-	}
-}
-
+// remove outlines
 button:hover,
 button:focus {
 	outline: none;
 }
 
-.menu-toggle:hover,
-.menu-toggle:focus {
-	border-color: @medium-grey;
+// navigation list styling
+.secondary-navigation ul,
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
+}
+
+#menu-toggle-wrap {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+	align-self: center;
+}
+
+.site-header-menu {
+	display: none; // hide any menus by default at mobile sizes
+    -webkit-flex: 0 1 100%;
+	-ms-flex: 0 1 100%;
+	flex: 0 1 100%;
+}
+
+// the secondary navigation wrap
+#site-header-secondary-menu {
+	padding-right: 2rem;
+}
+
+// show the main navigation when the mobile menu has been toggled, or when there is no JavaScript
+.site-header-menu.toggled-on,
+.no-js .site-header-menu {
+	display: block;
+}
+
+
+//
+//
+// Menu button shown at mobile sizes
+//
+//
+.menu-toggle {
+	background-color: @menu-toggle-bg-color;
+	border: @menu-toggle-border;
+	color: @menu-toggle-color;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+}
+
+.menu-toggle:hover {
+    background-color: @menu-toggle-bg-hover-color;
+    color: @menu-toggle-hover-color;
+    border: @menu-toggle-hover-border;
 }
 
 .menu-toggle.toggled-on,
@@ -53,35 +82,21 @@ button:focus {
 	display: none;
 }
 
-// main navigation
-.main-navigation ul {
-	list-style: none;
-	margin: 0;
-}
 
-.main-navigation li {
-	border-top: @menu-toggle-border-top;
-	position: relative;
-	padding: 0;
-}
 
-.site-footer .main-navigation li {
-	border-top: @menu-toggle-footer-border-top;
-}
-
+//
+//
+// Main navigation styling
+//
+//
 .main-navigation a {
 	display: block;
-	line-height: 1.3125;
-	padding: 1rem 0;
+	line-height: 1;
 	font-size: @nav-font-size;
 	font-weight: @nav-font-weight;
 	padding: 0.84375rem 0;
 	color: @nav-color;
-}
-
-.main-navigation a:hover,
-.main-navigation a:focus {
-	color: @nav-hover-color;
+	border-bottom: none;
 }
 
 .main-navigation .current-menu-item > a,
@@ -89,9 +104,27 @@ button:focus {
 	color: @nav-active-color;
 }
 
+.main-navigation a:hover,
+.main-navigation a:focus {
+	color: @nav-hover-color;
+	border-bottom: none;
+}
+
+.main-navigation li {
+	border-top: @menu-toggle-border-top; // border above each list item at mobile size
+	position: relative;
+	padding: 0;
+}
+
 .main-navigation ul ul {
 	display: none;
 	margin-left: 0.875em;
+}
+
+// leave right margin for the button
+.main-navigation .menu-item-has-children > a {
+	margin: 0;
+	padding-right: 2rem;
 }
 
 .no-js .main-navigation ul ul,
@@ -99,10 +132,33 @@ button:focus {
 	display: block;
 }
 
-// site footer navigation
 
+//
+//
+// Secondary navigation styling
+//
+//
+.secondary-navigation a {
+	display: block;
+	line-height: 32px;
+	padding: 8px 1rem;
+	color: @nav-secondary-color;
+	font-size: @nav-secondary-font-size;
+	font-weight: @nav-secondary-font-weight;
+}
+
+
+//
+//
+// Site footer navigation
+//
+//
 .site-footer .main-navigation {
 	padding: 0 2rem;
+}
+
+.site-footer .main-navigation li {
+	border-top: @menu-toggle-footer-border-top;
 }
 
 .site-footer .main-navigation a {
@@ -119,13 +175,13 @@ button:focus {
 	color: @nav-footer-active-color;
 }
 
-// leave margin for the button
-.main-navigation .menu-item-has-children > a {
-	margin: 0;
-	padding-right: 2rem;
-}
 
-// dropdown toggles at mobile sizes
+//
+//
+// Dropdown toggles
+// Expands the sub menu items at mobile size
+//
+//
 .dropdown-toggle {
 	background-color: transparent;
 	border: 0;
@@ -164,12 +220,21 @@ button:focus {
 	content: "\f432";
 }
 
+@media only screen and ( max-width: @screen-sm-max ) {
 
+	// site header menu
+	.site-header-menu {
+		padding: 0;
+        margin-top: 2rem; // for the expanded menu
+	}
+
+}
 
 @media only screen and ( min-width: @screen-md-min ) {
 
 	// clearfix
-	#site-navigation ul.menu:after {
+	#site-navigation ul.menu:after,
+	#secondary-navigation ul.menu:after {
 		visibility: hidden;
 		display: block;
 		font-size: 0;
@@ -180,11 +245,17 @@ button:focus {
 
 	.site-header-menu {
 		display: block;
+	}
+
+	#site-header-secondary-menu {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+
+        // makes it right aligned next to .site-branding
 		-webkit-flex: 0 1 auto;
 		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
-		align-self: center;
-		margin-top: 0;
 	}
 
 	// sub menu
@@ -198,7 +269,10 @@ button:focus {
 	}
 
 	.main-navigation {
-		margin: 0 -0.875rem;
+	//	margin: 0 -0.875rem;
+		margin: 0 auto;
+        max-width: @page-wrap-max-width;
+        padding: 0 2rem;
 	}
 
 	.main-navigation li {
@@ -217,6 +291,15 @@ button:focus {
 		color: @nav-hover-color;
 	}
 
+	.secondary-navigation li {
+		float: left;
+	}
+
+	.secondary-navigation a {
+		padding: @nav-secondary-md-padding;
+	}
+
+	// sub-menus
 	.main-navigation .sub-menu li:hover > a,
 	.main-navigation .sub-menu li.focus > a {
 		color: @nav-sub-hover-color;
@@ -224,8 +307,6 @@ button:focus {
 	}
 
 	.main-navigation ul ul {
-	//	border-bottom: 1px solid @medium-grey;
-	//	border: 1px solid @medium-grey;
 		border: @nav-sub-border;
 		display: block;
 		float: left;
@@ -248,8 +329,6 @@ button:focus {
 	}
 
 	.main-navigation ul ul ul {
-	//	left: -999em;
-	//	top: -1px;
 		top: 0;
 		left: 100%;
 	}
@@ -261,24 +340,19 @@ button:focus {
 
 	.main-navigation ul ul li {
 		background-color: @nav-sub-background-color;
-		// border-color: @medium-grey;
-		// border-style: solid;
-		// border-width: 1px 1px 0;
-
-	//	border: 1px solid @medium-grey;
 	}
 
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		left: 100%;
 		top: -1px;
-	//	visibility: visible;
 	}
 
 	.main-navigation ul ul a {
 		white-space: normal;
 		width: 15em;
 		font-size: @nav-sub-font-size;
+		font-weight: @nav-sub-font-weight;
 		line-height: 1.5;
 	}
 
@@ -336,6 +410,29 @@ button:focus {
 		display: none;
 	}
 
+    #primary-menu {
+       margin: 0 -0.875rem;
+    }
 
+    // .main-navigation {
+    //     padding: 0 2rem;
+	// }
+
+}
+
+@media only screen and ( min-width: @screen-lg-min ) {
+
+	#site-header-secondary-menu {
+		padding: @site-header-secondary-menu-lg-padding;
+	}
+
+    .main-navigation {
+        padding: 0;
+	}
+
+    #primary-menu {
+       margin: 0 auto;
+       max-width: 1220px;
+    }
 
 }

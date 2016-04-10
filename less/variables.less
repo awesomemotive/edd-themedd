@@ -6,11 +6,12 @@
 @link-hover-color: @accent-color;
 
 // menu toggle
-@menu-toggle-bg: transparent;
-@menu-toggle-color: #222;
-@menu-toggle-hover-color: @menu-toggle-color;
+@menu-toggle-bg-color: transparent;
+@menu-toggle-bg-hover-color: @menu-toggle-bg-color;
 @menu-toggle-on-background-color: #222;
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
+@menu-toggle-color: #222;
+@menu-toggle-hover-color: @menu-toggle-color;
 @menu-toggle-on-color: #fff;
 @menu-toggle-border: 1px solid @medium-grey;
 @menu-toggle-hover-border: @menu-toggle-border;
@@ -22,22 +23,34 @@
 @dropdown-toggle-hover-color: @nav-hover-color;
 @dropdown-toggle-border-left: 1px solid @nav-sub-background-color;
 
-// main nav links
+// primary nav links
 @nav-color: #222;
 @nav-font-size: 1rem;
-@nav-font-weight: 500;
-
-
+@nav-font-weight: 300;
 @nav-hover-color: @primary-color;
 @nav-active-color: @primary-color;
 @nav-md-padding: 1rem;
+
+// cart icons
+@cart-color: @nav-color;
+@cart-hover-color: @nav-color;
+@cart-active-color: @nav-color;
+@cart-count-color: #fff;
+@cart-count-background-color: @accent-color;
+
+// secondary navigation
+@nav-secondary-color: @body-text-color;
+@nav-secondary-md-padding: 0.5rem;
+@nav-secondary-font-size: 0.875rem;
+@nav-secondary-font-weight: 300;
 
 // sub-menu
 @nav-sub-background-color: #fff;
 @nav-sub-arrow-color: #fff;
 @nav-sub-arrow-border-color: @medium-grey;
 @nav-sub-border: 1px solid @medium-grey;
-@nav-sub-font-size: 1rem;
+@nav-sub-font-size: 0.875rem;
+@nav-sub-font-weight: 300;
 @nav-sub-color: @body-text-color;
 @nav-sub-hover-color: @primary-color;
 @nav-sub-active-color: @primary-color;
@@ -48,11 +61,8 @@
 @box-border: 2px solid @light-grey;
 @box-background-color: @lighter-grey;
 
-
-
-
-
-// footer nav links
+// footer
+@footer-font-size: 0.875rem;
 @nav-footer-color: @nav-color;
 @nav-footer-hover-color: @nav-hover-color;
 @nav-footer-active-color: @nav-active-color;
@@ -68,7 +78,7 @@
 @code-color: @body-text-color;
 @body-text-color: #787878;
 @content-color: #fff;
-@masthead-color: #fff;
+
 @footer-color: #fff;
 @underline-color: #bababa;
 
@@ -76,12 +86,30 @@
 @lighter-grey: lighten( @light-grey, 3% );
 @medium-grey: #ddd;
 
-@masthead-padding: 2rem;
+// masthead
+// @masthead-padding: 2rem;
+@masthead-color: #fff;
+
+@site-padding-xs: 2rem;
+
+// site branding
+@site-branding-padding: 0 0 0 0;
+//@site-branding-md-padding: 2rem 0 0 8%;
+@site-branding-lg-padding: 0 0 0 2rem;
+
+// site header menu
+//@site-header-menu-padding: 0 2rem 0 2rem;
+@site-header-menu-padding: 0 2rem 0 2rem;
+//@site-header-menu-md-padding: 0 2rem 0 2rem;
+//@site-header-menu-md-padding: 0 8%;
+@site-header-menu-lg-padding: 0 2rem;
+//@site-header-secondary-menu-md-padding: 0 8% 0 0;
+@site-header-secondary-menu-lg-padding: 0 2rem 0 0;
 
 // breakpoints
 @screen-sm-min: 768px; // 48em
 @screen-md-min: 992px; // 62em
-@screen-lg-min: 1200px; // 75em
+@screen-lg-min: 1220px; // 75em
 
 // So media queries don't overlap when required, provide a maximum
 @screen-xs-max: (@screen-sm-min - 1);
@@ -90,4 +118,15 @@
 
 @wrapper-slim: 784px;
 @wrapper-wide: 1080px;
-@page-max-width: 1280px;
+
+// get a better ratio between spaces
+@width-standard: 1252px;
+@width-wide: 1080px;
+@width-slim: 784px;
+
+
+@wrapper-wide-has-sidebar: @page-wrap-max-width;
+@wrapper-full-width: @page-wrap-max-width;
+//@page-max-width: 1280px;
+@page-max-width: 1480px;
+@page-wrap-max-width: 1252px;

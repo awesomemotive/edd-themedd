@@ -7,12 +7,12 @@
 function themedd_enqueue_scripts() {
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'themedd', get_stylesheet_uri(), array(), THEMEDD_THEME_VERSION );
+	wp_enqueue_style( 'themedd', get_stylesheet_uri(), array(), THEMEDD_VERSION );
 
 	/**
 	 * Themedd JS
 	 */
-	wp_register_script( 'themedd-js', get_template_directory_uri() . '/js/rcp-parent-theme.min.js', array( 'jquery' ), THEMEDD_THEME_VERSION, true );
+	wp_register_script( 'themedd-js', get_template_directory_uri() . '/js/rcp-parent-theme.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
 	wp_enqueue_script( 'themedd-js' );
 
 	wp_localize_script( 'themedd-js', 'screenReaderText', array(

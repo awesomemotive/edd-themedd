@@ -10,7 +10,7 @@ get_header(); ?>
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 
-<div class="wrapper slim<?php echo themedd_wrapper_classes(); ?>">
+<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area <?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">
@@ -21,6 +21,11 @@ get_header(); ?>
 				// Include the page content template.
 				get_template_part( 'template-parts/content', 'page' );
 
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+				
 			endwhile;
 		?>
 		</main>

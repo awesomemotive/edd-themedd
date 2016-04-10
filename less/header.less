@@ -1,0 +1,142 @@
+// masthead area
+
+#masthead {
+	background: @masthead-color;
+
+	a {
+		// if a logo image or icon is used it will make the anchor wrap to the same size and be fully clickable
+	//	display: block;
+		border: 0 none; // turn off border bottom
+	}
+}
+
+.site-branding {
+	// auto value on right margin allows the element next to sit against the edge of the container
+	margin: 0 auto 0 0;
+}
+
+// for mobile
+@media only screen and ( max-width: @screen-sm-max ) {
+
+	.site-header-main {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-webkit-flex-wrap: no-wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 2rem;
+	}
+
+	.site-header-wrap {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+}
+
+// for desktop
+@media only screen and ( min-width: @screen-md-min ) {
+
+	.site-branding {
+		padding: @site-branding-lg-padding;
+	}
+
+	.site-header-wrap {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+		max-width: @page-wrap-max-width;
+		margin: 0 auto;
+		padding-bottom: 2rem;
+		padding-top: 2rem;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .site-header-wrap {
+//     display: -webkit-flex;
+//     display: -ms-flex;
+//     display: flex;
+//     -webkit-flex-wrap: wrap;
+//     -ms-flex-wrap: wrap;
+//     flex-wrap: wrap;
+//     width: 100%;
+// }
+
+
+
+.site-header-main {
+	// -webkit-align-items: center;
+	// -ms-flex-align: center;
+	// align-items: center;
+	// display: -webkit-flex;
+	// display: -ms-flex;
+	// display: flex;
+	// -webkit-flex-wrap: wrap;
+	// -ms-flex-wrap: wrap;
+	// flex-wrap: wrap;
+//	margin: 0 auto;
+//	padding-left: 4.25rem;
+//	max-width: 1144px;
+//	padding-right: 4.25rem;
+}
+
+
+
+
+
+// @media only screen and ( min-width: @screen-md-min ) {
+// 	.site-branding {
+// 		padding: @site-branding-md-padding;
+// 	}
+// }
+
+
+
+
+
+
+// @media only screen and ( min-width: @screen-sm-min ) {
+// 	.site-branding {
+// 	//	padding: @site-branding-sm-padding;
+// 	}
+// }
+//
+// @media only screen and ( min-width: @screen-lg-min ) {
+//
+// }

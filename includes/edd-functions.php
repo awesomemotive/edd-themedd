@@ -1,5 +1,78 @@
 <?php
 
+/**
+ * Remove download meta styling
+ */
+remove_action( 'wp_head', 'edd_download_meta_styles' );
+
+/**
+ * Add categories icon to download meta
+ */
+function themedd_download_meta_icon_categories() {
+	?>
+	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-categories.svg'; ?>" width="24" />
+	<?php
+}
+add_action( 'edd_download_meta_categories', 'themedd_download_meta_icon_categories' );
+
+/**
+ * Add tags icon to download meta
+ */
+function themedd_download_meta_icon_tags() {
+	?>
+	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-tags.svg'; ?>" width="24" />
+	<?php
+}
+add_action( 'edd_download_meta_tags', 'themedd_download_meta_icon_tags' );
+
+/**
+ * Add last updated icon
+ */
+function themedd_download_meta_icon_last_updated() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-last-updated.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_last_updated', 'themedd_download_meta_icon_last_updated' );
+
+/**
+ * Add release date icon
+ */
+function themedd_download_meta_icon_release_date() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-released.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_release_date', 'themedd_download_meta_icon_release_date' );
+
+/**
+ * Add documentation icon
+ */
+function themedd_download_meta_icon_documentation() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-documentation.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_documentation', 'themedd_download_meta_icon_documentation' );
+
+/**
+ * Add version icon
+ */
+function themedd_download_meta_icon_version() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-version.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_version', 'themedd_download_meta_icon_version' );
+
 
 /**
  * Remove and deactivate all styling included with EDD
@@ -26,6 +99,12 @@ function themedd_edd_body_classes( $classes ) {
 	// add a shop class if we're on a page where the [downloads] shortcode is used
 	if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'downloads' ) ) {
 		$classes[] = 'edd-shop';
+	}
+
+	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+
+	if ( $cart_items ) {
+		$classes[] = 'items-in-cart';
 	}
 
 	return $classes;
@@ -57,12 +136,11 @@ function themedd_purchase_link_defaults( $defaults ) {
 }
 add_filter( 'edd_purchase_link_defaults', 'themedd_purchase_link_defaults' );
 
-
-
-
-
-
-
+/**
+ * Downloads wrapper classes
+ *
+ * @since 1.0.0
+ */
 function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 	$classes = array( $wrapper_class );
 
@@ -258,7 +336,6 @@ function themedd_load_popup() {
 add_action( 'wp_footer', 'themedd_load_popup', 100 );
 
 
-if ( ! function_exists( 'themedd_edd_checkout_image_size' ) ) :
 /**
  * Set the default EDD checkout image size
  *
@@ -267,6 +344,182 @@ if ( ! function_exists( 'themedd_edd_checkout_image_size' ) ) :
 function themedd_edd_checkout_image_size() {
 	return array( 100, 50 );
 }
-endif;
-
 add_filter( 'edd_checkout_image_size', 'themedd_edd_checkout_image_size' );
+
+/**
+ * Determine where the cart link icon should be displayed
+ * @since 1.0.0
+ */
+function themedd_cart_link_position() {
+	return apply_filters( 'themedd_cart_link_position', 'secondary_menu' );
+}
+
+/**
+ * Append extra links to primary navigation
+ *
+ * @since 1.0.0
+*/
+function themedd_wp_nav_menu_items( $items, $args ) {
+
+	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
+
+	if ( 'primary_menu' == themedd_cart_link_position() ) {
+		$items .= themedd_edd_cart_link();
+	}
+
+    return $items;
+
+}
+add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
+
+
+ // $items = apply_filters( "wp_nav_menu_{$menu->slug}_items", $items, $args );
+
+/**
+ * Add cart link to secondary menu
+ *
+ * @since 1.0.0
+ */
+function themedd_secondary_menu_after() {
+
+	if ( 'secondary_menu' !== themedd_cart_link_position() ) {
+		return;
+	}
+
+    echo themedd_edd_cart_link( array( 'list_item' => false ) );
+}
+add_action( 'themedd_secondary_menu_after', 'themedd_secondary_menu_after' );
+
+/**
+ * Add cart link to mobile menu
+ *
+ * @since 1.0.0
+ */
+function themedd_menu_toggle_before() {
+    echo themedd_edd_cart_link( array( 'list_item' => false, 'classes' => array( 'mobile' ) ) );
+}
+add_action( 'themedd_menu_toggle_before', 'themedd_menu_toggle_before' );
+
+/**
+ * Append buy now link to main navigation
+ *
+ * @return [type] [description]
+ */
+function themedd_edd_cart_link( $args = array() ) {
+	ob_start();
+
+	$defaults = apply_filters( 'themedd_edd_cart_link_defaults',
+		array(
+			'classes'   => array( 'animate' ),
+			'cart_link' => function_exists( 'edd_get_checkout_uri' ) ? edd_get_checkout_uri() : '',
+			'list_item' => isset( $args['list_item'] ) && $args['list_item'] === false ? false : true
+		)
+	);
+
+
+
+	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+	$defaults['classes'][] = ! $cart_items ? 'empty' : '';
+
+	$args = wp_parse_args( $args, $defaults );
+
+
+
+    $cart_items   = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+
+	// whether or not to include list item markup
+	$list_item = $args['list_item'];
+
+	// cart link
+	$cart_link = $args['cart_link'];
+
+	// CSS classes
+	$classes = $args['classes'] ? ' ' . implode( ' ', $args['classes'] ) : '';
+
+	if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
+
+        <?php if ( $list_item ) : ?>
+		<li class="action checkout menu-item">
+        <?php endif; ?>
+
+			<a class="nav-cart<?php echo $classes; ?>" href="<?php echo $cart_link; ?>">
+                <?php echo themedd_edd_cart_icon(); ?>
+            </a>
+        <?php if ( $list_item ) : ?>
+		</li>
+        <?php endif; ?>
+
+	<?php endif;
+
+    $content = ob_get_contents();
+    ob_end_clean();
+
+    return $content;
+
+    ?>
+
+<?php }
+
+/**
+ * The cart icon
+ *
+ * @since 1.0
+ */
+function themedd_edd_cart_icon() {
+    $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+
+	ob_start();
+?>
+
+	<?php if ( apply_filters( 'themedd_edd_cart_icon_count', true ) ) : ?>
+	<span class="cart-count"><span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></span>
+	<?php endif; ?>
+
+	<svg id="nav-cart-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+		<defs>
+		<style>
+			.cart-frame {
+				fill: none;
+			}
+		</style>
+		</defs>
+		<?php if ( $cart_items ) : ?>
+		  <title><?php _e( 'Checkout now', 'themedd' ); ?></title>
+		<?php else : ?>
+		  <title><?php _e( 'Go to checkout', 'themedd' ); ?></title>
+		<?php endif; ?>
+		<g id="frame">
+			<rect class="cart-frame" width="48" height="48" />
+		</g>
+		<g id="cart">
+			<circle class="cart-wheel" cx="34.7" cy="37" r="3"/>
+			<circle class="cart-wheel" cx="22.6" cy="37" r="3"/>
+		<?php if ( $cart_items && apply_filters( 'themedd_edd_cart_icon_full', false ) ) : ?>
+			<path class="cart-items" d="M40.7,13.2c0.3-0.7,0.1-1.5-0.5-1.9l-4.6-3c-0.1,0-0.1-0.1-0.2-0.1c-0.8-0.4-1.7-0.1-2,0.7l-3.3,6.4v-2.7v0
+				c0-0.8-0.7-1.5-1.5-1.5h-6c0,0,0,0-0.1,0c-0.8,0.1-1.5,0.8-1.4,1.6v3h3v-1.5h3v1.5h6.3l1.9-3.9l2,1.3l-1.3,2.5h3.4L40.7,13.2z"/>
+		<?php endif; ?>
+			<path class="cart-main" d="M16.5,9.5h-6.1v3h4.9l4.3,18.6c0.2,0.7,0.8,1.2,1.5,1.2h15.3c0.7,0,1.3-0.5,1.5-1.2l3-12.2c0-0.1,0-0.2,0-0.3
+			c0-0.8-0.7-1.5-1.5-1.5H19.4L18,10.7C17.8,10,17.2,9.5,16.5,9.5L16.5,9.5z"/>
+		</g>
+	</svg>
+
+    <?php
+
+	$content = apply_filters( 'themedd_edd_cart_icon', ob_get_contents(), $cart_items );
+    ob_end_clean();
+
+    return $content;
+}
+
+/**
+ * Make the total quantity blank when no items exist in the cart
+ */
+function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
+
+	if ( ! $cart ) {
+		$total_quantity = '';
+	}
+
+	return $total_quantity;
+}
+add_filter( 'edd_get_cart_quantity', 'themedd_edd_get_cart_quantity', 10, 2 );

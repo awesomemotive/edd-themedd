@@ -1,4 +1,6 @@
 .edd_downloads_list {
+	display: -webkit-flex;
+	display: -ms-flex;
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: 5rem;
@@ -8,6 +10,8 @@
 
 .edd_download_inner {
 	// so we can position the child elements like the button to the bottom of the div
+	display: -webkit-flex;
+	display: -ms-flex;
 	display: flex;
 	width: 100%;
 	padding-bottom: 3rem;
@@ -20,6 +24,8 @@
 // the main download box
 .edd_download {
 	background: @light-grey;
+	display: -webkit-flex;
+	display: -ms-flex;
 	display: flex;
 	overflow: hidden;
 	width: 100%;
@@ -70,7 +76,7 @@ h3.edd_download_title {
 
 // download image
 .edd_download_image {
-	margin: -1rem -1rem 2rem -1rem;
+	margin: 0 0 2rem 0;
 
 	img {
 		display: block;
@@ -131,6 +137,27 @@ div[itemprop="offers"] {
 .edd_downloads_list .edd_price_options li {
     font-size: 1rem;
     padding: 0;
+}
+
+// download pagination
+
+#edd_download_pagination {
+	width: 100%;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+}
+
+.page-numbers {
+	border-bottom: 2px solid #f5f5f5;
+	border-right: 2px solid #f5f5f5;
+	padding: 0.5rem 1rem;
+
+
+}
+
+.page-numbers:hover {
+	border-bottom: 2px solid #f5f5f5;
 }
 
 // Small Devices, Tablets

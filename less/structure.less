@@ -1,13 +1,6 @@
 // Structure
 
-// sections
-
-// .section {
-// 	padding-left: 2rem;
-// 	padding-right: 2rem;
-// }
-
-.has-sidebar #main {
+#main {
 	padding-top: 2rem;
 }
 
@@ -19,8 +12,10 @@
 	margin-right: auto;
 
 	// flexbox sticky footer
+	display: -webkit-flex;
+	display: -ms-flex;
 	display: flex;
-	flex-direction:column;
+	flex-direction: column;
 }
 
 // content area
@@ -31,14 +26,6 @@
 
 
 // all pages when a sidebar is active
-
-#content .wrapper.columns {
-	max-width: 1180px;
-}
-
-// #primary-sidebar img {
-// 	max-width: 300px;
-// }
 
 #primary-sidebar aside {
 	padding: 1rem 0;
@@ -59,27 +46,39 @@
 	border-left: 2px solid @light-grey;
 }
 
-
-// so far only used for page templates
-.wrapper.slim { max-width: @wrapper-slim; }
-.wrapper.wide { max-width: @wrapper-wide; }
-
-.wrapper.full-width { max-width: 100%; }
-
-
-.wrapper.has-sidebar { max-width: 1080px; }
-
-.wrapper.no-sidebar { max-width: 784px; }
-
-.wrapper.wide.no-sidebar {
-	max-width: @wrapper-wide;
+// standard page
+body .wrapper {
+	max-width: @width-standard;
 }
 
-.wrapper.full-width.no-sidebar {
+// full-width template
+body.width-full .wrapper {
 	max-width: 100%;
 }
 
+// width-slim template
+body.width-slim .wrapper {
+	max-width: @width-slim;
+}
 
+// width-wide template
+body.width-wide .wrapper {
+	max-width: @width-wide;
+}
+
+// single posts, no sidebar
+body.single-post.no-sidebar .wrapper {
+	max-width: @width-slim;
+}
+
+body.blog.no-sidebar .wrapper {
+	max-width: @width-slim;
+}
+
+// allows wrappers to be overridden
+.wrapper.full-width { max-width: 100%; }
+.wrapper.slim { max-width: @wrapper-slim; }
+.wrapper.wide { max-width: @wrapper-wide; }
 
 @media only screen and ( min-width: @screen-md-min ) {
 
@@ -91,94 +90,29 @@
 		margin: 0 auto;
 	}
 
-
-	// no sidebars
-	// .wrapper.slim.no-sidebar .entry-content {
-	// 	max-width: 720px;
-	// }
-	//
-	// .wrapper.wide.no-sidebar .entry-content {
-	// 	max-width: 980px;
-	// }
-
-	// sidebars
-	.wrapper.has-sidebar {
-	//	max-width: 1150px;
-	}
-
-
-
-	// .wrapper.full-width .entry-content {
-	// 	max-width: 1180px;
-	// }
-
-	.wrapper.has-sidebar {
-
-		.error-404,
-		.no-results,
-		#respond,
-		article[class^="post-"] {
-		//	max-width: 720px;
-		//	padding-right: 2rem;
-		}
-
-	}
-
-	// let blog page go full-width
-	.blog .wrapper.has-sidebar article {
-	//	max-width: none;
-	//	padding-right: 0;
-	}
-
-	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
-		// fix for IE10
-		#primary {
-		//	width: 62%;
-		}
-	}
-
-	.wrapper.has-sidebar {
+	body.has-sidebar .wrapper {
 		border-bottom: 2px solid @light-grey;
 	}
-
-
 
 	#primary-sidebar aside {
 		padding: 2rem;
 	}
 
-	#content .wrapper.has-sidebar:first-of-type {
+	// this makes sure #primary and #secondary are next to each other
+	body.has-sidebar #content .wrapper:first-of-type {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
-
 	}
-
-
-}
-
-// Small Devices, Tablets
-@media only screen and ( min-width : @screen-md-min) {
 
 }
 
 @media only screen and ( min-width: @screen-md-min ) {
-
-	#content {
-		padding-bottom: 8rem;
-	}
-
 	#secondary { padding-left: 0; }
-
 }
 
 @media only screen and ( min-width: @screen-lg-min ) {
-	.wrapper.has-sidebar #primary {	padding-left: 0; }
 	.wrapper.has-sidebar #secondary { padding-right: 0; }
-
-
 }

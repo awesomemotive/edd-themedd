@@ -36,7 +36,7 @@ if ( post_password_required() ) {
 					'avatar_size' => 56,
 				) );
 			?>
-		</ol><!-- .comment-list -->
+		</ol>
 
 		<?php themedd_comment_nav(); ?>
 
@@ -51,4 +51,4 @@ if ( post_password_required() ) {
 
 	<?php comment_form(); ?>
 
-</div><!-- .comments-area -->
+</div>
