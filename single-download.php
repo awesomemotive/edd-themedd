@@ -9,7 +9,7 @@ get_header(); ?>
     <?php the_title( '<h1 class="download-title">', '</h1>' ); ?>
 </header>
 
-<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
+<div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area <?php echo themedd_primary_classes(); ?>">
 

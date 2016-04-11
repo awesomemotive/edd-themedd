@@ -46,8 +46,9 @@
 	border-left: 2px solid @light-grey;
 }
 
-// standard page
-body .wrapper {
+body .wrapper,
+body.has-sidebar.single-post .wrapper,
+body.blog.has-sidebar #column-wrapper.wrapper {
 	max-width: @width-standard;
 }
 
@@ -56,23 +57,16 @@ body.width-full .wrapper {
 	max-width: 100%;
 }
 
-// width-slim template
-body.width-slim .wrapper {
+// default = slim
+body.single-post .wrapper,
+body.width-slim .wrapper,
+body.blog #column-wrapper.wrapper {
 	max-width: @width-slim;
 }
 
 // width-wide template
 body.width-wide .wrapper {
 	max-width: @width-wide;
-}
-
-// single posts, no sidebar
-body.single-post.no-sidebar .wrapper {
-	max-width: @width-slim;
-}
-
-body.blog.no-sidebar .wrapper {
-	max-width: @width-slim;
 }
 
 // allows wrappers to be overridden
@@ -90,21 +84,22 @@ body.blog.no-sidebar .wrapper {
 		margin: 0 auto;
 	}
 
-	body.has-sidebar .wrapper {
-		border-bottom: 2px solid @light-grey;
-	}
-
 	#primary-sidebar aside {
 		padding: 2rem;
 	}
 
-	// this makes sure #primary and #secondary are next to each other
-	body.has-sidebar #content .wrapper:first-of-type {
+	.has-sidebar #column-wrapper {
+		border-bottom: 2px solid @light-grey;
+	}
+
+	// houses the primary and secondary columns
+	#column-wrapper {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
+
 	}
 
 }

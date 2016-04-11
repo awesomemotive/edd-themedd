@@ -161,8 +161,7 @@ article[class^="post-"] + article[class^="post-"] {
 	margin-bottom: 0;
 }
 
-// center headers
-.no-sidebar .page-header {
+.page-header {
 	text-align: center;
 }
 
@@ -212,7 +211,7 @@ article[class^="post-"] + article[class^="post-"] {
 @media only screen and ( min-width: @screen-lg-min ) {
 
 	.single-post .post-thumbnail,
-	.blog .post-thumbnail {
+	.blog.not(has-sidebar) .post-thumbnail {
 		margin-left: -4rem;
 		margin-right: -4rem;
 	}

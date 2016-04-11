@@ -216,9 +216,15 @@ function themedd_primary_classes() {
 			$classes[] = 'col-xs-12';
 
 		} else {
-			$classes[] = 'col-xs-12 col-md-8';
-		}
 
+			// 2 column layout unless sidebar is removed
+			if ( apply_filters( 'themedd_show_sidebar', true ) ) {
+				$classes[] = 'col-xs-12 col-md-8';
+			} else {
+				$classes[] = 'col-xs-12';
+			}
+
+		}
 
 	}
 
@@ -292,35 +298,16 @@ function themedd_body_classes( $classes ) {
 	} else {
 
 		/**
-		 * If a sidebar has been removed make
+		 * If a sidebar has been removed
 		 */
 		if ( apply_filters( 'themedd_show_sidebar', true ) ) {
 
-			if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
+			//if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
+			if ( is_active_sidebar( 'sidebar-1' ) ) {
 				$classes[] = 'has-sidebar';
-			} elseif ( is_singular( 'download' ) ) {
-				$classes[] = 'has-sidebar';
-			} else {
-				// default classes
-				$classes[] = 'no-sidebar';
 			}
-		} else {
-			// default classes
-			$classes[] = 'no-sidebar';
+
 		}
-
-		/**
-		 * Single download pages will always have a sidebar
-		 */
-		// if (
-		// 	is_active_sidebar( 'sidebar-1' ) ||
-		// 	is_singular( 'download' ) )
-		// {
-		// 	$classes[] = 'has-sidebar';
-		// } else {
-		// 	$classes[] = 'no-sidebar';
-		// }
-
 	}
 
 	// Primary menu active
@@ -333,9 +320,6 @@ function themedd_body_classes( $classes ) {
 	if ( has_nav_menu( 'secondary' ) ) {
 		$classes[] = 'has-secondary-menu';
 	}
-
-	// allow filtering of the wrapper classes
-	$classes = apply_filters( 'themedd_body_classes', $classes );
 
 	return $classes;
 

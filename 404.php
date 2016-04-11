@@ -10,7 +10,7 @@ get_header(); ?>
 	<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'themedd' ); ?></h1>
 </header>
 
-<div class="wrapper<?php echo themedd_wrapper_classes(); ?>">
+<div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">
