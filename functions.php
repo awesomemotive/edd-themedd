@@ -11,7 +11,7 @@
  * @since 1.0.0
 */
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.2.8' );
+	define( 'THEMEDD_VERSION', '1.2.9' );
 }
 
 if ( ! defined( 'THEMEDD_INCLUDES_DIR' ) ) {
@@ -302,8 +302,7 @@ function themedd_body_classes( $classes ) {
 		 */
 		if ( apply_filters( 'themedd_show_sidebar', true ) ) {
 
-			//if ( is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
-			if ( is_active_sidebar( 'sidebar-1' ) ) {
+			if ( is_active_sidebar( 'sidebar-1' ) || is_singular( 'download' ) ) {
 				$classes[] = 'has-sidebar';
 			}
 
@@ -316,7 +315,6 @@ function themedd_body_classes( $classes ) {
 	}
 
 	// Secondary menu active
-	//if ( has_nav_menu( 'secondary' ) && wp_get_nav_menu_items( 'secondary' ) ) {
 	if ( has_nav_menu( 'secondary' ) ) {
 		$classes[] = 'has-secondary-menu';
 	}
