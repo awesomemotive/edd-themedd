@@ -6,9 +6,11 @@
 
 get_header(); ?>
 
+<?php while ( have_posts() ) : the_post(); ?>
 <header class="page-header<?php echo themedd_page_header_classes(); ?>">
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
+<?php endwhile; ?>
 
 <div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 

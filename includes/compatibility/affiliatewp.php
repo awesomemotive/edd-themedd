@@ -17,14 +17,25 @@ function themedd_affwp_styles() {
         return;
     }
 
+    $file_path = 'css/affiliatewp.min.css';
+    $child_theme_style_sheet  = trailingslashit( get_stylesheet_directory() ) . $file_path;
+    $parent_theme_style_sheet = trailingslashit( get_template_directory() ) . $file_path;
+
+    if ( file_exists( $child_theme_style_sheet ) ) {
+        $url = trailingslashit( get_stylesheet_directory_uri() ) . $file_path;
+    } else {
+        $url = trailingslashit( get_template_directory_uri() ) . $file_path;
+    }
+
+    wp_register_style( 'themedd-affiliatewp', $url, array(), THEMEDD_VERSION, 'all' );
+
     if ( has_shortcode( $post->post_content, 'affiliate_area' ) || has_shortcode( $post->post_content, 'affiliate_registration' ) || apply_filters( 'affwp_force_frontend_scripts', false ) ) {
         // Enqueue our own styling for AffiliateWP
-        wp_enqueue_style( 'themedd-affiliatewp', get_template_directory_uri() . '/css/affiliatewp.min.css', array(), THEMEDD_VERSION );
+        wp_enqueue_style( 'themedd-affiliatewp' );
     }
 
 }
 add_action( 'wp_enqueue_scripts', 'themedd_affwp_styles' );
-
 
 remove_shortcode( 'affiliate_area', array( affiliate_wp(), 'affiliate_area' ) );
 add_shortcode( 'affiliate_area', 'themedd_affiliate_area' );

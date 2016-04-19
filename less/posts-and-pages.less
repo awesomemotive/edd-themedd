@@ -1,3 +1,45 @@
+// post navigation
+
+
+.post-navigation {
+	border-top: 2px solid @light-grey;
+	clear: both;
+}
+
+.post-navigation a {
+	color: @heading-color;
+	display: block;
+	padding: 2rem 0;
+	border-bottom: none;
+}
+
+.post-navigation span {
+	display: block;
+}
+
+.post-navigation .meta-nav {
+	color: @body-text-color;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+}
+
+.post-navigation .post-title {
+	display: inline;
+	font-size: 1.4rem;
+//	font-weight: 700;
+//	text-rendering: optimizeLegibility;
+}
+
+.post-navigation a:hover .post-title,
+.post-navigation a:focus .post-title {
+	color: @link-hover-color;
+}
+
+.post-navigation div + div {
+	border-top: 4px solid @light-grey;
+}
+
+
 
 // WordPress related
 figure.wp-caption {
@@ -56,9 +98,16 @@ article[class^="post-"] + article[class^="post-"] {
 
 .post-thumbnail .wp-post-image {
 	display: block;
+	margin: 0 auto;
 }
 
 // comments
+
+#comments {
+	border-top: 2px solid @light-grey;
+	margin-top: 6rem;
+	padding-top: 2rem;
+}
 
 .comment-metadata {
 	margin-bottom: 2rem;
@@ -211,7 +260,7 @@ article[class^="post-"] + article[class^="post-"] {
 @media only screen and ( min-width: @screen-lg-min ) {
 
 	.single-post .post-thumbnail,
-	.blog.not(has-sidebar) .post-thumbnail {
+	.blog .post-thumbnail {
 		margin-left: -4rem;
 		margin-right: -4rem;
 	}

@@ -2,7 +2,7 @@
 button,
 input[type="submit"],
 #submit {
-    background: @accent-color;
+    background: @button-background-color;
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -12,7 +12,7 @@ input[type="submit"],
     background-image: none;
     -webkit-appearance: none; // prevent the dropshadow on input field
 	border-radius: 0; // prevent rounded corners in iOS
-    border: 1px solid @accent-color;
+    border: @button-border-color;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -29,7 +29,7 @@ button:hover,
 input[type=submit]:hover {
     text-decoration: none;
     color: #fff;
-    background: darken( @accent-color, 8% );
+    background: @button-background-hover-color;
 }
 
 #submit,

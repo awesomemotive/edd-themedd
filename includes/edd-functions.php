@@ -361,6 +361,10 @@ function themedd_cart_link_position() {
 */
 function themedd_wp_nav_menu_items( $items, $args ) {
 
+	if ( 'primary' !== $args->theme_location ) {
+		return $items;
+	}
+
 	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
 
 	if ( 'primary_menu' == themedd_cart_link_position() ) {
@@ -370,7 +374,7 @@ function themedd_wp_nav_menu_items( $items, $args ) {
     return $items;
 
 }
-add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'themedd_wp_nav_menu_items', 10, 2 );
 
 
  // $items = apply_filters( "wp_nav_menu_{$menu->slug}_items", $items, $args );

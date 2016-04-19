@@ -140,28 +140,26 @@ function themedd_entry_taxonomies() {
 endif;
 
 
-if ( ! function_exists( 'themedd_excerpt' ) ) :
-	/**
-	 * Displays the optional excerpt.
-	 *
-	 * Wraps the excerpt in a div element.
-	 *
-	 * Create your own themedd_excerpt() function to override in a child theme.
-	 *
-	 * @since 1.0
-	 *
-	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
-	 */
-	function themedd_excerpt( $class = 'entry-summary' ) {
-		$class = esc_attr( $class );
 
-		if ( has_excerpt() || is_search() ) : ?>
-			<div class="<?php echo $class; ?>">
-				<?php the_excerpt(); ?>
-			</div><!-- .<?php echo $class; ?> -->
-		<?php endif;
-	}
-endif;
+/**
+ * Displays the optional excerpt.
+ *
+ * Wraps the excerpt in a div element.
+ *
+ * @since 1.0
+ *
+ * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
+ */
+function themedd_excerpt( $class = 'entry-summary' ) {
+	$class = esc_attr( $class );
+
+	if ( has_excerpt() || is_search() ) : ?>
+		<div class="<?php echo $class; ?>">
+			<?php the_excerpt(); ?>
+		</div>
+	<?php endif;
+}
+
 
 
 if ( ! function_exists( 'themedd_excerpt_more' ) && ! is_admin() ) :

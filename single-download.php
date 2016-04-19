@@ -5,9 +5,11 @@
 
 get_header(); ?>
 
+<?php while ( have_posts() ) : the_post(); ?>
 <header class="aligncenter page-header<?php echo themedd_page_header_classes(); ?>">
-    <?php the_title( '<h1 class="download-title">', '</h1>' ); ?>
+	<h1 class="download-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
+<?php endwhile; ?>
 
 <div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 

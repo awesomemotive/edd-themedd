@@ -22,6 +22,7 @@
 #content {
 	background: @content-color;
 	flex: 1 0 auto;
+	padding-bottom: 4rem;
 }
 
 
@@ -29,7 +30,6 @@
 
 #primary-sidebar aside {
 	padding: 1rem 0;
-	border-bottom: 2px solid @light-grey;
 }
 
 // wrappers are always centered
@@ -75,6 +75,10 @@ body.width-wide .wrapper {
 .wrapper.wide { max-width: @wrapper-wide; }
 
 @media only screen and ( min-width: @screen-md-min ) {
+
+    #primary-sidebar aside {
+    	border-bottom: 2px solid @light-grey;
+    }
 
 	.no-sidebar #primary {
 		width: 100%;
