@@ -33,11 +33,11 @@ module.exports = function(grunt) {
        addbanner: {
           options: {
             position: 'top',
-            banner: '/*\nTheme Name: RCP Parent Theme\n' +
+            banner: '/*\nTheme Name: Themedd\n' +
                     'Theme URI: <%= pkg.theme_uri %>\n' +
-                    'Author: Andrew Munro\n' +
-                    'Author URI: http://sumobi.com\n' +
-                    'Description: \n' +
+                    'Author: Easy Digital Downloads\n' +
+                    'Author URI: https://easydigitaldownloads.com\n' +
+                    'Description: Themedd is a WordPress theme for Easy Digital Downloads\n' +
                     'License: GNU General Public License\n' +
                     'License URI: license.txt\n' +
                     '*/',
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         }
         }
     },
-    
+
     svgstore: {
       options: {
         prefix : 'icon-', // This will prefix each <g> ID
