@@ -12,7 +12,7 @@ function themedd_enqueue_scripts() {
 	/**
 	 * Themedd JS
 	 */
-	wp_register_script( 'themedd-js', get_template_directory_uri() . '/js/rcp-parent-theme.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
+	wp_register_script( 'themedd-js', get_template_directory_uri() . '/js/themedd.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
 	wp_enqueue_script( 'themedd-js' );
 
 	wp_localize_script( 'themedd-js', 'screenReaderText', array(
