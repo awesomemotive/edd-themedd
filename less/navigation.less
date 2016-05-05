@@ -89,9 +89,14 @@ button:focus {
 // Main navigation styling
 //
 //
+
+// .main-navigation {
+// 	padding: 0;
+// }
+
 .main-navigation a {
 	display: block;
-	line-height: 1;
+	line-height: 1.5;
 	font-size: @nav-font-size;
 	font-weight: @nav-font-weight;
 	padding: 0.84375rem 0;
@@ -220,7 +225,7 @@ button:focus {
 	content: "\f432";
 }
 
-@media only screen and ( max-width: @screen-sm-max ) {
+@media only screen and ( max-width: @nav-sm-max ) {
 
 	// site header menu
 	.site-header-menu {
@@ -230,7 +235,7 @@ button:focus {
 
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+@media only screen and ( min-width: @nav-md-min ) {
 
 	// clearfix
 	#site-navigation ul.menu:after,
@@ -420,7 +425,7 @@ button:focus {
 
 }
 
-@media only screen and ( min-width: @screen-lg-min ) {
+@media only screen and ( min-width: @nav-lg-min ) {
 
 	#site-header-secondary-menu {
 		padding: @site-header-secondary-menu-lg-padding;
