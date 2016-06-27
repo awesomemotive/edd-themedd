@@ -2,11 +2,13 @@
 @primary-color: #448FD5;
 @accent-color: #448FD5;
 
+@selection-color: @accent-color;
+
 @link-color: #222;
 @link-hover-color: @accent-color;
 
 // menu toggle
-@menu-toggle-bg-color: transparent;
+@menu-toggle-bg-color: @accent-color;
 @menu-toggle-bg-hover-color: @menu-toggle-bg-color;
 @menu-toggle-on-background-color: #222;
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
@@ -31,12 +33,6 @@
 @nav-active-color: @primary-color;
 @nav-md-padding: 1rem;
 
-// cart icons
-@cart-color: @nav-color;
-@cart-hover-color: @nav-color;
-@cart-active-color: @nav-color;
-@cart-count-color: #fff;
-@cart-count-background-color: @accent-color;
 
 // secondary navigation
 @nav-secondary-color: @body-text-color;
@@ -54,7 +50,15 @@
 @nav-sub-color: @body-text-color;
 @nav-sub-hover-color: @primary-color;
 @nav-sub-active-color: @primary-color;
+@nav-sub-background-active-color: transparent;
 @nav-sub-background-hover-color: transparent;
+
+// cart icons
+@cart-color: @nav-color;
+@cart-hover-color: @nav-color;
+@cart-active-color: @nav-color;
+@cart-count-color: #fff;
+@cart-count-background-color: @accent-color;
 
 // box
 @box-padding: 2rem;
@@ -79,7 +83,7 @@
 
 @site-title-color: #222;
 @site-description-color: #a2a2a2;
-@heading-color: #373737;
+
 @code-color: @body-text-color;
 @body-text-color: #787878;
 @content-color: #fff;
@@ -87,9 +91,15 @@
 @footer-color: #fff;
 @underline-color: #bababa;
 
+// greys
 @light-grey: #f5f5f5;
 @lighter-grey: lighten( @light-grey, 3% );
 @medium-grey: #ddd;
+
+// headings
+@heading-color: #373737;
+@h4-font-size: 1.3rem;
+@h4-font-size-sm-min: 1.5rem;
 
 // masthead
 @masthead-color: #fff;
@@ -104,6 +114,10 @@
 @site-header-menu-padding: 0 2rem 0 2rem;
 @site-header-menu-lg-padding: 0 2rem;
 @site-header-secondary-menu-lg-padding: 0 2rem 0 0;
+
+// subtitles
+@subtitle-font-size-xs: 1.2rem;
+@subtitle-font-size: 1.8rem;
 
 // breakpoints
 @screen-sm-min: 768px; // 48em

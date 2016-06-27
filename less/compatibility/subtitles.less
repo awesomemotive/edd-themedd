@@ -1,6 +1,6 @@
 // https://wordpress.org/plugins/subtitles/
 .entry-title-primary {
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 	display: block;
 }
 
@@ -8,13 +8,10 @@
 	display: none;
 }
 
-.subtitle {
-	font-size: 1.5rem;
-}
-
 // subtitles
 
 .subtitle {
+    font-size: @subtitle-font-size-xs;
 	display: block;
 	color: @body-text-color;
 	font-weight: 200;
@@ -24,7 +21,7 @@
 @media only screen and ( min-width: @screen-sm-min ) {
 
 	.subtitle {
-		font-size: 1.8rem;
+		font-size: @subtitle-font-size;
 	}
 
 }

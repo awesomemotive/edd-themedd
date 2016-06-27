@@ -22,7 +22,6 @@ if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
 	define( 'THEMEDD_THEME_URL', trailingslashit( get_template_directory_uri() ) );
 }
 
-
 /**
  * Includes
  *
@@ -302,7 +301,7 @@ function themedd_body_classes( $classes ) {
 		 */
 		if ( apply_filters( 'themedd_show_sidebar', true ) ) {
 
-			if ( is_active_sidebar( 'sidebar-1' ) || is_singular( 'download' ) ) {
+            if ( is_active_sidebar( 'sidebar-1' ) && ( is_singular( 'post' ) || is_home() || is_singular( 'download' ) ) ) {
 				$classes[] = 'has-sidebar';
 			}
 

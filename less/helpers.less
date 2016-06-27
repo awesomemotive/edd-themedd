@@ -7,12 +7,12 @@ img::-moz-selection {
 }
 
 ::selection {
-  background: @primary-color;
+  background: @selection-color;
    color: #fff;
 }
 
 ::-moz-selection {
-  background: @primary-color;
+  background: @selection-color;
   color: #fff;
 }
 
@@ -38,7 +38,6 @@ input[type="search"],
 }
 
 // highlight a section
-
 .highlight {
     background: @highlight-color;
 }
@@ -46,6 +45,10 @@ input[type="search"],
 // center any element's contents
 .aligncenter {
   text-align: center;
+}
+
+.alignleft {
+  text-align: left;
 }
 
 .hide {

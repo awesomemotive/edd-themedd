@@ -410,7 +410,12 @@ add_action( 'themedd_menu_toggle_before', 'themedd_menu_toggle_before' );
  * @return [type] [description]
  */
 function themedd_edd_cart_link( $args = array() ) {
-	ob_start();
+
+    if ( ! apply_filters( 'themedd_show_nav_cart', true ) ) {
+        return;
+    }
+
+    ob_start();
 
 	$defaults = apply_filters( 'themedd_edd_cart_link_defaults',
 		array(
@@ -420,14 +425,10 @@ function themedd_edd_cart_link( $args = array() ) {
 		)
 	);
 
-
-
 	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 	$defaults['classes'][] = ! $cart_items ? 'empty' : '';
 
 	$args = wp_parse_args( $args, $defaults );
-
-
 
     $cart_items   = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
