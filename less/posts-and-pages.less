@@ -66,9 +66,15 @@ article[class^="post-"] + article[class^="post-"] {
 
 // entry footer
 
+#primary .entry-footer {
+	padding: 2rem;
+	background: @light-grey;
+}
+
 .entry-footer {
 	line-height: 1.62;
 }
+
 #primary-sidebar .entry-footer {
 	padding: 2rem;
 }
@@ -105,6 +111,27 @@ article[class^="post-"] + article[class^="post-"] {
 	border-top: 2px solid @light-grey;
 	margin-top: 6rem;
 	padding-top: 2rem;
+
+	// These are technically the same, but use both
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+
+	-ms-word-break: break-all;
+	// This is the dangerous one in WebKit, as it breaks things wherever
+	word-break: break-all;
+	// Instead use this non-standard one:
+	word-break: break-word;
+
+	// Adds a hyphen where the word breaks, if supported (No Blink)
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+
+}
+
+#comments ol {
+	margin-left: 0;
 }
 
 .comment-metadata {
@@ -116,13 +143,14 @@ article[class^="post-"] + article[class^="post-"] {
 	font-size: 1rem;
 }
 
-.comment {
-	padding: 2rem;
-	margin-right: -2rem;
-}
+
 
 .comment a {
 	border-bottom: none;
+}
+
+.comment-author {
+	margin-bottom: 0.5rem;
 }
 
 .comment-author .avatar {
@@ -186,9 +214,7 @@ article[class^="post-"] + article[class^="post-"] {
 	margin-top: 2rem;
 }
 
-.children .comment {
-	border-left: 2px solid @light-grey;
-}
+
 
 
 /**
@@ -225,6 +251,15 @@ article[class^="post-"] + article[class^="post-"] {
 
 // Medium Devices, Desktops
 @media only screen and ( min-width: @screen-md-min ) {
+
+	.comment {
+		padding: 2rem;
+		margin-right: -2rem;
+	}
+
+	.children .comment {
+		border-left: 2px solid @light-grey;
+	}
 
 	.has-sidebar .posted-on {
 		display: block;
