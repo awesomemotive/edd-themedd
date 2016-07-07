@@ -84,7 +84,7 @@ function themedd_setup() {
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on themedd, use a find and replace
 	 * to change 'themedd' to the name of your theme in all the template files
-	 */
+	 */b
 	load_theme_textdomain( 'themedd', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
@@ -317,6 +317,8 @@ function themedd_body_classes( $classes ) {
 	if ( has_nav_menu( 'secondary' ) ) {
 		$classes[] = 'has-secondary-menu';
 	}
+	
+	$classes[] = 'purple';
 
 	return $classes;
 
