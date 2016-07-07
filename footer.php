@@ -27,11 +27,11 @@
 
 		<?php do_action( 'themedd_footer_before_site_info' ); ?>
 
-		<div class="wrapper full-width site-info">
-			<?php do_action( 'themedd_credits' ); ?>
-
-			<?php printf( __( 'Copyright &copy; %s, %s', 'themedd' ), date('Y'), get_bloginfo( 'name' ) ); ?>
-		</div>
+		<section class="site-info">
+			<div class="wrapper">
+				<?php do_action( 'themedd_credits' ); ?>
+			</div>
+		</section>
 
 		<?php do_action( 'themedd_footer_end' ); ?>
 

@@ -11,7 +11,7 @@
  * @since 1.0.0
 */
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.3.3' );
+	define( 'THEMEDD_VERSION', '1.3.4' );
 }
 
 if ( ! defined( 'THEMEDD_INCLUDES_DIR' ) ) {
@@ -340,3 +340,13 @@ function themedd_wrapper_classes() {
 
 	return implode( ' ', $classes );
 }
+
+/**
+ * Copyright
+ *
+ * @since 1.0.0
+ */
+function themedd_copyright() {
+	echo apply_filters( 'themedd_copyright', '<p>' . sprintf( __( 'Copyright &copy; %s %s', 'themedd' ), date('Y'), get_bloginfo( 'name' ) ) . '</p>' );
+}
+add_action( 'themedd_credits', 'themedd_copyright' );
