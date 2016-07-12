@@ -8,6 +8,7 @@
 *
 * 1.0
 */
+if ( ! function_exists( 'themedd_comment_nav' ) ) :
 function themedd_comment_nav() {
 	// Are there comments to navigate through?
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
@@ -29,6 +30,7 @@ function themedd_comment_nav() {
 	<?php
 	endif;
 }
+endif;
 
 /**
  * Prints HTML with meta information for the categories, tags.
@@ -37,6 +39,7 @@ function themedd_comment_nav() {
  *
  * @since 1.0
  */
+if ( ! function_exists( 'themedd_entry_meta' ) ) :
 function themedd_entry_meta() {
 	if ( 'post' == get_post_type() ) {
 		$author_avatar_size = apply_filters( 'themedd_author_avatar_size', 49 );
@@ -71,7 +74,7 @@ function themedd_entry_meta() {
 		echo '</span>';
 	}
 }
-
+endif;
 
 /**
 * Print HTML with date information for current post.
@@ -80,6 +83,7 @@ function themedd_entry_meta() {
 *
 * @since 1.0
 */
+if ( ! function_exists( 'themedd_entry_date' ) ) :
 function themedd_entry_date() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -100,7 +104,7 @@ function themedd_entry_date() {
 		$time_string
 	);
 }
-
+endif;
 
 
 /**
@@ -110,6 +114,7 @@ function themedd_entry_date() {
  *
  * @since 1.0
  */
+if ( ! function_exists( 'themedd_entry_taxonomies' ) ) :
 function themedd_entry_taxonomies() {
 
 	$categories_list = get_the_category_list( esc_html_x( ', ', 'Used between list items, there is a space after the comma.', 'themedd' ) );
@@ -130,7 +135,7 @@ function themedd_entry_taxonomies() {
 	}
 
 }
-
+endif;
 
 
 
@@ -143,6 +148,7 @@ function themedd_entry_taxonomies() {
  *
  * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
  */
+if ( ! function_exists( 'themedd_excerpt' ) ) :
 function themedd_excerpt( $class = 'entry-summary' ) {
 	$class = esc_attr( $class );
 
@@ -152,7 +158,7 @@ function themedd_excerpt( $class = 'entry-summary' ) {
 		</div>
 	<?php endif;
 }
-
+endif;
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and a 'Continue reading' link.
@@ -161,6 +167,7 @@ function themedd_excerpt( $class = 'entry-summary' ) {
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
+if ( ! function_exists( 'themedd_excerpt_more' ) ) :
 function themedd_excerpt_more() {
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
@@ -169,7 +176,7 @@ function themedd_excerpt_more() {
 	return ' &hellip; ' . $link;
 }
 add_filter( 'excerpt_more', 'themedd_excerpt_more' );
-
+endif;
 
 /**
  * Determine whether blog/site has more than one category.
@@ -178,6 +185,7 @@ add_filter( 'excerpt_more', 'themedd_excerpt_more' );
  *
  * @return bool True if there is more than one category, false otherwise.
  */
+if ( ! function_exists( 'themedd_categorized_blog' ) ) :
 function themedd_categorized_blog() {
 
 	if ( false === ( $all_the_cool_cats = get_transient( 'themedd_categories' ) ) ) {
@@ -204,6 +212,7 @@ function themedd_categorized_blog() {
 	}
 
 }
+endif;
 
 /**
  * Display an optional post thumbnail.
@@ -213,7 +222,7 @@ function themedd_categorized_blog() {
  *
  * @since 1.0.0
  */
-
+if ( ! function_exists( 'themedd_post_thumbnail' ) ) :
 function themedd_post_thumbnail() {
 
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
@@ -241,3 +250,4 @@ function themedd_post_thumbnail() {
 
 	<?php endif; // End is_singular()
 }
+endif;
