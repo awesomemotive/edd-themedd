@@ -84,7 +84,7 @@ function themedd_affiliate_area( $atts, $content = null ) {
 
         if ( affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
 
-            echo '<div class="col-xs-12 col-sm-6">';
+            echo '<div class="col-xs-12 col-sm-8">';
             echo '<div class="box register">';
             affiliate_wp()->templates->get_template_part( 'register' );
             echo '</div>';
@@ -93,7 +93,7 @@ function themedd_affiliate_area( $atts, $content = null ) {
 
         if ( ! is_user_logged_in() ) {
 
-            $class = affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ? ' col-sm-6' : ' col-sm-12';
+            $class = affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ? ' col-sm-4' : ' col-sm-12';
 
             echo '<div class="col-xs-12' . $class . '">';
             echo '<div class="box login">';
@@ -113,3 +113,20 @@ function themedd_affiliate_area( $atts, $content = null ) {
     return ob_get_clean();
 
 }
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @since 1.0
+ */
+function themedd_affwp_body_classes( $classes ) {
+	global $post;
+
+	// add a shop class if we're on a page where the [downloads] shortcode is used
+	if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'affiliate_area' ) ) {
+		$classes[] = 'affiliate-area';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'themedd_affwp_body_classes' );

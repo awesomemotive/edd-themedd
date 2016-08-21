@@ -16,7 +16,7 @@ function themedd_modify_subtitles( $title ) {
     global $post;
 
     // Remove subtitles from the download grid
-    if ( isset( $post->post_content ) && in_the_loop() && ! has_shortcode( $post->post_content, 'downloads' ) ) {
+    if ( isset( $post->post_content ) && in_the_loop() && has_shortcode( $post->post_content, 'downloads' ) ) {
         add_filter( 'subtitle_view_supported', '__return_false' );
     }
 
