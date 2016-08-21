@@ -18,7 +18,7 @@ function themedd_header() {
             <div class="site-header-wrap">
                 <?php do_action( 'themedd_site_header_main' ); ?>
             </div>
-            <?php do_action( 'site_header_main_end' ); ?>
+            <?php do_action( 'themedd_site_header_main_end' ); ?>
         </div>
 
         <?php do_action( 'themedd_masthead_end' ); ?>
@@ -36,7 +36,7 @@ add_action( 'themedd_header', 'themedd_header' );
  */
 add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 add_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
-add_action( 'site_header_main_end', 'themedd_primary_menu');
+add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 
 /**
