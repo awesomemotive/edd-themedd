@@ -2,6 +2,7 @@
 
 .edd_cart_item_image {
     display: inline-block;
+	vertical-align: middle;
 
     img {
         display: block;
@@ -10,14 +11,35 @@
 
 }
 
+// secure payment icon
+
+#edd_secure_site_wrapper {
+	margin-bottom: 1rem;
+	padding-right: 3rem;
+}
+
+.padlock {
+	background: url('images/svgs/padlock.svg') no-repeat 0 0;
+	display: block;
+	width: 48px;
+	height: 72px;
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+}
+
+// .edd_cart_item_name {
+// 	vertical-align: middle;
+// }
+
 // discounts
 #edd-discount {
     margin-bottom: 1rem;
 }
 
 #edd_discount_code {
-    background: @lighter-grey;
-    border: 2px solid @light-grey;
+    background: @light-grey;
+    border: 2px solid @border-light-grey;
     padding: 1rem;
 }
 
@@ -44,7 +66,10 @@ label[for=edd_agree_to_terms] {
     vertical-align: top;
 }
 
-
+.edd_empty_cart {
+	text-align: center;
+	display: block;
+}
 
 .edd-required-indicator {
     color: #DE2626;
@@ -56,24 +81,30 @@ label[for=edd_agree_to_terms] {
 #edd_cc_address,
 #edd_cc_fields,
 #edd_payment_mode_select {
-    margin-bottom: 2rem;
     padding: 2rem;
-    border: 2px solid @light-grey;
-    background: @lighter-grey;
+	border: 2px solid @border-light-grey;
+    background: @light-grey;
+	position: relative;
 
     p:last-child {
         margin-bottom: 0;
     }
 }
 
-.edd-payment-mode-label,
-#edd_purchase_form legend {
-    font-size: 1.5rem;
+// submit button wrap
+#edd_profile_submit_wrap {
+	margin-bottom: 0;
 }
 
 
+
+
+.edd-payment-mode-label {
+    font-size: 1.5rem;
+}
+
 .edd_checkout_cart_item_title {
-    align-self: center;
+	vertical-align: middle;
 }
 
 .edd-description {
@@ -87,8 +118,13 @@ label[for=edd_agree_to_terms] {
     text-align: right;
 }
 
+#edd_final_total_wrap {
+	text-align: center;
+}
+
 #edd-purchase-button {
-    width: auto;
+	width: 100%;
+	font-size: 1.5rem;
 }
 
 .edd_cart_header_row,
@@ -142,13 +178,27 @@ label[for=edd_agree_to_terms] {
 }
 
 
-#edd_checkout_form_wrap span.card-type {
+.edd-cart-ajax {
+    margin-left: 1rem;
+}
+
+#edds-confirm-update-default {
+    vertical-align: top;
+}
+
+label[for=edds-confirm-update-default] {
+    width: 95%;
+}
+
+// CARD TYPE
+// shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method
+span.card-type {
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 43px;
 	height: 32px;
-	background-size: 43px 32px!important;
+	background-size: 43px 32px !important;
 }
 
 // cart type that
@@ -156,34 +206,22 @@ label[for=card_number] {
     position: relative;
 }
 
-label[for=edds-confirm-update-default] {
-    width: 95%;
-}
-
-#edds-confirm-update-default {
-    vertical-align: top;
-}
-
-#edd_checkout_form_wrap span.card-type.off {
+span.card-type.off {
 	display: none;
 }
 
-#edd_checkout_form_wrap span.card-type.visa {
+span.card-type.visa {
 	background: url(images/icons/visa.gif ) no-repeat;
 }
 
-#edd_checkout_form_wrap span.card-type.mastercard {
+span.card-type.mastercard {
 	background: url(images/icons/mastercard.gif ) no-repeat;
 }
 
-#edd_checkout_form_wrap span.card-type.discover {
+span.card-type.discover {
 	background: url(images/icons/discover.gif ) no-repeat;
 }
 
-#edd_checkout_form_wrap span.card-type.amex {
+span.card-type.amex {
 	background: url(images/icons/americanexpress.gif ) no-repeat;
-}
-
-.edd-cart-ajax {
-    margin-left: 1rem;
 }

@@ -272,6 +272,11 @@ button:focus {
 	.main-navigation .sub-menu .current-menu-item a {
 		color: @nav-sub-active-color;
         background: @nav-sub-background-active-color;
+
+		&:hover {
+			color: @nav-sub-active-hover-color;
+	        background: @nav-sub-background-active-hover-color;
+		}
 	}
 
 	.main-navigation {
@@ -323,7 +328,7 @@ button:focus {
 		opacity: 0;
 		top: 110%;
 		visibility: hidden;
-		transition: opacity 0.2s linear, top 0.2s linear, visibility 0.2s linear;
+		transition: @nav-sub-animation;
 	}
 
 	.main-navigation li:hover > ul,

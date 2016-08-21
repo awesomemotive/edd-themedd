@@ -1,5 +1,6 @@
 // colors
 @primary-color: #448FD5;
+@secondary-color: #43D598;
 @accent-color: #448FD5;
 
 @selection-color: @accent-color;
@@ -12,7 +13,7 @@
 @menu-toggle-bg-hover-color: @menu-toggle-bg-color;
 @menu-toggle-on-background-color: #222;
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
-@menu-toggle-color: #222;
+@menu-toggle-color: #fff;
 @menu-toggle-hover-color: @menu-toggle-color;
 @menu-toggle-on-color: #fff;
 @menu-toggle-border: 1px solid @medium-grey;
@@ -41,6 +42,8 @@
 @nav-secondary-font-weight: 300;
 
 // sub-menu
+@nav-sub-animation: none;
+//@nav-sub-animation: opacity 0.2s linear, top 0.2s linear, visibility 0.2s linear;
 @nav-sub-background-color: #fff;
 @nav-sub-arrow-color: #fff;
 @nav-sub-arrow-border-color: @medium-grey;
@@ -53,6 +56,10 @@
 @nav-sub-background-active-color: transparent;
 @nav-sub-background-hover-color: transparent;
 
+// when the active menu item is hovered over
+@nav-sub-active-hover-color: @nav-sub-active-color;
+@nav-sub-background-active-hover-color: @nav-sub-background-hover-color;
+
 // cart icons
 @cart-color: @nav-color;
 @cart-hover-color: @nav-color;
@@ -62,13 +69,18 @@
 
 // box
 @box-padding: 2rem;
-@box-border: 2px solid @light-grey;
-@box-background-color: @lighter-grey;
+@box-border: 2px solid @border-light-grey-alt;
+@box-background-color: @light-grey-alt;
 
 // buttons
 @button-background-color: @accent-color;
 @button-border-color: 1px solid @accent-color;
 @button-background-hover-color: darken( @accent-color, 8% );
+
+// account page
+@account-tab-link-active-color: @link-hover-color;
+@account-tab-active-color: @link-hover-color;
+
 
 // footer
 @footer-font-size: 0.875rem;
@@ -91,10 +103,20 @@
 @footer-color: #fff;
 @underline-color: #bababa;
 
+// notices/errors
+@notice-background-color: @secondary-color;
+@notice-text-color: #fff;
+
 // greys
 @light-grey: #f5f5f5;
 @lighter-grey: lighten( @light-grey, 3% );
 @medium-grey: #ddd;
+
+@light-grey-alt: #fcfcfc;
+
+// border colors
+@border-light-grey: darken( @light-grey, 3% );
+@border-light-grey-alt: darken( @light-grey-alt, 3% );
 
 // headings
 @heading-color: #373737;
@@ -118,6 +140,15 @@
 // subtitles
 @subtitle-font-size-xs: 1.2rem;
 @subtitle-font-size: 1.8rem;
+
+// gallery images
+@gallery-item-border-color: @primary-color;
+
+// Easy Digital Downloads
+@edd-download-title-color: lighten( @heading-color, 20% );
+@edd-download-title-hover-color: @primary-color;
+@edd-download-title-font-size: 1.2rem;
+@edd-download-title-font-weight: 400;
 
 // breakpoints
 @screen-sm-min: 768px; // 48em
@@ -145,9 +176,9 @@
 
 @wrapper-wide-has-sidebar: @page-wrap-max-width;
 @wrapper-full-width: @page-wrap-max-width;
-//@page-max-width: 1280px;
 @page-max-width: 1480px;
 @page-wrap-max-width: 1252px;
+@site-header-wrap-max-width: @page-wrap-max-width;
 
 // compatibility
 @affiliate-tab-active-color: @accent-color;

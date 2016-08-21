@@ -1,7 +1,26 @@
 // Structure
 
+// temporary
+// img {
+// 	width: 100%;
+// }
+
+// #primary,
+// #site-header-secondary-menu,
+// .site-branding,
+// .main-navigation,
+// .wrapper {
+// 	background: #eee;
+// }
+//
+// #secondary {
+// 	background: #ccc;
+// }
+// temporary
+
+
 #main {
-	padding-top: 2rem;
+	padding: 2rem;
 }
 
 // site wrapper
@@ -22,9 +41,13 @@
 #content {
 	background: @content-color;
 	flex: 1 0 auto;
-	padding-bottom: 4rem;
+//	padding-bottom: 4rem;
 }
 
+// added
+#primary { padding: 0; }
+
+// added
 
 // all pages when a sidebar is active
 
@@ -46,11 +69,7 @@
 	border-left: 2px solid @light-grey;
 }
 
-body .wrapper,
-body.has-sidebar.single-post .wrapper,
-body.blog.has-sidebar #column-wrapper.wrapper {
-	max-width: @width-standard;
-}
+
 
 // full-width template
 body.width-full .wrapper {
@@ -58,8 +77,8 @@ body.width-full .wrapper {
 }
 
 // default = slim
-body.single-post .wrapper,
-body.width-slim .wrapper,
+body.single-post #content .wrapper,
+body.width-slim #content .wrapper,
 body.blog #column-wrapper.wrapper {
 	max-width: @width-slim;
 }
@@ -74,7 +93,17 @@ body.width-wide .wrapper {
 .wrapper.slim { max-width: @wrapper-slim; }
 .wrapper.wide { max-width: @wrapper-wide; }
 
+body .wrapper,
+body.has-sidebar.single-post #content .wrapper,
+body.blog.has-sidebar #column-wrapper.wrapper {
+	max-width: @width-standard;
+}
+
 @media only screen and ( min-width: @screen-md-min ) {
+
+	#secondary {
+		padding: 0;
+	}
 
     #primary-sidebar aside {
     	border-bottom: 2px solid @light-grey;
@@ -109,7 +138,7 @@ body.width-wide .wrapper {
 }
 
 @media only screen and ( min-width: @screen-md-min ) {
-	#secondary { padding-left: 0; }
+	// #secondary { padding-left: 0; }
 }
 
 @media only screen and ( min-width: @screen-lg-min ) {

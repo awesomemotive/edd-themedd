@@ -30,9 +30,9 @@
 	overflow: hidden;
 	width: 100%;
 
-	p {
-		font-size: 1rem;
-	}
+	// p {
+	// 	font-size: 1rem;
+	// }
 }
 
 // style currency symbol for normal and variable prices
@@ -65,12 +65,13 @@ h3.edd_download_title {
 }
 
 .edd_download_title a {
-	color: lighten( @heading-color, 20% );
-	font-weight: 400;
+	color: @edd-download-title-color;
+	font-weight: @edd-download-title-font-weight;
+	font-size: @edd-download-title-font-size;
 	display: block;
 
 	&:hover {
-		color: @primary-color;
+		color: @edd-download-title-hover-color;
 	}
 }
 

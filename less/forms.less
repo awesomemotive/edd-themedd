@@ -8,10 +8,7 @@ textarea {
 	border: 2px solid @light-grey;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
+input,
 textarea {
 	width: 100%;
 	-webkit-appearance: none; // prevent the dropshadow on input field
@@ -36,14 +33,24 @@ input[type="radio"] {
 
 fieldset {
     border: none;
-    margin: 0;
+    margin: 0 0 2rem 0;
     padding: 0;
+	position: relative;
+
+	p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 legend {
 	font-size: 1.5rem;
+	float: left;
 	margin-bottom: 1rem;
-	text-align: left;
+}
+
+// clear the first element after the legend due to floating
+legend + * {
+	clear: both;
 }
 
 label {
