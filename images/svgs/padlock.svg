@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 48 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="secure payment" transform="matrix(2.93333,1.09764e-29,1.06962e-29,2.93333,0.533333,0.8)">
+        <path d="M1.5,11.5L1.5,7C1.5,3.41 4.41,0.5 8,0.5C11.59,0.5 14.5,3.41 14.5,7L14.5,11.5" style="fill:none;stroke-width:1.05px;stroke:rgb(113,127,134);"/>
+        <path d="M3.5,11.5L3.5,7C3.5,4.515 5.515,2.5 8,2.5C10.485,2.5 12.5,4.515 12.5,7L12.5,11.5" style="fill:none;stroke-width:1.05px;stroke:rgb(113,127,134);"/>
+        <path d="M1.5,11.5L14.5,11.5C15.052,11.5 15.5,11.948 15.5,12.5L15.5,21.5C15.5,22.605 14.605,23.5 13.5,23.5L2.5,23.5C1.395,23.5 0.5,22.605 0.5,21.5L0.5,12.5C0.5,11.948 0.948,11.5 1.5,11.5Z" style="fill:none;stroke-width:1.05px;stroke:rgb(113,127,134);"/>
+        <path d="M9.5,16C9.5,15.172 8.828,14.5 8,14.5C7.172,14.5 6.5,15.172 6.5,16C6.5,16.549 6.798,17.024 7.238,17.286L6.5,19.5L9.5,19.5L8.762,17.286C9.202,17.024 9.5,16.549 9.5,16Z" style="fill:none;stroke-width:1.05px;stroke:rgb(113,127,134);"/>
+    </g>
+</svg>
