@@ -14,6 +14,13 @@ module.exports = function(grunt) {
            src: ['js/src/**/*.js'],
            dest: 'js/<%= pkg.name %>.min.js'
          },
+		 js: {
+           options: {
+             separator: ';'
+           },
+           src: ['js/account/**/*.js'],
+           dest: 'js/account.min.js'
+         },
        },
 
     // uglify
@@ -24,7 +31,10 @@ module.exports = function(grunt) {
         js: {
           files: {
             'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.min.js']
-          }
+		},
+		files: {
+		  'js/account.min.js': ['js/account.min.js']
+		}
         }
       },
 
@@ -37,7 +47,7 @@ module.exports = function(grunt) {
                     'Theme URI: <%= pkg.theme_uri %>\n' +
                     'Author: Easy Digital Downloads\n' +
                     'Author URI: https://easydigitaldownloads.com\n' +
-                    'Description: Themedd is a WordPress theme for Easy Digital Downloads\n' +
+                    'Description: WordPress theme for Easy Digital Downloads\n' +
                     'License: GNU General Public License\n' +
                     'License URI: license.txt\n' +
                     '*/',
@@ -104,11 +114,8 @@ module.exports = function(grunt) {
 
       // JS
       js: {
-        files: ['js/src/**/*.js'],
+        files: ['js/src/**/*.js', 'js/account/**/*.js'],
         tasks: ['concat:js', 'uglify:js'],
-        options: {
-      //    livereload: true,
-        }
       },
 
       // svgstore
@@ -127,9 +134,6 @@ module.exports = function(grunt) {
       css: {
         files: ['less/**/*.less'],
         tasks: ['less:style'],
-        options: {
-       //   livereload: true,
-        }
       },
 
       // Add banner
