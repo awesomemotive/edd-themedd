@@ -5,10 +5,7 @@
 
 get_header(); ?>
 
-<header class="page-header<?php echo themedd_page_header_classes(); ?>">
-	<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-	<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'themedd' ); ?></h1>
-</header>
+<?php themedd_post_header(); ?>
 
 <div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
 
