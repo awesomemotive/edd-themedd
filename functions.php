@@ -27,6 +27,7 @@ if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
  *
  * @since 1.0.0
 */
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'account.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'template-tags.php' );
@@ -107,10 +108,10 @@ function themedd_setup() {
  	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
  	 */
  	add_theme_support( 'post-thumbnails' );
- 	set_post_thumbnail_size( 1200, 0, true );
+ 	set_post_thumbnail_size( 771, 0, true );
 
-	add_image_size( 'themedd-post-thumbnail', 566, 283, true );
-	add_image_size( 'themedd-medium', 720, 360, true );
+	add_image_size( 'themedd-post-thumbnail', 771, 346, true );
+	add_image_size( 'themedd-medium', 771, 386, true );
 	add_image_size( 'themedd-large', 1200, 600, true );
 
 	// Register menus
@@ -251,10 +252,13 @@ function themedd_secondary_classes() {
  *
  * @since 1.0.0
  */
-function themedd_page_header_classes() {
-	$classes = array();
+function themedd_page_header_classes( $more_classes = array() ) {
 
-	$classes[] = 'col-xs-12 pv-xs-2 pv-sm-3 pv-lg-4';
+	$classes = apply_filters( 'themedd_page_header_classes', array( 'col-xs-12 pv-xs-2 pv-sm-3 pv-lg-4' ) );
+
+	if ( is_array( $more_classes ) ) {
+		$classes = array_merge( $classes, $more_classes );
+	}
 
 	return ' ' . implode( ' ', $classes );
 }

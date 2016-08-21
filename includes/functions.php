@@ -10,6 +10,24 @@ function themedd_is_edd_active() {
 }
 
 /**
+ * Is EDD Software Licensing active?
+ *
+ * @return bool
+ */
+function themedd_is_edd_sl_active() {
+	return class_exists( 'EDD_Software_Licensing' );
+}
+
+/**
+ * Is EDD Recurring active?
+ *
+ * @return bool
+ */
+function themedd_is_edd_recurring_active() {
+	return class_exists( 'EDD_Recurring' );
+}
+
+/**
  * Is AffiliateWP active?
  *
  * @return bool
@@ -25,6 +43,15 @@ function themedd_is_affiliatewp_active() {
  */
 function themedd_is_subtitles_active() {
 	return class_exists( 'Subtitles' );
+}
+
+/**
+ * Is Gravity Forms active?
+ *
+ * @return bool
+ */
+function themedd_is_gforms_active() {
+	return class_exists( 'GFForms' );
 }
 
 
