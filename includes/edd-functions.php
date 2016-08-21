@@ -112,13 +112,6 @@ function themedd_edd_body_classes( $classes ) {
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
 /**
- * Is EDD Software Licensing active
- */
-function themedd_is_edd_sl_active() {
-	return class_exists( 'EDD_Software_Licensing' );
-}
-
-/**
  * EDD purchase link defaults
  *
  * @since 1.0
@@ -405,8 +398,9 @@ function themedd_menu_toggle_before() {
 add_action( 'themedd_menu_toggle_before', 'themedd_menu_toggle_before' );
 
 /**
- * Append buy now link to main navigation
+ * Cart link in main navigation
  *
+ * @since 1.0.0
  * @return [type] [description]
  */
 function themedd_edd_cart_link( $args = array() ) {
@@ -468,7 +462,7 @@ function themedd_edd_cart_link( $args = array() ) {
 /**
  * The cart icon
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_edd_cart_icon() {
     $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
@@ -518,6 +512,8 @@ function themedd_edd_cart_icon() {
 
 /**
  * Make the total quantity blank when no items exist in the cart
+ *
+ * @since 1.0.0
  */
 function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
 
@@ -528,3 +524,31 @@ function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
 	return $total_quantity;
 }
 add_filter( 'edd_get_cart_quantity', 'themedd_edd_get_cart_quantity', 10, 2 );
+
+/**
+ * Determine if a customer can upgrade their license (Software licensing plugin)
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_can_upgrade_license() {
+
+	if ( ! themedd_is_edd_sl_active() ) {
+		return;
+	}
+
+	$can_upgrade = false;
+
+	$license_keys = edd_software_licensing()->get_license_keys_of_user();
+
+	if ( $license_keys ) {
+		foreach ( $license_keys as $license ) {
+			 if ( edd_sl_license_has_upgrades( $license->ID ) && 'expired' !== edd_software_licensing()->get_license_status( $license->ID ) ) {
+				$can_upgrade = true;
+				break;
+			 }
+		}
+	}
+
+	return $can_upgrade;
+
+}
