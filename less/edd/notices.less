@@ -1,38 +1,35 @@
 // notices
 
-@error: #DE6363;
-@success: #8DD68C;
-@notice: #AAD9E8;
 
 .edd-alert {
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: #fff;
 }
 
 .edd_errors {
-    background: @error;
-    border: 1px solid darken( @error, 5% );
-    padding: 0.5rem 1rem;
+	background: @error-background-color;
+//    border: 1px solid darken( @error, 5% );
+    padding: 1rem;
     font-size: 1rem;
-    margin-bottom: 1rem;
-    color: #fff;
+    margin-bottom: 2rem;
+    color: @error-text-color;
 }
 
 .edd-alert.edd-alert-success {
-    background: @success;
-    border: 1px solid darken( @success, 5% );
-    color: darken( @success, 40% );
+    background: @success-background-color;
+//    border: 1px solid darken( @success, 5% );
+	color: @success-text-color;
 }
 
 // warning/notice
 .edd-alert.edd-alert-warn {
-    background: @notice;
-    border: 1px solid darken( @notice, 5% );
+    background: @notice-background-color;
+    border: 1px solid darken( @notice-background-color, 5% );
 
     p {
-        color: darken( @notice, 50% );
+        color: darken( @notice-background-color, 50% );
     }
 }
 
@@ -40,7 +37,7 @@
 	background: @notice-background-color;
 	color: @notice-text-color;
 	margin-bottom: 2rem;
-	padding: 1rem;	
+	padding: 1rem;
 }
 
 .edd_errors p,
