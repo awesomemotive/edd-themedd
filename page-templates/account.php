@@ -7,9 +7,9 @@
 get_header();
 
 if ( is_user_logged_in() ) {
-	$subtitle = 'Welcome, ' .  wp_get_current_user()->display_name;
+	$subtitle = sprintf( __( 'Welcome, %s', 'themedd' ), wp_get_current_user()->display_name );
 } else {
-	$subtitle = 'Come on in!';
+	$subtitle = __( 'Come on in!', 'themedd' );
 }
 
 ?>
