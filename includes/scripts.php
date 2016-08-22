@@ -37,14 +37,16 @@ function themedd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	/**
-	 * Account page
-	 */
-	wp_enqueue_script( 'jquery-ui-tabs' );
+
 
 	// load jQuery UI + tabs for account page
 	if ( is_page_template( 'page-templates/account.php' ) ) {
 
+		/**
+		 * Account page
+		 */
+		wp_enqueue_script( 'jquery-ui-tabs' );
+		
 		// load jQuery UI
 		wp_enqueue_script( 'jquery-ui-core' );
 
