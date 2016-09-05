@@ -6,7 +6,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php themedd_post_thumbnail(); ?>
+	<?php
+	/**
+	 * The featured image is loaded onto this hook
+	 */
+	 do_action( 'themedd_article_start' ); ?>
 
 	<div class="entry-content">
 
@@ -25,19 +29,6 @@
 
 	</div>
 
-	<footer class="entry-footer">
-		<?php themedd_entry_meta(); ?>
-		<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post */
-					__( 'Edit %s', 'themedd' ),
-					the_title( '<span class="screen-reader-text">', '</span>', false )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-		?>
-	</footer><!-- .entry-footer -->
+	
 
 </article>
