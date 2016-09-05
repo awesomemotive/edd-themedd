@@ -78,6 +78,12 @@
 					</li>
 					<?php endif; ?>
 
+					<?php if ( affwp_affiliate_area_show_tab( 'payouts' ) ) : ?>
+					<li class="affwp-affiliate-dashboard-tab<?php echo $active_tab == 'payouts' ? ' active' : ''; ?>">
+						<a href="<?php echo esc_url( affwp_get_affiliate_area_page_url( 'payouts' ) ); ?>"><?php _e( 'Payouts', 'affiliate-wp' ); ?></a>
+					</li>
+					<?php endif; ?>
+					
 					<?php if ( affwp_affiliate_area_show_tab( 'visits' ) ) : ?>
 					<li class="affwp-affiliate-dashboard-tab<?php echo $active_tab == 'visits' ? ' active' : ''; ?>">
 						<a href="<?php echo esc_url( affwp_get_affiliate_area_page_url( 'visits' ) ); ?>"><?php _e( 'Visits', 'affiliate-wp' ); ?></a>
@@ -127,12 +133,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
 
 	<?php endif; ?>
 
