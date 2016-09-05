@@ -48,11 +48,6 @@ if ( themedd_is_edd_active() ) {
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd-functions.php' );
 }
 
-// Subtitles
-if ( themedd_is_subtitles_active() ) {
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/subtitles.php' );
-}
-
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -131,9 +126,6 @@ function themedd_setup() {
  		'gallery',
  		'caption',
  	) );
-
-	// add subtitles to downloads
-	add_post_type_support( 'download', 'subtitles' );
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
