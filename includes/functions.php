@@ -37,25 +37,6 @@ function themedd_is_affiliatewp_active() {
 }
 
 /**
- * Is Subtitles active?
- *
- * @return bool
- */
-function themedd_is_subtitles_active() {
-	return class_exists( 'Subtitles' );
-}
-
-/**
- * Is Gravity Forms active?
- *
- * @return bool
- */
-function themedd_is_gforms_active() {
-	return class_exists( 'GFForms' );
-}
-
-
-/**
  * Posts that should have the lightbox code included
  */
 function themedd_enable_popup( $post_id = 0 ) {
