@@ -106,7 +106,6 @@ function themedd_entry_date() {
 }
 endif;
 
-
 /**
  * Print HTML with category and tags for current post.
  *
@@ -268,10 +267,7 @@ function themedd_post_header( $args = array() ) {
 		return;
 	}
 
-	/**
-	 * Add support for subtitles via the "subtitles" WordPress plugin
-	 */
-	add_filter( 'subtitle_view_supported', '__return_true' );
+	do_action( 'themedd_post_header_before' );
 
 	if ( is_404() ) {
 		$title = esc_html__( 'Oops! That page can&rsquo;t be found.', 'themedd' );
@@ -282,9 +278,11 @@ function themedd_post_header( $args = array() ) {
 	$subtitle = ! empty( $args['subtitle'] ) ? $args['subtitle'] : '';
 	$title    = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
 	$classes  = isset( $args['classes'] ) && is_array( $args['classes'] ) ? $args['classes'] : array();
+
 	?>
 
 	<header class="page-header<?php echo themedd_page_header_classes( $classes ); ?>">
+		<?php do_action( 'themedd_post_header_start' ); ?>
 		<h1 class="<?php echo get_post_type(); ?>-title">
 			<?php if ( $subtitle ) : ?>
 				<span class="entry-title-primary"><?php echo $title; ?></span>
@@ -293,8 +291,11 @@ function themedd_post_header( $args = array() ) {
 				<?php echo $title; ?>
 			<?php endif; ?>
 		</h1>
+		<?php do_action( 'themedd_post_header_end' ); ?>
 	</header>
 
-<?php }
+<?php
+
+}
 
 endif;
