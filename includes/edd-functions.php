@@ -438,7 +438,7 @@ function themedd_edd_cart_link( $args = array() ) {
 	if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
 
         <?php if ( $list_item ) : ?>
-		<li class="action checkout menu-item">
+		<li class="nav-action checkout menu-item">
         <?php endif; ?>
 
 			<a class="nav-cart<?php echo $classes; ?>" href="<?php echo $cart_link; ?>">
