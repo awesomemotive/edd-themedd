@@ -552,3 +552,30 @@ function themedd_edd_can_upgrade_license() {
 	return $can_upgrade;
 
 }
+
+/**
+ * Renders the Purchase button on the Checkout
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_checkout_button_purchase() {
+
+	$label = edd_get_option( 'checkout_label', '' );
+
+	if ( edd_get_cart_total() ) {
+		$complete_purchase = ! empty( $label ) ? $label : __( 'Purchase', 'easy-digital-downloads' );
+	} else {
+		$complete_purchase = ! empty( $label ) ? $label : __( 'Free Download', 'easy-digital-downloads' );
+	}
+
+	ob_start();
+?>
+
+	<div id="edd-purchase-button-wrap">
+		<input type="submit" class="edd-submit" id="edd-purchase-button" name="edd-purchase" value="<?php echo $complete_purchase; ?>" />
+	</div>
+
+<?php
+	return ob_get_clean();
+}
+add_filter( 'edd_checkout_button_purchase', 'themedd_edd_checkout_button_purchase', 10, 2 );
