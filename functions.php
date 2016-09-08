@@ -56,7 +56,7 @@ if ( themedd_is_edd_active() ) {
  * @global int $content_width
  */
 function themedd_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 585 );
+	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 771 );
 }
 add_action( 'after_setup_theme', 'themedd_content_width', 0 );
 
