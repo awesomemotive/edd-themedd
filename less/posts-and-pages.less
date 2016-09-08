@@ -1,5 +1,21 @@
 // post navigation
 
+// paging on index.php
+
+.paging-navigation {
+	.nav-links {
+		text-align: center;
+	}
+
+	.nav-links div {
+		display: inline-block;
+	}
+}
+
+
+
+// post navigation
+
 
 .post-navigation {
 	border-top: 2px solid @light-grey;
@@ -95,9 +111,10 @@ article[class^="post-"] + article[class^="post-"] {
 // about the author
 
 .author-info {
-	margin-top: 2rem;
-	padding-top: 2rem;
+	padding: 2rem 0;
 	border-top: 2px solid @light-grey;
+	border-bottom: 2px solid @light-grey;
+	margin: 4rem 0 2rem 0;
 }
 
 .author-bio {
@@ -115,17 +132,9 @@ article[class^="post-"] + article[class^="post-"] {
 	}
 }
 
-
-
-
 .post-thumbnail {
 	margin: 0 0 2rem 0;
 	display: block;
-}
-
-.single-post .post-thumbnail,
-.blog .post-thumbnail {
-	margin-bottom: 2rem;
 }
 
 .post-thumbnail .wp-post-image {
@@ -137,7 +146,6 @@ article[class^="post-"] + article[class^="post-"] {
 
 #comments {
 	border-top: 2px solid @light-grey;
-//	margin-top: 6rem;
 	padding-top: 2rem;
 
 	// These are technically the same, but use both

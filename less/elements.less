@@ -84,6 +84,6 @@ td {
 }
 
 // remove any bottom margin from paragraph tags included inside boxes
-.box p:last-of-type {
+.box p:last-of-type:not(:first-child) {
 	margin-bottom: 0;
 }
