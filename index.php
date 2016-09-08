@@ -25,11 +25,7 @@ get_header(); ?>
 
 					endwhile;
 
-					the_posts_pagination( array(
-						'prev_text'          => __( 'Previous page', 'themedd' ),
-						'next_text'          => __( 'Next page', 'themedd' ),
-						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'themedd' ) . ' </span>',
-					) );
+					themedd_paging_nav();
 
 				else :
 					// If no content, include the "No posts found" template.

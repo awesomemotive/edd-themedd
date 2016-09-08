@@ -6,7 +6,7 @@
 /**
 * Display navigation to next/previous comments when applicable.
 *
-* 1.0
+* @since 1.0.0
 */
 if ( ! function_exists( 'themedd_comment_nav' ) ) :
 function themedd_comment_nav() {
@@ -37,7 +37,7 @@ endif;
  *
  * Create your own themedd_entry_meta() to override in a child theme.
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( ! function_exists( 'themedd_entry_meta' ) ) :
 function themedd_entry_meta() {
@@ -81,7 +81,7 @@ endif;
 *
 * Create your own themedd_entry_date() to override in a child theme.
 *
-* @since 1.0
+* @since 1.0.0
 */
 if ( ! function_exists( 'themedd_entry_date' ) ) :
 function themedd_entry_date() {
@@ -111,7 +111,7 @@ endif;
  *
  * Create your own themedd_entry_taxonomies() to override in a child theme.
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( ! function_exists( 'themedd_entry_taxonomies' ) ) :
 function themedd_entry_taxonomies() {
@@ -143,7 +143,7 @@ endif;
  *
  * Wraps the excerpt in a div element.
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
  */
@@ -162,7 +162,7 @@ endif;
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and a 'Continue reading' link.
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
@@ -180,7 +180,7 @@ endif;
 /**
  * Determine whether blog/site has more than one category.
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @return bool True if there is more than one category, false otherwise.
  */
@@ -298,4 +298,42 @@ function themedd_post_header( $args = array() ) {
 
 }
 
+endif;
+
+if ( ! function_exists( 'themedd_paging_nav' ) ) :
+/**
+ * Display navigation to next/previous set of posts when applicable.
+ *
+ * @since 1.0.0
+ */
+function themedd_paging_nav() {
+
+	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+		return;
+	}
+
+	$defaults = apply_filters( 'themedd_paging_nav',
+		array(
+			'next_posts_link'     => __( 'Older posts', 'themedd' ),
+			'previous_posts_link' => __( 'Newer posts', 'themedd' ),
+		)
+	);
+	?>
+	<nav class="navigation paging-navigation" role="navigation">
+
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'themedd' ); ?></h1>
+
+		<div class="nav-links">
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-previous"><?php next_posts_link( $defaults['next_posts_link'] ); ?></div>
+			<?php endif; ?>
+
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-next"><?php previous_posts_link( $defaults['previous_posts_link'] ); ?></div>
+			<?php endif; ?>
+
+		</div>
+	</nav>
+	<?php
+}
 endif;
