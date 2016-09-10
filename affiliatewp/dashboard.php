@@ -50,8 +50,8 @@
 		do_action( 'affwp_affiliate_dashboard_notices', affwp_get_affiliate_id(), $active_tab );
 		?>
 
-		<div class="row">
-			<div class="col-xs-12 col-md-3 account-nav">
+		<div class="row container-fluid">
+			<div class="col-xs-12 col-md-2 account-nav">
 				<ul id="affwp-affiliate-dashboard-tabs">
 
 					<?php if ( affwp_affiliate_area_show_tab( 'urls' ) ) : ?>
@@ -83,7 +83,7 @@
 						<a href="<?php echo esc_url( affwp_get_affiliate_area_page_url( 'payouts' ) ); ?>"><?php _e( 'Payouts', 'affiliate-wp' ); ?></a>
 					</li>
 					<?php endif; ?>
-					
+
 					<?php if ( affwp_affiliate_area_show_tab( 'visits' ) ) : ?>
 					<li class="affwp-affiliate-dashboard-tab<?php echo $active_tab == 'visits' ? ' active' : ''; ?>">
 						<a href="<?php echo esc_url( affwp_get_affiliate_area_page_url( 'visits' ) ); ?>"><?php _e( 'Visits', 'affiliate-wp' ); ?></a>
@@ -110,7 +110,7 @@
 				</ul>
 			</div>
 
-			<div class="col-xs-12 col-md-9 account-content">
+			<div class="col-xs-12 col-md-10 account-content">
 				<div>
 					<?php
 					if ( ! empty( $active_tab ) && affwp_affiliate_area_show_tab( $active_tab ) ) :
