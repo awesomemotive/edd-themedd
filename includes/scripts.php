@@ -46,7 +46,7 @@ function themedd_enqueue_scripts() {
 		 * Account page
 		 */
 		wp_enqueue_script( 'jquery-ui-tabs' );
-		
+
 		// load jQuery UI
 		wp_enqueue_script( 'jquery-ui-core' );
 

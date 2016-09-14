@@ -19,8 +19,6 @@
 
 <div id="page" class="hfeed site">
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themedd' ); ?></a>
-
 	<?php do_action( 'themedd_header' ); ?>
 
 	<div id="content" class="site-content">

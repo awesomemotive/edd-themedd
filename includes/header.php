@@ -40,6 +40,18 @@ add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 
 /**
+ * Load the skip link
+ *
+ * @since 1.0
+ */
+function themedd_skip_link() {
+	?>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themedd' ); ?></a>
+	<?php
+}
+add_action( 'themedd_masthead_before', 'themedd_skip_link' );
+
+/**
  * Load our site logo
  *
  * @since 1.0
