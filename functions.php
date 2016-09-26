@@ -103,11 +103,7 @@ function themedd_setup() {
  	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
  	 */
  	add_theme_support( 'post-thumbnails' );
- 	set_post_thumbnail_size( 771, 0, true );
-
-	add_image_size( 'themedd-post-thumbnail', 771, 346, true );
-	add_image_size( 'themedd-medium', 771, 386, true );
-	add_image_size( 'themedd-large', 1200, 600, true );
+	set_post_thumbnail_size( 771, 9999 );
 
 	// Register menus
 	register_nav_menus( array(
