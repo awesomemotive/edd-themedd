@@ -228,7 +228,9 @@ function themedd_post_thumbnail() {
 		return;
 	}
 
-
+	/**
+	 * Allow developers to remove the post thumbnail
+	 */
 	if ( ! apply_filters( 'themedd_post_thumbnail', true ) ) {
 		return;
 	}
@@ -242,9 +244,7 @@ function themedd_post_thumbnail() {
 	<?php else : ?>
 
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php
-			the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
-		?>
+		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
 	</a>
 
 	<?php endif; // End is_singular()
