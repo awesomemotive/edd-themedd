@@ -293,40 +293,6 @@ function themedd_edd_purchase_link_defaults( $args ) {
 }
 add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' );
 
-/**
- * Lightboxes
- */
-function themedd_load_popup() {
-
-	if ( themedd_enable_popup() ) :
-	?>
-	<script type="text/javascript">
-
-		jQuery(document).ready(function($) {
-
-		//inline
-		$('.popup-content').magnificPopup({
-			type: 'inline',
-			fixedContentPos: true,
-			fixedBgPos: true,
-			overflowY: 'scroll',
-			closeBtnInside: true,
-			preloader: false,
-			callbacks: {
-				beforeOpen: function() {
-				this.st.mainClass = this.st.el.attr('data-effect');
-				}
-			},
-			midClick: true,
-			removalDelay: 300
-        });
-
-		});
-	</script>
-
-<?php endif;
-}
-add_action( 'wp_footer', 'themedd_load_popup', 100 );
 
 
 /**
