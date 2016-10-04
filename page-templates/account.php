@@ -7,7 +7,7 @@
 get_header();
 
 if ( is_user_logged_in() ) {
-	$subtitle = sprintf( __( 'Welcome, %s', 'themedd' ), wp_get_current_user()->display_name );
+	$subtitle = sprintf( __( 'Welcome, %s (%s)' , 'themedd' ), wp_get_current_user()->display_name, '<a href="' . wp_logout_url( get_permalink() ) . '">Log out?</a>' );
 } else {
 	$subtitle = __( 'Come on in!', 'themedd' );
 }
@@ -51,9 +51,7 @@ if ( is_user_logged_in() ) {
 						</li>
 					<?php endforeach; ?>
 
-					<?php if ( function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() ) : ?>
-					<li class="follow-link" data-link="affiliate-area"><a href="<?php echo affwp_get_affiliate_area_page_url(); ?>">Affiliate Area &rarr;</a></li>
-					<?php endif; ?>
+					<?php do_action( 'themedd_account_tabs_after' ); ?>
 
 					</ul>
 
