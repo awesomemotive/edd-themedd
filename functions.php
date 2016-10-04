@@ -248,7 +248,10 @@ function themedd_page_header_classes( $more_classes = array() ) {
 		$classes = array_merge( $classes, $more_classes );
 	}
 
-	return ' ' . implode( ' ', $classes );
+	if ( ! empty( $classes ) ) {
+		return ' ' . implode( ' ', $classes );
+	}
+
 }
 
 /**
