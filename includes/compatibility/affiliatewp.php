@@ -3,7 +3,7 @@
 /**
  * Dequeue AffiliateWP forms styling
  *
- * @since 1.0
+ * @since 1.0.0
  * @return void
  */
 function themedd_affwp_styles() {
@@ -29,7 +29,7 @@ function themedd_affwp_styles() {
 
     wp_register_style( 'themedd-affiliatewp', $url, array(), THEMEDD_VERSION, 'all' );
 
-    if ( has_shortcode( $post->post_content, 'affiliate_area' ) || has_shortcode( $post->post_content, 'affiliate_registration' ) || apply_filters( 'affwp_force_frontend_scripts', false ) ) {
+    if ( has_shortcode( $post->post_content, 'affiliate_area' ) || has_shortcode( $post->post_content, 'affiliate_registration' ) || apply_filters( 'affwp_force_frontend_scripts', true ) ) {
         // Enqueue our own styling for AffiliateWP
         wp_enqueue_style( 'themedd-affiliatewp' );
     }
@@ -37,13 +37,21 @@ function themedd_affwp_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'themedd_affwp_styles' );
 
-remove_shortcode( 'affiliate_area', array( affiliate_wp(), 'affiliate_area' ) );
-add_shortcode( 'affiliate_area', 'themedd_affiliate_area' );
+
+/**
+ * Remove [affiliate_area] shortcode and add our own
+ * @since 1.0.0
+ */
+function affwp_custom() {
+	remove_shortcode( 'affiliate_area', array( affiliate_wp(), 'affiliate_area' ) );
+	add_shortcode( 'affiliate_area', 'themedd_affiliate_area' );
+}
+add_action( 'template_redirect', 'affwp_custom' );
 
 /**
  *  Renders the affiliate area
  *
- *  @since 1.0
+ *  @since 1.0.0
  *  @return string
  */
 function themedd_affiliate_area( $atts, $content = null ) {
@@ -56,7 +64,6 @@ function themedd_affiliate_area( $atts, $content = null ) {
     ob_start();
 
     if ( is_user_logged_in() && affwp_is_affiliate() ) {
-
         affiliate_wp()->templates->get_template_part( 'dashboard' );
 
     } elseif ( is_user_logged_in() && affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
@@ -64,6 +71,7 @@ function themedd_affiliate_area( $atts, $content = null ) {
         affiliate_wp()->templates->get_template_part( 'register' );
 
     } else {
+
 
         if ( ! affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
             echo '<div class="wrapper slim">';
@@ -122,7 +130,6 @@ function themedd_affiliate_area( $atts, $content = null ) {
 function themedd_affwp_body_classes( $classes ) {
 	global $post;
 
-	// add a shop class if we're on a page where the [downloads] shortcode is used
 	if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'affiliate_area' ) ) {
 		$classes[] = 'affiliate-area';
 	}
@@ -130,3 +137,21 @@ function themedd_affwp_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'themedd_affwp_body_classes' );
+
+
+/**
+ * Wrap login form in div
+ * @since 1.0.0
+ */
+function themedd_affwp_login_form() {
+	ob_start();
+?>
+
+<div class="box login">
+<?php affiliate_wp()->templates->get_template_part( 'login' ); ?>
+<div>
+
+<?php
+	return ob_get_clean();
+}
+add_filter( 'affwp_login_form', 'themedd_affwp_login_form' );
