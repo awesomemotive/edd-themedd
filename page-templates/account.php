@@ -6,17 +6,11 @@
 
 get_header();
 
-if ( is_user_logged_in() ) {
-	$subtitle = sprintf( __( 'Welcome, %s (%s)' , 'themedd' ), wp_get_current_user()->display_name, '<a href="' . wp_logout_url( get_permalink() ) . '">Log out?</a>' );
-} else {
-	$subtitle = __( 'Come on in!', 'themedd' );
-}
-
 ?>
 
 <div id="tabs">
 
-	<?php themedd_post_header( array( 'subtitle' => $subtitle ) ); ?>
+	<?php themedd_post_header(); ?>
 
 	<section class="container-fluid account mb-xs-4">
 		<div class="wrapper">
