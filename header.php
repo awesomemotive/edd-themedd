@@ -23,4 +23,4 @@
 
 	<div id="content" class="site-content">
 
-		<?php do_action( 'themedd_content_start' ); ?>
+	<?php do_action( 'themedd_content_start' ); ?>

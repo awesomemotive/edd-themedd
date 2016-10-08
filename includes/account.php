@@ -8,6 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Set up account tabs
+ *
+ * @since 1.0.0
  */
 function themedd_account_tabs() {
 
@@ -58,7 +60,9 @@ function themedd_account_tabs() {
 }
 
 /**
+ * Add licenses tab
  *
+ * @since 1.0.0
  */
 function themedd_licenses() {
 
@@ -72,6 +76,8 @@ function themedd_licenses() {
 
 /**
  * Load license tab content
+ *
+ * @since 1.0.0
  */
 function themedd_account_tab_licenses_content() {
 	edd_get_template_part( 'license', 'keys' );
@@ -80,21 +86,27 @@ add_action( 'themedd_licenses_tab', 'themedd_account_tab_licenses_content' );
 
 
 /**
+ * Profile editor
  *
+ * @since 1.0.0
  */
 function themedd_profile_editor() {
 	return do_shortcode( '[edd_profile_editor]' );
 }
 
 /**
+ * Purchase history
  *
+ * @since 1.0.0
  */
 function themedd_purchase_history() {
 	return do_shortcode( '[purchase_history]' );
 }
 
 /**
+ * Subscriptions
  *
+ * @since 1.0.0
  */
 function themedd_edd_subscriptions() {
 	return do_shortcode( '[edd_subscriptions]' );

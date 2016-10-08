@@ -3,6 +3,7 @@
 /**
  * Is EDD active?
  *
+ * @since 1.0.0
  * @return bool
  */
 function themedd_is_edd_active() {
@@ -12,6 +13,7 @@ function themedd_is_edd_active() {
 /**
  * Is EDD Software Licensing active?
  *
+ * @since 1.0.0
  * @return bool
  */
 function themedd_is_edd_sl_active() {
@@ -21,6 +23,7 @@ function themedd_is_edd_sl_active() {
 /**
  * Is EDD Recurring active?
  *
+ * @since 1.0.0
  * @return bool
  */
 function themedd_is_edd_recurring_active() {
@@ -30,6 +33,7 @@ function themedd_is_edd_recurring_active() {
 /**
  * Is AffiliateWP active?
  *
+ * @since 1.0.0
  * @return bool
  */
 function themedd_is_affiliatewp_active() {
@@ -37,7 +41,19 @@ function themedd_is_affiliatewp_active() {
 }
 
 /**
+ * Is EDD Download Meta active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_edd_download_meta_active() {
+	return class_exists( 'EDD_Download_Meta' );
+}
+
+/**
  * Posts that should have the lightbox code included
+ *
+ * @since 1.0.0
  */
 function themedd_enable_popup( $post_id = 0 ) {
 

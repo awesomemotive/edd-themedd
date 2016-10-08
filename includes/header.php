@@ -3,7 +3,7 @@
 /**
  * Loads the header onto the themedd_header action hook found in /header.php
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_header() {
     ?>
@@ -32,17 +32,9 @@ function themedd_header() {
 add_action( 'themedd_header', 'themedd_header' );
 
 /**
- * Default positioning of menus and site branding
- */
-add_action( 'themedd_site_header_main', 'themedd_site_branding' );
-add_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
-add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
-
-
-/**
  * Load the skip link
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_skip_link() {
 	?>
@@ -54,7 +46,7 @@ add_action( 'themedd_masthead_before', 'themedd_skip_link' );
 /**
  * Load our site logo
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_site_branding() {
 	?>
@@ -92,11 +84,12 @@ function themedd_site_branding() {
 
 	<?php
 }
+add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 
 /**
  * Loads the site navigation onto the themedd_masthead action hook
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_primary_menu() {
 	?>
@@ -130,16 +123,16 @@ function themedd_primary_menu() {
 
 	<?php
 }
-
+add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 /**
  * Loads the site's secondary navigation onto the themedd_masthead action hook
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_secondary_menu() {
 
-    $cart_link_position = function_exists( 'themedd_cart_link_position' ) ? themedd_cart_link_position() : '';
+    $cart_link_position = function_exists( 'themedd_edd_cart_link_position' ) ? themedd_edd_cart_link_position() : '';
 
     if ( 'secondary' !== $cart_link_position && ! has_nav_menu( 'secondary' ) ) {
 		return;
@@ -170,6 +163,35 @@ function themedd_secondary_menu() {
 
     </div>
 
-
 	<?php
 }
+add_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
+
+/**
+ * Themedd custom header
+ *
+ * @since 1.0.0
+ */
+function themedd_header_image() {
+?>
+
+<?php if ( get_header_image() ) : ?>
+    <?php
+        /**
+         * Filter the default themedd custom header sizes attribute.
+         *
+         * @since Themedd 1.0.0
+         *
+         * @param string $custom_header_sizes sizes attribute
+         * for Custom Header. Default '(max-width: 709px) 85vw,
+         * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
+         */
+        $custom_header_sizes = apply_filters( 'themedd_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1188px' );
+    ?>
+    <div class="header-image">
+        <img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+    </div>
+<?php endif;
+
+}
+add_action( 'themedd_masthead_after', 'themedd_header_image' );

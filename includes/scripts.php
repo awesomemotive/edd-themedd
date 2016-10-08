@@ -2,7 +2,7 @@
 /**
  * Enqueue scripts and styles
  *
- * @since  1.0
+ * @since 1.0.0
  */
 function themedd_enqueue_scripts() {
 
@@ -37,8 +37,6 @@ function themedd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-
-
 	// load jQuery UI + tabs for account page
 	if ( is_page_template( 'page-templates/account.php' ) ) {
 
@@ -60,7 +58,6 @@ function themedd_enqueue_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'themedd_enqueue_scripts' );
-
 
 /**
  * Lightboxes

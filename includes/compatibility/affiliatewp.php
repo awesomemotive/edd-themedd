@@ -40,6 +40,7 @@ add_action( 'wp_enqueue_scripts', 'themedd_affwp_styles' );
 
 /**
  * Remove [affiliate_area] shortcode and add our own
+ *
  * @since 1.0.0
  */
 function affwp_custom() {
@@ -85,7 +86,6 @@ function themedd_affiliate_area( $atts, $content = null ) {
             echo '</div>';
         }
 
-        //$class = ! affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ? ' center-xs' : '';
         $class = '';
 
         echo '<div class="row' . $class . '">';
@@ -141,6 +141,7 @@ add_filter( 'body_class', 'themedd_affwp_body_classes' );
 
 /**
  * Wrap login form in div
+ *
  * @since 1.0.0
  */
 function themedd_affwp_login_form() {
