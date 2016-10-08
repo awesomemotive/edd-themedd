@@ -258,45 +258,52 @@ endif;
  * @since 1.0.0
  */
 if ( ! function_exists( 'themedd_post_header' ) ) :
-function themedd_post_header( $args = array() ) {
 
-	/**
-	 * Allow header to be removed via filter
-	 */
-	if ( ! apply_filters( 'themedd_post_header', true ) ) {
-		return;
+	function themedd_post_header( $args = array() ) {
+
+		/**
+		 * Allow header to be removed via filter
+		 */
+		if ( ! apply_filters( 'themedd_post_header', true ) ) {
+			return;
+		}
+
+		do_action( 'themedd_post_header_before' );
+
+		if ( is_404() ) {
+			$title = esc_html__( 'Oops! That page can&rsquo;t be found.', 'themedd' );
+		} else {
+			$title = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
+		}
+
+        $defaults = apply_filters( 'themedd_header_defaults',
+            array(
+                'subtitle' => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
+                'title'    => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
+                'classes'  => isset( $args['classes'] ) && is_array( $args['classes'] ) ? $args['classes'] : array()
+            )
+        );
+
+        $args = wp_parse_args( $args, $defaults );
+
+		?>
+
+		<header class="page-header<?php echo themedd_page_header_classes( $args['classes'] ); ?>">
+			<?php do_action( 'themedd_post_header_start' ); ?>
+			<h1 class="<?php echo get_post_type(); ?>-title">
+				<?php if ( $args['subtitle'] ) : ?>
+					<span class="entry-title-primary"><?php echo $args['title']; ?></span>
+					<span class="subtitle"><?php echo $args['subtitle']; ?></span>
+				<?php elseif ( $args['title'] ) : ?>
+					<?php echo $args['title']; ?>
+				<?php endif; ?>
+			</h1>
+			<?php do_action( 'themedd_post_header_end' ); ?>
+		</header>
+
+	<?php
+
 	}
-
-	do_action( 'themedd_post_header_before' );
-
-	if ( is_404() ) {
-		$title = esc_html__( 'Oops! That page can&rsquo;t be found.', 'themedd' );
-	} else {
-		$title = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
-	}
-
-	$subtitle = ! empty( $args['subtitle'] ) ? $args['subtitle'] : '';
-	$title    = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
-	$classes  = isset( $args['classes'] ) && is_array( $args['classes'] ) ? $args['classes'] : array();
-
-	?>
-
-	<header class="page-header<?php echo themedd_page_header_classes( $classes ); ?>">
-		<?php do_action( 'themedd_post_header_start' ); ?>
-		<h1 class="<?php echo get_post_type(); ?>-title">
-			<?php if ( $subtitle ) : ?>
-				<span class="entry-title-primary"><?php echo $title; ?></span>
-				<span class="subtitle"><?php echo $subtitle; ?></span>
-			<?php elseif ( $title ) : ?>
-				<?php echo $title; ?>
-			<?php endif; ?>
-		</h1>
-		<?php do_action( 'themedd_post_header_end' ); ?>
-	</header>
-
-<?php
-
-}
 
 endif;
 
