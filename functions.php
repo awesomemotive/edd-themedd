@@ -35,8 +35,6 @@ require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'header.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'custom.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'customizer.php' );
 
-
-
 // Compatibility with other plugins
 
 // AffiliateWP
@@ -174,6 +172,8 @@ add_action( 'widgets_init', 'themedd_widgets_init' );
  * Filter sidebars
  * Allows sidebars to be disabled completely or on a specific post/page/download
  * Allows sidebars to be swapped out on specific posts/pages/downloads
+ *
+ * @since 1.0.0
  */
 function themedd_get_sidebar() {
 
@@ -330,6 +330,8 @@ add_filter( 'body_class', 'themedd_body_classes' );
 /**
  * Controls the CSS classes applied to the main wrappers
  * Useful for overriding the wrapper widths etc
+ *
+ * @since 1.0.0
  */
 function themedd_wrapper_classes() {
 
