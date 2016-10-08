@@ -1,31 +1,10 @@
 <?php
 
 /**
- * Enqueue frontend scripts
- *
- * @since 1.0.0
- */
-function themedd_edd_remove_css() {
-	// remove software licensing CSS file
-	wp_dequeue_style( 'edd-sl-styles' );
-}
-add_action( 'wp_enqueue_scripts', 'themedd_edd_remove_css' );
-
-/**
- * EDD Recurring
- * Modify URL to update payment method
- */
-
-function themedd_edd_recurring_update_url( $url, $subscription ) {
-	$url = add_query_arg( array( 'action' => 'update', 'subscription_id' => $subscription->id ), '#tabs=1' );
-
-	return $url;
-}
-add_filter( 'edd_subscription_update_url', 'themedd_edd_recurring_update_url', 10, 2 );
-
-/**
  * EDD Software licensing
  * Loads the SL templates into our existing licenses tab
+ *
+ * @since 1.0.0
  */
 function themedd_edd_sl_load_templates() {
 
@@ -54,6 +33,8 @@ add_action( 'themedd_licenses_tab', 'themedd_edd_sl_load_templates' );
 
 /**
  * Remove the existing licenses tab content when "Manage Sites" or "View Upgrades" links are clicked
+ *
+ * @since 1.0.0
  */
 function themedd_edd_sl_remove_content() {
 
