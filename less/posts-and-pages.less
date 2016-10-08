@@ -1,5 +1,3 @@
-// post navigation
-
 // paging on index.php
 
 .paging-navigation {
@@ -11,8 +9,6 @@
 		display: inline-block;
 	}
 }
-
-
 
 // post navigation
 
@@ -106,8 +102,6 @@ article[class^="post-"] + article[class^="post-"] {
 	display: block;
 }
 
-
-
 // about the author
 
 .author-info {
@@ -145,7 +139,6 @@ article[class^="post-"] + article[class^="post-"] {
 // comments
 
 #comments {
-	border-top: 2px solid @light-grey;
 	padding-top: 2rem;
 
 	// These are technically the same, but use both
@@ -178,8 +171,6 @@ article[class^="post-"] + article[class^="post-"] {
 .pingback .edit-link {
 	font-size: 1rem;
 }
-
-
 
 .comment a {
 	border-bottom: none;
@@ -251,8 +242,6 @@ article[class^="post-"] + article[class^="post-"] {
 }
 
 
-
-
 /**
  * IE8 and earlier will drop any block with CSS3 selectors.
  * Do not combine these styles with the next block.
@@ -274,20 +263,7 @@ article[class^="post-"] + article[class^="post-"] {
 	text-align: center;
 }
 
-@media all and ( max-width: @screen-sm-max ) {
-
-
-    // images shouldn't be floated on small screens
-    // .entry-content img {
-    //     display: block;
-    //     float: none;
-    //     margin: 0 auto 2rem auto;
-    // }
-
-}
-
 @media all and ( min-width: @screen-sm-min ) {
-
 
 	.author-avatar {
 		float: left;
@@ -302,10 +278,6 @@ article[class^="post-"] + article[class^="post-"] {
 	.comment {
 		padding: 2rem;
 		margin-right: -2rem;
-	}
-
-	.children .comment {
-		border-left: 2px solid @light-grey;
 	}
 
 	.has-sidebar .posted-on {
