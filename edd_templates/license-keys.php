@@ -1,10 +1,4 @@
 <?php
-/**
- *
- * Changes made
- * 1. The "Manage Sites" link has been modified so it redirects to the same page
- * 1. The "View Upgrades" Link has been modified so it redirects to the same page
- */
 
 $color = edd_get_option( 'checkout_color', 'gray' );
 $color = ( $color == 'inherit' ) ? '' : $color;

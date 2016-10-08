@@ -1,11 +1,6 @@
 <?php
 /**
  *  EDD Template File for [edd_recurring_history] shortcode
- *
- * @description: Place this template file within your theme directory under /my-theme/edd_templates/ - For more information see: https://easydigitaldownloads.com/videos/template-files/
- *
- * @copyright  : http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since      : 2.4
  */
 
 //For logged in users only

@@ -26,8 +26,6 @@ $color = ( $color == 'inherit' ) ? '' : $color;
 <p><a href="<?php echo esc_url( remove_query_arg( array( 'view', 'license_id', 'edd_sl_error', '_wpnonce' ) ) ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back', 'edd_sl' ); ?></a></p>
 <?php endif; ?>
 
-
-
 <h5>Upgrades</h5>
 
 <?php edd_sl_show_errors(); ?>

@@ -1,9 +1,4 @@
 <?php
-/**
- * Changes made:
- *
- *
- */
 
 $payment_id  = absint( $_GET['payment_id' ] );
 $license_id  = absint( $_GET['license_id' ] );
