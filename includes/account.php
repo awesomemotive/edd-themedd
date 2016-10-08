@@ -111,19 +111,3 @@ function themedd_purchase_history() {
 function themedd_edd_subscriptions() {
 	return do_shortcode( '[edd_subscriptions]' );
 }
-
-/**
- * Add an "Affiliate Area" link to the bottom of the account section
- *
- * @since 1.0.0
- */
-function themedd_account_tab_affiliate_area() {
-	?>
-
-	<?php if ( function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() ) : ?>
-	<li class="follow-link" data-link="affiliate-area"><a href="<?php echo affwp_get_affiliate_area_page_url(); ?>">Affiliate Area</a></li>
-	<?php endif; ?>
-
-	<?php
-}
-add_action( 'themedd_account_tabs_after', 'themedd_account_tab_affiliate_area' );

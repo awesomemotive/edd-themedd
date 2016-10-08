@@ -1,21 +1,5 @@
 jQuery(document).ready(function($) {
 
-	jQuery('#tabs').tabs({
-
-		beforeActivate: function(event, ui) {
-
-			if ( ui.newTab.data("link") === 'affiliate-area' ) {
-
-				event.preventDefault();
-			 	var url = $('.follow-link a').attr('href');
-			 	location.href = url;
-				return false;
-
-			}
-
-		}
-	});
-
 	// jQuery BBQ
 
 	// The "tab widgets" to handle.
