@@ -28,7 +28,7 @@ get_header();
 			<?php if ( ! is_user_logged_in() ) : ?>
 				<div class="row center-xs">
 					<div class="col-xs-12 col-sm-7">
-						<?php echo edd_login_form( add_query_arg( array( 'login' => 'success', 'logout' => false ), site_url( $_SERVER['REQUEST_URI'] ) ) ); ?>
+						<?php echo edd_login_form(); ?>
 					</div>
 				</div>
 			<?php endif; ?>
