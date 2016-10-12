@@ -1,6 +1,6 @@
 ## Welcome to Themedd!
 
-[Themedd](http://themedd.com) is an upcoming WordPress theme for [Easy Digital Downloads](https://easydigitaldownloads).
+Themedd is an upcoming WordPress theme for [Easy Digital Downloads](https://easydigitaldownloads).  To be notified when it’s ready, enter your email address at [themedd.com](http://themedd.com).
 
 It’s not quite finished yet so **use at your own risk**. Code _will_ change dramatically and things may completely break :)
 
