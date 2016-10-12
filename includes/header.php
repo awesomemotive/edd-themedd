@@ -55,24 +55,36 @@ function themedd_site_branding() {
 
         <?php do_action( 'themedd_site_branding_start' ); ?>
 
-        <?php if ( is_front_page() && is_home() ) : ?>
-            <h1 class="site-title">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
-                    <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
-                </a>
-            </h1>
-        <?php else : ?>
-            <p class="site-title">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
-                    <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
-                </a>
-            </p>
-        <?php endif;
+        <?php
+        /**
+         * If no logo show the site title
+         */
+        if ( ! get_custom_logo() ) : ?>
 
+            <?php if ( is_front_page() && is_home() ) : ?>
+                <h1 class="site-title">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                        <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                        <span><?php bloginfo( 'name' ); ?></span>
+                        <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                    </a>
+                </h1>
+            <?php else : ?>
+                <p class="site-title">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                        <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                        <span><?php bloginfo( 'name' ); ?></span>
+                        <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                    </a>
+                </p>
+            <?php endif; ?>
+
+        <?php endif; ?>
+
+        <?php
+        /**
+         * Description
+         */
         $description = get_bloginfo( 'description', 'display' );
         if ( $description || is_customize_preview() ) : ?>
             <p class="site-description"><?php echo $description; ?></p>
@@ -195,3 +207,18 @@ function themedd_header_image() {
 
 }
 add_action( 'themedd_masthead_after', 'themedd_header_image' );
+
+
+/**
+ * Themedd custom header
+ *
+ * @since 1.0.0
+ */
+function themedd_header_logo() {
+?>
+
+<?php themedd_the_custom_logo(); ?>
+
+<?php
+}
+add_action( 'themedd_site_branding_start', 'themedd_header_logo' );
