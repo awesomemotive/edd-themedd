@@ -55,30 +55,22 @@ function themedd_site_branding() {
 
         <?php do_action( 'themedd_site_branding_start' ); ?>
 
-        <?php
-        /**
-         * If no logo show the site title
-         */
-        if ( ! get_custom_logo() ) : ?>
-
-            <?php if ( is_front_page() && is_home() ) : ?>
-                <h1 class="site-title">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
-                        <span><?php bloginfo( 'name' ); ?></span>
-                        <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
-                    </a>
-                </h1>
-            <?php else : ?>
-                <p class="site-title">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
-                        <span><?php bloginfo( 'name' ); ?></span>
-                        <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
-                    </a>
-                </p>
-            <?php endif; ?>
-
+        <?php if ( is_front_page() && is_home() ) : ?>
+            <h1 class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                    <span><?php bloginfo( 'name' ); ?></span>
+                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                </a>
+            </h1>
+        <?php else : ?>
+            <p class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                    <span><?php bloginfo( 'name' ); ?></span>
+                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                </a>
+            </p>
         <?php endif; ?>
 
         <?php
