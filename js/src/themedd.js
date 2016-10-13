@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 
 	$('body').addClass('js');
 
-    $( 'a > img' ).parent().addClass( 'has-image' );
+    $( 'a > img' ).parent().addClass( 'link-has-image' );
 
     $('body').on('click.eddAddToCart', '.edd-add-to-cart', function (e) {
         $( '.nav-cart' ).removeClass('empty');
