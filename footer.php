@@ -14,19 +14,6 @@
 
 		<?php do_action( 'themedd_footer_start' ); ?>
 
-		<?php if ( has_nav_menu( 'primary' ) && apply_filters( 'themedd_footer_primary_menu', true ) ) : ?>
-			<nav class="main-navigation" role="navigation">
-				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'menu_class'     => 'primary-menu',
-					 ) );
-				?>
-			</nav>
-		<?php endif; ?>
-
-		<?php do_action( 'themedd_footer_before_site_info' ); ?>
-
 		<section class="site-info">
 			<div class="wrapper">
 				<?php do_action( 'themedd_credits' ); ?>
