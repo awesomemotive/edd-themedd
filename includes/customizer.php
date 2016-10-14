@@ -7,6 +7,23 @@
  */
 function themedd_custom_header() {
 
+	$default_background_color = 'f5f5f5';
+
+	/**
+	 * Filter the arguments used when adding 'custom-background' support in Themedd
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args {
+	 *     An array of custom-background support arguments.
+	 *
+	 * @type string $default-color Default color of the background.
+	 * }
+	 */
+	add_theme_support( 'custom-background', apply_filters( 'themedd_custom_background_args', array(
+		'default-color' => $default_background_color,
+	) ) );
+
 	/**
 	 * Filter the arguments used when adding 'custom-header' support in Themedd
 	 *
@@ -23,10 +40,11 @@ function themedd_custom_header() {
 	 * }
 	 */
 	add_theme_support( 'custom-header', apply_filters( 'themedd_custom_header_args', array(
-		'width'                  => 1188,
+		'width'                  => 1480,
 		'height'                 => 280,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'themedd_header_style',
+		'header-text'            => false
 	) ) );
 
 }

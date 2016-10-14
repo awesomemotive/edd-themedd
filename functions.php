@@ -277,6 +277,11 @@ function themedd_page_header_classes( $more_classes = array() ) {
  */
 function themedd_body_classes( $classes ) {
 
+	// Adds a class of custom-background-image to sites with a custom background image.
+	if ( get_background_image() ) {
+		$classes[] = 'custom-background-image';
+	}
+
 	if ( is_page_template() ) {
 
 		// page templates don't have a sidebar

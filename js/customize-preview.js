@@ -21,4 +21,11 @@
 		} );
 	} );
 
+	// Add custom-background-image body class when background image is added.
+	wp.customize( 'background_image', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).toggleClass( 'custom-background-image', '' !== to );
+		} );
+	} );
+
 } )( jQuery );
