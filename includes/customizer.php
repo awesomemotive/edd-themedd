@@ -44,7 +44,6 @@ function themedd_custom_header() {
 		'height'                 => 280,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'themedd_header_style',
-		'header-text'            => false
 	) ) );
 
 }
@@ -62,24 +61,36 @@ if ( ! function_exists( 'themedd_header_style' ) ) :
  */
 function themedd_header_style() {
 
-	// If the header text option is untouched, let's bail.
-	if ( display_header_text() ) {
+	$text_color = get_header_textcolor();
+
+	// If no custom color for text is set, let's bail.
+	if ( display_header_text() && $text_color === get_theme_support( 'custom-header', 'default-text-color' ) ) {
 		return;
 	}
 
-	// If the header text has been hidden.
+	// If we get this far, we have custom styles.
 	?>
-	<style type="text/css" id="themedd-header-css">
-		.site-branding {
-			margin: 0 auto 0 0;
-		}
 
-		.site-branding .site-title,
-		.site-description {
-			clip: rect(1px, 1px, 1px, 1px);
-			position: absolute;
+	<style type="text/css" id="twentyfourteen-header-css">
+	<?php
+		// Has the text been hidden?
+		if ( ! display_header_text() ) :
+	?>
+	.site-branding .site-title,
+	.site-description {
+		clip: rect(1px, 1px, 1px, 1px);
+		position: absolute;
+	}
+	<?php
+		// If the user has set a custom color for the text, use that.
+		elseif ( $text_color != get_theme_support( 'custom-header', 'default-text-color' ) ) :
+	?>
+		.site-title a {
+			color: #<?php echo esc_attr( $text_color ); ?>;
 		}
+	<?php endif; ?>
 	</style>
+
 	<?php
 }
 endif;
@@ -105,6 +116,7 @@ function themedd_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 
@@ -119,6 +131,9 @@ function themedd_customize_register( $wp_customize ) {
 			'container_inclusive' => false,
 			'render_callback' => 'themedd_customize_partial_blogdescription',
 		) );
+
+		// Rename the label to "Site Title Color" because this only affects the site title in this theme.
+		$wp_customize->get_control( 'header_textcolor' )->label = __( 'Site Title Color', 'themedd' );
 
 	}
 
