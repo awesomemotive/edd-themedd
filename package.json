@@ -1,7 +1,7 @@
 {
   "name": "themedd",
   "version": "1.0.0",
-  "theme_uri": "http://themedd.com",
+  "theme_uri": "https://themedd.com",
   "Dependencies": {
     "grunt-cli": "latest"
   },
