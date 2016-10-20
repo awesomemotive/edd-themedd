@@ -32,7 +32,7 @@
 @nav-hover-color: @primary-color;
 @nav-active-color: @primary-color;
 @nav-md-padding: 1rem;
-
+@nav-max-width: 1252px;
 
 // secondary navigation
 @nav-secondary-color: @body-text-color;
@@ -170,8 +170,13 @@
 
 // navigation breakpoints
 @nav-sm-max: @screen-sm-max;
+@nav-sm-min: @screen-sm-min;
 @nav-md-min: @screen-md-min;
 @nav-lg-min: @screen-lg-min;
+
+// when the desktop navigation should be shown
+@desktop-nav: 768px;
+@desktop-nav-max: @desktop-nav - 1;
 
 // So media queries don't overlap when required, provide a maximum
 @screen-xs-max: (@screen-sm-min - 1);

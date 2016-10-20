@@ -1,5 +1,6 @@
 // General navigation styling
 
+
 // remove outlines
 button:hover,
 button:focus {
@@ -21,10 +22,12 @@ button:focus {
 }
 
 .site-header-menu {
-	display: none; // hide any menus by default at mobile sizes
-    -webkit-flex: 0 1 100%;
-	-ms-flex: 0 1 100%;
-	flex: 0 1 100%;
+//	display: none; // hide any menus by default at mobile sizes
+    // -webkit-flex: 0 1 100%;
+	// -ms-flex: 0 1 100%;
+	// flex: 0 1 100%;
+
+	width: 100%;
 }
 
 // the secondary navigation wrap
@@ -33,38 +36,42 @@ button:focus {
 }
 
 // show the main navigation when the mobile menu has been toggled, or when there is no JavaScript
-.site-header-menu.toggled-on,
-.no-js .site-header-menu {
-	display: block;
-}
+// .site-header-menu.toggled-on,
+// .no-js .site-header-menu {
+// 	display: block;
+// }
 
 // Menu button shown at mobile sizes
-.menu-toggle {
-	background-color: @menu-toggle-bg-color;
-	border: @menu-toggle-border;
-	color: @menu-toggle-color;
-	margin: 0;
-	padding: 0.5rem 1rem;
-	font-size: 1rem;
-}
 
-.menu-toggle:hover {
-    background-color: @menu-toggle-bg-hover-color;
-    color: @menu-toggle-hover-color;
-    border: @menu-toggle-hover-border;
-}
+//
+//
+// .menu-toggle {
+// 	background-color: @menu-toggle-bg-color;
+// 	border: @menu-toggle-border;
+// 	color: @menu-toggle-color;
+// 	margin: 0;
+// 	padding: 0.5rem 1rem;
+// 	font-size: 1rem;
+// }
+//
+// .menu-toggle:hover {
+//     background-color: @menu-toggle-bg-hover-color;
+//     color: @menu-toggle-hover-color;
+//     border: @menu-toggle-hover-border;
+// }
+//
+// .menu-toggle.toggled-on,
+// .menu-toggle.toggled-on:hover,
+// .menu-toggle.toggled-on:focus {
+// 	background-color: @menu-toggle-on-background-color;
+// 	border-color: @menu-toggle-on-border-color;
+// 	color: @menu-toggle-on-color;
+// }
+//
+// .no-js .menu-toggle {
+// 	display: none;
+// }
 
-.menu-toggle.toggled-on,
-.menu-toggle.toggled-on:hover,
-.menu-toggle.toggled-on:focus {
-	background-color: @menu-toggle-on-background-color;
-	border-color: @menu-toggle-on-border-color;
-	color: @menu-toggle-on-color;
-}
-
-.no-js .menu-toggle {
-	display: none;
-}
 
 // Main navigation styling
 
@@ -73,7 +80,8 @@ button:focus {
 	line-height: 1.5;
 	font-size: @nav-font-size;
 	font-weight: @nav-font-weight;
-	padding: 0.84375rem 0;
+//	padding: 0.84375rem 0;
+	padding: 0.5rem 0;
 	color: @nav-color;
 	border-bottom: none;
 }
@@ -90,9 +98,9 @@ button:focus {
 }
 
 .main-navigation li {
-	border-top: @menu-toggle-border-top; // border above each list item at mobile size
+//	border-top: @menu-toggle-border-top; // border above each list item at mobile size
 	position: relative;
-	padding: 0;
+//	padding: 0;
 }
 
 .main-navigation ul ul {
@@ -187,15 +195,31 @@ button:focus {
 
 @media only screen and ( max-width: @nav-sm-max ) {
 
+	// add padding top and bottom at mobile sizing
+	.main-navigation.toggled #primary-menu {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
 	// site header menu
 	.site-header-menu {
-		padding: 0;
-        margin-top: 2rem; // for the expanded menu
+	//	padding: 0;
+    //    margin-top: 2rem; // for the expanded menu
+	}
+
+	.main-navigation a {
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 
 }
 
-@media only screen and ( min-width: @nav-md-min ) {
+// show desktop nav
+@media only screen and ( min-width: @desktop-nav ) {
+
+	#primary-menu > li:first-child {
+		margin-left: -1rem;
+	}
 
 	// clearfix
 	#site-navigation ul.menu:after,
@@ -373,16 +397,16 @@ button:focus {
 	}
 
 	// don't show at desktop sizes
+	//.menu-toggle,
 	.dropdown-toggle,
 	.main-navigation ul .dropdown-toggle.toggled-on,
-	.menu-toggle,
 	.site-footer .main-navigation {
 		display: none;
 	}
 
-    #primary-menu {
-       margin: 0 -0.875rem;
-    }
+    // #primary-menu {
+    //    margin: 0 -0.875rem;
+    // }
 
 }
 
@@ -392,13 +416,13 @@ button:focus {
 		padding: @site-header-secondary-menu-lg-padding;
 	}
 
-    .main-navigation {
-        padding: 0;
-	}
+    // .main-navigation {
+    //     padding: 0;
+	// }
 
     #primary-menu {
        margin: 0 auto;
-       max-width: 1220px;
+       max-width: @nav-max-width;
     }
 
 }
