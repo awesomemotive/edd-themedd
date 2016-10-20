@@ -137,7 +137,7 @@ div[itemprop="offers"] {
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	padding: 2rem;
+	padding: 1.5rem;
 
 	.page-numbers {
 		margin-right: 1rem;
@@ -147,6 +147,10 @@ div[itemprop="offers"] {
 
 // Small Devices, Tablets
 @media only screen and ( min-width: @screen-sm-min ) {
+
+    .edd_downloads_list {
+        margin: 0 -1.5rem;
+    }
 
 	.edd_download_inner {
 		padding: @edd-download-padding;
@@ -168,7 +172,6 @@ div[itemprop="offers"] {
 
 	.edd_download_columns_4 .edd_download {
 		width: 50%;
-
 	}
 
 }

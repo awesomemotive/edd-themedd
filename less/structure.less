@@ -70,18 +70,6 @@ body.blog.has-sidebar #column-wrapper.wrapper {
 	max-width: @width-standard;
 }
 
-// keep the main column at a max width for readability until columns are introduced
-@media only screen and ( max-width: @screen-sm-max ) {
-
-	// this makes the column (image and text width) the same width as the column when there is a sidebar
-	body .wrapper,
-	body.has-sidebar.single-post #content .wrapper,
-	body.blog.has-sidebar #column-wrapper.wrapper {
-		max-width: 771px; // make this dynamic
-	}
-
-}
-
 @media only screen and ( min-width: @screen-md-min ) {
 
 	#secondary {
