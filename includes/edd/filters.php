@@ -173,6 +173,20 @@ function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
 
 /**
+ * Add classes to each EDD download
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_class( $classes, $id, $atts, $i ) {
+
+	$classes .= ' mb-xs-4 mb-sm-0';
+
+	return $classes;
+
+}
+add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
+
+/**
  * EDD Recurring
  * Modify URL to update payment method
  *
