@@ -91,6 +91,25 @@ function themedd_site_branding() {
 add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 
 /**
+ * Load the menu toggle
+ *
+ * @since 1.0.0
+ */
+function themedd_menu_toggle() {
+    ?>
+
+    <div id="menu-toggle-wrap">
+        <?php do_action( 'themedd_menu_toggle_before' ); ?>
+        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
+        <?php do_action( 'themedd_menu_toggle_after' ); ?>
+    </div>
+
+    <?php
+}
+// place the mobile menu toggle into the site header
+add_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
+
+/**
  * Loads the site navigation onto the themedd_masthead action hook
  *
  * @since 1.0.0
@@ -100,11 +119,7 @@ function themedd_primary_menu() {
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
 
-		<div id="menu-toggle-wrap">
-			<?php do_action( 'themedd_menu_toggle_before' ); ?>
-			<button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
-			<?php do_action( 'themedd_menu_toggle_after' ); ?>
-		</div>
+		<?php do_action( 'themedd_primary_menu_start' ); ?>
 
 		<div id="site-header-menu" class="site-header-menu">
 
@@ -116,6 +131,15 @@ function themedd_primary_menu() {
 	    					'menu_class'     => 'menu',
 	    					'theme_location' => 'primary',
 	    					'container'      => '',
+	    				))
+	    			);
+
+                    wp_nav_menu(
+	    				apply_filters( 'themedd_mobile_menu', array(
+	    					'menu_id'         => 'mobile-menu',
+	    					'menu_class'      => 'menu',
+	    					'theme_location'  => 'mobile',
+	    					'container_class' => 'mobile-navigation',
 	    				))
 	    			);
 	    		?>

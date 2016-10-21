@@ -116,6 +116,7 @@ function themedd_setup() {
 	register_nav_menus( array(
 		'primary'   => __( 'Primary Menu', 'themedd' ),
 		'secondary' => __( 'Secondary Menu', 'themedd' ),
+		'mobile'    => __( 'Mobile Menu', 'themedd' )
 	) );
 
 	/*
