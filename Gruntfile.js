@@ -7,21 +7,21 @@ module.exports = function(grunt) {
 
     // concat
     concat: {
-         js: {
+         main: {
            options: {
              separator: ';'
            },
            src: ['js/src/**/*.js'],
            dest: 'js/<%= pkg.name %>.min.js'
          },
-		 js: {
+		 account: {
            options: {
              separator: ';'
            },
            src: ['js/account/**/*.js'],
            dest: 'js/account.min.js'
-         },
-       },
+         }
+    },
 
     // uglify
     uglify: {
@@ -29,14 +29,12 @@ module.exports = function(grunt) {
           mangle: false
         },
         js: {
-          files: {
-            'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.min.js']
-		},
-		files: {
-		  'js/account.min.js': ['js/account.min.js']
-		}
+            files: {
+                'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.min.js'],
+                'js/account.min.js': ['js/account.min.js']
+    		}
         }
-      },
+    },
 
     // Add banner to style.css
     usebanner: {
@@ -115,7 +113,7 @@ module.exports = function(grunt) {
       // JS
       js: {
         files: ['js/src/**/*.js', 'js/account/**/*.js'],
-        tasks: ['concat:js', 'uglify:js'],
+        tasks: ['concat:main', 'concat:account', 'uglify:js'],
       },
 
       // svgstore
