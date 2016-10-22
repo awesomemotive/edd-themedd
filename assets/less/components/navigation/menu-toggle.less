@@ -1,0 +1,42 @@
+// Menu button shown at mobile sizes
+
+#menu-toggle-wrap {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+	align-self: center;
+}
+
+.menu-toggle {
+	background-color: @menu-toggle-bg-color;
+	border: @menu-toggle-border;
+	font-size: 1rem;
+}
+
+.menu-toggle:hover {
+    background-color: @menu-toggle-bg-hover-color;
+    color: @menu-toggle-hover-color;
+    border: @menu-toggle-hover-border;
+}
+
+.no-js .menu-toggle {
+	display: none;
+}
+
+#mobile-menu {
+	overflow: hidden;
+	max-height: 0;
+}
+
+.toggled-on #mobile-menu {
+	max-height: 2000px;
+}
+
+@media only screen and ( min-width: @desktop-nav ) {
+
+	#mobile-menu,
+	#menu-toggle-wrap {
+		display: none;
+	}
+
+}

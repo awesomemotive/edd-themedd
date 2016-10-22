@@ -7,8 +7,8 @@
 function themedd_enqueue_scripts() {
 
 	// register scripts
-	wp_register_script( 'themedd-js', get_template_directory_uri() . '/js/themedd.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
-	wp_register_script( 'account-js', get_template_directory_uri() . '/js/account.min.js', array( 'jquery' ), THEMEDD_VERSION );
+	wp_register_script( 'themedd-js', get_template_directory_uri() . '/assets/js/themedd.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
+	wp_register_script( 'account-js', get_template_directory_uri() . '/assets/js/account.min.js', array( 'jquery' ), THEMEDD_VERSION );
 	wp_register_script( 'comment-reply', '', '', '',  true );
 
 	if ( themedd_is_edd_sl_active() ) {

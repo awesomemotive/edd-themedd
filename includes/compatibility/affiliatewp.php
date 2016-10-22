@@ -17,7 +17,7 @@ function themedd_affwp_styles() {
         return;
     }
 
-    $file_path = 'css/affiliatewp.min.css';
+    $file_path = 'assets/css/affiliatewp.min.css';
     $child_theme_style_sheet  = trailingslashit( get_stylesheet_directory() ) . $file_path;
     $parent_theme_style_sheet = trailingslashit( get_template_directory() ) . $file_path;
 

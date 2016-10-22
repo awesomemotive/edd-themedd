@@ -8,16 +8,21 @@
 @link-hover-color: @accent-color;
 
 // menu toggle
-@menu-toggle-bg-color: @accent-color;
+@menu-toggle-bg-color: #222;
+@menu-toggle-border: none;
+@menu-toggle-color: #fff;
+
+// menu toggle hover styles
 @menu-toggle-bg-hover-color: @menu-toggle-bg-color;
+@menu-toggle-hover-color: @menu-toggle-color;
+@menu-toggle-hover-border: @menu-toggle-border;
+
+// menu toggle active styles
 @menu-toggle-on-background-color: #222;
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
-@menu-toggle-color: #fff;
-@menu-toggle-hover-color: @menu-toggle-color;
 @menu-toggle-on-color: #fff;
-@menu-toggle-border: 1px solid @medium-grey;
-@menu-toggle-hover-border: @menu-toggle-border;
-@menu-toggle-border-top: 2px solid @light-grey;
+
+@menu-toggle-border-top: 2px solid @light-grey; // this should be mobile menu styles
 @menu-toggle-footer-border-top: @menu-toggle-border-top;
 
 // drop down toggle
@@ -46,7 +51,7 @@
 @nav-sub-background-color: #fff;
 @nav-sub-arrow-color: #fff;
 @nav-sub-arrow-border-color: @medium-grey;
-@nav-sub-border: 1px solid @medium-grey;
+@nav-sub-border: none;
 @nav-sub-font-size: 0.875rem;
 @nav-sub-font-weight: 300;
 @nav-sub-color: @body-text-color;
@@ -146,7 +151,7 @@
 // site header menu
 @site-header-menu-padding: 0 2rem 0 2rem;
 @site-header-menu-lg-padding: 0 2rem;
-@site-header-secondary-menu-lg-padding: 0 2rem 0 0;
+//@site-header-secondary-menu-lg-padding: 0 2rem 0 0;
 
 // subtitles
 @subtitle-font-size-xs: 1.2rem;

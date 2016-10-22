@@ -11,15 +11,15 @@ module.exports = function(grunt) {
            options: {
              separator: ';'
            },
-           src: ['js/src/**/*.js'],
-           dest: 'js/<%= pkg.name %>.min.js'
+           src: ['assets/js/src/**/*.js'],
+           dest: 'assets/js/<%= pkg.name %>.min.js'
          },
 		 account: {
            options: {
              separator: ';'
            },
-           src: ['js/account/**/*.js'],
-           dest: 'js/account.min.js'
+           src: ['assets/js/account/**/*.js'],
+           dest: 'assets/js/account.min.js'
          }
     },
 
@@ -30,8 +30,8 @@ module.exports = function(grunt) {
         },
         js: {
             files: {
-                'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.min.js'],
-                'js/account.min.js': ['js/account.min.js']
+                'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.min.js'],
+                'assets/js/account.min.js': ['assets/js/account.min.js']
     		}
         }
     },
@@ -63,8 +63,8 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          "style.css": "less/style.less",
-          "css/affiliatewp.min.css": "less/compatibility/affiliatewp.less"
+          "style.css": "assets/less/style.less",
+          "assets/css/affiliatewp.min.css": "assets/less/compatibility/affiliatewp.less"
         }
         }
     },
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         files: {
             // svgs in the combined folder will be combined into the svg-defs.svg file
             // usage: <svg><use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-name-of-svg'; ?>"></use></svg>
-            'images/svg-defs.svg': ['images/svgs/combined/*.svg'],
+            'assets/images/svg-defs.svg': ['assets/images/svgs/combined/*.svg'],
         }
       }
     },
@@ -101,9 +101,9 @@ module.exports = function(grunt) {
         },
         dist: {
             expand: true,
-            cwd: 'images/svgs/original',
+            cwd: 'assets/images/svgs/original',
             src: ['*.svg'],
-            dest: 'images/svgs'
+            dest: 'assets/images/svgs'
         }
     },
 
@@ -112,25 +112,25 @@ module.exports = function(grunt) {
 
       // JS
       js: {
-        files: ['js/src/**/*.js', 'js/account/**/*.js'],
+        files: ['assets/js/src/**/*.js', 'assets/js/account/**/*.js'],
         tasks: ['concat:main', 'concat:account', 'uglify:js'],
       },
 
       // svgstore
        svgstore: {
-         files: ['images/svgs/combined/*.svg'],
+         files: ['assets/images/svgs/combined/*.svg'],
          tasks: ['svgstore:default']
       },
 
       // svgmin
       svgmin: {
-          files: ['images/svgs/original/*.svg'],
+          files: ['assets/images/svgs/original/*.svg'],
           tasks: ['svgmin:dist']
       },
 
       // CSS
       css: {
-        files: ['less/**/*.less'],
+        files: ['assets/less/**/*.less'],
         tasks: ['less:style'],
       },
 

@@ -14,64 +14,15 @@ button:focus {
 	margin: 0;
 }
 
-#menu-toggle-wrap {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-	align-self: center;
+// hide the primary navigation until it's needed
+#primary-menu {
+	display: none;
 }
 
-.site-header-menu {
-//	display: none; // hide any menus by default at mobile sizes
-    // -webkit-flex: 0 1 100%;
-	// -ms-flex: 0 1 100%;
-	// flex: 0 1 100%;
-
-	width: 100%;
-}
-
-// the secondary navigation wrap
+// hide the secondary menu at mobile sizes
 #site-header-secondary-menu {
-	padding-right: 2rem;
+	display: none;
 }
-
-// show the main navigation when the mobile menu has been toggled, or when there is no JavaScript
-// .site-header-menu.toggled-on,
-// .no-js .site-header-menu {
-// 	display: block;
-// }
-
-// Menu button shown at mobile sizes
-
-//
-//
-// .menu-toggle {
-// 	background-color: @menu-toggle-bg-color;
-// 	border: @menu-toggle-border;
-// 	color: @menu-toggle-color;
-// 	margin: 0;
-// 	padding: 0.5rem 1rem;
-// 	font-size: 1rem;
-// }
-//
-// .menu-toggle:hover {
-//     background-color: @menu-toggle-bg-hover-color;
-//     color: @menu-toggle-hover-color;
-//     border: @menu-toggle-hover-border;
-// }
-//
-// .menu-toggle.toggled-on,
-// .menu-toggle.toggled-on:hover,
-// .menu-toggle.toggled-on:focus {
-// 	background-color: @menu-toggle-on-background-color;
-// 	border-color: @menu-toggle-on-border-color;
-// 	color: @menu-toggle-on-color;
-// }
-//
-// .no-js .menu-toggle {
-// 	display: none;
-// }
-
 
 // Main navigation styling
 
@@ -81,7 +32,8 @@ button:focus {
 	font-size: @nav-font-size;
 	font-weight: @nav-font-weight;
 //	padding: 0.84375rem 0;
-	padding: 0.5rem 0;
+//	padding: 0.5rem 0;
+	padding: 0.75rem 0;
 	color: @nav-color;
 	border-bottom: none;
 }
@@ -128,29 +80,6 @@ button:focus {
 	color: @nav-secondary-color;
 	font-size: @nav-secondary-font-size;
 	font-weight: @nav-secondary-font-weight;
-}
-
-// Site footer navigation
-.site-footer .main-navigation {
-	padding: 0 2rem;
-}
-
-.site-footer .main-navigation li {
-	border-top: @menu-toggle-footer-border-top;
-}
-
-.site-footer .main-navigation a {
-	color: @nav-footer-color;
-}
-
-.site-footer .main-navigation a:hover,
-.site-footer .main-navigation a:focus {
-	color: @nav-footer-hover-color;
-}
-
-.site-footer .main-navigation .current-menu-item > a,
-.site-footer .main-navigation .current_page_ancestor > a {
-	color: @nav-footer-active-color;
 }
 
 // Dropdown toggles
@@ -201,12 +130,6 @@ button:focus {
 		padding-bottom: 1rem;
 	}
 
-	// site header menu
-	.site-header-menu {
-	//	padding: 0;
-    //    margin-top: 2rem; // for the expanded menu
-	}
-
 	.main-navigation a {
 		padding-left: 2rem;
 		padding-right: 2rem;
@@ -216,6 +139,10 @@ button:focus {
 
 // show desktop nav
 @media only screen and ( min-width: @desktop-nav ) {
+
+	#primary-menu {
+		display: block;
+	}
 
 	#primary-menu > li:first-child {
 		margin-left: -1rem;
@@ -350,29 +277,6 @@ button:focus {
 		line-height: 1.5;
 	}
 
-	.main-navigation ul ul:before,
-	.main-navigation ul ul:after {
-		content: "";
-		border-style: solid;
-		position: absolute;
-	}
-
-	// arrow
-	.main-navigation ul ul:before {
-		top: -9px;
-		left: 14px;
-		border-width: 0 10px 10px;
-		border-color: @nav-sub-arrow-border-color transparent;
-	}
-
-	// arrow
-	.main-navigation ul ul:after {
-		top: -7px;
-		left: 1rem;
-		border-width: 0 8px 8px;
-		border-color: @nav-sub-arrow-color transparent;
-	}
-
 	.main-navigation .menu-item-has-children > a:after {
 		content: "\f431";
 		position: absolute;
@@ -404,21 +308,9 @@ button:focus {
 		display: none;
 	}
 
-    // #primary-menu {
-    //    margin: 0 -0.875rem;
-    // }
-
 }
 
 @media only screen and ( min-width: @nav-lg-min ) {
-
-	#site-header-secondary-menu {
-		padding: @site-header-secondary-menu-lg-padding;
-	}
-
-    // .main-navigation {
-    //     padding: 0;
-	// }
 
     #primary-menu {
        margin: 0 auto;

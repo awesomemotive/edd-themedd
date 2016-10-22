@@ -6,7 +6,7 @@
  */
 
 ( function( $ ) {
-	var $body, masthead, menuToggle, siteNavigation, socialNavigation, siteHeaderMenu, resizeTimer;
+	var $body, masthead, menuToggle, siteNavigation, siteHeaderMenu, resizeTimer;
 
 	function initMainNavigation( container ) {
 
@@ -82,7 +82,7 @@
 		} );
 	} )();
 
-	// Add he default ARIA attributes for the menu toggle and the navigations.
+	// Add the default ARIA attributes for the menu toggle and the navigations.
 	function onResizeARIA() {
 		if ( 910 > window.innerWidth ) {
 			if ( menuToggle.hasClass( 'toggled-on' ) ) {
@@ -97,7 +97,7 @@
 				siteNavigation.attr( 'aria-expanded', 'false' );
 			}
 
-			menuToggle.attr( 'aria-controls', 'site-navigation social-navigation' );
+			menuToggle.attr( 'aria-controls', 'site-navigation' );
 		} else {
 			menuToggle.removeAttr( 'aria-expanded' );
 			siteNavigation.removeAttr( 'aria-expanded' );
