@@ -7,6 +7,7 @@
 		// if a logo image or icon is used it will make the anchor wrap to the same size and be fully clickable
 		border: 0 none; // turn off border bottom
 	}
+
 }
 
 .site-branding {
@@ -21,14 +22,11 @@
 
 .site-header-wrap {
 	padding: 2rem;
-	padding-bottom: 2rem;
-	padding-top: 2rem;
 	align-items: center;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     max-width: 1252px;
-
 }
 
 .header-image {
@@ -46,11 +44,12 @@
 }
 
 // for desktop
-@media only screen and ( min-width: @screen-md-min ) {
-	.site-header-wrap {
+@media only screen and ( min-width: @screen-sm-min ) {
 
+	.site-header-wrap {
+		padding: 4rem 2rem 2rem 2rem;
 		max-width: @site-header-wrap-max-width;
 		margin: 0 auto;
-
 	}
+
 }
