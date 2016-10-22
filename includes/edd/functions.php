@@ -36,7 +36,7 @@ function themedd_edd_purchase_link() {
 			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external" target="_blank">
 				<span><?php echo $external_download_text; ?></span>
 				<svg class="external" width="16px" height="16px">
-					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>
+					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/assets/images/svg-defs.svg#icon-external'; ?>"></use>
 				</svg>
 			</a>
 		</div>
