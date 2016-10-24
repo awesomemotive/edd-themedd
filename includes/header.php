@@ -159,7 +159,7 @@ function themedd_primary_menu() {
 add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 /**
- * Loads the site's secondary navigation onto the themedd_masthead action hook
+ * Loads the site's secondary navigation
  *
  * @since 1.0.0
  */
