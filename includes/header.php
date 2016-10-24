@@ -51,6 +51,8 @@ add_action( 'themedd_masthead_before', 'themedd_skip_link' );
 function themedd_site_branding() {
 	?>
 
+    <?php do_action( 'themedd_site_branding_before' ); ?>
+
     <div class="site-branding">
 
         <?php do_action( 'themedd_site_branding_start' ); ?>
@@ -86,6 +88,8 @@ function themedd_site_branding() {
 
     </div>
 
+    <?php do_action( 'themedd_site_branding_after' ); ?>
+
 	<?php
 }
 add_action( 'themedd_site_header_main', 'themedd_site_branding' );
@@ -98,11 +102,13 @@ add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 function themedd_menu_toggle() {
     ?>
 
+    <?php do_action( 'themedd_menu_toggle_wrap_before' ); ?>
     <div id="menu-toggle-wrap">
         <?php do_action( 'themedd_menu_toggle_before' ); ?>
         <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
         <?php do_action( 'themedd_menu_toggle_after' ); ?>
     </div>
+    <?php do_action( 'themedd_menu_toggle_wrap_after' ); ?>
 
     <?php
 }
@@ -121,14 +127,13 @@ function themedd_primary_menu() {
 
 		<?php do_action( 'themedd_primary_menu_start' ); ?>
 
-		<div id="site-header-menu" class="site-header-menu">
+		<div class="site-header-menu">
 
 	    	<nav id="site-navigation" class="main-navigation" role="navigation">
 	            <?php
 	    			wp_nav_menu(
 	    				apply_filters( 'themedd_primary_menu', array(
-	    					'menu_id'        => 'primary-menu',
-	    					'menu_class'     => 'menu',
+	    					'menu_class'     => 'primary-menu menu',
 	    					'theme_location' => 'primary',
 	    					'container'      => '',
 	    				))
@@ -162,7 +167,7 @@ function themedd_secondary_menu() {
 
     $cart_link_position = function_exists( 'themedd_edd_cart_link_position' ) ? themedd_edd_cart_link_position() : '';
 
-    if ( 'secondary' !== $cart_link_position && ! has_nav_menu( 'secondary' ) ) {
+    if ( 'secondary_menu' !== $cart_link_position ) {
 		return;
 	}
 
