@@ -45,9 +45,9 @@ get_header();
 						</li>
 					<?php endforeach; ?>
 
-					<?php do_action( 'themedd_account_tabs_after' ); ?>
-
 					</ul>
+
+					<?php do_action( 'themedd_account_tabs_after' ); ?>
 
 				</div>
 
