@@ -12,7 +12,7 @@ remove_action( 'wp_head', 'edd_download_meta_styles' );
  */
 function themedd_download_meta_icon_categories() {
 	?>
-	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-categories.svg'; ?>" width="24" />
+	<img src="<?php echo get_template_directory_uri() . '/assets/images/svgs/download-categories.svg'; ?>" width="24" />
 	<?php
 }
 add_action( 'edd_download_meta_categories', 'themedd_download_meta_icon_categories' );
@@ -24,7 +24,7 @@ add_action( 'edd_download_meta_categories', 'themedd_download_meta_icon_categori
  */
 function themedd_download_meta_icon_tags() {
 	?>
-	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-tags.svg'; ?>" width="24" />
+	<img src="<?php echo get_template_directory_uri() . '/assets/images/svgs/download-tags.svg'; ?>" width="24" />
 	<?php
 }
 add_action( 'edd_download_meta_tags', 'themedd_download_meta_icon_tags' );
@@ -35,7 +35,7 @@ add_action( 'edd_download_meta_tags', 'themedd_download_meta_icon_tags' );
 function themedd_download_meta_icon_last_updated() {
 	?>
 
-	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-last-updated.svg'; ?>" width="24" />
+	<img src="<?php echo get_template_directory_uri() . '/assets/images/svgs/download-last-updated.svg'; ?>" width="24" />
 
 	<?php
 }
@@ -47,7 +47,7 @@ add_action( 'edd_download_meta_last_updated', 'themedd_download_meta_icon_last_u
 function themedd_download_meta_icon_release_date() {
 	?>
 
-	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-released.svg'; ?>" width="24" />
+	<img src="<?php echo get_template_directory_uri() . '/assets/images/svgs/download-released.svg'; ?>" width="24" />
 
 	<?php
 }
@@ -59,7 +59,7 @@ add_action( 'edd_download_meta_release_date', 'themedd_download_meta_icon_releas
 function themedd_download_meta_icon_documentation() {
 	?>
 
-	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-documentation.svg'; ?>" width="24" />
+	<img src="<?php echo get_template_directory_uri() . '/assets/images/svgs/download-documentation.svg'; ?>" width="24" />
 
 	<?php
 }
@@ -71,7 +71,7 @@ add_action( 'edd_download_meta_documentation', 'themedd_download_meta_icon_docum
 function themedd_download_meta_icon_version() {
 	?>
 
-	<img src="<?php echo get_template_directory_uri() . '/images/svgs/download-version.svg'; ?>" width="24" />
+	<img src="<?php echo get_template_directory_uri() . '/assets/images/svgs/download-version.svg'; ?>" width="24" />
 
 	<?php
 }
