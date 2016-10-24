@@ -5,6 +5,7 @@
     display: -ms-flex;
     display: flex;
 	align-self: center;
+    align-items: inherit; // prevent the button from taking up the full height
 }
 
 .menu-toggle {
@@ -26,6 +27,12 @@
 #mobile-menu {
 	overflow: hidden;
 	max-height: 0;
+    margin-bottom: 2rem;
+}
+
+// margin out all UL's
+.mobile-navigation ul {
+    margin: 0;
 }
 
 .toggled-on #mobile-menu {

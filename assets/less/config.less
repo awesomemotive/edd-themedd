@@ -9,7 +9,7 @@
 
 // menu toggle
 @menu-toggle-bg-color: #222;
-@menu-toggle-border: none;
+@menu-toggle-border: 1px solid @menu-toggle-bg-color;
 @menu-toggle-color: #fff;
 
 // menu toggle hover styles
@@ -22,13 +22,9 @@
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
 @menu-toggle-on-color: #fff;
 
-@menu-toggle-border-top: 2px solid @light-grey; // this should be mobile menu styles
-@menu-toggle-footer-border-top: @menu-toggle-border-top;
-
 // drop down toggle
 @dropdown-toggle-color: #222;
 @dropdown-toggle-hover-color: @nav-hover-color;
-@dropdown-toggle-border-left: 1px solid @nav-sub-background-color;
 
 // primary nav links
 @nav-color: #222;
@@ -48,12 +44,12 @@
 // sub-menu
 @nav-sub-animation: none;
 //@nav-sub-animation: opacity 0.2s linear, top 0.2s linear, visibility 0.2s linear;
+
 @nav-sub-background-color: #fff;
-@nav-sub-arrow-color: #fff;
-@nav-sub-arrow-border-color: @medium-grey;
-@nav-sub-border: none;
+@nav-sub-border: 2px solid @light-grey;
 @nav-sub-font-size: 0.875rem;
 @nav-sub-font-weight: 300;
+@sub-menu-padding: 1rem;
 @nav-sub-color: @body-text-color;
 @nav-sub-hover-color: @primary-color;
 @nav-sub-active-color: @primary-color;
@@ -147,6 +143,9 @@
 // site branding
 @site-branding-padding: 0 0 0 0;
 @site-branding-lg-padding: 0 0 0 2rem;
+
+// site header
+@site-header-padding: 2rem;
 
 // site header menu
 @site-header-menu-padding: 0 2rem 0 2rem;
