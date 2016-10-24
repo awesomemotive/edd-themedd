@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
 
+	$( "#tabs" ).tabs();
+
 	// jQuery BBQ
 
 	// The "tab widgets" to handle.
