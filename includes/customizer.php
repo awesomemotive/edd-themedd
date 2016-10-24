@@ -101,7 +101,7 @@ endif;
  * @since Themedd 1.0.0
  */
 function themedd_customize_preview_js() {
-	wp_enqueue_script( 'themedd-customize-preview', get_template_directory_uri() . '/js/customize-preview.js', array( 'jquery', 'customize-preview' ), THEMEDD_VERSION, true );
+	wp_enqueue_script( 'themedd-customize-preview', get_template_directory_uri() . '/assets/js/customize-preview.js', array( 'jquery', 'customize-preview' ), THEMEDD_VERSION, true );
 }
 add_action( 'customize_preview_init', 'themedd_customize_preview_js' );
 
