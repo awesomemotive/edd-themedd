@@ -36,8 +36,8 @@
 
 	masthead         = $( '#masthead' );
 	menuToggle       = $( '#menu-toggle' );
-	siteHeaderMenu   = $( '#site-header-menu' );
-	siteNavigation   = $( '#site-navigation' );
+	siteHeaderMenu   = $( '.site-header-menu' );
+	siteNavigation   = $( '.main-navigation' );
 
 	// Enable menuToggle.
 	( function() {
@@ -51,6 +51,7 @@
 		menuToggle.add( siteNavigation ).attr( 'aria-expanded', 'false' );
 
 		menuToggle.on( 'click.themedd', function() {
+
 			$( this ).add( siteHeaderMenu ).toggleClass( 'toggled-on' );
 
 			// jscs:disable
