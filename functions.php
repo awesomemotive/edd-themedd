@@ -251,6 +251,7 @@ function themedd_secondary_classes() {
 
 	$classes[] = 'col-xs-12 col-md-4';
 
+	$classes = apply_filters( 'themedd_secondary_classes', $classes );
 
 	return implode( ' ', $classes );
 }
