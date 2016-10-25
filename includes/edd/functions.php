@@ -75,7 +75,8 @@ function themedd_edd_cart_link( $args = array() ) {
 		array(
 			'classes'   => array( 'animate' ),
 			'cart_link' => function_exists( 'edd_get_checkout_uri' ) ? edd_get_checkout_uri() : '',
-			'list_item' => isset( $args['list_item'] ) && $args['list_item'] === false ? false : true
+			'list_item' => isset( $args['list_item'] ) && $args['list_item'] === false ? false : true,
+			'text'      => isset( $args['text'] ) ? $args['text'] : '',
 		)
 	);
 
@@ -92,6 +93,9 @@ function themedd_edd_cart_link( $args = array() ) {
 	// cart link
 	$cart_link = $args['cart_link'];
 
+	// text
+	$text = $args['text'];
+
 	// CSS classes
 	$classes = $args['classes'] ? ' ' . implode( ' ', $args['classes'] ) : '';
 
@@ -102,7 +106,7 @@ function themedd_edd_cart_link( $args = array() ) {
         <?php endif; ?>
 
 			<a class="nav-cart<?php echo $classes; ?>" href="<?php echo $cart_link; ?>">
-                <?php echo themedd_edd_cart_icon(); ?>
+                <?php echo themedd_edd_cart_icon(); ?> <?php echo $text; ?>
             </a>
         <?php if ( $list_item ) : ?>
 		</li>
