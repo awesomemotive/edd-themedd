@@ -17,7 +17,25 @@
 		}
 	}
 
+	// allow the columns to be switched
+	#column-wrapper {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#primary {
+		order: 2;
+	}
+
+	#secondary {
+		order: 1;
+	}
+
 }
+
+
 
 // EDD meta in the download details widget
 
@@ -29,4 +47,23 @@
 span.categories,
 span.tags {
 	display: block;
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+
+	.single-download {
+
+		#primary {
+			order: 1;
+		}
+
+		#secondary {
+			order: 2;
+		}
+
+		#column-wrapper {
+			flex-direction: row;
+		}
+	}
+
 }
