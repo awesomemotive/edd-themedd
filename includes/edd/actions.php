@@ -33,8 +33,10 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 function themedd_edd_pricing() {
 	?>
 	<aside>
+		<?php do_action( 'themedd_edd_pricing_start' ); ?>
 		<?php echo themedd_edd_price(); ?>
 		<?php themedd_edd_purchase_link(); ?>
+		<?php do_action( 'themedd_edd_pricing_end' ); ?>
 	</aside>
 <?php
 }
