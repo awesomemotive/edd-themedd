@@ -10,24 +10,24 @@
 
 // mobile styles for the nav cart
 .nav-cart.mobile {
-    padding: 0 0.5rem 0 0;
+    padding: 0 1rem 0 0;
 }
 
 .nav-cart {
+	align-self: center;
+}
+
+.nav-cart-icon {
     position: relative;
+    display: inline-block;
+    vertical-align: middle;
+	display: inline-flex;
+	align-items: center;
 }
 
-.nav-cart.animate {
-    opacity: 0.7;
-    transition: opacity 0.2s linear;
-}
-
-.nav-cart.animate:hover {
-    opacity: 1;
-}
-
-.nav-cart svg {
-	display: block;
+.nav-cart-text {
+	vertical-align: middle;
+	margin-left: 0.5rem;
 }
 
 // cart icon
@@ -54,11 +54,12 @@
 .cart-count {
     display: block;
     background: @cart-count-background-color;
-    font-size: 11px;
+    font-size: 12px;
+	margin-left: 5px;
     color: @cart-count-color;
     position: absolute;
-    top: 6px;
-    right: -2px;
+    top: -9px;
+    right: -7px;
     padding: 0 4px;
     line-height: 18px;
     min-width: 18px;
@@ -76,8 +77,10 @@
     background: transparent;
 }
 
-.nav-cart.mobile .cart-count {
-    right: 9px;
+@media only screen and ( min-width: @desktop-nav ) {
+	.nav-cart {
+		margin-left: 1rem;
+	}
 }
 
 @media only screen and ( min-width: @nav-md-min ) {
