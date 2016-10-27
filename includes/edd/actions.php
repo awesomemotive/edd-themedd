@@ -43,6 +43,14 @@ function themedd_edd_pricing() {
 add_action( 'themedd_sidebar_download', 'themedd_edd_pricing' );
 
 /**
+ *
+ */
+function themedd_edd_download_title() {
+	echo '<h1 class="download-title">' . get_the_title() . '</h1>';
+}
+add_action( 'themedd_edd_pricing_start', 'themedd_edd_download_title' );
+
+/**
  * Add cart link to secondary menu
  *
  * @since 1.0.0
