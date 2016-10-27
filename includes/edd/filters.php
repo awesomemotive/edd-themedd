@@ -124,11 +124,6 @@ add_filter( 'body_class', 'themedd_edd_body_classes' );
  */
 function themedd_purchase_link_defaults( $defaults ) {
 
-	// add a class of "wide" to the add to cart button
-	if ( is_singular( 'download' ) ) {
-		$defaults['class'] .= ' wide';
-	}
-
 	$defaults['price'] = (bool) false;
 
 	return $defaults;
