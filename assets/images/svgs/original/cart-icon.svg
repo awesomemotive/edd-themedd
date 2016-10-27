@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <rect id="Frame_-_24px" x="0" y="0" width="24" height="24" style="fill:none;"/>
+    <g id="Filled_Icons" transform="matrix(0.956522,0,0,0.956522,0.521487,1.07197)">
+        <g transform="matrix(-1.14998,0,0,1.14998,25.7996,-1.79979)">
+            <path d="M18,2C17.534,2 17.131,2.321 17.025,2.775L16.05,7L3,7C2.691,7 2.401,7.142 2.212,7.384C2.023,7.627 1.955,7.944 2.029,8.242L4.029,16.242C4.141,16.688 4.541,17 5,17L15,17C15.466,17 15.869,16.678 15.975,16.225L18.795,4L22,4L22,2L18,2Z" style="fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(-1.14998,0,0,1.14998,25.7996,-1.79979)">
+            <circle cx="6" cy="20" r="2"/>
+        </g>
+        <g transform="matrix(-1.14998,0,0,1.14998,25.7996,-1.79979)">
+            <circle cx="14" cy="20" r="2"/>
+        </g>
+        <g transform="matrix(-1.14997,0,0,1.14997,25.7997,-1.79977)">
+            <path d="M2.882,6L5.118,6L4.289,4.342L5.612,3.46L6.882,6L11,6L11,4.999L13,4.999L13,6L15,6L15,4C15,3.448 14.553,3 14,3L10,3C9.447,3 9,3.447 9,4L9,5.764L6.894,1.552C6.766,1.296 6.533,1.106 6.257,1.033C5.981,0.96 5.685,1.008 5.445,1.168L2.445,3.168C2.025,3.448 1.88,3.996 2.105,4.447L2.882,6Z" style="fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>
