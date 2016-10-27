@@ -94,7 +94,7 @@ function themedd_edd_cart_link( $args = array() ) {
 	$cart_link = $args['cart_link'];
 
 	// text
-	$text = $args['text'];
+	$text = $args['text'] ? '<span class="nav-cart-text">' . $args['text'] . '</span>' : '';
 
 	// CSS classes
 	$classes = $args['classes'] ? ' ' . implode( ' ', $args['classes'] ) : '';
@@ -129,78 +129,23 @@ function themedd_edd_cart_link( $args = array() ) {
  * @since 1.0.0
  */
 function themedd_edd_cart_icon() {
-    $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
-
 	ob_start();
 ?>
 
-	<span class="nav-cart-icon">
+	<div class="nav-cart-icon">
+
+		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.1.5c.536 0 1 .37 1.12.89l1.122 4.86H22.35c.355 0 .688.163.906.442.217.28.295.644.21.986l-2.3 9.2c-.128.513-.588.872-1.116.872H8.55c-.536 0-1-.37-1.12-.89L4.185 2.8H.5V.5h4.6z" fill-rule="nonzero"/><circle cx="6" cy="20" r="2" transform="matrix(-1.14998 0 0 1.14998 25.8 -1.8)"/><circle cx="14" cy="20" r="2" transform="matrix(-1.14998 0 0 1.14998 25.8 -1.8)"/></svg>
 
 		<?php if ( apply_filters( 'themedd_edd_cart_icon_count', true ) ) : ?>
 		<span class="cart-count"><span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></span>
 		<?php endif; ?>
 
-		<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-			<defs>
-			<style>
-				.cart-frame {
-					fill: none;
-				}
-			</style>
-			</defs>
-			<?php if ( $cart_items ) : ?>
-			  <title><?php _e( 'Checkout now', 'themedd' ); ?></title>
-			<?php else : ?>
-			  <title><?php _e( 'Go to checkout', 'themedd' ); ?></title>
-			<?php endif; ?>
-			<g id="frame">
-				<rect class="cart-frame" width="48" height="48" />
-			</g>
-			<g id="cart">
-				<circle class="cart-wheel" cx="34.7" cy="37" r="3"/>
-				<circle class="cart-wheel" cx="22.6" cy="37" r="3"/>
-			<?php if ( $cart_items && apply_filters( 'themedd_edd_cart_icon_full', false ) ) : ?>
-				<path class="cart-items" d="M40.7,13.2c0.3-0.7,0.1-1.5-0.5-1.9l-4.6-3c-0.1,0-0.1-0.1-0.2-0.1c-0.8-0.4-1.7-0.1-2,0.7l-3.3,6.4v-2.7v0
-					c0-0.8-0.7-1.5-1.5-1.5h-6c0,0,0,0-0.1,0c-0.8,0.1-1.5,0.8-1.4,1.6v3h3v-1.5h3v1.5h6.3l1.9-3.9l2,1.3l-1.3,2.5h3.4L40.7,13.2z"/>
-			<?php endif; ?>
-				<path class="cart-main" d="M16.5,9.5h-6.1v3h4.9l4.3,18.6c0.2,0.7,0.8,1.2,1.5,1.2h15.3c0.7,0,1.3-0.5,1.5-1.2l3-12.2c0-0.1,0-0.2,0-0.3
-				c0-0.8-0.7-1.5-1.5-1.5H19.4L18,10.7C17.8,10,17.2,9.5,16.5,9.5L16.5,9.5z"/>
-			</g>
-		</svg>
+	</div>
 
-	</span>
-    <?php
-
-	$content = apply_filters( 'themedd_edd_cart_icon', ob_get_contents(), $cart_items );
+<?php
+	$content = apply_filters( 'themedd_edd_cart_icon', ob_get_contents() );
     ob_end_clean();
 
     return $content;
-}
-
-/**
- * Determine if a customer can upgrade their license (Software licensing plugin)
- *
- * @since 1.0.0
- */
-function themedd_edd_can_upgrade_license() {
-
-	if ( ! themedd_is_edd_sl_active() ) {
-		return;
-	}
-
-	$can_upgrade = false;
-
-	$license_keys = edd_software_licensing()->get_license_keys_of_user();
-
-	if ( $license_keys ) {
-		foreach ( $license_keys as $license ) {
-			 if ( edd_sl_license_has_upgrades( $license->ID ) && 'expired' !== edd_software_licensing()->get_license_status( $license->ID ) ) {
-				$can_upgrade = true;
-				break;
-			 }
-		}
-	}
-
-	return $can_upgrade;
 
 }

@@ -26,29 +26,28 @@
 @dropdown-toggle-color: #222;
 @dropdown-toggle-hover-color: @nav-hover-color;
 
-// primary nav links
+// primary navigation
 @nav-color: #222;
-@nav-font-size: 1rem;
-@nav-font-weight: 300;
 @nav-hover-color: @primary-color;
 @nav-active-color: @primary-color;
+
+@nav-font-size: 1rem;
+@nav-font-weight: 300;
+
 @nav-md-padding: 1rem;
 @nav-max-width: 1252px;
 
 // secondary navigation
 @nav-secondary-color: @body-text-color;
+@nav-secondary-hover-color: @primary-color;
 @nav-secondary-md-padding: 0.5rem;
 @nav-secondary-font-size: 0.875rem;
-@nav-secondary-font-weight: 300;
+//@nav-secondary-font-weight: 300;
 
 // sub-menu
-@nav-sub-animation: none;
-//@nav-sub-animation: opacity 0.2s linear, top 0.2s linear, visibility 0.2s linear;
-
 @nav-sub-background-color: #fff;
 @nav-sub-border: 2px solid @light-grey;
-@nav-sub-font-size: 0.875rem;
-@nav-sub-font-weight: 300;
+@nav-sub-font-size: 1rem;
 @sub-menu-padding: 1rem;
 @nav-sub-color: @body-text-color;
 @nav-sub-hover-color: @primary-color;
@@ -78,11 +77,13 @@
 @box-background-color: @light-grey-alt;
 
 // buttons
+@button-background-color: @dark-grey;
 @button-padding: 0.5rem 1.5rem;
-@button-background-color: @accent-color;
-@button-border: 1px solid @accent-color;
-@button-border-hover: 1px solid darken( @accent-color, 8% );
-@button-background-hover-color: darken( @accent-color, 8% );
+@button-border: 1px solid @button-background-color;
+// @button-border-hover: 1px solid lighten( @button-background-color, 15% );
+// @button-background-hover-color: lighten( @button-background-color, 15% );
+@button-border-hover: 1px solid @accent-color;
+@button-background-hover-color: @accent-color;
 
 // account page
 @account-tab-link-active-color: @link-hover-color;
@@ -122,10 +123,10 @@
 
 // greys
 @light-grey: #f5f5f5;
+@light-grey-alt: #fcfcfc;
 @lighter-grey: lighten( @light-grey, 3% );
 @medium-grey: #ddd;
-
-@light-grey-alt: #fcfcfc;
+@dark-grey: #222;
 
 // border colors
 @border-light-grey: darken( @light-grey, 3% );
@@ -165,7 +166,6 @@
 @edd-download-title-color: lighten( @heading-color, 20% );
 @edd-download-title-hover-color: @primary-color;
 @edd-download-title-font-size: 1.2rem;
-@edd-download-title-font-weight: 400;
 @edd-download-price-color: @link-color;
 
 // breakpoints
@@ -195,7 +195,6 @@
 @width-standard: 1252px;
 @width-wide: 1080px;
 @width-slim: 784px;
-
 
 @wrapper-wide-has-sidebar: @page-wrap-max-width;
 @wrapper-full-width: @page-wrap-max-width;

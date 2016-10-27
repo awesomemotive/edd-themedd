@@ -1,6 +1,7 @@
 
 .edd_purchase_submit_wrapper {
     position: relative;
+    display: inline-block; // prevents the buttons from jumping from full-width
 }
 
 .edd_purchase_submit_wrapper a.edd-add-to-cart {
@@ -10,6 +11,10 @@
     overflow: hidden;
 }
 
+// kill the add to cart message
+.edd-cart-ajax-alert {
+    display: none;
+}
 
 .edd_purchase_submit_wrapper .edd-cart-ajax {
     display: none;

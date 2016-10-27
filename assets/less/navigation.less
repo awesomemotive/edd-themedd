@@ -62,16 +62,6 @@ button:focus {
 	padding-right: 2rem;
 }
 
-// Secondary navigation styling
-.secondary-navigation a {
-	display: block;
-	line-height: 32px;
-	padding: 8px 1rem;
-	color: @nav-secondary-color;
-	font-size: @nav-secondary-font-size;
-	font-weight: @nav-secondary-font-weight;
-}
-
 
 @media only screen and ( max-width: @nav-sm-max ) {
 
@@ -127,11 +117,7 @@ button:focus {
 		display: block;
 	}
 
-	#site-header-secondary-menu {
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-	}
+
 
 	// sub menu
 	.main-navigation .sub-menu a {
@@ -197,7 +183,6 @@ button:focus {
 		opacity: 0;
 		top: 110%;
 		visibility: hidden;
-		transition: @nav-sub-animation;
 	}
 
 	.main-navigation li:hover > ul,
@@ -232,7 +217,6 @@ button:focus {
 		white-space: normal;
 		width: 15em;
 		font-size: @nav-sub-font-size;
-		font-weight: @nav-sub-font-weight;
 		line-height: 1.5;
 	}
 
@@ -241,7 +225,7 @@ button:focus {
 		position: absolute;
 		right: 0.625em;
 		top: 50%;
-		margin-top: -9px;
+		margin-top: -8px;
 	}
 
 	.main-navigation ul ul .menu-item-has-children > a {
@@ -258,13 +242,5 @@ button:focus {
 		margin-top: -9px;
 		right: 0.5625em;
 	}
-
-}
-
-@media only screen and ( min-width: @nav-lg-min ) {
-
-    // .primary-menu {
-    //    max-width: @nav-max-width;
-    // }
 
 }

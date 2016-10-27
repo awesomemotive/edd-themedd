@@ -38,20 +38,6 @@
 		color: @edd-download-price-color;
 	}
 
-	.edd_price,
-	.edd_price_options {
-		font-size: 1.2rem;
-
-		.currency {
-			font-size: 1rem;
-		}
-
-	}
-
-	.edd_price > .currency {
-		margin-right: 1px;
-	}
-
 }
 
 // download title
@@ -62,7 +48,6 @@ h3.edd_download_title {
 
 .edd_download_title a {
 	color: @edd-download-title-color;
-	font-weight: @edd-download-title-font-weight;
 	font-size: @edd-download-title-font-size;
 	display: block;
 
@@ -96,12 +81,16 @@ h3.edd_download_title {
 
 	li {
 		padding: 0.5rem 0;
+		line-height: 1;
+		cursor: pointer;
+		font-size: 1rem;
 	}
 
 	li label {
 		padding: 0;
 		display: block;
-		cursor: pointer;
+
+		margin: 0;
 
 		input {
 			margin-right: 0.5rem;
@@ -123,11 +112,6 @@ div[itemprop="offers"] {
 // align price to bottom when there is no buy now button
 .has-price.no-buy-button div[itemprop="offers"] {
 	margin: auto 0 0 0;
-}
-
-.edd_downloads_list .edd_price_options li {
-    font-size: 1rem;
-    padding: 0;
 }
 
 // download pagination
