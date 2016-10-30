@@ -35,7 +35,7 @@
 @nav-font-weight: 300;
 
 @nav-md-padding: 1rem;
-@nav-max-width: 1252px;
+
 
 // secondary navigation
 @nav-secondary-color: @body-text-color;
@@ -161,12 +161,15 @@
 // gallery images
 @gallery-item-border-color: @primary-color;
 
-// Easy Digital Downloads
+// compatibility - Easy Digital Downloads
 @edd-download-padding: 1.5rem;
 @edd-download-title-color: lighten( @heading-color, 20% );
 @edd-download-title-hover-color: @primary-color;
 @edd-download-title-font-size: 1.2rem;
 @edd-download-price-color: @accent-color;
+
+// compatibility - AffiliateWP
+@affiliate-tab-active-color: @accent-color;
 
 // breakpoints
 @screen-sm-min: 768px; // 48em
@@ -191,16 +194,14 @@
 @wrapper-slim: 784px;
 @wrapper-wide: 1080px;
 
-// get a better ratio between spaces
+// widths
+@nav-max-width: 1252px;
+
 @width-standard: 1252px;
-@width-wide: 1080px;
 @width-slim: 784px;
 
-@wrapper-wide-has-sidebar: @page-wrap-max-width;
+
 @wrapper-full-width: @page-wrap-max-width;
 @page-max-width: 1480px;
 @page-wrap-max-width: 1252px;
 @site-header-wrap-max-width: @page-wrap-max-width;
-
-// compatibility
-@affiliate-tab-active-color: @accent-color;

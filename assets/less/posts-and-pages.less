@@ -190,9 +190,7 @@ article[class^="post-"] + article[class^="post-"] {
 	color: @body-text-color;
 }
 
-// add bottom border to comments and also blog posts
-.comment-list > .comment,
-.blog .wrapper.has-sidebar article {
+.comment-list > .comment {
 	padding-left: 0;
 }
 
@@ -218,14 +216,9 @@ article[class^="post-"] + article[class^="post-"] {
 	float: right;
 }
 
-.blog .wrapper.has-sidebar article:last-child {
-	border-bottom: none;
-}
-
 .children {
 	margin-top: 2rem;
 }
-
 
 /**
  * IE8 and earlier will drop any block with CSS3 selectors.
@@ -265,43 +258,4 @@ article[class^="post-"] + article[class^="post-"] {
 		margin-right: -2rem;
 	}
 
-	.has-sidebar .posted-on {
-		display: block;
-		margin-bottom: 0.5rem;
-	}
-
-	.has-sidebar .posted-on a {
-		display: block;
-		margin-bottom: 0.25rem;
-	}
-
-	.has-sidebar .entry-footer > span:not(:first-child):before {
-		display: none;
-	}
-
-	.has-sidebar .entry-footer > span {
-		display: block;
-		padding: 0.5rem 0;
-	}
-
-	.page-header {
-		padding: 3rem 0;
-	}
-
-}
-
-.has-sidebar #secondary .entry-footer {
-	display: none;
-}
-
-@media only screen and ( min-width: @screen-lg-min ) {
-
-	// hide entry meta since it is now shown in the sidebar
-	.has-sidebar #main .entry-footer {
-		display: none;
-	}
-
-	.has-sidebar #secondary .entry-footer {
-		display: block;
-	}
 }

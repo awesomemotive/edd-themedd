@@ -96,58 +96,6 @@ function themedd_get_sidebar() {
 	return get_sidebar( apply_filters( 'themedd_get_sidebar', $sidebar ) );
 }
 
-/**
- * Themedd primary div classes
- *
- * @since 1.0.0
- */
-function themedd_primary_classes() {
-	$classes = array();
-
-	if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ) {
-		$classes[] = 'col-xs-12';
-	} else {
-
-		if (
-			is_page_template( 'page-templates/slim.php' ) ||
-			is_page_template( 'page-templates/wide.php' ) ||
-			is_page_template( 'page-templates/full-width.php' ) ||
-			is_page_template( 'page-templates/no-sidebar.php' )
-		) {
-			$classes[] = 'col-xs-12';
-
-		} else {
-
-			// 2 column layout unless sidebar is removed
-			if ( apply_filters( 'themedd_show_sidebar', true ) ) {
-				$classes[] = 'col-xs-12 col-md-7';
-			} else {
-				$classes[] = 'col-xs-12';
-			}
-
-		}
-
-	}
-
-	$classes = apply_filters( 'themedd_primary_classes', $classes );
-
-	return ' ' . implode( ' ', $classes );
-}
-
-/**
- * Themedd secondary div classes
- *
- * @since 1.0.0
- */
-function themedd_secondary_classes() {
-	$classes = array();
-
-	$classes[] = 'col-xs-12 col-md-5';
-
-	$classes = apply_filters( 'themedd_secondary_classes', $classes );
-
-	return implode( ' ', $classes );
-}
 
 /**
  * Themedd page header div classes
@@ -186,4 +134,47 @@ function themedd_wrapper_classes() {
 	}
 
 	return implode( ' ', $classes );
+}
+
+/**
+ * Themedd primary div classes
+ *
+ * @since 1.0.0
+ */
+function themedd_primary_classes() {
+
+	$classes = array();
+
+	if (
+		is_active_sidebar( 'sidebar-1' ) &&
+		! ( is_page_template( 'page-templates/no-sidebar.php' ) || is_page_template( 'page-templates/slim.php' ) ) ||
+		is_singular( 'download' )
+	) {
+		$classes[] = 'col-xs-12 col-md-7';
+	}
+
+	$classes = apply_filters( 'themedd_primary_classes', $classes );
+
+	if ( $classes ) {
+		return ' ' . implode( ' ', $classes );
+	}
+
+}
+
+/**
+ * Themedd secondary div classes
+ *
+ * @since 1.0.0
+ */
+function themedd_secondary_classes() {
+
+	$classes = array();
+
+	$classes[] = 'col-xs-12 col-md-5';
+
+	$classes = apply_filters( 'themedd_secondary_classes', $classes );
+
+	if ( $classes ) {
+		return implode( ' ', $classes );
+	}
 }

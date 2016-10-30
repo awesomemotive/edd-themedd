@@ -17,25 +17,7 @@
 		}
 	}
 
-	// allow the columns to be switched
-	#column-wrapper {
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		flex-direction: column;
-	}
-
-	#primary {
-		order: 2;
-	}
-
-	#secondary {
-		order: 1;
-	}
-
 }
-
-
 
 // EDD meta in the download details widget
 
@@ -49,21 +31,23 @@ span.tags {
 	display: block;
 }
 
+.entry-content .download-info {
+	margin-bottom: 2rem;
+}
+
+#primary-sidebar .download-info {
+	display: none;
+}
+
 @media only screen and ( min-width: @screen-md-min ) {
 
-	.single-download {
+	#primary-sidebar .download-info {
+		padding: 2rem;
+		display: block;
+	}
 
-		#primary {
-			order: 1;
-		}
-
-		#secondary {
-			order: 2;
-		}
-
-		#column-wrapper {
-			flex-direction: row;
-		}
+	.entry-content .download-info {
+		display: none;
 	}
 
 }

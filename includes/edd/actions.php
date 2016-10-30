@@ -30,25 +30,26 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  *
  * @since 1.0.0
  */
-function themedd_edd_pricing() {
-	?>
-	<aside>
-		<?php do_action( 'themedd_edd_pricing_start' ); ?>
-		<?php echo themedd_edd_price(); ?>
-		<?php themedd_edd_purchase_link(); ?>
-		<?php do_action( 'themedd_edd_pricing_end' ); ?>
-	</aside>
+function themedd_edd_download_info() {
+
+    if ( ! is_singular( 'download' ) ) {
+        return;
+    }
+
+    ?>
+	<div class="download-info">
+		<?php
+            echo '<h1 class="download-title">' . get_the_title() . '</h1>';
+            echo themedd_edd_price();
+            themedd_edd_purchase_link();
+        ?>
+	</div>
 <?php
 }
-add_action( 'themedd_sidebar_download', 'themedd_edd_pricing' );
+add_action( 'themedd_sidebar_download', 'themedd_edd_download_info' );
 
-/**
- *
- */
-function themedd_edd_download_title() {
-	echo '<h1 class="download-title">' . get_the_title() . '</h1>';
-}
-add_action( 'themedd_edd_pricing_start', 'themedd_edd_download_title' );
+// add the download info just after the featured image so it can be shown at mobile sizes
+add_action( 'themedd_entry_content_start', 'themedd_edd_download_info' );
 
 /**
  * Add cart link to secondary menu

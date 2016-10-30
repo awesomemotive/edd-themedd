@@ -3,11 +3,11 @@
  * The template for displaying 404 pages (not found)
  */
 
-get_header(); ?>
+get_header();
+themedd_post_header( array( 'title' => __( 'Oops! That page can&rsquo;t be found.', 'themedd' ) ) );
+?>
 
-<?php themedd_post_header(); ?>
-
-<div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
+<div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">

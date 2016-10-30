@@ -3,13 +3,10 @@
  * The template for displaying search results pages
  */
 
-get_header(); ?>
-
-<header class="page-header">
-	<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'themedd' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
-</header>
-
-<div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
+get_header();
+themedd_post_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
+?>
+<div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 
 	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">

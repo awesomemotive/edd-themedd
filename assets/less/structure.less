@@ -26,10 +26,15 @@
 
 #primary { padding: 0; }
 
-// all pages when a sidebar is active
-
 #primary-sidebar aside {
 	padding: 1rem 0;
+}
+
+// houses the primary and secondary columns
+.content-wrapper {
+	max-width: @width-standard;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 // wrappers are always centered
@@ -38,42 +43,22 @@
 	margin-right: auto;
 }
 
-// full-width template
-body.width-full .wrapper {
-	max-width: 100%;
-}
-
-// default = slim
-body.single-post #content .wrapper,
-body.width-slim #column-wrapper.wrapper,
-body.blog #column-wrapper.wrapper {
-	max-width: @width-slim;
-}
-
-// width-wide template
-body.width-wide .wrapper {
-	max-width: @width-wide;
-}
-
-// allows wrappers to be overridden
-.wrapper.full-width { max-width: 100%; }
-.wrapper.slim { max-width: @wrapper-slim; }
-.wrapper.wide { max-width: @wrapper-wide; }
-
-body .wrapper,
-body.has-sidebar.single-post #content .wrapper,
-body.blog.has-sidebar #column-wrapper.wrapper {
+body .wrapper {
 	max-width: @width-standard;
 }
 
 @media only screen and ( min-width: @screen-md-min ) {
 
-	#secondary {
-		padding: 0;
+	.content-wrapper {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
 	}
 
-	.no-sidebar #primary {
-		width: 100%;
+	#secondary {
+		padding: 0;
 	}
 
 	.wrapper .entry-content {
@@ -84,17 +69,10 @@ body.blog.has-sidebar #column-wrapper.wrapper {
 		padding: 2rem;
 	}
 
-	// houses the primary and secondary columns
-	#column-wrapper {
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
+	// slim template
+	.slim #primary {
+		width: 58.333%;
+		margin: 0 auto;
 	}
 
-}
-
-@media only screen and ( min-width: @screen-lg-min ) {
-	.wrapper.has-sidebar #secondary { padding-right: 0; }
 }
