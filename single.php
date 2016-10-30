@@ -3,7 +3,9 @@
  * The template for displaying all single posts and attachments
  */
 
-get_header(); ?>
+get_header();
+themedd_post_header();
+?>
 
 <?php do_action( 'themedd_single_start' ); ?>
 
