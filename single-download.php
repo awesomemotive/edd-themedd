@@ -5,9 +5,9 @@
 
 get_header(); ?>
 
-<div id="column-wrapper" class="wrapper<?php echo themedd_wrapper_classes(); ?>">
+<div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area <?php echo themedd_primary_classes(); ?>">
+	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 
 		<main id="main" class="site-main" role="main">
 
