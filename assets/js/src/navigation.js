@@ -6,7 +6,8 @@
  */
 
 ( function( $ ) {
-	var $body, masthead, menuToggle, siteNavigation, siteHeaderMenu, resizeTimer;
+
+	var $body, masthead, menuToggle, siteNavigation, siteHeaderMenu, mobileNavigation;
 
 	function initMainNavigation( container ) {
 
@@ -32,13 +33,16 @@
 			_this.html( _this.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
 		} );
 	}
-	initMainNavigation( $( '.main-navigation' ) );
+
+	mobileNavigation = $( '.mobile-navigation' );
+
+	initMainNavigation( mobileNavigation );
 
 	masthead         = $( '#masthead' );
 	menuToggle       = $( '#menu-toggle' );
-	siteHeaderMenu   = $( '.site-header-menu' );
 	siteNavigation   = $( '.main-navigation' );
-
+	siteHeaderMenu   = $( '.site-header-menu' );
+	
 	// Enable menuToggle.
 	( function() {
 
@@ -50,13 +54,19 @@
 		// Add an initial values for the attribute.
 		menuToggle.add( siteNavigation ).attr( 'aria-expanded', 'false' );
 
+		var defaultButtonText = menuToggle.text();
+
 		menuToggle.on( 'click.themedd', function() {
 
-			$( this ).add( siteHeaderMenu ).toggleClass( 'toggled-on' );
+			$( this ).add( mobileNavigation ).toggleClass( 'toggled-on' );
+			$( this ).add( mobileNavigation ).attr( 'aria-expanded', $( this ).add( mobileNavigation ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
 
-			// jscs:disable
-			$( this ).add( siteNavigation ).attr( 'aria-expanded', $( this ).add( siteNavigation ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
-			// jscs:enable
+			if ( $.trim( $(this).text() ) === 'Close Menu' ) {
+			    $(this).text( defaultButtonText );
+			} else {
+			    $(this).text( 'Close Menu' );
+			}
+
 		} );
 	} )();
 

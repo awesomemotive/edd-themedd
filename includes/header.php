@@ -44,6 +44,33 @@ function themedd_skip_link() {
 add_action( 'themedd_masthead_before', 'themedd_skip_link' );
 
 /**
+ * Load the menu toggle
+ *
+ * @since 1.0.0
+ */
+function themedd_menu_toggle() {
+    ?>
+
+    <?php do_action( 'themedd_menu_toggle_wrap_before' ); ?>
+
+    <div id="menu-toggle-wrap">
+
+        <?php do_action( 'themedd_menu_toggle_before' ); ?>
+
+        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
+
+        <?php do_action( 'themedd_menu_toggle_after' ); ?>
+
+    </div>
+
+    <?php do_action( 'themedd_menu_toggle_wrap_after' ); ?>
+
+    <?php
+}
+// place the mobile menu toggle into the site header
+add_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
+
+/**
  * Load our site logo
  *
  * @since 1.0.0
@@ -94,26 +121,8 @@ function themedd_site_branding() {
 }
 add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 
-/**
- * Load the menu toggle
- *
- * @since 1.0.0
- */
-function themedd_menu_toggle() {
-    ?>
 
-    <?php do_action( 'themedd_menu_toggle_wrap_before' ); ?>
-    <div id="menu-toggle-wrap">
-        <?php do_action( 'themedd_menu_toggle_before' ); ?>
-        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
-        <?php do_action( 'themedd_menu_toggle_after' ); ?>
-    </div>
-    <?php do_action( 'themedd_menu_toggle_wrap_after' ); ?>
 
-    <?php
-}
-// place the mobile menu toggle into the site header
-add_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
 
 /**
  * Loads the site navigation onto the themedd_masthead action hook
@@ -138,15 +147,6 @@ function themedd_primary_menu() {
 	    					'container'      => '',
 	    				))
 	    			);
-
-                    wp_nav_menu(
-	    				apply_filters( 'themedd_mobile_menu', array(
-	    					'menu_id'         => 'mobile-menu',
-	    					'menu_class'      => 'menu',
-	    					'theme_location'  => 'mobile',
-	    					'container_class' => 'mobile-navigation',
-	    				))
-	    			);
 	    		?>
 	    	</nav>
 
@@ -159,20 +159,33 @@ function themedd_primary_menu() {
 add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 /**
+ * Loads the mobile menu onto the themedd_menu_toggle_wrap_after action hook
+ */
+function themedd_mobile_menu() {
+
+    wp_nav_menu(
+        apply_filters( 'themedd_mobile_menu', array(
+            'menu_id'         => 'mobile-menu',
+            'menu_class'      => 'menu',
+            'theme_location'  => 'mobile',
+            'container_class' => 'mobile-navigation',
+        ))
+    );
+
+}
+add_action( 'themedd_menu_toggle_wrap_after', 'themedd_mobile_menu' );
+
+/**
  * Loads the site's secondary navigation
  *
  * @since 1.0.0
  */
 function themedd_secondary_menu() {
 
-    $cart_link_position = function_exists( 'themedd_edd_cart_link_position' ) ? themedd_edd_cart_link_position() : '';
-
-    if ( 'secondary_menu' !== $cart_link_position ) {
-		return;
-	}
-
-	?>
-
+    /**
+     * Show #site-header-secondary-menu if the secondary menu is active or cart icon is still positioned there
+     */
+	if ( has_nav_menu( 'secondary' ) || 'secondary_menu' === apply_filters( 'themedd_edd_cart_link_position', 'secondary_menu' ) ) : ?>
 	<div id="site-header-secondary-menu" class="site-header-menu">
 
         <?php do_action( 'themedd_secondary_menu_before' ); ?>
@@ -195,6 +208,7 @@ function themedd_secondary_menu() {
         <?php do_action( 'themedd_secondary_menu_after' ); ?>
 
     </div>
+    <?php endif; ?>
 
 	<?php
 }

@@ -1,6 +1,26 @@
 <?php
 
 /**
+ * Appends the cart icon and link to the mobile menu
+ *
+ * @since 1.0.0
+ * @uses
+ */
+function themedd_edd_mobile_menu( $items, $args ) {
+
+	$new = themedd_edd_cart_link(
+		array(
+			'list_item' => true,
+			'classes'   => array( 'mobile' ),
+			'text'      => __( 'Checkout', 'themedd' )
+		)
+	);
+
+    return $items . $new;
+}
+add_filter( 'wp_nav_menu_mobile_items', 'themedd_edd_mobile_menu', 10, 2 );
+
+/**
  * Filter the purchase link defaults
  *
  * @since 1.0.0

@@ -12,6 +12,9 @@
 	background-color: @menu-toggle-bg-color;
 	border: @menu-toggle-border;
 	font-size: 1rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    line-height: 1;
 }
 
 .menu-toggle:hover {
@@ -24,27 +27,14 @@
 	display: none;
 }
 
-#mobile-menu {
-	overflow: hidden;
-	max-height: 0;
-}
-
-.main-navigation[aria-expanded=true] #mobile-menu {
-    margin-bottom: 2rem;
-}
-
 // margin out all UL's
 .mobile-navigation ul {
     margin: 0;
 }
 
-.toggled-on #mobile-menu {
-	max-height: 2000px;
-}
-
 @media only screen and ( min-width: @desktop-nav ) {
 
-	#mobile-menu,
+    .mobile-navigation,
 	#menu-toggle-wrap {
 		display: none;
 	}
