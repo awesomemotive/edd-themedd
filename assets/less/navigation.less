@@ -62,12 +62,16 @@ button:focus {
 	padding-right: 2rem;
 }
 
+// if the cart icon is moved to the primary navigation let's center it
+.primary-menu li.checkout {
+    align-self: center;
+}
+
 
 @media only screen and ( max-width: @nav-sm-max ) {
 
 	// show the menus when there's no JS, or when they have been toggled
-	.no-js .main-navigation ul ul,
-	.main-navigation ul.toggled-on {
+	.no-js .main-navigation ul ul {
 		display: block;
 	}
 
@@ -82,18 +86,22 @@ button:focus {
 		padding-right: 2rem;
 	}
 
-	// mobile menu
-	.sub-menu a {
-		padding-left: 3rem;
-	}
-
 }
 
 // show desktop nav
 @media only screen and ( min-width: @desktop-nav ) {
 
 	.main-navigation .primary-menu {
-		display: block;
+
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+
+        // allow the nav items to wrap onto the next line
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
 		margin-left: -1rem; // lines the UL up with the logo/site title
 		margin-right: -1rem;
 	}
@@ -143,7 +151,6 @@ button:focus {
 
 	.main-navigation li {
 		border: 0;
-		float: left;
 	}
 
 	.main-navigation a {

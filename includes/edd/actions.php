@@ -65,13 +65,3 @@ function themedd_edd_secondary_menu_after() {
     echo themedd_edd_cart_link( array( 'list_item' => false ) );
 }
 add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' );
-
-/**
- * Add cart link to mobile menu
- *
- * @since 1.0.0
- */
-function themedd_edd_menu_toggle_before() {
-    echo themedd_edd_cart_link( array( 'list_item' => false, 'classes' => array( 'mobile' ) ) );
-}
-add_action( 'themedd_menu_toggle_before', 'themedd_edd_menu_toggle_before' );

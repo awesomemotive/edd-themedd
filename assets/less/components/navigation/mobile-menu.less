@@ -1,0 +1,89 @@
+#mobile-menu a {
+    display: block;
+    line-height: 1.5;
+    font-size: @nav-font-size;
+    font-weight: @nav-font-weight;
+    padding: 0.75rem 2rem;
+    color: @nav-color;
+    border-bottom: none;
+}
+
+#mobile-menu {
+	overflow: hidden;
+	max-height: 0;
+}
+
+.toggled-on #mobile-menu {
+	max-height: 2000px;
+}
+
+#mobile-menu .current-menu-item > a,
+#mobile-menu .current_page_ancestor > a {
+	color: @nav-active-color;
+}
+
+#mobile-menu a:hover,
+#mobile-menu a:focus {
+	color: @nav-hover-color;
+}
+
+#mobile-menu li {
+	position: relative;
+}
+
+// borders
+#mobile-menu li {
+    border-bottom: 2px solid @light-grey;
+}
+
+#mobile-menu ul.toggled-on {
+    border-top: 2px solid @light-grey;
+
+    li:last-child {
+        border: none;
+    }
+}
+
+#mobile-menu ul {
+	display: none;
+}
+
+// add margin bottom when the mobile menu has been expanded
+.mobile-navigation[aria-expanded=true] {
+
+}
+
+// leave right margin for the button
+#mobile-menu .menu-item-has-children > a {
+	margin: 0;
+	padding-right: 2rem;
+}
+
+#mobile-menu .sub-menu a {
+    padding-left: 3rem;
+}
+
+@media only screen and ( max-width: @nav-sm-max ) {
+
+    #mobile-menu ul.toggled-on {
+        display: block;
+    }
+
+}
+
+@media only screen and ( max-width: @screen-xs-max ) {
+
+    .site-title {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+}
+
+@media only screen and ( min-width: @desktop-nav ) {
+
+	#mobile-menu  {
+		display: none;
+	}
+
+}
