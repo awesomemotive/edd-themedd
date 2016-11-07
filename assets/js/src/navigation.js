@@ -42,7 +42,7 @@
 	menuToggle       = $( '#menu-toggle' );
 	siteNavigation   = $( '.main-navigation' );
 	siteHeaderMenu   = $( '.site-header-menu' );
-	
+
 	// Enable menuToggle.
 	( function() {
 
