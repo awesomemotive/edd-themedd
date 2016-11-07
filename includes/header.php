@@ -49,6 +49,11 @@ add_action( 'themedd_masthead_before', 'themedd_skip_link' );
  * @since 1.0.0
  */
 function themedd_menu_toggle() {
+
+    if ( ! has_nav_menu( 'mobile' ) ) {
+        return;
+    }
+
     ?>
 
     <?php do_action( 'themedd_menu_toggle_wrap_before' ); ?>
@@ -160,6 +165,8 @@ add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 /**
  * Loads the mobile menu onto the themedd_menu_toggle_wrap_after action hook
+ *
+ * @since 1.0.0
  */
 function themedd_mobile_menu() {
 
