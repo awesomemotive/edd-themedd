@@ -1,10 +1,9 @@
 #mobile-menu a {
     display: block;
     line-height: 1.5;
-    font-size: @nav-font-size;
-    font-weight: @nav-font-weight;
+    font-size: @mobile-menu-font-size;
     padding: 0.75rem 2rem;
-    color: @nav-color;
+    color: @mobile-menu-color;
     border-bottom: none;
 }
 
@@ -75,9 +74,14 @@
 
     .site-title {
         text-align: center;
-        margin-top: 2rem;
+
     }
 
+    .site-branding {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 0 2rem;
+    }
 }
 
 @media only screen and ( min-width: @desktop-nav ) {

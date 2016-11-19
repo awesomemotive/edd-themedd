@@ -8,7 +8,7 @@
  */
 function themedd_edd_mobile_menu( $items, $args ) {
 
-	$new = themedd_edd_cart_link(
+	$mobile_cart_link = themedd_edd_cart_link(
 		array(
 			'list_item' => true,
 			'classes'   => array( 'mobile' ),
@@ -16,7 +16,8 @@ function themedd_edd_mobile_menu( $items, $args ) {
 		)
 	);
 
-    return $items . $new;
+    return $items . $mobile_cart_link;
+
 }
 add_filter( 'wp_nav_menu_mobile_items', 'themedd_edd_mobile_menu', 10, 2 );
 

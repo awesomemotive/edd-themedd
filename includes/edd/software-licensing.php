@@ -62,3 +62,32 @@ function themedd_edd_sl_remove_content() {
 
 }
 add_action( 'template_redirect', 'themedd_edd_sl_remove_content' );
+
+
+/**
+ * Determine if a customer can upgrade their license (Software licensing plugin)
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_can_upgrade_license() {
+
+	if ( ! themedd_is_edd_sl_active() ) {
+		return;
+	}
+
+	$can_upgrade = false;
+
+	$license_keys = edd_software_licensing()->get_license_keys_of_user();
+
+	if ( $license_keys ) {
+		foreach ( $license_keys as $license ) {
+			 if ( edd_sl_license_has_upgrades( $license->ID ) && 'expired' !== edd_software_licensing()->get_license_status( $license->ID ) ) {
+				$can_upgrade = true;
+				break;
+			 }
+		}
+	}
+
+	return $can_upgrade;
+
+}
