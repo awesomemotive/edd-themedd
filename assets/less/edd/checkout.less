@@ -12,10 +12,35 @@
 }
 
 // discount
-
 .edd-apply-discount {
 	width: auto;
 }
+
+.edd_discount {
+    text-align: right;
+    display: block;
+}
+
+.edd_discount_rate,
+.edd_discount_remove {
+    vertical-align: middle;
+}
+
+// remove discount
+.edd_discount_remove {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url( 'assets/images/xit.gif' ) 0 0 no-repeat;
+	position: relative;
+
+    &:hover {
+    	background-position: -10px 0;
+    }
+    
+}
+
+
 
 // secure payment icon
 
