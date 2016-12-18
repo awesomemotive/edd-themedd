@@ -1,27 +1,6 @@
 <?php
 
 /**
- * Appends the cart icon and link to the mobile menu
- *
- * @since 1.0.0
- * @uses
- */
-function themedd_edd_mobile_menu( $items, $args ) {
-
-	$mobile_cart_link = themedd_edd_cart_link(
-		array(
-			'list_item' => true,
-			'classes'   => array( 'mobile' ),
-			'text'      => __( 'Checkout', 'themedd' )
-		)
-	);
-
-    return $items . $mobile_cart_link;
-
-}
-add_filter( 'wp_nav_menu_mobile_items', 'themedd_edd_mobile_menu', 10, 2 );
-
-/**
  * Filter the purchase link defaults
  *
  * @since 1.0.0
@@ -47,17 +26,12 @@ function themedd_edd_checkout_image_size() {
 }
 add_filter( 'edd_checkout_image_size', 'themedd_edd_checkout_image_size' );
 
-
 /**
  * Append extra links to primary navigation
  *
  * @since 1.0.0
 */
 function themedd_wp_nav_menu_items( $items, $args ) {
-
-	if ( 'primary' !== $args->theme_location ) {
-		return $items;
-	}
 
 	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
 
@@ -68,7 +42,30 @@ function themedd_wp_nav_menu_items( $items, $args ) {
     return $items;
 
 }
-add_filter( 'wp_nav_menu_items', 'themedd_wp_nav_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
+
+/**
+ * Mobile navigation - Add cart link to mobile navigation
+ * Also adds the themedd_wp_nav_menu_items filter which allows us to add the account link
+ *
+ * @since 1.0.0
+*/
+function themedd_wp_nav_menu_mobile_items( $items, $args ) {
+
+	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
+
+	$mobile_cart_link = themedd_edd_cart_link(
+		apply_filters( 'themedd_edd_mobile_menu', array(
+			'list_item' => true,
+			'classes'   => array( 'mobile' ),
+			'text'      => __( 'Checkout', 'themedd' )
+		) )
+	);
+
+    return $items . $mobile_cart_link;
+
+}
+add_filter( 'wp_nav_menu_mobile_items', 'themedd_wp_nav_menu_mobile_items', 10, 2 );
 
 /**
  * Make the total quantity blank when no items exist in the cart
