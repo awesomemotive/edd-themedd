@@ -43,11 +43,11 @@ add_action( 'wp_enqueue_scripts', 'themedd_affwp_styles' );
  *
  * @since 1.0.0
  */
-function affwp_custom() {
+function themedd_affwp_affiliate_area_shortcode() {
 	remove_shortcode( 'affiliate_area', array( affiliate_wp(), 'affiliate_area' ) );
 	add_shortcode( 'affiliate_area', 'themedd_affiliate_area' );
 }
-add_action( 'template_redirect', 'affwp_custom' );
+add_action( 'template_redirect', 'themedd_affwp_affiliate_area_shortcode' );
 
 /**
  *  Renders the affiliate area
@@ -140,7 +140,7 @@ add_filter( 'body_class', 'themedd_affwp_body_classes' );
 
 
 /**
- * Wrap login form in div
+ * Wrap [affilate_login] login form in div
  *
  * @since 1.0.0
  */
