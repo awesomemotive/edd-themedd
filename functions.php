@@ -27,7 +27,7 @@ if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
  *
  * @since 1.0.0
 */
-require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'account.php' );
+
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'template-tags.php' );

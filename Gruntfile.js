@@ -13,13 +13,6 @@ module.exports = function(grunt) {
            },
            src: ['assets/js/src/**/*.js'],
            dest: 'assets/js/<%= pkg.name %>.min.js'
-         },
-		 account: {
-           options: {
-             separator: ';'
-           },
-           src: ['assets/js/account/**/*.js'],
-           dest: 'assets/js/account.min.js'
          }
     },
 
@@ -30,8 +23,7 @@ module.exports = function(grunt) {
         },
         js: {
             files: {
-                'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.min.js'],
-                'assets/js/account.min.js': ['assets/js/account.min.js']
+                'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.min.js']
     		}
         }
     },
@@ -112,8 +104,8 @@ module.exports = function(grunt) {
 
       // JS
       js: {
-        files: ['assets/js/src/**/*.js', 'assets/js/account/**/*.js'],
-        tasks: ['concat:main', 'concat:account', 'uglify:js'],
+        files: ['assets/js/src/**/*.js'],
+        tasks: ['concat:main', 'uglify:js'],
       },
 
       // svgstore

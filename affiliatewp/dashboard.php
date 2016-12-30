@@ -107,10 +107,6 @@
 						<a href="<?php echo esc_url( affwp_get_logout_url() ); ?>"><?php _e( 'Log out', 'affiliate-wp' ); ?></a>
 					</li>
 					<?php endif; ?>
-					
-					<li class="affwp-affiliate-dashboard-tab">
-						<a href="<?php echo esc_url( site_url( 'account' ) ); ?>"><?php _e( '&larr; Back to Account', 'affiliate-wp' ); ?></a>
-					</li>
 
 					<?php do_action( 'affwp_affiliate_dashboard_tabs', affwp_get_affiliate_id(), $active_tab ); ?>
 				</ul>
