@@ -46,7 +46,6 @@ add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
 
 /**
  * Mobile navigation - Add cart link to mobile navigation
- * Also adds the themedd_wp_nav_menu_items filter which allows us to add the account link
  *
  * @since 1.0.0
 */
