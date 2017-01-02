@@ -291,6 +291,7 @@ if ( ! function_exists( 'themedd_post_header' ) ) :
 		<header class="page-header<?php echo themedd_page_header_classes( $args['classes'] ); ?>">
 			<?php do_action( 'themedd_post_header_start' ); ?>
 			<div class="wrapper">
+				<?php do_action( 'themedd_post_header_wrapper_start' ); ?>
 				<h1 class="<?php echo get_post_type(); ?>-title">
 					<?php if ( $args['subtitle'] ) : ?>
 						<span class="entry-title-primary"><?php echo $args['title']; ?></span>
@@ -299,6 +300,7 @@ if ( ! function_exists( 'themedd_post_header' ) ) :
 						<?php echo $args['title']; ?>
 					<?php endif; ?>
 				</h1>
+				<?php do_action( 'themedd_post_header_wrapper_end' ); ?>
 			</div>
 			<?php do_action( 'themedd_post_header_end' ); ?>
 		</header>
