@@ -58,15 +58,7 @@ h4 { font-size: @h4-font-size; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1.1rem; }
 
-// remove margin on the first instance of headings
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-h6:first-child {
-	margin-top: 0;
-}
+
 
 .entry-content h1 {
 	margin-top: 3.24rem;
@@ -96,6 +88,16 @@ h6:first-child {
 .entry-content h6 {
 	margin-top: 3.24rem;
 	margin-bottom: 1.62rem;
+}
+
+// remove margin on the first instance of headings
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	margin-top: 0;
 }
 
 code {
