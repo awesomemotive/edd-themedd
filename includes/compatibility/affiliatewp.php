@@ -37,7 +37,6 @@ function themedd_affwp_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'themedd_affwp_styles' );
 
-
 /**
  * Remove [affiliate_area] shortcode and add our own
  *
@@ -57,10 +56,28 @@ add_action( 'template_redirect', 'themedd_affwp_affiliate_area_shortcode' );
  */
 function themedd_affiliate_area( $atts, $content = null ) {
 
-    // See https://github.com/AffiliateWP/AffiliateWP/issues/867
-    if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-        return;
-    }
+	// See https://github.com/AffiliateWP/AffiliateWP/issues/867
+	if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+		return;
+	}
+
+	affwp_enqueue_script( 'affwp-frontend', 'affiliate_area' );
+
+	/**
+	 * Filters the display of the registration form
+	 *
+	 * @since 2.0
+	 * @param bool $show Whether to show the registration form. Default true.
+	 */
+	$show_registration = apply_filters( 'affwp_affiliate_area_show_registration', true );
+
+	/**
+	 * Filters the display of the login form
+	 *
+	 * @since 2.0
+	 * @param bool $show Whether to show the login form. Default true.
+	 */
+	$show_login = apply_filters( 'affwp_affiliate_area_show_login', true );
 
     ob_start();
 
@@ -69,10 +86,11 @@ function themedd_affiliate_area( $atts, $content = null ) {
 
     } elseif ( is_user_logged_in() && affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
 
-        affiliate_wp()->templates->get_template_part( 'register' );
+		if ( true === $show_registration ) {
+			affiliate_wp()->templates->get_template_part( 'register' );
+		}
 
     } else {
-
 
         if ( ! affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
             echo '<div class="wrapper slim">';
@@ -90,22 +108,24 @@ function themedd_affiliate_area( $atts, $content = null ) {
 
         echo '<div class="row' . $class . '">';
 
-        if ( affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
+        if ( affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && true === $show_registration ) {
 
             echo '<div class="col-xs-12 col-sm-8">';
             echo '<div class="box register">';
-            affiliate_wp()->templates->get_template_part( 'register' );
+
+			affiliate_wp()->templates->get_template_part( 'register' );
+
             echo '</div>';
             echo '</div>';
         }
 
-        if ( ! is_user_logged_in() ) {
+        if ( ! is_user_logged_in() && true === $show_login ) {
 
             $class = affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ? ' col-sm-4' : ' col-sm-12';
 
             echo '<div class="col-xs-12' . $class . '">';
             echo '<div class="box login">';
-            affiliate_wp()->templates->get_template_part( 'login' );
+			affiliate_wp()->templates->get_template_part( 'login' );
             echo '</div>';
             echo '</div>';
         }
