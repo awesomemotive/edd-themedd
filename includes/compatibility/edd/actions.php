@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'themedd_edd_remove_css' );
  *
  * @since 1.0.0
  */
-remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
+//remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
 
 /**
  * Remove the purchase link at the bottom of the download page

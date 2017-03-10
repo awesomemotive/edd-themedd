@@ -46,13 +46,13 @@ if ( themedd_is_affiliatewp_active() ) {
 
 // EDD functions
 if ( themedd_is_edd_active() ) {
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/functions.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/actions.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/filters.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/software-licensing.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/software-licensing.php' );
 }
 
 // EDD Download Meta
 if ( themedd_is_edd_download_meta_active() ) {
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/download-meta.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/download-meta.php' );
 }
