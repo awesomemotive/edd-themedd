@@ -27,21 +27,15 @@
 
 // cart icon
 
-.nav-cart-icon .cart-main,
-.nav-cart-icon .cart-items,
-.nav-cart-icon .cart-wheel {
+.nav-cart-icon {
     fill: @cart-color;
 }
 
-.nav-cart-icon:hover .cart-main,
-.nav-cart-icon:hover .cart-items,
-.nav-cart-icon:hover .cart-wheel {
+.nav-cart-icon:hover {
     fill: @cart-hover-color;
 }
 
-.items-in-cart .nav-cart-icon .cart-main,
-.items-in-cart .nav-cart-icon .cart-items,
-.items-in-cart .nav-cart-icon .cart-wheel {
+.items-in-cart .nav-cart-icon {
     fill: @cart-active-color;
 }
 
@@ -61,9 +55,6 @@
     font-weight: 400;
     z-index: 1;
     text-align: center;
-    transition: all 0.5s linear;
-    -webkit-transition-delay: 0.5s;
-    transition-delay: 0.5s;
     visibility: visible;
 }
 
