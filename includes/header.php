@@ -15,6 +15,7 @@ function themedd_header() {
         <?php do_action( 'themedd_masthead_start' ); ?>
 
         <div class="site-header-main">
+			<?php do_action( 'themedd_site_header_main_start' ); ?>
             <div class="site-header-wrap">
                 <?php do_action( 'themedd_site_header_main' ); ?>
             </div>
@@ -126,9 +127,6 @@ function themedd_site_branding() {
 }
 add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 
-
-
-
 /**
  * Loads the site navigation onto the themedd_masthead action hook
  *
@@ -141,7 +139,7 @@ function themedd_primary_menu() {
 
 		<?php do_action( 'themedd_primary_menu_start' ); ?>
 
-		<div class="site-header-menu">
+		<div id="site-header-menu" class="site-header-menu">
 
 	    	<nav id="site-navigation" class="main-navigation" role="navigation">
 	            <?php
@@ -252,15 +250,11 @@ add_action( 'themedd_masthead_after', 'themedd_header_image' );
 
 
 /**
- * Themedd custom header
+ * Themedd custom logo
  *
  * @since 1.0.0
  */
 function themedd_header_logo() {
-?>
-
-<?php themedd_the_custom_logo(); ?>
-
-<?php
+	themedd_the_custom_logo();
 }
 add_action( 'themedd_site_branding_start', 'themedd_header_logo' );
