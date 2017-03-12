@@ -1,13 +1,37 @@
 <?php
 
 /**
+ * Filter the settings from EDD's "Styles" tab
+ *
+ * @since 1.0
+ * @param array $settings The "Styles" tab settings array
+ */
+function themedd_edd_settings_styles( $settings ) {
+
+	// Remove "Style Settings" heading.
+	unset( $settings['main']['style_settings'] );
+
+	// Remove "Disable Styles" option. Styling is already disabled and controlled via Themedd.
+	unset( $settings['main']['disable_styles'] );
+
+	// Remove "Default Button Color" option since Themedd controls all button styling
+	unset( $settings['main']['checkout_color'] );
+
+	return $settings;
+}
+add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
+
+/**
  * Filter the purchase link defaults
  *
  * @since 1.0.0
  */
 function themedd_edd_purchase_link_defaults( $args ) {
 
-	// free downloads
+	// Remove button class.
+	$args['color'] = '';
+
+	// Free downloads.
 	if ( edd_is_free_download( get_the_ID() ) ) {
 		$args['text'] = __( 'Add to cart', 'themedd' );
 	}
