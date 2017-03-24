@@ -19,7 +19,7 @@ add_action( 'wp_enqueue_scripts', 'themedd_edd_remove_css' );
 remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
 
 /**
- * Remove the purchase link at the bottom of the download page
+ * Remove the purchase link at the bottom of the single download page.
  *
  * @since 1.0.0
  */
@@ -39,8 +39,15 @@ function themedd_edd_download_info() {
     ?>
 	<div class="download-info">
 		<?php
-            echo '<h1 class="download-title">' . get_the_title() . '</h1>';
-            echo themedd_edd_price();
+			// Display download title.
+			echo '<h1 class="download-title">' . get_the_title() . '</h1>';
+
+			// Display download price.
+			echo themedd_edd_price();
+
+			do_action( 'themedd_edd_download_info_after_price', get_the_ID() );
+
+			// Display purchase link.
             themedd_edd_purchase_link();
         ?>
 	</div>
