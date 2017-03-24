@@ -7,7 +7,7 @@
  */
 function themedd_custom_header() {
 
-	$default_background_color = 'f5f5f5';
+	$default_background_color = 'ffffff';
 
 	/**
 	 * Filter the arguments used when adding 'custom-background' support in Themedd
