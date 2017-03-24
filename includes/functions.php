@@ -31,6 +31,46 @@ function themedd_is_edd_recurring_active() {
 }
 
 /**
+ * Is EDD Frontend Submissions active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_edd_fes_active() {
+	return class_exists( 'EDD_Front_End_Submissions' );
+}
+
+/**
+ * Is EDD Recommended Products active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_edd_recommended_products_active() {
+	return class_exists( 'EDDRecommendedDownloads' );
+}
+
+/**
+ * Is EDD Cross-sell & Upsell active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_edd_cross_sell_upsell_active() {
+	return class_exists( 'EDD_Cross_Sell_And_Upsell' );
+}
+
+/**
+ * Is EDD Points and Rewards active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_edd_points_and_rewards_active() {
+	return function_exists( 'edd_points_plugin_loaded' );
+}
+
+/**
  * Is AffiliateWP active?
  *
  * @since 1.0.0
