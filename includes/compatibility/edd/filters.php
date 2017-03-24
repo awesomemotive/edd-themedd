@@ -230,7 +230,6 @@ add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
  *
  * @since 1.0.0
  */
-
 function themedd_edd_recurring_update_url( $url, $subscription ) {
 	$url = add_query_arg( array( 'action' => 'update', 'subscription_id' => $subscription->id ), '#tabs=1' );
 
