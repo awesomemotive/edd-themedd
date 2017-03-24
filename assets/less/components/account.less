@@ -1,0 +1,124 @@
+// Account styling
+// Also styles AffiliateWP
+
+section.account .wrapper {
+	max-width: 1188px;
+}
+
+.account-nav {
+	margin-bottom: 1rem;
+	padding-left: 0;
+}
+
+.account-content {
+	padding-right: 0;
+}
+
+.account-content table:last-child {
+	margin-bottom: 0;
+}
+
+.account-nav ul {
+	list-style-type: none;
+	margin: 0;
+
+	li {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	a {
+        display: inline-block;
+		margin-right: 0.5rem;
+		font-size: 1rem;
+		color: @account-tab-link-color;
+    }
+
+	a:hover {
+		color: @account-tab-link-hover-color;
+	}
+
+	.affwp-affiliate-dashboard-tab.active,
+	.ui-tabs-active {
+        background: #fff;
+    }
+
+	.affwp-affiliate-dashboard-tab.active a,
+    .ui-tabs-active a {
+        color: @account-tab-link-active-color;
+    }
+
+}
+
+.container-fluid .account-content,
+.container-fluid .account-nav {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+#affwp-affiliate-dashboard .row,
+.account .row {
+	overflow: hidden;
+}
+
+.no-js #tabs ul {
+    display: none;
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+
+	// tab content for account and affiliate area page
+	.account-content > div {
+	    border: 2px solid @border-light-grey-alt;
+	    border-left: none;
+		min-height: 50rem;
+		padding: 2rem;
+	}
+
+	.account-nav {
+		margin-bottom: 0;
+	}
+
+	.account-nav ul a {
+		display: block;
+		padding: 1rem 2rem;
+		margin: 0;
+	}
+
+	.account-nav ul:last-child {
+		border-bottom: 2px solid @border-light-grey-alt;
+	}
+	.account-nav ul li {
+		background: @light-grey-alt;
+		border: 2px solid @border-light-grey-alt;
+		border-right: none;
+		border-bottom: none;
+	}
+
+	.account-nav ul li {
+		display: block;
+	}
+
+	.affwp-affiliate-dashboard-tab.active:before,
+	.affwp-affiliate-dashboard-tab.active:after,
+	.ui-tabs-active:before,
+	.ui-tabs-active:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 100%;
+		width: 2px;
+		height: 1000px;
+		background: @border-light-grey-alt;
+	}
+
+	.affwp-affiliate-dashboard-tab.active:after,
+	.ui-tabs-active:after {
+		top: 100%;
+		bottom: auto;
+		height: 40000px;
+		z-index: 1;
+	}
+
+}

@@ -23,31 +23,15 @@
 	vertical-align: top;
 }
 
-
-
-
-// color of price
-.edd_price,
-.edd_price a {
-	color: @edd-download-price-color;
-}
-
 // the main download box
 .edd_download {
-
-	background: @light-grey;
 	display: -webkit-flex;
-	display: -ms-flex;
 	display: flex;
 	overflow: hidden;
 	width: 100%;
-
-
-
 }
 
 // download title
-
 h3.edd_download_title {
 	margin-top: 0;
 }
@@ -86,8 +70,8 @@ h3.edd_download_title {
 	}
 
 	li {
-		padding: 0.5rem 0;
-		line-height: 1;
+		padding: 0.25rem 0;
+		line-height: 1.62;
 		cursor: pointer;
 		font-size: 1rem;
 		margin-bottom: 0;
@@ -111,9 +95,10 @@ h3.edd_download_title {
 	margin: auto 0 0 0;
 }
 
-// price (wrapped in microdata)
-div[itemprop="offers"] {
+// price
+span.edd_price {
     margin-bottom: 2rem;
+	display: inline-block;
 }
 
 // align price to bottom when there is no buy now button
@@ -136,11 +121,61 @@ div[itemprop="offers"] {
 
 }
 
+// Downloads shown on single downloads.
+// This relates to downloads shown from either the Cross-sell/Upsell or Recommended Product extensions.
+.single-download {
+
+	.edd_download_columns_1 {
+		width: 50%;
+	}
+}
+
+
+// Downloads shown at checkout.
+// This relates to downloads shown from either the EDD Cross-sell/Upsell or Recommended Product extensions.
+#edd_checkout_wrap {
+
+	.edd_download_columns_1 {
+		width: 25%;
+	}
+
+	.edd_download_columns_2 {
+		width: 50%;
+	}
+
+	.edd_download_columns_3 {
+		width: 75%;
+	}
+
+	.edd_download_columns_4 {
+		width: auto;
+	}
+
+}
+
+// Alter the download widths for the slim page template is in use.
+.slim #edd_checkout_wrap {
+
+	.edd_download_columns_1 {
+		width: 50%;
+	}
+
+	.edd_download_columns_2 {
+		width: auto;
+	}
+
+	.edd_download_columns_3 {
+		width: auto;
+	}
+}
+
+
 // Small Devices, Tablets
 @media only screen and ( min-width: @screen-sm-min ) {
 
-    .edd_downloads_list {
-        margin: 0 -1.5rem;
+	.edd_downloads_list {
+        margin-left: -1.5rem;
+		margin-right: -1.5rem;
     }
 
 	.edd_download_inner {
@@ -149,7 +184,6 @@ div[itemprop="offers"] {
 
 	.edd_download_columns_1 {
 		max-width: 50%;
-		margin: 0 auto;
 	}
 
 	// the default
@@ -157,12 +191,13 @@ div[itemprop="offers"] {
 		width: 33.333333333%;
 	}
 
-	.edd_download_columns_2 .edd_download {
+	.edd_download_columns_2 .edd_download,
+	.edd_download_columns_4 .edd_download {
 		width: 50%;
 	}
 
-	.edd_download_columns_4 .edd_download {
-		width: 50%;
+	.edd_download_columns_5 .edd_download {
+		width: 20%;
 	}
 
 }

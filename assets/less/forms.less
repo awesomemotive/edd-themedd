@@ -32,6 +32,10 @@ input[type="radio"] {
 	margin-top: -6px;
 }
 
+input[type="radio"] {
+	margin-right: 0.5rem;
+}
+
 fieldset {
     border: none;
     margin: 0 0 2rem 0;
@@ -47,6 +51,7 @@ legend {
 	font-size: 1.5rem;
 	float: left;
 	margin-bottom: 1rem;
+	color: @legend-color;
 }
 
 // clear the first element after the legend due to floating
@@ -70,4 +75,14 @@ input[type="radio"] + label,
 input[type="checkbox"] + label {
 	display: inline-block;
 	margin: 0;
+}
+
+// Styling for unordered lists within form tags
+form ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.entry-content form li {
+	margin-bottom: 1rem;
 }

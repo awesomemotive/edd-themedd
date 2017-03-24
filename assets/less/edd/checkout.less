@@ -58,10 +58,6 @@ span.padlock {
 	}
 }
 
-#edd-purchase-button-wrap {
-	position: relative;
-}
-
 .edd-cart-ajax {
     color: #fff;
     line-height: 1;
@@ -76,12 +72,7 @@ span.padlock {
     margin-bottom: 1rem;
 }
 
-#edd_discount_code {
-    background: @light-grey-alt;
-    border: 2px solid @border-light-grey-alt;
-    padding: 1rem;
-    margin-bottom: 2rem;
-}
+
 
 #edd_terms_agreement {
     margin-bottom: 2rem;
@@ -105,22 +96,29 @@ span.padlock {
 }
 
 #edd_checkout_form_wrap span.edd-required-indicator {
-    color: #DE2626;
+	color: @required;
     font-size: 1.5rem;
 }
 
+#edd_discount_code {
+    margin-bottom: 2rem;
+}
+
 // fieldset styling
+#edd_discount_code,
 #edd_checkout_user_info,
+#edd_register_account_fields,
+#edd_login_fields,
 #edd_cc_address,
 #edd_cc_fields,
 #edd_payment_mode_select {
-    padding: 2rem;
+    padding: 1rem 2rem;
 	border: 2px solid @border-light-grey-alt;
     background: @light-grey-alt;
 	position: relative;
 
     p:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -150,11 +148,17 @@ span.padlock {
 
 #edd_final_total_wrap {
 	text-align: center;
+	font-size: 1.5rem;
+}
+
+#edd-purchase-button-wrap {
+	position: relative;
 }
 
 #edd-purchase-button {
 	width: 100%;
 	font-size: 1.5rem;
+	padding: 1rem;
 }
 
 .edd_cart_header_row,
@@ -167,13 +171,21 @@ span.padlock {
 	text-align: right;
 }
 
+.edd_cart_amount {
+	font-weight: bold;
+}
+
 #edd_checkout_cart {
 	width: 100%;
 	text-align: left;
 	margin-bottom: 2rem;
 
 	td, th {
-		padding: 1rem;
+		padding: 1rem 2rem;
+	}
+
+	th {
+		font-weight: bold;
 	}
 }
 
@@ -184,7 +196,7 @@ span.padlock {
 
 .edd-payment-icons img {
     display: inline-block;
-
+	margin-right: 0.5rem;
 }
 
 .edd-payment-mode-label {
@@ -203,8 +215,8 @@ span.padlock {
 
 .edd-gateway-option {
     margin-right: 2rem;
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
+	vertical-align: middle;
 }
 
 label[for=edds-confirm-update-default],
@@ -213,8 +225,8 @@ label[for=edd_agree_to_terms] {
     vertical-align: top;
 }
 
-// CARD TYPE
-// shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method
+// Card type.
+// Shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method
 span.card-type {
 	position: absolute;
 	top: 0;
@@ -247,4 +259,8 @@ span.card-type.discover {
 
 span.card-type.amex {
 	background: url(assets/images/icons/americanexpress.gif ) no-repeat;
+}
+
+#edd_purchase_submit {
+	margin-bottom: 0;
 }

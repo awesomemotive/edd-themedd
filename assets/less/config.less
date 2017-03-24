@@ -1,6 +1,5 @@
 // colors
 @primary-color: #448FD5;
-@secondary-color: #43D598;
 @accent-color: #448FD5;
 
 // links
@@ -85,6 +84,12 @@
 @button-border-hover: 1px solid @accent-color;
 @button-background-hover-color: @accent-color;
 
+// account page
+@account-tab-link-color: @dark-grey;
+@account-tab-link-hover-color: @primary-color;
+@account-tab-link-active-color: @primary-color;
+@account-tab-active-color: @primary-color;
+
 // footer
 @footer-font-size: 0.875rem;
 @nav-footer-color: @nav-color;
@@ -94,7 +99,7 @@
 @font-stack: Arial, Verdana, sans-serif;
 
 @highlight-color: @light-grey;
-@background-color: #f5f5f5;
+@background-color: #fff;
 
 // Site title and description
 @site-title-color: #222;
@@ -109,15 +114,32 @@
 @underline-color: #bababa;
 
 // notices/errors
-@notice-background-color: #fdfdd5;
-@notice-text-color: #787878;
+@alert-background-color: #fdfdd5;
+@alert-text-color: #787878;
 
-@error-background-color: #ffe7e7;
-@error-text-color: #787878;
+// Alert - error
+@alert-error-background-color: #f2dede;
+@alert-error-border-color: #ebccd1;
+@alert-error-text-color: #a94442;
 
-@success-background-color: #8DD68C;
-@success-text-color: #787878;
+// Alert - Success
+@alert-success-text-color: #3c763d;
+@alert-success-background-color: #dff0d8;
+@alert-success-border-color: #d6e9c6;
 
+// Alert - Info
+@alert-info-text-color: #31708f;
+@alert-info-background-color: #d9edf7;
+@alert-info-border-color: #bce8f1;
+
+// Alert - Warn
+@alert-warn-text-color: #8a6d3b;
+@alert-warn-background-color: #fcf8e3;
+@alert-warn-border-color: #faebcc;
+
+// Form fields
+@required: #a94442; // required indicator on form fields
+@legend-color: @dark-grey;
 
 // greys
 @light-grey: #f5f5f5;
@@ -154,7 +176,6 @@
 // site header menu
 @site-header-menu-padding: 0 2rem 0 2rem;
 @site-header-menu-lg-padding: 0 2rem;
-//@site-header-secondary-menu-lg-padding: 0 2rem 0 0;
 
 // subtitles
 @subtitle-font-size-xs: 1.2rem;

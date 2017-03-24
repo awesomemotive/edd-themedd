@@ -1,0 +1,44 @@
+.edd-points-product-message {
+  margin-bottom: 2rem;
+}
+.edd-points-paging {
+  text-align: center;
+}
+.edd-points-paging .pagination * {
+  padding: 0.5rem;
+}
+.edd-points-paging .pagination .disabled {
+  display: none;
+}
+.edd-points-paging .edd-points-tablenav-pages .current {
+  font-weight: bold;
+}
+.edd-points-sales-loader {
+  display: none;
+  text-align: center;
+}
+.edd-points-checkout-message,
+.edd-points-redeem-points-wrap {
+  background: #fcfcfc;
+  border: 2px solid #f4f4f4;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+.edd-points-redeem-message {
+  vertical-align: middle;
+}
+@media only screen and (min-width: 1220px) {
+  .edd-points-checkout-message,
+  .edd-points-redeem-points-wrap {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .edd-points-checkout-message p,
+  .edd-points-redeem-points-wrap p {
+    margin-bottom: 0;
+  }
+}

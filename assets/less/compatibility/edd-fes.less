@@ -1,0 +1,241 @@
+// Frontend Submissions
+// https://easydigitaldownloads.com/downloads/frontend-submissions/
+
+// Import config.
+@import '../config';
+
+// Remove this once https://github.com/easydigitaldownloads/edd-fes/issues/1093 is fixed
+#fes_login_registration_form_row_full_width_registration {
+	width: 100% !important; // Overrides the inline styling
+}
+
+// Remove the border on the table
+.fes-login-registration {
+	border: none;
+
+	// Modify the login and registration forms to have more padding
+	td {
+		padding: 2rem;
+	}
+}
+
+// Add a border to the login and registration form
+.fes_login_registration_form_row {
+	border: 2px solid @light-grey;
+}
+
+// Make the login and registration forms wider
+#fes_login_registration_form_row_left,
+#fes_login_registration_form_row_right {
+	width: 48% !important;
+}
+
+// Give more space above the forgot password link on the login form
+.fes-login-form {
+	margin-bottom: 1rem;
+}
+
+// Remove margin caused by the fieldset on the registration form
+fieldset.fes-submit {
+	margin-bottom: 0;
+}
+
+
+
+// Labels shown on profile form
+.fes-help {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: lighten( @body-text-color, 10% );
+}
+
+// Text that is shown on the vendor dashboard.
+#fes-vendor-announcements {
+	margin-bottom: 1rem;
+}
+
+// Store link on dashboard
+#fes-vendor-store-link {
+	margin-bottom: 1rem;
+	padding: 1rem;
+
+	background-color: @alert-info-background-color;
+	border-color: @alert-info-border-color;
+
+	p {
+		color: @alert-info-text-color;
+	}
+}
+
+
+//
+
+.fes-vendor-comment-respond-form {
+	table:last-child {
+		border: none;
+		margin: 0;
+	}
+
+	button {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+
+.fes-vendor-comment-respond-form .button {
+	margin-right: 1rem;
+}
+
+// Has purchased badge.
+.fes-purchase-badge.fes-purchase-badge-purchased {
+	display: block;
+}
+
+// Product list status bar.
+// vendor-dashboard/?task=products
+.fes-product-list-status-bar {
+	margin-bottom: 1rem;
+}
+
+// action links
+.edd-fes-action {
+	//padding: 0.5rem;
+	display: block;
+}
+
+#fes-product-list {
+	.edd_price {
+		margin-bottom: 0;
+	}
+}
+
+.fes-required-indicator {
+	color: @required;
+    font-size: 1.5rem;
+	margin-left: 0.25rem;
+}
+
+.fes-fields + .edd_errors {
+	margin-top: 1rem;
+}
+
+// Products
+#fes-product-list {
+
+	@published-color: #5BCC5B;
+	@pending-color: #fca432;
+
+	.published {
+	    background: @published-color;
+		color: #fff;
+		padding: 0.5rem 1rem;
+		font-weight: bold;
+	}
+
+	.pending-review {
+		background: @pending-color;
+		color: #fff;
+		padding: 0.5rem 1rem;
+		font-weight: bold;
+	}
+
+}
+
+
+
+
+// Vendor Dashboard menu
+.fes-vendor-menu {
+
+	margin-bottom: 2rem;
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+
+		li {
+			position: relative;
+			display: inline-block;
+			margin-bottom: 0;
+		}
+
+		a {
+	        display: inline-block;
+			margin-right: 0.5rem;
+			font-size: 1rem;
+			color: @account-tab-link-color;
+	    }
+
+		a:hover {
+			color: @account-tab-link-hover-color;
+		}
+
+		.affwp-affiliate-dashboard-tab.active,
+		.ui-tabs-active {
+	        background: #fff;
+	    }
+
+		.affwp-affiliate-dashboard-tab.active a,
+	    .ui-tabs-active a {
+	        color: @account-tab-link-active-color;
+	    }
+	}
+}
+
+
+
+
+@media only screen and ( min-width: @screen-sm-min ) {
+
+	#fes-vendor-dashboard {
+		border: 2px solid @border-light-grey-alt;
+		border-top: none;
+		padding: 2rem;
+	}
+
+	.fes-vendor-menu {
+		margin-bottom: 0;
+		overflow: hidden;
+
+		ul {
+
+			.active {
+				background: #fff;
+			}
+
+			.active:before,
+			.active:after {
+				content: '';
+				position: absolute;
+				height: 2px;
+				right: 100%;
+				bottom: 0;
+				width: 1200px;
+				background: @border-light-grey-alt;
+			}
+
+			.active:after {
+				right: auto;
+				left: 100%;
+				width: 4000px;
+				z-index: 1;
+			}
+
+		}
+
+		ul a {
+			display: block;
+			padding: 0.75rem 1rem;
+			margin: 0;
+		}
+
+		ul li {
+			background: @light-grey-alt;
+			border: 2px solid @border-light-grey-alt;
+			border-bottom: none;
+			display: inline-block;
+		}
+	}
+
+}

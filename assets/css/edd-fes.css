@@ -1,0 +1,153 @@
+#fes_login_registration_form_row_full_width_registration {
+  width: 100% !important;
+}
+.fes-login-registration {
+  border: none;
+}
+.fes-login-registration td {
+  padding: 2rem;
+}
+.fes_login_registration_form_row {
+  border: 2px solid #f5f5f5;
+}
+#fes_login_registration_form_row_left,
+#fes_login_registration_form_row_right {
+  width: 48% !important;
+}
+.fes-login-form {
+  margin-bottom: 1rem;
+}
+fieldset.fes-submit {
+  margin-bottom: 0;
+}
+.fes-help {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #929292;
+}
+#fes-vendor-announcements {
+  margin-bottom: 1rem;
+}
+#fes-vendor-store-link {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+#fes-vendor-store-link p {
+  color: #31708f;
+}
+.fes-vendor-comment-respond-form table:last-child {
+  border: none;
+  margin: 0;
+}
+.fes-vendor-comment-respond-form button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.fes-vendor-comment-respond-form .button {
+  margin-right: 1rem;
+}
+.fes-purchase-badge.fes-purchase-badge-purchased {
+  display: block;
+}
+.fes-product-list-status-bar {
+  margin-bottom: 1rem;
+}
+.edd-fes-action {
+  display: block;
+}
+#fes-product-list .edd_price {
+  margin-bottom: 0;
+}
+.fes-required-indicator {
+  color: #a94442;
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+}
+.fes-fields + .edd_errors {
+  margin-top: 1rem;
+}
+#fes-product-list .published {
+  background: #5bcc5b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+#fes-product-list .pending-review {
+  background: #fca432;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+.fes-vendor-menu {
+  margin-bottom: 2rem;
+}
+.fes-vendor-menu ul {
+  list-style-type: none;
+  margin: 0;
+}
+.fes-vendor-menu ul li {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.fes-vendor-menu ul a {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  color: #222222;
+}
+.fes-vendor-menu ul a:hover {
+  color: #448fd5;
+}
+.fes-vendor-menu ul .affwp-affiliate-dashboard-tab.active,
+.fes-vendor-menu ul .ui-tabs-active {
+  background: #fff;
+}
+.fes-vendor-menu ul .affwp-affiliate-dashboard-tab.active a,
+.fes-vendor-menu ul .ui-tabs-active a {
+  color: #448fd5;
+}
+@media only screen and (min-width: 768px) {
+  #fes-vendor-dashboard {
+    border: 2px solid #f4f4f4;
+    border-top: none;
+    padding: 2rem;
+  }
+  .fes-vendor-menu {
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .fes-vendor-menu ul .active {
+    background: #fff;
+  }
+  .fes-vendor-menu ul .active:before,
+  .fes-vendor-menu ul .active:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    right: 100%;
+    bottom: 0;
+    width: 1200px;
+    background: #f4f4f4;
+  }
+  .fes-vendor-menu ul .active:after {
+    right: auto;
+    left: 100%;
+    width: 4000px;
+    z-index: 1;
+  }
+  .fes-vendor-menu ul a {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin: 0;
+  }
+  .fes-vendor-menu ul li {
+    background: #fcfcfc;
+    border: 2px solid #f4f4f4;
+    border-bottom: none;
+    display: inline-block;
+  }
+}
