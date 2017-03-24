@@ -49,17 +49,26 @@ module.exports = function(grunt) {
         }
     },
     // LESS CSS
-    less: {
-      style: {
-        options: {
-          compress: true
-        },
-        files: {
-          "style.css": "assets/less/style.less",
-          "assets/css/affiliatewp.min.css": "assets/less/compatibility/affiliatewp.less"
-        }
-        }
-    },
+	less: {
+		style: {
+			files: {
+				"assets/css/affiliatewp.css": "assets/less/compatibility/affiliatewp.less",
+				"assets/css/edd-fes.css": "assets/less/compatibility/edd-fes.less",
+				"assets/css/edd-points-and-rewards.css": "assets/less/compatibility/edd-points-and-rewards.less",
+			}
+		},
+		minify: {
+			options: {
+				compress: true
+			},
+			files: {
+				"style.css": "assets/less/style.less",
+				"assets/css/affiliatewp.min.css": "assets/less/compatibility/affiliatewp.less",
+				"assets/css/edd-fes.min.css": "assets/less/compatibility/edd-fes.less",
+				"assets/css/edd-points-and-rewards.min.css": "assets/less/compatibility/edd-points-and-rewards.less"
+			}
+		}
+	},
 
     svgstore: {
       options: {
@@ -123,7 +132,7 @@ module.exports = function(grunt) {
       // CSS
       css: {
         files: ['assets/less/**/*.less'],
-        tasks: ['less:style'],
+        tasks: ['less:style', 'less:minify'],
       },
 
       // Add banner
