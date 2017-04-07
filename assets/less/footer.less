@@ -1,6 +1,6 @@
+// Site footer.
 .site-footer {
 	background: @footer-color;
-	font-size: @footer-font-size;
 
 	a,
 	a:hover {
@@ -17,8 +17,13 @@
 
 }
 
+// Footer widgets.
+.footer-widgets .widget-column {
+	padding: 1rem 2rem;
+}
+
+// Site info.
 .site-info {
-	text-align: center;
 	padding: 2rem;
 
     p {
@@ -26,8 +31,52 @@
     }
 }
 
+// Media Queries.
 @media only screen and ( min-width: @screen-sm-min ) {
+
+	// Footer widgets.
+	.footer-widgets {
+
+		&.columns-2 .widget-column {
+			width: 50%;
+		}
+
+		&.columns-3 .widget-column {
+			width: 33.3333333333%;
+		}
+
+		&.columns-4 .widget-column {
+			width: 25%;
+		}
+
+	}
+
 	.site-footer ul {
         margin-bottom: 0;
     }
+
+	.footer-widgets .widget {
+		margin-bottom: 4rem;
+	}
+
+	// Footer widgets.
+	.footer-widgets .widget-column {
+		padding: 2rem;
+	}
+
+	// Footer widgets.
+	.footer-widgets {
+
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+
+		.columns-4 {
+
+		}
+
+	}
+
 }
