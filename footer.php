@@ -4,24 +4,14 @@
  */
 ?>
 
-<?php do_action( 'themedd_content_end' ); ?>
+	<?php do_action( 'themedd_content_end' ); ?>
 
-</div>
+	</div>
 
-<?php do_action( 'themedd_content_after' ); ?>
+	<?php do_action( 'themedd_content_after' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-
-		<?php do_action( 'themedd_footer_start' ); ?>
-
-		<section class="site-info">
-			<div class="wrapper">
-				<?php do_action( 'themedd_credits' ); ?>
-			</div>
-		</section>
-
-		<?php do_action( 'themedd_footer_end' ); ?>
-
+		<?php do_action( 'themedd_footer' ); ?>
 	</footer>
 
 </div>
