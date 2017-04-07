@@ -33,13 +33,14 @@ module.exports = function(grunt) {
        addbanner: {
           options: {
             position: 'top',
-            banner: '/*\nTheme Name: Themedd\n' +
-                    'Theme URI: <%= pkg.theme_uri %>\n' +
-                    'Author: Easy Digital Downloads\n' +
-                    'Author URI: https://easydigitaldownloads.com\n' +
-                    'Description: WordPress theme for Easy Digital Downloads\n' +
-                    'License: GNU General Public License\n' +
-                    'License URI: license.txt\n' +
+            banner: '/*\nTheme Name: <%= pkg.title %>\n' +
+					'Theme URI: <%= pkg.theme_uri %>\n' +
+					'Author: <%= pkg.author %>\n' +
+					'Author URI: <%= pkg.author_uri %>\n' +
+					'Description: <%= pkg.description %>\n' +
+					'Version: <%= pkg.version %>\n' +
+					'License: GNU General Public License\n' +
+					'License URI: license.txt\n' +
                     '*/',
             linebreak: true
           },

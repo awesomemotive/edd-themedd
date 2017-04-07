@@ -1,7 +1,11 @@
 {
   "name": "themedd",
+  "title": "Themedd",
   "version": "1.0.0",
+  "description": "A simple yet extensible theme from Easy Digital Downloads.",
+  "author": "Easy Digital Downloads",
   "theme_uri": "https://themedd.com",
+  "author_uri": "https://easydigitaldownloads.com",
   "Dependencies": {
     "grunt-cli": "latest"
   },
