@@ -27,6 +27,10 @@ if ( ! function_exists( 'themedd_edd_purchase_link' ) ) :
  */
 function themedd_edd_purchase_link() {
 
+	if ( get_post_meta( get_the_ID(), '_edd_hide_purchase_link', true ) ) {
+		return; // Do not show if auto output is disabled
+	}
+	
 	$external_download_url  = function_exists( 'edd_download_meta_get_download_meta' ) ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
 	$external_download_text = apply_filters( 'themedd_external_download_text', __( 'Visit site', 'themedd' ) );
 
