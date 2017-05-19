@@ -20,28 +20,26 @@ function themedd_footer_widgets() {
 		$widget_columns = apply_filters( 'themedd_footer_widget_regions', 0 );
 	}
 
-	$columns = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'wrapper' ) );
-
-	if ( apply_filters( 'themedd_footer_widgets_columns_class', true ) ) {
-		$columns[] = 'columns-' . intval( $widget_columns );
-	}
+	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'wrapper', 'columns-' . intval( $widget_columns ) ), $widget_columns );
 
 	if ( $widget_columns > 0 ) : ?>
 
 		<?php do_action( 'themedd_footer_widgets_before' ); ?>
 
 		<?php if ( apply_filters( 'themedd_footer_widgets_show', true ) ) : ?>
-		<section class="<?php echo implode( ' ', $columns ); ?>">
+		<section class="<?php echo implode( ' ', $classes ); ?>">
 			<?php do_action( 'themedd_footer_widgets_start' ); ?>
 			<?php
+
 			$i = 0;
 			while ( $i < $widget_columns ) : $i++;
-				if ( is_active_sidebar( 'footer-' . $i ) ) : ?>
 
-					<div class="widget-column footer-widget-<?php echo intval( $i ); ?>">
-						<?php dynamic_sidebar( 'footer-' . intval( $i ) ); ?>
-					</div>
-
+				if ( is_active_sidebar( 'footer-' . $i ) ) :
+					$widget_column_classes = apply_filters( 'themedd_footer_widget_column_classes', array( 'widget-column', 'footer-widget-' . intval( $i ) ) );
+				?>
+				<div class="<?php echo implode( ' ', $widget_column_classes ); ?>">
+					<?php dynamic_sidebar( 'footer-' . intval( $i ) ); ?>
+				</div>
 				<?php endif;
 			endwhile; ?>
 
