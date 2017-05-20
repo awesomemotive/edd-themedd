@@ -20,7 +20,7 @@ function themedd_footer_widgets() {
 		$widget_columns = apply_filters( 'themedd_footer_widget_regions', 0 );
 	}
 
-	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'wrapper', 'columns-' . intval( $widget_columns ) ), $widget_columns );
+	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'container-fluid', 'wrapper', 'columns-' . intval( $widget_columns ) ), $widget_columns );
 
 	if ( $widget_columns > 0 ) : ?>
 
@@ -28,22 +28,24 @@ function themedd_footer_widgets() {
 
 		<?php if ( apply_filters( 'themedd_footer_widgets_show', true ) ) : ?>
 		<section class="<?php echo implode( ' ', $classes ); ?>">
+			<div class="row">
 			<?php do_action( 'themedd_footer_widgets_start' ); ?>
-			<?php
 
+			<?php
 			$i = 0;
 			while ( $i < $widget_columns ) : $i++;
 
 				if ( is_active_sidebar( 'footer-' . $i ) ) :
-					$widget_column_classes = apply_filters( 'themedd_footer_widget_column_classes', array( 'widget-column', 'footer-widget-' . intval( $i ) ) );
+					$widget_column_classes = apply_filters( 'themedd_footer_widget_classes', array( themedd_footer_widget_column_classes( $widget_columns ), 'footer-widget', 'widget-column', 'footer-widget-' . intval( $i ) ) );
 				?>
-				<div class="<?php echo implode( ' ', $widget_column_classes ); ?>">
+				<div class="<?php echo implode( ' ', array_filter( $widget_column_classes ) ); ?>">
 					<?php dynamic_sidebar( 'footer-' . intval( $i ) ); ?>
 				</div>
 				<?php endif;
 			endwhile; ?>
 
 			<?php do_action( 'themedd_footer_widgets_end' ); ?>
+			</div>
 		</section>
 		<?php endif; ?>
 
@@ -82,3 +84,34 @@ function themedd_copyright() {
 }
 endif;
 add_action( 'themedd_site_info', 'themedd_copyright' );
+
+/**
+ * Footer widget column classes
+ *
+ * @since 1.0.0
+ * @param int $widget_columns The number of widget columns in use
+ *
+ * @return string $classes The classes to be added
+ */
+function themedd_footer_widget_column_classes( $widget_columns ) {
+
+	switch ( $widget_columns ) {
+
+		case 4:
+			$classes = 'col-xs-12 col-sm-6 col-lg-3';
+			break;
+
+		case 3:
+			$classes = 'col-xs-12 col-sm-6 col-lg-4';
+			break;
+
+		case 2:
+		case 1:
+			$classes = 'col-xs-12 col-sm-6';
+			break;
+
+	}
+
+	return apply_filters( 'themedd_footer_widget_column_classes', $classes, $widget_columns );
+
+}
