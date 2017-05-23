@@ -4,33 +4,15 @@
 // Import config.
 @import '../config';
 
-// Remove this once https://github.com/easydigitaldownloads/edd-fes/issues/1093 is fixed
-#fes_login_registration_form_row_full_width_registration {
-	width: 100% !important; // Overrides the inline styling
-}
-
-// Remove the border on the table
-.fes-login-registration {
-	border: none;
-
-	// Modify the login and registration forms to have more padding
-	td {
-		padding: 2rem;
-	}
-}
-
-// Add a border to the login and registration form
-.fes_login_registration_form_row {
-	border: 2px solid @light-grey;
-}
-
-// Make the login and registration forms wider
-#fes_login_registration_form_row_left,
-#fes_login_registration_form_row_right {
-	width: 48% !important;
+.fes-login-registration-combo form {
+	padding: @box-padding;
+    border: @box-border;
+    background: @box-background-color;
 }
 
 // Give more space above the forgot password link on the login form
+// Plus more space underneath each form element.
+.fes-el,
 .fes-login-form {
 	margin-bottom: 1rem;
 }
@@ -39,8 +21,6 @@
 fieldset.fes-submit {
 	margin-bottom: 0;
 }
-
-
 
 // Labels shown on profile form
 .fes-help {
@@ -67,9 +47,6 @@ fieldset.fes-submit {
 		color: @alert-info-text-color;
 	}
 }
-
-
-//
 
 .fes-vendor-comment-respond-form {
 	table:last-child {
@@ -100,7 +77,6 @@ fieldset.fes-submit {
 
 // action links
 .edd-fes-action {
-	//padding: 0.5rem;
 	display: block;
 }
 
@@ -142,9 +118,6 @@ fieldset.fes-submit {
 
 }
 
-
-
-
 // Vendor Dashboard menu
 .fes-vendor-menu {
 
@@ -183,10 +156,30 @@ fieldset.fes-submit {
 	}
 }
 
-
-
-
 @media only screen and ( min-width: @screen-sm-min ) {
+
+	.fes-login-registration-combo {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+
+		form {
+			padding: @box-padding;
+		    border: @box-border;
+		    background: @box-background-color;
+		}
+	}
+
+	.fes-login-registration-combo > div + div {
+		order: 1;
+		width: 48%;
+	}
+
+	.fes-login-registration-combo > div {
+		order: 2;
+		width: 48%;
+	}
 
 	#fes-vendor-dashboard {
 		border: 2px solid @border-light-grey-alt;
@@ -236,6 +229,18 @@ fieldset.fes-submit {
 			border-bottom: none;
 			display: inline-block;
 		}
+	}
+
+}
+
+@media only screen and ( min-width: @screen-lg-min ) {
+
+	.fes-login-registration-combo > div + div {
+		width: 65%;
+	}
+
+	.fes-login-registration-combo > div {
+		width: 30%;
 	}
 
 }

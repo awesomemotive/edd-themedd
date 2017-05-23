@@ -1,19 +1,9 @@
-#fes_login_registration_form_row_full_width_registration {
-  width: 100% !important;
-}
-.fes-login-registration {
-  border: none;
-}
-.fes-login-registration td {
+.fes-login-registration-combo form {
   padding: 2rem;
+  border: 2px solid #f4f4f4;
+  background: #fcfcfc;
 }
-.fes_login_registration_form_row {
-  border: 2px solid #f5f5f5;
-}
-#fes_login_registration_form_row_left,
-#fes_login_registration_form_row_right {
-  width: 48% !important;
-}
+.fes-el,
 .fes-login-form {
   margin-bottom: 1rem;
 }
@@ -111,6 +101,25 @@ fieldset.fes-submit {
   color: #448fd5;
 }
 @media only screen and (min-width: 768px) {
+  .fes-login-registration-combo {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+  .fes-login-registration-combo form {
+    padding: 2rem;
+    border: 2px solid #f4f4f4;
+    background: #fcfcfc;
+  }
+  .fes-login-registration-combo > div + div {
+    order: 1;
+    width: 48%;
+  }
+  .fes-login-registration-combo > div {
+    order: 2;
+    width: 48%;
+  }
   #fes-vendor-dashboard {
     border: 2px solid #f4f4f4;
     border-top: none;
@@ -149,5 +158,13 @@ fieldset.fes-submit {
     border: 2px solid #f4f4f4;
     border-bottom: none;
     display: inline-block;
+  }
+}
+@media only screen and (min-width: 1220px) {
+  .fes-login-registration-combo > div + div {
+    width: 65%;
+  }
+  .fes-login-registration-combo > div {
+    width: 30%;
   }
 }
