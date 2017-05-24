@@ -30,7 +30,7 @@ function themedd_edd_purchase_link() {
 	if ( get_post_meta( get_the_ID(), '_edd_hide_purchase_link', true ) ) {
 		return; // Do not show if auto output is disabled
 	}
-	
+
 	$external_download_url  = function_exists( 'edd_download_meta_get_download_meta' ) ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
 	$external_download_text = apply_filters( 'themedd_external_download_text', __( 'Visit site', 'themedd' ) );
 
@@ -152,4 +152,45 @@ function themedd_edd_cart_icon() {
 
     return $content;
 
+}
+
+/**
+ * Get the number of download columns
+ * Used on the download-archive.php page
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_columns() {
+	// Default to 3 like the [downloads] shortcode.
+	return apply_filters( 'themedd_edd_download_columns', 3 );
+}
+
+/**
+ * Download navigation
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_nav() {
+
+	global $wp_query;
+
+	$big          = 999999;
+	$search_for   = array( $big, '#038;' );
+	$replace_with = array( '%#%', '&' );
+
+	$pagination = paginate_links( array(
+		'base'    => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
+		'format'  => '?paged=%#%',
+		'current' => max( 1, get_query_var( 'paged' ) ),
+		'total'   => $wp_query->max_num_pages
+	) );
+	?>
+
+	<?php if ( ! empty( $pagination ) ) : ?>
+	<div id="edd_download_pagination" class="navigation">
+		<?php echo $pagination; ?>
+	</div>
+	<?php endif; ?>
+
+<?php
 }
