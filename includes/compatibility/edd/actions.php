@@ -72,3 +72,32 @@ function themedd_edd_secondary_menu_after() {
     echo themedd_edd_cart_link( array( 'list_item' => false ) );
 }
 add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' );
+
+/**
+ * Alter EDD download loops.
+ *
+ * @since 1.0.0
+ */
+if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
+	function themedd_edd_pre_get_posts( $query ) {
+
+		// Default the number of downloads to 9, like EDD's [downloads] shortcode
+		$downloads_per_page = apply_filters( 'themedd_edd_downloads_per_page', 9 );
+
+		// Bail if in the admin or we're not working with the main WP query.
+		if ( is_admin() || ! $query->is_main_query() ) {
+			return;
+		}
+
+		// Set the number of downloads to show.
+		if (
+			is_post_type_archive( 'download' ) || // archive-download.php page
+			is_tax( 'download_category' ) ||      // taxonomy-download-category.php
+			is_tax( 'download_tag' )              // taxonomy-download-category.php
+		) {
+			$query->set( 'posts_per_page', $downloads_per_page );
+		}
+
+	}
+endif;
+add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
