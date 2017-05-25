@@ -194,3 +194,15 @@ function themedd_edd_download_nav() {
 
 <?php
 }
+
+/**
+ * Distraction Free Checkout
+ *
+ * @since 1.0.0
+ *
+ * @return boolean true if Distraction Free Checkout is enabled, false otherwise
+ */
+function themedd_edd_distraction_free_checkout() {
+	$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
+	return $edd_theme_options['distraction_free_checkout'];
+}
