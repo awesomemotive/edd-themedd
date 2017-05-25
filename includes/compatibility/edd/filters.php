@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Filter the settings from EDD's "Styles" tab
  *
