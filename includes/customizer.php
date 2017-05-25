@@ -143,7 +143,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Tagline color.
 		$wp_customize->add_setting( 'colors[tagline_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagline_color', array(
@@ -155,7 +156,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Link colors.
 		$wp_customize->add_setting( 'colors[link_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
@@ -167,7 +169,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Primary menu background color.
 		$wp_customize->add_setting( 'colors[menu_primary_background_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -183,7 +186,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Primary menu link color.
 		$wp_customize->add_setting( 'colors[menu_primary_link_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -199,7 +203,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Primary menu link hover/active color.
 		$wp_customize->add_setting( 'colors[menu_primary_link_hover_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -215,7 +220,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Primary sub-menu background color.
 		$wp_customize->add_setting( 'colors[menu_primary_sub_background_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -231,7 +237,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Primary sub-menu link color.
 		$wp_customize->add_setting( 'colors[menu_primary_sub_link_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -247,7 +254,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Primary sub-menu link hover color.
 		$wp_customize->add_setting( 'colors[menu_primary_sub_link_hover_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -263,7 +271,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Header background color.
 		$wp_customize->add_setting( 'colors[header_background_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -279,7 +288,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Secondary menu link color.
 		$wp_customize->add_setting( 'colors[menu_secondary_link_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -295,7 +305,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Secondary menu link hover/active color.
 		$wp_customize->add_setting( 'colors[menu_secondary_link_hover_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -311,7 +322,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Button background color.
 		$wp_customize->add_setting( 'colors[button_background_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -327,7 +339,8 @@ function themedd_customize_register( $wp_customize ) {
 
 		// Button background hover color.
 		$wp_customize->add_setting( 'colors[button_background_hover_color]', array(
-			'transport' => 'postMessage',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -372,7 +385,8 @@ function themedd_customize_register( $wp_customize ) {
 
 			// Mobile cart icon color.
 			$wp_customize->add_setting( 'colors[mobile_cart_icon_color]', array(
-				'transport' => 'postMessage',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sanitize_hex_color',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -388,7 +402,8 @@ function themedd_customize_register( $wp_customize ) {
 
 			// Cart icon color
 			$wp_customize->add_setting( 'colors[cart_icon_color]', array(
-				'transport' => 'postMessage',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sanitize_hex_color',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -404,7 +419,8 @@ function themedd_customize_register( $wp_customize ) {
 
 			// Cart count background color
 			$wp_customize->add_setting( 'colors[cart_count_background_color]', array(
-				'transport' => 'postMessage',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sanitize_hex_color',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -420,7 +436,8 @@ function themedd_customize_register( $wp_customize ) {
 
 			// Cart count color
 			$wp_customize->add_setting( 'colors[cart_count_color]', array(
-				'transport' => 'postMessage',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sanitize_hex_color',
 			) );
 
 			$wp_customize->add_control( new WP_Customize_Color_Control(
