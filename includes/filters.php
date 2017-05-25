@@ -14,8 +14,7 @@ function themedd_body_classes( $classes ) {
 	if (
 		! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ||
 		! apply_filters( 'themedd_show_sidebar', true ) ||
-		is_page_template( 'page-templates/no-sidebar.php' ) ||
-		is_page_template( 'page-templates/full-width-no-sidebar.php' )
+		is_page_template( 'page-templates/no-sidebar.php' )
 	) {
 		$classes[] = 'no-sidebar';
 	}
