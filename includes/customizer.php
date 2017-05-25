@@ -353,10 +353,11 @@ function themedd_customize_register( $wp_customize ) {
 		/**
 		 * Distraction Free Checkout setting
 		 */
-		$wp_customize->add_setting( 'distraction_free_checkout' );
+		$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]' );
 
 		$wp_customize->add_control( 'distraction_free_checkout', array(
 			'label'       => __( 'Distraction Free Checkout', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
 			'section'     => 'easy_digital_downloads',
 			'type'        => 'checkbox',
 			'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
