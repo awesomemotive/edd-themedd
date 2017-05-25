@@ -41,6 +41,7 @@ module.exports = function(grunt) {
 					'Version: <%= pkg.version %>\n' +
 					'License: GNU General Public License\n' +
 					'License URI: license.txt\n' +
+					'Text Domain: <%= pkg.text_domain %>\n' +
                     '*/',
             linebreak: true
           },

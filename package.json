@@ -6,6 +6,7 @@
   "author": "Easy Digital Downloads",
   "theme_uri": "https://themedd.com",
   "author_uri": "https://easydigitaldownloads.com",
+  "text_domain": "themedd",
   "Dependencies": {
     "grunt-cli": "latest"
   },
