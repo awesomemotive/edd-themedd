@@ -353,7 +353,9 @@ function themedd_customize_register( $wp_customize ) {
 		/**
 		 * Distraction Free Checkout setting
 		 */
-		$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]' );
+		$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
+			'sanitize_callback' => 'themedd_sanitize_checkbox'
+		) );
 
 		$wp_customize->add_control( 'distraction_free_checkout', array(
 			'label'       => __( 'Distraction Free Checkout', 'themedd' ),
@@ -601,4 +603,16 @@ function themedd_customize_partial_blogname() {
  */
 function themedd_customize_partial_blogdescription() {
 	bloginfo( 'description' );
+}
+
+/**
+ * Sanitize checkbox
+ *
+ * @since 1.0.0
+ * @param boolean $checked
+ *
+ * @return boolean true if checked, false otherwise
+ */
+function themedd_sanitize_checkbox( $checked ) {
+	return ( isset( $checked ) && true === $checked ? true : false );
 }
