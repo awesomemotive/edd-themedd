@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Filter the settings from EDD's "Styles" tab
  *
@@ -141,13 +142,6 @@ add_filter( 'edd_checkout_button_purchase', 'themedd_edd_checkout_button_purchas
  * @since 1.0.0
  */
 function themedd_edd_body_classes( $classes ) {
-
-	global $post;
-
-	// add a shop class if we're on a page where the [downloads] shortcode is used
-	if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'downloads' ) ) {
-		$classes[] = 'edd-shop';
-	}
 
 	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
