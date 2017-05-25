@@ -187,7 +187,7 @@ function themedd_primary_classes() {
 
 	if (
 		is_active_sidebar( 'sidebar-1' ) &&
-		! ( is_page_template( 'page-templates/no-sidebar.php' ) || is_page_template( 'page-templates/slim.php' ) ) ||
+		! ( is_page_template( 'page-templates/no-sidebar.php' ) || is_page_template( 'page-templates/slim.php' ) || ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() ) ) ||
 		is_singular( 'download' )
 	) {
 		$classes[] = 'col-xs-12';
