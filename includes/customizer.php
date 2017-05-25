@@ -342,6 +342,27 @@ function themedd_customize_register( $wp_customize ) {
 		));
 
 		/**
+		 * Easy Digital Downloads section
+		 */
+		$wp_customize->add_section( 'easy_digital_downloads', array(
+			'title'           => __( 'Easy Digital Downloads', 'themedd' ),
+			'priority'        => 20,
+			'active_callback' => 'themedd_is_edd_active'
+		) );
+
+		/**
+		 * Distraction Free Checkout setting
+		 */
+		$wp_customize->add_setting( 'distraction_free_checkout' );
+
+		$wp_customize->add_control( 'distraction_free_checkout', array(
+			'label'       => __( 'Distraction Free Checkout', 'themedd' ),
+			'section'     => 'easy_digital_downloads',
+			'type'        => 'checkbox',
+			'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
+		) );
+
+		/**
 		 * Show EDD related options
 		 */
 		if ( themedd_is_edd_active() ) {
