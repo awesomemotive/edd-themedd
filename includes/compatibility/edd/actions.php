@@ -76,7 +76,9 @@ add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' )
 /**
  * Alter EDD download loops.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ *
+ * @return void
  */
 if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
 	function themedd_edd_pre_get_posts( $query ) {
@@ -101,3 +103,37 @@ if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
 	}
 endif;
 add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
+
+/**
+ * Template redirect actions
+ *
+ * @since  1.0.0
+ *
+ * @return void
+ */
+if ( ! function_exists( 'themedd_edd_template_redirect' ) ):
+function themedd_edd_template_redirect() {
+
+	// Distraction Free Checkout
+	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() ) {
+
+		// Remove the primary navigation.
+		remove_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
+
+	    // Remove the mobile menu.
+	    remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
+
+		// Remove the secondary menu.
+		remove_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
+
+		// Remove the footer.
+		remove_action( 'themedd_footer', 'themedd_footer_widgets' );
+
+		// Remove sidebar.
+		add_filter( 'themedd_show_sidebar', '__return_false' );
+
+	}
+
+}
+endif;
+add_action( 'template_redirect', 'themedd_edd_template_redirect' );
