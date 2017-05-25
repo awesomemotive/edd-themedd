@@ -137,7 +137,7 @@ class Themedd_EDD_Points_And_Rewards {
 			<div class="edd-points-redeem-points-wrap">
 				<p class="edd-points-redeem-message"><?php echo $message; ?></p>
 				<form method="POST" action="">
-					<input type="submit" id="edd_points_apply_discount" name="edd_points_apply_discount" class="button edd-submit <?php _e( $button_color ); ?> edd-points-apply-discount-button" value="<?php _e( 'Apply Discount', 'eddpoints' );?>" />
+					<input type="submit" id="edd_points_apply_discount" name="edd_points_apply_discount" class="button edd-submit <?php echo $button_color; ?> edd-points-apply-discount-button" value="<?php _e( 'Apply Discount', 'eddpoints' ); ?>" />
 				</form>
 			</div>
 			<?php
