@@ -190,7 +190,8 @@ function themedd_primary_classes() {
 		! ( is_page_template( 'page-templates/no-sidebar.php' ) || is_page_template( 'page-templates/slim.php' ) ) ||
 		is_singular( 'download' )
 	) {
-		$classes[] = 'col-xs-12 col-md-8';
+		$classes[] = 'col-xs-12';
+		$classes[] = 'col-md-8';
 	}
 
 	$classes = apply_filters( 'themedd_primary_classes', $classes );
