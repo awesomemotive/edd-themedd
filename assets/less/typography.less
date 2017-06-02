@@ -16,11 +16,10 @@ textarea {
 }
 
 // site-title
-
 .site-title {
 	margin-bottom: 0;
 	font-size: 2rem;
-	font-weight: 600;
+	font-weight: 600; // this is important since the homepage shows the site title as an H1 header, whereas a post will show it as a paragraph header
 	line-height: 1;
 	color: @heading-color;
 	font-family: @font-stack;
@@ -39,7 +38,6 @@ figcaption {
 .site-description {
 	font-size: 1.2rem;
 	margin-bottom: 0;
-	font-weight: 400;
 	color: @site-description-color;
 	display: none;
 }
@@ -51,9 +49,6 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	margin: 0 0 1.62rem 0;
 }
-
-h1 { font-weight: 600; }
-h2 { font-weight: 500; }
 
 h1 { font-size: 1.75rem; }
 h2 { font-size: 1.5rem; }
@@ -100,10 +95,6 @@ h4:first-child,
 h5:first-child,
 h6:first-child {
 	margin-top: 0;
-}
-
-.entry-content li {
-	margin-bottom: 1.62rem;
 }
 
 code {
@@ -171,11 +162,6 @@ blockquote em,
 blockquote i,
 blockquote cite {
 	font-style: normal;
-}
-
-blockquote strong,
-blockquote b {
-	font-weight: 400;
 }
 
 blockquote > :last-child {
@@ -250,9 +236,7 @@ h2.widget-title {
 
 	.site-description { display: block; }
 
-	.page-header h1 {
-		margin-left: auto;
-		margin-right: auto;
+	.page-header .wrapper {
 		max-width: @page-wrap-max-width - 64px;
 	}
 

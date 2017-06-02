@@ -113,7 +113,6 @@ span.edd_price {
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	padding: 1.5rem;
 
 	.page-numbers {
 		margin-right: 1rem;
@@ -129,7 +128,6 @@ span.edd_price {
 		width: 50%;
 	}
 }
-
 
 // Downloads shown at checkout.
 // This relates to downloads shown from either the EDD Cross-sell/Upsell or Recommended Product extensions.
@@ -172,6 +170,10 @@ span.edd_price {
 
 // Small Devices, Tablets
 @media only screen and ( min-width: @screen-sm-min ) {
+
+	#edd_download_pagination {
+		padding: 1.5rem;
+	}
 
 	.edd_downloads_list {
         margin-left: -1.5rem;

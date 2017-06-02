@@ -1,0 +1,64 @@
+// WordPress navigation
+
+//navigation pagination
+.navigation .nav-links {
+	display: -webkit-flex;
+	display: flex;
+}
+
+// Shown when navigating pages of posts (E.g. /page/2)
+// Example: Older Posts Newer Posts
+// Also controls the previous and next posts
+.navigation.paging-navigation,
+.navigation.post-navigation {
+
+	.nav-links {
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+}
+
+// Page links. E.g. Pages 1 2 3
+.page-links a {
+	display: inline-block;
+	padding: 0.25rem;
+	line-height: 1;
+}
+
+// Post navigation.
+// Shows at the bottom of a single post.
+.post-navigation {
+	border-top: 2px solid @light-grey;
+	padding: 1rem 0 0 0;
+
+	.nav-links div {
+		margin-bottom: 1rem;
+	}
+
+	.nav-next {
+		text-align: right;
+	}
+
+	a {
+		display: block;
+		border-bottom: none;
+	}
+
+	span {
+		display: block;
+	}
+
+	.meta-nav {
+		color: @post-navigation-meta-nav-color;
+	}
+
+	a:hover .post-title,
+	a:focus .post-title {
+		color: @post-navigation-hover-color;
+	}
+
+}

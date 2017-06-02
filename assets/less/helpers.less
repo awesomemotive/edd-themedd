@@ -1,3 +1,7 @@
+figure {
+	margin: 0;
+}
+
 img {
   max-width: 100%; // responsive images
   height:    auto; // keeps the image proportionate
@@ -31,17 +35,24 @@ hr {
     background: @highlight-color;
 }
 
-// center any element's contents
 .aligncenter {
-  text-align: center;
+	clear: both;
+	display: block;
+	margin: 0 auto 2rem auto;
 }
 
 .alignleft {
-  text-align: left;
+	float: left;
+	margin: 0 2rem 2rem 0;
+}
+
+.alignright {
+    float: right;
+    margin: 0 0 2rem 2rem;
 }
 
 .hide {
-  display: none;
+	display: none;
 }
 
 .text-center-xs {

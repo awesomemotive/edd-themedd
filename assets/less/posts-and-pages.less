@@ -1,54 +1,24 @@
-// paging on index.php
+// Shown above the post title on single post pages and on archive pages
+.entry-meta,
+.entry-footer {
+	font-size: 1rem;
+	color: @entry-meta;
 
-.paging-navigation {
-	.nav-links {
-		text-align: center;
+	a {
+		color: @entry-meta;
+
+		&:hover {
+			color: @entry-meta-hover-color;
+		}
 	}
-
-	.nav-links div {
-		display: inline-block;
-	}
-}
-
-.post-navigation {
-	border-top: 2px solid @light-grey;
-	clear: both;
-}
-
-.post-navigation a {
-	color: @post-navigation-color;
-	display: block;
-	padding: 2rem 0;
-	border-bottom: none;
-}
-
-.post-navigation span {
-	display: block;
-}
-
-.post-navigation .meta-nav {
-	color: @post-navigation-meta-nav-color;
-	font-size: 0.875rem;
-	text-transform: uppercase;
-}
-
-.post-navigation .post-title {
-	display: inline;
-	font-size: 1.4rem;
-}
-
-.post-navigation a:hover .post-title,
-.post-navigation a:focus .post-title {
-	color: @post-navigation-hover-color;
-}
-
-.post-navigation div + div {
-	border-top: 4px solid @light-grey;
 }
 
 figure.wp-caption {
 	max-width: 100%;
-	margin: 0 0 2rem 0;
+
+	&.alignnone {
+		margin: 0 0 2rem 0;
+	}
 }
 
 article[class^="post-"] + article[class^="post-"] {
@@ -64,35 +34,13 @@ article[class^="post-"] + article[class^="post-"] {
 	}
 }
 
-.alignright {
-    float: right;
-    margin: 0 0 2rem 2rem;
-}
-
 .site-main > article {
 	margin-bottom: 2rem;
 }
 
-#primary .entry-footer {
-	padding: 2rem;
-}
-
-.entry-footer {
-	line-height: 1.62;
-}
-
-#primary-sidebar .entry-footer {
-	padding: 2rem;
-}
-
-.entry-footer > span:not(:first-child):before {
-	content: "\002f";
-	display: inline-block;
-	opacity: 0.7;
-	padding: 0 0.538461538em;
-}
-
-.entry-footer .avatar {
+// Category and tags.
+// Shown below a single post.
+.cat-tags-links span {
 	display: block;
 }
 
@@ -186,10 +134,6 @@ article[class^="post-"] + article[class^="post-"] {
 	padding-left: 0;
 }
 
-.comments-title, .comment-reply-title {
-
-}
-
 .comment-list li {
 	list-style-type: none;
 }
@@ -220,16 +164,13 @@ article[class^="post-"] + article[class^="post-"] {
 	display: none;
 }
 
-.posted-on a {
-	border-bottom: none;
-	color: @body-text-color;
-}
-
+// Page header.
 .page-header h1 {
 	margin-bottom: 0;
 }
 
-.page-header {
+.slim .page-header h1,
+.no-sidebar .page-header h1 {
 	text-align: center;
 }
 
