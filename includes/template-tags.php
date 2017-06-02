@@ -84,149 +84,74 @@ function themedd_comment_nav() {
 }
 endif;
 
+
+if ( ! function_exists( 'themedd_entry_footer' ) ) :
 /**
- * Prints HTML with meta information for the categories, tags.
- *
- * Create your own themedd_entry_meta() to override in a child theme.
- *
- * @since 1.0.0
+ * Prints HTML with meta information for the categories, tags and comments.
  */
-if ( ! function_exists( 'themedd_entry_meta' ) ) :
-function themedd_entry_meta() {
-	if ( 'post' == get_post_type() ) {
-		$author_avatar_size = apply_filters( 'themedd_author_avatar_size', 49 );
-		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span>',
-			get_avatar( get_the_author_meta( 'user_email' ), $author_avatar_size ),
-			esc_html_x( 'Author', 'Used before post author name.', 'themedd' ),
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		);
-	}
+function themedd_entry_footer() {
 
-	if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
-		themedd_entry_date();
-	}
+	/* translators: used between list items, there is a space after the comma */
+	$separate_meta = __( ', ', 'themedd' );
 
-	$format = get_post_format();
-	if ( current_theme_supports( 'post-formats', $format ) ) {
-		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-			sprintf( '<span class="screen-reader-text">%s </span>', esc_html_x( 'Format', 'Used before post format.', 'themedd' ) ),
-			esc_url( get_post_format_link( $format ) ),
-			esc_html( get_post_format_string( $format ) )
-		);
-	}
+	// Get Categories for posts.
+	$categories_list = get_the_category_list( $separate_meta );
 
-	if ( 'post' == get_post_type() ) {
-		themedd_entry_taxonomies();
-	}
+	// Get Tags for posts.
+	$tags_list = get_the_tag_list( '', $separate_meta );
 
-	if ( ! is_singular() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'themedd' ), get_the_title() ) );
-		echo '</span>';
+	// We don't want to output .entry-footer if it will be empty, so make sure its not.
+	if ( ( ( themedd_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
+
+		echo '<footer class="entry-footer">';
+
+			if ( 'post' === get_post_type() ) {
+				if ( ( $categories_list && themedd_categorized_blog() ) || $tags_list ) {
+					echo '<span class="cat-tags-links">';
+
+						// Make sure there's more than one category before displaying.
+						if ( $categories_list && themedd_categorized_blog() ) {
+							echo '<span class="cat-links">' . __( 'Categories: ', 'themedd' ) . $categories_list . '</span>';
+						}
+
+						if ( $tags_list ) {
+							echo '<span class="tags-links">' . __( 'Tags: ', 'themedd' ) . $tags_list . '</span>';
+						}
+
+					echo '</span>';
+				}
+			}
+
+			themedd_edit_link();
+
+		echo '</footer>';
 	}
 }
 endif;
 
+if ( ! function_exists( 'themedd_edit_link' ) ) :
 /**
-* Print HTML with date information for current post.
-*
-* Create your own themedd_entry_date() to override in a child theme.
-*
-* @since 1.0.0
-*/
-if ( ! function_exists( 'themedd_entry_date' ) ) :
-function themedd_entry_date() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+ * Returns an accessibility-friendly link to edit a post or page.
+ *
+ * This also gives us a little context about what exactly we're editing
+ * (post or page?) so that users understand a bit more where they are in terms
+ * of the template hierarchy and their content. Helpful when/if the single-page
+ * layout with multiple posts/pages shown gets confusing.
+ */
+function themedd_edit_link() {
 
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
-
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
+	$link = edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'themedd' ),
+			get_the_title()
+		),
+		'<span class="edit-link">',
+		'</span>'
 	);
 
-	printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
-		esc_html_x( 'Posted on', 'Used before publish date.', 'themedd' ),
-		esc_url( get_permalink() ),
-		$time_string
-	);
+	return $link;
 }
-endif;
-
-/**
- * Print HTML with category and tags for current post.
- *
- * Create your own themedd_entry_taxonomies() to override in a child theme.
- *
- * @since 1.0.0
- */
-if ( ! function_exists( 'themedd_entry_taxonomies' ) ) :
-function themedd_entry_taxonomies() {
-
-	$categories_list = get_the_category_list( esc_html_x( ', ', 'Used between list items, there is a space after the comma.', 'themedd' ) );
-	if ( $categories_list && themedd_categorized_blog() ) {
-		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-			esc_html_x( 'Categories', 'Used before category names.', 'themedd' ),
-			$categories_list
-		);
-	}
-
-	$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'Used between list items, there is a space after the comma.', 'themedd' ) );
-
-	if ( $tags_list ) {
-		printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-			esc_html_x( 'Tags', 'Used before tag names.', 'themedd' ),
-			$tags_list
-		);
-	}
-
-}
-endif;
-
-
-
-/**
- * Displays the optional excerpt.
- *
- * Wraps the excerpt in a div element.
- *
- * @since 1.0.0
- *
- * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
- */
-if ( ! function_exists( 'themedd_excerpt' ) ) :
-function themedd_excerpt( $class = 'entry-summary' ) {
-	$class = esc_attr( $class );
-
-	if ( has_excerpt() || is_search() ) : ?>
-		<div class="<?php echo $class; ?>">
-			<?php the_excerpt(); ?>
-		</div>
-	<?php endif;
-}
-endif;
-
-/**
- * Replaces "[...]" (appended to automatically generated excerpts) with ... and a 'Continue reading' link.
- *
- * @since 1.0.0
- *
- * @return string 'Continue reading' link prepended with an ellipsis.
- */
-if ( ! function_exists( 'themedd_excerpt_more' ) ) :
-function themedd_excerpt_more() {
-	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
-		esc_url( get_permalink( get_the_ID() ) ),
-		sprintf( _x( 'Continue reading %s', 'Name of current post', 'themedd' ), '<span class="screen-reader-text">' . esc_html( get_the_title( get_the_ID() ) ) . '</span>' )
-	);
-	return ' &hellip; ' . $link;
-}
-add_filter( 'excerpt_more', 'themedd_excerpt_more' );
 endif;
 
 /**
@@ -309,18 +234,18 @@ endif;
  *
  * @since 1.0.0
  */
-if ( ! function_exists( 'themedd_post_header' ) ) :
+if ( ! function_exists( 'themedd_page_header' ) ) :
 
-	function themedd_post_header( $args = array() ) {
+	function themedd_page_header( $args = array() ) {
 
 		/**
 		 * Allow header to be removed via filter
 		 */
-		if ( ! apply_filters( 'themedd_post_header', true ) ) {
+		if ( ! apply_filters( 'themedd_page_header', true ) ) {
 			return;
 		}
 
-		do_action( 'themedd_post_header_before' );
+		do_action( 'themedd_page_header_before' );
 
 		if ( is_404() ) {
 			$title = esc_html__( 'Oops! That page can&rsquo;t be found.', 'themedd' );
@@ -341,9 +266,9 @@ if ( ! function_exists( 'themedd_post_header' ) ) :
 		?>
 
 		<header class="page-header<?php echo themedd_page_header_classes( $args['classes'] ); ?>">
-			<?php do_action( 'themedd_post_header_start' ); ?>
+			<?php do_action( 'themedd_page_header_start' ); ?>
 			<div class="wrapper">
-				<?php do_action( 'themedd_post_header_wrapper_start' ); ?>
+				<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
 				<h1 class="<?php echo get_post_type(); ?>-title">
 					<?php if ( $args['subtitle'] ) : ?>
 						<span class="entry-title-primary"><?php echo $args['title']; ?></span>
@@ -352,9 +277,9 @@ if ( ! function_exists( 'themedd_post_header' ) ) :
 						<?php echo $args['title']; ?>
 					<?php endif; ?>
 				</h1>
-				<?php do_action( 'themedd_post_header_wrapper_end' ); ?>
+				<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
 			</div>
-			<?php do_action( 'themedd_post_header_end' ); ?>
+			<?php do_action( 'themedd_page_header_end' ); ?>
 		</header>
 
 	<?php
@@ -400,7 +325,6 @@ function themedd_paging_nav() {
 	<?php
 }
 endif;
-
 
 if ( ! function_exists( 'themedd_the_custom_logo' ) ) :
 /**
