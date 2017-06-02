@@ -118,18 +118,19 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( 'blogname', array(
+			'selector'            => '.site-title a',
+			'container_inclusive' => false,
+			'render_callback'     => 'themedd_customize_partial_blogname',
+		) );
 
-	$wp_customize->selective_refresh->add_partial( 'blogname', array(
-		'selector'            => '.site-title a',
-		'container_inclusive' => false,
-		'render_callback'     => 'themedd_customize_partial_blogname',
-	) );
-
-	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
-		'selector'            => '.site-description',
-		'container_inclusive' => false,
-		'render_callback'     => 'themedd_customize_partial_blogdescription',
-	) );
+		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+			'selector'            => '.site-description',
+			'container_inclusive' => false,
+			'render_callback'     => 'themedd_customize_partial_blogdescription',
+		) );
+	}
 
 	// Rename the label to "Site Title Color" because this only affects the site title in this theme.
 	$wp_customize->get_control( 'header_textcolor' )->label = __( 'Site Title Color', 'themedd' );
@@ -375,6 +376,29 @@ function themedd_customize_register( $wp_customize ) {
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'checkbox',
 		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
+	) );
+
+	/**
+	 * Theme Options section
+	 */
+	$wp_customize->add_section( 'theme_options', array(
+		'title'           => __( 'Theme Options', 'themedd' ),
+		'priority'        => 21,
+	) );
+
+	/**
+	 * Display excerpts setting
+	 */
+	$wp_customize->add_setting( 'theme_options[display_excerpts]', array(
+		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	) );
+
+	$wp_customize->add_control( 'theme_options[display_excerpts]', array(
+		'label'       => __( 'Display excerpts', 'themedd' ),
+		'settings'    => 'theme_options[display_excerpts]',
+		'section'     => 'theme_options',
+		'type'        => 'checkbox',
+		'description' => __( 'Display excerpts for posts instead of the full content', 'themedd' ),
 	) );
 
 	/**
