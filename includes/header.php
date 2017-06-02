@@ -198,14 +198,15 @@ function themedd_secondary_menu() {
         <?php if ( has_nav_menu( 'secondary' ) ) : ?>
     	<nav id="secondary-navigation" class="secondary-navigation" role="navigation">
             <?php
-    			wp_nav_menu(
-    				apply_filters( 'themedd_secondary_menu', array(
-    					'menu_id'        => 'secondary-menu',
-    					'menu_class'     => 'menu',
-    					'theme_location' => 'secondary',
-    					'container'      => '',
-    				))
-    			);
+			wp_nav_menu(
+				apply_filters( 'themedd_secondary_menu', array(
+					'menu_id'        => 'secondary-menu',
+					'menu_class'     => 'menu',
+					'theme_location' => 'secondary',
+					'depth'          => 1,
+					'container'      => '',
+				))
+			);
     		?>
     	</nav>
         <?php endif; ?>
