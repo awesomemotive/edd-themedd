@@ -6,7 +6,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<header class="entry-header">
+		<?php themedd_posted_on( false ); ?>
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 	</header>
 
@@ -19,7 +21,6 @@
 	<?php if ( 'post' == get_post_type() ) : ?>
 
 		<footer class="entry-footer">
-			<?php themedd_entry_meta(); ?>
 			<?php
 				edit_post_link(
 					sprintf(
@@ -31,7 +32,7 @@
 					'</span>'
 				);
 			?>
-		</footer><!-- .entry-footer -->
+		</footer>
 
 	<?php else : ?>
 
