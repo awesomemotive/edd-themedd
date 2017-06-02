@@ -219,3 +219,15 @@ function themedd_secondary_classes() {
 		return implode( ' ', $classes );
 	}
 }
+
+/**
+ * Display post excerpts
+ *
+ * @since 1.0.0
+ *
+ * @return boolean true if post excerpts are enabled, false otherwise
+ */
+function themedd_display_excerpts() {
+	$theme_options = get_theme_mod( 'theme_options' );
+	return $theme_options['display_excerpts'];
+}
