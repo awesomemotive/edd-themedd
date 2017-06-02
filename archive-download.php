@@ -20,11 +20,11 @@ get_header(); ?>
 			<?php endwhile; ?>
 
 			<?php
-			   /**
-				* Pagination
-				*/
-			   themedd_edd_download_nav();
-		   ?>
+			/**
+			* Download pagination
+			*/
+			themedd_edd_download_nav();
+			?>
 
 			</div>
 
