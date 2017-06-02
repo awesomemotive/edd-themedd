@@ -12,7 +12,7 @@ function themedd_load_post_thumbnail() {
 add_action( 'themedd_article_start', 'themedd_load_post_thumbnail' );
 
 /**
- * Load the biography template after the entry content
+ * Load the biography template after the entry content on a single post
  *
  * @since 1.0.0
  */
