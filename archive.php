@@ -24,6 +24,8 @@ get_header(); ?>
 
 					endwhile;
 
+					themedd_paging_nav();
+
 				else :
 					// If no content, include the "No posts found" template.
 					get_template_part( 'template-parts/content', 'none' );
