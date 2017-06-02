@@ -141,15 +141,34 @@ function themedd_get_sidebar() {
  * Themedd page header div classes
  *
  * @since 1.0.0
+ * @param array $more_classes Any more classes that need to be added.
+ *
+ * @return string Classes
  */
 function themedd_page_header_classes( $more_classes = array() ) {
 
-	$classes = apply_filters( 'themedd_page_header_classes', array( 'col-xs-12 pv-xs-2 pv-sm-3 pv-lg-4' ) );
+	// Set up the default classes.
+	$classes = array( 'col-xs-12 pv-xs-2 pv-sm-3 pv-lg-4' );
 
+	// Center the header content.
+	if (
+		is_page_template( 'page-templates/no-sidebar.php' ) ||
+		is_page_template( 'page-templates/slim.php' ) ||
+		is_tax( 'download_category' ) ||
+		is_tax( 'download_tag' )
+	) {
+		$classes[] = 'center-xs';
+	}
+
+	// Merge any new classes passed in.
 	if ( is_array( $more_classes ) ) {
 		$classes = array_merge( $classes, $more_classes );
 	}
 
+	// Make the classes filterable.
+	$classes = apply_filters( 'themedd_page_header_classes', $classes );
+
+	// Return the classes in a string
 	if ( ! empty( $classes ) ) {
 		return ' ' . implode( ' ', $classes );
 	}
