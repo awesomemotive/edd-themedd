@@ -3,6 +3,58 @@
  * Template tags
  */
 
+if ( ! function_exists( 'themedd_posted_on' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ */
+function themedd_posted_on( $show_author = true ) {
+
+	$post_author_id   = get_post_field( 'post_author', get_the_ID() );
+	$post_author_name = get_the_author_meta( 'display_name', $post_author_id );
+
+	// Get the author name; wrap it in a link.
+	$byline = sprintf(
+		/* translators: %s: post author */
+		__( 'by %s', 'themedd' ),
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
+	);
+
+	// Finally, let's write all of this to the page.
+	echo '<div class="entry-meta">';
+	echo '<span class="posted-on">' . themedd_time_link() . '</span>';
+	if ( $show_author ) {
+		echo '<span class="byline"> ' . $byline . '</span>';
+	}
+	echo '</div>';
+}
+endif;
+
+if ( ! function_exists( 'themedd_time_link' ) ) :
+/**
+ * Gets a nicely formatted string for the published date.
+ */
+function themedd_time_link() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+	}
+
+	$time_string = sprintf( $time_string,
+		get_the_date( DATE_W3C ),
+		get_the_date(),
+		get_the_modified_date( DATE_W3C ),
+		get_the_modified_date()
+	);
+
+	// Wrap the time string in a link, and preface it with 'Posted on'.
+	return sprintf(
+		/* translators: %s: post date */
+		__( '<span class="screen-reader-text">Posted on</span> %s', 'themedd' ),
+		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+	);
+}
+endif;
+
 /**
 * Display navigation to next/previous comments when applicable.
 *
