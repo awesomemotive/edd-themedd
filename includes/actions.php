@@ -92,3 +92,20 @@ function themedd_setup() {
 }
 endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
+
+/**
+ * Load various elements on the themedd_page_header_wrapper_start action hook
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function themedd_page_header_wrapper_start() {
+
+	// Add the date to the header on single posts
+	if ( is_singular( 'post' ) ) {
+		themedd_posted_on();
+	}
+
+}
+add_action( 'themedd_page_header_wrapper_start', 'themedd_page_header_wrapper_start' );
