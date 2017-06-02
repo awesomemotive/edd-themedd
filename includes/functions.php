@@ -155,7 +155,8 @@ function themedd_page_header_classes( $more_classes = array() ) {
 		is_page_template( 'page-templates/no-sidebar.php' ) ||
 		is_page_template( 'page-templates/slim.php' ) ||
 		is_tax( 'download_category' ) ||
-		is_tax( 'download_tag' )
+		is_tax( 'download_tag' ) ||
+		themedd_edd_distraction_free_checkout()
 	) {
 		$classes[] = 'center-xs';
 	}
