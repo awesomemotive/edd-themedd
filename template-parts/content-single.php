@@ -25,10 +25,10 @@
 			) );
 		?>
 
+		<?php themedd_entry_footer(); ?>
+
 		<?php do_action( 'themedd_entry_content_end' ); ?>
 
 	</div>
-
-	
 
 </article>
