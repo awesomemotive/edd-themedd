@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_post_header( array( 'title' => __( 'Oops! That page can&rsquo;t be found.', 'themedd' ) ) );
+themedd_page_header( array( 'title' => __( 'Oops! That page can&rsquo;t be found.', 'themedd' ) ) );
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">

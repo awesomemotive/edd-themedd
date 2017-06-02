@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_post_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
+themedd_page_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
 ?>
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 
