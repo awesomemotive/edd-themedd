@@ -154,6 +154,7 @@ function themedd_page_header_classes( $more_classes = array() ) {
 	if (
 		is_page_template( 'page-templates/no-sidebar.php' ) ||
 		is_page_template( 'page-templates/slim.php' ) ||
+		! is_active_sidebar( 'sidebar-1' ) ||
 		is_tax( 'download_category' ) ||
 		is_tax( 'download_tag' ) ||
 		function_exists( 'themedd_edd_distraction_free_checkout' ) && themedd_edd_distraction_free_checkout()
@@ -169,7 +170,7 @@ function themedd_page_header_classes( $more_classes = array() ) {
 	// Make the classes filterable.
 	$classes = apply_filters( 'themedd_page_header_classes', $classes );
 
-	// Return the classes in a string
+	// Return the classes in a string.
 	if ( ! empty( $classes ) ) {
 		return ' ' . implode( ' ', $classes );
 	}
@@ -207,7 +208,12 @@ function themedd_primary_classes() {
 
 	if (
 		is_active_sidebar( 'sidebar-1' ) &&
-		! ( is_page_template( 'page-templates/no-sidebar.php' ) || is_page_template( 'page-templates/slim.php' ) || ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() ) ) ||
+		! (
+			in_array( 'no-sidebar', get_body_class() ) ||
+			is_page_template( 'page-templates/no-sidebar.php' ) ||
+			is_page_template( 'page-templates/slim.php' ) ||
+			( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() )
+		) ||
 		is_singular( 'download' )
 	) {
 		$classes[] = 'col-xs-12';
