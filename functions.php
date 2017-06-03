@@ -33,7 +33,6 @@ require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'template-tags.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'header.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'footer.php' );
-require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'custom.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'actions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'filters.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'customizer.php' );
