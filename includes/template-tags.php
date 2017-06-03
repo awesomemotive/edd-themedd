@@ -165,6 +165,7 @@ if ( ! function_exists( 'themedd_categorized_blog' ) ) :
 function themedd_categorized_blog() {
 
 	if ( false === ( $all_the_cool_cats = get_transient( 'themedd_categories' ) ) ) {
+
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -177,6 +178,7 @@ function themedd_categorized_blog() {
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
 		set_transient( 'themedd_categories', $all_the_cool_cats );
+
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
@@ -253,19 +255,30 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
 			$title = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
 		}
 
+		// Process any classes passed in.
+		if ( ! empty( $args['classes'] ) ) {
+			if ( is_array( $args['classes'] ) ) {
+				// array of classes
+				$classes = $args['classes'];
+			} else {
+				// must be string, explode it into an array
+				$classes = explode( ' ', $args['classes'] );
+			}
+		} else {
+			$classes = array();
+		}
+
         $defaults = apply_filters( 'themedd_header_defaults',
             array(
                 'subtitle' => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
                 'title'    => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
-                'classes'  => isset( $args['classes'] ) && is_array( $args['classes'] ) ? $args['classes'] : array()
             )
         );
 
         $args = wp_parse_args( $args, $defaults );
-
 		?>
 
-		<header class="page-header<?php echo themedd_page_header_classes( $args['classes'] ); ?>">
+		<header class="page-header<?php echo themedd_page_header_classes( $classes ); ?>">
 			<?php do_action( 'themedd_page_header_start' ); ?>
 			<div class="wrapper">
 				<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
