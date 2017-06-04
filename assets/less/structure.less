@@ -54,6 +54,10 @@ body .wrapper {
 	max-width: @width-standard;
 }
 
+.container > .wrapper {
+	max-width: @width-standard - 64; // 4rem
+}
+
 @media only screen and ( min-width: @screen-md-min ) {
 
 	.content-wrapper {
