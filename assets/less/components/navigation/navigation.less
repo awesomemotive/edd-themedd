@@ -1,11 +1,5 @@
 // WordPress navigation
 
-//navigation pagination
-.navigation .nav-links {
-	display: -webkit-flex;
-	display: flex;
-}
-
 // Shown when navigating pages of posts (E.g. /page/2)
 // Example: Older Posts Newer Posts
 // Also controls the previous and next posts
@@ -13,19 +7,9 @@
 .navigation.post-navigation {
 	border-top: 2px solid @light-grey;
 	padding: 1rem 0 0 0;
-
-	.nav-links {
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-	}
-
 }
 
 // Page links. E.g. Pages 1 2 3
-
 .page-links {
 	margin-bottom: 1rem;
 
@@ -36,17 +20,12 @@
 	}
 }
 
-
 // Post navigation.
 // Shows at the bottom of a single post.
 .post-navigation {
 
 	.nav-links div {
 		margin-bottom: 1rem;
-	}
-
-	.nav-next {
-		text-align: right;
 	}
 
 	a {
@@ -65,6 +44,37 @@
 	a:hover .post-title,
 	a:focus .post-title {
 		color: @post-navigation-hover-color;
+	}
+
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+
+	//navigation pagination
+	.navigation .nav-links {
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	.post-navigation .nav-next {
+		text-align: right;
+	}
+
+	.navigation.paging-navigation,
+	.navigation.post-navigation {
+		border-top: 2px solid @light-grey;
+		padding: 1rem 0 0 0;
+
+		.nav-links {
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+
+			// Previous / Next links
+			div {
+				width: 50%;
+			}
+		}
+
 	}
 
 }
