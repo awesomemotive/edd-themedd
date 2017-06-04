@@ -114,11 +114,20 @@ add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
 if ( ! function_exists( 'themedd_edd_template_redirect' ) ):
 function themedd_edd_template_redirect() {
 
-	// Distraction Free Checkout
+	/**
+	 * Distraction Free Checkout
+	 * Removes various distractions from the EDD checkout page to improve the customer's buying experience.
+	 */
 	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() ) {
+
+		// Remove page header.
+		add_filter( 'themedd_page_header', '__return_false' );
 
 		// Remove the primary navigation.
 		remove_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
+
+		// Remove the primary navigation if moved to the themedd_site_header_main hook.
+		remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
 
 	    // Remove the mobile menu.
 	    remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
@@ -129,7 +138,7 @@ function themedd_edd_template_redirect() {
 		// Remove the footer.
 		remove_action( 'themedd_footer', 'themedd_footer_widgets' );
 
-		// Remove sidebar.
+		// Remove the sidebar.
 		add_filter( 'themedd_show_sidebar', '__return_false' );
 
 	}
