@@ -278,7 +278,7 @@
   order: 1;
 }
 
-@media only screen and (min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
   .col-sm,
   .col-sm-1,
@@ -513,8 +513,7 @@
     order: 1;
   }
 }
-
-@media only screen and (min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
   .col-md,
   .col-md-1,
@@ -750,7 +749,7 @@
   }
 }
 
-@media only screen and (min-width: @screen-lg-min) {
+.media-mixin(@break) when (@break = @screen-lg-min) {
 
   .col-lg,
   .col-lg-1,

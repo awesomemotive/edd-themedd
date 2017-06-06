@@ -48,16 +48,17 @@
 
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
-	//navigation pagination
+	// navigation pagination
 	.navigation .nav-links {
 		display: -webkit-flex;
 		display: flex;
 	}
 
-	.post-navigation .nav-next {
+	.nav-next {
 		text-align: right;
+		margin-left: auto;
 	}
 
 	.navigation.paging-navigation,
@@ -76,5 +77,4 @@
 		}
 
 	}
-
 }

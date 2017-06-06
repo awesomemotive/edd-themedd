@@ -49,10 +49,8 @@
 	border-bottom: none;
 }
 
-// Small Devices, Tablets
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
-	// default
 	.gallery .gallery-item {
 		width: 33.333333333%;
 	}
@@ -68,5 +66,4 @@
 	.gallery.gallery-columns-4 .gallery-item {
 		width: 25%;
 	}
-
 }

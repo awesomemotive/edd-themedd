@@ -6,7 +6,7 @@
 }
 
 // show secondary navigation
-@media only screen and ( min-width: @desktop-nav ) {
+.media-mixin(@break) when (@break = @desktop-nav) {
 
     #site-header-secondary-menu {
 		display: -webkit-flex;

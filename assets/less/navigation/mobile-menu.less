@@ -45,7 +45,7 @@
     padding-left: 3rem;
 }
 
-@media only screen and ( max-width: @nav-sm-max ) {
+.media-mixin(@break) when (@break = @nav-sm-max) {
 
     #mobile-menu ul.toggled-on {
         display: block;
@@ -53,7 +53,7 @@
 
 }
 
-@media only screen and ( max-width: @screen-xs-max ) {
+.media-mixin(@break) when (@break = @screen-xs-max) {
 
     .site-title {
         text-align: center;
@@ -67,7 +67,7 @@
     }
 }
 
-@media only screen and ( min-width: @desktop-nav ) {
+.media-mixin(@break) when (@break = @desktop-nav) {
 
 	#mobile-menu  {
 		display: none;

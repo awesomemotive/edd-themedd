@@ -31,8 +31,7 @@
     }
 }
 
-// Media Queries.
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.site-footer ul {
         margin-bottom: 0;

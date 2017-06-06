@@ -169,7 +169,7 @@ article[class^="post-"] + article[class^="post-"] {
 	margin-bottom: 0;
 }
 
-@media all and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.author-avatar {
 		float: left;
@@ -178,8 +178,7 @@ article[class^="post-"] + article[class^="post-"] {
 
 }
 
-// Medium Devices, Desktops
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.comment {
 		padding: 2rem;

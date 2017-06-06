@@ -16,7 +16,6 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-postcss": "^0.4.0",
     "grunt-svgmin": "^2.0.1",
     "grunt-svgstore": "^0.3.3",
     "matchdep": "*"

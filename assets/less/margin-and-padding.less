@@ -60,9 +60,7 @@
 .mb-xs-11 { margin-bottom: 11rem; }
 .mb-xs-12 { margin-bottom: 12rem; }
 
-// 768px
-@media only screen and (min-width: @screen-sm-min) {
-
+.media-mixin(@break) when (@break = @screen-sm-min) {
     // horizontal padding MD
     .ph-sm-0 { padding-left: 0; padding-right: 0; }
     .ph-sm-1 { padding-left: 1rem; padding-right: 1rem; }
@@ -109,8 +107,7 @@
 
 }
 
-// 992px
-@media only screen and (min-width: @screen-md-min) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
     // horizontal padding
     .ph-md-0 { padding-left: 0; padding-right: 0; }
@@ -157,8 +154,7 @@
 
 }
 
-// 1200px
-@media only screen and (min-width: @screen-lg-min) {
+.media-mixin(@break) when (@break = @screen-lg-min) {
 
     // horizontal padding
     .ph-lg-0 { padding-right: 0; padding-left: 0; }

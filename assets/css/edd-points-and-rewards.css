@@ -27,18 +27,3 @@
 .edd-points-redeem-message {
   vertical-align: middle;
 }
-@media only screen and (min-width: 1220px) {
-  .edd-points-checkout-message,
-  .edd-points-redeem-points-wrap {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-  .edd-points-checkout-message p,
-  .edd-points-redeem-points-wrap p {
-    margin-bottom: 0;
-  }
-}

@@ -110,7 +110,7 @@ p.affwp-error:last-of-type {
 	display: block;
 }
 
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	#affwp-date-range-options {
 		width: auto;

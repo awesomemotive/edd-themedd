@@ -82,21 +82,3 @@ p.affwp-error:last-of-type {
 .affwp-search-date span {
   display: block;
 }
-@media only screen and (min-width: 768px) {
-  #affwp-date-range-options {
-    width: auto;
-  }
-  #affwp-graphs-date-options {
-    width: auto;
-    margin-right: 1rem;
-    margin-bottom: 0;
-  }
-  .affwp-datepicker {
-    width: auto;
-    margin-right: 1rem;
-  }
-  .affwp-search-date span {
-    display: inline-block;
-    margin-right: 0.5rem;
-  }
-}

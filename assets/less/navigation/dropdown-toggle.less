@@ -38,10 +38,10 @@
 	content: "\f432";
 }
 
-@media only screen and ( min-width: @desktop-nav ) {
+.media-mixin(@break) when (@break = @desktop-nav) {
 
-    .dropdown-toggle {
-        display: none;
-    }
+	.dropdown-toggle {
+		display: none;
+	}
 
 }

@@ -58,7 +58,7 @@ body .wrapper {
 	max-width: @width-standard - 64; // 4rem
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.content-wrapper {
 		display: -webkit-flex;

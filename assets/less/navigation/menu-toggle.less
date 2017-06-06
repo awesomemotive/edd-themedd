@@ -33,7 +33,7 @@
     margin: 0;
 }
 
-@media only screen and ( min-width: @desktop-nav ) {
+.media-mixin(@break) when (@break = @desktop-nav) {
 
     .mobile-navigation,
 	#menu-toggle-wrap {

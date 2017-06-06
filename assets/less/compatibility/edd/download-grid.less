@@ -168,8 +168,7 @@ span.edd_price {
 }
 
 
-// Small Devices, Tablets
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	#edd_download_pagination {
 		padding: 1.5rem;
@@ -204,8 +203,7 @@ span.edd_price {
 
 }
 
-// Medium Devices, Desktops
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 	.edd_download_columns_4 .edd_download {
 		width: 25%;
 	}

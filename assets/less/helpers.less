@@ -63,7 +63,7 @@ hr {
 	text-align: left;
 }
 
-@media only screen and (min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.text-center-sm {
 		text-align: center;
@@ -75,7 +75,7 @@ hr {
 
 }
 
-@media only screen and (min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.text-center-md {
 		text-align: center;
@@ -87,7 +87,7 @@ hr {
 
 }
 
-@media only screen and (min-width: @screen-lg-min ) {
+.media-mixin(@break) when (@break = @screen-lg-min) {
 
 	.text-center-lg {
 		text-align: center;

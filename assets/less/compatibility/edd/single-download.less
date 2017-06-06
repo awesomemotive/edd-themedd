@@ -33,7 +33,7 @@ span.tags {
 	display: none;
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.single-download #content {
 		padding-top: 4rem;

@@ -156,7 +156,7 @@ fieldset.fes-submit {
 	}
 }
 
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.fes-login-registration-combo {
 		display: -webkit-flex;
@@ -233,7 +233,7 @@ fieldset.fes-submit {
 
 }
 
-@media only screen and ( min-width: @screen-lg-min ) {
+.media-mixin(@break) when (@break = @screen-lg-min) {
 
 	.fes-login-registration-combo > div + div {
 		width: 65%;

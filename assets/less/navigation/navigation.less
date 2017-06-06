@@ -69,8 +69,7 @@ button:focus {
 	}
 }
 
-
-@media only screen and ( max-width: @nav-sm-max ) {
+.media-mixin(@break) when (@break = @nav-sm-max) {
 
 	// show the menus when there's no JS, or when they have been toggled
 	.no-js .main-navigation ul ul {
@@ -91,7 +90,7 @@ button:focus {
 }
 
 // show desktop nav
-@media only screen and ( min-width: @desktop-nav ) {
+.media-mixin(@break) when (@break = @desktop-nav) {
 
 	.main-navigation .primary-menu {
 
@@ -145,7 +144,7 @@ button:focus {
 
 	.site-header-menu .main-navigation {
 		margin: 0 auto;
-		max-width: @page-wrap-max-width;
+		max-width: @main-nav-max-width;
 		padding: 0 2rem;
 	}
 
