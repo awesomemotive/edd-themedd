@@ -60,7 +60,7 @@ fieldset.fes-submit {
   margin-top: 1rem;
 }
 #fes-product-list .published {
-  background: #5bcc5b;
+  background: #5BCC5B;
   color: #fff;
   padding: 0.5rem 1rem;
   font-weight: bold;
@@ -87,10 +87,10 @@ fieldset.fes-submit {
   display: inline-block;
   margin-right: 0.5rem;
   font-size: 1rem;
-  color: #222222;
+  color: #222;
 }
 .fes-vendor-menu ul a:hover {
-  color: #448fd5;
+  color: #448FD5;
 }
 .fes-vendor-menu ul .affwp-affiliate-dashboard-tab.active,
 .fes-vendor-menu ul .ui-tabs-active {
@@ -98,5 +98,5 @@ fieldset.fes-submit {
 }
 .fes-vendor-menu ul .affwp-affiliate-dashboard-tab.active a,
 .fes-vendor-menu ul .ui-tabs-active a {
-  color: #448fd5;
+  color: #448FD5;
 }

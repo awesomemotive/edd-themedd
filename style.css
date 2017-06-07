@@ -72,7 +72,7 @@ dfn {
 }
 mark {
   background-color: #ff0;
-  color: #000000;
+  color: #000;
 }
 small {
   font-size: 80%;
@@ -285,12 +285,12 @@ textarea {
   font-size: 2rem;
   font-weight: 600;
   line-height: 1;
-  color: #222222;
+  color: #222;
   font-family: Arial, Verdana, sans-serif;
 }
 .site-title a,
 .site-title a:hover {
-  color: #222222;
+  color: #222;
 }
 figcaption {
   color: #696969;
@@ -309,7 +309,7 @@ h4,
 h5,
 h6 {
   font-family: Arial, Verdana, sans-serif;
-  color: #222222;
+  color: #222;
   line-height: 1.2;
   margin: 0 0 1.62rem 0;
 }
@@ -388,7 +388,7 @@ i {
   font-style: italic;
 }
 blockquote {
-  border-left: 4px solid #dddddd;
+  border-left: 4px solid #ddd;
   padding-left: 1.62rem;
   margin: 0 0 1.62rem -1.62rem;
   font-style: italic;
@@ -459,7 +459,7 @@ acronym {
 }
 mark,
 ins {
-  background: #448fd5;
+  background: #448FD5;
   color: #fff;
   padding: 0.125em 0.25em;
   text-decoration: none;
@@ -488,7 +488,7 @@ h2.widget-title {
 button,
 input[type="submit"],
 #submit {
-  background: #222222;
+  background: #222;
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -497,7 +497,7 @@ input[type="submit"],
   vertical-align: middle;
   background-image: none;
   border-radius: 0;
-  border: 1px solid #222222;
+  border: 1px solid #222;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -514,8 +514,8 @@ input[type=submit]:hover,
 #submit:hover {
   text-decoration: none;
   color: #fff;
-  background: #448fd5;
-  border: 1px solid #448fd5;
+  background: #448FD5;
+  border: 1px solid #448FD5;
 }
 #submit,
 input[type=submit],
@@ -1088,7 +1088,7 @@ button,
   flex-direction: column;
 }
 #content {
-  background: #ffffff;
+  background: #fff;
   flex: 1 0 auto;
 }
 #primary {
@@ -1117,7 +1117,7 @@ body .wrapper {
 }
 /* Header */
 #masthead {
-  background: #ffffff;
+  background: #fff;
 }
 #masthead a {
   border: 0 none;
@@ -1143,7 +1143,7 @@ body .wrapper {
 }
 /* Footer */
 .site-footer {
-  background: #ffffff;
+  background: #fff;
 }
 .site-footer a,
 .site-footer a:hover {
@@ -1166,7 +1166,7 @@ body .wrapper {
 }
 /* Links */
 a {
-  color: #448fd5;
+  color: #448FD5;
   text-decoration: none;
   outline: 0;
 }
@@ -1179,7 +1179,7 @@ a:visited {
 }
 a:hover {
   outline: 0;
-  color: #222222;
+  color: #222;
 }
 /* Search */
 .search-form {
@@ -1246,7 +1246,7 @@ html {
   height: 100%;
 }
 body {
-  background: #ffffff;
+  background: #fff;
 }
 dl {
   margin: 0 0 1.62rem;
@@ -1325,7 +1325,7 @@ td {
 }
 .entry-meta a:hover,
 .entry-footer a:hover {
-  color: #222222;
+  color: #222;
 }
 figure.wp-caption {
   max-width: 100%;
@@ -1338,10 +1338,10 @@ article[class^="post-"] + article[class^="post-"] {
 }
 .entry-title a {
   border-bottom: none;
-  color: #222222;
+  color: #222;
 }
 .entry-title a:hover {
-  color: #222222;
+  color: #222;
 }
 .site-main > article {
   margin-bottom: 2rem;
@@ -1392,7 +1392,7 @@ article[class^="post-"] + article[class^="post-"] {
   border-bottom: none;
 }
 .comment a.url {
-  color: #222222;
+  color: #222;
 }
 .comment-author {
   margin-bottom: 0.5rem;
@@ -1560,10 +1560,8 @@ legend {
   font-size: 1.5rem;
   float: left;
   margin-bottom: 1rem;
-  color: #222222;
-}
-legend + * {
-  clear: both;
+  color: #222;
+  width: 100%;
 }
 label {
   text-align: left;
@@ -2033,10 +2031,10 @@ section.account .wrapper {
   display: inline-block;
   margin-right: 0.5rem;
   font-size: 1rem;
-  color: #222222;
+  color: #222;
 }
 .account-nav ul a:hover {
-  color: #448fd5;
+  color: #448FD5;
 }
 .account-nav ul .affwp-affiliate-dashboard-tab.active,
 .account-nav ul .ui-tabs-active {
@@ -2044,7 +2042,7 @@ section.account .wrapper {
 }
 .account-nav ul .affwp-affiliate-dashboard-tab.active a,
 .account-nav ul .ui-tabs-active a {
-  color: #448fd5;
+  color: #448FD5;
 }
 .container .account-content,
 .container .account-nav {
@@ -2079,16 +2077,16 @@ button:focus {
   line-height: 1.5;
   font-size: 1rem;
   padding: 0.75rem 0;
-  color: #222222;
+  color: #222;
   border-bottom: none;
 }
 .main-navigation .current-menu-item > a,
 .main-navigation .current_page_ancestor > a {
-  color: #448fd5;
+  color: #448FD5;
 }
 .main-navigation a:hover,
 .main-navigation a:focus {
-  color: #448fd5;
+  color: #448FD5;
   border-bottom: none;
 }
 .main-navigation li {
@@ -2135,7 +2133,7 @@ button:focus {
 }
 .post-navigation a:hover .post-title,
 .post-navigation a:focus .post-title {
-  color: #222222;
+  color: #222;
 }
 #menu-toggle-wrap {
   display: -webkit-flex;
@@ -2145,8 +2143,8 @@ button:focus {
   align-items: inherit;
 }
 .menu-toggle {
-  background-color: #222222;
-  border: 1px solid #222222;
+  background-color: #222;
+  border: 1px solid #222;
   border-radius: 0;
   font-size: 1rem;
   width: 100%;
@@ -2154,9 +2152,9 @@ button:focus {
   line-height: 1;
 }
 .menu-toggle:hover {
-  background-color: #222222;
-  color: #ffffff;
-  border: 1px solid #222222;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #222;
 }
 .no-js .menu-toggle {
   display: none;
@@ -2173,7 +2171,7 @@ button:focus {
   line-height: 1.5;
   font-size: 1rem;
   padding: 0.75rem 2rem;
-  color: #222222;
+  color: #222;
   border-bottom: none;
 }
 .no-js #mobile-menu,
@@ -2182,11 +2180,11 @@ button:focus {
 }
 #mobile-menu .current-menu-item > a,
 #mobile-menu .current_page_ancestor > a {
-  color: #448fd5;
+  color: #448FD5;
 }
 #mobile-menu a:hover,
 #mobile-menu a:focus {
-  color: #448fd5;
+  color: #448FD5;
 }
 #mobile-menu li {
   position: relative;
@@ -2205,7 +2203,7 @@ button:focus {
   background-color: transparent;
   border: 0;
   border-radius: 0;
-  color: #222222;
+  color: #222;
   content: "";
   height: 48px;
   padding: 0;
@@ -2228,7 +2226,7 @@ button:focus {
 }
 .dropdown-toggle:hover,
 .dropdown-toggle:focus {
-  color: #448fd5;
+  color: #448FD5;
 }
 .dropdown-toggle.toggled-on:after {
   content: "\f432";
@@ -2384,7 +2382,7 @@ h3.edd_download_title {
   display: block;
 }
 .edd_download_title a:hover {
-  color: #448fd5;
+  color: #448FD5;
 }
 .edd_download_image {
   margin: 0 0 2rem 0;
@@ -2691,6 +2689,12 @@ span.card-type.amex {
 .edd-checkout-distraction-free .site-footer .site-info {
   text-align: center;
 }
+.edd-stripe-card-radio-item label {
+  display: inline-block;
+}
+.edd-stripe-new-card {
+  margin-top: 2rem;
+}
 #edd_login_form fieldset,
 #edd_register_form fieldset {
   border: 2px solid #f4f4f4;
@@ -2763,20 +2767,20 @@ span.card-type.amex {
   margin-left: 0.5rem;
 }
 .nav-cart-icon {
-  fill: #222222;
+  fill: #222;
 }
 .nav-cart-icon:hover {
-  fill: #222222;
+  fill: #222;
 }
 .items-in-cart .nav-cart-icon {
-  fill: #222222;
+  fill: #222;
 }
 .cart-count {
   display: block;
-  background: #448fd5;
+  background: #448FD5;
   font-size: 12px;
   margin-left: 5px;
-  color: #ffffff;
+  color: #fff;
   position: absolute;
   top: -9px;
   right: -7px;
@@ -2977,7 +2981,7 @@ label[for*="rcp_discount_code"] {
   color: #696969;
 }
 .download-meta a:hover {
-  border-color: #222222;
+  border-color: #222;
 }
 .meta-categories .title,
 .meta-tags .title {
@@ -3457,11 +3461,11 @@ label[for*="rcp_discount_code"] {
     color: #696969;
   }
   .main-navigation .sub-menu .current-menu-item a {
-    color: #448fd5;
+    color: #448FD5;
     background: transparent;
   }
   .main-navigation .sub-menu .current-menu-item a:hover {
-    color: #448fd5;
+    color: #448FD5;
     background: transparent;
   }
   .site-header-menu .main-navigation {
@@ -3479,7 +3483,7 @@ label[for*="rcp_discount_code"] {
   }
   .main-navigation li:hover > a,
   .main-navigation li.focus > a {
-    color: #448fd5;
+    color: #448FD5;
   }
   .secondary-navigation li {
     float: left;
@@ -3489,7 +3493,7 @@ label[for*="rcp_discount_code"] {
   }
   .main-navigation .sub-menu li:hover > a,
   .main-navigation .sub-menu li.focus > a {
-    color: #448fd5;
+    color: #448FD5;
     background: transparent;
   }
   .main-navigation ul ul {
@@ -3520,7 +3524,7 @@ label[for*="rcp_discount_code"] {
     border: 0;
   }
   .main-navigation ul ul li {
-    background-color: #ffffff;
+    background-color: #fff;
   }
   .main-navigation ul ul li:hover > ul,
   .main-navigation ul ul li.focus > ul {
@@ -3594,7 +3598,7 @@ label[for*="rcp_discount_code"] {
     color: #696969;
   }
   #site-header-secondary-menu a:hover {
-    color: #448fd5;
+    color: #448FD5;
   }
   #edd_download_pagination {
     padding: 1.5rem;
