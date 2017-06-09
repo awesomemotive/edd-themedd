@@ -41,18 +41,12 @@ class Themedd_AffiliateWP {
 			$style_deps[] = 'jquery-ui-css';
 		}
 
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-		// Get the file path of the CSS file.
-		$file_path = '/assets/css/affiliatewp' . $suffix . '.css';
-
-		// Register the styles.
-		wp_register_style( 'themedd-affiliatewp',  get_theme_file_uri( $file_path ), $style_deps, filemtime( get_theme_file_path( $file_path ) ), 'all' );
+		$suffix = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
 
 		// Load styles.
 		if ( has_shortcode( $post->post_content, 'affiliate_area' ) || has_shortcode( $post->post_content, 'affiliate_registration' ) || apply_filters( 'affwp_force_frontend_scripts', true ) ) {
 	        // Enqueue our own styling for AffiliateWP
-	        wp_enqueue_style( 'themedd-affiliatewp' );
+			wp_enqueue_style( 'themedd-affiliatewp', get_theme_file_uri( '/assets/css/affiliatewp' . $suffix . '.css' ), $style_deps, THEMEDD_VERSION );
 	    }
 
 	}
