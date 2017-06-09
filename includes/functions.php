@@ -91,28 +91,6 @@ function themedd_is_edd_download_meta_active() {
 }
 
 /**
- * Posts that should have the lightbox code included
- *
- * @since 1.0.0
- */
-function themedd_enable_popup( $post_id = 0 ) {
-
-	$lightbox = false;
-
-	$posts = apply_filters( 'themedd_lightbox_posts',
-		array()
-	);
-
-	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
-
-	if ( in_array( $post_id, $posts ) || $changelog ) {
-		$lightbox = true;
-	}
-
-	return apply_filters( 'themedd_enable_popup', $lightbox );
-}
-
-/**
  * Filter sidebars
  * Allows sidebars to be disabled completely or on a specific post/page/download
  * Allows sidebars to be swapped out on specific posts/pages/downloads
