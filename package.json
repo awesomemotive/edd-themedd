@@ -7,12 +7,14 @@
   "theme_uri": "https://themedd.com",
   "author_uri": "https://easydigitaldownloads.com",
   "text_domain": "themedd",
+  "browserslist": "last 1 versions",
   "Dependencies": {
     "grunt-cli": "latest"
   },
   "devDependencies": {
     "grunt-banner": "^0.2.3",
     "grunt-contrib-concat": "latest",
+	"grunt-autoprefixer": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
