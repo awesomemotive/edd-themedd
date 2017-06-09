@@ -93,14 +93,9 @@ button:focus {
 .media-mixin(@break) when (@break = @desktop-nav) {
 
 	.main-navigation .primary-menu {
-
-        display: -webkit-flex;
-        display: -ms-flex;
         display: flex;
 
         // allow the nav items to wrap onto the next line
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
 
 		margin-left: -1rem; // lines the UL up with the logo/site title
@@ -240,9 +235,6 @@ button:focus {
 
 	// rotate the down error so it becomes a right arrow
 	.main-navigation ul ul .menu-item-has-children > a:after {
-		-webkit-transform: rotate(-90deg);
-		-moz-transform: rotate(-90deg);
-		-ms-transform: rotate(-90deg);
 		transform: rotate(-90deg);
 		top: 50%;
 		margin-top: -9px;

@@ -13,8 +13,6 @@
 	word-wrap: break-word;
 
 	// flexbox sticky footer
-	display: -webkit-flex;
-	display: -ms-flex;
 	display: flex;
 	flex-direction: column;
 }
@@ -61,10 +59,7 @@ body .wrapper {
 .media-mixin(@break) when (@break = @screen-md-min) {
 
 	.content-wrapper {
-		display: -webkit-flex;
-		display: -ms-flex;
 		display: flex;
-		-webkit-justify-content: space-between;
 		justify-content: space-between;
 	}
 
