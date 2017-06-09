@@ -32,6 +32,12 @@ input.edd-input.card-number.valid {
     display: block;
 }
 
+// The error notice shown when the discount did not work.
+#edd-discount-error-wrap {
+	display: block;
+	margin: 1rem 0 0 0;
+}
+
 .edd_discount_rate,
 .edd_discount_remove {
     vertical-align: middle;
@@ -51,11 +57,12 @@ input.edd-input.card-number.valid {
 
 }
 
-// secure payment icon
+// secure payment icon and message
 
 #edd_secure_site_wrapper {
 	margin-bottom: 1rem;
 	padding-right: 3rem;
+	font-weight: bold;
 }
 
 span.padlock {
@@ -63,10 +70,6 @@ span.padlock {
 	position: absolute;
 	top: 2rem;
 	right: 2rem;
-
-	.edd-icon-lock {
-		width: 4rem;
-	}
 }
 
 .edd-cart-ajax {
@@ -83,8 +86,6 @@ span.padlock {
     margin-bottom: 1rem;
 }
 
-
-
 #edd_terms_agreement {
     margin-bottom: 2rem;
 }
@@ -94,6 +95,14 @@ span.padlock {
     margin-bottom: 0;
 }
 
+.edd-discount-loader.edd-loading {
+	display: inline-block;
+	position: relative;
+	left: auto;
+	vertical-align: middle;
+	width: 1.5rem;
+	height: 1.5rem;
+}
 
 // end discounts
 
@@ -117,12 +126,17 @@ span.padlock {
 }
 
 // fieldset styling
+
+#edd_profile_personal_fieldset,
+#edd_profile_address_fieldset,
+#edd_profile_password_fieldset,
 #edd_discount_code,
 #edd_checkout_user_info,
 #edd_register_account_fields,
 #edd_login_fields,
-#edd_cc_address,
+#edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
 #edd_cc_fields,
+#edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
     padding: 1rem 2rem;
 	border: 2px solid @border-light-grey-alt;
@@ -248,7 +262,6 @@ span.card-type {
 	background-size: 43px 32px !important;
 }
 
-// cart type that
 label[for=card_number] {
     position: relative;
 }
@@ -280,25 +293,16 @@ span.card-type.amex {
 // Distraction Free checkout styling.
 
 .edd-checkout-distraction-free {
+
 	.site-branding {
 		margin-left: auto;
 		margin-right: auto;
+		text-align: center; // make sure both site title and description are centered
 	}
 
 	.site-footer .site-info {
 		text-align: center;
 	}
-}
-
-// EDD Stripe compatibility
-
-// See: https://github.com/easydigitaldownloads/edd-stripe/issues/220
-.edd-stripe-card-radio-item label {
-	display: inline-block;
-}
-
-.edd-stripe-new-card {
-	margin-top: 2rem;
 }
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
