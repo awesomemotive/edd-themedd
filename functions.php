@@ -6,6 +6,14 @@
  */
 
 /**
+ * Themedd only works with WordPress 4.7 or later.
+ */
+if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
+	require get_template_directory() . '/includes/back-compat.php';
+	return;
+}
+
+/**
  * Constants
  *
  * @since 1.0.0
