@@ -157,7 +157,11 @@ function themedd_page_header_classes( $more_classes = array() ) {
 		! is_active_sidebar( 'sidebar-1' ) ||
 		is_tax( 'download_category' ) ||
 		is_tax( 'download_tag' ) ||
-		function_exists( 'themedd_edd_distraction_free_checkout' ) && themedd_edd_distraction_free_checkout()
+		(
+			function_exists( 'themedd_edd_distraction_free_checkout' ) && themedd_edd_distraction_free_checkout() &&
+			function_exists( 'edd_is_checkout' ) && edd_is_checkout() &&
+			function_exists( 'edd_get_cart_contents' ) && ! empty( edd_get_cart_contents() )
+		)
 	) {
 		$classes[] = 'center-xs';
 	}

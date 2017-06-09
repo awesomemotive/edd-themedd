@@ -168,7 +168,7 @@ function themedd_edd_body_classes( $classes ) {
 		$classes[] = 'items-in-cart';
 	}
 
-	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() ) {
+	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && ! empty( edd_get_cart_contents() ) ) {
 		$classes[] = 'edd-checkout-distraction-free';
 	}
 
