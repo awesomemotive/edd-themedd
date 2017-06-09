@@ -7,13 +7,13 @@ module.exports = function(grunt) {
 
     // concat
     concat: {
-         main: {
-           options: {
-             separator: ';'
-           },
-           src: ['assets/js/src/**/*.js'],
-           dest: 'assets/js/<%= pkg.name %>.min.js'
-         }
+		main: {
+			options: {
+				separator: ';'
+			},
+			src: ['assets/js/src/**/*.js'],
+			dest: 'assets/js/<%= pkg.name %>.js'
+		}
     },
 
     // uglify
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         },
         js: {
             files: {
-                'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.min.js']
+                'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.js']
     		}
         }
     },
@@ -54,6 +54,7 @@ module.exports = function(grunt) {
 	less: {
 		style: {
 			files: {
+				"style.css": "assets/less/style.less",
 				"assets/css/affiliatewp.css": "assets/less/compatibility/affiliatewp.less",
 				"assets/css/edd-fes.css": "assets/less/compatibility/edd-fes.less",
 				"assets/css/edd-points-and-rewards.css": "assets/less/compatibility/edd-points-and-rewards.less",
@@ -61,10 +62,10 @@ module.exports = function(grunt) {
 		},
 		minify: {
 			options: {
-				compress: false 
+				compress: true
 			},
 			files: {
-				"style.css": "assets/less/style.less",
+				"style.min.css": "assets/less/style.less",
 				"assets/css/affiliatewp.min.css": "assets/less/compatibility/affiliatewp.less",
 				"assets/css/edd-fes.min.css": "assets/less/compatibility/edd-fes.less",
 				"assets/css/edd-points-and-rewards.min.css": "assets/less/compatibility/edd-points-and-rewards.less"

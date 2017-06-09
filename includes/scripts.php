@@ -2,8 +2,13 @@
 
 if ( ! function_exists( 'themedd_styles' ) ) :
 function themedd_styles() {
+
+	// Suffix.
+	$suffix = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
+
 	// Theme stylesheet.
-	wp_enqueue_style( 'themedd', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
+	wp_enqueue_style( 'themedd', get_theme_file_uri( 'style' . $suffix . '.css' ), array(), THEMEDD_VERSION );
+
 }
 add_action( 'wp_enqueue_scripts', 'themedd_styles' );
 endif;
@@ -17,7 +22,10 @@ function themedd_scripts() {
 
 	wp_register_script( 'comment-reply', '', '', '',  true );
 
-	wp_enqueue_script( 'themedd-js', get_template_directory_uri() . '/assets/js/themedd.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
+	// Suffix.
+	$suffix = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
+
+	wp_enqueue_script( 'themedd-js', get_theme_file_uri( '/assets/js/themedd' . $suffix . '.js' ), array( 'jquery' ), THEMEDD_VERSION, true );
 
 	wp_localize_script( 'themedd-js', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'themedd' ) . '</span>',
