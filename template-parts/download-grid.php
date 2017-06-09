@@ -1,6 +1,6 @@
 <?php $schema = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : ''; ?>
 
-<div <?php echo $schema; ?>class="edd_download" id="edd_download_<?php echo get_the_ID(); ?>">
+<div <?php echo $schema; ?>class="edd_download mb-xs-4 mb-sm-0" id="edd_download_<?php echo get_the_ID(); ?>">
 	<div class="edd_download_inner">
 
 		<?php
@@ -8,7 +8,7 @@
 		do_action( 'edd_download_before' );
 
 		edd_get_template_part( 'shortcode', 'content-image' );
-		
+
 		do_action( 'edd_download_after_thumbnail' );
 
 		edd_get_template_part( 'shortcode', 'content-title' );
