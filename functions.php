@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Note: Do not add any custom code here. Please use a child theme so that your customizations aren't lost during updates.
+ * Note: Do not add any custom code here. Please use a child theme or custom functionality plugin so that your customizations are not lost during updates.
  * http://codex.wordpress.org/Child_Themes
  */
 
