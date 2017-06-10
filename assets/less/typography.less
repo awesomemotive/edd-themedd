@@ -50,41 +50,21 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 1.62rem 0;
 }
 
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.4rem; }
+h1 { font-size: @h1-font-size; }
+h2 { font-size: @h2-font-size; }
+h3 { font-size: @h3-font-size; }
 h4 { font-size: @h4-font-size; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1.1rem; }
+h5 { font-size: @h5-font-size; }
+h6 { font-size: @h6-font-size; }
 
-h1 {
-	margin-top: 3.24rem;
-	margin-bottom: 1.62rem;
-}
-
-h2 {
-	margin-top: 3.24rem;
-	margin-bottom: 1.62rem;
-}
-
-h3 {
-	margin-top: 3.24rem;
-	margin-bottom: 1.62rem;
-}
-
-h4 {
-	margin-top: 3.24rem;
-	margin-bottom: 1.62rem;
-}
-
-h5 {
-	margin-top: 3.24rem;
-	margin-bottom: 1.62rem;
-}
-
-h6 {
-	margin-top: 3.24rem;
-	margin-bottom: 1.62rem;
+// Add margin top for headings within entry content.
+.entry-content {
+	h1 { margin-top: 3.24rem; }
+	h2 { margin-top: 3.24rem; }
+	h3 { margin-top: 3.24rem; }
+	h4 { margin-top: 3.24rem; }
+	h5 { margin-top: 3.24rem; }
+	h6 { margin-top: 3.24rem; }
 }
 
 // remove margin on the first instance of headings.
@@ -111,7 +91,6 @@ p, figcaption {
 
 p {
 	margin: 0 0 1.62rem 0;
-
 }
 
 p, ul, ol, dl, .textwidget {
@@ -234,12 +213,12 @@ h2.widget-title {
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
-	h1 { font-size: 2.25rem; }
-	h2 { font-size: 2rem; }
-	h3 { font-size: 1.75rem; }
+	h1 { font-size: @h1-font-size-sm-min; }
+	h2 { font-size: @h2-font-size-sm-min; }
+	h3 { font-size: @h3-font-size-sm-min; }
 	h4 { font-size: @h4-font-size-sm-min; }
-	h5 { font-size: 1.25rem; }
-	h6 { font-size: 1.2rem; }
+	h5 { font-size: @h5-font-size-sm-min; }
+	h6 { font-size: @h6-font-size-sm-min; }
 
 	.site-description { display: block; }
 
