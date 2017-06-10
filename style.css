@@ -1155,6 +1155,7 @@ body .wrapper {
 }
 .site-info {
   padding: 2rem;
+  text-align: center;
 }
 .site-info p {
   margin-bottom: 0;
