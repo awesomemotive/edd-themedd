@@ -153,7 +153,7 @@ module.exports = function(grunt) {
 
 			// Add banner
 			addbanner: {
-				files: ['style.css', 'style.min.css'],
+				files: ['assets/less/**/*.less', 'style.css', 'style.min.css'],
 				tasks: ['usebanner:addbanner'],
 				options: {
 					spawn: false
