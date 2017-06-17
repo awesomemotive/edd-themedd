@@ -40,6 +40,10 @@ p.edd_error {
 	ul {
 		margin-bottom: 0;
 	}
+
+	a {
+		text-decoration: underline;
+	}
 }
 
 .edd-alert p:last-child {
@@ -50,7 +54,7 @@ p.edd_error {
 	background-color: @alert-error-background-color;
 	border-color: @alert-error-border-color;
 
-	p {
+	p, a {
 		color: @alert-error-text-color;
 	}
 }
@@ -58,8 +62,9 @@ p.edd_error {
 .edd-alert-success {
 	background-color: @alert-success-background-color;
 	border-color: @alert-success-border-color;
+	color: @alert-success-text-color;
 
-	p {
+	p, a {
 		color: @alert-success-text-color;
 	}
 
@@ -69,7 +74,7 @@ p.edd_error {
 	background-color: @alert-info-background-color;
 	border-color: @alert-info-border-color;
 
-	p {
+	p, a {
 		color: @alert-info-text-color;
 	}
 }
@@ -78,7 +83,7 @@ p.edd_error {
 	background-color: @alert-warn-background-color;
 	border-color: @alert-warn-border-color;
 
-	p {
+	p, a {
 		color: @alert-warn-text-color;
 	}
 }

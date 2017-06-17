@@ -4,6 +4,104 @@
 // Import config.
 @import '../config';
 
+.fes-vendor-menu ul {
+	list-style-type: none;
+	margin: 0;
+
+	li {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	a {
+        display: inline-block;
+		margin-right: 0.5rem;
+		font-size: 1rem;
+		color: @account-tab-link-color;
+    }
+
+	a:hover {
+		color: @account-tab-link-hover-color;
+	}
+
+	.fes-vendor-menu-tab.active {
+        background: #fff;
+    }
+
+    .fes-vendor-menu-tab.active a {
+        color: @account-tab-link-active-color;
+    }
+
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
+
+	// The main div that contains the .fes-vendor-menu and #fes-vendor-dashboard
+	.fes-vendor-dashboard-wrap {
+		display: flex;
+		overflow: hidden;
+	}
+
+	.fes-vendor-menu {
+		flex-basis: 16.667%;
+	    max-width: 16.667%;
+	}
+
+	.fes-vendor-dashboard {
+	  flex-basis: 83.333%;
+	  max-width: 83.333%;
+	}
+
+	// Tab content
+	.fes-vendor-dashboard {
+	    border: 2px solid @border-light-grey-alt;
+	    border-left: none;
+		min-height: 50rem;
+		padding: 2rem;
+	}
+
+	.fes-vendor-menu ul a {
+		display: block;
+		padding: 1rem 2rem;
+		margin: 0;
+	}
+
+	.fes-vendor-menu ul:last-child {
+		border-bottom: 2px solid @border-light-grey-alt;
+	}
+
+	.fes-vendor-menu ul li {
+		background: @light-grey-alt;
+		border: 2px solid @border-light-grey-alt;
+		border-right: none;
+		border-bottom: none;
+	}
+
+	.fes-vendor-menu ul li {
+		display: block;
+	}
+
+	.fes-vendor-menu-tab.active:before,
+	.fes-vendor-menu-tab.active:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 100%;
+		width: 2px;
+		height: 1000px;
+		background: @border-light-grey-alt;
+	}
+
+	.fes-vendor-menu-tab.active:after {
+		top: 100%;
+		bottom: auto;
+		height: 40000px;
+		z-index: 1;
+	}
+
+}
+
 .fes-login-registration-combo form {
 	padding: @box-padding;
     border: @box-border;
@@ -118,43 +216,6 @@ fieldset.fes-submit {
 
 }
 
-// Vendor Dashboard menu
-.fes-vendor-menu {
-
-	margin-bottom: 2rem;
-
-	ul {
-		list-style-type: none;
-		margin: 0;
-
-		li {
-			position: relative;
-			display: inline-block;
-			margin-bottom: 0;
-		}
-
-		a {
-	        display: inline-block;
-			margin-right: 0.5rem;
-			font-size: 1rem;
-			color: @account-tab-link-color;
-	    }
-
-		a:hover {
-			color: @account-tab-link-hover-color;
-		}
-
-		.affwp-affiliate-dashboard-tab.active,
-		.ui-tabs-active {
-	        background: #fff;
-	    }
-
-		.affwp-affiliate-dashboard-tab.active a,
-	    .ui-tabs-active a {
-	        color: @account-tab-link-active-color;
-	    }
-	}
-}
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
@@ -179,56 +240,6 @@ fieldset.fes-submit {
 		width: 48%;
 	}
 
-	#fes-vendor-dashboard {
-		border: 2px solid @border-light-grey-alt;
-		border-top: none;
-		padding: 2rem;
-	}
-
-	.fes-vendor-menu {
-		margin-bottom: 0;
-		overflow: hidden;
-
-		ul {
-
-			.active {
-				background: #fff;
-			}
-
-			.active:before,
-			.active:after {
-				content: '';
-				position: absolute;
-				height: 2px;
-				right: 100%;
-				bottom: 0;
-				width: 1200px;
-				background: @border-light-grey-alt;
-			}
-
-			.active:after {
-				right: auto;
-				left: 100%;
-				width: 4000px;
-				z-index: 1;
-			}
-
-		}
-
-		ul a {
-			display: block;
-			padding: 0.75rem 1rem;
-			margin: 0;
-		}
-
-		ul li {
-			background: @light-grey-alt;
-			border: 2px solid @border-light-grey-alt;
-			border-bottom: none;
-			display: inline-block;
-		}
-	}
-
 }
 
 .media-mixin(@break) when (@break = @screen-lg-min) {
@@ -241,4 +252,26 @@ fieldset.fes-submit {
 		width: 30%;
 	}
 
+}
+
+// Media queries
+
+@media only screen and ( max-width: @nav-sm-max ) {
+	.media-mixin( @nav-sm-max );
+}
+
+@media only screen and ( max-width: @screen-xs-max ) {
+	.media-mixin( @screen-xs-max );
+}
+
+@media only screen and ( min-width: @screen-sm-min ) {
+    .media-mixin( @screen-sm-min );
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+    .media-mixin( @screen-md-min );
+}
+
+@media only screen and ( min-width: @screen-lg-min ) {
+    .media-mixin( @screen-lg-min );
 }

@@ -1,9 +1,10 @@
+#affwp-affiliate-dashboard.container {
+  padding-left: 0;
+  padding-right: 0;
+}
 #affwp-affiliate-dashboard-referral-counts,
 #affwp-affiliate-dashboard-earnings-stats {
   margin-bottom: 2rem;
-}
-body.logged-in.affiliate-area #main {
-  padding: 0;
 }
 .affwp-wrap {
   margin-bottom: 2rem;

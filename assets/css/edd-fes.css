@@ -1,3 +1,27 @@
+.fes-vendor-menu ul {
+  list-style-type: none;
+  margin: 0;
+}
+.fes-vendor-menu ul li {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.fes-vendor-menu ul a {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  color: #222;
+}
+.fes-vendor-menu ul a:hover {
+  color: #448FD5;
+}
+.fes-vendor-menu ul .fes-vendor-menu-tab.active {
+  background: #fff;
+}
+.fes-vendor-menu ul .fes-vendor-menu-tab.active a {
+  color: #448FD5;
+}
 .fes-login-registration-combo form {
   padding: 2rem;
   border: 2px solid #f4f4f4;
@@ -71,32 +95,102 @@ fieldset.fes-submit {
   padding: 0.5rem 1rem;
   font-weight: bold;
 }
-.fes-vendor-menu {
-  margin-bottom: 2rem;
+@media only screen and (min-width: 768px) {
+  .fes-login-registration-combo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .fes-login-registration-combo form {
+    padding: 2rem;
+    border: 2px solid #f4f4f4;
+    background: #fcfcfc;
+  }
+  .fes-login-registration-combo > div + div {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 48%;
+  }
+  .fes-login-registration-combo > div {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 48%;
+  }
 }
-.fes-vendor-menu ul {
-  list-style-type: none;
-  margin: 0;
+@media only screen and (min-width: 992px) {
+  .fes-vendor-dashboard-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+  }
+  .fes-vendor-menu {
+    -webkit-flex-basis: 16.667%;
+        -ms-flex-preferred-size: 16.667%;
+            flex-basis: 16.667%;
+    max-width: 16.667%;
+  }
+  .fes-vendor-dashboard {
+    -webkit-flex-basis: 83.333%;
+        -ms-flex-preferred-size: 83.333%;
+            flex-basis: 83.333%;
+    max-width: 83.333%;
+  }
+  .fes-vendor-dashboard {
+    border: 2px solid #f4f4f4;
+    border-left: none;
+    min-height: 50rem;
+    padding: 2rem;
+  }
+  .fes-vendor-menu ul a {
+    display: block;
+    padding: 1rem 2rem;
+    margin: 0;
+  }
+  .fes-vendor-menu ul:last-child {
+    border-bottom: 2px solid #f4f4f4;
+  }
+  .fes-vendor-menu ul li {
+    background: #fcfcfc;
+    border: 2px solid #f4f4f4;
+    border-right: none;
+    border-bottom: none;
+  }
+  .fes-vendor-menu ul li {
+    display: block;
+  }
+  .fes-vendor-menu-tab.active:before,
+  .fes-vendor-menu-tab.active:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    width: 2px;
+    height: 1000px;
+    background: #f4f4f4;
+  }
+  .fes-vendor-menu-tab.active:after {
+    top: 100%;
+    bottom: auto;
+    height: 40000px;
+    z-index: 1;
+  }
 }
-.fes-vendor-menu ul li {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0;
-}
-.fes-vendor-menu ul a {
-  display: inline-block;
-  margin-right: 0.5rem;
-  font-size: 1rem;
-  color: #222;
-}
-.fes-vendor-menu ul a:hover {
-  color: #448FD5;
-}
-.fes-vendor-menu ul .affwp-affiliate-dashboard-tab.active,
-.fes-vendor-menu ul .ui-tabs-active {
-  background: #fff;
-}
-.fes-vendor-menu ul .affwp-affiliate-dashboard-tab.active a,
-.fes-vendor-menu ul .ui-tabs-active a {
-  color: #448FD5;
+@media only screen and (min-width: 1220px) {
+  .fes-login-registration-combo > div + div {
+    width: 65%;
+  }
+  .fes-login-registration-combo > div {
+    width: 30%;
+  }
 }

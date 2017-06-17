@@ -2,7 +2,7 @@
 
 input,
 textarea {
-	padding: .875rem;
+	padding: 0.8125rem;
 	color: @body-text-color;
 	background: #fff;
 	border: 2px solid @light-grey;
@@ -28,7 +28,7 @@ input[type="radio"] {
 	width: auto;
 	cursor: pointer;
 	vertical-align: middle;
-	margin-top: -6px;
+	margin-top: -3px;
 }
 
 input[type="radio"] {
@@ -41,9 +41,10 @@ fieldset {
     padding: 0;
 	position: relative;
 
-	p:last-child {
+	&:last-child, p:last-child {
 		margin-bottom: 0;
 	}
+
 }
 
 legend {
@@ -57,7 +58,7 @@ legend {
 label {
 	text-align: left;
 	display: block;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.25rem;
 	cursor: pointer;
 
 	input[type="checkbox"] {

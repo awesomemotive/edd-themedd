@@ -1,34 +1,33 @@
-// remove padding for the cart link icon if it's moved into the primary navigation
-.main-navigation .nav-cart {
+// the old .nav-cart
+
+// module
+.navCart {
+	align-self: center;
+}
+
+// icon
+// previously .nav-cart-icon
+.navCart-icon {
+	position: relative;
+    display: inline-block;
+    vertical-align: middle;
+	display: inline-flex;
+	align-items: center;
+	fill: @cart-color;
+
+	// If the item quantity or cart total is shown next to the cart icon, add some left margin.
+	+ * {
+		margin-left: 0.25rem;
+	}
+}
+
+.main-navigation .navCart {
 	padding: 0.25rem 0;
 }
 
 // mobile styles for the nav cart
 .nav-cart.mobile {
     padding: 0 1rem 0 0;
-}
-
-.nav-cart {
-	align-self: center;
-}
-
-.nav-cart-icon {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-	display: inline-flex;
-	align-items: center;
-}
-
-.nav-cart-text {
-	vertical-align: middle;
-	margin-left: 0.5rem;
-}
-
-// cart icon
-
-.nav-cart-icon {
-    fill: @cart-color;
 }
 
 .nav-cart-icon:hover {
@@ -39,32 +38,8 @@
     fill: @cart-active-color;
 }
 
-// cart count
-.cart-count {
-    display: block;
-    background: @cart-count-background-color;
-    font-size: 12px;
-	margin-left: 5px;
-    color: @cart-count-color;
-    position: absolute;
-    top: -9px;
-    right: -7px;
-    padding: 0 4px;
-    line-height: 18px;
-    min-width: 18px;
-    font-weight: 400;
-    z-index: 1;
-    text-align: center;
-    visibility: visible;
-}
-
-.nav-cart.empty .cart-count {
-    visibility: hidden;
-    background: transparent;
-}
-
 .media-mixin(@break) when (@break = @desktop-nav) {
-	.nav-cart {
+	.navCart {
 		margin-left: 1rem;
 	}
 }

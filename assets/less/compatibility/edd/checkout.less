@@ -22,12 +22,8 @@ input.edd-input.card-number.valid {
 
 }
 
-// discount
-.edd-apply-discount {
-	width: auto;
-}
-
-.edd_discount {
+// discount shown at checkout and also with the [download_discounts] shortcode
+.edd_cart_discount_row .edd_discount {
     text-align: right;
     display: block;
 }
@@ -57,7 +53,18 @@ input.edd-input.card-number.valid {
 
 }
 
-// secure payment icon and message
+// checkout rows
+.edd_cart_footer_row th {
+	text-align: right;
+	background: #fff;
+}
+
+// total footer row
+.edd_cart_footer_row .edd_cart_total {
+	background: @light-grey-alt;
+}
+
+// Secure payment icon and message
 
 #edd_secure_site_wrapper {
 	margin-bottom: 1rem;
@@ -86,8 +93,16 @@ span.padlock {
     margin-bottom: 1rem;
 }
 
-#edd_terms_agreement {
-    margin-bottom: 2rem;
+// discount
+#edd_checkout_form_wrap .edd-apply-discount {
+	vertical-align: top;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	#edd-discount {
+		width: 70%;
+		margin-bottom: 0;
+	}
 }
 
 #edd-discount-code-wrap,
@@ -105,6 +120,10 @@ span.padlock {
 }
 
 // end discounts
+
+#edd_terms_agreement {
+    margin-bottom: 2rem;
+}
 
 #edd_agree_to_terms {
     margin-right: 0.5rem;
@@ -138,7 +157,7 @@ span.padlock {
 #edd_cc_fields,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
-    padding: 1rem 2rem;
+    padding: 2rem;
 	border: 2px solid @border-light-grey-alt;
     background: @light-grey-alt;
 	position: relative;
@@ -159,6 +178,11 @@ span.padlock {
 
 .edd_checkout_cart_item_title {
 	vertical-align: middle;
+	display: block; // Site underneath
+}
+
+.edd_cart_item_image + .edd_checkout_cart_item_title {
+	margin-top: 0.5rem;
 }
 
 .edd-description {

@@ -24,6 +24,17 @@ button:focus {
 	display: none;
 }
 
+// If the navigation appears next to the site branding, remove padding etc.
+.site-branding + .site-header-menu .main-navigation {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// Allow the main navigation to wrap underneath the site branding when necessary at smaller resolutions.
+.site-header-wrap {
+	flex-wrap: wrap;
+}
+
 // Main navigation styling
 
 .main-navigation a {
@@ -102,9 +113,14 @@ button:focus {
 		margin-right: -1rem;
 	}
 
+	// Add right margin so the navigation doesn't get too close.
+	.site-branding {
+		margin-right: 2rem;
+	}
+
 	// clearfix
-	#site-navigation ul.menu:after,
-	#secondary-navigation ul.menu:after {
+	.main-navigation ul.menu:after,
+	.secondary-navigation ul.menu:after {
 		visibility: hidden;
 		display: block;
 		font-size: 0;
@@ -174,7 +190,6 @@ button:focus {
 	}
 
 	.main-navigation ul ul {
-		border: @nav-sub-border;
 		display: block;
 		float: left;
 		margin: 0;
@@ -211,7 +226,7 @@ button:focus {
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		left: 100%;
-		top: -2px;
+		top: 0;
 	}
 
 	.main-navigation ul ul a {
