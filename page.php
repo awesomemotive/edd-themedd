@@ -28,7 +28,7 @@ themedd_page_header();
 		endwhile;
 		?>
 
-	   </main>
+		</main>
 
     </div>
 
