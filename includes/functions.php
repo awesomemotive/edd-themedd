@@ -91,6 +91,16 @@ function themedd_is_edd_download_meta_active() {
 }
 
 /**
+ * Is the subtitles plugin active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_subtitles_active() {
+	return class_exists( 'Subtitles' );
+}
+
+/**
  * Filter sidebars
  * Allows sidebars to be disabled completely or on a specific post/page/download
  * Allows sidebars to be swapped out on specific posts/pages/downloads
