@@ -2,17 +2,35 @@
 
 // Compatibility with other plugins
 
-// AffiliateWP
+/**
+ * AffiliateWP
+ *
+ * @see https://affiliatewp.com
+ */
 if ( themedd_is_affiliatewp_active() ) {
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/class-affiliatewp.php' );
 }
 
-// EDD functions
+/**
+ * Subtitles
+ *
+ * @see https://wordpress.org/plugins/subtitles/
+ */
+if ( themedd_is_subtitles_active() ) {
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/class-subtitles.php' );
+}
+
+/**
+ * Easy Digital Downloads
+ *
+ * @see https://easydigitaldownloads.com
+ */
 if ( themedd_is_edd_active() ) {
 
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/nav-cart.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/software-licensing.php' );
 
 	// EDD - Frontend Submissions
