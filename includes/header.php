@@ -6,7 +6,8 @@
  * @since 1.0.0
  */
 function themedd_header() {
-    ?>
+	$site_header_wrap_classes = apply_filters( 'themedd_header_site_header_wrap_classes', array( 'site-header-wrap', 'between-xs' ) );
+	?>
 
     <?php do_action( 'themedd_masthead_before' ); ?>
 
@@ -16,7 +17,7 @@ function themedd_header() {
 
         <div class="site-header-main">
 			<?php do_action( 'themedd_site_header_main_start' ); ?>
-            <div class="site-header-wrap">
+            <div class="<?php echo implode( ' ', array_filter( $site_header_wrap_classes ) ); ?>">
                 <?php do_action( 'themedd_site_header_main' ); ?>
             </div>
             <?php do_action( 'themedd_site_header_main_end' ); ?>
