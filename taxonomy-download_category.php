@@ -4,7 +4,7 @@
  */
 get_header();
 
-themedd_page_header( array( 'title' => single_term_title( '', false )  ) );
+themedd_page_header( array( 'title' => single_term_title( '', false ), 'subtitle' => term_description( '', 'download_category' ) ) );
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
