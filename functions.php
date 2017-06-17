@@ -35,6 +35,7 @@ if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
  *
  * @since 1.0.0
 */
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'setup.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-themedd.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
