@@ -141,6 +141,8 @@ function themedd_edd_template_redirect() {
 		// Remove the sidebar.
 		add_filter( 'themedd_show_sidebar', '__return_false' );
 
+		// Remove the custom header (if any)
+		remove_action( 'themedd_masthead_after', 'themedd_header_image' );
 	}
 
 }
