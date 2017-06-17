@@ -214,16 +214,31 @@
 );
 ;jQuery(document).ready(function($) {
 
-    $('.scroll').click(function(event) {
-        event.preventDefault();
-        var offset = $($(this).attr('href')).offset().top;
-        $('html, body').animate({scrollTop:offset}, 800);
-    });
-
 	$('body').addClass('js');
 
-    $('body').on('click.eddAddToCart', '.edd-add-to-cart', function (e) {
-        $( '.nav-cart' ).removeClass('empty');
-    });
+	/**
+	 * EDD cart information in the header
+	 */
+	var cartTotalAmount = $('.navCart-cartTotalAmount');
+
+	$('body').on('edd_cart_item_added', function( event, response ) {
+
+		$( '.navCart' ).removeClass('empty');
+
+		if ( typeof cartQuantityText !== 'undefined' ) {
+			var textSingular = cartQuantityText.singular,
+				textPlural   = cartQuantityText.plural,
+				cartText     = ' ' + textPlural;
+
+			if ( response.cart_quantity === '1' ) {
+				cartText = ' ' + textSingular;
+			}
+
+			$('.navCart-quantityText').html( cartText );
+		}
+
+		cartTotalAmount.html( response.total );
+
+	});
 
 });

@@ -101,8 +101,7 @@ function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 
 		apply_filters( 'themedd_edd_mobile_menu', array(
 			'list_item' => true,
-			'classes'   => array( 'mobile' ),
-			'text'      => __( 'Checkout', 'themedd' )
+			'classes'   => array( 'navCart navCart-mobile' ),
 		) )
 
 	);

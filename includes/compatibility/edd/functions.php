@@ -53,106 +53,11 @@ function themedd_edd_purchase_link() {
 }
 endif;
 
-/**
- * Determine where the cart link icon should be displayed
- * @since 1.0.0
- */
-function themedd_edd_cart_link_position() {
-	return apply_filters( 'themedd_edd_cart_link_position', 'secondary_menu' );
-}
 
-/**
- * Cart link in main navigation
- *
- * @since 1.0.0
- * @return [type] [description]
- */
-function themedd_edd_cart_link( $args = array() ) {
 
-    if ( ! apply_filters( 'themedd_show_nav_cart', true ) ) {
-        return;
-    }
 
-    ob_start();
 
-	$defaults = apply_filters( 'themedd_edd_cart_link_defaults',
-		array(
-			'classes'   => array( 'animate' ),
-			'cart_link' => function_exists( 'edd_get_checkout_uri' ) ? edd_get_checkout_uri() : '',
-			'list_item' => isset( $args['list_item'] ) && $args['list_item'] === false ? false : true,
-			'text'      => isset( $args['text'] ) ? $args['text'] : '',
-		)
-	);
 
-	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
-	$defaults['classes'][] = ! $cart_items ? 'empty' : '';
-
-	$args = wp_parse_args( $args, $defaults );
-
-    $cart_items   = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
-
-	// whether or not to include list item markup
-	$list_item = $args['list_item'];
-
-	// cart link
-	$cart_link = $args['cart_link'];
-
-	// text
-	$text = $args['text'] ? '<span class="nav-cart-text">' . $args['text'] . '</span>' : '';
-
-	// CSS classes
-	$classes = $args['classes'] ? ' ' . implode( ' ', $args['classes'] ) : '';
-
-	if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
-
-        <?php if ( $list_item ) : ?>
-		<li class="nav-action checkout menu-item">
-        <?php endif; ?>
-
-			<a class="nav-cart<?php echo $classes; ?>" href="<?php echo $cart_link; ?>">
-                <?php echo themedd_edd_cart_icon(); ?> <?php echo $text; ?>
-            </a>
-        <?php if ( $list_item ) : ?>
-		</li>
-        <?php endif; ?>
-
-	<?php endif;
-
-    $content = ob_get_contents();
-    ob_end_clean();
-
-    return $content;
-
-    ?>
-
-<?php }
-
-/**
- * The cart icon
- *
- * @since 1.0.0
- */
-function themedd_edd_cart_icon() {
-	ob_start();
-?>
-
-	<div class="nav-cart-icon">
-
-		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.1.5c.536 0 1 .37 1.12.89l1.122 4.86H22.35c.355 0 .688.163.906.442.217.28.295.644.21.986l-2.3 9.2c-.128.513-.588.872-1.116.872H8.55c-.536 0-1-.37-1.12-.89L4.185 2.8H.5V.5h4.6z" fill-rule="nonzero"/><circle cx="6" cy="20" r="2" transform="matrix(-1.14998 0 0 1.14998 25.8 -1.8)"/><circle cx="14" cy="20" r="2" transform="matrix(-1.14998 0 0 1.14998 25.8 -1.8)"/></svg>
-
-		<?php if ( apply_filters( 'themedd_edd_cart_icon_count', true ) ) : ?>
-		<span class="cart-count"><span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></span>
-		<?php endif; ?>
-
-	</div>
-
-<?php
-	$content = apply_filters( 'themedd_edd_cart_icon', ob_get_contents() );
-    ob_end_clean();
-
-    return $content;
-
-}
 
 /**
  * Get the number of download columns
@@ -206,6 +111,8 @@ function themedd_edd_download_nav() {
  * @return boolean true if Distraction Free Checkout is enabled, false otherwise
  */
 function themedd_edd_distraction_free_checkout() {
-	$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
-	return $edd_theme_options['distraction_free_checkout'];
+	$edd_theme_options         = get_theme_mod( 'easy_digital_downloads' );
+	$distraction_free_checkout = isset( $edd_theme_options['distraction_free_checkout'] ) ? true : false;
+
+	return $distraction_free_checkout;
 }

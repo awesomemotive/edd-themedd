@@ -14,12 +14,15 @@
   "devDependencies": {
     "grunt-banner": "^0.2.3",
     "grunt-contrib-concat": "latest",
-	"grunt-autoprefixer": "latest",
+    "grunt-autoprefixer": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-svgmin": "^2.0.1",
     "grunt-svgstore": "^0.3.3",
     "matchdep": "*"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
   }
 }

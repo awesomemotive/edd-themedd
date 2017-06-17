@@ -77,9 +77,16 @@ module.exports = function(grunt) {
 
 		// Autoprefixer
 		autoprefixer: {
-			your_target: {
+			main: {
 				files:{
-					'style.css': 'style.css'
+					'style.css': 'style.css',
+					'style.min.css': 'style.min.css',
+					'assets/css/affiliatewp.css': 'assets/css/affiliatewp.css',
+					'assets/css/affiliatewp.min.css': 'assets/css/affiliatewp.min.css',
+					'assets/css/edd-fes.css': 'assets/css/edd-fes.css',
+					'assets/css/edd-fes.min.css': 'assets/css/edd-fes.min.css',
+					'assets/css/edd-points-and-rewards.css': 'assets/css/edd-points-and-rewards.css',
+					'assets/css/edd-points-and-rewards.min.css': 'assets/css/edd-points-and-rewards.min.css'
 				},
 			},
 		},
@@ -148,7 +155,7 @@ module.exports = function(grunt) {
 			// CSS
 			css: {
 				files: ['assets/less/**/*.less'],
-				tasks: ['less:style', 'less:minify', 'autoprefixer:your_target']
+				tasks: ['less:style', 'less:minify', 'autoprefixer:main']
 			},
 
 			// Add banner

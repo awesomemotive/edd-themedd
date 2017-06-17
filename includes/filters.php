@@ -25,6 +25,10 @@ function themedd_body_classes( $classes ) {
 		$classes[] = 'slim';
 	}
 
+	if ( themedd_layout_full_width() ) {
+		$classes[] = 'layout-full-width';
+	}
+
 	return $classes;
 
 }

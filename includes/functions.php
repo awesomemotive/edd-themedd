@@ -227,8 +227,7 @@ function themedd_primary_classes() {
  */
 function themedd_secondary_classes() {
 
-	$classes = array();
-
+	$classes   = array();
 	$classes[] = 'col-xs-12 col-md-4';
 
 	$classes = apply_filters( 'themedd_secondary_classes', $classes );
@@ -246,6 +245,22 @@ function themedd_secondary_classes() {
  * @return boolean true if post excerpts are enabled, false otherwise
  */
 function themedd_display_excerpts() {
-	$theme_options = get_theme_mod( 'theme_options' );
-	return $theme_options['display_excerpts'];
+	$theme_options    = get_theme_mod( 'theme_options' );
+	$display_excerpts = isset( $edd_theme_options['display_excerpts'] ) ? true : false;
+
+	return $display_excerpts;
+}
+
+/**
+ * Full-width layout.
+ *
+ * @since 1.0.0
+ *
+ * @return boolean true if the full-width layout is enabled, false otherwise
+ */
+function themedd_layout_full_width() {
+	$theme_options     = get_theme_mod( 'theme_options' );
+	$layout_full_width = isset( $edd_theme_options['layout_full_width'] ) ? true : false;
+
+	return $layout_full_width;
 }

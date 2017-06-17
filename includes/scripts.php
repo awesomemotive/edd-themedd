@@ -29,9 +29,19 @@ function themedd_scripts() {
 
 	wp_localize_script( 'themedd-js', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'themedd' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>'
 	) );
 
+	// Cart text
+	$cart_quantity_text = function_exists( 'themedd_cart_quantity_text' ) ? themedd_cart_quantity_text() : '';
+
+	if ( $cart_quantity_text ) {
+		wp_localize_script( 'themedd-js', 'cartQuantityText', array(
+			'singular' => $cart_quantity_text['singular'],
+			'plural'   => $cart_quantity_text['plural']
+		) );
+	}
+	
 	/**
 	 * Comments
 	 */
