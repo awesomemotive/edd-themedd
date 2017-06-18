@@ -64,9 +64,7 @@ function themedd_edd_cart_link( $args = array() ) {
 
 				<?php
 
-				if ( themedd_edd_display_cart_icon() ) {
-					echo themedd_edd_cart_icon();
-				}
+				echo themedd_edd_cart_icon();
 
 				if ( $args['text_before'] ) {
 					echo '<span class="navCart-textBefore">' . $args['text_before'] . '</span>';
@@ -112,6 +110,11 @@ function themedd_edd_cart_link( $args = array() ) {
  * @since 1.0.0
  */
 function themedd_edd_cart_icon() {
+
+	if ( ! themedd_edd_display_cart_icon() ) {
+		return;
+	}
+
 	ob_start();
 	?>
 	<div class="navCart-icon">
