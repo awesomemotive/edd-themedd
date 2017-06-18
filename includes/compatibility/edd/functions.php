@@ -53,12 +53,6 @@ function themedd_edd_purchase_link() {
 }
 endif;
 
-
-
-
-
-
-
 /**
  * Get the number of download columns
  * Used on the download-archive.php page
@@ -112,7 +106,7 @@ function themedd_edd_download_nav() {
  */
 function themedd_edd_distraction_free_checkout() {
 	$edd_theme_options         = get_theme_mod( 'easy_digital_downloads' );
-	$distraction_free_checkout = isset( $edd_theme_options['distraction_free_checkout'] ) ? true : false;
+	$distraction_free_checkout = isset( $edd_theme_options['distraction_free_checkout'] ) && true === $edd_theme_options['distraction_free_checkout'] ? true : false;
 
 	return $distraction_free_checkout;
 }
