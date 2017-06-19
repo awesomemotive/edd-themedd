@@ -83,6 +83,9 @@ fieldset.fes-submit {
 .fes-fields + .edd_errors {
   margin-top: 1rem;
 }
+#fes-product-list .download-status {
+  white-space: nowrap;
+}
 #fes-product-list .published {
   background: #5BCC5B;
   color: #fff;
