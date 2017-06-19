@@ -29,8 +29,6 @@
 		color: @account-tab-link-hover-color;
 	}
 
-
-
 }
 
 .media-mixin(@break) when (@break = @screen-md-min) {
@@ -116,10 +114,17 @@
 
 }
 
+.fes-login-form,
 .fes-login-registration-combo form {
 	padding: @box-padding;
     border: @box-border;
     background: @box-background-color;
+}
+
+// Standalone login form.
+.fes-login-form {
+	width: 62%;
+	margin: 0 auto;
 }
 
 // Give more space above the forgot password link on the login form
@@ -220,8 +225,6 @@ fieldset.fes-submit {
 // ?task=products
 #fes-product-list {
 
-
-
 	abbr {
 		display: block;
 	}
@@ -256,7 +259,6 @@ fieldset.fes-submit {
 .fes-hide {
 	display: none;
 }
-
 
 // Image upload fields
 // This CSS should eventually be merged into 1 selector as per https://github.com/easydigitaldownloads/edd-fes/issues/1293

@@ -16,10 +16,15 @@
 .fes-vendor-menu ul a:hover {
   color: #448FD5;
 }
+.fes-login-form,
 .fes-login-registration-combo form {
   padding: 2rem;
   border: 2px solid #f4f4f4;
   background: #fcfcfc;
+}
+.fes-login-form {
+  width: 62%;
+  margin: 0 auto;
 }
 .fes-el,
 .fes-login-form {
