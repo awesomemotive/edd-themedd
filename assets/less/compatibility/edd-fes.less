@@ -82,6 +82,8 @@
 		display: block;
 	}
 
+	.fes-edit-download .fes-vendor-menu-tab:before, // For editing a product where there is no active tab.
+	.fes-edit-download .fes-vendor-menu-tab:after, // For editing a product where there is no active tab.
 	.fes-vendor-menu-tab.active:before,
 	.fes-vendor-menu-tab.active:after {
 		content: '';
@@ -93,6 +95,7 @@
 		background: @border-light-grey-alt;
 	}
 
+	.fes-edit-download .fes-vendor-menu-tab:after, // For editing a product where there is no active tab.
 	.fes-vendor-menu-tab.active:after {
 		top: 100%;
 		bottom: auto;
