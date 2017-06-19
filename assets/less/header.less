@@ -33,6 +33,11 @@
 
 }
 
+// When the full-width layout is selected, make any header images full-width also.
+.layout-full-width .header-image img {
+	width: 100%;
+}
+
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.site-header-wrap {

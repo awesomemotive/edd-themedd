@@ -1135,6 +1135,9 @@ body .wrapper {
   display: block;
   margin: 0 auto;
 }
+.layout-full-width .header-image img {
+  width: 100%;
+}
 .entry-title-primary {
   display: block;
 }
@@ -2485,7 +2488,6 @@ span.edd_price {
 }
 .single-download .download-title {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
 }
 .edd_download_purchase_form + .edd-meta {
   margin: 1rem 0 0 0;
@@ -4228,9 +4230,6 @@ label[for*="rcp_discount_code"] {
   }
   .edd_download_columns_2 .edd_download {
     width: 50%;
-  }
-  .single-download #content {
-    padding-top: 4rem;
   }
   #primary-sidebar .download-info {
     padding: 2rem;

@@ -230,20 +230,27 @@ function themedd_header_image() {
 ?>
 
 <?php if ( get_header_image() ) : ?>
-    <?php
-        /**
-         * Filter the default themedd custom header sizes attribute.
-         *
-         * @since Themedd 1.0.0
-         *
-         * @param string $custom_header_sizes sizes attribute
-         * for Custom Header. Default '(max-width: 709px) 85vw,
-         * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
-         */
-        $custom_header_sizes = apply_filters( 'themedd_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1188px' );
-    ?>
+
     <div class="header-image">
-        <img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+
+		<?php if ( themedd_layout_full_width() ) : ?>
+			<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+		<?php else : ?>
+			<?php
+		        /**
+		         * Filter the default themedd custom header sizes attribute.
+		         *
+		         * @since Themedd 1.0.0
+		         *
+		         * @param string $custom_header_sizes sizes attribute
+		         * for Custom Header. Default '(max-width: 709px) 85vw,
+		         * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1480px'.
+		         */
+		        $custom_header_sizes = apply_filters( 'themedd_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1480px' );
+		    ?>
+			<img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+		<?php endif; ?>
+
     </div>
 <?php endif;
 

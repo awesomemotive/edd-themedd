@@ -32,7 +32,8 @@ function themedd_custom_header() {
 	 * @param array $args {
 	 *     An array of custom-header support arguments.
 	 *
-	 *     @type int      $width            Width in pixels of the custom header image. Default 1200.
+	 *     @type int      $width            Width in pixels of the custom header image. Default 1480.
+	 *     @type int      $flex-width       Whether to allow flexible-width header images. Default true.
 	 *     @type int      $height           Height in pixels of the custom header image. Default 280.
 	 *     @type bool     $flex-height      Whether to allow flexible-height header images. Default true.
 	 *     @type callable $wp-head-callback Callback function used to style the header image and text
@@ -40,9 +41,10 @@ function themedd_custom_header() {
 	 * }
 	 */
 	add_theme_support( 'custom-header', apply_filters( 'themedd_custom_header_args', array(
-		'width'            => 1480,
-		'height'           => 280,
+		'flex-width'       => true,
+		'width'            => 1480, // Recommended width.
 		'flex-height'      => true,
+		'height'           => 280, // Recommended height.
 		'wp-head-callback' => 'themedd_header_style',
 	) ) );
 
