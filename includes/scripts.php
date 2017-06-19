@@ -41,7 +41,7 @@ function themedd_scripts() {
 			'plural'   => $cart_quantity_text['plural']
 		) );
 	}
-	
+
 	/**
 	 * Comments
 	 */
