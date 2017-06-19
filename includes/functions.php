@@ -246,7 +246,7 @@ function themedd_secondary_classes() {
  */
 function themedd_display_excerpts() {
 	$theme_options    = get_theme_mod( 'theme_options' );
-	$display_excerpts = isset( $edd_theme_options['display_excerpts'] ) ? true : false;
+	$display_excerpts = isset( $theme_options['display_excerpts'] ) && true === $theme_options['display_excerpts'] ? true : false;
 
 	return $display_excerpts;
 }
@@ -260,7 +260,7 @@ function themedd_display_excerpts() {
  */
 function themedd_layout_full_width() {
 	$theme_options     = get_theme_mod( 'theme_options' );
-	$layout_full_width = isset( $edd_theme_options['layout_full_width'] ) ? true : false;
+	$layout_full_width = isset( $theme_options['layout_full_width'] ) && true === $theme_options['layout_full_width'] ? true : false;
 
 	return $layout_full_width;
 }
