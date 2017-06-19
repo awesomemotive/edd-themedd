@@ -16,12 +16,6 @@
 .fes-vendor-menu ul a:hover {
   color: #448FD5;
 }
-.fes-vendor-menu ul .fes-vendor-menu-tab.active {
-  background: #fff;
-}
-.fes-vendor-menu ul .fes-vendor-menu-tab.active a {
-  color: #448FD5;
-}
 .fes-login-registration-combo form {
   padding: 2rem;
   border: 2px solid #f4f4f4;
@@ -201,6 +195,16 @@ fieldset.fes-submit {
   }
 }
 @media only screen and (min-width: 992px) {
+  .fes-edit-download .fes-vendor-products-tab,
+  .fes-edit-order .fes-vendor-orders-tab,
+  .fes-vendor-menu-tab.active {
+    background: #fff;
+  }
+  .fes-edit-download .fes-vendor-products-tab a,
+  .fes-edit-order .fes-vendor-orders-tab a,
+  .fes-vendor-menu-tab.active a {
+    color: #448FD5;
+  }
   .fes-vendor-dashboard-wrap {
     display: -webkit-box;
     display: -webkit-flex;
@@ -243,10 +247,10 @@ fieldset.fes-submit {
   .fes-vendor-menu ul li {
     display: block;
   }
-  .fes-edit-order .fes-vendor-menu-tab:before,
-  .fes-edit-order .fes-vendor-menu-tab:after,
-  .fes-edit-download .fes-vendor-menu-tab:before,
-  .fes-edit-download .fes-vendor-menu-tab:after,
+  .fes-edit-order .fes-vendor-orders-tab:before,
+  .fes-edit-order .fes-vendor-orders-tab:after,
+  .fes-edit-download .fes-vendor-products-tab:before,
+  .fes-edit-download .fes-vendor-products-tab:after,
   .fes-vendor-menu-tab.active:before,
   .fes-vendor-menu-tab.active:after {
     content: '';
@@ -257,8 +261,8 @@ fieldset.fes-submit {
     height: 1000px;
     background: #f4f4f4;
   }
-  .fes-edit-order .fes-vendor-menu-tab:after,
-  .fes-edit-download .fes-vendor-menu-tab:after,
+  .fes-edit-order .fes-vendor-orders-tab:after,
+  .fes-edit-download .fes-vendor-products-tab:after,
   .fes-vendor-menu-tab.active:after {
     top: 100%;
     bottom: auto;

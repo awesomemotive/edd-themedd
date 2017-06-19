@@ -29,17 +29,21 @@
 		color: @account-tab-link-hover-color;
 	}
 
-	.fes-vendor-menu-tab.active {
-        background: #fff;
-    }
 
-    .fes-vendor-menu-tab.active a {
-        color: @account-tab-link-active-color;
-    }
 
 }
 
 .media-mixin(@break) when (@break = @screen-md-min) {
+
+	.fes-edit-download .fes-vendor-products-tab,
+	.fes-edit-order .fes-vendor-orders-tab,
+	.fes-vendor-menu-tab.active {
+        background: #fff;
+
+		a {
+	        color: @account-tab-link-active-color;
+	    }
+    }
 
 	// The main div that contains the .fes-vendor-menu and #fes-vendor-dashboard
 	.fes-vendor-dashboard-wrap {
@@ -86,11 +90,10 @@
 		display: block;
 	}
 
-	// @todo: consider only 1 body class for editing an order and download.
-	.fes-edit-order .fes-vendor-menu-tab:before, // There's no active tab when viewing an order.
-	.fes-edit-order .fes-vendor-menu-tab:after, // There's no active tab when viewing an order.
-	.fes-edit-download .fes-vendor-menu-tab:before, // There's no active tab when editing a product.
-	.fes-edit-download .fes-vendor-menu-tab:after, // There's no active tab when editing a product.
+	.fes-edit-order .fes-vendor-orders-tab:before,
+	.fes-edit-order .fes-vendor-orders-tab:after,
+	.fes-edit-download .fes-vendor-products-tab:before,
+	.fes-edit-download .fes-vendor-products-tab:after,
 	.fes-vendor-menu-tab.active:before,
 	.fes-vendor-menu-tab.active:after {
 		content: '';
@@ -102,8 +105,8 @@
 		background: @border-light-grey-alt;
 	}
 
-	.fes-edit-order .fes-vendor-menu-tab:after, // There's no active tab when viewing an order.
-	.fes-edit-download .fes-vendor-menu-tab:after, // There's no active tab when editing a product.
+	.fes-edit-order .fes-vendor-orders-tab:after,
+	.fes-edit-download .fes-vendor-products-tab:after,
 	.fes-vendor-menu-tab.active:after {
 		top: 100%;
 		bottom: auto;
