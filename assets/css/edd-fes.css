@@ -101,7 +101,8 @@ fieldset.fes-submit {
 .fes-hide {
   display: none;
 }
-.fes-fields .fes-avatar-image-upload {
+.fes-fields .fes-avatar-image-upload,
+.fes-fields .fes-feat-image-upload {
   border: 4px dashed #f5f5f5;
   margin-bottom: 2rem;
   max-width: 12rem;
@@ -109,12 +110,18 @@ fieldset.fes-submit {
   padding: 1.5rem;
   display: inline-block;
 }
-.fes-fields .fes-avatar-image-upload .fes-avatar-image-btn {
+.fes-fields .fes-avatar-image-upload .instruction-inside,
+.fes-fields .fes-feat-image-upload .instruction-inside {
+  text-align: center;
+}
+.fes-fields .fes-avatar-image-upload .button,
+.fes-fields .fes-feat-image-upload .button {
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
   display: block;
 }
-.fes-fields .fes-avatar-image-upload a.close {
+.fes-fields .fes-avatar-image-upload a.close,
+.fes-fields .fes-feat-image-upload a.close {
   background: #000;
   color: #a94442;
   display: none;
@@ -135,11 +142,19 @@ fieldset.fes-submit {
   width: 100%;
   cursor: pointer;
 }
-.fes-fields .fes-avatar-image-upload:hover a.close {
+.fes-fields .fes-avatar-image-upload:hover a.close,
+.fes-fields .fes-feat-image-upload:hover a.close {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+.fes-fields .fes-feat-image-upload {
+  max-width: 100%;
+  display: block;
+}
+.fes-fields .fes-feat-image-upload .button {
+  display: inline-block;
 }
 @media only screen and (min-width: 768px) {
   .fes-login-registration-combo {

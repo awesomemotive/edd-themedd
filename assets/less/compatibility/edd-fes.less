@@ -230,9 +230,11 @@ fieldset.fes-submit {
 	display: none;
 }
 
-// Avatar upload
 
-.fes-fields .fes-avatar-image-upload {
+// Image upload fields
+// This CSS should eventually be merged into 1 selector as per https://github.com/easydigitaldownloads/edd-fes/issues/1293
+.fes-fields .fes-avatar-image-upload,
+.fes-fields .fes-feat-image-upload {
 	border: 4px dashed @light-grey;
 	margin-bottom: 2rem;
 	max-width: 12rem;
@@ -240,7 +242,11 @@ fieldset.fes-submit {
 	padding: 1.5rem;
 	display: inline-block;
 
-	.fes-avatar-image-btn {
+	.instruction-inside {
+		text-align: center;
+	}
+
+	.button {
 		font-size: 0.875rem;
 		padding: 0.25rem 0.75rem;
 		display: block;
@@ -267,7 +273,17 @@ fieldset.fes-submit {
 	}
 }
 
-// End avatar upload
+// Featured image should stretch full-width
+.fes-fields .fes-feat-image-upload {
+	max-width: 100%;
+	display: block;
+
+	.button {
+		display: inline-block;
+	}
+}
+
+// End image upload fields
 
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
