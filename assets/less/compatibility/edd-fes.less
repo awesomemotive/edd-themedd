@@ -4,6 +4,10 @@
 // Import config.
 @import '../config';
 
+@published-color: #5BCC5B;
+@pending-color: #fca432;
+@has-purchased: @published-color;
+
 .fes-vendor-menu ul {
 	list-style-type: none;
 	margin: 0;
@@ -167,6 +171,14 @@ fieldset.fes-submit {
 
 // Has purchased badge.
 .fes-purchase-badge.fes-purchase-badge-purchased {
+	display: inline-block;
+	color: #fff;
+	background: @has-purchased;
+	padding: 0.5rem 1rem;
+}
+
+.fes-comment-author-name {
+	margin-bottom: 0.5rem;
 	display: block;
 }
 
@@ -201,8 +213,7 @@ fieldset.fes-submit {
 // ?task=products
 #fes-product-list {
 
-	@published-color: #5BCC5B;
-	@pending-color: #fca432;
+
 
 	abbr {
 		display: block;

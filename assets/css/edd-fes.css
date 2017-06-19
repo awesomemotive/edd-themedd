@@ -64,6 +64,13 @@ fieldset.fes-submit {
   margin-right: 1rem;
 }
 .fes-purchase-badge.fes-purchase-badge-purchased {
+  display: inline-block;
+  color: #fff;
+  background: #5BCC5B;
+  padding: 0.5rem 1rem;
+}
+.fes-comment-author-name {
+  margin-bottom: 0.5rem;
   display: block;
 }
 .fes-product-list-status-bar {
