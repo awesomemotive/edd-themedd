@@ -243,6 +243,8 @@ fieldset.fes-submit {
   .fes-vendor-menu ul li {
     display: block;
   }
+  .fes-edit-order .fes-vendor-menu-tab:before,
+  .fes-edit-order .fes-vendor-menu-tab:after,
   .fes-edit-download .fes-vendor-menu-tab:before,
   .fes-edit-download .fes-vendor-menu-tab:after,
   .fes-vendor-menu-tab.active:before,
@@ -255,6 +257,7 @@ fieldset.fes-submit {
     height: 1000px;
     background: #f4f4f4;
   }
+  .fes-edit-order .fes-vendor-menu-tab:after,
   .fes-edit-download .fes-vendor-menu-tab:after,
   .fes-vendor-menu-tab.active:after {
     top: 100%;

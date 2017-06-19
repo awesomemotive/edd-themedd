@@ -46,6 +46,10 @@ class Themedd_EDD_Frontend_Submissions {
 			$classes[] = 'fes-edit-download';
 		}
 
+		if ( isset( $_GET['task'] ) && 'edit-order' === $_GET['task'] ) {
+			$classes[] = 'fes-edit-order';
+		}
+
 		return $classes;
 	}
 

@@ -86,8 +86,11 @@
 		display: block;
 	}
 
-	.fes-edit-download .fes-vendor-menu-tab:before, // For editing a product where there is no active tab.
-	.fes-edit-download .fes-vendor-menu-tab:after, // For editing a product where there is no active tab.
+	// @todo: consider only 1 body class for editing an order and download.
+	.fes-edit-order .fes-vendor-menu-tab:before, // There's no active tab when viewing an order.
+	.fes-edit-order .fes-vendor-menu-tab:after, // There's no active tab when viewing an order.
+	.fes-edit-download .fes-vendor-menu-tab:before, // There's no active tab when editing a product.
+	.fes-edit-download .fes-vendor-menu-tab:after, // There's no active tab when editing a product.
 	.fes-vendor-menu-tab.active:before,
 	.fes-vendor-menu-tab.active:after {
 		content: '';
@@ -99,7 +102,8 @@
 		background: @border-light-grey-alt;
 	}
 
-	.fes-edit-download .fes-vendor-menu-tab:after, // For editing a product where there is no active tab.
+	.fes-edit-order .fes-vendor-menu-tab:after, // There's no active tab when viewing an order.
+	.fes-edit-download .fes-vendor-menu-tab:after, // There's no active tab when editing a product.
 	.fes-vendor-menu-tab.active:after {
 		top: 100%;
 		bottom: auto;
