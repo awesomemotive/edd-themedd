@@ -23,10 +23,18 @@ class Themedd_Subtitles {
 			remove_action( 'wp_head', array( Subtitles::getInstance(), 'subtitle_styling' ) );
 		}
 
+		add_action( 'init', array( $this, 'add_subtitles_support' ) );
 		add_action( 'themedd_page_header_before', array( $this, 'page_header_before' ) );
 		add_action( 'themedd_page_header_end', array( $this, 'page_header_end' ) );
 		add_filter( 'subtitle_markup', array( $this, 'markup' ) );
 
+	}
+
+	/**
+	 * Add subtitles support for the "download" custom post type
+	 */
+	public function add_subtitles_support() {
+		add_post_type_support( 'download', 'subtitles' );
 	}
 
 	/**
