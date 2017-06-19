@@ -651,7 +651,7 @@ function themedd_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'theme_options[layout_full_width]', array(
 		'label'       => __( 'Full-width layout', 'themedd' ),
-		'description' => __( 'Display a full-width layout. This will be noticeable when colors have been configured.', 'themedd' ),
+		'description' => __( 'Display a full-width layout. This will be noticeable once colors have been configured.', 'themedd' ),
 		'settings'    => 'theme_options[layout_full_width]',
 		'section'     => 'theme_options',
 		'type'        => 'checkbox',
