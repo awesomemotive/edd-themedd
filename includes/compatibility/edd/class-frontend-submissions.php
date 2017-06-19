@@ -7,6 +7,7 @@ class Themedd_EDD_Frontend_Submissions {
 
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
+		add_filter( 'body_class', array( $this, 'body_classes' ) );
 	}
 
 	/**
@@ -30,6 +31,22 @@ class Themedd_EDD_Frontend_Submissions {
 			wp_enqueue_style( 'themedd-edd-fes' );
 		}
 
+	}
+
+	/**
+	 * Adds custom classes to the array of body classes.
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 */
+	public function body_classes( $classes ) {
+		global $post;
+
+		if ( isset( $_GET['task'] ) && 'edit-product' === $_GET['task'] ) {
+			$classes[] = 'fes-edit-download';
+		}
+
+		return $classes;
 	}
 
 }
