@@ -42,7 +42,7 @@ fieldset {
 	position: relative;
 
 	&:last-child, p:last-child {
-		margin-bottom: 0;
+		margin-bottom: 0 !important; // Sometimes you gotta be important. This makes sure it overrides the .edd_form rule (or others)
 	}
 
 }
