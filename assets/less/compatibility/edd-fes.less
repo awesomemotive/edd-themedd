@@ -216,6 +216,56 @@ fieldset.fes-submit {
 
 }
 
+// Save draft button on "Add Product page"
+
+#fes-save-as-draft {
+	margin-right: 1rem;
+}
+
+// Utility classes
+.fes-hide {
+	display: none;
+}
+
+// Avatar upload
+
+.fes-fields .fes-avatar-image-upload {
+	border: 4px dashed @light-grey;
+	margin-bottom: 2rem;
+	max-width: 12rem;
+	position: relative;
+	padding: 1.5rem;
+	display: inline-block;
+
+	.fes-avatar-image-btn {
+		font-size: 0.875rem;
+		padding: 0.25rem 0.75rem;
+		display: block;
+	}
+
+	a.close {
+		background: #000;
+		color: @alert-error-text-color;
+		display: none;
+		font-size: 4rem;
+		height: 100%;
+		opacity: 0.7;
+		position: absolute;
+		left: 0;
+		top: 0;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	&:hover a.close {
+		display: flex;
+	}
+}
+
+// End avatar upload
+
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
