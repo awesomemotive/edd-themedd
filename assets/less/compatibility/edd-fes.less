@@ -122,9 +122,17 @@
 }
 
 // Standalone login form.
-.fes-login-form {
+.entry-content > .fes-login-form + #fes_lost_password_link,
+.entry-content > .fes-login-form {
 	width: 62%;
-	margin: 0 auto;
+	margin: 0 auto 1rem auto;
+}
+
+
+// This can be removed (and the rule just above) once the following issue is fixed:
+// https://github.com/easydigitaldownloads/edd-fes/issues/1294
+.entry-content > .fes-login-form + #fes_lost_password_link {
+	display: block;
 }
 
 // Give more space above the forgot password link on the login form
