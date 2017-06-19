@@ -45,12 +45,12 @@
 
 	.fes-vendor-menu {
 		flex-basis: 16.667%;
-	    max-width: 16.667%;
+		max-width: 16.667%;
 	}
 
 	.fes-vendor-dashboard {
-	  flex-basis: 83.333%;
-	  max-width: 83.333%;
+		flex-basis: 83.333%;
+		max-width: 83.333%;
 	}
 
 	// Tab content
@@ -197,11 +197,16 @@ fieldset.fes-submit {
 	margin-top: 1rem;
 }
 
-// Products
+// Products tab
+// ?task=products
 #fes-product-list {
 
 	@published-color: #5BCC5B;
 	@pending-color: #fca432;
+
+	abbr {
+		display: block;
+	}
 
 	.download-status {
 		white-space: nowrap;
@@ -288,7 +293,6 @@ fieldset.fes-submit {
 }
 
 // End image upload fields
-
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
 

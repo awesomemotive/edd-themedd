@@ -83,6 +83,9 @@ fieldset.fes-submit {
 .fes-fields + .edd_errors {
   margin-top: 1rem;
 }
+#fes-product-list abbr {
+  display: block;
+}
 #fes-product-list .download-status {
   white-space: nowrap;
 }
