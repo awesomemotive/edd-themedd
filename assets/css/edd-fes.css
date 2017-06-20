@@ -117,6 +117,9 @@ fieldset.fes-submit {
 .fes-hide {
   display: none;
 }
+.fes-url-choose-row {
+  width: 100px;
+}
 .fes-fields .fes-avatar-image-upload,
 .fes-fields .fes-feat-image-upload {
   border: 4px dashed #f5f5f5;
