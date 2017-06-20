@@ -27,7 +27,15 @@ class Themedd_Subtitles {
 		add_action( 'themedd_page_header_before', array( $this, 'page_header_before' ) );
 		add_action( 'themedd_page_header_end', array( $this, 'page_header_end' ) );
 		add_filter( 'subtitle_markup', array( $this, 'markup' ) );
+		add_filter( 'subtitle_view_supported', array( $this, 'supported_views' ) );
+	}
 
+	/**
+	 * Turn off subtitles
+	 * Subtitles are only allowed in the themedd_page_header() function
+	 */
+	public function supported_views() {
+		return false;
 	}
 
 	/**
