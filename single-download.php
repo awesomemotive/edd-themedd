@@ -3,7 +3,9 @@
  * The template for displaying all single downloads
  */
 
-get_header(); ?>
+get_header();
+themedd_page_header();
+?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 

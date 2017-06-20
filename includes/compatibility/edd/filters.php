@@ -252,3 +252,21 @@ function themedd_edd_recurring_update_url( $url, $subscription ) {
 	return $url;
 }
 add_filter( 'edd_subscription_update_url', 'themedd_edd_recurring_update_url', 10, 2 );
+
+/**
+ * Filter the page header classes for the single download page.
+ *
+ * @since 1.0.0
+ *
+ * @return array $classes
+ */
+function themedd_edd_page_header_classes( $classes ) {
+
+	if ( is_singular( 'download' ) ) {
+		$classes[] = 'center-xs';
+		$classes[] = 'mb-md-2';
+	}
+
+	return $classes;
+}
+add_filter( 'themedd_page_header_classes', 'themedd_edd_page_header_classes' );

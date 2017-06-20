@@ -136,7 +136,12 @@ function themedd_get_sidebar() {
 function themedd_page_header_classes( $more_classes = array() ) {
 
 	// Set up the default classes.
-	$classes = array( 'col-xs-12 pv-xs-2 pv-sm-3 pv-lg-4' );
+	$classes = array();
+
+	$classes[] = 'col-xs-12';
+	$classes[] = 'pv-xs-2';
+	$classes[] = 'pv-sm-3';
+	$classes[] = 'pv-lg-4';
 
 	// Center the header content.
 	if (

@@ -3162,9 +3162,7 @@ label[for*="rcp_discount_code"] {
     text-align: center;
   }
   .site-branding {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 0 2rem;
+    padding: 2rem;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -4234,6 +4232,7 @@ label[for*="rcp_discount_code"] {
   #primary-sidebar .download-info {
     padding: 2rem;
     display: block;
+    margin-top: 2rem;
   }
   .entry-content .download-info {
     display: none;

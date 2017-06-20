@@ -39,8 +39,8 @@ function themedd_edd_download_info() {
     ?>
 	<div class="download-info">
 		<?php
-			// Display download title.
-			echo '<h1 class="download-title">' . get_the_title() . '</h1>';
+
+			do_action( 'themedd_edd_download_info_start', get_the_ID() );
 
 			// Display download price.
 			echo themedd_edd_price();
@@ -49,6 +49,8 @@ function themedd_edd_download_info() {
 
 			// Display purchase link.
             themedd_edd_purchase_link();
+
+			do_action( 'themedd_edd_download_info_end', get_the_ID() );
         ?>
 	</div>
 <?php
