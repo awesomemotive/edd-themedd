@@ -37,7 +37,7 @@ function themedd_edd_download_info() {
     }
 
     ?>
-	<div class="download-info">
+	<section class="download-info">
 		<?php
 
 			do_action( 'themedd_edd_download_info_start', get_the_ID() );
@@ -52,7 +52,7 @@ function themedd_edd_download_info() {
 
 			do_action( 'themedd_edd_download_info_end', get_the_ID() );
         ?>
-	</div>
+	</section>
 <?php
 }
 add_action( 'themedd_sidebar_download', 'themedd_edd_download_info' );
