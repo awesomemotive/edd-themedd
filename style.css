@@ -274,7 +274,7 @@ input,
 select,
 textarea {
   color: #696969;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
   line-height: 1.5rem;
 }
@@ -284,7 +284,7 @@ textarea {
   font-weight: 600;
   line-height: 1;
   color: #222;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .site-title a,
 .site-title a:hover {
@@ -306,7 +306,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Arial, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222;
   line-height: 1.2;
   margin: 0 0 1.62rem 0;
@@ -1237,7 +1237,7 @@ input.search-submit {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   color: #21759b;
   display: block;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
   left: -9999em;
@@ -1249,7 +1249,7 @@ input.search-submit {
 }
 .logged-in .site .skip-link {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
-  font-family: Arial, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .site .skip-link:focus {
   clip: auto;
