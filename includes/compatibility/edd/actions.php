@@ -57,9 +57,6 @@ function themedd_edd_download_info() {
 }
 add_action( 'themedd_sidebar_download', 'themedd_edd_download_info' );
 
-// add the download info just after the featured image so it can be shown at mobile sizes
-add_action( 'themedd_entry_content_start', 'themedd_edd_download_info' );
-
 /**
  * Add cart link to secondary menu
  *
