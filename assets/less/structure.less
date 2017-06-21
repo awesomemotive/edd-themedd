@@ -4,10 +4,20 @@
 	padding: 1rem;
 }
 
+#primary-sidebar section {
+	padding: 1rem;
+}
+
 .media-mixin(@break) when (@break = @screen-sm-min) {
 	#main {
 		padding: 2rem;
 	}
+
+	#primary-sidebar section,
+	#primary-sidebar aside {
+		padding: 2rem;
+	}
+
 }
 
 // site wrapper
@@ -33,7 +43,8 @@
 	flex: 1 0 auto;
 }
 
-#primary {
+#primary,
+#secondary {
 	padding: 0;
 }
 
@@ -41,9 +52,7 @@
 	width: 100%;
 }
 
-#primary-sidebar section {
-	padding: 1rem 0;
-}
+
 
 // houses the primary and secondary columns
 .content-wrapper {
@@ -81,10 +90,7 @@ body .wrapper {
 		margin: 0 auto;
 	}
 
-	#primary-sidebar section,
-	#primary-sidebar aside {
-		padding: 2rem;
-	}
+
 
 	// Slim template.
 	.slim #primary {

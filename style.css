@@ -1056,6 +1056,9 @@ button,
 #main {
   padding: 1rem;
 }
+#primary-sidebar section {
+  padding: 1rem;
+}
 #page {
   max-width: 1480px;
   min-height: 100%;
@@ -1082,14 +1085,12 @@ button,
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
-#primary {
+#primary,
+#secondary {
   padding: 0;
 }
 .no-sidebar #primary {
   width: 100%;
-}
-#primary-sidebar section {
-  padding: 1rem 0;
 }
 .content-wrapper {
   max-width: 1252px;
@@ -1462,6 +1463,10 @@ article[class^="post-"] + article[class^="post-"] {
  */
 .updated:not(.published) {
   display: none;
+}
+.page-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .page-header h1 {
   margin-bottom: 0;
@@ -2203,7 +2208,7 @@ button:focus {
   display: block;
   line-height: 1.5;
   font-size: 1rem;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   color: #222;
   border-bottom: none;
 }
@@ -2226,7 +2231,7 @@ button:focus {
   padding-right: 2rem;
 }
 #mobile-menu .sub-menu a {
-  padding-left: 3rem;
+  padding-left: 2rem;
 }
 .dropdown-toggle {
   background-color: transparent;
@@ -2243,8 +2248,9 @@ button:focus {
   width: 78px;
 }
 .dropdown-toggle:hover {
-  background: transparent;
+  background-color: transparent;
   border: none;
+  color: #222;
 }
 .dropdown-toggle:after {
   content: "\f431";
@@ -2499,9 +2505,6 @@ span.tags {
 }
 .entry-content .download-info {
   margin-bottom: 2rem;
-}
-#primary-sidebar .download-info {
-  display: none;
 }
 input.edd-input.card-number.valid {
   background-image: url(assets/images/tick.png);
@@ -3218,6 +3221,10 @@ label[for*="rcp_discount_code"] {
   #main {
     padding: 2rem;
   }
+  #primary-sidebar section,
+  #primary-sidebar aside {
+    padding: 2rem;
+  }
   .site-header-wrap {
     padding: 2rem;
     max-width: 1252px;
@@ -3242,13 +3249,13 @@ label[for*="rcp_discount_code"] {
   .footer-widgets .widget-column {
     padding: 2rem;
   }
-  th,
-  td {
-    padding: 0.5rem 1rem;
-  }
   .author-avatar {
     float: left;
     margin: 0 1.5rem 0 0;
+  }
+  .page-header {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .gallery .gallery-item {
     width: 33.333333333%;
@@ -3862,10 +3869,6 @@ label[for*="rcp_discount_code"] {
   .wrapper .entry-content {
     margin: 0 auto;
   }
-  #primary-sidebar section,
-  #primary-sidebar aside {
-    padding: 2rem;
-  }
   .slim #primary {
     width: 62%;
     margin: 0 auto;
@@ -4270,9 +4273,6 @@ label[for*="rcp_discount_code"] {
     display: block;
     margin-top: 2rem;
   }
-  .entry-content .download-info {
-    display: none;
-  }
   #edd_purchase_form_wrap select {
     width: 60%;
   }
@@ -4283,6 +4283,10 @@ label[for*="rcp_discount_code"] {
   }
   .text-left-lg {
     text-align: left;
+  }
+  th,
+  td {
+    padding: 0.5rem 1rem;
   }
   .col-lg,
   .col-lg-1,
