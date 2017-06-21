@@ -2612,6 +2612,7 @@ span.padlock {
 #eddc_profile_paypal_fieldset,
 #edd_purchase_form #edd_cc_address,
 #edd_cc_fields,
+#edd_terms_agreement,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
   padding: 1rem;
@@ -2629,12 +2630,16 @@ span.padlock {
 #eddc_profile_paypal_fieldset p:last-child,
 #edd_purchase_form #edd_cc_address p:last-child,
 #edd_cc_fields p:last-child,
+#edd_terms_agreement p:last-child,
 #edd-stripe-manage-cards > fieldset p:last-child,
 #edd_payment_mode_select p:last-child {
   margin-bottom: 0.5rem;
 }
 #edd_purchase_form_wrap select {
   width: 100%;
+}
+#edd_show_terms + .edd-terms-agreement {
+  margin-top: 0.5rem;
 }
 #edd_profile_submit_wrap {
   margin-bottom: 0;
@@ -3811,6 +3816,7 @@ label[for*="rcp_discount_code"] {
   #eddc_profile_paypal_fieldset,
   #edd_purchase_form #edd_cc_address,
   #edd_cc_fields,
+  #edd_terms_agreement,
   #edd-stripe-manage-cards > fieldset,
   #edd_payment_mode_select {
     padding: 2rem;

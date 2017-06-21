@@ -156,6 +156,7 @@ span.padlock {
 #eddc_profile_paypal_fieldset, // EDD commissions
 #edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
 #edd_cc_fields,
+#edd_terms_agreement,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
     padding: 1rem;
@@ -191,11 +192,17 @@ span.padlock {
 	#eddc_profile_paypal_fieldset, // EDD commissions
 	#edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
 	#edd_cc_fields,
+	#edd_terms_agreement,
 	#edd-stripe-manage-cards > fieldset,
 	#edd_payment_mode_select {
 		padding: 2rem;
 	}
 
+}
+
+// terms
+#edd_show_terms + .edd-terms-agreement {
+	margin-top: 0.5rem;
 }
 
 // submit button wrap
