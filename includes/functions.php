@@ -138,7 +138,6 @@ function themedd_page_header_classes( $more_classes = array() ) {
 	// Set up the default classes.
 	$classes = array();
 
-	$classes[] = 'col-xs-12';
 	$classes[] = 'pv-xs-2';
 	$classes[] = 'pv-sm-3';
 	$classes[] = 'pv-lg-4';
