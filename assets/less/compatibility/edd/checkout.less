@@ -144,8 +144,8 @@ span.padlock {
     margin-bottom: 2rem;
 }
 
-// fieldset styling
-
+// Fieldset styling.
+// To do: consolidate all these styles using a common selector.
 #edd_profile_personal_fieldset,
 #edd_profile_address_fieldset,
 #edd_profile_password_fieldset,
@@ -158,7 +158,7 @@ span.padlock {
 #edd_cc_fields,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
-    padding: 2rem;
+    padding: 1rem;
 	border: 2px solid @border-light-grey-alt;
     background: @light-grey-alt;
 	position: relative;
@@ -166,6 +166,36 @@ span.padlock {
     p:last-child {
         margin-bottom: 0.5rem;
     }
+}
+
+// Force select menus to be 100% width or they cause scrollbars
+#edd_purchase_form_wrap select {
+	width: 100%;
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
+	#edd_purchase_form_wrap select {
+		width: 60%;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#edd_profile_personal_fieldset,
+	#edd_profile_address_fieldset,
+	#edd_profile_password_fieldset,
+	#edd_discount_code,
+	#edd_checkout_user_info,
+	#edd_register_account_fields,
+	#edd_login_fields,
+	#eddc_profile_paypal_fieldset, // EDD commissions
+	#edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
+	#edd_cc_fields,
+	#edd-stripe-manage-cards > fieldset,
+	#edd_payment_mode_select {
+		padding: 2rem;
+	}
+
 }
 
 // submit button wrap
@@ -230,10 +260,6 @@ span.padlock {
 	width: 100%;
 	text-align: left;
 	margin-bottom: 2rem;
-
-	td, th {
-		padding: 1rem 2rem;
-	}
 
 	th {
 		font-weight: bold;
@@ -330,7 +356,19 @@ span.card-type.amex {
 	}
 }
 
+.media-mixin(@break) when (@break = @screen-xs-max) {
+	.edd_discount_link {
+		display: block;
+	}
+}
+
 .media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#edd_checkout_cart {
+		td, th {
+			padding: 1rem 2rem;
+		}
+	}
 
 	.edd-checkout-distraction-free #primary {
 		width: 62%;

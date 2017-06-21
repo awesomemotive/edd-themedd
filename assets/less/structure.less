@@ -1,7 +1,13 @@
 // Structure
 
 #main {
-	padding: 2rem;
+	padding: 1rem;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	#main {
+		padding: 2rem;
+	}
 }
 
 // site wrapper

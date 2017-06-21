@@ -1054,7 +1054,7 @@ button,
 }
 /* Structure */
 #main {
-  padding: 2rem;
+  padding: 1rem;
 }
 #page {
   max-width: 1480px;
@@ -1167,7 +1167,7 @@ body .wrapper {
   list-style-type: none;
 }
 .footer-widgets .widget-column {
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 .site-info {
   padding: 2rem;
@@ -1322,7 +1322,7 @@ td {
 }
 th,
 td {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
 }
 .box {
   padding: 2rem;
@@ -1657,8 +1657,8 @@ form ul {
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 .col-xs {
   -webkit-box-flex: 1;
@@ -2614,7 +2614,7 @@ span.padlock {
 #edd_cc_fields,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
-  padding: 2rem;
+  padding: 1rem;
   border: 2px solid #f4f4f4;
   background: #fcfcfc;
   position: relative;
@@ -2632,6 +2632,9 @@ span.padlock {
 #edd-stripe-manage-cards > fieldset p:last-child,
 #edd_payment_mode_select p:last-child {
   margin-bottom: 0.5rem;
+}
+#edd_purchase_form_wrap select {
+  width: 100%;
 }
 #edd_profile_submit_wrap {
   margin-bottom: 0;
@@ -2681,10 +2684,6 @@ span.padlock {
   width: 100%;
   text-align: left;
   margin-bottom: 2rem;
-}
-#edd_checkout_cart td,
-#edd_checkout_cart th {
-  padding: 1rem 2rem;
 }
 #edd_checkout_cart th {
   font-weight: bold;
@@ -3164,6 +3163,9 @@ label[for*="rcp_discount_code"] {
   .site-branding {
     padding: 2rem;
   }
+  .edd_discount_link {
+    display: block;
+  }
 }
 @media only screen and (min-width: 768px) {
   .text-center-sm {
@@ -3208,6 +3210,9 @@ label[for*="rcp_discount_code"] {
     font-size: 2rem;
     padding: 1.75rem 2.5rem;
   }
+  #main {
+    padding: 2rem;
+  }
   .site-header-wrap {
     padding: 2rem;
     max-width: 1252px;
@@ -3220,6 +3225,9 @@ label[for*="rcp_discount_code"] {
   .subtitle {
     font-size: 1.8rem;
   }
+  .footer-widgets .widget-column {
+    padding: 1rem 2rem;
+  }
   .site-footer ul {
     margin-bottom: 0;
   }
@@ -3228,6 +3236,10 @@ label[for*="rcp_discount_code"] {
   }
   .footer-widgets .widget-column {
     padding: 2rem;
+  }
+  th,
+  td {
+    padding: 0.5rem 1rem;
   }
   .author-avatar {
     float: left;
@@ -3789,6 +3801,24 @@ label[for*="rcp_discount_code"] {
     width: 70%;
     margin-bottom: 0;
   }
+  #edd_profile_personal_fieldset,
+  #edd_profile_address_fieldset,
+  #edd_profile_password_fieldset,
+  #edd_discount_code,
+  #edd_checkout_user_info,
+  #edd_register_account_fields,
+  #edd_login_fields,
+  #eddc_profile_paypal_fieldset,
+  #edd_purchase_form #edd_cc_address,
+  #edd_cc_fields,
+  #edd-stripe-manage-cards > fieldset,
+  #edd_payment_mode_select {
+    padding: 2rem;
+  }
+  #edd_checkout_cart td,
+  #edd_checkout_cart th {
+    padding: 1rem 2rem;
+  }
   .edd-checkout-distraction-free #primary {
     width: 62%;
     margin: 0 auto;
@@ -4236,6 +4266,9 @@ label[for*="rcp_discount_code"] {
   }
   .entry-content .download-info {
     display: none;
+  }
+  #edd_purchase_form_wrap select {
+    width: 60%;
   }
 }
 @media only screen and (min-width: 1220px) {

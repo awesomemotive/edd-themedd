@@ -73,7 +73,14 @@ td {
 
 th,
 td {
-	padding: 0.5rem 1rem;
+	padding: 0.5rem;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	th,
+	td {
+		padding: 0.5rem 1rem;
+	}
 }
 
 .box {

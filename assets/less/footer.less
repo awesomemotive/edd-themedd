@@ -14,7 +14,7 @@
 
 // Footer widgets.
 .footer-widgets .widget-column {
-	padding: 1rem 2rem;
+	padding: 1rem;
 }
 
 // Site info.
@@ -28,6 +28,10 @@
 }
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
+
+	.footer-widgets .widget-column {
+		padding: 1rem 2rem;
+	}
 
 	.site-footer ul {
         margin-bottom: 0;
