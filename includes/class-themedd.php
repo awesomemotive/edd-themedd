@@ -3,6 +3,9 @@
  * Themedd Class
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Themedd {
 
 	public function __construct() {
