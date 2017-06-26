@@ -1,16 +1,48 @@
 <?php
 
 /**
+ * The combined price and purchase button shown on the single download page
+ *
+ * @since 1.0.0
+ * @uses themedd_edd_price()
+ * @uses themedd_edd_purchase_link()
+ */
+if ( ! function_exists( 'themedd_edd_download_info' ) ) :
+function themedd_edd_download_info() {
+
+    if ( ! is_singular( 'download' ) ) {
+        return;
+    }
+
+	do_action( 'themedd_edd_download_info_start', get_the_ID() );
+
+	// Display download price.
+	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+		echo themedd_edd_price();
+	}
+
+	do_action( 'themedd_edd_download_info_after_price', get_the_ID() );
+
+	// Display purchase link.
+    themedd_edd_purchase_link();
+
+	do_action( 'themedd_edd_download_info_end', get_the_ID() );
+
+}
+endif;
+
+/**
  * Download price
  *
  * @since 1.0.0
  */
+if ( ! function_exists( 'themedd_edd_price' ) ) :
 function themedd_edd_price() {
 
 	if ( edd_is_free_download( get_the_ID() ) ) {
 		 $price = '<span class="edd_price">' . __( 'Free', 'themedd' ) . '</span>';
 	} elseif (  edd_has_variable_prices( get_the_ID() ) ) {
-		$price =  '<div itemprop="price" class="edd_price">' . __( 'From', 'themedd' ) . ' ' . edd_price( get_the_ID(), false ) . '</div>';
+		$price =  '<div itemprop="price" class="edd_price">' . __( 'From', 'themedd' ) . '&nbsp;' . edd_price( get_the_ID(), false ) . '</div>';
 	} else {
 		$price = edd_price( get_the_ID() );
 	}
@@ -18,6 +50,7 @@ function themedd_edd_price() {
 	return $price;
 
 }
+endif;
 
 if ( ! function_exists( 'themedd_edd_purchase_link' ) ) :
 /**
@@ -31,20 +64,19 @@ function themedd_edd_purchase_link() {
 		return; // Do not show if auto output is disabled
 	}
 
-	$external_download_url  = function_exists( 'edd_download_meta_get_download_meta' ) ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
-	$external_download_text = apply_filters( 'themedd_external_download_text', __( 'Visit site', 'themedd' ) );
+	/**
+	 * External download URL
+	 */
+	$external_download_url  = themedd_is_edd_download_meta_active() ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
+	$external_download_text = apply_filters( 'themedd_edd_external_download_text', __( 'Visit site', 'themedd' ) );
 
 	if ( $external_download_url ) { ?>
 
 		<div class="edd_download_purchase_form">
-			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external" target="_blank">
+			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external-link" target="_blank" rel="noopener">
 				<span><?php echo $external_download_text; ?></span>
-				<svg class="external" width="16px" height="16px">
-					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/assets/images/svg-defs.svg#icon-external'; ?>"></use>
-				</svg>
 			</a>
 		</div>
-
 		<?php
 	} else {
 		echo edd_get_purchase_link();
