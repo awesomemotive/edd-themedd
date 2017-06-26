@@ -1,7 +1,12 @@
 // Price shown in sidebar.
-.download-info .edd_price {
+.widget_edd_product_details .edd_price {
 	display: inline-block;
 	font-size: 2rem;
+}
+
+// If the price is moved inside the button, give the purchase form some top padding.
+.widget_edd_product_details .edd_download_purchase_form:first-child {
+	margin-top: 2rem;
 }
 
 .single-download {
@@ -22,18 +27,4 @@
 span.categories,
 span.tags {
 	display: block;
-}
-
-.entry-content .download-info {
-	margin-bottom: 2rem;
-}
-
-.media-mixin(@break) when (@break = @screen-md-min) {
-
-	#primary-sidebar .download-info {
-		padding: 2rem;
-		display: block;
-		margin-top: 2rem;
-	}
-
 }

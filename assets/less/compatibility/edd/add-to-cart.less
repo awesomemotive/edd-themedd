@@ -19,6 +19,21 @@
 	display: inline-block;
 }
 
+.media-mixin(@break) when (@break = @screen-md-min) {
+
+	// Make purchase buttons 100% width on single download page only.
+	.single-download .edd_purchase_submit_wrapper a.edd-add-to-cart.edd-has-js,
+	.single-download .edd_go_to_checkout {
+		width: 100%;
+	}
+
+	// Make the purchase button 100% width on single download pages when there is no JS.
+	.single-download .edd_purchase_submit_wrapper .edd-add-to-cart.edd-no-js {
+		width: 100%;
+	}
+
+}
+
 .edd-add-to-cart .edd-add-to-cart-label {
 	opacity: 1;
 }
