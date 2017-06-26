@@ -217,7 +217,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 			<?php if ( $price_link ) : ?>
 				<a href="<?php the_permalink(); ?>" class="eddDownloadMeta-price"><?php echo themedd_edd_download_meta_price(); ?></a>
 			<?php else : ?>
-				<?php echo themedd_edd_download_meta_price(); ?>
+				<span class="eddDownloadMeta-price"><?php echo themedd_edd_download_meta_price(); ?></span>
 			<?php endif; ?>
 
 		<?php endif; ?>
