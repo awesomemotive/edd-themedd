@@ -191,19 +191,6 @@ function themedd_edd_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
-/**
- * EDD purchase link defaults
- *
- * @since 1.0.0
- */
-function themedd_purchase_link_defaults( $defaults ) {
-
-	$defaults['price'] = (bool) false;
-
-	return $defaults;
-
-}
-add_filter( 'edd_purchase_link_defaults', 'themedd_purchase_link_defaults' );
 
 /**
  * Downloads wrapper classes
