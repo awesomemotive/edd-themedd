@@ -1,6 +1,21 @@
 <?php
 
 /**
+ * Remove the purchase button from the Download Details widget,
+ * if the themedd_edd_price_outside_button filter is set to true
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_details_widget_purchase_button( $purchase_link, $download_id ) {
+
+	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+		return '';
+	}
+
+}
+add_filter( 'edd_product_details_widget_purchase_button', 'themedd_edd_download_details_widget_purchase_button', 10, 2 );
+
+/**
  * Filter the pagination links on the [downloads] shortcode
  *
  * @since  1.0.0
