@@ -9,9 +9,14 @@ get_header(); ?>
 
 	<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) :
 
-			<div class="edd_downloads_list edd_download_columns_<?php echo themedd_edd_download_columns(); ?>">
+			$classes   = array( 'edd_downloads_list' );
+			$classes[] = 'edd_download_columns_' . themedd_edd_download_columns();
+			$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
+			?>
+			<div class="<?php echo implode( ' ', array_filter( $classes ) ); ?>">
+
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
