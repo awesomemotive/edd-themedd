@@ -28,10 +28,16 @@ if ( themedd_is_subtitles_active() ) {
 if ( themedd_is_edd_active() ) {
 
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/download-grid-functions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/nav-cart.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/software-licensing.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/widgets.php' );
+
+	// EDD - Software Licensing
+	if ( themedd_is_edd_sl_active() ) {
+		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-software-licensing.php' );
+	}
 
 	// EDD - Frontend Submissions
 	if ( themedd_is_edd_fes_active() ) {
@@ -55,7 +61,7 @@ if ( themedd_is_edd_active() ) {
 
 	// EDD Download Meta
 	if ( themedd_is_edd_download_meta_active() ) {
-		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/download-meta.php' );
+		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-download-meta.php' );
 	}
 
 }
