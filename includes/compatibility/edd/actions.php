@@ -78,8 +78,8 @@ add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
  *
  * @return void
  */
-if ( ! function_exists( 'themedd_edd_template_redirect' ) ):
-function themedd_edd_template_redirect() {
+if ( ! function_exists( 'themedd_edd_set_distraction_free_checkout' ) ):
+function themedd_edd_set_distraction_free_checkout() {
 
 	/**
 	 * Distraction Free Checkout
@@ -114,4 +114,4 @@ function themedd_edd_template_redirect() {
 
 }
 endif;
-add_action( 'template_redirect', 'themedd_edd_template_redirect' );
+add_action( 'template_redirect', 'themedd_edd_set_distraction_free_checkout' );
