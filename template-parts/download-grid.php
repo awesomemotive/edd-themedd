@@ -23,7 +23,7 @@
 
 		do_action( 'edd_download_after_price' );
 
-		edd_get_template_part( 'shortcode', 'content-cart-button' );
+		themedd_edd_download_footer();
 
 		do_action( 'edd_download_after' );
 
