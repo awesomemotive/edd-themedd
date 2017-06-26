@@ -265,3 +265,107 @@ function themedd_edd_page_header_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'themedd_page_header_classes', 'themedd_edd_page_header_classes' );
+
+/**
+ * Filter the content of the [downloads] shortcode, at least until the downloads shortcode is a bit more flexible.
+ *
+ * This:
+ *
+ * 1. Removes unneeded markup such as the clearing divs
+ * 2. Adds a themedd_edd_download_footer() function. This houses the purchase button (if enabled) and the download meta
+ */
+function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns, $null, $downloads, $excerpt, $full_content, $price, $thumbnails, $query ) {
+
+	$i = 1;
+
+	$wrapper_class = 'edd_download_columns_' . $columns;
+
+	ob_start();
+
+	?>
+
+	<div class="edd_downloads_list <?php echo apply_filters( 'edd_downloads_list_wrapper_class', $wrapper_class, $atts ); ?>">
+		<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
+			<?php $schema = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : ''; ?>
+			<div <?php echo $schema; ?>class="<?php echo apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $atts, $i ); ?>" id="edd_download_<?php echo get_the_ID(); ?>">
+				<div class="<?php echo apply_filters( 'edd_download_inner_class', 'edd_download_inner', get_the_ID(), $atts, $i ); ?>">
+					<?php
+
+					do_action( 'edd_download_before' );
+
+					if ( 'false' != $atts['thumbnails'] ) :
+						edd_get_template_part( 'shortcode', 'content-image' );
+						do_action( 'edd_download_after_thumbnail' );
+					endif;
+
+					edd_get_template_part( 'shortcode', 'content-title' );
+					do_action( 'edd_download_after_title' );
+
+					if ( $atts['excerpt'] == 'yes' && $atts['full_content'] != 'yes' ) {
+						edd_get_template_part( 'shortcode', 'content-excerpt' );
+						do_action( 'edd_download_after_content' );
+					} else if ( $atts['full_content'] == 'yes' ) {
+						edd_get_template_part( 'shortcode', 'content-full' );
+						do_action( 'edd_download_after_content' );
+					}
+
+					if ( $atts['price'] == 'yes' ) {
+						edd_get_template_part( 'shortcode', 'content-price' );
+						do_action( 'edd_download_after_price' );
+					}
+
+					themedd_edd_download_footer( $atts );
+
+					do_action( 'edd_download_after' );
+
+					?>
+
+				</div>
+			</div>
+
+		<?php $i++; endwhile; ?>
+
+		<?php wp_reset_postdata(); ?>
+
+		<?php if ( filter_var( $atts['pagination'], FILTER_VALIDATE_BOOLEAN ) ) : ?>
+
+		<?php
+			$pagination = false;
+
+			if ( is_single() ) {
+				$pagination = paginate_links( apply_filters( 'edd_download_pagination_args', array(
+					'base'    => get_permalink() . '%#%',
+					'format'  => '?paged=%#%',
+					'current' => max( 1, $query['paged'] ),
+					'total'   => $downloads->max_num_pages
+				), $atts, $downloads, $query ) );
+			} else {
+				$big = 999999;
+				$search_for   = array( $big, '#038;' );
+				$replace_with = array( '%#%', '&' );
+				$pagination = paginate_links( apply_filters( 'edd_download_pagination_args', array(
+					'base'    => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
+					'format'  => '?paged=%#%',
+					'current' => max( 1, $query['paged'] ),
+					'total'   => $downloads->max_num_pages
+				), $atts, $downloads, $query ) );
+			}
+		?>
+
+		<?php if ( ! empty( $pagination ) ) : ?>
+		<div id="edd_download_pagination" class="navigation">
+			<?php echo $pagination; ?>
+		</div>
+		<?php endif; ?>
+
+		<?php endif; ?>
+
+	</div>
+
+	<?php
+
+	$display = ob_get_clean();
+
+	return $display;
+}
+add_filter( 'downloads_shortcode', 'themedd_edd_downloads_shortcode', 10, 11 );
