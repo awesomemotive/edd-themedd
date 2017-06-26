@@ -42,6 +42,7 @@ add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' )
 
 /**
  * Alter EDD download loops.
+ * Affects archive-download.php, taxonomy-download-category.php and taxonomy-download-category.php
  *
  * @since  1.0.0
  *
