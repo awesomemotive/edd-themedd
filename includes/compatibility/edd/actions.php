@@ -1,15 +1,14 @@
 <?php
 
 /**
- * Enqueue frontend scripts
+ * Add the themedd_edd_download_info() function to the download details widget
  *
  * @since 1.0.0
  */
-function themedd_edd_remove_css() {
-	// remove software licensing CSS file
-	wp_dequeue_style( 'edd-sl-styles' );
+function themedd_edd_download_details_widget( $instance, $download_id ) {
+	echo themedd_edd_download_info();
 }
-add_action( 'wp_enqueue_scripts', 'themedd_edd_remove_css' );
+add_action( 'edd_product_details_widget_before_purchase_button', 'themedd_edd_download_details_widget', 10, 2 );
 
 /**
  * Remove and deactivate all styling included with EDD
