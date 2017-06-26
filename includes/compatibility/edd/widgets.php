@@ -79,11 +79,11 @@ class Themedd_Author_Details extends WP_Widget {
 
 			if ( themedd_is_edd_fes_active() ) : ?>
 				<div class="downloadAuthor-avatar">
-					<a class="vendor-url" href="<?php echo esc_url( $vendor_url ); ?>"><?php echo get_avatar( $author->ID, themedd_edd_author_avatar_size() ); ?></a>
+					<a class="vendor-url" href="<?php echo esc_url( $vendor_url ); ?>"><?php echo get_avatar( $author->ID, themedd_edd_download_author_avatar_size() ); ?></a>
 				</div>
 			<?php else : ?>
 				<div class="downloadAuthor-avatar">
-					<?php echo get_avatar( $author->ID, themedd_edd_author_avatar_size() ); ?>
+					<?php echo get_avatar( $author->ID, themedd_edd_download_author_avatar_size() ); ?>
 				</div>
 			<?php endif;
 

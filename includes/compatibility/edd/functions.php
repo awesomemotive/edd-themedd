@@ -142,3 +142,14 @@ function themedd_edd_distraction_free_checkout() {
 
 	return $distraction_free_checkout;
 }
+
+/**
+ * Download author avatar size
+ *
+ * @since 1.0.0
+ *
+ * @return int $size The size of the avatar
+ */
+function themedd_edd_download_author_avatar_size() {
+	return apply_filters( 'themedd_edd_download_author_avatar_size', 80 );
+}

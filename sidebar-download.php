@@ -42,9 +42,9 @@
 				if ( apply_filters( 'themedd_edd_download_author_avatar', true, $post ) ) : ?>
 					<div class="downloadAuthor-avatar">
 					<?php if ( $vendor_url ) : ?>
-						<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, themedd_edd_author_avatar_size() ); ?></a>
+						<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, themedd_edd_download_author_avatar_size() ); ?></a>
 					<?php else : ?>
-						<?php echo get_avatar( $user->ID, themedd_edd_author_avatar_size() ); ?>
+						<?php echo get_avatar( $user->ID, themedd_edd_download_author_avatar_size() ); ?>
 					<?php endif; ?>
 					</div>
 				<?php endif; ?>
