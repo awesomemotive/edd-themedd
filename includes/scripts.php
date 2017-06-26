@@ -53,3 +53,14 @@ function themedd_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'themedd_scripts' );
+
+/**
+ *  Load the admin styles
+ *
+ *  @since 1.0
+ *  @return void
+ */
+function themedd_admin_styles() {
+	wp_enqueue_style( 'themedd-admin', get_theme_file_uri( '/assets/css/admin.css' ), array(), THEMEDD_VERSION );
+}
+add_action( 'admin_enqueue_scripts', 'themedd_admin_styles' );
