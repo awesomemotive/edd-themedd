@@ -61,17 +61,23 @@ add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
  *
  * @since 1.0.0
  */
-function themedd_edd_purchase_link_defaults( $args ) {
+function themedd_edd_purchase_link_defaults( $defaults ) {
 
 	// Remove button class.
-	$args['color'] = '';
+	$defaults['color'] = '';
 
 	// Free downloads.
 	if ( edd_is_free_download( get_the_ID() ) ) {
-		$args['text'] = __( 'Add to cart', 'themedd' );
+		$defaults['text'] = __( 'Add to cart', 'themedd' );
 	}
 
-	return $args;
+	// Remove the price from the purchase button
+	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+		$defaults['price'] = (bool) false;
+	}
+
+	return $defaults;
+
 }
 add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' );
 
