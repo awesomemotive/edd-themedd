@@ -223,24 +223,17 @@ function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 		$classes[] = 'no-thumbnails';
 	}
 
+	/**
+	 * Add a class if there is download meta
+	 */
+	if ( themedd_edd_has_download_meta() ) {
+		$classes[] = 'has-download-meta';
+	}
+
 	return implode( ' ', $classes );
 
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
-
-/**
- * Add classes to each EDD download
- *
- * @since 1.0.0
- */
-function themedd_edd_download_class( $classes, $id, $atts, $i ) {
-
-	$classes .= ' mb-xs-4 mb-sm-0';
-
-	return $classes;
-
-}
-add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
 
 /**
  * EDD Recurring
