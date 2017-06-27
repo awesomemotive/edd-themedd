@@ -2984,13 +2984,10 @@ p.edd_error {
   margin: 0 !important;
 }
 .edd_success:not(.edd-alert) {
-  border-radius: 2px;
-  border: 1px solid #b3ce89;
-  margin: 20px 0;
-  background: #d5eab3;
-  color: #567622;
-  padding: 6px 8px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  background: #dff0d8;
+  color: #3c763d;
+  padding: 1rem;
 }
 .edd-alert {
   margin-bottom: 2rem;
