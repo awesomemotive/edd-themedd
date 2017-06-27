@@ -304,6 +304,8 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 						do_action( 'edd_download_after_thumbnail' );
 					endif;
 
+					do_action( 'edd_download_before_title' );
+
 					edd_get_template_part( 'shortcode', 'content-title' );
 					do_action( 'edd_download_after_title' );
 

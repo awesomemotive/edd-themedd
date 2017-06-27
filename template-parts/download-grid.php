@@ -11,6 +11,8 @@
 
 		do_action( 'edd_download_after_thumbnail' );
 
+		do_action( 'edd_download_before_title' );
+		
 		edd_get_template_part( 'shortcode', 'content-title' );
 
 		do_action( 'edd_download_after_title' );
