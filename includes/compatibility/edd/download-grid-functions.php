@@ -244,14 +244,17 @@ function themedd_edd_display_download_meta( $args = array() ) {
 		<?php endif; ?>
 
 		<?php
+
+		$vendor_name = get_the_author_meta( 'display_name', $post->post_author );
+
 		/**
 		 * FES - link through to vendor page
 		 */
 		if ( themedd_is_edd_fes_active() ) :
 
 			$vendor_url         = (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $post->post_author ) );
-			$vendor_name        = get_the_author_meta( 'display_name', $post->post_author );
 			$vendor_store_name  = get_the_author_meta( 'name_of_store', $post->post_author );
+
 			?>
 
 			<?php if ( $author_link ) : ?>
@@ -267,7 +270,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 				?>
 				<?php if ( $avatar ) : ?>
 				<span class="eddDownloadMeta-authorAvatar">
-					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, null ); ?>
+					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, null, $vendor_store_name ); ?>
 				</span>
 				<?php endif; ?>
 
@@ -289,7 +292,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 
 				<?php if ( $avatar ) : ?>
 				<span class="eddDownloadMeta-authorAvatar">
-					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, null ); ?>
+					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, null, $vendor_name ); ?>
 				</span>
 				<?php endif; ?>
 
