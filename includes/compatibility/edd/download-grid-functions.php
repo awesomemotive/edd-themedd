@@ -55,6 +55,25 @@ function themedd_edd_download_meta_position() {
 }
 
 /**
+ * Load the download meta before the download title
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_meta_before_title() {
+
+	// Return early if download meta has been disabled.
+	if ( ! apply_filters( 'themedd_edd_download_meta', true, get_the_ID() ) ) {
+		return;
+	}
+
+	if ( 'before_title' === themedd_edd_download_meta_position() ) {
+		themedd_edd_display_download_meta( array( 'position' => 'before_title' ) );
+	}
+
+}
+add_action( 'edd_download_before_title', 'themedd_edd_download_meta_before_title' );
+
+/**
  * Load the download meta after the download title
  *
  * @since 1.0.0
@@ -190,8 +209,10 @@ function themedd_edd_display_download_meta( $args = array() ) {
 
 	if ( 'after' === $args['position'] ) {
 		$classes[] = 'eddDownloadMeta-after';
-	} elseif( 'after_title' === $args['position'] ) {
+	} elseif ( 'after_title' === $args['position'] ) {
 		$classes[] = 'eddDownloadMeta-afterTitle';
+	} elseif ( 'before_title' === $args['position'] ) {
+		$classes[] = 'eddDownloadMeta-beforeTitle';
 	}
 
 	$echo = true;
