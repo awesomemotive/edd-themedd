@@ -2511,7 +2511,13 @@ span.edd_price {
 .has-price.no-buy-button div[itemprop="offers"] {
   margin: auto 0 0 0;
 }
-#edd_download_pagination {
+.edd_pagination,
+.edd-reviews-vendor-feedback-pagination,
+#edd_user_commissions .navigation,
+#edd_download_pagination,
+.fes-order-list-pagination-container,
+.fes-pagination,
+.fes-product-list-pagination-container {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2525,20 +2531,62 @@ span.edd_price {
   margin-bottom: 2rem;
   color: #696969;
 }
+.edd_pagination .current,
+.edd-reviews-vendor-feedback-pagination .current,
+#edd_user_commissions .navigation .current,
 #edd_download_pagination .current,
-#edd_download_pagination a.page-numbers {
+.fes-order-list-pagination-container .current,
+.fes-pagination .current,
+.fes-product-list-pagination-container .current,
+.edd_pagination a.page-numbers,
+.edd-reviews-vendor-feedback-pagination a.page-numbers,
+#edd_user_commissions .navigation a.page-numbers,
+#edd_download_pagination a.page-numbers,
+.fes-order-list-pagination-container a.page-numbers,
+.fes-pagination a.page-numbers,
+.fes-product-list-pagination-container a.page-numbers {
   color: #696969;
   font-size: 0.875rem;
   border: 1px solid #f5f5f5;
 }
+.edd_pagination .current,
+.edd-reviews-vendor-feedback-pagination .current,
+#edd_user_commissions .navigation .current,
 #edd_download_pagination .current,
+.fes-order-list-pagination-container .current,
+.fes-pagination .current,
+.fes-product-list-pagination-container .current,
+.edd_pagination a.page-numbers,
+.edd-reviews-vendor-feedback-pagination a.page-numbers,
+#edd_user_commissions .navigation a.page-numbers,
 #edd_download_pagination a.page-numbers,
-#edd_download_pagination .dots {
+.fes-order-list-pagination-container a.page-numbers,
+.fes-pagination a.page-numbers,
+.fes-product-list-pagination-container a.page-numbers,
+.edd_pagination .dots,
+.edd-reviews-vendor-feedback-pagination .dots,
+#edd_user_commissions .navigation .dots,
+#edd_download_pagination .dots,
+.fes-order-list-pagination-container .dots,
+.fes-pagination .dots,
+.fes-product-list-pagination-container .dots {
   padding: 0.25rem 0.75rem;
   margin-right: 0.5rem;
 }
+.edd_pagination .current,
+.edd-reviews-vendor-feedback-pagination .current,
+#edd_user_commissions .navigation .current,
 #edd_download_pagination .current,
-#edd_download_pagination a.page-numbers:hover {
+.fes-order-list-pagination-container .current,
+.fes-pagination .current,
+.fes-product-list-pagination-container .current,
+.edd_pagination a.page-numbers:hover,
+.edd-reviews-vendor-feedback-pagination a.page-numbers:hover,
+#edd_user_commissions .navigation a.page-numbers:hover,
+#edd_download_pagination a.page-numbers:hover,
+.fes-order-list-pagination-container a.page-numbers:hover,
+.fes-pagination a.page-numbers:hover,
+.fes-product-list-pagination-container a.page-numbers:hover {
   background: #f5f5f5;
   border-color: #f5f5f5;
   color: #696969;
