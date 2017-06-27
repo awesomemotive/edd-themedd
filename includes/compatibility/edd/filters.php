@@ -16,26 +16,6 @@ function themedd_edd_download_details_widget_purchase_button( $purchase_link, $d
 add_filter( 'edd_product_details_widget_purchase_button', 'themedd_edd_download_details_widget_purchase_button', 10, 2 );
 
 /**
- * Filter the pagination links on the [downloads] shortcode
- *
- * @since  1.0.0
- * @param  array $args
- * @param  array $atts The attributes of the [downloads] shortcode
- * @param  object $downloads The downloads object (WP_Query)
- * @param  array $query The query built by the [downloads] shortcode
- *
- * @return array $args
- */
-function themedd_edd_download_pagination_args( $args, $atts, $downloads, $query ) {
-
-	$args['prev_text'] = __( 'Previous', 'themedd' );
-	$args['next_text'] = __( 'Next', 'themedd' );
-
-	return $args;
-}
-add_filter( 'edd_download_pagination_args', 'themedd_edd_download_pagination_args', 10, 4 );
-
-/**
  * Filter the settings from EDD's "Styles" tab
  *
  * @since 1.0
