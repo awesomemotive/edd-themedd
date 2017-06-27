@@ -2449,6 +2449,7 @@ h3.edd_download_title {
 .eddDownloadMeta-authorAvatar + .eddDownloadMeta-authorName {
   margin-left: 0.5rem;
 }
+.eddDownloadMeta-beforeTitle,
 .eddDownloadMeta-afterTitle {
   margin-bottom: 1.5rem;
 }
@@ -2466,6 +2467,7 @@ h3.edd_download_title {
 .edd_download_image {
   margin: 0 0 1.5rem 0;
 }
+.edd_download_image a,
 .edd_download_image img {
   display: block;
 }
