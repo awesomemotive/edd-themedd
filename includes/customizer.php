@@ -641,7 +641,8 @@ function themedd_customize_register( $wp_customize ) {
 
 	if ( themedd_is_edd_fes_active() ) {
 		$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
-			'sanitize_callback' => 'themedd_sanitize_checkbox'
+			'sanitize_callback' => 'themedd_sanitize_checkbox',
+			'default'           => true
 		));
 
 		$wp_customize->add_control( 'fes_vendor_contact_form', array(
@@ -652,7 +653,7 @@ function themedd_customize_register( $wp_customize ) {
 			'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
 		));
 	}
-	
+
 	/**
 	 * Theme Options section
 	 */
