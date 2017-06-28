@@ -144,6 +144,20 @@ function themedd_edd_distraction_free_checkout() {
 }
 
 /**
+ * Display vendor contact form
+ *
+ * @since 1.0.0
+ *
+ * @return boolean true if vendor contact form is enabled, false otherwise
+ */
+function themedd_edd_fes_vendor_contact_form() {
+	$edd_theme_options   = get_theme_mod( 'easy_digital_downloads' );
+	$vendor_contact_form = isset( $edd_theme_options['fes_vendor_contact_form'] ) && true === $edd_theme_options['fes_vendor_contact_form'] ? true : false;
+
+	return $vendor_contact_form;
+}
+
+/**
  * Download author avatar size
  *
  * @since 1.0.0
