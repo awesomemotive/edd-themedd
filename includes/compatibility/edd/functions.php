@@ -154,6 +154,11 @@ function themedd_edd_fes_vendor_contact_form() {
 	$edd_theme_options   = get_theme_mod( 'easy_digital_downloads' );
 	$vendor_contact_form = isset( $edd_theme_options['fes_vendor_contact_form'] ) && true === $edd_theme_options['fes_vendor_contact_form'] ? true : false;
 
+	// Set "true" to be the default if no options exist in theme mods array.
+	if ( ! isset( $edd_theme_options['fes_vendor_contact_form'] ) ) {
+		return true;
+	}
+
 	return $vendor_contact_form;
 }
 
