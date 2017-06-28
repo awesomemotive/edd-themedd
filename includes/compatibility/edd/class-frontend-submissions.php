@@ -8,6 +8,7 @@ class Themedd_EDD_Frontend_Submissions {
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
+		add_filter( 'template_include', array( $this, 'vendor_page' ), 10, 1 );
 	}
 
 	/**
@@ -55,6 +56,8 @@ class Themedd_EDD_Frontend_Submissions {
 
 	/**
 	 * Get the FES vendor URL
+	 *
+	 * @since 1.0.0
 	 */
 	public function author_url( $author = null ) {
 
@@ -69,6 +72,32 @@ class Themedd_EDD_Frontend_Submissions {
 		}
 
 		return EDD_FES()->vendors->get_vendor_store_url( $author->ID );
+	}
+
+	/**
+	 * Load the vendor page.
+	 *
+	 * @since 1.0.0
+	 */
+	public function vendor_page( $template ) {
+
+		if ( is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) ) {
+
+			// Provide the path to our new template.
+			// This template can be overridden from a child theme.
+			$new_template = locate_template( array( 'template-parts/vendor-page.php' ) );
+
+			// Only load our new template if it can be found and there's not already a page template assigned.
+			if ( '' !== $new_template && ! is_page_template() ) {
+				// Return our new template.
+				return $new_template;
+			}
+
+		}
+
+		// Return the current template as before.
+		return $template;
+
 	}
 
 }
