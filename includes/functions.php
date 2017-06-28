@@ -101,29 +101,22 @@ function themedd_is_subtitles_active() {
 }
 
 /**
- * Filter sidebars
- * Allows sidebars to be disabled completely or on a specific post/page/download
+ * Wrapper for get_sidebar()
+ *
+ * Allows sidebars to be disabled completely, or on a specific post/page/download
  * Allows sidebars to be swapped out on specific posts/pages/downloads
  *
  * @since 1.0.0
  */
-function themedd_get_sidebar() {
+function themedd_get_sidebar( $sidebar = '' ) {
 
 	// disable sidebar
 	if ( ! apply_filters( 'themedd_show_sidebar', true ) ) {
 		return false;
 	}
 
-	$sidebar = '';
-
-	// switch out sidebar for singular download pages
-	if ( is_singular( 'download' ) ) {
-		$sidebar = 'download';
-	}
-
 	return get_sidebar( apply_filters( 'themedd_get_sidebar', $sidebar ) );
 }
-
 
 /**
  * Themedd page header div classes
