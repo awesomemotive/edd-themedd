@@ -9,6 +9,16 @@ class Themedd_EDD_Frontend_Submissions {
 		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
 		add_filter( 'template_include', array( $this, 'vendor_page' ), 10, 1 );
+		add_filter( 'fes_vendor-contact_form_title', array( $this, 'contact_form_title' ), 10, 1 );
+	}
+
+	/**
+	 * Set the title of the vendor contact form
+	 *
+	 * @since 1.0.0
+	 */
+	public function contact_form_title( $title ) {
+		return apply_filters( 'themedd_edd_fes_contact_form_title', __( 'Contact vendor', 'themedd' ) );
 	}
 
 	/**
