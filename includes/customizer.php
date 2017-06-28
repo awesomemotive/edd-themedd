@@ -620,7 +620,6 @@ function themedd_customize_register( $wp_customize ) {
 		'choices'     => themedd_customize_cart_options()
 	));
 
-
 	/**
 	 * Distraction Free Checkout setting
 	 */
@@ -634,6 +633,21 @@ function themedd_customize_register( $wp_customize ) {
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'checkbox',
 		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
+	));
+
+	/**
+	 * Frontend Submissions - Display vendor contact form
+	 */
+	$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
+		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	));
+
+	$wp_customize->add_control( 'fes_vendor_contact_form', array(
+		'label'       => __( 'Display Vendor Contact Form', 'themedd' ),
+		'settings'    => 'easy_digital_downloads[fes_vendor_contact_form]',
+		'section'     => 'easy_digital_downloads',
+		'type'        => 'checkbox',
+		'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
 	));
 
 	/**
