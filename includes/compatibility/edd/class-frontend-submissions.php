@@ -27,8 +27,11 @@ class Themedd_EDD_Frontend_Submissions {
 		// Register the styles.
 		wp_register_style( 'themedd-edd-fes', get_theme_file_uri( $file_path ), array(), filemtime( get_theme_file_path( $file_path ) ), 'all' );
 
-		// Load styles if we're on the frontend and the dashboard page.
-		if ( fes_is_frontend() && is_page( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ) ) {
+		// Load styles.
+		if (
+			fes_is_frontend() &&
+			( is_page( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ) || is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) )
+		) {
 			wp_enqueue_style( 'themedd-edd-fes' );
 		}
 
