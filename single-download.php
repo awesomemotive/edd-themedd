@@ -39,7 +39,7 @@ themedd_page_header();
 
 	</div>
 
-    <?php themedd_get_sidebar(); ?>
+    <?php themedd_get_sidebar( 'download' ); ?>
 </div>
 
 
