@@ -3942,6 +3942,7 @@ label[for*="rcp_discount_code"] {
   .edd_downloads_list {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
+    margin-top: -1.5rem;
   }
   .edd_download_inner {
     padding: 1.5rem;

@@ -1,3 +1,8 @@
+.fes-vendor-contact-form {
+  padding: 2rem;
+  border: 2px solid #f4f4f4;
+  background: #fcfcfc;
+}
 .fes-vendor-menu ul {
   list-style-type: none;
   margin: 0;
