@@ -115,3 +115,27 @@ function themedd_edd_set_distraction_free_checkout() {
 }
 endif;
 add_action( 'template_redirect', 'themedd_edd_set_distraction_free_checkout' );
+
+
+/**
+ * Load the vendor contact form at the bottom of the page if another page template is active
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_fes_load_vendor_contact_form() {
+
+	// Return early if FES is not active.
+	if ( ! themedd_is_edd_fes_active() ) {
+		return;
+	}
+
+	// Load the contact form at the bottom of the page if a page template is being used,
+	// And the vendor contact form is enabled.
+	if ( is_page_template() && themedd_edd_fes_vendor_contact_form() ) {
+		$vendor_id = absint( fes_get_vendor()->ID );
+		echo (new FES_Forms)->render_vendor_contact_form( $vendor_id );
+	}
+
+}
+
+add_action( 'themedd_entry_content_end', 'themedd_edd_fes_load_vendor_contact_form' );
