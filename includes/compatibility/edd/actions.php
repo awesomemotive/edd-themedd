@@ -131,7 +131,11 @@ function themedd_edd_fes_load_vendor_contact_form() {
 
 	// Load the contact form at the bottom of the page if a page template is being used,
 	// And the vendor contact form is enabled.
-	if ( is_page_template() && themedd_edd_fes_vendor_contact_form() ) {
+	if (
+		is_page_template() &&
+		themedd_edd_fes_vendor_contact_form() &&
+		is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) )
+	) {
 		$vendor_id = absint( fes_get_vendor()->ID );
 		echo (new FES_Forms)->render_vendor_contact_form( $vendor_id );
 	}
