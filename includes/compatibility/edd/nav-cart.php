@@ -1,6 +1,81 @@
 <?php
 
 /**
+ * Make the total quantity blank when no items exist in the cart
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
+
+	if ( ! $cart ) {
+		$total_quantity = '';
+	}
+
+	return $total_quantity;
+}
+add_filter( 'edd_get_cart_quantity', 'themedd_edd_get_cart_quantity', 10, 2 );
+
+/**
+ * Appends the cart to the primary navigation
+ *
+ * @since 1.0.0
+*/
+function themedd_wp_nav_menu_items( $items, $args ) {
+
+	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
+
+	if ( 'primary_menu' == themedd_edd_cart_link_position() ) {
+		$items .= themedd_edd_cart_link();
+	}
+
+    return $items;
+
+}
+add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
+
+/**
+ * Mobile navigation - Append cart link to mobile navigation
+ *
+ * @since 1.0.0
+*/
+function themedd_wp_nav_menu_mobile_items( $items, $args ) {
+
+	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
+
+	$mobile_cart_link = themedd_edd_cart_link(
+
+		apply_filters( 'themedd_edd_mobile_menu', array(
+			'list_item' => true,
+			'classes'   => array( 'navCart navCart-mobile' ),
+		) )
+
+	);
+
+	// Get menu locations.
+	$menu_locations  = get_nav_menu_locations();
+
+	// Determine if there is a mobile menu assigned.
+	// This will return true if any menu has been assigned to the "Mobile Menu".
+	$has_mobile_menu = isset( $menu_locations['mobile'] ) ? true : false;
+
+	// Append the nav cart to the mobile-menu.
+	if ( 'mobile-menu' === $args->menu_id ) {
+
+		if (
+			'primary_menu' !== themedd_edd_cart_link_position() || // Append the nav cart to the mobile menu if the nav cart has not been moved to the primary navigation (from the default location of the secondary navigation)
+			( 'primary_menu' === themedd_edd_cart_link_position() && $has_mobile_menu && $menu_locations['mobile'] !== $menu_locations['primary'] ) // Or, append the nav cart to the mobile menu if the nav cart has been moved from the secondary naivigation, there's a menu assigned to the mobile menu location and the mobile menu has been assigned to the mobile menu location.
+		) {
+			return $items . $mobile_cart_link;
+		}
+
+	}
+
+	return $items;
+
+}
+add_filter( 'wp_nav_menu_items', 'themedd_wp_nav_menu_mobile_items', 10, 2 );
+
+/**
  * Determine where the cart link should be displayed
  *
  * @since 1.0.0

@@ -52,7 +52,7 @@ add_action( 'themedd_masthead_before', 'themedd_skip_link' );
  */
 function themedd_menu_toggle() {
 
-    if ( ! has_nav_menu( 'mobile' ) ) {
+    if ( ! ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) ) {
         return;
     }
 
@@ -169,11 +169,14 @@ add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
  */
 function themedd_mobile_menu() {
 
-    wp_nav_menu(
+	// Use the mobile menu if it exists, otherwise fallback to primary.
+	$theme_location = has_nav_menu( 'mobile' ) ? 'mobile' : 'primary';
+
+	wp_nav_menu(
         apply_filters( 'themedd_mobile_menu', array(
             'menu_id'         => 'mobile-menu',
             'menu_class'      => 'menu',
-            'theme_location'  => 'mobile',
+            'theme_location'  => $theme_location,
             'container_class' => 'mobile-navigation',
         ))
     );

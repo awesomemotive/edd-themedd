@@ -72,63 +72,6 @@ function themedd_edd_checkout_image_size() {
 add_filter( 'edd_checkout_image_size', 'themedd_edd_checkout_image_size' );
 
 /**
- * Append extra links to primary navigation
- *
- * @since 1.0.0
-*/
-function themedd_wp_nav_menu_items( $items, $args ) {
-
-	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
-
-	if ( 'primary_menu' == themedd_edd_cart_link_position() ) {
-		$items .= themedd_edd_cart_link( array( 'text' => __( 'Checkout', 'themedd' ) ) );
-	}
-
-    return $items;
-
-}
-add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
-
-/**
- * Mobile navigation - Add cart link to mobile navigation
- *
- * @since 1.0.0
-*/
-function themedd_wp_nav_menu_mobile_items( $items, $args ) {
-
-	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
-
-	$mobile_cart_link = themedd_edd_cart_link(
-
-		apply_filters( 'themedd_edd_mobile_menu', array(
-			'list_item' => true,
-			'classes'   => array( 'navCart navCart-mobile' ),
-		) )
-
-	);
-
-    return $items . $mobile_cart_link;
-
-}
-add_filter( 'wp_nav_menu_mobile_items', 'themedd_wp_nav_menu_mobile_items', 10, 2 );
-
-/**
- * Make the total quantity blank when no items exist in the cart
- *
- * @since 1.0.0
- */
-function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
-
-	if ( ! $cart ) {
-		$total_quantity = '';
-	}
-
-	return $total_quantity;
-}
-add_filter( 'edd_get_cart_quantity', 'themedd_edd_get_cart_quantity', 10, 2 );
-
-
-/**
  * Renders the Purchase button on the Checkout
  *
  * @since 1.0.0
@@ -269,7 +212,6 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 	ob_start();
 
 	?>
-
 	<div class="edd_downloads_list <?php echo apply_filters( 'edd_downloads_list_wrapper_class', $wrapper_class, $atts ); ?>">
 		<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
 			<?php $schema = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : ''; ?>
@@ -340,11 +282,11 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 			}
 		?>
 
-		<?php if ( ! empty( $pagination ) ) : ?>
-		<div id="edd_download_pagination" class="navigation">
-			<?php echo $pagination; ?>
-		</div>
-		<?php endif; ?>
+			<?php if ( ! empty( $pagination ) ) : ?>
+			<div id="edd_download_pagination" class="navigation">
+				<?php echo $pagination; ?>
+			</div>
+			<?php endif; ?>
 
 		<?php endif; ?>
 
