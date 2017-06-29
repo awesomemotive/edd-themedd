@@ -22,6 +22,8 @@
 		<?php echo themedd_edd_download_info(); ?>
 		</section>
 
+		<?php do_action( 'themedd_sidebar_download_product_details_after' ); ?>
+
 		<?php
 		/**
 		 * Author Details
@@ -98,6 +100,8 @@
 			</section>
 
 		<?php endif; ?>
+
+		<?php do_action( 'themedd_sidebar_download_author_after' ); ?>
 
 		<?php
 		/**
