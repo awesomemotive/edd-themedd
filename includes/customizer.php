@@ -925,214 +925,216 @@ add_action( 'customize_register', 'themedd_customize_register' );
  *
  * @since 1.0
  */
-function themedd_colors_output_customizer_styling() { ?>
+if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
+	function themedd_colors_output_customizer_styling() { ?>
 
-	<?php
-
-		$colors = get_theme_mod( 'colors' );
-
-		// Get the default colors to compare against.
-		$defaults = themedd_customize_color_defaults();
-
-		if ( $colors ) {
-			$colors = array_filter( $colors );
-		}
-
-		if ( ! empty( $colors ) ) : ?>
-		<style id="themedd-custom-css" type="text/css">
 		<?php
 
-		// Tagline color.
-		if ( isset( $colors['tagline_color'] ) && $colors['tagline_color'] !== $defaults['tagline_color'] ) {
-			echo '.site-description { color:' . $colors['tagline_color'] . ';}';
-		}
+			$colors = get_theme_mod( 'colors' );
 
-		// Link color.
-		if ( isset( $colors['link_color'] ) && $colors['link_color'] !== $defaults['link_color'] ) {
-			echo 'a { color:' . $colors['link_color'] . ';}';
-		}
+			// Get the default colors to compare against.
+			$defaults = themedd_customize_color_defaults();
 
-		// Site header background.
-		if ( isset( $colors['header_background_color'] ) && $colors['header_background_color'] !== $defaults['header_background_color'] ) {
-			echo '#masthead { background:' . $colors['header_background_color'] . ';}';
-		}
+			if ( $colors ) {
+				$colors = array_filter( $colors );
+			}
 
-		// Primary menu background color.
-		if ( isset( $colors['menu_primary_background_color'] ) && $colors['menu_primary_background_color'] !== $defaults['menu_primary_background_color'] ) {
-			echo '#site-header-menu, #mobile-menu { background-color:' . $colors['menu_primary_background_color'] . ';}';
-		}
+			if ( ! empty( $colors ) ) : ?>
+			<style id="themedd-custom-css" type="text/css">
+			<?php
 
-		// Primary menu link color.
-		if ( isset( $colors['menu_primary_link_color'] ) && $colors['menu_primary_link_color'] !== $defaults['menu_primary_link_color'] ) {
-			echo '.main-navigation a, #mobile-menu a, .dropdown-toggle { color:' . $colors['menu_primary_link_color'] . ';}';
-		}
+			// Tagline color.
+			if ( isset( $colors['tagline_color'] ) && $colors['tagline_color'] !== $defaults['tagline_color'] ) {
+				echo '.site-description { color:' . $colors['tagline_color'] . ';}';
+			}
 
-		// Primary menu link hover color.
-		if ( isset( $colors['menu_primary_link_hover_color'] ) && $colors['menu_primary_link_hover_color'] !== $defaults['menu_primary_link_hover_color'] ) {
+			// Link color.
+			if ( isset( $colors['link_color'] ) && $colors['link_color'] !== $defaults['link_color'] ) {
+				echo 'a { color:' . $colors['link_color'] . ';}';
+			}
 
-			echo '.main-navigation li:hover > a, .main-navigation li.focus > a { color:' . $colors['menu_primary_link_hover_color'] . ';}';
+			// Site header background.
+			if ( isset( $colors['header_background_color'] ) && $colors['header_background_color'] !== $defaults['header_background_color'] ) {
+				echo '#masthead { background:' . $colors['header_background_color'] . ';}';
+			}
 
-			// mobile menu styles
-			echo '#mobile-menu a:hover,	#mobile-menu a:focus, #mobile-menu .current-menu-item > a, #mobile-menu .current_page_ancestor > a { color:' . $colors['menu_primary_link_hover_color'] . ';}';
+			// Primary menu background color.
+			if ( isset( $colors['menu_primary_background_color'] ) && $colors['menu_primary_background_color'] !== $defaults['menu_primary_background_color'] ) {
+				echo '#site-header-menu, #mobile-menu { background-color:' . $colors['menu_primary_background_color'] . ';}';
+			}
 
-			// dropdown toggle styles
-			echo '.dropdown-toggle:hover, .dropdown-toggle:focus { color:' . $colors['menu_primary_link_hover_color'] . ';}';
+			// Primary menu link color.
+			if ( isset( $colors['menu_primary_link_color'] ) && $colors['menu_primary_link_color'] !== $defaults['menu_primary_link_color'] ) {
+				echo '.main-navigation a, #mobile-menu a, .dropdown-toggle { color:' . $colors['menu_primary_link_color'] . ';}';
+			}
 
-		}
+			// Primary menu link hover color.
+			if ( isset( $colors['menu_primary_link_hover_color'] ) && $colors['menu_primary_link_hover_color'] !== $defaults['menu_primary_link_hover_color'] ) {
 
-		// Primary menu link active color.
-		if ( isset( $colors['menu_primary_link_active_color'] ) && $colors['menu_primary_link_active_color'] !== $defaults['menu_primary_link_active_color'] ) {
-			echo '.main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current_page_ancestor > a:hover, .main-navigation li.current_page_ancestor:hover > a { color:' . $colors['menu_primary_link_active_color'] . ';}';
-		}
+				echo '.main-navigation li:hover > a, .main-navigation li.focus > a { color:' . $colors['menu_primary_link_hover_color'] . ';}';
 
-		// Primary menu link background hover color.
-		if ( isset( $colors['menu_primary_link_background_hover_color'] ) && $colors['menu_primary_link_background_hover_color'] !== $defaults['menu_primary_link_background_hover_color'] ) {
-			echo '.primary-menu > li:hover { background:' . $colors['menu_primary_link_background_hover_color'] . ';}';
-		}
+				// mobile menu styles
+				echo '#mobile-menu a:hover,	#mobile-menu a:focus, #mobile-menu .current-menu-item > a, #mobile-menu .current_page_ancestor > a { color:' . $colors['menu_primary_link_hover_color'] . ';}';
 
-		// Primary menu link background active color.
-		if ( isset( $colors['menu_primary_link_background_active_color'] ) && $colors['menu_primary_link_background_active_color'] !== $defaults['menu_primary_link_background_active_color'] ) {
-			echo '.primary-menu > li.current-menu-item, .primary-menu > li.current_page_ancestor { background:' . $colors['menu_primary_link_background_active_color'] . ';}';
-		}
+				// dropdown toggle styles
+				echo '.dropdown-toggle:hover, .dropdown-toggle:focus { color:' . $colors['menu_primary_link_hover_color'] . ';}';
 
-		// Primary sub-menu background color.
-		if ( isset( $colors['menu_primary_sub_background_color'] ) && $colors['menu_primary_sub_background_color'] !== $defaults['menu_primary_sub_background_color'] ) {
-			echo '.main-navigation ul ul li { background:' . $colors['menu_primary_sub_background_color'] . ';}';
-		}
+			}
 
-		// Primary sub-menu link color.
-		if ( isset( $colors['menu_primary_sub_link_color'] ) && $colors['menu_primary_sub_link_color'] !== $defaults['menu_primary_sub_link_color'] ) {
-			echo '.main-navigation .sub-menu a { color:' . $colors['menu_primary_sub_link_color'] . ';}';
-		}
+			// Primary menu link active color.
+			if ( isset( $colors['menu_primary_link_active_color'] ) && $colors['menu_primary_link_active_color'] !== $defaults['menu_primary_link_active_color'] ) {
+				echo '.main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current_page_ancestor > a:hover, .main-navigation li.current_page_ancestor:hover > a { color:' . $colors['menu_primary_link_active_color'] . ';}';
+			}
 
-		// Primary sub-menu link hover color.
-		if ( isset( $colors['menu_primary_sub_link_hover_color'] ) && $colors['menu_primary_sub_link_hover_color'] !== $defaults['menu_primary_sub_link_hover_color'] ) {
-			echo '.main-navigation .sub-menu li:hover > a, .main-navigation .sub-menu li.focus > a { color:' . $colors['menu_primary_sub_link_hover_color'] . ';}';
-		}
+			// Primary menu link background hover color.
+			if ( isset( $colors['menu_primary_link_background_hover_color'] ) && $colors['menu_primary_link_background_hover_color'] !== $defaults['menu_primary_link_background_hover_color'] ) {
+				echo '.primary-menu > li:hover { background:' . $colors['menu_primary_link_background_hover_color'] . ';}';
+			}
 
-		// Primary sub-menu link active color.
-		if ( isset( $colors['menu_primary_sub_link_active_color'] ) && $colors['menu_primary_sub_link_active_color'] !== $defaults['menu_primary_sub_link_active_color'] ) {
-			echo '.main-navigation .sub-menu .current-menu-item a { color:' . $colors['menu_primary_sub_link_active_color'] . ';}';
-			echo '.main-navigation .sub-menu .current-menu-item a:hover { color:' . $colors['menu_primary_sub_link_active_color'] . ';}';
-		}
+			// Primary menu link background active color.
+			if ( isset( $colors['menu_primary_link_background_active_color'] ) && $colors['menu_primary_link_background_active_color'] !== $defaults['menu_primary_link_background_active_color'] ) {
+				echo '.primary-menu > li.current-menu-item, .primary-menu > li.current_page_ancestor { background:' . $colors['menu_primary_link_background_active_color'] . ';}';
+			}
 
-		// Primary sub-menu background hover color.
-		if ( isset( $colors['menu_primary_sub_background_hover_color'] ) && $colors['menu_primary_sub_background_hover_color'] !== $defaults['menu_primary_sub_background_hover_color'] ) {
-			echo '.main-navigation .sub-menu li:hover { background:' . $colors['menu_primary_sub_background_hover_color'] . ';}';
-		}
+			// Primary sub-menu background color.
+			if ( isset( $colors['menu_primary_sub_background_color'] ) && $colors['menu_primary_sub_background_color'] !== $defaults['menu_primary_sub_background_color'] ) {
+				echo '.main-navigation ul ul li { background:' . $colors['menu_primary_sub_background_color'] . ';}';
+			}
 
-		// Primary sub-menu background active color.
-		if ( isset( $colors['menu_primary_sub_background_active_color'] ) && $colors['menu_primary_sub_background_active_color'] !== $defaults['menu_primary_sub_background_active_color'] ) {
-			echo '.main-navigation .sub-menu .current-menu-item { background:' . $colors['menu_primary_sub_background_active_color'] . ';}';
-			echo '.main-navigation .sub-menu li.hover { background:' . $colors['menu_primary_sub_background_active_color'] . ';}';
-			echo '.main-navigation .sub-menu .current-menu-item { background:' . $colors['menu_primary_sub_background_active_color'] . ';}';
-		}
+			// Primary sub-menu link color.
+			if ( isset( $colors['menu_primary_sub_link_color'] ) && $colors['menu_primary_sub_link_color'] !== $defaults['menu_primary_sub_link_color'] ) {
+				echo '.main-navigation .sub-menu a { color:' . $colors['menu_primary_sub_link_color'] . ';}';
+			}
 
-		// Secondary menu link color.
-		if ( isset( $colors['menu_secondary_link_color'] ) && $colors['menu_secondary_link_color'] !== $defaults['menu_secondary_link_color'] ) {
-			echo '#site-header-secondary-menu a { color:' . $colors['menu_secondary_link_color'] . ';}';
-		}
+			// Primary sub-menu link hover color.
+			if ( isset( $colors['menu_primary_sub_link_hover_color'] ) && $colors['menu_primary_sub_link_hover_color'] !== $defaults['menu_primary_sub_link_hover_color'] ) {
+				echo '.main-navigation .sub-menu li:hover > a, .main-navigation .sub-menu li.focus > a { color:' . $colors['menu_primary_sub_link_hover_color'] . ';}';
+			}
 
-		// Secondary menu link hover color.
-		if ( isset( $colors['menu_secondary_link_hover_color'] ) && $colors['menu_secondary_link_hover_color'] !== $defaults['menu_secondary_link_hover_color'] ) {
-			echo '#site-header-secondary-menu a:hover { color:' . $colors['menu_secondary_link_hover_color'] . ';}';
-		}
+			// Primary sub-menu link active color.
+			if ( isset( $colors['menu_primary_sub_link_active_color'] ) && $colors['menu_primary_sub_link_active_color'] !== $defaults['menu_primary_sub_link_active_color'] ) {
+				echo '.main-navigation .sub-menu .current-menu-item a { color:' . $colors['menu_primary_sub_link_active_color'] . ';}';
+				echo '.main-navigation .sub-menu .current-menu-item a:hover { color:' . $colors['menu_primary_sub_link_active_color'] . ';}';
+			}
 
-		// Mobile cart icon color.
-		if ( isset( $colors['mobile_cart_icon_color'] ) && $colors['mobile_cart_icon_color'] !== $defaults['mobile_cart_icon_color'] ) {
-			echo '.navCart-mobile .navCart-icon { fill:' . $colors['mobile_cart_icon_color'] . ';}';
-		}
+			// Primary sub-menu background hover color.
+			if ( isset( $colors['menu_primary_sub_background_hover_color'] ) && $colors['menu_primary_sub_background_hover_color'] !== $defaults['menu_primary_sub_background_hover_color'] ) {
+				echo '.main-navigation .sub-menu li:hover { background:' . $colors['menu_primary_sub_background_hover_color'] . ';}';
+			}
 
-		// Cart icon color.
-		if ( isset( $colors['cart_icon_color'] ) && $colors['cart_icon_color'] !== $defaults['cart_icon_color'] ) {
-			echo '.navCart-icon { fill:' . $colors['cart_icon_color'] . ';}';
-		}
+			// Primary sub-menu background active color.
+			if ( isset( $colors['menu_primary_sub_background_active_color'] ) && $colors['menu_primary_sub_background_active_color'] !== $defaults['menu_primary_sub_background_active_color'] ) {
+				echo '.main-navigation .sub-menu .current-menu-item { background:' . $colors['menu_primary_sub_background_active_color'] . ';}';
+				echo '.main-navigation .sub-menu li.hover { background:' . $colors['menu_primary_sub_background_active_color'] . ';}';
+				echo '.main-navigation .sub-menu .current-menu-item { background:' . $colors['menu_primary_sub_background_active_color'] . ';}';
+			}
 
-		// Cart count background color.
-		if ( isset( $colors['cart_count_background_color'] ) && $colors['cart_count_background_color'] !== $defaults['cart_count_background_color'] ) {
-			echo '.cart-count { background:' . $colors['cart_count_background_color'] . ';}';
-		}
+			// Secondary menu link color.
+			if ( isset( $colors['menu_secondary_link_color'] ) && $colors['menu_secondary_link_color'] !== $defaults['menu_secondary_link_color'] ) {
+				echo '#site-header-secondary-menu a { color:' . $colors['menu_secondary_link_color'] . ';}';
+			}
 
-		// Cart count color.
-		if ( isset( $colors['cart_count_color'] ) && $colors['cart_count_color'] !== $defaults['cart_count_color'] ) {
-			echo '.cart-count { color:' . $colors['cart_count_color'] . ';}';
-		}
+			// Secondary menu link hover color.
+			if ( isset( $colors['menu_secondary_link_hover_color'] ) && $colors['menu_secondary_link_hover_color'] !== $defaults['menu_secondary_link_hover_color'] ) {
+				echo '#site-header-secondary-menu a:hover { color:' . $colors['menu_secondary_link_hover_color'] . ';}';
+			}
 
-		// Button background color.
-		if ( isset( $colors['button_background_color'] ) && $colors['button_background_color'] !== $defaults['button_background_color'] ) {
-			echo '.button, button, input[type="submit"], #submit { background:' . $colors['button_background_color'] . '; border-color: ' . $colors['button_background_color'] . '; }';
-		}
+			// Mobile cart icon color.
+			if ( isset( $colors['mobile_cart_icon_color'] ) && $colors['mobile_cart_icon_color'] !== $defaults['mobile_cart_icon_color'] ) {
+				echo '.navCart-mobile .navCart-icon { fill:' . $colors['mobile_cart_icon_color'] . ';}';
+			}
 
-		// Button background hover color.
-		if ( isset( $colors['button_background_hover_color'] ) && $colors['button_background_hover_color'] !== $defaults['button_background_hover_color'] ) {
-			echo '.button:hover, .button:focus, button:hover, input[type="submit"]:hover, #submit:hover { background:' . $colors['button_background_hover_color'] . '; border-color: ' . $colors['button_background_hover_color'] . '; }';
-		}
+			// Cart icon color.
+			if ( isset( $colors['cart_icon_color'] ) && $colors['cart_icon_color'] !== $defaults['cart_icon_color'] ) {
+				echo '.navCart-icon { fill:' . $colors['cart_icon_color'] . ';}';
+			}
 
-		// Button text color.
-		if ( isset( $colors['button_text_color'] ) && $colors['button_text_color'] !== $defaults['button_text_color'] ) {
-			echo '.button, button, input[type="submit"], #submit { color:' . $colors['button_text_color'] . '; }';
-			echo '.button:hover, button:hover, input[type="submit"]:hover, #submit:hover { color:' . $colors['button_text_color'] . '; }';
-		}
+			// Cart count background color.
+			if ( isset( $colors['cart_count_background_color'] ) && $colors['cart_count_background_color'] !== $defaults['cart_count_background_color'] ) {
+				echo '.cart-count { background:' . $colors['cart_count_background_color'] . ';}';
+			}
 
-		/**
-		 * Mobile menu
-		 */
+			// Cart count color.
+			if ( isset( $colors['cart_count_color'] ) && $colors['cart_count_color'] !== $defaults['cart_count_color'] ) {
+				echo '.cart-count { color:' . $colors['cart_count_color'] . ';}';
+			}
 
-		// Mobile menu button background color.
- 		if ( isset( $colors['menu_mobile_button_background_color'] ) && $colors['menu_mobile_button_background_color'] !== $defaults['menu_mobile_button_background_color'] ) {
- 			echo '#menu-toggle { background:' . $colors['menu_mobile_button_background_color'] . '; border-color: ' . $colors['menu_mobile_button_background_color'] . '; }';
- 		}
+			// Button background color.
+			if ( isset( $colors['button_background_color'] ) && $colors['button_background_color'] !== $defaults['button_background_color'] ) {
+				echo '.button, button, input[type="submit"], #submit { background:' . $colors['button_background_color'] . '; border-color: ' . $colors['button_background_color'] . '; }';
+			}
 
-		// Mobile menu button background color.
- 		if ( isset( $colors['menu_mobile_button_text_color'] ) && $colors['menu_mobile_button_text_color'] !== $defaults['menu_mobile_button_text_color'] ) {
- 			echo '#menu-toggle { color:' . $colors['menu_mobile_button_text_color'] . '; }';
- 		}
+			// Button background hover color.
+			if ( isset( $colors['button_background_hover_color'] ) && $colors['button_background_hover_color'] !== $defaults['button_background_hover_color'] ) {
+				echo '.button:hover, .button:focus, button:hover, input[type="submit"]:hover, #submit:hover { background:' . $colors['button_background_hover_color'] . '; border-color: ' . $colors['button_background_hover_color'] . '; }';
+			}
 
-		// Mobile menu background color.
- 		if ( isset( $colors['menu_mobile_background_color'] ) && $colors['menu_mobile_background_color'] !== $defaults['menu_mobile_background_color'] ) {
- 			echo '#mobile-menu { background:' . $colors['menu_mobile_background_color'] . '; }';
- 		}
+			// Button text color.
+			if ( isset( $colors['button_text_color'] ) && $colors['button_text_color'] !== $defaults['button_text_color'] ) {
+				echo '.button, button, input[type="submit"], #submit { color:' . $colors['button_text_color'] . '; }';
+				echo '.button:hover, button:hover, input[type="submit"]:hover, #submit:hover { color:' . $colors['button_text_color'] . '; }';
+			}
 
-		// Mobile menu link color.
-		if ( isset( $colors['menu_mobile_link_color'] ) && $colors['menu_mobile_link_color'] !== $defaults['menu_mobile_link_color'] ) {
-			echo '#mobile-menu a, #mobile-menu .current-menu-item > a, .dropdown-toggle { color:' . $colors['menu_mobile_link_color'] . '; }';
+			/**
+			 * Mobile menu
+			 */
 
-		}
+			// Mobile menu button background color.
+	 		if ( isset( $colors['menu_mobile_button_background_color'] ) && $colors['menu_mobile_button_background_color'] !== $defaults['menu_mobile_button_background_color'] ) {
+	 			echo '#menu-toggle { background:' . $colors['menu_mobile_button_background_color'] . '; border-color: ' . $colors['menu_mobile_button_background_color'] . '; }';
+	 		}
 
-		/**
-		 * Site footer
-		 */
+			// Mobile menu button background color.
+	 		if ( isset( $colors['menu_mobile_button_text_color'] ) && $colors['menu_mobile_button_text_color'] !== $defaults['menu_mobile_button_text_color'] ) {
+	 			echo '#menu-toggle { color:' . $colors['menu_mobile_button_text_color'] . '; }';
+	 		}
 
-		// Footer background color.
-		if ( isset( $colors['footer_background_color'] ) && $colors['footer_background_color'] !== $defaults['footer_background_color'] ) {
-			echo '.site-footer { background-color:' . $colors['footer_background_color'] . '; }';
-		}
+			// Mobile menu background color.
+	 		if ( isset( $colors['menu_mobile_background_color'] ) && $colors['menu_mobile_background_color'] !== $defaults['menu_mobile_background_color'] ) {
+	 			echo '#mobile-menu { background:' . $colors['menu_mobile_background_color'] . '; }';
+	 		}
 
-		// Footer text color.
-		if ( isset( $colors['footer_text_color'] ) && $colors['footer_text_color'] !== $defaults['footer_text_color'] ) {
-			echo '.site-footer { color:' . $colors['footer_text_color'] . '; }';
-		}
+			// Mobile menu link color.
+			if ( isset( $colors['menu_mobile_link_color'] ) && $colors['menu_mobile_link_color'] !== $defaults['menu_mobile_link_color'] ) {
+				echo '#mobile-menu a, #mobile-menu .current-menu-item > a, .dropdown-toggle { color:' . $colors['menu_mobile_link_color'] . '; }';
 
-		// Footer link color.
-		if ( isset( $colors['footer_link_color'] ) && $colors['footer_link_color'] !== $defaults['footer_link_color'] ) {
-			echo '.site-footer a { color:' . $colors['footer_link_color'] . '; }';
-		}
+			}
 
-		// Footer link hover color.
-		if ( isset( $colors['footer_link_hover_color'] ) && $colors['footer_link_hover_color'] !== $defaults['footer_link_hover_color'] ) {
-			echo '.site-footer a:hover { color:' . $colors['footer_link_hover_color'] . '; }';
-		}
+			/**
+			 * Site footer
+			 */
 
-		// Footer heading color.
-		if ( isset( $colors['footer_heading_color'] ) && $colors['footer_heading_color'] !== $defaults['footer_heading_color'] ) {
-			echo '.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6 { color:' . $colors['footer_heading_color'] . '; }';
-		}
+			// Footer background color.
+			if ( isset( $colors['footer_background_color'] ) && $colors['footer_background_color'] !== $defaults['footer_background_color'] ) {
+				echo '.site-footer { background-color:' . $colors['footer_background_color'] . '; }';
+			}
 
-		?>
-	</style>
-	<?php endif; ?>
+			// Footer text color.
+			if ( isset( $colors['footer_text_color'] ) && $colors['footer_text_color'] !== $defaults['footer_text_color'] ) {
+				echo '.site-footer { color:' . $colors['footer_text_color'] . '; }';
+			}
 
-<?php }
+			// Footer link color.
+			if ( isset( $colors['footer_link_color'] ) && $colors['footer_link_color'] !== $defaults['footer_link_color'] ) {
+				echo '.site-footer a { color:' . $colors['footer_link_color'] . '; }';
+			}
+
+			// Footer link hover color.
+			if ( isset( $colors['footer_link_hover_color'] ) && $colors['footer_link_hover_color'] !== $defaults['footer_link_hover_color'] ) {
+				echo '.site-footer a:hover { color:' . $colors['footer_link_hover_color'] . '; }';
+			}
+
+			// Footer heading color.
+			if ( isset( $colors['footer_heading_color'] ) && $colors['footer_heading_color'] !== $defaults['footer_heading_color'] ) {
+				echo '.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6 { color:' . $colors['footer_heading_color'] . '; }';
+			}
+
+			?>
+		</style>
+		<?php endif; ?>
+
+	<?php }
+endif;
 add_action( 'wp_head', 'themedd_colors_output_customizer_styling' );
 
 
