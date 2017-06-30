@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: No sidebar
+ * Template Name: Full Width
  */
 
 get_header();
