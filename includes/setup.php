@@ -1,7 +1,5 @@
 <?php
 
-if ( ! function_exists( 'themedd_setup' ) ) :
-
 /**
  * Themedd setup.
  *
@@ -13,74 +11,87 @@ if ( ! function_exists( 'themedd_setup' ) ) :
  *
  * @since 1.0
  */
-function themedd_setup() {
+if ( ! function_exists( 'themedd_setup' ) ) :
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on themedd, use a find and replace
-	 * to change 'themedd' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'themedd', get_template_directory() . '/languages' );
+	function themedd_setup() {
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on themedd, use a find and replace
+		 * to change 'themedd' to the name of your theme in all the template files
+		 */
+		load_theme_textdomain( 'themedd', get_template_directory() . '/languages' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-	// This theme styles the visual editor to resemble the theme style.
-	add_editor_style( 'css/editor-style.css' );
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
 
-	 /*
- 	 * Enable support for Post Thumbnails on posts and pages.
- 	 *
- 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
- 	 */
- 	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'customize-selective-refresh-widgets' );
+		// This theme styles the visual editor to resemble the theme style.
+		add_editor_style( 'css/editor-style.css' );
 
-	set_post_thumbnail_size( 771, 9999 );
+		 /*
+	 	 * Enable support for Post Thumbnails on posts and pages.
+	 	 *
+	 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 	 */
+	 	add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
-	// Register menus
-	register_nav_menus( array(
-		'primary'   => __( 'Primary Menu', 'themedd' ),
-		'secondary' => __( 'Secondary Menu', 'themedd' ),
-		'mobile'    => __( 'Mobile Menu', 'themedd' )
-	) );
+		themedd_set_post_thumbnail_size();
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
- 	add_theme_support( 'html5', array(
- 		'search-form',
- 		'comment-form',
- 		'comment-list',
- 		'gallery',
- 		'caption',
- 	) );
+		// Register menus
+		register_nav_menus( array(
+			'primary'   => __( 'Primary Menu', 'themedd' ),
+			'secondary' => __( 'Secondary Menu', 'themedd' ),
+			'mobile'    => __( 'Mobile Menu', 'themedd' )
+		) );
 
-	/**
-	 * Enable support for custom logo
-	 *
-	 * @since 1.0.0
-	 */
-	add_theme_support( 'custom-logo' );
+		/*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+	 	add_theme_support( 'html5', array(
+	 		'search-form',
+	 		'comment-form',
+	 		'comment-list',
+	 		'gallery',
+	 		'caption',
+	 	) );
 
-	// This theme uses its own gallery styles.
-	add_filter( 'use_default_gallery_style', '__return_false' );
+		/**
+		 * Enable support for custom logo
+		 *
+		 * @since 1.0.0
+		 */
+		add_theme_support( 'custom-logo' );
 
-	// Indicate widget sidebars can use selective refresh in the Customizer.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-}
+		// This theme uses its own gallery styles.
+		add_filter( 'use_default_gallery_style', '__return_false' );
+
+		// Indicate widget sidebars can use selective refresh in the Customizer.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+	}
 endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
+
+/**
+ * Set the post thumbnail size (aka featured image)
+ *
+ * @since 1.0.0
+ */
+if ( ! function_exists( 'themedd_set_post_thumbnail_size' ) ) :
+	function themedd_set_post_thumbnail_size() {
+		set_post_thumbnail_size( 771, 9999 );
+	}
+endif;
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
