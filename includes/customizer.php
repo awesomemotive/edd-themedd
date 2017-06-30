@@ -67,7 +67,7 @@ function themedd_header_style() {
 	$text_color = get_header_textcolor();
 
 	// Get the default colors to compare against.
-	$defaults = themedd_colors_defaults();
+	$defaults = themedd_customize_color_defaults();
 
 	// If no custom color for text is set, let's bail.
 	if ( display_header_text() && $text_color === get_theme_support( 'custom-header', 'default-text-color' ) ) {
@@ -106,6 +106,8 @@ endif;
 function themedd_customize_preview_js() {
 	wp_enqueue_script( 'themedd-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview' ), THEMEDD_VERSION, true );
 
+	wp_localize_script( 'themedd-customize-preview', 'defaults', themedd_customize_color_defaults() );
+
 	wp_enqueue_style( 'themedd-customize-preview', get_theme_file_uri( '/assets/css/customize-preview.css' ), array(), THEMEDD_VERSION );
 }
 add_action( 'customize_preview_init', 'themedd_customize_preview_js' );
@@ -115,48 +117,50 @@ add_action( 'customize_preview_init', 'themedd_customize_preview_js' );
  *
  * @since 1.0.0
  */
-function themedd_colors_defaults() {
+if ( ! function_exists( 'themedd_customize_color_defaults' ) ) :
+	function themedd_customize_color_defaults() {
 
-	$defaults = array(
-		'header_textcolor'                          => '#222222',
-		'site_title_color'                          => '#222222',
-		'menu_primary_sub_background_hover_color'   => '',
-		'menu_primary_sub_background_color'         => '#f5f5f5',
-		'link_color'                                => '#448fd5',
-		'menu_primary_sub_background_active_color'  => '',
-		'menu_primary_sub_link_color'               => '#787878',
-		'menu_primary_sub_link_hover_color'         => '#222222',
-		'menu_primary_sub_link_active_color'        => '#222222',
-		'header_background_color'                   => '',
-		'menu_secondary_link_color'                 => '#696969',
-		'menu_secondary_link_hover_color'           => '#448fd5',
-		'menu_primary_background_color'             => '',
-		'menu_primary_link_color'                   => '#222222',
-		'menu_primary_link_hover_color'             => '#448fd5',
-		'menu_primary_link_background_hover_color'  => '',
-		'menu_primary_link_background_active_color' => '',
-		'menu_primary_link_active_color'            => '#448fd5',
-		'mobile_cart_icon_color'                    => '#222222',
-		'tagline_color'                             => '#222222',
-		'cart_icon_color'                           => '#222222',
-		'cart_count_background_color'               => '#448fd5',
-		'button_background_color'                   => '#222222',
-		'button_background_hover_color'             => '#448fd5',
-		'button_text_color'                         => '#ffffff',
-		'menu_mobile_button_background_color'       => '#222222',
-		'menu_mobile_background_color'              => '#ffffff',
-		'menu_mobile_link_color'                    => '#222222',
-		'menu_mobile_button_text_color'             => '#ffffff',
-		'cart_count_color'                          => '#ffffff',
-		'footer_background_color'                   => '#ffffff',
-		'footer_text_color'                         => '',
-		'footer_link_color'                         => '',
-		'footer_heading_color'                      => '',
-		'footer_link_hover_color'                   => '',
-	);
+		$defaults = array(
+			'header_textcolor'                          => '#222222',
+			'site_title_color'                          => '#222222',
+			'menu_primary_sub_background_hover_color'   => '',
+			'menu_primary_sub_background_color'         => '#f5f5f5',
+			'link_color'                                => '#448fd5',
+			'menu_primary_sub_background_active_color'  => '',
+			'menu_primary_sub_link_color'               => '#787878',
+			'menu_primary_sub_link_hover_color'         => '#222222',
+			'menu_primary_sub_link_active_color'        => '#222222',
+			'header_background_color'                   => '',
+			'menu_secondary_link_color'                 => '#696969',
+			'menu_secondary_link_hover_color'           => '#448fd5',
+			'menu_primary_background_color'             => '',
+			'menu_primary_link_color'                   => '#222222',
+			'menu_primary_link_hover_color'             => '#448fd5',
+			'menu_primary_link_background_hover_color'  => '',
+			'menu_primary_link_background_active_color' => '',
+			'menu_primary_link_active_color'            => '#448fd5',
+			'mobile_cart_icon_color'                    => '#222222',
+			'tagline_color'                             => '#222222',
+			'cart_icon_color'                           => '#222222',
+			'cart_count_background_color'               => '#448fd5',
+			'button_background_color'                   => '#222222',
+			'button_background_hover_color'             => '#448fd5',
+			'button_text_color'                         => '#ffffff',
+			'menu_mobile_button_background_color'       => '#222222',
+			'menu_mobile_background_color'              => '#ffffff',
+			'menu_mobile_link_color'                    => '#222222',
+			'menu_mobile_button_text_color'             => '#ffffff',
+			'cart_count_color'                          => '#ffffff',
+			'footer_background_color'                   => '#ffffff',
+			'footer_text_color'                         => '',
+			'footer_link_color'                         => '',
+			'footer_heading_color'                      => '',
+			'footer_link_hover_color'                   => '',
+		);
 
-	return $defaults;
-}
+		return $defaults;
+	}
+endif;
 
 /**
  * Adds postMessage support for site title and description for the Customizer.
@@ -168,7 +172,7 @@ function themedd_colors_defaults() {
 function themedd_customize_register( $wp_customize ) {
 
 	// Default colors.
-	$defaults = themedd_colors_defaults();
+	$defaults = themedd_customize_color_defaults();
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -922,7 +926,7 @@ function themedd_colors_output_customizer_styling() { ?>
 		$colors = get_theme_mod( 'colors' );
 
 		// Get the default colors to compare against.
-		$defaults = themedd_colors_defaults();
+		$defaults = themedd_customize_color_defaults();
 
 		if ( $colors ) {
 			$colors = array_filter( $colors );
