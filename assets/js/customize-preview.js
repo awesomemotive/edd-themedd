@@ -50,39 +50,6 @@
 		} );
 	} );
 
-	// Default colors.
-	var defaults = {
-		'tagline_color' : '#a2a2a2',
-		'link_color' : '#448fd5',
-		'header_background_color' : '#ffffff',
-		'menu_primary_background_color' : 'transparent',
-		'menu_primary_link_color' : '#222222',
-		'menu_primary_link_hover_color' : '#448fd5',
-		'menu_primary_link_active_color' : '#448fd5',
-		'menu_primary_sub_background_color' : '#ffffff',
-		'menu_primary_sub_link_color' : '#787878',
-		'menu_secondary_link_color' : '#787878',
-		'cart_icon_color' : '#222222',
-		'cart_count_background_color' : '#448fd5',
-		'cart_count_color' : '#ffffff',
-		'button_background_color' : '#222222',
-		'button_text_color' : '#ffffff',
-		'button_background_hover_color' : '#448fd5',
-
-		// Mobile menu
-		'menu_mobile_button_background_color': '#222222',
-		'menu_mobile_button_text_color': '#ffffff',
-		'menu_mobile_background_color' : 'transparent',
-		'menu_mobile_link_color' : '#222222',
-
-		// Footer
-		'footer_background_color': '#ffffff',
-		'footer_text_color': '',
-		'footer_heading_color': '',
-		'footer_link_color': '',
-		'footer_link_hover_color': '',
-	};
-
 	/**
 	 * General
 	 */
