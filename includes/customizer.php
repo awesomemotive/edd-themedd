@@ -258,6 +258,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'colors[menu_primary_background_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_primary_background_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -329,6 +330,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'colors[menu_primary_link_background_hover_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_primary_link_background_hover_color']
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -346,6 +348,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'colors[menu_primary_link_background_active_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_primary_link_background_active_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -385,6 +388,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'colors[menu_primary_sub_background_hover_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_primary_sub_background_hover_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -402,6 +406,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'colors[menu_primary_sub_background_active_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_primary_sub_background_active_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -473,6 +478,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'colors[header_background_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['header_background_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
