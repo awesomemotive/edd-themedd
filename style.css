@@ -1089,7 +1089,7 @@ button,
 #secondary {
   padding: 0;
 }
-.full-width #primary {
+.no-sidebar #primary {
   width: 100%;
 }
 .content-wrapper {
@@ -2721,7 +2721,7 @@ span.padlock {
 #edd_agree_to_terms {
   margin-right: 0.5rem;
 }
-.full-width .edd_empty_cart {
+.no-sidebar .edd_empty_cart {
   text-align: center;
   display: block;
 }

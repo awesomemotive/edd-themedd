@@ -9,11 +9,10 @@
 }
 .fes-vendor-menu ul li {
   position: relative;
-  display: inline-block;
   margin-bottom: 0;
 }
 .fes-vendor-menu ul a {
-  display: inline-block;
+  display: block;
   margin-right: 0.5rem;
   font-size: 1rem;
   color: #222;
@@ -179,6 +178,12 @@ fieldset.fes-submit {
 }
 .fes-fields .fes-feat-image-upload .button {
   display: inline-block;
+}
+@media only screen and (max-width: 991px) {
+  .fes-vendor-menu ul {
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
 }
 @media only screen and (min-width: 768px) {
   .fes-login-registration-combo {

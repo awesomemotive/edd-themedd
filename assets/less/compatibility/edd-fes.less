@@ -21,12 +21,12 @@
 
 	li {
 		position: relative;
-		display: inline-block;
 		margin-bottom: 0;
+
 	}
 
 	a {
-        display: inline-block;
+		display: block;
 		margin-right: 0.5rem;
 		font-size: 1rem;
 		color: @account-tab-link-color;
@@ -358,6 +358,13 @@ fieldset.fes-submit {
 		width: 48%;
 	}
 
+}
+
+.media-mixin(@break) when ( @break = @nav-sm-max ) {
+	.fes-vendor-menu ul {
+		line-height: 2;
+		margin-bottom: 2rem;
+	}
 }
 
 .media-mixin(@break) when (@break = @screen-lg-min) {
