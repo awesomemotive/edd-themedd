@@ -92,13 +92,14 @@ endif;
  * @since 1.0.0
  */
 function themedd_edd_download_columns() {
-	// Default to 3 like the [downloads] shortcode.
-	return apply_filters( 'themedd_edd_download_columns', 3 );
+	$options = themedd_download_grid_options();
+	// Defaults to 3 downloads, like the [downloads] shortcode.
+	return apply_filters( 'themedd_edd_download_columns', $options['columns'] );
 }
 
 /**
  * Download navigation
- * This is used by archive-download.php
+ * This is used by archive-download.php, taxonomy-download_category.php, taxonomy-download_tag.php
  *
  * @since 1.0.0
  */
@@ -106,6 +107,13 @@ if ( ! function_exists( 'themedd_edd_download_nav' ) ) :
 	function themedd_edd_download_nav() {
 
 		global $wp_query;
+
+		$options = themedd_download_grid_options();
+
+		// Exit early if pagination has been set to false.
+		if ( true !== $options['pagination'] ) {
+			return;
+		}
 
 		$big          = 999999;
 		$search_for   = array( $big, '#038;' );

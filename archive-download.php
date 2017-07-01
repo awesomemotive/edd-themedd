@@ -3,7 +3,8 @@
  * Downloads archive page.
  * This is used by default unless EDD_DISABLE_ARCHIVE is set to true.
  */
-get_header(); ?>
+get_header();
+?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 

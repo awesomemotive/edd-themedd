@@ -3,6 +3,33 @@
  * Download grid functions
  */
 
+
+
+/**
+ * Download grid options
+ * Used by archive-download.php, taxonomy-download_category.php, taxonomy-download_tag.php
+ *
+ * @since 1.0.0
+ *
+ * @return array $options Download grid options
+ */
+function themedd_download_grid_options() {
+
+	$options = array(
+		'excerpt'      => true,
+		'full_content' => false,
+		'price'        => true,
+		'buy_button'   => true,
+		'columns'      => 3,
+		'thumbnails'   => true,
+		'pagination'   => true,
+		'number'       => 9,
+	);
+
+	return apply_filters( 'themedd_download_grid_options', $options );
+
+}
+
 /**
  * The download footer
  *
@@ -11,6 +38,8 @@
  * @since 1.0.0
  */
 function themedd_edd_download_footer( $atts = array() ) {
+
+	$options = themedd_download_grid_options();
 
 	/**
 	 * Return early if:
@@ -21,6 +50,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 	 */
 	if ( ! (
 		isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ||
+		true === $options['buy_button'] ||
 		( 'after' === themedd_edd_download_meta_position() && themedd_edd_has_download_meta() ) ||
 		is_post_type_archive( 'download' ) ||
 		is_tax( 'download_category' ) ||
@@ -38,9 +68,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 		 */
 		if (
 			( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) ||
-			is_post_type_archive( 'download' ) ||
-			is_tax( 'download_category' ) ||
-			is_tax( 'download_tag' )
+			true === $options['buy_button']
 		) {
 			edd_get_template_part( 'shortcode', 'content-cart-button' );
 		}

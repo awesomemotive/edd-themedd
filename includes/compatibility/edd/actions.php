@@ -50,8 +50,10 @@ add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' )
 if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
 	function themedd_edd_pre_get_posts( $query ) {
 
-		// Default the number of downloads to 9, like EDD's [downloads] shortcode
-		$downloads_per_page = apply_filters( 'themedd_edd_downloads_per_page', 9 );
+		$options = themedd_download_grid_options();
+
+		// Defaults to 9 downloads like EDD's [downloads] shortcode.
+		$downloads_per_page = $options['number'];
 
 		// Bail if in the admin or we're not working with the main WP query.
 		if ( is_admin() || ! $query->is_main_query() ) {
