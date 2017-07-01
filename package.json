@@ -12,9 +12,10 @@
     "grunt-cli": "latest"
   },
   "devDependencies": {
-    "grunt-banner": "^0.2.3",
-    "grunt-contrib-concat": "latest",
     "grunt-autoprefixer": "latest",
+    "grunt-banner": "^0.2.3",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
