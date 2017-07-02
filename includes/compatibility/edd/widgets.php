@@ -346,7 +346,7 @@ class Themedd_Download_Details extends WP_Widget {
 			/**
 			 * Version.
 			 */
-			if ( edd_download_meta_has_edd_sl_enabled() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
+			if ( function_exists( 'edd_download_meta_has_edd_sl_enabled' ) && edd_download_meta_has_edd_sl_enabled() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
 				// Get version number from EDD Software Licensing.
 				$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
 			} elseif ( themedd_is_edd_download_meta_active() ) {
