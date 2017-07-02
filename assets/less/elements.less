@@ -83,13 +83,15 @@ td {
 	}
 }
 
-.box {
+.box,
+.comment-respond {
     padding: @box-padding;
     border: @box-border;
     background: @box-background-color;
 }
 
 // remove any bottom margin from paragraph tags included inside boxes
-.box p:last-of-type:not(:first-child) {
+.box p:last-of-type:not(:first-child),
+.comment-respond p:last-of-type:not(:first-child) {
 	margin-bottom: 0;
 }
