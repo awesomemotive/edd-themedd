@@ -71,6 +71,16 @@ function themedd_is_edd_points_and_rewards_active() {
 }
 
 /**
+ * Is EDD Reviews active?
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function themedd_is_edd_reviews_active() {
+	return class_exists( 'EDD_Reviews' );
+}
+
+/**
  * Is AffiliateWP active?
  *
  * @since 1.0.0

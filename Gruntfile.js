@@ -59,6 +59,7 @@ module.exports = function(grunt) {
 					"style.css": "assets/less/style.less",
 					"assets/css/affiliatewp.css": "assets/less/compatibility/affiliatewp.less",
 					"assets/css/edd-fes.css": "assets/less/compatibility/edd-fes.less",
+					"assets/css/edd-reviews.css": "assets/less/compatibility/edd-reviews.less",
 					"assets/css/edd-points-and-rewards.css": "assets/less/compatibility/edd-points-and-rewards.less",
 				}
 			},
@@ -70,6 +71,7 @@ module.exports = function(grunt) {
 					"style.min.css": "assets/less/style.less",
 					"assets/css/affiliatewp.min.css": "assets/less/compatibility/affiliatewp.less",
 					"assets/css/edd-fes.min.css": "assets/less/compatibility/edd-fes.less",
+					"assets/css/edd-reviews.min.css": "assets/less/compatibility/edd-reviews.less",
 					"assets/css/edd-points-and-rewards.min.css": "assets/less/compatibility/edd-points-and-rewards.less"
 				}
 			}
@@ -85,6 +87,8 @@ module.exports = function(grunt) {
 					'assets/css/affiliatewp.min.css': 'assets/css/affiliatewp.min.css',
 					'assets/css/edd-fes.css': 'assets/css/edd-fes.css',
 					'assets/css/edd-fes.min.css': 'assets/css/edd-fes.min.css',
+					"assets/css/edd-reviews.css": 'assets/css/edd-reviews.css',
+					"assets/css/edd-reviews.min.css": 'assets/css/edd-reviews.min.css',
 					'assets/css/edd-points-and-rewards.css': 'assets/css/edd-points-and-rewards.css',
 					'assets/css/edd-points-and-rewards.min.css': 'assets/css/edd-points-and-rewards.min.css'
 				},
