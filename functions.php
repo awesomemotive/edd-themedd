@@ -22,6 +22,14 @@ if ( ! defined( 'THEMEDD_VERSION' ) ) {
 	define( 'THEMEDD_VERSION', '1.0.0' );
 }
 
+if ( ! defined( 'THEMEDD_AUTHOR' ) ) {
+	define( 'THEMEDD_AUTHOR', 'Easy Digital Downloads' );
+}
+
+if ( ! defined( 'THEMEDD_NAME' ) ) {
+	define( 'THEMEDD_NAME', 'Themedd' );
+}
+
 if ( ! defined( 'THEMEDD_INCLUDES_DIR' ) ) {
 	define( 'THEMEDD_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' );
 }
@@ -46,3 +54,11 @@ require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'actions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'filters.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'customizer.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility.php' );
+
+/**
+ * Admin page
+ */
+function themedd_updater() {
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . '/updater/theme-updater.php' );
+}
+add_action( 'after_setup_theme', 'themedd_updater' );
