@@ -1325,12 +1325,14 @@ th,
 td {
   padding: 0.5rem;
 }
-.box {
+.box,
+.comment-respond {
   padding: 2rem;
   border: 2px solid #f4f4f4;
   background: #fcfcfc;
 }
-.box p:last-of-type:not(:first-child) {
+.box p:last-of-type:not(:first-child),
+.comment-respond p:last-of-type:not(:first-child) {
   margin-bottom: 0;
 }
 /* Posts and Pages */
@@ -1587,7 +1589,7 @@ legend {
 label {
   text-align: left;
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   cursor: pointer;
 }
 label input[type="checkbox"] {
