@@ -127,3 +127,6 @@
 .edd-review-review-helpful p + p {
   font-weight: normal;
 }
+.single-download .comments-area .no-comments {
+  display: none;
+}
