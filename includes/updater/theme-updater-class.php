@@ -26,7 +26,7 @@ class Themedd_Updater {
 	function __construct( $args = array(), $strings = array() ) {
 
 		$defaults = array(
-			'remote_api_url' => 'https://easydigitaldownloads.com',
+			'remote_api_url' => 'http://easydigitaldownloads.com',
 			'request_data'   => array(),
 			'theme_slug'     => get_template(), // use get_stylesheet() for child theme updates
 			'item_name'      => '',

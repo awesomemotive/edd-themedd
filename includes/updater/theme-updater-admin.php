@@ -29,7 +29,7 @@ class Themedd_Updater_Admin {
 	function __construct( $config = array(), $strings = array() ) {
 
 		$config = wp_parse_args( $config, array(
-			'remote_api_url' => 'https://easydigitaldownloads.com',
+			'remote_api_url' => 'http://easydigitaldownloads.com',
 			'theme_slug' => get_template(),
 			'item_name' => '',
 			'license' => '',
