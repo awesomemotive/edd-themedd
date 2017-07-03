@@ -22,8 +22,6 @@ add_filter( 'edd_get_cart_quantity', 'themedd_edd_get_cart_quantity', 10, 2 );
 */
 function themedd_wp_nav_menu_items( $items, $args ) {
 
-	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
-
 	if ( 'primary_menu' == themedd_edd_cart_link_position() ) {
 		$items .= themedd_edd_cart_link();
 	}
