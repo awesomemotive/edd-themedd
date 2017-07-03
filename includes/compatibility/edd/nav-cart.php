@@ -77,6 +77,7 @@ add_filter( 'wp_nav_menu_items', 'themedd_wp_nav_menu_mobile_items', 10, 2 );
 
 /**
  * Determine where the cart link should be displayed
+ * By default it is shown in the secondary menu.
  *
  * @since 1.0.0
  */
@@ -145,21 +146,23 @@ function themedd_edd_cart_link( $args = array() ) {
 					echo '<span class="navCart-textBefore">' . $args['text_before'] . '</span>';
 				}
 
-				echo '<span class="navCart-cartQuantityAndTotal">';
+				if ( 'none' !== themedd_edd_display_cart_options() ) {
+					echo '<span class="navCart-cartQuantityAndTotal">';
 
-				if ( 'all' === themedd_edd_display_cart_options() || 'item_quantity' === themedd_edd_display_cart_options() ) {
-					echo themedd_edd_cart_quantity();
+					if ( 'all' === themedd_edd_display_cart_options() || 'item_quantity' === themedd_edd_display_cart_options() ) {
+						echo themedd_edd_cart_quantity();
+					}
+
+					if ( 'all' === themedd_edd_display_cart_options() || 'cart_total' === themedd_edd_display_cart_options() ) {
+						echo themedd_edd_cart_total();
+					}
+
+					if ( $args['text_after'] ) {
+						echo '<span class="navCart-textAfter">' . $args['text_after'] . '</span>';
+					}
+
+					echo '</span>';
 				}
-
-				if ( 'all' === themedd_edd_display_cart_options() || 'cart_total' === themedd_edd_display_cart_options() ) {
-					echo themedd_edd_cart_total();
-				}
-
-				if ( $args['text_after'] ) {
-					echo '<span class="navCart-textAfter">' . $args['text_after'] . '</span>';
-				}
-
-				echo '</span>';
 
 				?>
 

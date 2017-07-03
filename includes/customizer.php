@@ -1189,7 +1189,7 @@ function themedd_customize_partial_cart_options() {
 		echo themedd_edd_cart_total();
 	} elseif ( 'item_quantity' === themedd_edd_display_cart_options() ) {
 		echo themedd_edd_cart_quantity();
-	} else {
+	} elseif( 'cart_total' === themedd_edd_display_cart_options() ) {
 		echo themedd_edd_cart_total();
 	}
 
@@ -1237,6 +1237,7 @@ function themedd_customize_cart_options() {
 	return array(
 		'item_quantity' => __( 'Display item quantity only', 'themedd' ),
 		'cart_total'    => __( 'Display cart total only', 'themedd' ),
-		'all'           => __( 'Display item count and cart total', 'themedd' )
+		'all'           => __( 'Display item count and cart total', 'themedd' ),
+		'none'          => __( 'Display nothing', 'themedd' )
 	);
 }
