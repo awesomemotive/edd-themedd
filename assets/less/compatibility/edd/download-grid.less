@@ -56,10 +56,9 @@ h3.edd_download_title {
 // Download meta, shown in the download grid.
 // Contains the price (optional) and download author (optional)
 .eddDownloadMeta {
-
-//	margin-bottom: 1.62rem; // Add margin when at top, but not bottom. Perhaps eddDownloadMeta-top and eddDownloadMeta-bottom
 	font-size: 0.875rem;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 
@@ -211,6 +210,7 @@ span.edd_price {
 	}
 
 }
+
 // Downloads shown on single downloads.
 // This relates to downloads shown from either the Cross-sell/Upsell or Recommended Product extensions.
 .single-download {
@@ -256,6 +256,7 @@ span.edd_price {
 	.edd_download_columns_3 {
 		width: auto;
 	}
+
 }
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
@@ -285,12 +286,13 @@ span.edd_price {
 	}
 
 	.edd_download_columns_5 .edd_download {
-		width: 20%;
+		width: 33.333333333%;
 	}
 
 }
 
 .media-mixin(@break) when (@break = @screen-md-min) {
+	
 	.edd_download_columns_4 .edd_download {
 		width: 25%;
 	}
@@ -303,4 +305,13 @@ span.edd_price {
 	.edd_download_columns_2 .edd_download {
 		width: 50%;
 	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-lg-min) {
+
+	.edd_download_columns_5 .edd_download {
+		width: 20%;
+	}
+
 }

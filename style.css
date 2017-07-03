@@ -2422,6 +2422,9 @@ h3.edd_download_title {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -3960,7 +3963,7 @@ label[for*="rcp_discount_code"] {
     width: 50%;
   }
   .edd_download_columns_5 .edd_download {
-    width: 20%;
+    width: 33.333333333%;
   }
   #edd-discount {
     width: 70%;
@@ -4789,5 +4792,8 @@ label[for*="rcp_discount_code"] {
   }
   .mb-lg-12 {
     margin-bottom: 12rem;
+  }
+  .edd_download_columns_5 .edd_download {
+    width: 20%;
   }
 }
