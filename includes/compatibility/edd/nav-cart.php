@@ -312,6 +312,7 @@ function themedd_edd_display_cart_icon() {
  */
 function themedd_edd_display_cart_options() {
 	$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
+	$cart_options = isset( $edd_theme_options['cart_options'] ) ? $edd_theme_options['cart_options'] : 'all';
 
-	return isset( $edd_theme_options['cart_options'] ) ? $edd_theme_options['cart_options'] : 'all';
+	return apply_filters( 'themedd_edd_display_cart_options', $cart_options );
 }
