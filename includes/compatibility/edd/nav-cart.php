@@ -38,8 +38,6 @@ add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
 */
 function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 
-	$items = apply_filters( 'themedd_wp_nav_menu_items', $items );
-
 	$mobile_cart_link = themedd_edd_cart_link(
 
 		apply_filters( 'themedd_edd_mobile_menu', array(
@@ -67,6 +65,8 @@ function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 		}
 
 	}
+
+	$items = apply_filters( 'themedd_wp_nav_menu_items', $items, $args );
 
 	return $items;
 
