@@ -3115,7 +3115,7 @@ input[readonly] {
 #edd_commissions_export select {
   vertical-align: middle;
 }
-#edd_commissions_export .button {
+#edd_user_commissions .button {
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
 }
