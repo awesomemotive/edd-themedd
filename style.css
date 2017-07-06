@@ -2780,6 +2780,9 @@ span.padlock {
 #edd_purchase_form_wrap select {
   width: 100%;
 }
+#edd_purchase_form_wrap .edd-select-small {
+  width: auto;
+}
 #edd_show_terms + .edd-terms-agreement {
   margin-top: 0.5rem;
 }
