@@ -2748,6 +2748,8 @@ span.padlock {
 #edd_purchase_form #edd_cc_address,
 #edd_cc_fields,
 #edd_terms_agreement,
+#edd_simple_shipping_fields,
+#edd_simple_shipping_diff_address,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
   padding: 1rem;
@@ -2766,9 +2768,14 @@ span.padlock {
 #edd_purchase_form #edd_cc_address p:last-child,
 #edd_cc_fields p:last-child,
 #edd_terms_agreement p:last-child,
+#edd_simple_shipping_fields p:last-child,
+#edd_simple_shipping_diff_address p:last-child,
 #edd-stripe-manage-cards > fieldset p:last-child,
 #edd_payment_mode_select p:last-child {
   margin-bottom: 0.5rem;
+}
+#edd_simple_shipping_diff_address label {
+  margin-bottom: 0;
 }
 #edd_purchase_form_wrap select {
   width: 100%;
@@ -3981,6 +3988,8 @@ label[for*="rcp_discount_code"] {
   #edd_cc_fields,
   #edd_terms_agreement,
   #edd-stripe-manage-cards > fieldset,
+  #edd_simple_shipping_fields,
+  #edd_simple_shipping_diff_address,
   #edd_payment_mode_select {
     padding: 2rem;
   }

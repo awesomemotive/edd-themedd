@@ -157,6 +157,8 @@ span.padlock {
 #edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
 #edd_cc_fields,
 #edd_terms_agreement,
+#edd_simple_shipping_fields,
+#edd_simple_shipping_diff_address,
 #edd-stripe-manage-cards > fieldset,
 #edd_payment_mode_select {
     padding: 1rem;
@@ -167,6 +169,11 @@ span.padlock {
     p:last-child {
         margin-bottom: 0.5rem;
     }
+}
+
+// Simple shipping
+#edd_simple_shipping_diff_address label {
+	margin-bottom: 0;
 }
 
 // Force select menus to be 100% width or they cause scrollbars
@@ -194,6 +201,8 @@ span.padlock {
 	#edd_cc_fields,
 	#edd_terms_agreement,
 	#edd-stripe-manage-cards > fieldset,
+	#edd_simple_shipping_fields,
+	#edd_simple_shipping_diff_address,
 	#edd_payment_mode_select {
 		padding: 2rem;
 	}
