@@ -115,6 +115,9 @@ fieldset.fes-submit {
   padding: 0.5rem 1rem;
   font-weight: bold;
 }
+.fes-login-registration-notice {
+  text-align: center;
+}
 #fes-save-as-draft {
   margin-right: 1rem;
 }
