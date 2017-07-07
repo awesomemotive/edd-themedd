@@ -1,3 +1,9 @@
+#fes-submission-form-title,
+#fes-profile-form-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.62rem;
+}
 .fes-vendor-contact-form {
   padding: 2rem;
   border: 2px solid #f4f4f4;
