@@ -40,11 +40,22 @@ class Themedd_EDD_Frontend_Submissions {
 		// Load styles.
 		if (
 			fes_is_frontend() &&
-			( is_page( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ) || is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) )
+			( is_page( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ) || $this->is_vendor_page() )
 		) {
 			wp_enqueue_style( 'themedd-edd-fes' );
 		}
 
+	}
+
+	/**
+	 * Determine if the current page is the vendor page
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return true if pag eis vendor page, false otherwise.
+	 */
+	public function is_vendor_page() {
+		return is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) );
 	}
 
 	/**
@@ -57,11 +68,15 @@ class Themedd_EDD_Frontend_Submissions {
 		global $post;
 
 		if ( isset( $_GET['task'] ) && 'edit-product' === $_GET['task'] ) {
-			$classes[] = 'fes-edit-download';
+			$classes[] = 'edd-fes-edit-download';
 		}
 
 		if ( isset( $_GET['task'] ) && 'edit-order' === $_GET['task'] ) {
-			$classes[] = 'fes-edit-order';
+			$classes[] = 'edd-fes-edit-order';
+		}
+
+		if ( $this->is_vendor_page() ) {
+			$classes[] = 'edd-fes-vendor-page';
 		}
 
 		return $classes;
@@ -94,7 +109,7 @@ class Themedd_EDD_Frontend_Submissions {
 	 */
 	public function vendor_page( $template ) {
 
-		if ( is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) ) {
+		if ( $this->is_vendor_page() ) {
 
 			// Provide the path to our new template.
 			// This template can be overridden from a child theme.
