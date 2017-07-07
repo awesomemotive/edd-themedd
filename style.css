@@ -3125,10 +3125,6 @@ input[readonly] {
 #edd_commissions_export select {
   vertical-align: middle;
 }
-#edd_user_commissions .button {
-  font-size: 0.875rem;
-  padding: 0.25rem 0.75rem;
-}
 .edd-stripe-submit-update {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -3245,6 +3241,10 @@ a.delete {
 .edd-item-quantity {
   width: 4rem;
   margin-bottom: 0.5rem;
+}
+.edd-select ~ .button {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
 }
 /* Restrict Content Pro */
 #rcp_subscription_levels {

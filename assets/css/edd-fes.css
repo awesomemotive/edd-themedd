@@ -244,16 +244,14 @@ fieldset.fes-submit {
     max-width: 16.667%;
   }
   .fes-vendor-dashboard {
-    -webkit-flex-basis: 83.333%;
-        -ms-flex-preferred-size: 83.333%;
-            flex-basis: 83.333%;
-    max-width: 83.333%;
-  }
-  .fes-vendor-dashboard {
     border: 2px solid #f4f4f4;
     border-left: none;
     min-height: 50rem;
     padding: 2rem;
+    -webkit-flex-basis: 83.333%;
+        -ms-flex-preferred-size: 83.333%;
+            flex-basis: 83.333%;
+    max-width: 83.333%;
   }
   .fes-vendor-menu ul a {
     display: block;
