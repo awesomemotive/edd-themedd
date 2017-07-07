@@ -29,6 +29,17 @@ $vendor_id = absint( fes_get_vendor()->ID );
 
 			<?php
 			/**
+			 * Vendor name
+			 */
+			$user_info    = get_userdata( $vendor_id );
+			$display_name = $user_info->display_name;
+			?>
+			<div class="downloadAuthor-name">
+				<p><?php echo $display_name; ?></p>
+			</div>
+			
+			<?php
+			/**
 			 * Vendor's description.
 			 */
 			$description = get_the_author_meta( 'description', $vendor_id );
