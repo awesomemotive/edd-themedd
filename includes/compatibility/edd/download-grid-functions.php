@@ -68,7 +68,10 @@ function themedd_edd_download_footer( $atts = array() ) {
 		 */
 		if (
 			( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) ||
-			true === $options['buy_button']
+			( true === $options['buy_button'] ) &&
+			is_post_type_archive( 'download' ) ||
+			is_tax( 'download_category' ) ||
+			is_tax( 'download_tag' )
 		) {
 			edd_get_template_part( 'shortcode', 'content-cart-button' );
 		}
