@@ -155,12 +155,14 @@ function themedd_edd_cart_link( $args = array() ) {
 						echo themedd_edd_cart_total();
 					}
 
-					if ( $args['text_after'] ) {
-						echo '<span class="navCart-textAfter">' . $args['text_after'] . '</span>';
-					}
-
 					echo '</span>';
+
 				}
+
+				if ( $args['text_after'] ) {
+					echo '<span class="navCart-textAfter">' . $args['text_after'] . '</span>';
+				}
+
 
 				?>
 
