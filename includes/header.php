@@ -144,13 +144,14 @@ function themedd_primary_menu() {
 
 	    	<nav id="site-navigation" class="main-navigation" role="navigation">
 	            <?php
-	    			wp_nav_menu(
-	    				apply_filters( 'themedd_primary_menu', array(
-	    					'menu_class'     => 'primary-menu menu',
-	    					'theme_location' => 'primary',
-	    					'container'      => '',
-	    				))
-	    			);
+				wp_nav_menu(
+					apply_filters( 'themedd_primary_menu', array(
+						'menu_id'        => 'primary-menu',
+						'menu_class'     => 'primary-menu menu',
+						'theme_location' => 'primary',
+						'container'      => '',
+					))
+				);
 	    		?>
 	    	</nav>
 
