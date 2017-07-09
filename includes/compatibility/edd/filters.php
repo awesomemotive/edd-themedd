@@ -237,13 +237,13 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					edd_get_template_part( 'shortcode', 'content-title' );
 					do_action( 'edd_download_after_title' );
 
-					if ( $atts['excerpt'] == 'yes' && $atts['full_content'] != 'yes' ) {
+					if ( 'yes' === $atts['excerpt'] && 'yes' !== $atts['full_content'] ) :
 						edd_get_template_part( 'shortcode', 'content-excerpt' );
 						do_action( 'edd_download_after_content' );
-					} else if ( $atts['full_content'] == 'yes' ) {
+					elseif ( 'yes' === $atts['full_content'] ) :
 						edd_get_template_part( 'shortcode', 'content-full' );
 						do_action( 'edd_download_after_content' );
-					}
+					endif;
 
 					if ( $atts['price'] == 'yes' ) {
 						edd_get_template_part( 'shortcode', 'content-price' );
