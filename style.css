@@ -1291,8 +1291,7 @@ ol {
 }
 li > ul,
 li > ol {
-  margin-top: 1.62rem;
-  margin-bottom: 1.62rem;
+  margin-bottom: 0;
 }
 table,
 th,
@@ -1447,6 +1446,7 @@ article[class^="post-"] + article[class^="post-"] {
 }
 #respond {
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .comment-reply-link,
 #cancel-comment-reply-link,
@@ -1456,7 +1456,7 @@ article[class^="post-"] + article[class^="post-"] {
 #cancel-comment-reply-link {
   float: right;
 }
-.children {
+.comments-area .children {
   margin-top: 2rem;
 }
 /**
@@ -2032,7 +2032,6 @@ section.account .wrapper {
   max-width: 1188px;
 }
 .account-nav {
-  margin-bottom: 1rem;
   padding-left: 0;
 }
 .account-content {
@@ -2047,12 +2046,11 @@ section.account .wrapper {
 }
 .account-nav ul li {
   position: relative;
-  display: inline-block;
+  display: block;
   margin-bottom: 0;
 }
 .account-nav ul a {
-  display: inline-block;
-  margin-right: 0.5rem;
+  display: block;
   font-size: 1rem;
   color: #222;
 }
@@ -3326,6 +3324,10 @@ label[for*="rcp_discount_code"] {
 }
 /* Media queries */
 @media only screen and (max-width: 991px) {
+  .account-nav ul {
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
   .no-js .main-navigation ul ul {
     display: block;
   }
@@ -3785,6 +3787,10 @@ label[for*="rcp_discount_code"] {
   }
   .mb-sm-12 {
     margin-bottom: 12rem;
+  }
+  .account-nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
   }
   .main-navigation .primary-menu {
     display: -webkit-box;
@@ -4409,7 +4415,6 @@ label[for*="rcp_discount_code"] {
     margin-bottom: 0;
   }
   .account-nav ul a {
-    display: block;
     padding: 1rem 2rem;
     margin: 0;
   }
@@ -4421,6 +4426,7 @@ label[for*="rcp_discount_code"] {
     border: 2px solid #f4f4f4;
     border-right: none;
     border-bottom: none;
+    margin-right: 0;
   }
   .account-nav ul li {
     display: block;

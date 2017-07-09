@@ -50,7 +50,7 @@
 		do_action( 'affwp_affiliate_dashboard_notices', affwp_get_affiliate_id(), $active_tab );
 		?>
 
-		<div class="row container">
+		<div class="row">
 			<div class="col-xs-12 col-md-2 account-nav">
 				<ul id="affwp-affiliate-dashboard-tabs">
 

@@ -30,12 +30,10 @@
 	li {
 		position: relative;
 		margin-bottom: 0;
-
 	}
 
 	a {
 		display: block;
-		margin-right: 0.5rem;
 		font-size: 1rem;
 		color: @account-tab-link-color;
     }
@@ -44,6 +42,13 @@
 		color: @account-tab-link-hover-color;
 	}
 
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	.fes-vendor-menu ul li {
+		display: inline-block;
+		margin-right: 1rem;
+	}
 }
 
 .media-mixin(@break) when (@break = @screen-md-min) {
@@ -98,6 +103,7 @@
 
 	.fes-vendor-menu ul li {
 		display: block;
+		margin-right: 0;
 	}
 
 	.edd-fes-edit-order .fes-vendor-orders-tab:before,

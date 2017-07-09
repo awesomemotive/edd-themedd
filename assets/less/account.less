@@ -6,7 +6,6 @@ section.account .wrapper {
 }
 
 .account-nav {
-	margin-bottom: 1rem;
 	padding-left: 0;
 }
 
@@ -24,13 +23,12 @@ section.account .wrapper {
 
 	li {
 		position: relative;
-		display: inline-block;
+		display: block;
 		margin-bottom: 0;
 	}
 
 	a {
-        display: inline-block;
-		margin-right: 0.5rem;
+        display: block;
 		font-size: 1rem;
 		color: @account-tab-link-color;
     }
@@ -66,6 +64,22 @@ section.account .wrapper {
     display: none;
 }
 
+.media-mixin(@break) when ( @break = @nav-sm-max ) {
+	.account-nav ul {
+		line-height: 2;
+		margin-bottom: 2rem;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	.account-nav ul li {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+
+}
+
 .media-mixin(@break) when (@break = @screen-md-min) {
 
 	// tab content for account and affiliate area page
@@ -81,7 +95,6 @@ section.account .wrapper {
 	}
 
 	.account-nav ul a {
-		display: block;
 		padding: 1rem 2rem;
 		margin: 0;
 	}
@@ -94,6 +107,7 @@ section.account .wrapper {
 		border: 2px solid @border-light-grey-alt;
 		border-right: none;
 		border-bottom: none;
+		margin-right: 0;
 	}
 
 	.account-nav ul li {

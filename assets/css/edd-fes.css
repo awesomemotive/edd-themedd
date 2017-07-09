@@ -19,7 +19,6 @@
 }
 .fes-vendor-menu ul a {
   display: block;
-  margin-right: 0.5rem;
   font-size: 1rem;
   color: #222;
 }
@@ -198,6 +197,10 @@ fieldset.fes-submit {
   }
 }
 @media only screen and (min-width: 768px) {
+  .fes-vendor-menu ul li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
   .fes-login-registration-combo {
     display: -webkit-box;
     display: -webkit-flex;
@@ -278,6 +281,7 @@ fieldset.fes-submit {
   }
   .fes-vendor-menu ul li {
     display: block;
+    margin-right: 0;
   }
   .edd-fes-edit-order .fes-vendor-orders-tab:before,
   .edd-fes-edit-order .fes-vendor-orders-tab:after,
