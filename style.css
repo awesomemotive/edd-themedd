@@ -2228,7 +2228,7 @@ button:focus {
 }
 #mobile-menu .menu-item-has-children > a {
   margin: 0;
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 #mobile-menu .sub-menu a {
   padding-left: 2rem;
@@ -2239,13 +2239,13 @@ button:focus {
   border-radius: 0;
   color: #222;
   content: "";
+  width: 48px;
   height: 48px;
   padding: 0;
   position: absolute;
   text-transform: none;
   top: 0;
   right: 0;
-  width: 78px;
 }
 .dropdown-toggle:hover {
   background-color: transparent;
