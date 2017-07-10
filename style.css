@@ -1111,9 +1111,6 @@ body .wrapper {
 #masthead {
   background: #fff;
 }
-#masthead a {
-  border: 0 none;
-}
 .site-header-main {
   margin: 0 auto;
   position: relative;
@@ -1358,7 +1355,6 @@ article[class^="post-"] + article[class^="post-"] {
   padding-top: 2rem;
 }
 .entry-title a {
-  border-bottom: none;
   color: #222;
 }
 .entry-title a:hover {
@@ -1408,9 +1404,6 @@ article[class^="post-"] + article[class^="post-"] {
 .comment-metadata,
 .pingback .edit-link {
   font-size: 1rem;
-}
-.comment a {
-  border-bottom: none;
 }
 .comment a.url {
   color: #222;
@@ -1534,7 +1527,6 @@ aside li {
 }
 .gallery-item a {
   display: block;
-  border-bottom: none;
 }
 /* Forms */
 input,
@@ -2108,7 +2100,6 @@ button:focus {
   font-size: 1rem;
   padding: 0.75rem 0;
   color: #222;
-  border-bottom: none;
 }
 .main-navigation .current-menu-item > a,
 .main-navigation .current_page_ancestor > a {
@@ -2117,7 +2108,6 @@ button:focus {
 .main-navigation a:hover,
 .main-navigation a:focus {
   color: #448FD5;
-  border-bottom: none;
 }
 .main-navigation li {
   position: relative;
@@ -2155,7 +2145,6 @@ button:focus {
 }
 .post-navigation a {
   display: block;
-  border-bottom: none;
 }
 .post-navigation span {
   display: block;
@@ -2210,7 +2199,6 @@ button:focus {
   font-size: 1rem;
   padding: 0.75rem 1rem;
   color: #222;
-  border-bottom: none;
 }
 .no-js #mobile-menu,
 .toggled-on #mobile-menu {
