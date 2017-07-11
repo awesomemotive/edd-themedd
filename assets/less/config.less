@@ -1,12 +1,15 @@
 // Colors.
 @primary-color: #448FD5;
 @accent-color: #448FD5;
-
+@white: #fff;
 @light-grey: #f5f5f5;
 @light-grey-alt: #fcfcfc;
 @lighter-grey: lighten( @light-grey, 3% );
-@medium-grey: #ddd;
+@medium-grey: #a2a2a2;
 @dark-grey: #222;
+
+// Font stack.
+@font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Links.
 @link-color: @primary-color;
@@ -18,9 +21,9 @@
 @mobile-menu-font-size: @nav-font-size;
 
 // Menu toggle.
-@menu-toggle-bg-color: #222;
+@menu-toggle-bg-color: @dark-grey;
 @menu-toggle-border: 1px solid @menu-toggle-bg-color;
-@menu-toggle-color: #fff;
+@menu-toggle-color: @white;
 
 // Menu toggle hover styles.
 @menu-toggle-bg-hover-color: @menu-toggle-bg-color;
@@ -28,35 +31,34 @@
 @menu-toggle-hover-border: @menu-toggle-border;
 
 // Menu toggle active styles.
-@menu-toggle-on-background-color: #222;
+@menu-toggle-on-background-color: @dark-grey;
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
-@menu-toggle-on-color: #fff;
+@menu-toggle-on-color: @white;
 
 // Drop down toggle.
-@dropdown-toggle-color: #222;
+@dropdown-toggle-color: @dark-grey;
 @dropdown-toggle-hover-color: @nav-hover-color;
 
 // Primary navigation.
-@nav-color: @dark-grey;
-@nav-hover-color: @primary-color;
-@nav-active-color: @primary-color;
+@nav-color: @body-text-color;
+@nav-hover-color: @dark-grey;
+@nav-active-color: @dark-grey;
 @nav-font-size: 1rem;
 @nav-md-padding: 1rem;
 
 // Secondary navigation.
 @nav-secondary-color: @body-text-color;
-@nav-secondary-hover-color: @primary-color;
+@nav-secondary-hover-color: @dark-grey;
 @nav-secondary-md-padding: 0.5rem;
-@nav-secondary-font-size: 0.875rem;
+@nav-secondary-font-size: 0.875rem; // 14px
 
 // Sub-menu.
-@nav-sub-background-color: @light-grey;
-//@nav-sub-border: 2px solid @light-grey;
-@nav-sub-font-size: 1rem;
-@sub-menu-padding: 0.5rem 1rem;
-@nav-sub-color: @body-text-color;
-@nav-sub-hover-color: @dark-grey;
-@nav-sub-active-color: @dark-grey;
+@nav-sub-background-color: @dark-grey;
+@nav-sub-font-size: 0.875rem;
+@sub-menu-padding: 0.375rem 1.5rem;
+@nav-sub-color: @medium-grey;
+@nav-sub-hover-color: @white;
+@nav-sub-active-color: @white;
 
 @nav-sub-background-active-color: transparent;
 @nav-sub-background-hover-color: transparent;
@@ -65,21 +67,26 @@
 @nav-sub-active-hover-color: @nav-sub-active-color;
 @nav-sub-background-active-hover-color: @nav-sub-background-hover-color;
 
+// Footer.
+@footer-background-color: @white;
+@footer-font-size: 0.875rem; // 14px
+@nav-footer-color: @medium-grey;
+@nav-footer-link-color: @medium-grey;
+@nav-footer-link-hover-color: @dark-grey;
+@nav-footer-link-active-color: @dark-grey;
+@site-info-color: @nav-footer-color;
+
 // Entry meta.
-@entry-meta: #a2a2a2;
+@entry-meta: @medium-grey;
 @entry-meta-hover-color: @link-hover-color;
 
 // Post navigation.
 @post-navigation-color: @heading-color;
 @post-navigation-hover-color: @link-hover-color;
-@post-navigation-meta-nav-color: @body-text-color;
+@post-navigation-meta-nav-color: @medium-grey;
 
 // Cart icon.
-@cart-color: @nav-color;
-@cart-hover-color: @nav-color;
-@cart-active-color: @nav-color;
-@cart-count-color: #fff;
-@cart-count-background-color: @accent-color;
+@cart-color: @dark-grey;
 
 // Box.
 @box-padding: 2rem;
@@ -99,28 +106,18 @@
 @account-tab-link-active-color: @primary-color;
 @account-tab-active-color: @primary-color;
 
-// Footer.
-@footer-font-size: 1rem;
-@nav-footer-color: @nav-color;
-@nav-footer-hover-color: @nav-hover-color;
-@nav-footer-active-color: @nav-active-color;
-
-@font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+// Misc.
 @highlight-color: @light-grey;
-@background-color: #fff;
+@background-color: @white;
 
 // Site title and description.
-@site-title-color: #222;
-@site-description-color: #a2a2a2;
+@site-title-color: @dark-grey;
+@site-description-color: @medium-grey;
 
 @code-color: @body-text-color;
 @body-text-color: #696969;
-@content-color: #fff;
+@content-color: @white;
 @body-text-size: 1.1rem;
-
-@footer-color: #fff;
-@underline-color: #bababa;
 
 // Notices/errors.
 @alert-background-color: #fdfdd5;
@@ -179,7 +176,7 @@
 @h6-font-size-sm-min: 1.2rem;
 
 // Masthead.
-@masthead-color: #fff;
+@masthead-color: @white;
 
 // Site header.
 @site-header-padding: 2rem;
@@ -191,9 +188,6 @@
 // Subtitles.
 @subtitle-font-size-xs: 1.2rem;
 @subtitle-font-size: 1.8rem;
-
-// Gallery images.
-@gallery-item-border-color: @primary-color;
 
 // Compatibility - Easy Digital Downloads.
 @edd-download-title-color: @heading-color;
