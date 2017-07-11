@@ -87,8 +87,7 @@ function themedd_site_branding() {
 
     <?php do_action( 'themedd_site_branding_before' ); ?>
 
-    <div class="site-branding center-xs start-sm">
-
+	<div class="<?php echo implode( ' ', array_filter( apply_filters( 'themedd_site_branding_classes', array( 'site-branding', 'center-xs', 'start-sm' ) ) ) ); ?>">
         <?php do_action( 'themedd_site_branding_start' ); ?>
 
         <?php if ( is_front_page() && is_home() ) : ?>
