@@ -146,10 +146,17 @@ article[class^="post-"] + article[class^="post-"] {
 
 #cancel-comment-reply-link {
 	float: right;
+	color: @medium-grey;
+	font-weight: 500;
 }
 
 .comments-area .children {
 	margin-top: 2rem;
+}
+
+// Hide updated date.
+.updated:not(.published) {
+	display: none;
 }
 
 // Pagination.
