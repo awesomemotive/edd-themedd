@@ -79,3 +79,18 @@ p.affwp-error:last-of-type {
 .affwp-search-date span {
   display: block;
 }
+.affwp-affiliate-dashboard-visits {
+  table-layout: fixed;
+}
+.affwp-affiliate-dashboard-visits .visit-url {
+  width: 30%;
+}
+.affwp-affiliate-dashboard-visits .referring-url {
+  width: 30%;
+}
+.affwp-affiliate-dashboard-visits .referral-status {
+  width: 15%;
+}
+.affwp-affiliate-dashboard-visits .visit-date {
+  width: 25%;
+}
