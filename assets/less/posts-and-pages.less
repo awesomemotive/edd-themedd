@@ -152,12 +152,44 @@ article[class^="post-"] + article[class^="post-"] {
 	margin-top: 2rem;
 }
 
-/**
- * IE8 and earlier will drop any block with CSS3 selectors.
- * Do not combine these styles with the next block.
- */
-.updated:not(.published) {
-	display: none;
+// Pagination.
+.edd_pagination,
+.edd-review-navigation,
+.edd-reviews-vendor-feedback-pagination,
+#edd_user_commissions .navigation,
+#edd_download_pagination,
+.fes-order-list-pagination-container,
+.fes-pagination,
+.fes-product-list-pagination-container,
+.affwp-pagination {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	color: @body-text-color;
+
+	.current,
+	a.page-numbers {
+		color: @body-text-color;
+		font-size: 0.875rem;
+		border: 1px solid @light-grey;
+	}
+
+	.current,
+	a.page-numbers,
+	.dots {
+		padding: 0.25rem 0.75rem;
+		margin-right: 0.5rem;
+	}
+
+	.current,
+	a.page-numbers:hover {
+		background: @light-grey;
+		border-color: @light-grey;
+		color: @body-text-color;
+	}
+
 }
 
 // Page header.
