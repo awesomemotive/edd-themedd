@@ -1,6 +1,6 @@
 // Site footer.
 .site-footer {
-	background: @footer-color;
+	background: @footer-background-color;
 
 	ul {
 		margin-left: 0;
@@ -8,6 +8,14 @@
 
 	li {
 		list-style-type: none;
+	}
+
+	a {
+		color: @nav-footer-link-color;
+
+		&:hover {
+			color: @nav-footer-link-hover-color;
+		}
 	}
 
 }
@@ -21,6 +29,7 @@
 .site-info {
 	padding: 2rem;
 	text-align: center;
+	color: @site-info-color;
 
     p {
         margin-bottom: 0;
