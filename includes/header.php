@@ -83,11 +83,11 @@ add_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
  * @since 1.0.0
  */
 function themedd_site_branding() {
-	?>
+?>
 
     <?php do_action( 'themedd_site_branding_before' ); ?>
 
-    <div class="site-branding">
+    <div class="site-branding center-xs start-sm">
 
         <?php do_action( 'themedd_site_branding_start' ); ?>
 
