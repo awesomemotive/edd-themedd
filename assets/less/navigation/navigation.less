@@ -50,8 +50,7 @@ button:focus {
 	color: @nav-active-color;
 }
 
-.main-navigation a:hover,
-.main-navigation a:focus {
+.main-navigation a:hover {
 	color: @nav-hover-color;
 }
 
@@ -63,13 +62,13 @@ button:focus {
 	display: none;
 }
 
-// leave right margin for the button
+// Leave right margin for the button.
 .main-navigation .menu-item-has-children > a {
 	margin: 0;
 	padding-right: 2rem;
 }
 
-// if the cart icon is moved to the primary navigation let's center it
+// If cart icon is moved to the primary navigation, center it.
 .primary-menu li.checkout {
     align-self: center;
 
@@ -80,12 +79,12 @@ button:focus {
 
 .media-mixin(@break) when (@break = @nav-sm-max) {
 
-	// show the menus when there's no JS, or when they have been toggled
+	// Show the menus when there is no JS, or when they have been toggled.
 	.no-js .main-navigation ul ul {
 		display: block;
 	}
 
-	// add padding top and bottom at mobile sizing
+	// Add padding top and bottom at mobile sizing.
 	.main-navigation.toggled .primary-menu {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
@@ -98,16 +97,16 @@ button:focus {
 
 }
 
-// show desktop nav
+// Show desktop nav.
 .media-mixin(@break) when (@break = @desktop-nav) {
 
 	.main-navigation .primary-menu {
         display: flex;
 
-        // allow the nav items to wrap onto the next line
+        // Allow the nav items to wrap onto the next line.
         flex-wrap: wrap;
 
-		margin-left: -1rem; // lines the UL up with the logo/site title
+		margin-left: -1rem; // line up the UL with the logo/site title.
 		margin-right: -1rem;
 	}
 
@@ -116,7 +115,7 @@ button:focus {
 		margin-right: 2rem;
 	}
 
-	// clearfix
+	// Clearfix.
 	.main-navigation ul.menu:after,
 	.secondary-navigation ul.menu:after {
 		visibility: hidden;
@@ -135,7 +134,7 @@ button:focus {
 		display: block;
 	}
 
-	// sub menu
+	// Sub-menu.
 	.main-navigation .sub-menu a {
 		padding: @sub-menu-padding;
 		color: @nav-sub-color;
@@ -167,8 +166,7 @@ button:focus {
 		white-space: nowrap;
 	}
 
-	.main-navigation li:hover > a,
-	.main-navigation li.focus > a {
+	.main-navigation li:hover > a {
 		color: @nav-hover-color;
 	}
 
@@ -193,23 +191,36 @@ button:focus {
 		margin: 0;
 		position: absolute;
 		left: -999em;
-		z-index: 99999;
 		opacity: 0;
-		top: 110%;
 		visibility: hidden;
+		z-index: 99999;
+		top: 100%;
+		background: @nav-sub-background-color;
+	}
+
+	.main-navigation ul ul li:first-child > a {
+		margin-top: 0.825rem;
+	}
+
+	.main-navigation ul ul li:last-child > a {
+		margin-bottom: 0.825rem;
 	}
 
 	.main-navigation li:hover > ul,
 	.main-navigation li.focus > ul {
-		left: auto;
+		left: -0.5rem;
 		opacity: 1;
 		top: 100%;
 		visibility: visible;
 	}
 
 	.main-navigation ul ul ul {
-		top: 0;
+		top: -0.825rem;
 		left: 100%;
+	}
+
+	.main-navigation ul ul li:first-child ul {
+		top: -0.825rem;
 	}
 
 	.main-navigation ul ul ul:before,
@@ -224,7 +235,12 @@ button:focus {
 	.main-navigation ul ul li:hover > ul,
 	.main-navigation ul ul li.focus > ul {
 		left: 100%;
-		top: 0;
+		top: -0.825rem;
+	}
+
+	.main-navigation ul ul li:first-child:hover > ul,
+	.main-navigation ul ul li:first-child.focus > ul {
+		top: -0.825rem;
 	}
 
 	.main-navigation ul ul a {
@@ -246,12 +262,21 @@ button:focus {
 		padding-right: 2.0625em;
 	}
 
-	// rotate the down error so it becomes a right arrow
+	// Rotate the down error so it becomes a right arrow.
 	.main-navigation ul ul .menu-item-has-children > a:after {
 		transform: rotate(-90deg);
 		top: 50%;
 		margin-top: -9px;
 		right: 0.5625em;
+	}
+
+	// reposition right arrows
+	.main-navigation ul ul li.menu-item-has-children:first-child > a:after {
+		margin-top: -8px;
+	}
+
+	.main-navigation ul ul li.menu-item-has-children:last-child > a:after {
+		margin-top: -10px;
 	}
 
 }
