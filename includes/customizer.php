@@ -120,45 +120,50 @@ add_action( 'customize_preview_init', 'themedd_customize_preview_js' );
 if ( ! function_exists( 'themedd_customize_color_defaults' ) ) :
 	function themedd_customize_color_defaults() {
 
+		$dark_grey   = '#222222';
+		$medium_grey = '#a2a2a2';
+		$white       = '#ffffff';
+		$body        = '#696969';
+		$primary     = '#448fd5';
+
 		$defaults = array(
-			'header_textcolor'                          => '#222222',
-			'site_title_color'                          => '#222222',
+			'header_textcolor'                          => $dark_grey,
+			'site_title_color'                          => $dark_grey,
 			'menu_primary_sub_background_hover_color'   => '',
-			'menu_primary_sub_background_color'         => '#f5f5f5',
-			'link_color'                                => '#448fd5',
+			'menu_primary_sub_background_color'         => $dark_grey,
+			'link_color'                                => $primary,
 			'menu_primary_sub_background_active_color'  => '',
-			'menu_primary_sub_link_color'               => '#787878',
-			'menu_primary_sub_link_hover_color'         => '#222222',
-			'menu_primary_sub_link_active_color'        => '#222222',
+			'menu_primary_sub_link_color'               => $medium_grey,
+			'menu_primary_sub_link_hover_color'         => $dark_grey,
+			'menu_primary_sub_link_active_color'        => $dark_grey,
 			'header_background_color'                   => '',
-			'menu_secondary_link_color'                 => '#696969',
-			'menu_secondary_link_hover_color'           => '#448fd5',
+			'menu_secondary_link_color'                 => $body,
+			'menu_secondary_link_hover_color'           => $dark_grey,
 			'menu_primary_background_color'             => '',
-			'menu_primary_link_color'                   => '#222222',
-			'menu_primary_link_hover_color'             => '#448fd5',
+			'menu_primary_link_color'                   => $body,
+			'menu_primary_link_hover_color'             => $dark_grey,
 			'menu_primary_link_background_hover_color'  => '',
 			'menu_primary_link_background_active_color' => '',
-			'menu_primary_link_active_color'            => '#448fd5',
-			'mobile_cart_icon_color'                    => '#222222',
-			'tagline_color'                             => '#222222',
-			'cart_icon_color'                           => '#222222',
-			'cart_count_background_color'               => '#448fd5',
-			'button_background_color'                   => '#222222',
-			'button_background_hover_color'             => '#448fd5',
-			'button_text_color'                         => '#ffffff',
-			'menu_mobile_button_background_color'       => '#222222',
-			'menu_mobile_background_color'              => '#ffffff',
-			'menu_mobile_link_color'                    => '#222222',
-			'menu_mobile_button_text_color'             => '#ffffff',
-			'cart_count_color'                          => '#ffffff',
-			'footer_background_color'                   => '#ffffff',
-			'footer_text_color'                         => '',
-			'footer_link_color'                         => '',
-			'footer_heading_color'                      => '',
-			'footer_link_hover_color'                   => '',
+			'menu_primary_link_active_color'            => $dark_grey,
+			'mobile_cart_icon_color'                    => $dark_grey,
+			'tagline_color'                             => $dark_grey,
+			'cart_icon_color'                           => $dark_grey,
+			'button_background_color'                   => $dark_grey,
+			'button_background_hover_color'             => $primary,
+			'button_text_color'                         => $white,
+			'menu_mobile_button_background_color'       => $dark_grey,
+			'menu_mobile_background_color'              => $white,
+			'menu_mobile_link_color'                    => $dark_grey,
+			'menu_mobile_button_text_color'             => $white,
+			'footer_background_color'                   => $white,
+			'footer_text_color'                         => $medium_grey,
+			'footer_link_color'                         => $medium_grey,
+			'footer_heading_color'                      => $dark_grey,
+			'footer_link_hover_color'                   => $dark_grey,
 		);
 
 		return $defaults;
+		
 	}
 endif;
 
@@ -1049,15 +1054,6 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.navCart-icon { fill:' . $colors['cart_icon_color'] . ';}';
 			}
 
-			// Cart count background color.
-			if ( isset( $colors['cart_count_background_color'] ) && $colors['cart_count_background_color'] !== $defaults['cart_count_background_color'] ) {
-				echo '.cart-count { background:' . $colors['cart_count_background_color'] . ';}';
-			}
-
-			// Cart count color.
-			if ( isset( $colors['cart_count_color'] ) && $colors['cart_count_color'] !== $defaults['cart_count_color'] ) {
-				echo '.cart-count { color:' . $colors['cart_count_color'] . ';}';
-			}
 
 			// Button background color.
 			if ( isset( $colors['button_background_color'] ) && $colors['button_background_color'] !== $defaults['button_background_color'] ) {
