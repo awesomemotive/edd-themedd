@@ -146,7 +146,7 @@ if ( ! function_exists( 'themedd_customize_color_defaults' ) ) :
 			'menu_primary_link_background_active_color' => '',
 			'menu_primary_link_active_color'            => $dark_grey,
 			'mobile_cart_icon_color'                    => $dark_grey,
-			'tagline_color'                             => $dark_grey,
+			'tagline_color'                             => $medium_grey,
 			'cart_icon_color'                           => $dark_grey,
 			'button_background_color'                   => $dark_grey,
 			'button_background_hover_color'             => $primary,
@@ -163,7 +163,7 @@ if ( ! function_exists( 'themedd_customize_color_defaults' ) ) :
 		);
 
 		return $defaults;
-		
+
 	}
 endif;
 

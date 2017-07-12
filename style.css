@@ -2198,7 +2198,6 @@ button:focus {
   display: block;
   line-height: 1.5;
   font-size: 1rem;
-  padding: 0.75rem 0;
   color: #696969;
 }
 .main-navigation .current-menu-item > a,
@@ -3830,7 +3829,7 @@ label[for*="rcp_discount_code"] {
     display: block;
   }
   .main-navigation .sub-menu a {
-    padding: 0.375rem 1.5rem;
+    padding: 0.375rem 1rem;
     color: #a2a2a2;
   }
   .main-navigation .sub-menu .current-menu-item a {
@@ -3881,24 +3880,24 @@ label[for*="rcp_discount_code"] {
     background: #222;
   }
   .main-navigation ul ul li:first-child > a {
-    margin-top: 0.825rem;
+    margin-top: 0.375rem;
   }
   .main-navigation ul ul li:last-child > a {
-    margin-bottom: 0.825rem;
+    margin-bottom: 0.375rem;
   }
   .main-navigation li:hover > ul,
   .main-navigation li.focus > ul {
-    left: -0.5rem;
+    left: 0;
     opacity: 1;
     top: 100%;
     visibility: visible;
   }
   .main-navigation ul ul ul {
-    top: -0.825rem;
+    top: -0.375rem;
     left: 100%;
   }
   .main-navigation ul ul li:first-child ul {
-    top: -0.825rem;
+    top: -0.375rem;
   }
   .main-navigation ul ul ul:before,
   .main-navigation ul ul ul:after {
@@ -3910,11 +3909,11 @@ label[for*="rcp_discount_code"] {
   .main-navigation ul ul li:hover > ul,
   .main-navigation ul ul li.focus > ul {
     left: 100%;
-    top: -0.825rem;
+    top: -0.375rem;
   }
   .main-navigation ul ul li:first-child:hover > ul,
   .main-navigation ul ul li:first-child.focus > ul {
-    top: -0.825rem;
+    top: -0.375rem;
   }
   .main-navigation ul ul a {
     white-space: normal;
@@ -3937,14 +3936,8 @@ label[for*="rcp_discount_code"] {
         -ms-transform: rotate(-90deg);
             transform: rotate(-90deg);
     top: 50%;
-    margin-top: -9px;
-    right: 0.5625em;
-  }
-  .main-navigation ul ul li.menu-item-has-children:first-child > a:after {
     margin-top: -8px;
-  }
-  .main-navigation ul ul li.menu-item-has-children:last-child > a:after {
-    margin-top: -10px;
+    right: 0.5625em;
   }
   .navigation .nav-links {
     display: -webkit-box;
