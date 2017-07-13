@@ -512,7 +512,7 @@ input[type=submit],
 button,
 .button {
   font-size: 1.1rem;
-  padding: 0.875rem 1.5rem;
+  padding: 0.875rem 1.75rem;
 }
 /* Fonts */
 .menu-item-has-children a:after,
