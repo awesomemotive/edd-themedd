@@ -1,0 +1,58 @@
+// EDD - Points and Rewards
+
+@import '../config';
+
+// Single download.
+.edd-points-product-message {
+	margin-bottom: 2rem;
+}
+
+// Pagination.
+.edd-points-paging {
+    text-align: center;
+
+	.pagination * {
+		padding: 0.5rem;
+	}
+
+	.pagination .disabled {
+		display: none;
+	}
+}
+
+.edd-points-paging .edd-points-tablenav-pages .current {
+    font-weight: bold;
+}
+
+// Loading icon when viewing points as user (pagination)
+.edd-points-sales-loader {
+	display: none;
+    text-align: center;
+}
+
+.edd-points-checkout-message,
+.edd-points-redeem-points-wrap {
+	background: @light-grey-alt;
+	border: 2px solid @border-light-grey-alt;
+	padding: 1rem 2rem;
+	margin-bottom: 2rem;
+}
+
+.edd-points-redeem-message {
+	vertical-align: middle;
+}
+
+.media-mixin(@break) when (@break = @screen-lg-min) {
+
+	.edd-points-checkout-message,
+	.edd-points-redeem-points-wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+}

@@ -1,0 +1,8 @@
+.themedd-widget-usage {
+	background: #fbe3e3;
+	padding: 10px;
+}
+
+#sidebar-download .themedd-widget-usage {
+	display: none;
+}

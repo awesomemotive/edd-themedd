@@ -1,0 +1,24 @@
+// Secondary navigation styling
+.secondary-navigation a {
+	display: block;
+	line-height: 32px;
+	padding: 0.5rem 1rem;
+}
+
+// show secondary navigation
+.media-mixin(@break) when (@break = @desktop-nav) {
+
+    #site-header-secondary-menu {
+		display: flex;
+		font-size: @nav-secondary-font-size;
+
+		a {
+			color: @nav-secondary-color;
+		}
+
+        a:hover {
+            color: @nav-secondary-hover-color;
+        }
+	}
+
+}

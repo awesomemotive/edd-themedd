@@ -1,0 +1,132 @@
+.edd-reviews-average-rating {
+  margin-bottom: 1rem;
+}
+.edd_reviews_breakdown .edd-reviews-total-count {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.edd_reviews_breakdown .edd-counter-front {
+  background: #f1c40f;
+  padding: 0.75rem 0;
+  display: block;
+}
+.edd-counter-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.25rem 0;
+}
+.edd_reviews_breakdown .edd-counter-back {
+  display: block;
+  width: 100px;
+  background: #f5f5f5;
+}
+.edd_reviews_breakdown .edd-review-count {
+  margin-left: 1rem;
+}
+.edd_reviews_breakdown .edd-counter-label {
+  display: inline-block;
+  width: 70px;
+}
+.edd-reviews-breakdown-ratings {
+  margin-bottom: 2rem;
+}
+.dashicons-star-filled,
+.dashicons-star-empty {
+  color: #f1c40f;
+}
+.edd-reviews-star-rating {
+  display: inline-block;
+  cursor: pointer;
+}
+.edd-reviews-stars-filled {
+  position: absolute;
+  width: 0;
+  overflow: hidden;
+  height: 20px;
+}
+.edd-reviews-awaiting-moderation {
+  font-weight: bold;
+}
+.edd_review {
+  margin: 10px 0;
+  position: relative;
+  outline: none;
+  list-style: none;
+  padding: 20px 0;
+}
+.edd-review-meta-rating {
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-block;
+}
+.edd_review .avatar {
+  float: left;
+  margin-right: 1rem;
+  position: relative;
+}
+.edd-review-author b {
+  vertical-align: middle;
+}
+.edd-review-metadata {
+  font-size: 0.875rem;
+}
+.fes-vendor-dashboard .edd-reviews-vendor-feedback-item {
+  border-bottom: 2px solid #f5f5f5;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.fes-vendor-dashboard .edd-reviews-vendor-feedback-item p:nth-child(4) strong,
+.fes-vendor-dashboard .edd-reviews-vendor-feedback-item p:nth-child(4) span {
+  vertical-align: middle;
+}
+.edd-reviews-vendor-feedback-item > p {
+  margin-bottom: 0;
+  line-height: 2rem;
+}
+.edd-reviews-vendor-feedback-item .wp-post-image {
+  margin-bottom: 2rem;
+}
+.edd-reviews-vendor-feedback-item h3 a {
+  color: #696969;
+}
+.edd-reviews-form {
+  padding: 2rem;
+  border: 2px solid #f4f4f4;
+  background: #fcfcfc;
+  margin-top: 2rem;
+}
+.edd-reviews-form .edd-reviews-review-form-submit {
+  margin-bottom: 0;
+}
+.edd-reviews-rating {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+.edd-reviews-rating span {
+  vertical-align: middle;
+}
+.edd-review-review-helpful .edd-review-vote p {
+  margin-bottom: 0;
+}
+.edd-review-review-helpful .edd-review-vote .edd-review-voting-feedback {
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.edd-review-review-helpful .edd-review-voting-feedback + p,
+.edd-review-review-helpful p {
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+.edd-review-review-helpful p + p {
+  font-weight: normal;
+}
+.single-download .comments-area .no-comments {
+  display: none;
+}

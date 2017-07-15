@@ -8,15 +8,16 @@
 
 	<?php themedd_post_thumbnail(); ?>
 
-	<?php themedd_entry_date(); ?>
-
 	<header class="entry-header">
+		<?php themedd_posted_on( false ); ?>
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 	</header>
 
-	<?php if ( is_search() || is_archive() || is_home() ) : ?>
+	<?php if ( is_search() || is_archive() || themedd_display_excerpts() ) : ?>
 
-		<?php themedd_excerpt(); ?>
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div>
 
 	<?php else : ?>
 

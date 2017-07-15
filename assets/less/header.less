@@ -2,12 +2,6 @@
 
 #masthead {
 	background: @masthead-color;
-
-	a {
-		// if a logo image or icon is used it will make the anchor wrap to the same size and be fully clickable
-		border: 0 none; // turn off border bottom
-	}
-
 }
 
 .site-header-main {
@@ -35,18 +29,51 @@
 
 }
 
-// for desktop
-@media only screen and ( min-width: @screen-sm-min ) {
+// When the full-width layout is selected, make any header images full-width also.
+.layout-full-width .header-image img {
+	width: 100%;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.site-header-wrap {
 		padding: @site-header-padding;
 		max-width: @site-header-wrap-max-width;
 		margin: 0 auto;
-
 		display: flex;
-	    -webkit-justify-content: space-between;
-	    justify-content: space-between;
+	}
 
+}
+
+// Subtitles support
+// https://wordpress.org/plugins/subtitles/
+.entry-title-primary {
+	display: block;
+}
+
+.entry-title-primary + .subtitle {
+	margin-top: 0.5rem;
+}
+
+#comments .comments-title span.subtitle {
+	display: none;
+}
+
+.subtitle {
+    font-size: @subtitle-font-size-xs;
+	display: block;
+	color: @body-text-color;
+	font-weight: 300;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	.subtitle {
+		font-size: @subtitle-font-size;
 	}
 
 }

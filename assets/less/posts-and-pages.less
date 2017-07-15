@@ -1,54 +1,24 @@
-// paging on index.php
+// Shown above the post title on single post pages and on archive pages
+.entry-meta,
+.entry-footer {
+	font-size: 1rem;
+	color: @entry-meta;
 
-.paging-navigation {
-	.nav-links {
-		text-align: center;
+	a {
+		color: @entry-meta;
+
+		&:hover {
+			color: @entry-meta-hover-color;
+		}
 	}
-
-	.nav-links div {
-		display: inline-block;
-	}
-}
-
-.post-navigation {
-	border-top: 2px solid @light-grey;
-	clear: both;
-}
-
-.post-navigation a {
-	color: @post-navigation-color;
-	display: block;
-	padding: 2rem 0;
-	border-bottom: none;
-}
-
-.post-navigation span {
-	display: block;
-}
-
-.post-navigation .meta-nav {
-	color: @post-navigation-meta-nav-color;
-	font-size: 0.875rem;
-	text-transform: uppercase;
-}
-
-.post-navigation .post-title {
-	display: inline;
-	font-size: 1.4rem;
-}
-
-.post-navigation a:hover .post-title,
-.post-navigation a:focus .post-title {
-	color: @post-navigation-hover-color;
-}
-
-.post-navigation div + div {
-	border-top: 4px solid @light-grey;
 }
 
 figure.wp-caption {
 	max-width: 100%;
-	margin: 0 0 2rem 0;
+
+	&.alignnone {
+		margin: 0 0 2rem 0;
+	}
 }
 
 article[class^="post-"] + article[class^="post-"] {
@@ -56,7 +26,6 @@ article[class^="post-"] + article[class^="post-"] {
 }
 
 .entry-title a {
-    border-bottom: none;
 	color: @heading-link-color;
 
 	&:hover {
@@ -64,35 +33,13 @@ article[class^="post-"] + article[class^="post-"] {
 	}
 }
 
-.alignright {
-    float: right;
-    margin: 0 0 2rem 2rem;
-}
-
 .site-main > article {
 	margin-bottom: 2rem;
 }
 
-#primary .entry-footer {
-	padding: 2rem;
-}
-
-.entry-footer {
-	line-height: 1.62;
-}
-
-#primary-sidebar .entry-footer {
-	padding: 2rem;
-}
-
-.entry-footer > span:not(:first-child):before {
-	content: "\002f";
-	display: inline-block;
-	opacity: 0.7;
-	padding: 0 0.538461538em;
-}
-
-.entry-footer .avatar {
+// Category and tags.
+// Shown below a single post.
+.cat-tags-links span {
 	display: block;
 }
 
@@ -132,23 +79,6 @@ article[class^="post-"] + article[class^="post-"] {
 
 #comments {
 	padding-top: 2rem;
-
-	// These are technically the same, but use both
-	overflow-wrap: break-word;
-	word-wrap: break-word;
-
-	-ms-word-break: break-all;
-	// This is the dangerous one in WebKit, as it breaks things wherever
-	word-break: break-all;
-	// Instead use this non-standard one:
-	word-break: break-word;
-
-	// Adds a hyphen where the word breaks, if supported (No Blink)
-	-ms-hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-hyphens: auto;
-	hyphens: auto;
-
 }
 
 #comments ol {
@@ -164,12 +94,8 @@ article[class^="post-"] + article[class^="post-"] {
 	font-size: 1rem;
 }
 
-.comment a {
-	border-bottom: none;
-}
-
 .comment a.url {
-	color: @dark-grey;;
+	color: @dark-grey;
 }
 
 .comment-author {
@@ -203,16 +129,13 @@ article[class^="post-"] + article[class^="post-"] {
 	padding-left: 0;
 }
 
-.comments-title, .comment-reply-title {
-
-}
-
 .comment-list li {
 	list-style-type: none;
 }
 
 #respond {
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 .comment-reply-link,
@@ -223,44 +146,85 @@ article[class^="post-"] + article[class^="post-"] {
 
 #cancel-comment-reply-link {
 	float: right;
+	color: @medium-grey;
+	font-weight: 500;
 }
 
-.children {
+.comments-area .children {
 	margin-top: 2rem;
 }
 
-/**
- * IE8 and earlier will drop any block with CSS3 selectors.
- * Do not combine these styles with the next block.
- */
+// Hide updated date.
 .updated:not(.published) {
 	display: none;
 }
 
-.posted-on a {
-	border-bottom: none;
+// Pagination.
+.edd_pagination,
+.edd-review-navigation,
+.edd-reviews-vendor-feedback-pagination,
+#edd_user_commissions .navigation,
+#edd_download_pagination,
+.fes-order-list-pagination-container,
+.fes-pagination,
+.fes-product-list-pagination-container,
+.affwp-pagination {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 	color: @body-text-color;
+
+	.current,
+	a.page-numbers {
+		color: @body-text-color;
+		font-size: 0.875rem;
+		border: 1px solid @light-grey;
+	}
+
+	.current,
+	a.page-numbers,
+	.dots {
+		padding: 0.25rem 0.75rem;
+		margin-right: 0.5rem;
+	}
+
+	.current,
+	a.page-numbers:hover {
+		background: @light-grey;
+		border-color: @light-grey;
+		color: @body-text-color;
+	}
+
+}
+
+// Page header.
+
+.page-header {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .page-header h1 {
 	margin-bottom: 0;
 }
 
-.page-header {
-	text-align: center;
-}
-
-@media all and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.author-avatar {
 		float: left;
 		margin: 0 1.5rem 0 0;
 	}
 
+	.page-header {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
 }
 
-// Medium Devices, Desktops
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.comment {
 		padding: 2rem;

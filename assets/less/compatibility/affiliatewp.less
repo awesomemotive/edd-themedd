@@ -5,10 +5,6 @@
 	margin-bottom: 2rem;
 }
 
-body.affiliate-area #main {
-	padding: 0;
-}
-
 .affwp-wrap {
 	margin-bottom: 2rem;
 }
@@ -65,4 +61,92 @@ body.affiliate-area #main {
 .visit-converted.no i:before {
 	content: "\f158";
 	color: #ef6c5e;
+}
+
+.affwp-errors {
+	padding: 1rem;
+	background: @alert-error-background-color;
+	margin: 0 0 1rem 0;
+}
+
+.affwp-notice {
+	padding: 1rem;
+	margin: 0 0 1rem 0;
+	background: @alert-background-color;
+	color: @alert-text-color;
+}
+
+p.affwp-error {
+	margin: 0 0 0.25rem 0;
+	color: @alert-error-text-color;
+}
+
+p.affwp-error:last-of-type {
+	margin: 0;
+}
+
+// Graphs styles.
+
+// datepicker input field
+.affwp-datepicker {
+	margin-bottom: 1rem;
+}
+
+// select
+#affwp-graphs-date-options {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+#affwp-date-range-options {
+	width: 100%;
+}
+
+.affwp-search-date span {
+	display: block;
+}
+
+.affwp-affiliate-dashboard-visits {
+	table-layout: fixed;
+
+	.visit-url {
+		width: 30%;
+	}
+
+	.referring-url {
+		width: 30%;
+	}
+
+	.referral-status {
+		width: 15%;
+	}
+
+	.visit-date {
+		width: 25%;
+	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#affwp-date-range-options {
+		width: auto;
+	}
+
+	#affwp-graphs-date-options {
+		width: auto;
+		margin-right: 1rem;
+		margin-bottom: 0;
+	}
+
+	.affwp-datepicker {
+		width: auto;
+		margin-right: 1rem;
+	}
+
+	.affwp-search-date span {
+		display: inline-block;
+		margin-right: 0.5rem;
+	}
+
 }

@@ -6,7 +6,6 @@ section.account .wrapper {
 }
 
 .account-nav {
-	margin-bottom: 1rem;
 	padding-left: 0;
 }
 
@@ -24,12 +23,12 @@ section.account .wrapper {
 
 	li {
 		position: relative;
-		display: inline-block;
+		display: block;
+		margin-bottom: 0;
 	}
 
 	a {
-        display: inline-block;
-		margin-right: 0.5rem;
+        display: block;
 		font-size: 1rem;
 		color: @account-tab-link-color;
     }
@@ -50,14 +49,14 @@ section.account .wrapper {
 
 }
 
-.container-fluid .account-content,
-.container-fluid .account-nav {
+.container .account-content,
+.container .account-nav {
 	padding-right: 0;
 	padding-left: 0;
 }
 
-#affwp-affiliate-dashboard .row,
-.account .row {
+// Hide any borders.
+.account-nav {
 	overflow: hidden;
 }
 
@@ -65,13 +64,29 @@ section.account .wrapper {
     display: none;
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when ( @break = @nav-sm-max ) {
+	.account-nav ul {
+		line-height: 2;
+		margin-bottom: 2rem;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	.account-nav ul li {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	// tab content for account and affiliate area page
 	.account-content > div {
 	    border: 2px solid @border-light-grey-alt;
 	    border-left: none;
-		min-height: 40rem;
+		min-height: 50rem;
 		padding: 2rem;
 	}
 
@@ -79,13 +94,7 @@ section.account .wrapper {
 		margin-bottom: 0;
 	}
 
-	.affwp-affiliate-dashboard-tab.active a,
-	.ui-tabs-active a {
-		box-shadow: 5px 0 0 @account-tab-active-color inset;
-	}
-
 	.account-nav ul a {
-		display: block;
 		padding: 1rem 2rem;
 		margin: 0;
 	}
@@ -98,6 +107,7 @@ section.account .wrapper {
 		border: 2px solid @border-light-grey-alt;
 		border-right: none;
 		border-bottom: none;
+		margin-right: 0;
 	}
 
 	.account-nav ul li {
@@ -113,7 +123,7 @@ section.account .wrapper {
 		right: 0;
 		bottom: 100%;
 		width: 2px;
-		height: 1200px;
+		height: 1000px;
 		background: @border-light-grey-alt;
 	}
 
@@ -121,7 +131,7 @@ section.account .wrapper {
 	.ui-tabs-active:after {
 		top: 100%;
 		bottom: auto;
-		height: 4000px;
+		height: 40000px;
 		z-index: 1;
 	}
 

@@ -1,6 +1,6 @@
 <?php $active_tab = affwp_get_active_affiliate_area_tab(); ?>
 
-<div id="affwp-affiliate-dashboard" class="container-fluid">
+<div id="affwp-affiliate-dashboard" class="container">
 
 	<?php if ( 'pending' == affwp_get_affiliate_status( affwp_get_affiliate_id() ) ) : ?>
 
@@ -50,7 +50,7 @@
 		do_action( 'affwp_affiliate_dashboard_notices', affwp_get_affiliate_id(), $active_tab );
 		?>
 
-		<div class="row container-fluid">
+		<div class="row">
 			<div class="col-xs-12 col-md-2 account-nav">
 				<ul id="affwp-affiliate-dashboard-tabs">
 
@@ -107,10 +107,6 @@
 						<a href="<?php echo esc_url( affwp_get_logout_url() ); ?>"><?php _e( 'Log out', 'affiliate-wp' ); ?></a>
 					</li>
 					<?php endif; ?>
-					
-					<li class="affwp-affiliate-dashboard-tab">
-						<a href="<?php echo esc_url( site_url( 'account' ) ); ?>"><?php _e( '&larr; Back to Account', 'affiliate-wp' ); ?></a>
-					</li>
 
 					<?php do_action( 'affwp_affiliate_dashboard_tabs', affwp_get_affiliate_id(), $active_tab ); ?>
 				</ul>

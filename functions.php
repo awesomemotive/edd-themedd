@@ -1,9 +1,17 @@
 <?php
 
 /**
- * Note: Do not add any custom code here. Please use a child theme so that your customizations aren't lost during updates.
+ * Note: Do not add any custom code here. Please use a child theme or custom functionality plugin so that your customizations are not lost during updates.
  * http://codex.wordpress.org/Child_Themes
  */
+
+/**
+ * Themedd only works with WordPress 4.7 or later.
+ */
+if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
+	require get_template_directory() . '/includes/back-compat.php';
+	return;
+}
 
 /**
  * Constants
@@ -11,7 +19,15 @@
  * @since 1.0.0
 */
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.0.1' );
+	define( 'THEMEDD_VERSION', '1.0.0' );
+}
+
+if ( ! defined( 'THEMEDD_AUTHOR' ) ) {
+	define( 'THEMEDD_AUTHOR', 'Easy Digital Downloads' );
+}
+
+if ( ! defined( 'THEMEDD_NAME' ) ) {
+	define( 'THEMEDD_NAME', 'Themedd' );
 }
 
 if ( ! defined( 'THEMEDD_INCLUDES_DIR' ) ) {
@@ -27,32 +43,22 @@ if ( ! defined( 'THEMEDD_THEME_URL' ) ) {
  *
  * @since 1.0.0
 */
-require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'account.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'setup.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-themedd.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'template-tags.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'header.php' );
-require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'custom.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'footer.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'actions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'filters.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'customizer.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility.php' );
 
-// Compatibility with other plugins
-
-// AffiliateWP
-if ( themedd_is_affiliatewp_active() ) {
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/affiliatewp.php' );
+/**
+ * Admin page
+ */
+function themedd_updater() {
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . '/updater/theme-updater.php' );
 }
-
-// EDD functions
-if ( themedd_is_edd_active() ) {
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/functions.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/actions.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/filters.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/software-licensing.php' );
-}
-
-// EDD Download Meta
-if ( themedd_is_edd_download_meta_active() ) {
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'edd/download-meta.php' );
-}
+add_action( 'after_setup_theme', 'themedd_updater' );

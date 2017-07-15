@@ -1,216 +1,236 @@
-// colors
+// Colors.
 @primary-color: #448FD5;
-@secondary-color: #43D598;
 @accent-color: #448FD5;
+@white: #fff;
+@light-grey: #f5f5f5;
+@light-grey-alt: #fcfcfc;
+@lighter-grey: lighten( @light-grey, 3% );
+@medium-grey: #a2a2a2;
+@dark-grey: #222;
 
-// links
+@code-color: @body-text-color;
+@body-text-color: #696969;
+@content-color: @white;
+
+// Font stack.
+@font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@body-text-size: 1.1rem;
+
+// Links.
 @link-color: @primary-color;
 @link-hover-color: @dark-grey;
 
-// mobile menu
+// Mobile menu.
 @mobile-menu-color: @nav-color;
 @mobile-menu-font-size: @nav-font-size;
 @mobile-menu-font-size: @nav-font-size;
 
-// menu toggle
-@menu-toggle-bg-color: #222;
+// Menu toggle.
+@menu-toggle-bg-color: @dark-grey;
 @menu-toggle-border: 1px solid @menu-toggle-bg-color;
-@menu-toggle-color: #fff;
+@menu-toggle-color: @white;
 
-// menu toggle hover styles
+// Menu toggle hover styles.
 @menu-toggle-bg-hover-color: @menu-toggle-bg-color;
 @menu-toggle-hover-color: @menu-toggle-color;
 @menu-toggle-hover-border: @menu-toggle-border;
 
-// menu toggle active styles
-@menu-toggle-on-background-color: #222;
+// Menu toggle active styles.
+@menu-toggle-on-background-color: @dark-grey;
 @menu-toggle-on-border-color: @menu-toggle-on-background-color;
-@menu-toggle-on-color: #fff;
+@menu-toggle-on-color: @white;
 
-// drop down toggle
-@dropdown-toggle-color: #222;
+// Drop down toggle.
+@dropdown-toggle-color: @dark-grey;
 @dropdown-toggle-hover-color: @nav-hover-color;
 
-// primary navigation
-@nav-color: #222;
-@nav-hover-color: @primary-color;
-@nav-active-color: @primary-color;
-
+// Primary navigation.
+@nav-color: @body-text-color;
+@nav-hover-color: @dark-grey;
+@nav-active-color: @dark-grey;
 @nav-font-size: 1rem;
-
 @nav-md-padding: 1rem;
 
-// secondary navigation
+// Secondary navigation.
 @nav-secondary-color: @body-text-color;
-@nav-secondary-hover-color: @primary-color;
+@nav-secondary-hover-color: @dark-grey;
 @nav-secondary-md-padding: 0.5rem;
-@nav-secondary-font-size: 0.875rem;
-//@nav-secondary-font-weight: 300;
+@nav-secondary-font-size: 0.875rem; // 14px
 
-// sub-menu
-@nav-sub-background-color: #fff;
-@nav-sub-border: 2px solid @light-grey;
-@nav-sub-font-size: 1rem;
-@sub-menu-padding: 1rem;
-@nav-sub-color: @body-text-color;
-@nav-sub-hover-color: @primary-color;
-@nav-sub-active-color: @primary-color;
+// Sub-menu.
+@nav-sub-background-color: @dark-grey;
+@nav-sub-font-size: 0.875rem;
+@sub-menu-padding: 0.375rem 1rem;
+@nav-sub-color: @medium-grey;
+@nav-sub-hover-color: @white;
+@nav-sub-active-color: @white;
+
 @nav-sub-background-active-color: transparent;
 @nav-sub-background-hover-color: transparent;
 
-// when the active menu item is hovered over
+// When the active menu item is hovered over.
 @nav-sub-active-hover-color: @nav-sub-active-color;
 @nav-sub-background-active-hover-color: @nav-sub-background-hover-color;
 
-// post navigation
+// Footer.
+@footer-background-color: @white;
+@footer-font-size: 0.875rem; // 14px
+@nav-footer-color: @medium-grey;
+@nav-footer-link-color: @medium-grey;
+@nav-footer-link-hover-color: @dark-grey;
+@nav-footer-link-active-color: @dark-grey;
+@site-info-color: @nav-footer-color;
+
+// Entry meta.
+@entry-meta: @medium-grey;
+@entry-meta-hover-color: @link-hover-color;
+
+// Post navigation.
 @post-navigation-color: @heading-color;
 @post-navigation-hover-color: @link-hover-color;
-@post-navigation-meta-nav-color: @body-text-color;
+@post-navigation-meta-nav-color: @medium-grey;
 
-// cart icons
-@cart-color: @nav-color;
-@cart-hover-color: @nav-color;
-@cart-active-color: @nav-color;
-@cart-count-color: #fff;
-@cart-count-background-color: @accent-color;
+// Cart icon.
+@cart-color: @dark-grey;
 
-// box
+// Box.
 @box-padding: 2rem;
 @box-border: 2px solid @border-light-grey-alt;
 @box-background-color: @light-grey-alt;
 
-// buttons
+// Buttons.
 @button-background-color: @dark-grey;
-@button-padding: 0.5rem 1.5rem;
+@button-padding: 0.875rem 1.75rem;
 @button-border: 1px solid @button-background-color;
-// @button-border-hover: 1px solid lighten( @button-background-color, 15% );
-// @button-background-hover-color: lighten( @button-background-color, 15% );
 @button-border-hover: 1px solid @accent-color;
 @button-background-hover-color: @accent-color;
 
-// account page
+// Account page.
 @account-tab-link-color: @dark-grey;
 @account-tab-link-hover-color: @primary-color;
 @account-tab-link-active-color: @primary-color;
 @account-tab-active-color: @primary-color;
 
-// footer
-@footer-font-size: 0.875rem;
-@nav-footer-color: @nav-color;
-@nav-footer-hover-color: @nav-hover-color;
-@nav-footer-active-color: @nav-active-color;
-
-@font-stack: Arial, Verdana, sans-serif;
-
+// Misc.
 @highlight-color: @light-grey;
-@background-color: #f5f5f5;
+@background-color: @white;
 
-@site-title-color: #222;
-@site-description-color: #a2a2a2;
+// Site title and description.
+@site-title-color: @dark-grey;
+@site-description-color: @medium-grey;
 
-@code-color: @body-text-color;
-@body-text-color: #787878;
-@content-color: #fff;
-@body-text-size: 1.1rem;
+// Notices/errors.
+@alert-background-color: #fdfdd5;
+@alert-text-color: #787878;
 
-@footer-color: #fff;
-@underline-color: #bababa;
+// Alert - error.
+@alert-error-background-color: #f2dede;
+@alert-error-border-color: #ebccd1;
+@alert-error-text-color: #a94442;
 
-// notices/errors
-@notice-background-color: @secondary-color;
-@notice-text-color: #fff;
+// Alert - Success.
+@alert-success-text-color: #3c763d;
+@alert-success-background-color: #dff0d8;
+@alert-success-border-color: #d6e9c6;
 
-@error-background-color: #DE6363;
-@error-text-color: #fff;
+// Alert - Info.
+@alert-info-text-color: #31708f;
+@alert-info-background-color: #d9edf7;
+@alert-info-border-color: #bce8f1;
 
-@success-background-color: #8DD68C;
-@success-text-color: darken( @success-background-color, 40% );
+// Alert - Warn.
+@alert-warn-text-color: #8a6d3b;
+@alert-warn-background-color: #fcf8e3;
+@alert-warn-border-color: #faebcc;
 
-// greys
-@light-grey: #f5f5f5;
-@light-grey-alt: #fcfcfc;
-@lighter-grey: lighten( @light-grey, 3% );
-@medium-grey: #ddd;
-@dark-grey: #222;
+// Form fields.
+@required: #a94442; // Required indicator on form fields.
+@legend-color: @dark-grey;
 
-// border colors
+// Border colors.
 @border-light-grey: darken( @light-grey, 3% );
 @border-light-grey-alt: darken( @light-grey-alt, 3% );
 
-// headings
+// Headings.
 @heading-color: @dark-grey;
 
 @heading-link-color: @dark-grey;
 @heading-link-hover-color: @link-hover-color;
 
+@h1-font-size: 1.75rem;
+@h1-font-size-sm-min: 2.25rem;
+
+@h2-font-size: 1.5rem;
+@h2-font-size-sm-min: 2rem;
+
+@h3-font-size: 1.4rem;
+@h3-font-size-sm-min: 1.75rem;
+
 @h4-font-size: 1.3rem;
 @h4-font-size-sm-min: 1.5rem;
 
-// masthead
-@masthead-color: #fff;
+@h5-font-size: 1.2rem;
+@h5-font-size-sm-min: 1.25rem;
 
-@site-padding-xs: 2rem;
+@h6-font-size: 1.1rem;
+@h6-font-size-sm-min: 1.2rem;
 
-// site branding
-@site-branding-padding: 0 0 0 0;
-@site-branding-lg-padding: 0 0 0 2rem;
+// Masthead.
+@masthead-color: @white;
 
-// site header
+// Site header.
 @site-header-padding: 2rem;
 
-// site header menu
+// Site header menu.
 @site-header-menu-padding: 0 2rem 0 2rem;
 @site-header-menu-lg-padding: 0 2rem;
-//@site-header-secondary-menu-lg-padding: 0 2rem 0 0;
 
-// subtitles
+// Subtitles.
 @subtitle-font-size-xs: 1.2rem;
 @subtitle-font-size: 1.8rem;
 
-// gallery images
-@gallery-item-border-color: @primary-color;
-
-// compatibility - Easy Digital Downloads
-@edd-download-padding: 1.5rem;
-@edd-download-title-color: lighten( @heading-color, 20% );
-@edd-download-title-hover-color: @primary-color;
+// Compatibility - Easy Digital Downloads.
+@edd-download-title-color: @heading-color;
+@edd-download-title-hover-color: @edd-download-title-color;
 @edd-download-title-font-size: 1.2rem;
 @edd-download-price-color: @accent-color;
 
-// compatibility - AffiliateWP
+// Compatibility - AffiliateWP.
 @affiliate-tab-active-color: @accent-color;
 
-// breakpoints
-@screen-sm-min: 768px; // 48em
-@screen-md-min: 992px; // 62em
-@screen-lg-min: 1220px; // 75em
+// Breakpoints.
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1220px;
 
-// navigation breakpoints
+// Navigation breakpoints.
 @nav-sm-max: @screen-sm-max;
 @nav-sm-min: @screen-sm-min;
 @nav-md-min: @screen-md-min;
 @nav-lg-min: @screen-lg-min;
 
-// when the desktop navigation should be shown
+// When the desktop navigation should be shown.
 @desktop-nav: 768px;
 @desktop-nav-max: @desktop-nav - 1;
 
-// So media queries don't overlap when required, provide a maximum
+// So media queries don't overlap when required, provide a maximum.
 @screen-xs-max: (@screen-sm-min - 1);
 @screen-sm-max: (@screen-md-min - 1);
 @screen-md-max: (@screen-lg-min - 1);
 
-@wrapper-slim: 784px;
-@wrapper-wide: 1080px;
-
-// widths
-@nav-max-width: 1252px;
-
-@width-standard: 1252px;
-@width-slim: 784px;
-
-
-@wrapper-full-width: @page-wrap-max-width;
+// Defines the overall page width. Setting this to "none" will make the site full-width.
 @page-max-width: 1480px;
-@page-wrap-max-width: 1252px;
-@site-header-wrap-max-width: @page-wrap-max-width;
+
+// Defines a standard width. Used by:
+// .site-header-wrap
+// .site-header-menu .main-navigation
+// .content-wrapper
+// body .wrapper
+// .container > .wrapper (with 64px minused)
+@width-standard: 1252px;
+
+// Defines the max width of the site header wrap.
+@site-header-wrap-max-width: @width-standard;
+
+// Defines the width for the main navigation.
+@main-nav-max-width: @width-standard;

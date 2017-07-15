@@ -1,0 +1,398 @@
+// Appears inside the credit card field when the card number is deemed valid.
+input.edd-input.card-number.valid {
+	background-image: url(assets/images/tick.png);
+	background-repeat: no-repeat;
+	background-position: 98% 50%;
+}
+
+.edd_form fieldset p {
+	margin-bottom: 1rem;
+}
+
+// only with the checkout template
+
+.edd_cart_item_image {
+    display: inline-block;
+	vertical-align: middle;
+
+    img {
+        display: block;
+        margin-right: 1rem;
+    }
+
+}
+
+// discount shown at checkout and also with the [download_discounts] shortcode
+.edd_cart_discount_row .edd_discount {
+    text-align: right;
+    display: block;
+}
+
+// The error notice shown when the discount did not work.
+#edd-discount-error-wrap {
+	display: block;
+	margin: 1rem 0 0 0;
+}
+
+.edd_discount_rate,
+.edd_discount_remove {
+    vertical-align: middle;
+}
+
+// remove discount
+.edd_discount_remove {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url( 'assets/images/xit.gif' ) 0 0 no-repeat;
+	position: relative;
+
+    &:hover {
+    	background-position: -10px 0;
+    }
+
+}
+
+// checkout rows
+.edd_cart_footer_row th {
+	text-align: right;
+	background: #fff;
+}
+
+// total footer row
+.edd_cart_footer_row .edd_cart_total {
+	background: @light-grey-alt;
+}
+
+// Secure payment icon and message
+
+#edd_secure_site_wrapper {
+	margin-bottom: 1rem;
+	padding-right: 3rem;
+	font-weight: bold;
+}
+
+span.padlock {
+	display: block;
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+}
+
+.edd-cart-ajax {
+    color: #fff;
+    line-height: 1;
+    margin-top: -9px;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+}
+
+// discounts
+#edd-discount {
+    margin-bottom: 1rem;
+}
+
+// discount
+#edd_checkout_form_wrap .edd-apply-discount {
+	vertical-align: top;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	#edd-discount {
+		width: 70%;
+		margin-bottom: 0;
+	}
+}
+
+#edd-discount-code-wrap,
+#edd_show_discount {
+    margin-bottom: 0;
+}
+
+.edd-discount-loader.edd-loading {
+	display: inline-block;
+	position: relative;
+	left: auto;
+	vertical-align: middle;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+// end discounts
+
+#edd_terms_agreement {
+    margin-bottom: 2rem;
+}
+
+#edd_agree_to_terms {
+    margin-right: 0.5rem;
+}
+
+// Center the empty cart text if the slim or full-width page template is used
+.no-sidebar .edd_empty_cart {
+	text-align: center;
+	display: block;
+}
+
+#edd_checkout_form_wrap span.edd-required-indicator {
+	color: @required;
+    font-size: 1.5rem;
+}
+
+#edd_discount_code {
+    margin-bottom: 2rem;
+}
+
+// Fieldset styling.
+// To do: consolidate all these styles using a common selector.
+#edd_profile_personal_fieldset,
+#edd_profile_address_fieldset,
+#edd_profile_password_fieldset,
+#edd_discount_code,
+#edd_checkout_user_info,
+#edd_register_account_fields,
+#edd_login_fields,
+#eddc_profile_paypal_fieldset, // EDD commissions
+#edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
+#edd_cc_fields,
+#edd_terms_agreement,
+#edd_simple_shipping_fields,
+#edd_simple_shipping_diff_address,
+#edd-stripe-manage-cards > fieldset,
+#edd_payment_mode_select {
+    padding: 1rem;
+	border: 2px solid @border-light-grey-alt;
+    background: @light-grey-alt;
+	position: relative;
+
+    p:last-child {
+        margin-bottom: 0.5rem;
+    }
+}
+
+// Simple shipping
+#edd_simple_shipping_diff_address label {
+	margin-bottom: 0;
+}
+
+// Force select menus to be 100% width or they cause scrollbars
+#edd_purchase_form_wrap select {
+	width: 100%;
+}
+
+#edd_purchase_form_wrap .edd-select-small {
+	width: auto;
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
+	#edd_purchase_form_wrap select {
+		width: 60%;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#edd_profile_personal_fieldset,
+	#edd_profile_address_fieldset,
+	#edd_profile_password_fieldset,
+	#edd_discount_code,
+	#edd_checkout_user_info,
+	#edd_register_account_fields,
+	#edd_login_fields,
+	#eddc_profile_paypal_fieldset, // EDD commissions
+	#edd_purchase_form #edd_cc_address, // only affect the address fields at checkout and not the one provided by EDD Stripe
+	#edd_cc_fields,
+	#edd_terms_agreement,
+	#edd-stripe-manage-cards > fieldset,
+	#edd_simple_shipping_fields,
+	#edd_simple_shipping_diff_address,
+	#edd_payment_mode_select {
+		padding: 2rem;
+	}
+
+}
+
+// terms
+#edd_show_terms + .edd-terms-agreement {
+	margin-top: 0.5rem;
+}
+
+// submit button wrap
+#edd_profile_submit_wrap {
+	margin-bottom: 0;
+}
+
+.edd-payment-mode-label {
+    font-size: 1.5rem;
+}
+
+.edd_checkout_cart_item_title {
+	vertical-align: middle;
+	display: block; // Site underneath
+}
+
+.edd_cart_item_image + .edd_checkout_cart_item_title {
+	margin-top: 0.5rem;
+}
+
+.edd-description {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: lighten( @body-text-color, 10% );
+}
+
+.edd_cart_actions {
+    text-align: right;
+}
+
+#edd_final_total_wrap {
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+#edd-purchase-button-wrap {
+	position: relative;
+}
+
+#edd-purchase-button {
+	width: 100%;
+	font-size: 1.5rem;
+	padding: 1rem;
+}
+
+.edd_cart_header_row,
+.edd_cart_item {
+	border-bottom: 2px solid @light-grey;
+}
+
+// shows the total price at checkout
+.edd_cart_total {
+	text-align: right;
+}
+
+.edd_cart_amount {
+	font-weight: bold;
+}
+
+#edd_checkout_cart {
+	width: 100%;
+	text-align: left;
+	margin-bottom: 2rem;
+
+	th {
+		font-weight: bold;
+	}
+}
+
+// payment icons
+.edd-payment-icons {
+    margin-bottom: 2rem;
+}
+
+.edd-payment-icons img {
+    display: inline-block;
+	margin-right: 0.5rem;
+}
+
+.edd-payment-mode-label {
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.edd-gateway,
+.edd-gateway-option {
+    cursor: pointer;
+}
+
+.edd-gateway {
+    margin-right: 0.5rem;
+}
+
+.edd-gateway-option {
+    margin-right: 2rem;
+    display: inline-block;
+	vertical-align: middle;
+}
+
+label[for=edds-confirm-update-default],
+label[for=edd_agree_to_terms] {
+    width: 90%;
+    vertical-align: top;
+}
+
+// Card type.
+// Shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method
+span.card-type {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 43px;
+	height: 32px;
+	background-size: 43px 32px !important;
+}
+
+label[for=card_number] {
+    position: relative;
+}
+
+span.card-type.off {
+	display: none;
+}
+
+span.card-type.visa {
+	background: url(assets/images/icons/visa.gif ) no-repeat;
+}
+
+span.card-type.mastercard {
+	background: url(assets/images/icons/mastercard.gif ) no-repeat;
+}
+
+span.card-type.discover {
+	background: url(assets/images/icons/discover.gif ) no-repeat;
+}
+
+span.card-type.amex {
+	background: url(assets/images/icons/americanexpress.gif ) no-repeat;
+}
+
+#edd_purchase_submit {
+	margin-bottom: 0;
+}
+
+// Distraction Free checkout styling.
+
+.edd-checkout-distraction-free {
+
+	.site-branding {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center; // make sure both site title and description are centered
+	}
+
+	.site-footer .site-info {
+		text-align: center;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-xs-max) {
+	.edd_discount_link {
+		display: block;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#edd_checkout_cart {
+		td, th {
+			padding: 1rem 2rem;
+		}
+	}
+
+	.edd-checkout-distraction-free #primary {
+		width: 62%;
+		margin: 0 auto;
+	}
+
+}

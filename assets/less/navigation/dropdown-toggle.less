@@ -1,0 +1,43 @@
+// Dropdown toggles.
+// Expands the sub menu items at mobile sizes.
+.dropdown-toggle {
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	color: @dropdown-toggle-color;
+	content: "";
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	position: absolute;
+	text-transform: none;
+	top: 0;
+	right: 0;
+
+	&:hover {
+		background-color: transparent;
+		border: none;
+		color: @dropdown-toggle-color;
+	}
+}
+
+// Adds the arrow to the dropdown toggle.
+.dropdown-toggle:after {
+	content: "\f431";
+	font-size: 24px;
+	position: relative;
+	left: 1px;
+	width: 48px;
+}
+
+.dropdown-toggle.toggled-on:after {
+	content: "\f432";
+}
+
+.media-mixin(@break) when (@break = @desktop-nav) {
+
+	.dropdown-toggle {
+		display: none;
+	}
+
+}

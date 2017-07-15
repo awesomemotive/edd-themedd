@@ -1,11 +1,6 @@
+// Site footer.
 .site-footer {
-	background: @footer-color;
-	font-size: @footer-font-size;
-
-	a,
-	a:hover {
-		border-bottom: none;
-	}
+	background: @footer-background-color;
 
 	ul {
 		margin-left: 0;
@@ -15,19 +10,44 @@
 		list-style-type: none;
 	}
 
+	a {
+		color: @nav-footer-link-color;
+
+		&:hover {
+			color: @nav-footer-link-hover-color;
+		}
+	}
+
 }
 
+// Footer widgets.
+.footer-widgets .widget-column {
+	padding: 1rem;
+}
+
+// Site info.
 .site-info {
-	text-align: center;
 	padding: 2rem;
+	text-align: center;
+	color: @site-info-color;
 
     p {
         margin-bottom: 0;
     }
 }
 
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	.footer-widgets .widget-column {
+		padding: 2rem;
+	}
+
 	.site-footer ul {
         margin-bottom: 0;
     }
+
+	.footer-widgets .widget {
+		margin-bottom: 4rem;
+	}
+
 }

@@ -1,7 +1,22 @@
 // Structure
 
 #main {
-	padding: 2rem;
+	padding: 1rem;
+}
+
+#primary-sidebar .widget {
+	padding: 1rem;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	#main {
+		padding: 2rem;
+	}
+
+	#primary-sidebar .widget {
+		padding: 2rem;
+	}
+
 }
 
 // site wrapper
@@ -10,12 +25,15 @@
 	min-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	word-wrap: break-word;
 
 	// flexbox sticky footer
-	display: -webkit-flex;
-	display: -ms-flex;
 	display: flex;
 	flex-direction: column;
+}
+
+.layout-full-width #page {
+	max-width: none;
 }
 
 // content area
@@ -24,16 +42,13 @@
 	flex: 1 0 auto;
 }
 
-#primary {
+#primary,
+#secondary {
 	padding: 0;
 }
 
 .no-sidebar #primary {
 	width: 100%;
-}
-
-#primary-sidebar aside {
-	padding: 1rem 0;
 }
 
 // houses the primary and secondary columns
@@ -53,14 +68,19 @@ body .wrapper {
 	max-width: @width-standard;
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+.container > .wrapper {
+	max-width: @width-standard - 64; // 4rem
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.content-wrapper {
-		display: -webkit-flex;
-		display: -ms-flex;
 		display: flex;
-		-webkit-justify-content: space-between;
 		justify-content: space-between;
+	}
+
+	#main {
+		flex: 1;
 	}
 
 	#secondary {
@@ -71,13 +91,11 @@ body .wrapper {
 		margin: 0 auto;
 	}
 
-	#primary-sidebar aside {
-		padding: 2rem;
-	}
 
-	// slim template
+
+	// Slim template.
 	.slim #primary {
-		width: 58.333%;
+		width: 62%;
 		margin: 0 auto;
 	}
 

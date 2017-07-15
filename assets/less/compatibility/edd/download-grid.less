@@ -1,0 +1,278 @@
+.edd_downloads_list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+// download grid styles
+
+.edd_download_inner {
+	// so we can position the child elements like the button to the bottom of the div
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	position: relative;
+}
+
+// style currency symbol for normal and variable prices
+.currency {
+	vertical-align: top;
+}
+
+// the main download box
+.edd_download {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 4rem;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	.edd_download {
+		margin-bottom: 0;
+	}
+}
+
+// No top margin for download titles
+h3.edd_download_title {
+	margin-top: 0;
+}
+
+// When FES is active or the specific filter is enabled, this class will be applied to the download grid to help style the download meta.
+.has-download-meta {
+
+	.edd_download_title {
+		margin-bottom: 0.5rem;
+	}
+
+}
+
+// Download footer
+// Always aligned to the bottom.
+// Optional: May contain .eddDownloadMeta
+.downloadFooter {
+	margin: auto 0 0 0;
+}
+
+// Download meta, shown in the download grid.
+// Contains the price (optional) and download author (optional)
+.eddDownloadMeta {
+	font-size: 0.875rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+
+	> * {
+		display: flex;
+		align-items: center;
+	}
+
+	a {
+		color: @body-text-color;
+	}
+}
+
+.eddDownloadMeta-authorAvatar {
+	img {
+		display: block;
+		border-radius: 100%;
+	}
+}
+
+.eddDownloadMeta-authorAvatar + .eddDownloadMeta-authorName {
+	margin-left: 0.5rem;
+}
+
+// Download meta shown before or after the title.
+.eddDownloadMeta-beforeTitle,
+.eddDownloadMeta-afterTitle {
+	margin-bottom: 1.5rem;
+}
+
+// Download meta shown at the very bottom of the download.
+.eddDownloadMeta-after {
+	margin-top: 2rem;
+}
+
+.edd_download_title a {
+	color: @edd-download-title-color;
+	font-size: @edd-download-title-font-size;
+	display: block;
+
+	&:hover {
+		color: @edd-download-title-hover-color;
+	}
+}
+
+// download image
+.edd_download_image {
+	margin: 0 0 1.5rem 0;
+
+	a, img {
+		display: block;
+	}
+}
+
+// price options
+.edd_price_options {
+
+	ul {
+		list-style-type: none;
+		margin: 0 0 1rem 0;
+	}
+
+	li {
+		padding: 0.25rem 0;
+		line-height: 1.62;
+		cursor: pointer;
+		font-size: 1rem;
+		margin-bottom: 0;
+	}
+
+	li label {
+		padding: 0;
+		display: block;
+
+		margin: 0;
+
+		input {
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+
+// always align buy now button to bottom
+.edd_download_buy_button {
+	margin: auto 0 0 0;
+}
+
+.edd_download_purchase_form {
+	margin-top: 1rem;
+}
+
+.edd_download_full_content,
+.edd_download_excerpt {
+	margin-bottom: 1rem;
+}
+
+.edd_download_full_content p,
+.edd_download_excerpt p {
+	margin-bottom: 0;
+	font-size: 1rem;
+}
+
+// price
+span.edd_price {
+	display: inline-block;
+}
+
+// Align price to bottom when there is no buy now button
+.has-price.no-buy-button div[itemprop="offers"] {
+	margin: auto 0 0 0;
+}
+
+// Downloads shown on single downloads.
+// This relates to downloads shown from either the Cross-sell/Upsell or Recommended Product extensions.
+.single-download {
+
+	.edd_download_columns_1 {
+		width: 50%;
+	}
+}
+
+// Downloads shown at checkout.
+// This relates to downloads shown from either the EDD Cross-sell/Upsell or Recommended Product extensions.
+#edd_checkout_wrap {
+
+	.edd_download_columns_1 {
+		width: 25%;
+	}
+
+	.edd_download_columns_2 {
+		width: 50%;
+	}
+
+	.edd_download_columns_3 {
+		width: 75%;
+	}
+
+	.edd_download_columns_4 {
+		width: auto;
+	}
+
+}
+
+// Alter the download widths for the slim page template is in use.
+.slim #edd_checkout_wrap {
+
+	.edd_download_columns_1 {
+		width: 50%;
+	}
+
+	.edd_download_columns_2 {
+		width: auto;
+	}
+
+	.edd_download_columns_3 {
+		width: auto;
+	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	.edd_downloads_list {
+        margin-left: -1.5rem;
+		margin-right: -1.5rem;
+		margin-top: -1.5rem;
+    }
+
+	.edd_download_inner {
+		padding: 1.5rem;
+	}
+
+	.edd_download_columns_1 {
+		max-width: 50%;
+	}
+
+	// the default
+	.edd_download_columns_3 .edd_download {
+		width: 33.333333333%;
+	}
+
+	.edd_download_columns_2 .edd_download,
+	.edd_download_columns_4 .edd_download {
+		width: 50%;
+	}
+
+	.edd_download_columns_5 .edd_download {
+		width: 33.333333333%;
+	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
+
+	.edd_download_columns_4 .edd_download {
+		width: 25%;
+	}
+
+	// the default
+	.edd_download_columns_3 .edd_download {
+		width: 33.333333333%;
+	}
+
+	.edd_download_columns_2 .edd_download {
+		width: 50%;
+	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-lg-min) {
+
+	.edd_download_columns_5 .edd_download {
+		width: 20%;
+	}
+
+}

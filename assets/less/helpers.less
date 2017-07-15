@@ -1,3 +1,7 @@
+figure {
+	margin: 0;
+}
+
 img {
   max-width: 100%; // responsive images
   height:    auto; // keeps the image proportionate
@@ -9,13 +13,6 @@ input[type="search"],
 *,
 *:before,
 *:after {
-  // Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7-
-  -webkit-box-sizing: border-box;
-
-  // Firefox (desktop or Android) 28-
-  -moz-box-sizing: border-box;
-
-  // Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+
   box-sizing: border-box;
 }
 
@@ -31,17 +28,24 @@ hr {
     background: @highlight-color;
 }
 
-// center any element's contents
 .aligncenter {
-  text-align: center;
+	clear: both;
+	display: block;
+	margin: 0 auto 2rem auto;
 }
 
 .alignleft {
-  text-align: left;
+	float: left;
+	margin: 0 2rem 2rem 0;
+}
+
+.alignright {
+    float: right;
+    margin: 0 0 2rem 2rem;
 }
 
 .hide {
-  display: none;
+	display: none;
 }
 
 .text-center-xs {
@@ -52,7 +56,7 @@ hr {
 	text-align: left;
 }
 
-@media only screen and (min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
 	.text-center-sm {
 		text-align: center;
@@ -64,7 +68,7 @@ hr {
 
 }
 
-@media only screen and (min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
 	.text-center-md {
 		text-align: center;
@@ -76,7 +80,7 @@ hr {
 
 }
 
-@media only screen and (min-width: @screen-lg-min ) {
+.media-mixin(@break) when (@break = @screen-lg-min) {
 
 	.text-center-lg {
 		text-align: center;

@@ -1,0 +1,95 @@
+// Stripe Payment Gateway
+// https://easydigitaldownloads.com/downloads/stripe-gateway/
+
+// edd_profile_editor] shortcode. Loading spinner when a card is updated etc.
+.edd-stripe-submit-update {
+	justify-content: center;
+	display: inline-flex;
+}
+
+.edd-stripe-submit-update .edd-loading-ajax.edd-loading {
+	position: relative;
+}
+
+// [edd_profile_editor] shortcode.
+.edd-stripe-card-item {
+
+	border-bottom: 2px solid @light-grey;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+
+	// Hide the card update forms by default
+	.card-update-form {
+		display: none;
+	}
+
+	// "Visa Ending in 4242"
+	.card-brand,
+	.card-ending-label,
+	.card-last-4 {
+		font-weight: bold;
+	}
+
+	> span {
+		display: block;
+	}
+
+	.card-meta > span {
+		display: block;
+	}
+
+	.card-update-form input {
+		margin-bottom: 1rem;
+	}
+
+	.address_country {
+		margin-bottom: 1rem;
+	}
+
+	.address_country,
+	.address_state {
+		display: block;
+	}
+
+}
+
+// Checkout + [edd_profile_editor] shortcode.
+.edd-card-selector-radio span.card-expired,
+a.delete {
+	color: @alert-error-text-color;
+}
+
+// [edd_profile_editor] shortcode. Cancel links.
+#edd-stripe-add-new-cancel,
+.edd-stripe-cancel-update {
+	margin-left: 1rem;
+}
+
+// Checkout + [edd_profile_editor] shortcode. Shows "— Default" next to a card option.
+.card-is-default {
+	font-style: italic;
+}
+
+// Checkout. "Card Number" label.
+.edd-stripe-new-card label[for="card_number"] {
+	margin-top: 1rem;
+}
+
+// Make the labels sit next to the radio buttons.
+// See: https://github.com/easydigitaldownloads/edd-stripe/issues/220.
+.edd-stripe-card-radio-item label {
+	display: inline-block;
+}
+
+.edd-stripe-add-new-card > label, // [edd_profile_editor] shortcode. "Add New Card".
+.card-update-form > label // [edd_profile_editor] shortcode. "Update Billing Details".
+{
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+	color: @dark-grey;
+}
+
+// [edd_profile_editor] shortcode. Affects the "Update Billing Details" label.
+.card-update-form > label {
+	margin-top: 2rem;
+}

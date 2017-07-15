@@ -1,0 +1,137 @@
+// Kill the add to cart message.
+.edd-cart-ajax-alert {
+    display: none;
+}
+
+// Ajax Add To Cart Button.
+.edd_purchase_submit_wrapper {
+	position: relative;
+}
+
+.edd_purchase_submit_wrapper a.edd-add-to-cart {
+	text-decoration: none;
+	display: none;
+	position: relative;
+	overflow: hidden;
+}
+
+.edd_purchase_submit_wrapper a.edd-add-to-cart.edd-has-js {
+	display: inline-block;
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
+
+	// Make purchase buttons 100% width on single download page only.
+	.single-download a.edd-add-to-cart.edd-has-js,
+	.single-download .edd_go_to_checkout {
+		width: 100%;
+	}
+
+	// Make the purchase button 100% width on single download pages when there is no JS.
+	.single-download .edd_purchase_submit_wrapper .edd-add-to-cart.edd-no-js {
+		width: 100%;
+	}
+
+}
+
+.edd-add-to-cart .edd-add-to-cart-label {
+	opacity: 1;
+}
+
+.edd-loading,
+.edd-loading:after {
+	border-radius: 50%;
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+// General styles for the loading spinner.
+.edd-loading {
+	animation: edd-spinning 1.1s infinite linear;
+	border-top: 2px solid rgba(255, 255, 255, 0.2);
+	border-right: 2px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+	border-left: 2px solid #fff;
+	font-size: 1rem;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+// The spinner shown on add to cart buttons.
+.edd-add-to-cart .edd-loading {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -0.75rem 0 0 -0.75rem;
+}
+
+
+.edd-discount-loader.edd-loading,
+.edd-loading-ajax.edd-loading {
+	border-top-color: rgba(0, 0, 0, 0.2);
+	border-right-color: rgba(0, 0, 0, 0.2);
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	border-left-color: #000;
+}
+
+// The loading icon for the purchase button at checkout.
+#edd-purchase-button-wrap .edd-loading-ajax.edd-loading {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	margin-top: -0.75rem;
+}
+
+// White spinner.
+// Used by the checkout purchase button and the Stripe update card button.
+#edd-purchase-button-wrap .edd-loading-ajax.edd-loading,
+.edd-stripe-submit-update .edd-loading-ajax.edd-loading {
+	border-top-color: rgba(255, 255, 255, 0.2);
+	border-right-color: rgba(255, 255, 255, 0.2);
+	border-bottom-color: rgba(255, 255, 255, 0.2);
+	border-left-color: #fff;
+}
+
+.edd-loading-ajax.edd-loading {
+	opacity: 1;
+}
+
+// Spinner keyframe animations
+@-webkit-keyframes edd-spinning {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes edd-spinning {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+a.edd-add-to-cart .edd-add-to-cart-label,
+.edd-loading {
+	transition: .1s opacity !important;
+}
+
+.edd-add-to-cart[data-edd-loading] .edd-add-to-cart-label {
+	opacity: 0;
+}
+
+.edd-add-to-cart[data-edd-loading] .edd-loading,
+.edd-discount-loader.edd-loading {
+	opacity: 1;
+}
+
+.edd-cart-added-alert {
+	color: @alert-success-text-color;
+}

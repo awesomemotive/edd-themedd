@@ -6,25 +6,24 @@ input[type="submit"],
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-weight: 500;
+    font-weight: 500; // reset font weight
     text-align: center;
     vertical-align: middle;
     background-image: none;
 	border-radius: 0; // prevent rounded corners in iOS
     border: @button-border;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
     outline: none;
+	width: auto;
+	line-height: 1.5rem;
 }
 
-#submit:hover,
-button:hover,
 .button:hover,
 .button:focus,
-input[type=submit]:hover {
+button:hover,
+button:focus,
+input[type=submit]:hover,
+#submit:hover {
     text-decoration: none;
     color: #fff;
     background: @button-background-hover-color;
@@ -35,36 +34,41 @@ input[type=submit]:hover {
 input[type=submit],
 button,
 .button {
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: @button-padding;
 }
 
-@media only screen and ( min-width: @screen-sm-min ) {
 
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	// Small button.
 	.button.small {
 		font-size: 0.875rem;
         padding: 0.875rem 1.25rem;
 	}
 
-    // large
+    // Large button.
     .button.large {
         font-size: 1.5rem;
         padding: 1.5rem 2.25rem;
     }
 
+	// Huge button.
     .button.huge {
         font-size: 2rem;
-        padding: 1.5rem 2.5rem;
+        padding: 1.75rem 2.5rem;
     }
+
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
+.media-mixin(@break) when (@break = @screen-md-min) {
 
-    .button.wide {
+	.button.wide {
         display: block;
     }
 
     button.wide {
         width: 100%;
     }
+
 }

@@ -1,22 +1,25 @@
 // WordPress galleries
 
-.carousel-open {
-	height: auto;
-}
-
 .gallery {
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
 	margin-right: -1rem;
 	margin-left: -1rem;
 
 	figure {
 		margin: 0;
 	}
+}
+
+.gallery-item div {
+	margin: 1rem;
+}
+
+.carousel-open {
+	height: auto;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .entry-content .gallery {
@@ -27,37 +30,22 @@
 	width: 100%;
 
 	img {
-		margin-bottom: 0;
+		margin: 0 auto;
 		display: block;
 	}
 
-	div {
-		margin: 1rem;
-	}
-
 	figcaption {
-		padding: 0 2rem;
-		margin-bottom: 1rem;
-		text-align: left;
+		margin: 0.5rem 0 2rem 0;
+		text-align: center;
 	}
 }
 
 .gallery-item a {
-	padding: 1rem;
 	display: block;
-	border-bottom: none;
-	border: 4px solid @light-grey;
-
-	&:hover {
-		border-color: @gallery-item-border-color;
-	}
-
 }
 
-// Small Devices, Tablets
-@media only screen and ( min-width: @screen-sm-min ) {
+.media-mixin(@break) when (@break = @screen-sm-min) {
 
-	// default
 	.gallery .gallery-item {
 		width: 33.333333333%;
 	}
@@ -73,5 +61,4 @@
 	.gallery.gallery-columns-4 .gallery-item {
 		width: 25%;
 	}
-
 }

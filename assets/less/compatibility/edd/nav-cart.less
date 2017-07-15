@@ -1,0 +1,32 @@
+// the old .nav-cart
+
+// module
+.navCart {
+	align-self: center;
+}
+
+// icon
+// previously .nav-cart-icon
+.navCart-icon {
+	position: relative;
+    display: inline-block;
+    vertical-align: middle;
+	display: inline-flex;
+	align-items: center;
+	fill: @cart-color;
+
+	// If the item quantity or cart total is shown next to the cart icon, add some left margin.
+	+ * {
+		margin-left: 0.25rem;
+	}
+}
+
+.main-navigation .navCart {
+	padding: 0.25rem 0;
+}
+
+.media-mixin(@break) when (@break = @desktop-nav) {
+	.navCart {
+		margin-left: 1rem;
+	}
+}

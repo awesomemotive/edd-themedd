@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_post_header();
+themedd_page_header();
 ?>
 
 <?php do_action( 'themedd_single_start' ); ?>

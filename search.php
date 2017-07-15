@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_post_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
+themedd_page_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
 ?>
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 
@@ -27,12 +27,7 @@ themedd_post_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
 				// End the loop.
 				endwhile;
 
-				// Previous/next page navigation.
-				the_posts_pagination( array(
-					'prev_text'          => esc_html__( 'Previous page', 'themedd' ),
-					'next_text'          => esc_html__( 'Next page', 'themedd' ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'themedd' ) . ' </span>',
-				) );
+				themedd_paging_nav();
 
 			// If no content, include the "No posts found" template.
 			else :

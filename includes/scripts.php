@@ -1,32 +1,46 @@
 <?php
+
+if ( ! function_exists( 'themedd_styles' ) ) :
+function themedd_styles() {
+
+	// Suffix.
+	$suffix = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
+
+	// Theme stylesheet.
+	wp_enqueue_style( 'themedd', get_theme_file_uri( 'style' . $suffix . '.css' ), array(), THEMEDD_VERSION );
+
+}
+add_action( 'wp_enqueue_scripts', 'themedd_styles' );
+endif;
+
 /**
  * Enqueue scripts and styles
  *
  * @since 1.0.0
  */
-function themedd_enqueue_scripts() {
+function themedd_scripts() {
 
-	// register scripts
-	wp_register_script( 'themedd-js', get_template_directory_uri() . '/assets/js/themedd.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
-	wp_register_script( 'account-js', get_template_directory_uri() . '/assets/js/account.min.js', array( 'jquery' ), THEMEDD_VERSION );
 	wp_register_script( 'comment-reply', '', '', '',  true );
 
-	if ( themedd_is_edd_sl_active() ) {
-		wp_register_style( 'edd-sl-styles', plugins_url( '/css/edd-sl.css', EDD_SL_PLUGIN_FILE ), false, EDD_SL_VERSION );
-	}
+	// Suffix.
+	$suffix = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
 
-	// Loads our main stylesheet.
-	wp_enqueue_style( 'themedd', get_stylesheet_uri(), array(), THEMEDD_VERSION );
-
-	/**
-	 * Themedd JS
-	 */
-	wp_enqueue_script( 'themedd-js' );
+	wp_enqueue_script( 'themedd-js', get_theme_file_uri( '/assets/js/themedd' . $suffix . '.js' ), array( 'jquery' ), THEMEDD_VERSION, true );
 
 	wp_localize_script( 'themedd-js', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'themedd' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>'
 	) );
+
+	// Cart text
+	$cart_quantity_text = function_exists( 'themedd_cart_quantity_text' ) ? themedd_cart_quantity_text() : '';
+
+	if ( $cart_quantity_text ) {
+		wp_localize_script( 'themedd-js', 'cartQuantityText', array(
+			'singular' => $cart_quantity_text['singular'],
+			'plural'   => $cart_quantity_text['plural']
+		) );
+	}
 
 	/**
 	 * Comments
@@ -37,59 +51,16 @@ function themedd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// load jQuery UI + tabs for account page
-	if ( is_page_template( 'page-templates/account.php' ) ) {
-
-		/**
-		 * Account page
-		 */
-		wp_enqueue_script( 'jquery-ui-tabs' );
-
-		// load jQuery UI
-		wp_enqueue_script( 'jquery-ui-core' );
-
-		// load account JS
-		wp_enqueue_script( 'account-js' );
-
-		// load EDD SL's CSS styles
-		wp_enqueue_style( 'edd-sl-styles' );
-
-	}
-
 }
-add_action( 'wp_enqueue_scripts', 'themedd_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'themedd_scripts' );
 
 /**
- * Lightboxes
+ *  Load the admin styles
+ *
+ *  @since 1.0
+ *  @return void
  */
-function themedd_load_popup() {
-
-	if ( themedd_enable_popup() ) :
-	?>
-	<script type="text/javascript">
-
-		jQuery(document).ready(function($) {
-
-		//inline
-		$('.popup-content').magnificPopup({
-			type: 'inline',
-			fixedContentPos: true,
-			fixedBgPos: true,
-			overflowY: 'scroll',
-			closeBtnInside: true,
-			preloader: false,
-			callbacks: {
-				beforeOpen: function() {
-				this.st.mainClass = this.st.el.attr('data-effect');
-				}
-			},
-			midClick: true,
-			removalDelay: 300
-        });
-
-		});
-	</script>
-
-<?php endif;
+function themedd_admin_styles() {
+	wp_enqueue_style( 'themedd-admin', get_theme_file_uri( '/assets/css/admin.css' ), array(), THEMEDD_VERSION );
 }
-add_action( 'wp_footer', 'themedd_load_popup', 100 );
+add_action( 'admin_enqueue_scripts', 'themedd_admin_styles' );
