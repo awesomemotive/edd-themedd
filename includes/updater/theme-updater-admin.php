@@ -58,7 +58,6 @@ class Themedd_Updater_Admin {
 		$this->strings = $strings;
 
 		add_action( 'init', array( $this, 'updater' ) );
-		add_action( 'admin_init', array( $this, 'admin_styles' ) );
 		add_action( 'admin_init', array( $this, 'register_option' ) );
 		add_action( 'admin_init', array( $this, 'license_action' ) );
 		add_action( 'admin_menu', array( $this, 'license_menu' ) );
@@ -66,13 +65,6 @@ class Themedd_Updater_Admin {
 		add_action( 'update_option_' . $this->theme_slug . '_license_key', array( $this, 'activate_license' ), 10, 2 );
 		add_filter( 'http_request_args', array( $this, 'disable_wporg_request' ), 5, 2 );
 
-	}
-
-	/**
-	 * Enqueue the admin styles
-	 */
-	function admin_styles() {
-		wp_enqueue_style( 'themedd-admin-style', get_template_directory_uri() . '/inc/admin/admin.css' );
 	}
 
 	/**
