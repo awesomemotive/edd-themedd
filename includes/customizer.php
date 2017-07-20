@@ -217,11 +217,17 @@ function themedd_customize_register( $wp_customize ) {
 	// Add a description to the Site Title Color.
 	$wp_customize->get_control( 'header_textcolor' )->description = __( 'The color of the site title.', 'themedd' );
 
+	// Move the Site Title color to the "Header" section of the "colors" panel
+	$wp_customize->get_control( 'header_textcolor' )->section = 'header_colors';
+
 	// Set the default color of the Site Title setting.
 	$wp_customize->get_setting( 'header_textcolor' )->default = $defaults['header_textcolor'];
 
 	// Add a description to the "Background Color".
 	$wp_customize->get_control( 'background_color' )->description = __( 'The color of the site\'s background.', 'themedd' );
+
+	// Move the Background color to the "General" section of the "colors" panel
+	$wp_customize->get_control( 'background_color' )->section = 'general_colors';
 
 	// Tagline color.
 	$wp_customize->add_setting( 'colors[tagline_color]', array(
@@ -233,7 +239,7 @@ function themedd_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagline_color', array(
 		'label'       => __( 'Tagline Color', 'themedd' ),
 		'description' => __( 'The site tagline (if set) color.', 'themedd' ),
-		'section'     => 'colors',
+		'section'     => 'header_colors',
 		'settings'    => 'colors[tagline_color]',
 	) ) );
 
@@ -250,10 +256,65 @@ function themedd_customize_register( $wp_customize ) {
 		array(
 			'label'       => __( 'Link Color', 'themedd' ),
 			'description' => __( 'The color of general links.', 'themedd' ),
-			'section'     => 'colors',
+			'section'     => 'general_colors',
 			'settings'    => 'colors[link_color]',
 		)
 	));
+
+	/**
+	 * Add (actually replaces) the "Colors" section
+	 */
+	$wp_customize->add_panel( 'colors', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => __( 'Colors', 'themedd' ),
+	) );
+
+	/**
+	 * Add the "general" colors section
+	 */
+	$wp_customize->add_section( 'general_colors', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => __( 'General', 'themedd' ),
+		'panel'          => 'colors',
+	) );
+
+	/**
+	 * Add the "Mobile Menu" colors section
+	 */
+	$wp_customize->add_section( 'mobile_menu_colors', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => __( 'Mobile Menu', 'themedd' ),
+		'panel'          => 'colors',
+	) );
+
+	/**
+	 * Add the "Header" colors section
+	 */
+	$wp_customize->add_section( 'header_colors', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => __( 'Header', 'themedd' ),
+		'panel'          => 'colors',
+	) );
+
+	/**
+	 * Add the "Footer" colors section
+	 */
+	$wp_customize->add_section( 'footer_colors', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => __( 'Footer', 'themedd' ),
+		'description'    => __( 'Footer colors', 'themedd' ),
+		'panel'          => 'colors',
+	) );
 
 	/**
 	 * Primary menu
@@ -273,7 +334,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Menu Background Color', 'themedd' ),
 			'description' => __( 'The background color of the primary menu.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_background_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -291,7 +352,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Menu Link Color', 'themedd' ),
 			'description' => __( 'The color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -309,7 +370,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Menu Link Hover Color', 'themedd' ),
 			'description' => __( 'The color of primary menu links when hovered over.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_hover_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -327,7 +388,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Menu Link Active Color', 'themedd' ),
 			'description' => __( 'The color of primary menu links when active.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_active_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -345,7 +406,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Menu Link Background Hover Color', 'themedd' ),
 			'description' => __( 'The background hover color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_background_hover_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -363,7 +424,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Menu Link Background Active Color', 'themedd' ),
 			'description' => __( 'The background active color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_background_active_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -385,7 +446,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Sub-menu Background Color', 'themedd' ),
 			'description' => __( 'The background color of primary sub-menus.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_sub_background_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -403,7 +464,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Sub-menu Background Hover Color', 'themedd' ),
 			'description' => __( 'The background hover color of primary sub-menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_sub_background_hover_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -421,7 +482,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Sub-menu Background Active Color', 'themedd' ),
 			'description' => __( 'The background active color of primary sub-menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_sub_background_active_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -439,7 +500,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Sub-menu Link Color', 'themedd' ),
 			'description' => __( 'The color of primary sub-menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_sub_link_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -457,7 +518,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Sub-menu Link Hover Color', 'themedd' ),
 			'description' => __( 'The color of primary sub-menu links when hovered over.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_sub_link_hover_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -475,7 +536,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Primary Sub-menu Link Active Color', 'themedd' ),
 			'description' => __( 'The color of primary sub-menu links when active.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_sub_link_active_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -493,7 +554,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Header Background Color', 'themedd' ),
 			'description' => __( 'The background color of the site header.', 'themedd' ),
 			'settings'    => 'colors[header_background_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -515,7 +576,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Secondary Menu Link Color', 'themedd' ),
 			'description' => __( 'The color of secondary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_secondary_link_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -533,7 +594,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Secondary Menu Link Hover', 'themedd' ),
 			'description' => __( 'The color of secondary menu links when hovered over.', 'themedd' ),
 			'settings'    => 'colors[menu_secondary_link_hover_color]',
-			'section'     => 'colors',
+			'section'     => 'header_colors',
 		)
 	));
 
@@ -551,7 +612,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Button Background Color', 'themedd' ),
 			'description' => __( 'The background color of buttons.', 'themedd' ),
 			'settings'    => 'colors[button_background_color]',
-			'section'     => 'colors',
+			'section'     => 'general_colors',
 		)
 	));
 
@@ -569,7 +630,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Button Background Hover Color', 'themedd' ),
 			'description' => __( 'The background color of buttons when hovered over.', 'themedd' ),
 			'settings'    => 'colors[button_background_hover_color]',
-			'section'     => 'colors',
+			'section'     => 'general_colors',
 		)
 	));
 
@@ -587,7 +648,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Button Text Color', 'themedd' ),
 			'description' => __( 'The button text color of buttons.', 'themedd' ),
 			'settings'    => 'colors[button_text_color]',
-			'section'     => 'colors',
+			'section'     => 'general_colors',
 		)
 	));
 
@@ -727,7 +788,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Mobile Menu Button Background Color', 'themedd' ),
 			'description' => __( 'The background color of the mobile menu button.', 'themedd' ),
 			'settings'    => 'colors[menu_mobile_button_background_color]',
-			'section'     => 'colors',
+			'section'     => 'mobile_menu_colors',
 		)
 	));
 
@@ -745,7 +806,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Mobile Menu Button Text Color', 'themedd' ),
 			'description' => __( 'The text color of the mobile menu button.', 'themedd' ),
 			'settings'    => 'colors[menu_mobile_button_text_color]',
-			'section'     => 'colors',
+			'section'     => 'mobile_menu_colors',
 		)
 	));
 
@@ -763,7 +824,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Mobile Menu Background Color', 'themedd' ),
 			'description' => __( 'The background color of the mobile menu.', 'themedd' ),
 			'settings'    => 'colors[menu_mobile_background_color]',
-			'section'     => 'colors',
+			'section'     => 'mobile_menu_colors',
 		)
 	));
 
@@ -781,7 +842,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Mobile Menu Link Color', 'themedd' ),
 			'description' => __( 'The link color of the mobile menu.', 'themedd' ),
 			'settings'    => 'colors[menu_mobile_link_color]',
-			'section'     => 'colors',
+			'section'     => 'mobile_menu_colors',
 		)
 	));
 
@@ -803,7 +864,7 @@ function themedd_customize_register( $wp_customize ) {
 			'label'       => __( 'Footer Background Color', 'themedd' ),
 			'description' => __( 'The background color of the footer.', 'themedd' ),
 			'settings'    => 'colors[footer_background_color]',
-			'section'     => 'colors',
+			'section'     => 'footer_colors',
 		)
  	));
 
@@ -820,7 +881,7 @@ function themedd_customize_register( $wp_customize ) {
 		array(
 			'label'       => __( 'Footer Text Color', 'themedd' ),
 			'description' => __( 'The color of footer text.', 'themedd' ),
-			'section'     => 'colors',
+			'section'     => 'footer_colors',
 			'settings'    => 'colors[footer_text_color]',
 		)
 	));
@@ -838,7 +899,7 @@ function themedd_customize_register( $wp_customize ) {
 		array(
 			'label'       => __( 'Footer Link Color', 'themedd' ),
 			'description' => __( 'The color of footer links.', 'themedd' ),
-			'section'     => 'colors',
+			'section'     => 'footer_colors',
 			'settings'    => 'colors[footer_link_color]',
 		)
 	));
@@ -856,7 +917,7 @@ function themedd_customize_register( $wp_customize ) {
 		array(
 			'label'       => __( 'Footer Link Hover Color', 'themedd' ),
 			'description' => __( 'The hover color of footer links.', 'themedd' ),
-			'section'     => 'colors',
+			'section'     => 'footer_colors',
 			'settings'    => 'colors[footer_link_hover_color]',
 		)
 	));
@@ -874,7 +935,7 @@ function themedd_customize_register( $wp_customize ) {
 		array(
 			'label'       => __( 'Footer Heading Color', 'themedd' ),
 			'description' => __( 'The color of footer headings.', 'themedd' ),
-			'section'     => 'colors',
+			'section'     => 'footer_colors',
 			'settings'    => 'colors[footer_heading_color]',
 		)
 	));
@@ -898,7 +959,7 @@ function themedd_customize_register( $wp_customize ) {
 				'label'       => __( 'Mobile/Tablet Cart Icon Color', 'themedd' ),
 				'description' => __( 'The color of the cart icon on mobiles/tablets. Use the mobile/tablet preview buttons below.', 'themedd' ),
 				'settings'    => 'colors[mobile_cart_icon_color]',
-				'section'     => 'colors',
+				'section'     => 'header_colors',
 			)
 		));
 
@@ -916,7 +977,7 @@ function themedd_customize_register( $wp_customize ) {
 				'label'       => __( 'Desktop Cart Icon Color', 'themedd' ),
 				'description' => __( 'The color of the cart icon at Desktop resolution.', 'themedd' ),
 				'settings'    => 'colors[cart_icon_color]',
-				'section'     => 'colors',
+				'section'     => 'header_colors',
 			)
 		));
 
