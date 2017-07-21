@@ -296,7 +296,7 @@
 	wp.customize('colors[menu_primary_sub_background_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('.main-navigation ul ul li').css('background', to ? to : defaults.menu_primary_sub_background_color );
+			jQuery('.main-navigation ul ul li, .main-navigation ul ul').css('background', to ? to : defaults.menu_primary_sub_background_color );
 		});
 
 	});
