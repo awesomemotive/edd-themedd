@@ -65,12 +65,7 @@
 	wp.customize('colors[link_color]', function( value ) {
 		value.bind(function( to ) {
 
-			var footerLinks = '';
-
-			// If footer link color has a value, exclude it.
-			if ( wp.customize('colors[footer_link_color]')._value !== defaults.footer_link_color ) {
-				var footerLinks = '.site-footer a';
-			}
+			var footerLinks = '.site-footer a';
 
 			jQuery('a')
 				.not('.main-navigation a')
@@ -80,6 +75,32 @@
 				.not('.posted-on a')
 				.not( footerLinks )
 				.css('color', to ? to : defaults.link_color );
+		});
+
+	});
+
+	// Link hover color.
+	wp.customize('colors[link_hover_color]', function( value ) {
+
+		value.bind(function( to ) {
+
+			var footerLinks = '.site-footer a';
+
+			jQuery('a')
+				.not('.main-navigation a')
+				.not('.site-title a')
+				.not('#site-header-secondary-menu a')
+				.not('.entry-title a')
+				.not('.posted-on a')
+				.not( footerLinks )
+				.hover(function(e) {
+
+				var previousColor = wp.customize('colors[link_color]')._value;
+
+				jQuery(this).css('color', e.type === 'mouseenter' ? to : previousColor )
+
+			})
+
 		});
 
 	});
