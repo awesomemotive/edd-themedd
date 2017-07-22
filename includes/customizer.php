@@ -1053,6 +1053,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo 'a { color:' . $colors['link_color'] . ';}';
 			}
 
+			// Link hover color.
+			if ( isset( $colors['link_hover_color'] ) ) {
+				echo 'a:hover { color:' . $colors['link_hover_color'] . ';}';
+			}
+
 			// Site header background.
 			if ( isset( $colors['header_background_color'] ) ) {
 				echo '#masthead { background:' . $colors['header_background_color'] . ';}';
