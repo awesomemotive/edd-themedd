@@ -606,6 +606,23 @@ function themedd_customize_register( $wp_customize ) {
 		)
 	));
 
+	// Link hover color.
+	$wp_customize->add_setting( 'colors[link_hover_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['link_hover_color'],
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'link_hover_color',
+		array(
+			'label'       => __( 'Link Hover Color', 'themedd' ),
+			'description' => __( 'The hover color of general links.', 'themedd' ),
+			'section'     => 'general_colors',
+			'settings'    => 'colors[link_hover_color]',
+		)
+	));
 
 	// Button background color.
 	$wp_customize->add_setting( 'colors[button_background_color]', array(
