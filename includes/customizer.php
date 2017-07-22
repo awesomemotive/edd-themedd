@@ -588,7 +588,7 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 
-	// Link colors.
+	// Link color.
 	$wp_customize->add_setting( 'colors[link_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
