@@ -1,6 +1,5 @@
 // Colors.
 @primary-color: #448FD5;
-@accent-color: #448FD5;
 @white: #fff;
 @light-grey: #f5f5f5;
 @light-grey-alt: #fcfcfc;
@@ -18,7 +17,7 @@
 
 // Links.
 @link-color: @primary-color;
-@link-hover-color: @dark-grey;
+@link-hover-color: darken( @link-color, 20% );
 
 // Mobile menu.
 @mobile-menu-color: @nav-color;
@@ -99,11 +98,11 @@
 @box-background-color: @light-grey-alt;
 
 // Buttons.
-@button-background-color: @dark-grey;
 @button-padding: 0.875rem 1.75rem;
+@button-background-color: @primary-color;
 @button-border: 1px solid @button-background-color;
-@button-border-hover: 1px solid @accent-color;
-@button-background-hover-color: @accent-color;
+@button-border-hover: 1px solid darken( @button-background-color, 5% );
+@button-background-hover-color: darken( @button-background-color, 5% );
 
 // Account page.
 @account-tab-link-color: @dark-grey;
@@ -193,10 +192,10 @@
 @edd-download-title-color: @heading-color;
 @edd-download-title-hover-color: @edd-download-title-color;
 @edd-download-title-font-size: 1.2rem;
-@edd-download-price-color: @accent-color;
+@edd-download-price-color: @primary-color;
 
 // Compatibility - AffiliateWP.
-@affiliate-tab-active-color: @accent-color;
+@affiliate-tab-active-color: @primary-color;
 
 // Breakpoints.
 @screen-sm-min: 768px;
