@@ -67,6 +67,8 @@ function themedd_customize_color_defaults() {
 	$white       = '#ffffff';
 	$body        = '#696969';
 	$primary     = '#448fd5';
+	$button_hover = '#2f83d0';
+	$link_hover   = '#215b92';
 
 	$defaults = array(
 		'background_color'                          => $white,
@@ -75,6 +77,7 @@ function themedd_customize_color_defaults() {
 		'menu_primary_sub_background_hover_color'   => '',
 		'menu_primary_sub_background_color'         => $dark_grey,
 		'link_color'                                => $primary,
+		'link_hover_color'                          => $link_hover,
 		'menu_primary_sub_background_active_color'  => '',
 		'menu_primary_sub_link_color'               => $medium_grey,
 		'menu_primary_sub_link_hover_color'         => $white,
@@ -91,8 +94,8 @@ function themedd_customize_color_defaults() {
 		'mobile_cart_icon_color'                    => $dark_grey,
 		'tagline_color'                             => $medium_grey,
 		'cart_icon_color'                           => $dark_grey,
-		'button_background_color'                   => $dark_grey,
-		'button_background_hover_color'             => $primary,
+		'button_background_color'                   => $primary,
+		'button_background_hover_color'             => $button_hover,
 		'button_text_color'                         => $white,
 		'menu_mobile_button_background_color'       => $dark_grey,
 		'menu_mobile_background_color'              => $white,
