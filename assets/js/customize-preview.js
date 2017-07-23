@@ -65,15 +65,14 @@
 	wp.customize('colors[link_color]', function( value ) {
 		value.bind(function( to ) {
 
-			var footerLinks = '.site-footer a';
-
 			jQuery('a')
 				.not('.main-navigation a')
 				.not('.site-title a')
 				.not('#site-header-secondary-menu a')
 				.not('.entry-title a')
+				.not('#mobile-menu a')
 				.not('.posted-on a')
-				.not( footerLinks )
+				.not( '.site-footer a' )
 				.css('color', to ? to : defaults.link_color );
 		});
 
@@ -84,15 +83,14 @@
 
 		value.bind(function( to ) {
 
-			var footerLinks = '.site-footer a';
-
 			jQuery('a')
 				.not('.main-navigation a')
 				.not('.site-title a')
 				.not('#site-header-secondary-menu a')
 				.not('.entry-title a')
+				.not('#mobile-menu a')
 				.not('.posted-on a')
-				.not( footerLinks )
+				.not('.site-footer a')
 				.hover(function(e) {
 
 				var previousColor = wp.customize('colors[link_color]')._value;
@@ -195,8 +193,9 @@
 
 		value.bind(function( to ) {
 			jQuery('.button, button, input[type="submit"], #submit')
-				.not('.customize-partial-edit-shortcut-button') // don't affect with the customizer edit buttons
+				.not('.customize-partial-edit-shortcut-button') // don't affect the customizer edit buttons
 				.not('.dropdown-toggle') // don't affect the dropdown toggle on the mobile menu
+				.not('.menu-toggle') // don't affect the mobile menu toggle
 				.css('background', to ? to : defaults.button_background_color )
 				.css('border-color', to ? to : defaults.button_background_color );
 		});
@@ -210,6 +209,7 @@
 			jQuery('.button, button, input[type="submit"], #submit')
 				.not('.customize-partial-edit-shortcut-button') // don't affect with the customizer edit buttons
 				.not('.dropdown-toggle') // don't affect the dropdown toggle on the mobile menu
+				.not('.menu-toggle') // don't affect the mobile menu toggle
 				.css('color', to ? to : defaults.button_text_color );
 		});
 
@@ -226,6 +226,8 @@
 
 				jQuery(this)
 					.not('.dropdown-toggle') // don't affect the dropdown toggle on the mobile menu
+					.not('.menu-toggle') // don't affect the mobile menu toggle
+					.not('.customize-partial-edit-shortcut-button') // don't affect the customizer edit buttons
 					.css('background', e.type === 'mouseenter' ? to : previous )
 					.css('border-color', e.type === 'mouseenter' ? to : previous )
 			})
@@ -255,7 +257,6 @@
 				.not('.primary-menu > li.current-menu-item a, .primary-menu > li.current_page_ancestor a') // don't affect the currently active menu link
 				.css('color', to ? to : defaults.menu_primary_link_color );
 
-				jQuery('#mobile-menu a, .dropdown-toggle').css('color', to ? to : defaults.menu_primary_link_color );
 		});
 
 	});
@@ -274,7 +275,7 @@
 		});
 	});
 
-	// Primary menu link color.
+	// Primary menu active link color.
 	wp.customize('colors[menu_primary_link_active_color]', function( value ) {
 
 		value.bind(function( to ) {
@@ -285,26 +286,34 @@
 
 	});
 
-	// Primary link background hover color.
+	// Primary menu link background hover color.
 	wp.customize('colors[menu_primary_link_background_hover_color]', function( value ) {
 
 		value.bind(function( to ) {
 
+
+			// Reset the hover style when the color is cleared.
+			if ( '' === wp.customize( 'colors[menu_primary_link_background_hover_color]' )._value ) {
+				jQuery( 'head' ).append( '<style class="hover-styles">.primary-menu > li:hover { background-color: transparent; }</style>' );
+			}
+
 			jQuery('.primary-menu > li').hover(function(e) {
+
 				jQuery(this)
 				.not('.primary-menu > li.current-menu-item, .primary-menu > li.current_page_ancestor')
-				.css('background', e.type === 'mouseenter' ? to : 'transparent' )
+				.css('background-color', e.type === 'mouseenter' ? to : '' )
+
 			})
 
 		});
 
 	});
 
-	// Primary link background active color.
+	// Primary menu link background active color.
 	wp.customize('colors[menu_primary_link_background_active_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('.primary-menu > li.current-menu-item, .primary-menu > li.current_page_ancestor').css('background', to ? to : 'transparent' );
+			jQuery('.primary-menu > li.current-menu-item, .primary-menu > li.current_page_ancestor').css('background', to ? to : '' );
 		});
 
 	});
@@ -327,10 +336,15 @@
 
 		value.bind(function( to ) {
 
+			// Reset the hover style when the color is cleared.
+			if ( '' === wp.customize( 'colors[menu_primary_sub_background_hover_color]' )._value ) {
+				jQuery( 'head' ).append( '<style class="hover-styles">.main-navigation .sub-menu li:hover { background-color: transparent; }</style>' );
+			}
+
 			jQuery('.main-navigation .sub-menu li').hover(function(e) {
 				jQuery(this)
 				.not('.main-navigation .sub-menu .current-menu-item') // don't affect menu items that are already active
-				.css('background', e.type === 'mouseenter' ? to : wp.customize('colors[menu_primary_sub_background_color]')._value )
+				.css('background-color', e.type === 'mouseenter' ? to : '' )
 			})
 
 		});
@@ -372,7 +386,7 @@
 	wp.customize('colors[menu_primary_sub_link_active_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('.main-navigation .sub-menu .current-menu-item a').css('color', to ? to : 'transparent' );
+			jQuery('.main-navigation .sub-menu .current-menu-item a').css('color', to ? to : '' );
 		});
 
 	});
