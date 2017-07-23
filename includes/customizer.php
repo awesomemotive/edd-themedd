@@ -82,7 +82,7 @@ function themedd_customize_color_defaults() {
 		'menu_primary_sub_link_color'               => $medium_grey,
 		'menu_primary_sub_link_hover_color'         => $white,
 		'menu_primary_sub_link_active_color'        => $white,
-		'header_background_color'                   => '',
+		'header_background_color'                   => $white,
 		'menu_secondary_link_color'                 => $body,
 		'menu_secondary_link_hover_color'           => $dark_grey,
 		'menu_primary_background_color'             => '',
@@ -1068,25 +1068,17 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Primary menu background color.
 			if ( isset( $colors['menu_primary_background_color'] ) ) {
-				echo '#site-header-menu, #mobile-menu { background-color:' . $colors['menu_primary_background_color'] . ';}';
+				echo '#site-header-menu { background-color:' . $colors['menu_primary_background_color'] . ';}';
 			}
 
 			// Primary menu link color.
 			if ( isset( $colors['menu_primary_link_color'] ) ) {
-				echo '.main-navigation a, #mobile-menu a, .dropdown-toggle { color:' . $colors['menu_primary_link_color'] . ';}';
+				echo '.main-navigation a { color:' . $colors['menu_primary_link_color'] . ';}';
 			}
 
 			// Primary menu link hover color.
 			if ( isset( $colors['menu_primary_link_hover_color'] ) ) {
-
 				echo '.main-navigation li:hover > a, .main-navigation li.focus > a { color:' . $colors['menu_primary_link_hover_color'] . ';}';
-
-				// mobile menu styles
-				echo '#mobile-menu a:hover,	#mobile-menu a:focus, #mobile-menu .current-menu-item > a, #mobile-menu .current_page_ancestor > a { color:' . $colors['menu_primary_link_hover_color'] . ';}';
-
-				// dropdown toggle styles
-				echo '.dropdown-toggle:hover, .dropdown-toggle:focus { color:' . $colors['menu_primary_link_hover_color'] . ';}';
-
 			}
 
 			// Primary menu link active color.
@@ -1096,7 +1088,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Primary menu link background hover color.
 			if ( isset( $colors['menu_primary_link_background_hover_color'] ) ) {
-				echo '.primary-menu > li:hover { background:' . $colors['menu_primary_link_background_hover_color'] . ';}';
+				echo '.primary-menu > li:hover { background-color:' . $colors['menu_primary_link_background_hover_color'] . ';}';
 			}
 
 			// Primary menu link background active color.
@@ -1111,7 +1103,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Primary sub-menu background hover color.
 			if ( isset( $colors['menu_primary_sub_background_hover_color'] ) ) {
-				echo '.main-navigation .sub-menu li:hover { background:' . $colors['menu_primary_sub_background_hover_color'] . ';}';
+				echo '.main-navigation .sub-menu li:hover { background-color:' . $colors['menu_primary_sub_background_hover_color'] . ';}';
 			}
 
 			// Primary sub-menu link color.
@@ -1195,7 +1187,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Mobile menu link color.
 			if ( isset( $colors['menu_mobile_link_color'] ) ) {
-				echo '#mobile-menu a, #mobile-menu .current-menu-item > a, .dropdown-toggle { color:' . $colors['menu_mobile_link_color'] . '; }';
+				echo '#mobile-menu a, #mobile-menu .current-menu-item > a, .dropdown-toggle, .dropdown-toggle:hover  { color:' . $colors['menu_mobile_link_color'] . '; }';
 			}
 
 			/**
