@@ -265,8 +265,9 @@
 	wp.customize('colors[menu_primary_link_hover_color]', function( value ) {
 		value.bind(function( to ) {
 
-			jQuery('.main-navigation a').hover(function(e) {
+			jQuery('.main-navigation li').hover(function(e) {
 				jQuery(this)
+					.find( '> a' )
 					.not('.main-navigation .sub-menu a')
 					.not('.primary-menu > li.current-menu-item a, .primary-menu > li.current_page_ancestor a') // don't affect the currently active menu link
 					.css('color', e.type === 'mouseenter' ? to : wp.customize('colors[menu_primary_link_color]')._value )
@@ -290,7 +291,6 @@
 	wp.customize('colors[menu_primary_link_background_hover_color]', function( value ) {
 
 		value.bind(function( to ) {
-
 
 			// Reset the hover style when the color is cleared.
 			if ( '' === wp.customize( 'colors[menu_primary_link_background_hover_color]' )._value ) {
