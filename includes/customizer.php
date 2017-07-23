@@ -261,7 +261,7 @@ function themedd_customize_register( $wp_customize ) {
 		'capability'      => 'edit_theme_options',
 		'theme_supports'  => '',
 		'title'           => __( 'Colors', 'themedd' ),
-		'active_callback' => 'themedd_customize_is_colors_panel_active'
+		'active_callback' => 'themedd_customize_color_options'
 	) );
 
 	/**
@@ -1026,7 +1026,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		<?php
 
 		// Return early if color panel has been disabled.
-		if ( ! apply_filters( 'themedd_customize_is_colors_panel_active', true ) ) {
+		if ( ! apply_filters( 'themedd_customize_color_options', true ) ) {
 			return;
 		}
 
@@ -1338,9 +1338,9 @@ function themedd_customize_cart_options() {
  *
  * @return boolean true if color panel can be shown, false otherwise.
  */
-function themedd_customize_is_colors_panel_active() {
+function themedd_customize_color_options() {
 
-	if ( apply_filters( 'themedd_customize_is_colors_panel_active', true ) ) {
+	if ( apply_filters( 'themedd_customize_color_options', true ) ) {
 		return true;
 	}
 
