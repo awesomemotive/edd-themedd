@@ -72,6 +72,7 @@ function themedd_customize_color_defaults() {
 
 	$defaults = array(
 		'background_color'                          => $white,
+		'header_background_color'                   => '',
 		'header_textcolor'                          => $dark_grey,
 		'site_title_color'                          => $dark_grey,
 		'menu_primary_sub_background_hover_color'   => '',
@@ -82,7 +83,6 @@ function themedd_customize_color_defaults() {
 		'menu_primary_sub_link_color'               => $medium_grey,
 		'menu_primary_sub_link_hover_color'         => $white,
 		'menu_primary_sub_link_active_color'        => $white,
-		'header_background_color'                   => $white,
 		'menu_secondary_link_color'                 => $body,
 		'menu_secondary_link_hover_color'           => $dark_grey,
 		'menu_primary_background_color'             => '',
