@@ -98,7 +98,7 @@ function themedd_customize_color_defaults() {
 		'button_background_hover_color'             => $button_hover,
 		'button_text_color'                         => $white,
 		'menu_mobile_button_background_color'       => $dark_grey,
-		'menu_mobile_background_color'              => $white,
+		'menu_mobile_background_color'              => '',
 		'menu_mobile_link_color'                    => $dark_grey,
 		'menu_mobile_button_text_color'             => $white,
 		'footer_background_color'                   => $white,
