@@ -1348,7 +1348,7 @@ td {
 }
 .entry-meta a:hover,
 .entry-footer a:hover {
-  color: #215b92;
+  color: #696969;
 }
 figure.wp-caption {
   max-width: 100%;
@@ -1363,7 +1363,7 @@ article[class^="post-"] + article[class^="post-"] {
   color: #222;
 }
 .entry-title a:hover {
-  color: #215b92;
+  color: #222;
 }
 .site-main > article {
   margin-bottom: 2rem;
