@@ -497,9 +497,7 @@ input[type="submit"],
   line-height: 1.5rem;
 }
 .button:hover,
-.button:focus,
 button:hover,
-button:focus,
 input[type=submit]:hover,
 #submit:hover {
   text-decoration: none;
@@ -2170,10 +2168,6 @@ section.account .wrapper {
   display: none;
 }
 /* Navigation */
-button:hover,
-button:focus {
-  outline: none;
-}
 .secondary-navigation ul,
 .main-navigation ul {
   list-style: none;
@@ -2530,6 +2524,9 @@ h3.edd_download_title {
 }
 .eddDownloadMeta a {
   color: #696969;
+}
+.eddDownloadMeta a:hover {
+  color: #222;
 }
 .eddDownloadMeta-authorAvatar img {
   display: block;
