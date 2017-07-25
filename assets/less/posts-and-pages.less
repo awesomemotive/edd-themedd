@@ -120,10 +120,6 @@ article[class^="post-"] + article[class^="post-"] {
 	margin-bottom: 2rem;
 }
 
-.comment-metadata a,
-.pingback .comment-edit-link {
-	color: @body-text-color;
-}
 
 .comment-list > .comment {
 	padding-left: 0;
@@ -143,6 +139,24 @@ article[class^="post-"] + article[class^="post-"] {
 .logged-in-as {
 	font-size: 0.875rem;
 }
+
+.entry-footer .edit-link {
+	margin-top: 1rem;
+	display: inline-block;
+}
+
+.comment-metadata a,
+.pingback .comment-edit-link,
+#cancel-comment-reply-link,
+.logged-in-as a,
+.comment-reply-link {
+	color: @medium-grey;
+
+	&:hover {
+		color: @dark-grey;
+	}
+}
+
 
 #cancel-comment-reply-link {
 	float: right;

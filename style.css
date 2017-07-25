@@ -1432,10 +1432,6 @@ article[class^="post-"] + article[class^="post-"] {
 .comment-metadata {
   margin-bottom: 2rem;
 }
-.comment-metadata a,
-.pingback .comment-edit-link {
-  color: #696969;
-}
 .comment-list > .comment {
   padding-left: 0;
 }
@@ -1450,6 +1446,24 @@ article[class^="post-"] + article[class^="post-"] {
 #cancel-comment-reply-link,
 .logged-in-as {
   font-size: 0.875rem;
+}
+.entry-footer .edit-link {
+  margin-top: 1rem;
+  display: inline-block;
+}
+.comment-metadata a,
+.pingback .comment-edit-link,
+#cancel-comment-reply-link,
+.logged-in-as a,
+.comment-reply-link {
+  color: #a2a2a2;
+}
+.comment-metadata a:hover,
+.pingback .comment-edit-link:hover,
+#cancel-comment-reply-link:hover,
+.logged-in-as a:hover,
+.comment-reply-link:hover {
+  color: #222;
 }
 #cancel-comment-reply-link {
   float: right;
