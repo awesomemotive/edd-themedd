@@ -1634,14 +1634,12 @@ textarea {
   color: #696969;
   background: #fff;
   border: 2px solid #f5f5f5;
+  width: 100%;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 select {
   border: 2px solid #f5f5f5;
-}
-input,
-textarea {
-  width: 100%;
-  border-radius: 0;
 }
 input {
   display: inline-block;
