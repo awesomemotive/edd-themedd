@@ -8,11 +8,12 @@ themedd_page_header();
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
-
     <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-    	<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main" role="main">
 
 		<?php
+        do_action( 'themedd_main_start' );
+
 		// Start the loop.
 		while ( have_posts() ) : the_post();
 
@@ -26,10 +27,10 @@ themedd_page_header();
 
 		// End of the loop.
 		endwhile;
+
+        do_action( 'themedd_main_end' );
 		?>
-
 		</main>
-
     </div>
 
     <?php themedd_get_sidebar(); ?>

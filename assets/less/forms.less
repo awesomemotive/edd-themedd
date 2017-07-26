@@ -6,16 +6,13 @@ textarea {
 	color: @body-text-color;
 	background: #fff;
 	border: 2px solid @light-grey;
+	width: 100%;
+	border-radius: 0; // Prevent rounded corners in iOS.
+	-webkit-appearance: none; // Remove inner shadow on iOS.
 }
 
 select {
 	border: 2px solid @light-grey;
-}
-
-input,
-textarea {
-	width: 100%;
-	border-radius: 0; // prevent rounded corners in iOS
 }
 
 input  {

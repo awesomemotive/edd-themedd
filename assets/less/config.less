@@ -1,6 +1,5 @@
 // Colors.
 @primary-color: #448FD5;
-@accent-color: #448FD5;
 @white: #fff;
 @light-grey: #f5f5f5;
 @light-grey-alt: #fcfcfc;
@@ -13,16 +12,16 @@
 @content-color: @white;
 
 // Font stack.
-@font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 @body-text-size: 1.1rem;
 
 // Links.
 @link-color: @primary-color;
-@link-hover-color: @dark-grey;
+@link-hover-color: darken( @link-color, 20% );
 
 // Mobile menu.
-@mobile-menu-color: @nav-color;
-@mobile-menu-font-size: @nav-font-size;
+@mobile-menu-link-color: @nav-color;
 @mobile-menu-font-size: @nav-font-size;
 
 // Menu toggle.
@@ -83,7 +82,7 @@
 
 // Entry meta.
 @entry-meta: @medium-grey;
-@entry-meta-hover-color: @link-hover-color;
+@entry-meta-hover-color: @body-text-color;
 
 // Post navigation.
 @post-navigation-color: @heading-color;
@@ -99,11 +98,11 @@
 @box-background-color: @light-grey-alt;
 
 // Buttons.
-@button-background-color: @dark-grey;
 @button-padding: 0.875rem 1.75rem;
+@button-background-color: @primary-color;
 @button-border: 1px solid @button-background-color;
-@button-border-hover: 1px solid @accent-color;
-@button-background-hover-color: @accent-color;
+@button-border-hover: 1px solid darken( @button-background-color, 5% );
+@button-background-hover-color: darken( @button-background-color, 5% );
 
 // Account page.
 @account-tab-link-color: @dark-grey;
@@ -155,7 +154,7 @@
 @heading-color: @dark-grey;
 
 @heading-link-color: @dark-grey;
-@heading-link-hover-color: @link-hover-color;
+@heading-link-hover-color: @dark-grey;
 
 @h1-font-size: 1.75rem;
 @h1-font-size-sm-min: 2.25rem;
@@ -193,10 +192,12 @@
 @edd-download-title-color: @heading-color;
 @edd-download-title-hover-color: @edd-download-title-color;
 @edd-download-title-font-size: 1.2rem;
-@edd-download-price-color: @accent-color;
+@edd-download-price-color: @primary-color;
+@edd-download-meta-link-color: @body-text-color;
+@edd-download-meta-link-hover-color: @dark-grey;
 
 // Compatibility - AffiliateWP.
-@affiliate-tab-active-color: @accent-color;
+@affiliate-tab-active-color: @primary-color;
 
 // Breakpoints.
 @screen-sm-min: 768px;

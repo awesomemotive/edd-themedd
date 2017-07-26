@@ -48,7 +48,7 @@ function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 	);
 
 	// Get menu locations.
-	$menu_locations  = get_nav_menu_locations();
+	$menu_locations = get_nav_menu_locations();
 
 	// Determine if there is a mobile menu assigned.
 	// This will return true if any menu has been assigned to the "Mobile Menu".
@@ -61,7 +61,7 @@ function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 			'primary_menu' !== themedd_edd_cart_link_position() || // Append the nav cart to the mobile menu if the nav cart has not been moved to the primary navigation (from the default location of the secondary navigation)
 			( 'primary_menu' === themedd_edd_cart_link_position() && $has_mobile_menu && $menu_locations['mobile'] !== $menu_locations['primary'] ) // Or, append the nav cart to the mobile menu if the nav cart has been moved from the secondary naivigation, there's a menu assigned to the mobile menu location and the mobile menu has been assigned to the mobile menu location.
 		) {
-			return $items . $mobile_cart_link;
+			return $mobile_cart_link . $items;
 		}
 
 	}
