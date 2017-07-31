@@ -78,11 +78,9 @@ add_action( 'themedd_footer', 'themedd_site_info' );
  *
  * @since 1.0.0
  */
-if ( ! function_exists( 'themedd_copyright' ) ) :
 function themedd_copyright() {
 	echo apply_filters( 'themedd_copyright', '<p>' . sprintf( __( 'Copyright &copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p>' );
 }
-endif;
 add_action( 'themedd_site_info', 'themedd_copyright' );
 
 /**
