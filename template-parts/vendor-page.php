@@ -27,7 +27,12 @@ themedd_page_header( array( 'classes' => 'center-xs' ) );
 
     </div>
 
-    <?php themedd_get_sidebar( 'vendor-page' ); ?>
+    <?php
+	// Only load vendor sidebar if a vendor exists.
+	if ( fes_get_vendor() ) {
+		themedd_get_sidebar( 'vendor-page' );
+	}
+	?>
 
 </div>
 
