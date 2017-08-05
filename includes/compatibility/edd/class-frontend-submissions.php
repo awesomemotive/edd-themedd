@@ -39,7 +39,7 @@ class Themedd_EDD_Frontend_Submissions {
 	 */
 	public function single_vendor_page_download_columns( $out, $pairs, $atts, $shortcode ) {
 
-		if ( $this->is_single_vendor_page() && apply_filters( 'themedd_edd_fes_single_vendor_sidebar', true ) ) {
+		if ( $this->is_single_vendor_page() ) {
 			$out['columns'] = apply_filters( 'themedd_edd_fes_single_vendor_page_columns', 2 );
 		}
 
@@ -164,7 +164,7 @@ class Themedd_EDD_Frontend_Submissions {
 	 */
 	public function single_vendor_page_template( $template, $type, $templates ) {
 
-		if ( $this->is_single_vendor_page() && apply_filters( 'themedd_edd_fes_single_vendor_sidebar', true ) ) {
+		if ( $this->is_single_vendor_page() ) {
 			$template = get_theme_file_path( '/single-vendor.php' );
 		}
 

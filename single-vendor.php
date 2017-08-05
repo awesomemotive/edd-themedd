@@ -29,7 +29,7 @@ themedd_page_header( array( 'classes' => 'center-xs' ) );
 
     <?php
 	// Only load the single vendor sidebar if a vendor exists.
-	if ( fes_get_vendor() && apply_filters( 'themedd_edd_fes_single_vendor_sidebar', true ) ) {
+	if ( fes_get_vendor() ) {
 		themedd_get_sidebar( 'single-vendor' );
 	}
 	?>
