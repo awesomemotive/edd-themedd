@@ -34,10 +34,8 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			$user_info    = get_userdata( $vendor_id );
 			$display_name = $user_info->display_name;
 			?>
-			<div class="downloadAuthor-name">
-				<p><?php echo $display_name; ?></p>
-			</div>
-			
+			<h2 class="widget-title"><?php echo $display_name; ?></h2>
+
 			<?php
 			/**
 			 * Vendor's description.
@@ -64,12 +62,15 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			/**
 			 * Vendor contact form.
 			 */
-			if ( themedd_edd_fes_vendor_contact_form() ) {
-				echo (new FES_Forms)->render_vendor_contact_form( $vendor_id );
-			}
-			?>
+			if ( themedd_edd_fes_vendor_contact_form() ) : ?>
+
+				<?php echo (new FES_Forms)->render_vendor_contact_form( $vendor_id ); ?>
+
+			<?php endif; ?>
 
 		</section>
+
+
 
 	</div>
 
