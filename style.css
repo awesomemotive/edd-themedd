@@ -310,6 +310,7 @@ h6 {
   color: #222;
   line-height: 1.2;
   margin: 0 0 1.62rem 0;
+  font-weight: 600;
 }
 h1 {
   font-size: 1.75rem;
@@ -1054,9 +1055,6 @@ button,
 #main {
   padding: 1rem;
 }
-#primary-sidebar .widget {
-  padding: 1rem;
-}
 #page {
   max-width: 1480px;
   min-height: 100%;
@@ -1588,8 +1586,8 @@ aside li {
   padding: 0;
   line-height: 2;
 }
-#primary-sidebar aside:last-child {
-  border-bottom: none;
+#primary-sidebar .widget {
+  padding: 1rem;
 }
 #wp-calendar caption {
   margin-bottom: 0.5rem;
@@ -2609,12 +2607,6 @@ span.edd_price {
 .has-price.no-buy-button div[itemprop="offers"] {
   margin: auto 0 0 0;
 }
-.single-download .edd_download_columns_1 {
-  width: 50%;
-}
-#edd_checkout_wrap .edd_download_columns_1 {
-  width: 25%;
-}
 #edd_checkout_wrap .edd_download_columns_2 {
   width: 50%;
 }
@@ -2623,9 +2615,6 @@ span.edd_price {
 }
 #edd_checkout_wrap .edd_download_columns_4 {
   width: auto;
-}
-.slim #edd_checkout_wrap .edd_download_columns_1 {
-  width: 50%;
 }
 .slim #edd_checkout_wrap .edd_download_columns_2 {
   width: auto;
@@ -2639,9 +2628,6 @@ span.edd_price {
 }
 .widget_edd_product_details .edd_download_purchase_form:first-child {
   margin-top: 2rem;
-}
-.single-download .download-title {
-  font-size: 2rem;
 }
 .edd_download_purchase_form + .edd-meta {
   margin: 1rem 0 0 0;
@@ -3418,9 +3404,6 @@ label[for*="rcp_discount_code"] {
   #main {
     padding: 2rem;
   }
-  #primary-sidebar .widget {
-    padding: 2rem;
-  }
   .site-header-wrap {
     padding: 2rem;
     max-width: 1252px;
@@ -3449,6 +3432,9 @@ label[for*="rcp_discount_code"] {
   .page-header {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  #primary-sidebar .widget {
+    padding: 2rem;
   }
   .gallery .gallery-item {
     width: 33.333333333%;
@@ -4006,9 +3992,6 @@ label[for*="rcp_discount_code"] {
   }
   .edd_download_inner {
     padding: 1.5rem;
-  }
-  .edd_download_columns_1 {
-    max-width: 50%;
   }
   .edd_download_columns_3 .edd_download {
     width: 33.333333333%;

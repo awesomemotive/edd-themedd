@@ -19,7 +19,7 @@ textarea {
 .site-title {
 	margin-bottom: 0;
 	font-size: 2rem;
-	font-weight: 600; // this is important since the homepage shows the site title as an H1 header, whereas a post will show it as a paragraph header
+	font-weight: 600; // This is neccessary since the homepage will wrap the site title with <h1>, whereas another page will wrap it with <p>
 	line-height: 1;
 	color: @heading-color;
 	font-family: @font-stack;
@@ -48,6 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: @heading-color;
 	line-height: 1.2;
 	margin: 0 0 1.62rem 0;
+	font-weight: 600;
 }
 
 h1 { font-size: @h1-font-size; }

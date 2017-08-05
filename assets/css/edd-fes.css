@@ -9,6 +9,9 @@
   border: 2px solid #f4f4f4;
   background: #fcfcfc;
 }
+.fes-vendor-contact-form fieldset {
+  margin-bottom: 0;
+}
 .fes-vendor-menu ul {
   list-style-type: none;
   margin: 0;

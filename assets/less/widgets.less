@@ -8,15 +8,23 @@ aside li {
     line-height: 2;
 }
 
-// Remove bottom border on very last widget.
-#primary-sidebar aside:last-child {
-    border-bottom: none;
+#primary-sidebar .widget {
+	padding: 1rem;
 }
 
-// Calendar.
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#primary-sidebar .widget {
+		padding: 2rem;
+	}
+
+}
+
+// Calendar widget.
 #wp-calendar caption {
     margin-bottom: 0.5rem;
 }
+
 #wp-calendar th,
 #wp-calendar td:not( #prev ) {
     text-align: center;
