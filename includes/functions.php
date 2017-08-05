@@ -209,8 +209,7 @@ function themedd_primary_classes() {
 		is_active_sidebar( 'sidebar-1' ) &&
 		! (
 			in_array( 'no-sidebar', get_body_class() ) ||
-			is_page_template( 'page-templates/full-width.php' ) ||
-			is_page_template( 'page-templates/slim.php' ) ||
+			in_array( 'slim', get_body_class() ) ||
 			( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() )
 		) ||
 		is_singular( 'download' )
