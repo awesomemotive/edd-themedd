@@ -8,7 +8,7 @@
  */
 function themedd_edd_download_details_widget_purchase_button( $purchase_link, $download_id ) {
 
-	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+	if ( themedd_edd_price_enhancements() ) {
 		return '';
 	}
 
@@ -52,7 +52,7 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 	}
 
 	// Remove the price from the purchase button
-	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+	if ( themedd_edd_price_enhancements() ) {
 		$defaults['price'] = (bool) false;
 	}
 

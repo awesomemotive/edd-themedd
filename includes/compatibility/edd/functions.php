@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * EDD Price Enhancements
+ *
+ * While enabled:
+ *
+ * 1. Prices from purchase buttons are removed
+ * 2. Prices are automatically shown when using the [downloads] shortcode (unless "price" is set to "no")
+ *
+ * @since 1.0.0
+ *
+ * @return boolean true
+ */
+function themedd_edd_price_enhancements() {
+	return apply_filters( 'themedd_edd_price_enhancements', true );
+}
+
+/**
  * The combined price and purchase button shown on the single download page
  *
  * @since 1.0.0
@@ -17,7 +33,7 @@ function themedd_edd_download_info() {
 	do_action( 'themedd_edd_download_info_start', get_the_ID() );
 
 	// Display download price.
-	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+	if ( themedd_edd_price_enhancements() ) {
 		echo themedd_edd_price();
 	}
 
