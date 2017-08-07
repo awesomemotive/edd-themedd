@@ -235,7 +235,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 	$i = 1;
 
 	$wrapper_class = 'edd_download_columns_' . $columns;
-
+	$download_meta = themedd_edd_download_meta_options();
 	ob_start();
 
 	?>
@@ -266,7 +266,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 						do_action( 'edd_download_after_content' );
 					endif;
 
-					if ( $atts['price'] == 'yes' ) {
+					if ( $atts['price'] == 'yes' && true !== $download_meta['price'] ) {
 						edd_get_template_part( 'shortcode', 'content-price' );
 						do_action( 'edd_download_after_price' );
 					}
