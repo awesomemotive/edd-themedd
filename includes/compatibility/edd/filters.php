@@ -141,47 +141,13 @@ function themedd_edd_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
-
 /**
  * Downloads wrapper classes
  *
  * @since 1.0.0
  */
 function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
-
-	$classes = array( $wrapper_class );
-
-	if ( $atts['price'] == 'yes' ) {
-		$classes[] = 'has-price';
-	} else {
-		$classes[] = 'no-price';
-	}
-
-	if ( $atts['excerpt'] == 'yes' ) {
-		$classes[] = 'has-excerpt';
-	}
-
-	if ( $atts['buy_button'] == 'yes' ) {
-		$classes[] = 'has-buy-button';
-	} else {
-		$classes[] = 'no-buy-button';
-	}
-
-	if ( $atts['thumbnails'] ) {
-		$classes[] = 'has-thumbnails';
-	} else {
-		$classes[] = 'no-thumbnails';
-	}
-
-	/**
-	 * Add a class if there is download meta
-	 */
-	if ( themedd_edd_has_download_meta() ) {
-		$classes[] = 'has-download-meta';
-	}
-
-	return implode( ' ', $classes );
-
+	return themedd_edd_downloads_list_wrapper_classes( $wrapper_class, $atts );
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
 

@@ -4,6 +4,73 @@
  */
 
 
+/**
+ * Downloads list wrapper classes
+ * These classes are applied wherever a downloads grid is outputted and used by:
+ *
+ * 1. The [downloads] shortcode
+ * 2. archive-download.php
+ * 3. taxonomy-download_category.php
+ * 4. taxonomy-download_tag.php
+ *
+ * @since 1.0.0
+ *
+ * @param string $wrapper_class The class passed in from the [downloads] shortcode
+ * @param array $atts The shortcode args passed in from the [downloads] shortcode
+ *
+ * @return string $classes The classes to be added 
+ */
+function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts = array() ) {
+
+	// Get the download grid options.
+	$options = themedd_download_grid_options();
+
+	// Set up $classes array.
+	$classes = array();
+
+	// The [downloads] shortcode already has the following class applied so only add it for archive-download.php, taxonomy-download_category.php and taxonomy-download_tag.php.
+	if ( ! $atts ) {
+		$classes[] = 'edd_downloads_list';
+	}
+
+	// Add edd_download_columns_{count} class.
+	if ( ! empty( $atts ) && isset( $atts['columns'] ) ) {
+		$classes[] = 'edd_download_columns_' . $atts['columns'];
+	} else {
+		$classes[] = 'edd_download_columns_' . themedd_edd_download_columns();
+	}
+
+	// Add has-download-meta class.
+	$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
+
+	// Add has-price or no-price class.
+	if ( true === $options['price'] || $atts['price'] == 'yes' ) {
+		$classes[] = 'has-price';
+	} else {
+		$classes[] = 'no-price';
+	}
+
+	// Add has-except class.
+	if ( true === $options['excerpt'] || $atts['excerpt'] == 'yes' ) {
+		$classes[] = 'has-excerpt';
+	}
+
+	// Add has-buy-button or no-buy-button class.
+	if ( true === $options['buy_button'] || $atts['buy_button'] == 'yes' ) {
+		$classes[] = 'has-buy-button';
+	} else {
+		$classes[] = 'no-buy-button';
+	}
+
+	// Add has-thumbnails or no-thumbnails
+	if ( true === $options['thumbnails'] || $atts['thumbnails'] == 'true' ) {
+		$classes[] = 'has-thumbnails';
+	} else {
+		$classes[] = 'no-thumbnails';
+	}
+
+	return implode( ' ', array_filter( $classes ) );
+}
 
 /**
  * Download grid options
