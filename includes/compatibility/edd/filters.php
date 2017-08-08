@@ -46,11 +46,6 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 	// Remove button class.
 	$defaults['color'] = '';
 
-	// Free downloads.
-	if ( edd_is_free_download( get_the_ID() ) ) {
-		$defaults['text'] = __( 'Add to cart', 'themedd' );
-	}
-
 	// Remove the price from the purchase button
 	if ( themedd_edd_price_enhancements() ) {
 		$defaults['price'] = (bool) false;
