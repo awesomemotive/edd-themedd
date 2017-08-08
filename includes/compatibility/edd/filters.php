@@ -147,19 +147,6 @@ function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
 
 /**
- * EDD Recurring
- * Modify URL to update payment method
- *
- * @since 1.0.0
- */
-function themedd_edd_recurring_update_url( $url, $subscription ) {
-	$url = add_query_arg( array( 'action' => 'update', 'subscription_id' => $subscription->id ), '#tabs=1' );
-
-	return $url;
-}
-add_filter( 'edd_subscription_update_url', 'themedd_edd_recurring_update_url', 10, 2 );
-
-/**
  * Filter the page header classes for the single download page.
  *
  * @since 1.0.0
