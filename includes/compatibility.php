@@ -32,7 +32,8 @@ if ( themedd_is_edd_active() ) {
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/nav-cart.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/widgets.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-widget-author-details.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-widget-download-details.php' );
 
 	// EDD - Software Licensing
 	if ( themedd_is_edd_sl_active() ) {
