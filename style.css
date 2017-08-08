@@ -1589,6 +1589,13 @@ aside li {
 #primary-sidebar .widget {
   padding: 1rem;
 }
+#primary-sidebar .widget > *:last-child {
+  margin-bottom: 0;
+}
+#wp-calendar td,
+#wp-calendar th {
+  padding: 0.5rem;
+}
 #wp-calendar caption {
   margin-bottom: 0.5rem;
 }
