@@ -29,6 +29,7 @@ if ( themedd_is_edd_active() ) {
 
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/download-grid-functions.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/download-meta-functions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/nav-cart.php' );
