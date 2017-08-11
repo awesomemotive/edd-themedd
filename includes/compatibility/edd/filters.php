@@ -214,11 +214,6 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 						do_action( 'edd_download_after_content' );
 					endif;
 
-					if ( $atts['price'] == 'yes' && true !== $download_meta['price'] ) {
-						edd_get_template_part( 'shortcode', 'content-price' );
-						do_action( 'edd_download_after_price' );
-					}
-
 					themedd_edd_download_footer( $atts );
 
 					do_action( 'edd_download_after' );
