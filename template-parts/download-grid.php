@@ -30,14 +30,6 @@ $options       = themedd_download_grid_options();
 			do_action( 'edd_download_after_content' );
 		}
 
-		if (
-			false === $download_meta['price'] && // Only show the standard price if the download meta does not include the price.
-			true === $options['price']
-		) {
-			edd_get_template_part( 'shortcode', 'content-price' );
-			do_action( 'edd_download_after_price' );
-		}
-
 		themedd_edd_download_footer();
 
 		do_action( 'edd_download_after' );

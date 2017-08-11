@@ -45,12 +45,6 @@ $download_meta = themedd_edd_download_meta_options();
 				do_action( 'edd_download_after_content' );
 			endif;
 
-
-			if ( 'yes' === $edd_download_shortcode_item_atts['price'] && true !== $download_meta['price'] ) :
-				edd_get_template_part( 'shortcode', 'content-price' );
-				do_action( 'edd_download_after_price' );
-			endif;
-
 			/**
 			 * Download footer
 			 */
