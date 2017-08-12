@@ -123,7 +123,7 @@
 		 */
 		?>
 		<section class="widget downloadDetails">
-			<h2 class="widget-title"><?php echo sprintf( __( '%s Details', 'themedd' ), edd_get_label_plural() ); ?></h2>
+			<h2 class="widget-title"><?php echo sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() ); ?></h2>
 
 			<ul>
 
