@@ -17,11 +17,12 @@ function themedd_edd_author_details_options( $args = array() ) {
 		'website'     => true
 	);
 
-	if ( themedd_is_edd_fes_active() ) {
-		$defaults['show'] = true;
-	}
-
 	$args = wp_parse_args( $args, $defaults );
+
+	// If Frontend Submissions is active, show the author details by default.
+	if ( themedd_is_edd_fes_active() ) {
+		$args['show'] = true;
+	}
 
 	return apply_filters( 'themedd_edd_author_details_options', $args );
 
@@ -32,30 +33,31 @@ function themedd_edd_author_details_options( $args = array() ) {
  *
  * @since 1.0.0
  */
-function themedd_edd_has_author_details() {
+function themedd_edd_has_author_details( $options = array() ) {
 
-	$options = themedd_edd_author_details_options();
+	// Remove "show" from the $options array since we don't want to check against it.
+	unset( $options['show'] );
 
-	// If any value in the array is true then there is author details
-	if ( in_array( (bool) true, $options ) ) {
+	// If (bool) true exists anywhere in the $options array then there are author details that need to be shown.
+	if ( in_array( (bool) true, $options, true ) ) { // Uses strict mode.
 		return true;
 	}
 
 	return false;
+
 }
 
 /**
  * Determine if the author details can be shown
  */
-function themedd_edd_show_author_details() {
+function themedd_edd_show_author_details( $options = array() ) {
 
-	$options = themedd_edd_author_details_options();
-
-	if ( themedd_is_edd_fes_active() && themedd_edd_has_author_details() && true === $options['show'] ) {
-		return true;
+	// If no options are passed in, use the default options.
+	if ( empty( $options ) ) {
+		$options = themedd_edd_author_details_options();
 	}
 
-	if ( isset( $options['show'] ) && true === $options['show'] && themedd_edd_has_author_details() ) {
+	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_author_details( $options ) ) {
 		return true;
 	}
 

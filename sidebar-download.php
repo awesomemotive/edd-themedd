@@ -5,7 +5,10 @@
  * @since 1.0.0
  */
 
+// Get the author options.
 $author_options   = themedd_edd_author_details_options();
+
+// Get the download options.
 $download_options = themedd_edd_download_details_options();
 
 ?>
@@ -30,7 +33,7 @@ $download_options = themedd_edd_download_details_options();
 
 		<?php
 		/**
-		 * Show the author Details
+		 * Show the Author Details
 		 */
 		if ( themedd_edd_show_author_details() ) : ?>
 
@@ -141,17 +144,8 @@ $download_options = themedd_edd_download_details_options();
 				 */
 				if ( true === $download_options['date_published'] ) : ?>
 				<li class="downloadDetails-datePublished">
-					<?php
-						$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-						$time_string = sprintf( $time_string,
-							esc_attr( get_the_date( 'c' ) ),
-							esc_html( get_the_date() ),
-							esc_attr( get_the_modified_date( 'c' ) ),
-							esc_html( get_the_modified_date() )
-						);
-					?>
 					<span class="downloadDetails-name"><?php _e( 'Published:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $time_string; ?></span>
+					<span class="downloadDetails-value"><?php echo themedd_edd_download_date_published(); ?></span>
 				</li>
 				<?php endif; ?>
 
@@ -161,7 +155,7 @@ $download_options = themedd_edd_download_details_options();
 				 */
 				if ( true === $download_options['sale_count'] ) :
 					$sales = edd_get_download_sales_stats( $post->ID );
-					?>
+				?>
 				<li class="downloadDetails-sales">
 					<span class="downloadDetails-name"><?php _e( 'Sales:', 'themedd' ); ?></span>
 					<span class="downloadDetails-value"><?php echo $sales; ?></span>
@@ -174,13 +168,7 @@ $download_options = themedd_edd_download_details_options();
 				 */
 				if ( true === $download_options['version'] ) :
 
-					if ( themedd_is_edd_sl_active() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
-						// Get version number from EDD Software Licensing.
-						$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-					} else {
-						// No version number.
-						$version = '';
-					}
+					$version = themedd_edd_download_version( $post->ID );
 
 					if ( $version ) : ?>
 					<li class="downloadDetails-version">
@@ -190,33 +178,36 @@ $download_options = themedd_edd_download_details_options();
 					<?php endif; ?>
 				<?php endif; ?>
 
-
 				<?php
 				/**
 				 * Download categories.
 				 */
+				if ( true === $download_options['categories'] ) :
 
-				$categories = get_the_term_list( $post->ID, 'download_category', '', ', ', '' );
+					$categories = themedd_edd_download_categories( $post->ID );
 
-				if ( true === $download_options['categories'] && $categories ) : ?>
-
+					if ( $categories ) : ?>
 					<li class="downloadDetails-categories">
 						<span class="downloadDetails-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
 						<span class="downloadDetails-value"><?php echo $categories; ?></span>
 					</li>
+					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php
 				/**
 				 * Download tags.
 				 */
-				$tags = get_the_term_list( $post->ID, 'download_tag', '', ', ', '' );
+				if ( true === $download_options['tags'] ) :
 
-				if ( true === $download_options['tags'] && $tags ) : ?>
+					$tags = themedd_edd_download_tags( $post->ID );
+
+					if ( $tags ) : ?>
 					<li class="downloadDetails-tags">
 						<span class="downloadDetails-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
 						<span class="downloadDetails-value"><?php echo $tags; ?></span>
 					</li>
+					<?php endif; ?>
 				<?php endif; ?>
 
 			</ul>

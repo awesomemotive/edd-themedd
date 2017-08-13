@@ -79,6 +79,11 @@ class Themedd_Download_Details extends WP_Widget {
 			)
 		);
 
+		// Return if download details cannot be shown.
+		if ( ! themedd_edd_show_download_details() ) {
+			return;
+		}
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -94,17 +99,8 @@ class Themedd_Download_Details extends WP_Widget {
 			if ( true === $options['date_published'] ) :
 			?>
 				<li class="downloadDetails-datePublished">
-					<?php
-						$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-						$time_string = sprintf( $time_string,
-							esc_attr( get_the_date( 'c' ) ),
-							esc_html( get_the_date() ),
-							esc_attr( get_the_modified_date( 'c' ) ),
-							esc_html( get_the_modified_date() )
-						);
-					?>
 					<span class="downloadDetails-name"><?php _e( 'Published:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $time_string; ?></span>
+					<span class="downloadDetails-value"><?php echo themedd_edd_download_date_published(); ?></span>
 				</li>
 			<?php endif; ?>
 
@@ -127,15 +123,9 @@ class Themedd_Download_Details extends WP_Widget {
 			 */
 			if ( true === $options['version'] ) :
 
-				if ( themedd_is_edd_sl_active() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
-					// Get version number from EDD Software Licensing.
-					$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-				} else {
-					// No version number.
-					$version = '';
-				}
+				$version = themedd_edd_download_version( $post->ID );
 
-			if ( $version ) : ?>
+				if ( $version ) : ?>
 				<li class="downloadDetails-version">
 					<span class="downloadDetails-name"><?php _e( 'Version:', 'themedd' ); ?></span>
 					<span class="downloadDetails-value"><?php echo $version; ?></span>
@@ -148,7 +138,8 @@ class Themedd_Download_Details extends WP_Widget {
 			 * Download categories.
 			 */
 			if ( true === $options['categories'] ) :
-				$categories = get_the_term_list( $post->ID, 'download_category', '', ', ', '' );
+
+				$categories = themedd_edd_download_categories( $post->ID );
 
 				if ( $categories ) : ?>
 					<li class="downloadDetails-categories">
@@ -164,7 +155,8 @@ class Themedd_Download_Details extends WP_Widget {
 			 * Tags.
 			 */
 			if ( true === $options['tags'] ) :
-				$tags = get_the_term_list( $post->ID, 'download_tag', '', ', ', '' );
+
+				$tags = themedd_edd_download_tags( $post->ID );
 
 				if ( $tags ) : ?>
 				<li class="downloadDetails-tags">

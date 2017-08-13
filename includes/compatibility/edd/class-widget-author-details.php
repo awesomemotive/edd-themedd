@@ -86,8 +86,8 @@ class Themedd_Author_Details extends WP_Widget {
 			)
 		);
 
-		// Return if there are no author details
-		if ( ! themedd_edd_has_author_details() ) {
+		// Return early if author details cannot be shown.
+		if ( ! themedd_edd_show_author_details( $options ) ) {
 			return;
 		}
 

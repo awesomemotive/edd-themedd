@@ -38,43 +38,7 @@ function themedd_edd_download_details_options( $args = array() ) {
 }
 
 /**
- * Determine if the current download has any download details.
- *
- * @since 1.0.0
- */
-function themedd_edd_has_download_details() {
-
-	$return = false;
-
-	$options = themedd_edd_download_details_options();
-
-	// Get the download's categories.
-	$categories = get_the_term_list( get_the_ID(), 'download_category', '', ', ', '' );
-
-	// If categories exist, the download details can be shown.
-	if ( true === $options['categories'] && $categories ) {
-		$return = true;
-	}
-
-	// Get the download's tags.
-	$tags = get_the_term_list( get_the_ID(), 'download_tag', '', ', ', '' );
-
-	// If downoad tags exist, the download details can be shown.
-	if ( true === $options['tags'] && $tags ) {
-		$return = true;
-	}
-
-	// If any value in the array is true, and either tags or categories exists, then there are download details.
-	if ( in_array( (bool) true, $options ) && $tags || $categories ) {
-		$return = true;
-	}
-
-	return $return;
-
-}
-
-/**
- * Determine if the download details can be shown
+ * Determine if the download details can be shown.
  *
  * @since 1.0.0
  */
@@ -82,9 +46,119 @@ function themedd_edd_show_download_details() {
 
 	$options = themedd_edd_download_details_options();
 
-	if ( isset( $options['show'] ) && true === $options['show'] && themedd_edd_has_download_details() ) {
+	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_download_details( $options ) ) {
 		return true;
 	}
 
 	return false;
+
+}
+
+/**
+ * Determine if the current download has any download details.
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_has_download_details( $options = array() ) {
+
+	$download_id = get_the_ID();
+
+	// If download categories are enabled and exist, the download details can be shown.
+	if ( true === $options['categories'] && themedd_edd_download_categories( $download_id ) ) {
+		return true;
+	}
+
+	// If download tags are enabled and exist, the download details can be shown.
+	if ( true === $options['tags'] && themedd_edd_download_tags( $download_id ) ) {
+		return true;
+	}
+
+	// If version number is allowed, and the download has a version number, the download details can be shown.
+	if ( true === $options['version'] && themedd_edd_download_version( $download_id ) ) {
+		return true;
+	}
+
+	return false;
+
+}
+
+/**
+ * Get the download categories of a download, given its ID
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_categories( $download_id = 0 ) {
+
+	if ( ! $download_id ) {
+		return false;
+	}
+
+	$categories = get_the_term_list( $download_id, 'download_category', '', ', ', '' );
+
+	if ( $categories ) {
+		return $categories;
+	}
+
+	return false;
+
+}
+
+/**
+ * Get the download tags of a download, given its ID.
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_tags( $download_id = 0 ) {
+
+	if ( ! $download_id ) {
+		return false;
+	}
+
+	$tags = get_the_term_list( $download_id, 'download_tag', '', ', ', '' );
+
+	if ( $tags ) {
+		return $tags;
+	}
+
+	return false;
+
+}
+
+/**
+ * Get the version number of a download, given its ID.
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_version( $download_id = 0 ) {
+
+	if ( ! $download_id ) {
+		return false;
+	}
+
+	if ( themedd_is_edd_sl_active() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
+		// Get version number from EDD Software Licensing.
+		return get_post_meta( $download_id, '_edd_sl_version', true );
+	}
+
+	return false;
+
+}
+
+/**
+ * Date published
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_download_date_published() {
+
+	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+
+	return $time_string;
+
 }
