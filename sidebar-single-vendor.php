@@ -5,6 +5,7 @@
  * @since 1.0.0
  */
 $vendor_id = absint( fes_get_vendor()->ID );
+$vendor_options = themedd_edd_author_details_options();
 ?>
 <div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
 
@@ -23,7 +24,7 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			 */
 			if ( apply_filters( 'themedd_edd_download_author_avatar', true, $post ) ) : ?>
 				<div class="downloadAuthor-avatar">
-					<?php echo get_avatar( $vendor_id, themedd_edd_download_author_avatar_size() ); ?>
+					<?php echo get_avatar( $vendor_id, $vendor_options['avatar_size'] ); ?>
 				</div>
 			<?php endif; ?>
 

@@ -185,14 +185,3 @@ function themedd_edd_fes_vendor_contact_form() {
 
 	return $vendor_contact_form;
 }
-
-/**
- * Download author avatar size
- *
- * @since 1.0.0
- *
- * @return int $size The size of the avatar
- */
-function themedd_edd_download_author_avatar_size() {
-	return apply_filters( 'themedd_edd_download_author_avatar_size', 80 );
-}

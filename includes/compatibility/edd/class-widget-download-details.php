@@ -46,10 +46,10 @@ class Themedd_Download_Details extends WP_Widget {
 		$author = new WP_User( $post->post_author );
 
 		// Show the published date.
-		$published = $instance['published'];
+		$show_date_published = $instance['published'];
 
-		// Show the sales total.
-		$show_sales_total = $instance['sales'];
+		// Show the sale count.
+		$show_sale_count = $instance['sales'];
 
 		// Show the version number. This is only set when Software Licensing is active.
 		$show_version = isset( $instance['version'] ) ? $instance['version'] : false;
@@ -65,6 +65,20 @@ class Themedd_Download_Details extends WP_Widget {
 			return;
 		}
 
+		/**
+		 * Author options.
+		 * The values of the widget settings are passed into themedd_edd_author_details_options()
+		 */
+		$options = themedd_edd_download_details_options(
+			array(
+				'version'        => $show_version,
+				'sale_count'     => $show_sale_count,
+				'date_published' => $show_date_published,
+				'categories'     => $show_categories,
+				'tags'           => $show_tags
+			)
+		);
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -77,7 +91,8 @@ class Themedd_Download_Details extends WP_Widget {
 			/**
 			 * Published
 			 */
-			if ( true === $published && apply_filters( 'themedd_edd_download_details_date_published', true, $post ) || apply_filters( 'themedd_edd_download_details_date_published', false, $post ) ) : ?>
+			if ( true === $options['date_published'] ) :
+			?>
 				<li class="downloadDetails-datePublished">
 					<?php
 						$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
@@ -97,8 +112,7 @@ class Themedd_Download_Details extends WP_Widget {
 			/**
 			 * Sale count
 			 */
-			if ( true === $show_sales_total && apply_filters( 'themedd_edd_download_details_sale_count', true, $post ) || apply_filters( 'themedd_edd_download_details_sale_count', false, $post ) ) :
-
+			if ( true === $options['sale_count'] ) :
 				$sales = edd_get_download_sales_stats( $post->ID );
 			?>
 				<li class="downloadDetails-sales">
@@ -111,7 +125,7 @@ class Themedd_Download_Details extends WP_Widget {
 			/**
 			 * Version.
 			 */
-			if ( true === $show_version && apply_filters( 'themedd_edd_download_details_version', true, $post ) || apply_filters( 'themedd_edd_download_details_version', false, $post ) ) :
+			if ( true === $options['version'] ) :
 
 				if ( themedd_is_edd_sl_active() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
 					// Get version number from EDD Software Licensing.
@@ -133,8 +147,7 @@ class Themedd_Download_Details extends WP_Widget {
 			/**
 			 * Download categories.
 			 */
-			if ( true === $show_categories && apply_filters( 'themedd_edd_download_details_categories', true, $post ) || apply_filters( 'themedd_edd_download_details_categories', false, $post ) ) :
-
+			if ( true === $options['categories'] ) :
 				$categories = get_the_term_list( $post->ID, 'download_category', '', ', ', '' );
 
 				if ( $categories ) : ?>
@@ -150,8 +163,7 @@ class Themedd_Download_Details extends WP_Widget {
 			/**
 			 * Tags.
 			 */
-			if ( true === $show_tags && apply_filters( 'themedd_edd_download_details_tags', true, $post ) || apply_filters( 'themedd_edd_download_details_tags', false, $post ) ) :
-
+			if ( true === $options['tags'] ) :
 				$tags = get_the_term_list( $post->ID, 'download_tag', '', ', ', '' );
 
 				if ( $tags ) : ?>

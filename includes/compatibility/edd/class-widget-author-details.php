@@ -72,6 +72,25 @@ class Themedd_Author_Details extends WP_Widget {
 			return;
 		}
 
+		/**
+		 * Author options.
+		 * The values of the widget settings are passed into themedd_edd_author_details_options()
+		 */
+		$options = themedd_edd_author_details_options(
+			array(
+				'avatar'      => $avatar,
+				'store_name'  => $store_name,
+				'name'        => $name,
+				'signup_date' => $signup_date,
+				'website'     => $show_website
+			)
+		);
+
+		// Return if there are no author details
+		if ( ! themedd_edd_has_author_details() ) {
+			return;
+		}
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -81,14 +100,15 @@ class Themedd_Author_Details extends WP_Widget {
 		/**
 		 * Author avatar.
 		 */
-		if ( true === $avatar && apply_filters( 'themedd_edd_download_author_avatar', true, $post ) || apply_filters( 'themedd_edd_download_author_avatar', false, $post ) ) {
+		if ( true === $options['avatar'] ) {
+
 			if ( themedd_is_edd_fes_active() ) : ?>
 				<div class="downloadAuthor-avatar">
-					<a class="vendor-url" href="<?php echo esc_url( $vendor_url ); ?>"><?php echo get_avatar( $author->ID, themedd_edd_download_author_avatar_size() ); ?></a>
+					<a class="vendor-url" href="<?php echo esc_url( $vendor_url ); ?>"><?php echo get_avatar( $author->ID, $options['avatar_size'] ); ?></a>
 				</div>
 			<?php else : ?>
 				<div class="downloadAuthor-avatar">
-					<?php echo get_avatar( $author->ID, themedd_edd_download_author_avatar_size() ); ?>
+					<?php echo get_avatar( $author->ID, $options['avatar_size'] ); ?>
 				</div>
 			<?php endif;
 
@@ -97,7 +117,7 @@ class Themedd_Author_Details extends WP_Widget {
 		/**
 		 * Author's store name.
 		 */
-		if ( true === $store_name && apply_filters( 'themedd_edd_download_author_store_name', true, $post ) || apply_filters( 'themedd_edd_download_author_store_name', false, $post ) ) : ?>
+		if ( true === $options['store_name'] ) : ?>
 
 			<?php if ( themedd_is_edd_fes_active() ) : ?>
 			<h2 class="widget-title"><?php echo $vendor_store; ?></h2>
@@ -110,7 +130,7 @@ class Themedd_Author_Details extends WP_Widget {
 		/**
 		 * Author name.
 		 */
-		if ( true === $name && apply_filters( 'themedd_edd_download_author_name', true, $post ) || apply_filters( 'themedd_edd_download_author_name', false, $post ) ) : ?>
+		if ( true === $options['name'] ) : ?>
 			<li class="downloadAuthor-author">
 				<span class="downloadAuthor-name"><?php _e( 'Author:', 'themedd' ); ?></span>
 				<span class="downloadAuthor-value">
@@ -129,7 +149,7 @@ class Themedd_Author_Details extends WP_Widget {
 		/**
 		 * Author signup date.
 		 */
-		if ( true === $signup_date && apply_filters( 'themedd_edd_download_author_signup_date', true, $post ) || apply_filters( 'themedd_edd_download_author_signup_date', false, $post ) ) : ?>
+		if ( true === $options['signup_date'] ) : ?>
 			<li class="downloadAuthor-authorSignupDate">
 				<span class="downloadAuthor-name"><?php _e( 'Author since:', 'themedd' ); ?></span>
 				<span class="downloadAuthor-value"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $author->user_registered ) ); ?></span>
@@ -140,7 +160,7 @@ class Themedd_Author_Details extends WP_Widget {
 		/**
 		 * Author website.
 		 */
-		if ( true === $show_website && apply_filters( 'themedd_edd_download_author_website', true, $post ) || apply_filters( 'themedd_edd_download_author_website', false, $post ) ) : ?>
+		if ( true === $options['website'] ) : ?>
 
 			<?php if ( ! empty( $website ) ) : ?>
 			<li class="downloadAuthor-website">

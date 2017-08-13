@@ -4,7 +4,7 @@
  */
 
 /**
- * Determine if there's download met.a
+ * Determine if there's download meta
  *
  * @since 1.0.0
  *
