@@ -27,7 +27,7 @@ class Themedd {
 		$sidebar_args['sidebar'] = array(
 			'name'        => __( 'Sidebar', 'themedd' ),
 			'id'          => 'sidebar-1',
-			'description' => __( 'Add widgets here to appear in your sidebar', 'themedd' )
+			'description' => __( 'Add widgets here to appear in your sidebar.', 'themedd' )
 		);
 
 		/**
