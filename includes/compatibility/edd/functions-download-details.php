@@ -42,9 +42,12 @@ function themedd_edd_download_details_options( $args = array() ) {
  *
  * @since 1.0.0
  */
-function themedd_edd_show_download_details() {
+function themedd_edd_show_download_details( $options = array() ) {
 
-	$options = themedd_edd_download_details_options();
+	// If no options are passed in, use the default options.
+	if ( empty( $options ) ) {
+		$options = themedd_edd_download_details_options();
+	}
 
 	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_download_details( $options ) ) {
 		return true;
