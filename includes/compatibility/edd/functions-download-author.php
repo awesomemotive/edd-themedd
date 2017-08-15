@@ -43,6 +43,7 @@ function themedd_edd_show_author_details( $options = array() ) {
 	}
 
 	return false;
+
 }
 
 /**

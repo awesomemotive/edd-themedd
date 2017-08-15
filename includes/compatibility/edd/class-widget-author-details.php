@@ -82,7 +82,8 @@ class Themedd_Author_Details extends WP_Widget {
 				'store_name'  => $store_name,
 				'name'        => $name,
 				'signup_date' => $signup_date,
-				'website'     => $show_website
+				'website'     => $show_website,
+				'show'        => true
 			)
 		);
 
