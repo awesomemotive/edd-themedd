@@ -75,7 +75,8 @@ class Themedd_Download_Details extends WP_Widget {
 				'sale_count'     => $show_sale_count,
 				'date_published' => $show_date_published,
 				'categories'     => $show_categories,
-				'tags'           => $show_tags
+				'tags'           => $show_tags,
+				'title'          => true
 			)
 		);
 
@@ -84,11 +85,14 @@ class Themedd_Download_Details extends WP_Widget {
 			return;
 		}
 
+		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+
 		echo $args['before_widget'];
 
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+		if ( true === $options['title'] && $title ) {
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
+
 		?>
 
 		<ul>

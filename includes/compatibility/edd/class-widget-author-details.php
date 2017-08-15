@@ -83,6 +83,7 @@ class Themedd_Author_Details extends WP_Widget {
 				'name'        => $name,
 				'signup_date' => $signup_date,
 				'website'     => $show_website,
+				'title'       => true,
 				'show'        => true
 			)
 		);
@@ -92,10 +93,12 @@ class Themedd_Author_Details extends WP_Widget {
 			return;
 		}
 
+		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+
 		echo $args['before_widget'];
 
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+		if ( true === $options['title'] && $title ) {
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
 		/**
