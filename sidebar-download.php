@@ -135,7 +135,14 @@ $download_options = themedd_edd_download_details_options();
 		if ( themedd_edd_show_download_details() ) : ?>
 
 		<section class="widget downloadDetails">
-			<h2 class="widget-title"><?php echo sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() ); ?></h2>
+
+			<?php
+			/**
+			 * Widget title.
+			 */
+			if ( ! empty( $download_options['title'] ) ) : ?>
+			<h2 class="widget-title"><?php echo $download_options['title']; ?></h2>
+			<?php endif; ?>
 
 			<ul>
 				<?php

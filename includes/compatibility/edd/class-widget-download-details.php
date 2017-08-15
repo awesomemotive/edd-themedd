@@ -42,6 +42,11 @@ class Themedd_Download_Details extends WP_Widget {
 
 		global $post;
 
+		// Return early if not a single download.
+		if ( 'download' !== get_post_type( $post ) ) {
+			return;
+		}
+
 		// Get the author.
 		$author = new WP_User( $post->post_author );
 
@@ -60,10 +65,8 @@ class Themedd_Download_Details extends WP_Widget {
 		// Show the tags.
 		$show_tags = $instance['tags'];
 
-		// Return early if not a single download.
-		if ( 'download' !== get_post_type( $post ) ) {
-			return;
-		}
+		// Get the title.
+		$title = $instance['title'];
 
 		/**
 		 * Author options.
@@ -76,7 +79,7 @@ class Themedd_Download_Details extends WP_Widget {
 				'date_published' => $show_date_published,
 				'categories'     => $show_categories,
 				'tags'           => $show_tags,
-				'title'          => true
+				'title'          => apply_filters( 'widget_title', $title, $instance, $this->id_base )
 			)
 		);
 
@@ -85,12 +88,10 @@ class Themedd_Download_Details extends WP_Widget {
 			return;
 		}
 
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-
 		echo $args['before_widget'];
 
-		if ( true === $options['title'] && $title ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+		if ( ! empty( $options['title'] ) && $options['title'] ) {
+			echo $args['before_title'] . $options['title'] . $args['after_title'];
 		}
 
 		?>

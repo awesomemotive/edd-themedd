@@ -19,7 +19,8 @@ function themedd_edd_download_details_options( $args = array() ) {
 		'date_published' => false,
 		'categories'     => true,
 		'tags'           => true,
-		'version'        => false
+		'version'        => false,
+		'title'          => sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() ),
 	);
 
 	if ( themedd_is_edd_fes_active() ) {
