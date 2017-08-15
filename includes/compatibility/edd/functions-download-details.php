@@ -20,10 +20,11 @@ function themedd_edd_download_details_options( $args = array() ) {
 		'categories'     => true,
 		'tags'           => true,
 		'version'        => false,
-		'title'          => sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() ),
+		'title'          => ''
 	);
 
 	if ( themedd_is_edd_fes_active() ) {
+		$defaults['title']          = sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() );
 		$defaults['date_published'] = true;
 		$defaults['sale_count']     = true;
 	}
