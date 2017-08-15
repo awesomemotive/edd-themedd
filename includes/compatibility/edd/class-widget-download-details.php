@@ -23,7 +23,7 @@ class Themedd_Download_Details extends WP_Widget {
 			'themedd_download_details',
 			'Themedd' . ': ' . sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() ),
 			array(
-			'description' => sprintf( __( 'Display the %s details such as date published and total sales.', 'themedd' ), strtolower( edd_get_label_singular() ) ),
+			'description' => sprintf( __( 'Display the %s details such as date published and number of sales.', 'themedd' ), strtolower( edd_get_label_singular() ) ),
 			'classname'   => 'downloadDetails'
 			)
 		);
