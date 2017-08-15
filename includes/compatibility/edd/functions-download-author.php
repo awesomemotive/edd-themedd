@@ -29,6 +29,23 @@ function themedd_edd_author_details_options( $args = array() ) {
 }
 
 /**
+ * Determine if the author details can be shown
+ */
+function themedd_edd_show_author_details( $options = array() ) {
+
+	// If no options are passed in, use the default options.
+	if ( empty( $options ) ) {
+		$options = themedd_edd_author_details_options();
+	}
+
+	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_author_details( $options ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * Determine if the current download has any author details.
  *
  * @since 1.0.0
@@ -45,21 +62,4 @@ function themedd_edd_has_author_details( $options = array() ) {
 
 	return false;
 
-}
-
-/**
- * Determine if the author details can be shown
- */
-function themedd_edd_show_author_details( $options = array() ) {
-
-	// If no options are passed in, use the default options.
-	if ( empty( $options ) ) {
-		$options = themedd_edd_author_details_options();
-	}
-
-	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_author_details( $options ) ) {
-		return true;
-	}
-
-	return false;
 }
