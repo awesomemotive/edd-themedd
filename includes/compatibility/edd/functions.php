@@ -68,7 +68,7 @@ function themedd_edd_price() {
 }
 endif;
 
-if ( ! function_exists( 'themedd_edd_purchase_link' ) ) :
+
 /**
  * Download purchase link
  *
@@ -80,26 +80,10 @@ function themedd_edd_purchase_link() {
 		return; // Do not show if auto output is disabled
 	}
 
-	/**
-	 * External download URL
-	 */
-	$external_download_url  = themedd_is_edd_download_meta_active() ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
-	$external_download_text = apply_filters( 'themedd_edd_external_download_text', __( 'Visit site', 'themedd' ) );
-
-	if ( $external_download_url ) { ?>
-
-		<div class="edd_download_purchase_form">
-			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external-link" target="_blank" rel="noopener">
-				<span><?php echo $external_download_text; ?></span>
-			</a>
-		</div>
-		<?php
-	} else {
-		echo edd_get_purchase_link();
-	}
+	echo edd_get_purchase_link();
 
 }
-endif;
+
 
 /**
  * Get the number of download columns
