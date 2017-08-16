@@ -91,16 +91,6 @@ function themedd_is_affiliatewp_active() {
 }
 
 /**
- * Is EDD Download Meta active?
- *
- * @since 1.0.0
- * @return bool
- */
-function themedd_is_edd_download_meta_active() {
-	return class_exists( 'EDD_Download_Meta' );
-}
-
-/**
  * Is the subtitles plugin active?
  *
  * @since 1.0.0

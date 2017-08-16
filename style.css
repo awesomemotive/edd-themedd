@@ -3281,38 +3281,6 @@ label[for*="rcp_discount_code"] {
 .rcp_message p {
   padding: 1rem;
 }
-/* Download Meta */
-.download-meta span {
-  vertical-align: middle;
-  font-size: 1rem;
-}
-.download-meta {
-  margin-bottom: 1rem;
-}
-.download-meta:last-child {
-  margin-bottom: 0;
-}
-.download-meta img {
-  vertical-align: middle;
-  margin-right: 0.5rem;
-}
-.download-meta svg {
-  vertical-align: middle;
-  margin-right: 0.5rem;
-}
-.download-meta a {
-  border-bottom: 1px solid #f5f5f5;
-  font-size: 1rem;
-  display: inline-block;
-  color: #696969;
-}
-.download-meta a:hover {
-  border-color: #215b92;
-}
-.meta-categories .title,
-.meta-tags .title {
-  display: none;
-}
 @media only screen and (max-width: 991px) {
   .account-nav ul {
     line-height: 2;

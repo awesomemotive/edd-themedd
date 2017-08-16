@@ -68,9 +68,4 @@ if ( themedd_is_edd_active() ) {
 		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-reviews.php' );
 	}
 
-	// EDD Download Meta
-	if ( themedd_is_edd_download_meta_active() ) {
-		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-download-meta.php' );
-	}
-
 }
