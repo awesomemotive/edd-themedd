@@ -691,6 +691,21 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	/**
+	 * Distraction Free Checkout setting
+	 */
+	$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
+		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	));
+
+	$wp_customize->add_control( 'distraction_free_checkout', array(
+		'label'       => __( 'Distraction Free Checkout', 'themedd' ),
+		'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
+		'section'     => 'easy_digital_downloads',
+		'type'        => 'checkbox',
+		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
+	));
+
+	/**
 	 * Cart icon setting
 	 */
 	$wp_customize->add_setting( 'easy_digital_downloads[cart_icon]', array(
@@ -718,26 +733,11 @@ function themedd_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'cart_options', array(
 		'label'       => __( 'Item Quantity and Cart Price', 'themedd' ),
-		'description' => __( 'Select to display the item quantity, cart total, or both.', 'themedd' ),
+		'description' => __( 'Display only the item quantity, cart total, item quantity and cart total, or nothing at all.', 'themedd' ),
 		'settings'    => 'easy_digital_downloads[cart_options]',
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'select',
 		'choices'     => themedd_customize_cart_options()
-	));
-
-	/**
-	 * Distraction Free Checkout setting
-	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
-		'sanitize_callback' => 'themedd_sanitize_checkbox'
-	));
-
-	$wp_customize->add_control( 'distraction_free_checkout', array(
-		'label'       => __( 'Distraction Free Checkout', 'themedd' ),
-		'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
-		'section'     => 'easy_digital_downloads',
-		'type'        => 'checkbox',
-		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
 	));
 
 	/**
