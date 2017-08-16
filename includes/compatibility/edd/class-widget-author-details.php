@@ -40,6 +40,11 @@ class Themedd_Author_Details extends WP_Widget {
 
 		global $post;
 
+		// Return early if not a single download.
+		if ( 'download' !== get_post_type( $post ) ) {
+			return;
+		}
+
 		$author  = new WP_User( $post->post_author );
 
 		if ( themedd_is_edd_fes_active() ) {
@@ -67,10 +72,8 @@ class Themedd_Author_Details extends WP_Widget {
 		// Get the website.
 		$website = get_the_author_meta( 'user_url', $post->post_author );
 
-		// Return early if not a single download.
-		if ( 'download' !== get_post_type( $post ) ) {
-			return;
-		}
+		// Get the title.
+		$title = $instance['title'];
 
 		/**
 		 * Author options.
@@ -83,7 +86,7 @@ class Themedd_Author_Details extends WP_Widget {
 				'name'        => $name,
 				'signup_date' => $signup_date,
 				'website'     => $show_website,
-				'title'       => true,
+				'title'       => apply_filters( 'widget_title', $title, $instance, $this->id_base ),
 				'show'        => true
 			)
 		);
@@ -97,8 +100,8 @@ class Themedd_Author_Details extends WP_Widget {
 
 		echo $args['before_widget'];
 
-		if ( true === $options['title'] && $title ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+		if ( ! empty( $options['title'] ) && $options['title'] ) {
+			echo $args['before_title'] . $options['title'] . $args['after_title'];
 		}
 
 		/**

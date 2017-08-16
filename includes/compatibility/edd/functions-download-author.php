@@ -15,7 +15,7 @@ function themedd_edd_author_details_options( $args = array() ) {
 		'name'        => true,
 		'signup_date' => true,
 		'website'     => true,
-		'title'       => true
+		'title'       => ''
 	);
 
 	$args = wp_parse_args( $args, $defaults );
