@@ -5,7 +5,7 @@
  *
  * @since 1.0.0
  */
-function themedd_edd_author_details_options( $args = array() ) {
+function themedd_edd_download_author_options( $args = array() ) {
 
 	// Defaults.
 	$defaults = array(
@@ -25,21 +25,21 @@ function themedd_edd_author_details_options( $args = array() ) {
 		$args['show'] = true;
 	}
 
-	return apply_filters( 'themedd_edd_author_details_options', $args );
+	return apply_filters( 'themedd_edd_download_author_options', $args );
 
 }
 
 /**
  * Determine if the author details can be shown
  */
-function themedd_edd_show_author_details( $options = array() ) {
+function themedd_edd_show_download_author( $options = array() ) {
 
 	// If no options are passed in, use the default options.
 	if ( empty( $options ) ) {
-		$options = themedd_edd_author_details_options();
+		$options = themedd_edd_download_author_options();
 	}
 
-	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_author_details( $options ) ) {
+	if ( isset( $options['show'] ) && true === $options['show'] && true === themedd_edd_has_download_author( $options ) ) {
 		return true;
 	}
 
@@ -52,7 +52,7 @@ function themedd_edd_show_author_details( $options = array() ) {
  *
  * @since 1.0.0
  */
-function themedd_edd_has_author_details( $options = array() ) {
+function themedd_edd_has_download_author( $options = array() ) {
 
 	// Remove "show" from the $options array since we don't want to check against it.
 	unset( $options['show'] );

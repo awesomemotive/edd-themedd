@@ -70,7 +70,7 @@ class Themedd_Download_Details extends WP_Widget {
 
 		/**
 		 * Author options.
-		 * The values of the widget settings are passed into themedd_edd_author_details_options()
+		 * The values of the widget settings are passed into themedd_edd_download_author_options()
 		 */
 		$options = themedd_edd_download_details_options(
 			array(

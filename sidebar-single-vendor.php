@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 $vendor_id = absint( fes_get_vendor()->ID );
-$vendor_options = themedd_edd_author_details_options();
+$vendor_options = themedd_edd_download_author_options();
 ?>
 <div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
 

@@ -6,7 +6,7 @@
  */
 
 // Get the author options.
-$author_options   = themedd_edd_author_details_options();
+$author_options   = themedd_edd_download_author_options();
 
 // Get the download options.
 $download_options = themedd_edd_download_details_options();
@@ -35,7 +35,7 @@ $download_options = themedd_edd_download_details_options();
 		/**
 		 * Show the Author Details
 		 */
-		if ( themedd_edd_show_author_details() ) : ?>
+		if ( themedd_edd_show_download_author() ) : ?>
 
 			<section class="widget downloadAuthor">
 

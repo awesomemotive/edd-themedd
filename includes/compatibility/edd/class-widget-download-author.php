@@ -1,16 +1,16 @@
 <?php
 /**
- * Download Author Information Widget
+ * Download Author Widget
  * Inspired by the same widget from the Vendd theme: https://easydigitaldownloads.com/downloads/vendd/
  *
- * This widget is designed to replace the default author info widget that
- * displays in the Themedd download sidebar by default. This purely exists
+ * This widget is designed to replace the default author info that
+ * displays in Themedd's download sidebar by default. This purely exists
  * as an alternative to the default so that you can control your sidebar
  * and rearrange items.
  *
  * @since 1.0.0
  */
-class Themedd_Author_Details extends WP_Widget {
+class Themedd_Download_Author extends WP_Widget {
 
 	/**
 	 * Register the widget
@@ -77,9 +77,9 @@ class Themedd_Author_Details extends WP_Widget {
 
 		/**
 		 * Author options.
-		 * The values of the widget settings are passed into themedd_edd_author_details_options()
+		 * The values of the widget settings are passed into themedd_edd_download_author_options()
 		 */
-		$options = themedd_edd_author_details_options(
+		$options = themedd_edd_download_author_options(
 			array(
 				'avatar'      => $avatar,
 				'store_name'  => $store_name,
@@ -92,7 +92,7 @@ class Themedd_Author_Details extends WP_Widget {
 		);
 
 		// Return early if author details cannot be shown.
-		if ( ! themedd_edd_show_author_details( $options ) ) {
+		if ( ! themedd_edd_show_download_author( $options ) ) {
 			return;
 		}
 
@@ -273,7 +273,7 @@ class Themedd_Author_Details extends WP_Widget {
  *
  * @since 1.0.0
  */
-function themedd_register_widget_author_details() {
-	register_widget( 'Themedd_Author_Details' );
+function themedd_register_widget_download_author() {
+	register_widget( 'Themedd_Download_Author' );
 }
-add_action( 'widgets_init', 'themedd_register_widget_author_details' );
+add_action( 'widgets_init', 'themedd_register_widget_download_author' );
