@@ -3246,41 +3246,6 @@ a.delete {
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
 }
-/* Restrict Content Pro */
-#rcp_subscription_levels {
-  list-style-type: none;
-  margin: 0 0 2rem 0;
-}
-.rcp_subscription_level input[type="radio"] {
-  vertical-align: top;
-  margin: 7px 7px 0 0;
-}
-.rcp_level_description {
-  font-size: 1rem;
-}
-#rcp_discount_code {
-  width: auto;
-}
-.rcp_form label {
-  margin-bottom: 0.5rem;
-}
-.rcp_form label {
-  cursor: pointer;
-}
-label[for*="rcp_discount_code"] {
-  display: block;
-}
-#rcp_auto_renew {
-  margin-right: 7px;
-}
-.rcp_button {
-  font-size: 1rem;
-  padding: 1.2rem;
-  vertical-align: top;
-}
-.rcp_message p {
-  padding: 1rem;
-}
 @media only screen and (max-width: 991px) {
   .account-nav ul {
     line-height: 2;
