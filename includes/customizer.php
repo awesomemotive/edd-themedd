@@ -775,8 +775,8 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( 'theme_options[layout_full_width]', array(
-		'label'       => __( 'Full-width layout', 'themedd' ),
-		'description' => __( 'Display a full-width layout. This will be noticeable once colors have been configured.', 'themedd' ),
+		'label'       => __( 'Full Width Layout', 'themedd' ),
+		'description' => __( 'Display a full width layout. This will be noticeable once colors have been configured.', 'themedd' ),
 		'settings'    => 'theme_options[layout_full_width]',
 		'section'     => 'theme_options',
 		'type'        => 'checkbox',
@@ -791,7 +791,7 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( 'theme_options[display_excerpts]', array(
-		'label'       => __( 'Display excerpts', 'themedd' ),
+		'label'       => __( 'Display Excerpts', 'themedd' ),
 		'description' => __( 'Display excerpts for posts instead of the full content.', 'themedd' ),
 		'settings'    => 'theme_options[display_excerpts]',
 		'section'     => 'theme_options',
