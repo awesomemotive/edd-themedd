@@ -52,7 +52,7 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 		$classes[] = 'edd_downloads_list';
 
 		// Add downloads class.
-		$classes[] = 'edd_download_columns_' . themedd_edd_download_columns();
+		$classes[] = 'edd_download_columns_' . $options['columns'];
 
 		$has_price   = true === $options['price'] ? true : false;
 		$has_excerpt = true === $options['excerpt'] ? true : false;

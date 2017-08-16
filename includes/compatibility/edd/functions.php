@@ -68,7 +68,6 @@ function themedd_edd_price() {
 }
 endif;
 
-
 /**
  * Download purchase link
  *
@@ -82,19 +81,6 @@ function themedd_edd_purchase_link() {
 
 	echo edd_get_purchase_link();
 
-}
-
-
-/**
- * Get the number of download columns
- * Used on the download-archive.php page
- *
- * @since 1.0.0
- */
-function themedd_edd_download_columns() {
-	$options = themedd_download_grid_options();
-	// Defaults to 3 downloads, like the [downloads] shortcode.
-	return apply_filters( 'themedd_edd_download_columns', $options['columns'] );
 }
 
 /**
