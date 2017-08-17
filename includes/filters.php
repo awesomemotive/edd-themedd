@@ -21,7 +21,11 @@ function themedd_body_classes( $classes ) {
 	 * 1. Using the slim page template.
 	 * 2. When viewing a single post with no sidebar
 	 */
-	if ( is_page_template( 'page-templates/slim.php' ) || ( is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ) ) {
+	if (
+		is_page_template( 'page-templates/slim.php' ) ||
+		( is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ) ||
+		in_array( 'blog', $classes ) && in_array( 'no-sidebar', $classes )
+	) {
 		$classes[] = 'slim';
 	}
 
