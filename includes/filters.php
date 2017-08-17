@@ -15,8 +15,13 @@ function themedd_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
-	// Add "slim" body class when using the page template
-	if ( is_page_template( 'page-templates/slim.php' ) ) {
+	/**
+	 * Add a "slim" body class when:
+	 *
+	 * 1. Using the slim page template.
+	 * 2. When viewing a single post with no sidebar
+	 */
+	if ( is_page_template( 'page-templates/slim.php' ) || ( is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ) ) {
 		$classes[] = 'slim';
 	}
 
