@@ -29,6 +29,7 @@ class Themedd_EDD_Frontend_Submissions {
 			remove_filter( 'body_class', 'themedd_body_classes' );
 		}
 
+
 	}
 
 	/**
@@ -116,8 +117,27 @@ class Themedd_EDD_Frontend_Submissions {
 
 		global $post;
 
+		// Single vendor page.
 		if ( $this->is_single_vendor_page() ) {
+
 			$classes[] = 'edd-fes-single-vendor-page';
+
+			/**
+			 * Remove any unneeded body classes from the single vendor page when a page template is assigned to the main vendor page (/vendor)
+			 */
+			foreach( $classes as $key => $class ) {
+				if ( in_array( $class, array(
+					'page-template',
+					'page-template-page-templates',
+					'page-template-slim',
+					'page-template-page-templatesslim-php',
+					'page-template-full-width',
+					'page-template-page-templatesfull-width-php'
+				) ) ) {
+					unset( $classes[$key] );
+				}
+			}
+
 		}
 
 		if ( $this->is_vendor_page() && ! $this->is_single_vendor_page() ) {
