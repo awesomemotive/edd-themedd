@@ -39,33 +39,21 @@ button,
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
 	// Small button.
-	.button.small {
+	.button-small {
 		font-size: 0.875rem;
         padding: 0.875rem 1.25rem;
 	}
 
     // Large button.
-    .button.large {
+    .button-large {
         font-size: 1.5rem;
         padding: 1.5rem 2.25rem;
     }
 
 	// Huge button.
-    .button.huge {
+    .button-huge {
         font-size: 2rem;
         padding: 1.75rem 2.5rem;
-    }
-
-}
-
-.media-mixin(@break) when (@break = @screen-md-min) {
-
-	.button.wide {
-        display: block;
-    }
-
-    button.wide {
-        width: 100%;
     }
 
 }
