@@ -1584,7 +1584,6 @@ article[class^="post-"] + article[class^="post-"] {
 aside li {
   font-size: 1rem;
   padding: 0;
-  line-height: 2;
 }
 #primary-sidebar .widget {
   padding: 1rem;
@@ -1655,7 +1654,6 @@ textarea {
   border: 2px solid #f5f5f5;
   width: 100%;
   border-radius: 0;
-  -webkit-appearance: none;
 }
 select {
   border: 2px solid #f5f5f5;
@@ -1666,6 +1664,11 @@ input {
 input:focus,
 textarea:focus {
   outline: 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  -webkit-appearance: none;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -3206,7 +3209,6 @@ a.delete {
 .downloadAuthor ul,
 .downloadDetails ul {
   margin-left: 0;
-  line-height: 2;
 }
 .downloadAuthor ul li,
 .downloadDetails ul li {
@@ -3329,15 +3331,15 @@ a.delete {
   .page-header .wrapper {
     max-width: 1188px;
   }
-  .button.small {
+  .button-small {
     font-size: 0.875rem;
     padding: 0.875rem 1.25rem;
   }
-  .button.large {
+  .button-large {
     font-size: 1.5rem;
     padding: 1.5rem 2.25rem;
   }
-  .button.huge {
+  .button-huge {
     font-size: 2rem;
     padding: 1.75rem 2.5rem;
   }
@@ -3982,12 +3984,6 @@ a.delete {
   }
   .text-left-md {
     text-align: left;
-  }
-  .button.wide {
-    display: block;
-  }
-  button.wide {
-    width: 100%;
   }
   .content-wrapper {
     display: -webkit-box;
