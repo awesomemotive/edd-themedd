@@ -31,11 +31,11 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  */
 function themedd_edd_secondary_menu_after() {
 
-	if ( 'secondary_menu' !== themedd_edd_cart_link_position() ) {
+	if ( 'secondary_menu' !== themedd_edd_cart_position() ) {
 		return;
 	}
 
-    echo themedd_edd_cart_link( array( 'list_item' => false ) );
+    echo themedd_edd_cart( array( 'list_item' => false ) );
 }
 add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' );
 
@@ -50,7 +50,7 @@ add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' )
 if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
 	function themedd_edd_pre_get_posts( $query ) {
 
-		$options = themedd_download_grid_options();
+		$options = themedd_edd_download_grid_options();
 
 		// Defaults to 9 downloads like EDD's [downloads] shortcode.
 		$downloads_per_page = $options['number'];

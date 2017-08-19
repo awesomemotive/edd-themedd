@@ -194,7 +194,7 @@ function themedd_secondary_menu() {
     /**
      * Show #site-header-secondary-menu if the secondary menu is active or cart icon is still positioned there
      */
-	if ( has_nav_menu( 'secondary' ) || 'secondary_menu' === apply_filters( 'themedd_edd_cart_link_position', 'secondary_menu' ) ) : ?>
+	if ( has_nav_menu( 'secondary' ) || 'secondary_menu' === apply_filters( 'themedd_edd_cart_position', 'secondary_menu' ) ) : ?>
 	<div id="site-header-secondary-menu" class="site-header-menu">
 
         <?php do_action( 'themedd_secondary_menu_before' ); ?>

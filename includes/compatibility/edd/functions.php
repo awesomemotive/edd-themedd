@@ -96,7 +96,7 @@ if ( ! function_exists( 'themedd_edd_download_nav' ) ) :
 
 		global $wp_query;
 
-		$options = themedd_download_grid_options();
+		$options = themedd_edd_download_grid_options();
 
 		// Exit early if pagination has been set to false.
 		if ( true !== $options['pagination'] ) {

@@ -33,7 +33,7 @@ function themedd_scripts() {
 	) );
 
 	// Cart text
-	$cart_quantity_text = function_exists( 'themedd_cart_quantity_text' ) ? themedd_cart_quantity_text() : '';
+	$cart_quantity_text = function_exists( 'themedd_edd_cart_quantity_text' ) ? themedd_edd_cart_quantity_text() : '';
 
 	if ( $cart_quantity_text ) {
 		wp_localize_script( 'themedd-js', 'cartQuantityText', array(

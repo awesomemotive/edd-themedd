@@ -1,7 +1,7 @@
 <?php
 $schema        = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : '';
 $download_meta = themedd_edd_download_meta_options();
-$options       = themedd_download_grid_options();
+$options       = themedd_edd_download_grid_options();
 ?>
 
 <div <?php echo $schema; ?>class="edd_download mb-xs-4 mb-sm-0" id="edd_download_<?php echo get_the_ID(); ?>">

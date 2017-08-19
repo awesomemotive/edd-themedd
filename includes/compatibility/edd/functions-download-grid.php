@@ -23,7 +23,7 @@
 function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts = array() ) {
 
 	// Get the download grid options.
-	$options = themedd_download_grid_options();
+	$options = themedd_edd_download_grid_options();
 
 	// Set up $classes array.
 	$classes = array();
@@ -84,7 +84,7 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
  *
  * @return array $options Download grid options
  */
-function themedd_download_grid_options() {
+function themedd_edd_download_grid_options() {
 
 	$options = array(
 		'excerpt'      => true,
@@ -97,7 +97,7 @@ function themedd_download_grid_options() {
 		'number'       => 9
 	);
 
-	return apply_filters( 'themedd_download_grid_options', $options );
+	return apply_filters( 'themedd_edd_download_grid_options', $options );
 
 }
 
@@ -161,7 +161,7 @@ function themedd_edd_show_download_footer( $atts ) {
 
 	if (
 		true === themedd_edd_show_buy_button( $atts ) ||    // Show download footer if the buy button can be shown.
-		true === themedd_edd_show_price( $atts ) ||         // Show the download footer is the price has been enabled from themedd_download_grid_options().
+		true === themedd_edd_show_price( $atts ) ||         // Show the download footer is the price has been enabled from themedd_edd_download_grid_options().
 		'after' === themedd_edd_download_meta_position() || // Show the download footer if the download meta has been placed in the download footer.
 		has_action( 'themedd_edd_download_footer_end' )     // SHow the download footer if anything has been loaded onto the themedd_edd_download_footer_end hook.
 	) {
@@ -190,7 +190,7 @@ function themedd_edd_show_price( $atts ) {
 
 	} else {
 
-		$options = themedd_download_grid_options();
+		$options = themedd_edd_download_grid_options();
 
 		// The download grid is being shown without using the [downloads] shortcode
 		if ( true === $options['price'] && true !== $download_meta['price'] ) {
@@ -221,7 +221,7 @@ function themedd_edd_show_buy_button( $atts ) {
 
 		// The download grid is being shown without using the [downloads] shortcode
 
-		$options = themedd_download_grid_options();
+		$options = themedd_edd_download_grid_options();
 
 		if ( true === $options['buy_button'] ) {
 			return true;
