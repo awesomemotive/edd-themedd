@@ -1,19 +1,29 @@
-## Welcome to Themedd!
+## Sell your digital products with [Themedd](https://themedd.com)
 
-Themedd is an upcoming WordPress theme for [Easy Digital Downloads](https://easydigitaldownloads.com).  To be notified when it’s ready, enter your email address at [themedd.com](https://themedd.com).
+Themedd is a free and extensible WordPress theme, providing a solid integration with [Easy Digital Downloads](https://easydigitaldownloads.com) and its extensions.
 
-It’s not quite finished yet so **use at your own risk**. Code _will_ change dramatically and things may completely break :)
+Themedd was built by Andrew Munro and the EDD Team.
 
-But there’s good news! We use Themedd on our company web sites so if something is broken we’ll hopefully be the first to know. If you do happen to find a bug please submit an issue.
+## Installation
 
-Themedd is built as a parent theme so create a child theme if you’d like to give it a try. If you’re looking for inspiration, check out the following websites and their child theme repositories. Browsing each theme’s code base will shed some insight into what is possible with themedd.
+For detailed setup instructions, visit the official [Documentation](http://docs.easydigitaldownloads.com/category/1902-themedd) page.
 
-### AffiliateWP
-[https://affiliatewp.com](https://affiliatewp.com)  
-[https://github.com/AffiliateWP/theme](https://github.com/AffiliateWP/theme)
+1. You can clone the GitHub repository: `https://github.com/easydigitaldownloads/themedd.git`
+2. Or download it directly as a ZIP file: `https://github.com/easydigitaldownloads/themedd/archive/master.zip`
 
-### Restrict Content Pro
-[https://restrictcontentpro.com](https://restrictcontentpro.com)  
-[https://github.com/restrictcontentpro/rcp-site-child](https://github.com/restrictcontentpro/rcp-site-child)
+This will download the latest developer copy of Themedd.
 
-Enjoy!
+## Bugs
+If you find an issue, let us know [here](https://github.com/easydigitaldownloads/themedd/issues?state=open)!
+
+## Support
+This is a developer's portal for Themedd and should _not_ be used for support. Please visit the [support page](https://easydigitaldownloads.com/support) if you need to submit a support request.
+
+## Contributions
+Anyone is welcome to contribute to Themedd.
+
+There are various ways you can contribute:
+
+1. Raise an [Issue](https://github.com/easydigitaldownloads/themedd/issues) on GitHub
+2. Send us a Pull Request with your bug fixes and/or new features
+3. Provide feedback and suggestions on [enhancements](https://github.com/easydigitaldownloads/themedd/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open)
