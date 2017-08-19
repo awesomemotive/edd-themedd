@@ -29,6 +29,29 @@ function themedd_edd_has_download_meta() {
 
 }
 
+
+/**
+ * Download meta position.
+ *
+ * Appears in a download on the download grid (either with the [downloads] shortcode or archive-download.php)
+ *
+ * Possible values are:
+ * after_title (default)
+ * after
+ * before_title
+ *
+ * @since 1.0.0
+ * @return string $position The position of the download meta
+ */
+function themedd_edd_download_meta_position() {
+
+	$options  = themedd_edd_download_meta_options();
+	$position = $options['position'];
+
+	return $position;
+
+}
+
 /**
  * Download meta options.
  *
@@ -40,13 +63,14 @@ function themedd_edd_download_meta_options() {
 
 	$options = array(
 		'echo'        => true,
+		'position'    => 'after_title', // See themedd_edd_download_meta_position() for possible values.
 		'price'       => false,
 		'price_link'  => false, // Whether or not the price is linked through to the download.
 		'author_name' => false,
 		'author_link' => true,
 		'author_by'   => __( 'by', 'themedd' ),
 		'avatar'      => false,
-		'avatar_size' => 32     // Size of avatar, in pixels.
+		'avatar_size' => 32 // Size of avatar, in pixels.
 	);
 
 	// Display author name (which will be their store name) and avatar if FES is active.
@@ -56,6 +80,7 @@ function themedd_edd_download_meta_options() {
 	}
 
 	return apply_filters( 'themedd_edd_download_meta_options', $options );
+
 }
 
 /**
@@ -95,19 +120,6 @@ function themedd_edd_download_meta_after_title() {
 
 }
 add_action( 'edd_download_after_title', 'themedd_edd_download_meta_after_title' );
-
-
-/**
- * Download meta position.
- *
- * Appears in a download on the download grid (either with the [downloads] shortcode or archive-download.php)
- * Possible options are "after_title" (default) or "after".
- *
- * @since 1.0.0
- */
-function themedd_edd_download_meta_position() {
-	return apply_filters( 'themedd_edd_download_meta_position', 'after_title' );
-}
 
 /**
  * Load the download meta before the download title
