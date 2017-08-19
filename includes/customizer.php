@@ -248,7 +248,7 @@ function themedd_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagline_color', array(
 		'label'       => __( 'Tagline Color', 'themedd' ),
-		'description' => __( 'The site tagline (if set) color.', 'themedd' ),
+		'description' => __( 'The color of the site tagline (if set).', 'themedd' ),
 		'section'     => 'header_colors',
 		'settings'    => 'colors[tagline_color]',
 	) ) );
@@ -378,7 +378,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_primary_link_hover_color',
 		array(
 			'label'       => __( 'Primary Menu Link Hover Color', 'themedd' ),
-			'description' => __( 'The color of primary menu links when hovered over.', 'themedd' ),
+			'description' => __( 'The hover color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_hover_color]',
 			'section'     => 'header_colors',
 		)
@@ -396,7 +396,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_primary_link_active_color',
 		array(
 			'label'       => __( 'Primary Menu Link Active Color', 'themedd' ),
-			'description' => __( 'The color of primary menu links when active.', 'themedd' ),
+			'description' => __( 'The active color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_active_color]',
 			'section'     => 'header_colors',
 		)
@@ -472,7 +472,7 @@ function themedd_customize_register( $wp_customize ) {
  		'menu_primary_sub_link_hover_color',
  		array(
  			'label'       => __( 'Primary Sub-menu Link Hover Color', 'themedd' ),
- 			'description' => __( 'The color of primary sub-menu links when hovered over.', 'themedd' ),
+ 			'description' => __( 'The hover color of primary sub-menu links.', 'themedd' ),
  			'settings'    => 'colors[menu_primary_sub_link_hover_color]',
  			'section'     => 'header_colors',
  		)
@@ -490,7 +490,7 @@ function themedd_customize_register( $wp_customize ) {
  		'menu_primary_sub_link_active_color',
  		array(
  			'label'       => __( 'Primary Sub-menu Link Active Color', 'themedd' ),
- 			'description' => __( 'The color of primary sub-menu links when active.', 'themedd' ),
+ 			'description' => __( 'The active color of primary sub-menu links.', 'themedd' ),
  			'settings'    => 'colors[menu_primary_sub_link_active_color]',
  			'section'     => 'header_colors',
  		)
@@ -584,7 +584,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_secondary_link_hover_color',
 		array(
 			'label'       => __( 'Secondary Menu Link Hover', 'themedd' ),
-			'description' => __( 'The color of secondary menu links when hovered over.', 'themedd' ),
+			'description' => __( 'The hover color of secondary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_secondary_link_hover_color]',
 			'section'     => 'header_colors',
 		)
@@ -657,7 +657,7 @@ function themedd_customize_register( $wp_customize ) {
 		'button_background_hover_color',
 		array(
 			'label'       => __( 'Button Background Hover Color', 'themedd' ),
-			'description' => __( 'The background color of buttons when hovered over.', 'themedd' ),
+			'description' => __( 'The background hover color of buttons.', 'themedd' ),
 			'settings'    => 'colors[button_background_hover_color]',
 			'section'     => 'general_colors',
 		)
@@ -675,7 +675,7 @@ function themedd_customize_register( $wp_customize ) {
 		'button_text_color',
 		array(
 			'label'       => __( 'Button Text Color', 'themedd' ),
-			'description' => __( 'The button text color of buttons.', 'themedd' ),
+			'description' => __( 'The button text color.', 'themedd' ),
 			'settings'    => 'colors[button_text_color]',
 			'section'     => 'general_colors',
 		)
@@ -985,8 +985,8 @@ function themedd_customize_register( $wp_customize ) {
 			$wp_customize,
 			'mobile_cart_icon_color',
 			array(
-				'label'       => __( 'Cart Icon Color', 'themedd' ),
-				'description' => __( 'The color of the cart icon. Use the mobile/tablet preview buttons below.', 'themedd' ),
+				'label'       => __( 'Mobile Menu Cart Icon Color', 'themedd' ),
+				'description' => __( 'The color of the cart icon.', 'themedd' ),
 				'settings'    => 'colors[mobile_cart_icon_color]',
 				'section'     => 'mobile_device_colors',
 			)
@@ -1004,7 +1004,7 @@ function themedd_customize_register( $wp_customize ) {
 			'cart_icon_color',
 			array(
 				'label'       => __( 'Cart Icon Color', 'themedd' ),
-				'description' => __( 'The color of the cart icon.', 'themedd' ),
+				'description' => __( 'The color of the cart icon in the mobile menu.', 'themedd' ),
 				'settings'    => 'colors[cart_icon_color]',
 				'section'     => 'header_colors',
 			)
