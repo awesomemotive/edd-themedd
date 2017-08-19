@@ -156,7 +156,6 @@ add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrap
 function themedd_edd_page_header_classes( $classes ) {
 
 	if ( is_singular( 'download' ) ) {
-		$classes[] = 'center-xs';
 		$classes[] = 'mb-md-2';
 	}
 
