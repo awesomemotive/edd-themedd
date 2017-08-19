@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_page_header( array( 'classes' => 'center-xs' ) );
+themedd_page_header();
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">

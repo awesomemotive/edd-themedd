@@ -134,22 +134,7 @@ function themedd_page_header_classes( $more_classes = array() ) {
 	$classes[] = 'pv-xs-2';
 	$classes[] = 'pv-sm-3';
 	$classes[] = 'pv-lg-4';
-
-	// Center the header content.
-	if (
-		is_page_template( 'page-templates/full-width.php' ) ||
-		is_page_template( 'page-templates/slim.php' ) ||
-		! is_active_sidebar( 'sidebar-1' ) ||
-		is_tax( 'download_category' ) ||
-		is_tax( 'download_tag' ) ||
-		(
-			function_exists( 'themedd_edd_distraction_free_checkout' ) && themedd_edd_distraction_free_checkout() &&
-			function_exists( 'edd_is_checkout' ) && edd_is_checkout() &&
-			function_exists( 'edd_get_cart_contents' ) && ! empty( edd_get_cart_contents() )
-		)
-	) {
-		$classes[] = 'center-xs';
-	}
+	$classes[] = 'center-xs';
 
 	// Merge any new classes passed in.
 	if ( is_array( $more_classes ) ) {
