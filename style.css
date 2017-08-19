@@ -486,7 +486,6 @@ input[type="submit"],
   font-weight: 500;
   text-align: center;
   vertical-align: middle;
-  background-image: none;
   border-radius: 0;
   border: 1px solid #448FD5;
   -webkit-user-select: none;
@@ -511,7 +510,19 @@ input[type=submit],
 button,
 .button {
   font-size: 1.1rem;
-  padding: 0.875rem 1.75rem;
+  padding: 0.875rem 1.5rem;
+}
+.button-small {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+.button-large {
+  font-size: 1.4rem;
+  padding: 1rem 2.25rem;
+}
+.button-full-width {
+  width: 100%;
+  display: block;
 }
 /* Fonts */
 .menu-item-has-children a:after,
@@ -3330,18 +3341,6 @@ a.delete {
   }
   .page-header .wrapper {
     max-width: 1188px;
-  }
-  .button-small {
-    font-size: 0.875rem;
-    padding: 0.875rem 1.25rem;
-  }
-  .button-large {
-    font-size: 1.5rem;
-    padding: 1.5rem 2.25rem;
-  }
-  .button-huge {
-    font-size: 2rem;
-    padding: 1.75rem 2.5rem;
   }
   #main {
     padding: 2rem;
