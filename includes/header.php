@@ -93,17 +93,17 @@ function themedd_site_branding() {
         <?php if ( is_front_page() && is_home() ) : ?>
             <h1 class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_before' ); ?>
                     <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_after' ); ?>
                 </a>
             </h1>
         <?php else : ?>
             <p class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_before' ); ?>
                     <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_after' ); ?>
                 </a>
             </p>
         <?php endif; ?>

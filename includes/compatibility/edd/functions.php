@@ -30,19 +30,21 @@ function themedd_edd_download_info() {
         return;
     }
 
-	do_action( 'themedd_edd_download_info_start', get_the_ID() );
+	$download_id = get_the_ID();
+
+	do_action( 'themedd_edd_download_info_start', $download_id );
 
 	// Display download price.
 	if ( themedd_edd_price_enhancements() ) {
 		echo themedd_edd_price();
 	}
 
-	do_action( 'themedd_edd_download_info_after_price', get_the_ID() );
+	do_action( 'themedd_edd_download_info_price_after', $download_id );
 
 	// Display purchase link.
     themedd_edd_purchase_link();
 
-	do_action( 'themedd_edd_download_info_end', get_the_ID() );
+	do_action( 'themedd_edd_download_info_end', $download_id );
 
 }
 endif;

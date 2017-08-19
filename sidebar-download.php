@@ -6,7 +6,7 @@
  */
 
 // Get the author options.
-$author_options   = themedd_edd_download_author_options();
+$author_options = themedd_edd_download_author_options();
 
 // Get the download options.
 $download_options = themedd_edd_download_details_options();
@@ -16,7 +16,7 @@ $download_options = themedd_edd_download_details_options();
 
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
-		<?php do_action( 'themedd_sidebar_download_start' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_start' ); ?>
 
 		<?php if ( ! dynamic_sidebar( 'sidebar-download' ) ) : ?>
 
@@ -29,7 +29,7 @@ $download_options = themedd_edd_download_details_options();
 		<?php echo themedd_edd_download_info(); ?>
 		</section>
 
-		<?php do_action( 'themedd_sidebar_download_product_details_after' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_product_details_after' ); ?>
 
 		<?php
 		/**
@@ -126,7 +126,7 @@ $download_options = themedd_edd_download_details_options();
 
 		<?php endif; ?>
 
-		<?php do_action( 'themedd_sidebar_download_author_after' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_author_after' ); ?>
 
 		<?php
 		/**
@@ -223,7 +223,7 @@ $download_options = themedd_edd_download_details_options();
 
 		<?php endif; // end sidebar widget area ?>
 
-		<?php do_action( 'themedd_sidebar_download_end' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_end' ); ?>
 
 	</div>
 
