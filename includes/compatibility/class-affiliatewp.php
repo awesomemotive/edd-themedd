@@ -17,21 +17,6 @@ class Themedd_AffiliateWP {
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
 		add_filter( 'affwp_login_form', array( $this, 'login_form' ) );
 		add_filter( 'themedd_show_sidebar', array( $this, 'hide_sidebar' ) );
-		add_filter( 'themedd_page_header_classes', array( $this, 'header_classes' ) );
-	}
-
-	/**
-	 * Add classes to header.
-	 *
-	 * @since 1.0.0
-	 */
-	public function header_classes( $classes ) {
-
-		if ( is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ) {
-			$classes[] = 'center-xs';
-		}
-
-		return $classes;
 	}
 
 	/**
