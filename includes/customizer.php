@@ -732,8 +732,8 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( 'cart_options', array(
-		'label'       => __( 'Item Quantity and Cart Price', 'themedd' ),
-		'description' => __( 'Display only the item quantity, cart total, item quantity and cart total, or nothing at all.', 'themedd' ),
+		'label'       => __( 'Item Quantity and Cart Total', 'themedd' ),
+		'description' => __( 'Display either the item quantity or cart total, both the item quantity and cart total, or nothing at all.', 'themedd' ),
 		'settings'    => 'easy_digital_downloads[cart_options]',
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'select',
@@ -1326,7 +1326,7 @@ function themedd_customize_cart_options() {
 	return array(
 		'item_quantity' => __( 'Display item quantity only', 'themedd' ),
 		'cart_total'    => __( 'Display cart total only', 'themedd' ),
-		'all'           => __( 'Display item count and cart total', 'themedd' ),
+		'all'           => __( 'Display item quantity and cart total', 'themedd' ),
 		'none'          => __( 'Display nothing', 'themedd' )
 	);
 }
