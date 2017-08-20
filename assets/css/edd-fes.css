@@ -28,6 +28,9 @@
 .fes-vendor-menu ul a:hover {
   color: #448FD5;
 }
+.fes-form-fieldset {
+  margin-bottom: 0;
+}
 .fes-login-form,
 .fes-login-registration-combo form {
   padding: 2rem;
