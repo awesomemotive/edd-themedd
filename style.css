@@ -2740,12 +2740,6 @@ span.padlock {
   width: 1.5rem;
   height: 1.5rem;
 }
-#edd_terms_agreement {
-  margin-bottom: 2rem;
-}
-#edd_agree_to_terms {
-  margin-right: 0.5rem;
-}
 .no-sidebar .edd_empty_cart {
   text-align: center;
   display: block;
@@ -2793,6 +2787,12 @@ span.padlock {
 #edd-stripe-manage-cards > fieldset p:last-child,
 #edd_payment_mode_select p:last-child {
   margin-bottom: 0.5rem;
+}
+#edd_terms_agreement {
+  margin-bottom: 2rem;
+}
+#edd_agree_to_terms {
+  margin-right: 0.5rem;
 }
 #edd_simple_shipping_diff_address label {
   margin-bottom: 0;
@@ -3051,7 +3051,7 @@ p.edd_error {
 }
 .edd-alert-info {
   background-color: #d9edf7;
-  border-color: #bce8f1;
+  border-color: #cbe3ef;
 }
 .edd-alert-info p,
 .edd-alert-info a {
@@ -3976,6 +3976,9 @@ a.delete {
   }
   #edd_discount_code {
     padding: 1rem 2rem;
+  }
+  #edd_register_fields #edd_register_account_fields {
+    margin-bottom: 0;
   }
   #edd_checkout_cart td,
   #edd_checkout_cart th {
