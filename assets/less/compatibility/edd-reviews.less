@@ -90,11 +90,26 @@
 
 .edd-review-author b {
 	vertical-align: middle;
+	color: @dark-grey;
 }
 
+// Metadata
+// By {name} on {date} at {time} Edit
+
 .edd-review-metadata {
+	color: @medium-grey;
 	font-size: 0.875rem;
+
+	a {
+		color: @medium-grey;
+
+		&:hover {
+			color: @dark-grey;
+		}
+	}
+
 }
+
 // End single review
 
 
