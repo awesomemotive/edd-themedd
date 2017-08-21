@@ -72,7 +72,7 @@ function themedd_customize_color_defaults() {
 
 	$defaults = array(
 		'background_color'                          => $white,
-		'header_background_color'                   => '',
+		'header_background_color'                   => $white,
 		'header_textcolor'                          => $dark_grey,
 		'site_title_color'                          => $dark_grey,
 		'menu_primary_sub_background_hover_color'   => '',
@@ -1063,7 +1063,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Site header background.
 			if ( isset( $colors['header_background_color'] ) ) {
-				echo '#masthead { background:' . $colors['header_background_color'] . ';}';
+				echo '#masthead { background-color:' . $colors['header_background_color'] . ';}';
 			}
 
 			// Primary menu background color.

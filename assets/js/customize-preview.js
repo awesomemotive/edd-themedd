@@ -108,7 +108,8 @@
 
 		value.bind(function( to ) {
 			jQuery('#masthead')
-				.css('background', to ? to : defaults.header_background_color );
+				.css('background-color', to ? to : defaults.header_background_color );
+
 		});
 
 	});
