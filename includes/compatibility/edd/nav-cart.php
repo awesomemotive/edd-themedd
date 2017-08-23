@@ -5,7 +5,7 @@
  *
  * @since 1.0.0
  */
-function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
+function themedd_edd_set_cart_quantity( $total_quantity, $cart ) {
 
 	if ( ! $cart ) {
 		$total_quantity = '';
@@ -13,32 +13,32 @@ function themedd_edd_get_cart_quantity( $total_quantity, $cart ) {
 
 	return $total_quantity;
 }
-add_filter( 'edd_get_cart_quantity', 'themedd_edd_get_cart_quantity', 10, 2 );
+add_filter( 'edd_get_cart_quantity', 'themedd_edd_set_cart_quantity', 10, 2 );
 
 /**
  * Appends the cart to the primary navigation
  *
  * @since 1.0.0
 */
-function themedd_wp_nav_menu_items( $items, $args ) {
+function themedd_edd_primary_menu_items( $items, $args ) {
 
-	if ( 'primary_menu' == themedd_edd_cart_link_position() ) {
-		$items .= themedd_edd_cart_link();
+	if ( 'primary_menu' == themedd_edd_cart_position() ) {
+		$items .= themedd_edd_cart();
 	}
 
     return $items;
 
 }
-add_filter( 'wp_nav_menu_primary_items', 'themedd_wp_nav_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_primary_items', 'themedd_edd_primary_menu_items', 10, 2 );
 
 /**
  * Mobile navigation - Append cart link to mobile navigation
  *
  * @since 1.0.0
 */
-function themedd_wp_nav_menu_mobile_items( $items, $args ) {
+function themedd_edd_mobile_menu_items( $items, $args ) {
 
-	$mobile_cart_link = themedd_edd_cart_link(
+	$mobile_cart_link = themedd_edd_cart(
 
 		apply_filters( 'themedd_edd_mobile_menu', array(
 			'list_item' => true,
@@ -58,8 +58,8 @@ function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 	if ( 'mobile-menu' === $args->menu_id ) {
 
 		if (
-			'primary_menu' !== themedd_edd_cart_link_position() || // Append the nav cart to the mobile menu if the nav cart has not been moved to the primary navigation (from the default location of the secondary navigation)
-			( 'primary_menu' === themedd_edd_cart_link_position() && $has_mobile_menu && $menu_locations['mobile'] !== $menu_locations['primary'] ) // Or, append the nav cart to the mobile menu if the nav cart has been moved from the secondary naivigation, there's a menu assigned to the mobile menu location and the mobile menu has been assigned to the mobile menu location.
+			'primary_menu' !== themedd_edd_cart_position() || // Append the nav cart to the mobile menu if the nav cart has not been moved to the primary navigation (from the default location of the secondary navigation)
+			( 'primary_menu' === themedd_edd_cart_position() && $has_mobile_menu && $menu_locations['mobile'] !== $menu_locations['primary'] ) // Or, append the nav cart to the mobile menu if the nav cart has been moved from the secondary naivigation, there's a menu assigned to the mobile menu location and the mobile menu has been assigned to the mobile menu location.
 		) {
 			return $mobile_cart_link . $items;
 		}
@@ -71,22 +71,22 @@ function themedd_wp_nav_menu_mobile_items( $items, $args ) {
 	return $items;
 
 }
-add_filter( 'wp_nav_menu_items', 'themedd_wp_nav_menu_mobile_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'themedd_edd_mobile_menu_items', 10, 2 );
 
 /**
- * Determine where the cart link should be displayed
+ * Determine where the cart should be displayed
  * By default it is shown in the secondary menu.
  *
  * @since 1.0.0
  */
-function themedd_edd_cart_link_position() {
-	return apply_filters( 'themedd_edd_cart_link_position', 'secondary_menu' );
+function themedd_edd_cart_position() {
+	return apply_filters( 'themedd_edd_cart_position', 'secondary_menu' );
 }
 
 /**
- * Cart link in main navigation
+ * Cart in main navigation
  *
- * This link contains:
+ * The nav cart contains:
  *
  * 1. The cart icon
  * 2. The cart quantity
@@ -95,16 +95,16 @@ function themedd_edd_cart_link_position() {
  * @since 1.0.0
  * @return string
  */
-function themedd_edd_cart_link( $args = array() ) {
+function themedd_edd_cart( $args = array() ) {
 
-    if ( ! apply_filters( 'themedd_nav_cart', true ) ) {
+    if ( ! apply_filters( 'themedd_edd_cart', true ) ) {
         return;
     }
 
     ob_start();
 
 	// Set up defaults.
-	$defaults = apply_filters( 'themedd_edd_cart_link_defaults',
+	$defaults = apply_filters( 'themedd_edd_cart_defaults',
 		array(
 			'classes'     => array( 'navCart' ),
 			'cart_link'   => isset( $args['cart_link'] ) ? $args['cart_link'] : edd_get_checkout_uri(),
@@ -120,7 +120,7 @@ function themedd_edd_cart_link( $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-    $cart_items   = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+    $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
 	// whether or not to include list item markup
 	$list_item = $args['list_item'];
@@ -162,7 +162,6 @@ function themedd_edd_cart_link( $args = array() ) {
 				if ( $args['text_after'] ) {
 					echo '<span class="navCart-textAfter">' . $args['text_after'] . '</span>';
 				}
-
 
 				?>
 
@@ -226,7 +225,7 @@ function themedd_edd_cart_quantity() {
 	$cart_quantity = apply_filters( 'themedd_edd_cart_quantity', $cart_quantity );
 
 	// Cart quantity text.
-	$cart_quantity_text = themedd_cart_quantity_text();
+	$cart_quantity_text = themedd_edd_cart_quantity_text();
 
 	if ( apply_filters( 'themedd_edd_cart_quantity_text', true ) ) {
 		// Set the default to be plural. Used for anything greater than 1 or 0.
@@ -256,9 +255,9 @@ function themedd_edd_cart_quantity() {
  *
  * @return array cart quantity singular and plural name
  */
-function themedd_cart_quantity_text() {
+function themedd_edd_cart_quantity_text() {
 
-	$cart_quantity_text = apply_filters( 'themedd_cart_quantity_text', array(
+	$cart_quantity_text = apply_filters( 'themedd_edd_cart_quantity_text', array(
 		'singular' => __( 'item', 'themedd' ),
 		'plural'   => __( 'items', 'themedd' )
 	));

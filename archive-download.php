@@ -10,14 +10,8 @@ get_header();
 
 	<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) :
-
-			$classes   = array( 'edd_downloads_list' );
-			$classes[] = 'edd_download_columns_' . themedd_edd_download_columns();
-			$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
-			?>
-			<div class="<?php echo implode( ' ', array_filter( $classes ) ); ?>">
-
+		<?php if ( have_posts() ) : ?>
+			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

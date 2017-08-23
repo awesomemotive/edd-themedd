@@ -18,7 +18,7 @@ class Themedd_EDD_Software_Licensing {
 	}
 
 	/**
-	 * Check to see if the download has licensing enabled
+	 * Check to see if the download has licensing enabled.
 	 */
 	public function has_licensing_enabled() {
 
@@ -35,7 +35,7 @@ class Themedd_EDD_Software_Licensing {
 	 * @since 1.0.0
 	 */
 	public function scripts() {
-		// remove software licensing CSS file
+		// Remove software licensing CSS file.
 		wp_dequeue_style( 'edd-sl-styles' );
 	}
 

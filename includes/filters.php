@@ -1,28 +1,49 @@
 <?php
 /**
- * Adds custom classes to the array of body classes.
+ * Add custom body classes.
  *
- * @since 1.0
+ * @since 1.0.0
  */
 function themedd_body_classes( $classes ) {
-
-	// Adds a class of custom-background-image to sites with a custom background image.
-	if ( get_background_image() ) {
-		$classes[] = 'custom-background-image';
-	}
 
 	if (
 		! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ||
 		! apply_filters( 'themedd_show_sidebar', true ) ||
 		is_page_template( 'page-templates/full-width.php' ) ||
-		is_page_template( 'page-templates/slim.php' ) // The slim template also removes the sidebar
+		is_page_template( 'page-templates/slim.php' )
 	) {
 		$classes[] = 'no-sidebar';
 	}
 
-	// Add "slim" body class when using the page template
-	if ( is_page_template( 'page-templates/slim.php' ) ) {
+	/**
+	 * Add a "slim" body class when:
+	 *
+	 * 1. Using the slim page template.
+	 * 2. When viewing a single post with no sidebar
+	 */
+	if (
+		is_page_template( 'page-templates/slim.php' ) ||
+		( is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ) ||
+		in_array( 'blog', $classes ) && in_array( 'no-sidebar', $classes )
+	) {
 		$classes[] = 'slim';
+	}
+
+	return $classes;
+
+}
+add_filter( 'body_class', 'themedd_body_classes' );
+
+/**
+ * Add custom body classes, based on customizer options
+ *
+ * @since 1.0.0
+ */
+function themedd_customizer_body_classes( $classes ) {
+
+	// Adds a class of custom-background-image to sites with a custom background image.
+	if ( get_background_image() ) {
+		$classes[] = 'custom-background-image';
 	}
 
 	if ( themedd_layout_full_width() ) {
@@ -30,9 +51,8 @@ function themedd_body_classes( $classes ) {
 	}
 
 	return $classes;
-
 }
-add_filter( 'body_class', 'themedd_body_classes' );
+add_filter( 'body_class', 'themedd_customizer_body_classes' );
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and a 'Continue reading' link.

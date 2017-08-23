@@ -8,7 +8,7 @@
  */
 function themedd_edd_download_details_widget_purchase_button( $purchase_link, $download_id ) {
 
-	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+	if ( themedd_edd_price_enhancements() ) {
 		return '';
 	}
 
@@ -46,13 +46,8 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 	// Remove button class.
 	$defaults['color'] = '';
 
-	// Free downloads.
-	if ( edd_is_free_download( get_the_ID() ) ) {
-		$defaults['text'] = __( 'Add to cart', 'themedd' );
-	}
-
 	// Remove the price from the purchase button
-	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+	if ( themedd_edd_price_enhancements() ) {
 		$defaults['price'] = (bool) false;
 	}
 
@@ -60,6 +55,27 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 
 }
 add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' );
+
+/**
+ * Filter the [downloads] shortcode so the price is always shown by default.
+ * The price will not be shown if the "price" attribute on the [downloads] shortcode is set to "no"
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_downloads_shortcode_show_price( $out, $pairs, $atts, $shortcode ) {
+
+	if ( isset( $atts['price'] ) && $atts['price'] === 'no' ) {
+		// Don't show the price if the "price" attribute has been set to "no".
+		$out['price'] = 'no';
+	} else {
+		// Always show the price.
+		$out['price'] = 'yes';
+	}
+
+	return $out;
+
+}
+add_filter( 'shortcode_atts_downloads', 'themedd_edd_downloads_shortcode_show_price', 10, 4 );
 
 /**
  * Set the default EDD checkout image size
@@ -120,62 +136,15 @@ function themedd_edd_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
-
 /**
  * Downloads wrapper classes
  *
  * @since 1.0.0
  */
 function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
-
-	$classes = array( $wrapper_class );
-
-	if ( $atts['price'] == 'yes' ) {
-		$classes[] = 'has-price';
-	} else {
-		$classes[] = 'no-price';
-	}
-
-	if ( $atts['excerpt'] == 'yes' ) {
-		$classes[] = 'has-excerpt';
-	}
-
-	if ( $atts['buy_button'] == 'yes' ) {
-		$classes[] = 'has-buy-button';
-	} else {
-		$classes[] = 'no-buy-button';
-	}
-
-	if ( $atts['thumbnails'] ) {
-		$classes[] = 'has-thumbnails';
-	} else {
-		$classes[] = 'no-thumbnails';
-	}
-
-	/**
-	 * Add a class if there is download meta
-	 */
-	if ( themedd_edd_has_download_meta() ) {
-		$classes[] = 'has-download-meta';
-	}
-
-	return implode( ' ', $classes );
-
+	return themedd_edd_downloads_list_wrapper_classes( $wrapper_class, $atts );
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
-
-/**
- * EDD Recurring
- * Modify URL to update payment method
- *
- * @since 1.0.0
- */
-function themedd_edd_recurring_update_url( $url, $subscription ) {
-	$url = add_query_arg( array( 'action' => 'update', 'subscription_id' => $subscription->id ), '#tabs=1' );
-
-	return $url;
-}
-add_filter( 'edd_subscription_update_url', 'themedd_edd_recurring_update_url', 10, 2 );
 
 /**
  * Filter the page header classes for the single download page.
@@ -187,7 +156,6 @@ add_filter( 'edd_subscription_update_url', 'themedd_edd_recurring_update_url', 1
 function themedd_edd_page_header_classes( $classes ) {
 
 	if ( is_singular( 'download' ) ) {
-		$classes[] = 'center-xs';
 		$classes[] = 'mb-md-2';
 	}
 
@@ -214,7 +182,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 	$i = 1;
 
 	$wrapper_class = 'edd_download_columns_' . $columns;
-
+	$download_meta = themedd_edd_download_meta_options();
 	ob_start();
 
 	?>
@@ -244,11 +212,6 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 						edd_get_template_part( 'shortcode', 'content-full' );
 						do_action( 'edd_download_after_content' );
 					endif;
-
-					if ( $atts['price'] == 'yes' ) {
-						edd_get_template_part( 'shortcode', 'content-price' );
-						do_action( 'edd_download_after_price' );
-					}
 
 					themedd_edd_download_footer( $atts );
 

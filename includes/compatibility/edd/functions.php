@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * EDD Price Enhancements
+ *
+ * While enabled:
+ *
+ * 1. Prices from purchase buttons are removed
+ * 2. Prices are automatically shown when using the [downloads] shortcode (unless "price" is set to "no")
+ *
+ * @since 1.0.0
+ *
+ * @return boolean true
+ */
+function themedd_edd_price_enhancements() {
+	return apply_filters( 'themedd_edd_price_enhancements', true );
+}
+
+/**
  * The combined price and purchase button shown on the single download page
  *
  * @since 1.0.0
@@ -14,19 +30,21 @@ function themedd_edd_download_info() {
         return;
     }
 
-	do_action( 'themedd_edd_download_info_start', get_the_ID() );
+	$download_id = get_the_ID();
+
+	do_action( 'themedd_edd_download_info_start', $download_id );
 
 	// Display download price.
-	if ( apply_filters( 'themedd_edd_price_outside_button', true ) ) {
+	if ( themedd_edd_price_enhancements() ) {
 		echo themedd_edd_price();
 	}
 
-	do_action( 'themedd_edd_download_info_after_price', get_the_ID() );
+	do_action( 'themedd_edd_download_info_price_after', $download_id );
 
 	// Display purchase link.
     themedd_edd_purchase_link();
 
-	do_action( 'themedd_edd_download_info_end', get_the_ID() );
+	do_action( 'themedd_edd_download_info_end', $download_id );
 
 }
 endif;
@@ -52,7 +70,6 @@ function themedd_edd_price() {
 }
 endif;
 
-if ( ! function_exists( 'themedd_edd_purchase_link' ) ) :
 /**
  * Download purchase link
  *
@@ -64,37 +81,8 @@ function themedd_edd_purchase_link() {
 		return; // Do not show if auto output is disabled
 	}
 
-	/**
-	 * External download URL
-	 */
-	$external_download_url  = themedd_is_edd_download_meta_active() ? edd_download_meta_get_download_meta( '_edd_download_meta_url' ) : '';
-	$external_download_text = apply_filters( 'themedd_edd_external_download_text', __( 'Visit site', 'themedd' ) );
+	echo edd_get_purchase_link();
 
-	if ( $external_download_url ) { ?>
-
-		<div class="edd_download_purchase_form">
-			<a href="<?php echo esc_url( $external_download_url ); ?>" class="button wide external-link" target="_blank" rel="noopener">
-				<span><?php echo $external_download_text; ?></span>
-			</a>
-		</div>
-		<?php
-	} else {
-		echo edd_get_purchase_link();
-	}
-
-}
-endif;
-
-/**
- * Get the number of download columns
- * Used on the download-archive.php page
- *
- * @since 1.0.0
- */
-function themedd_edd_download_columns() {
-	$options = themedd_download_grid_options();
-	// Defaults to 3 downloads, like the [downloads] shortcode.
-	return apply_filters( 'themedd_edd_download_columns', $options['columns'] );
 }
 
 /**
@@ -108,7 +96,7 @@ if ( ! function_exists( 'themedd_edd_download_nav' ) ) :
 
 		global $wp_query;
 
-		$options = themedd_download_grid_options();
+		$options = themedd_edd_download_grid_options();
 
 		// Exit early if pagination has been set to false.
 		if ( true !== $options['pagination'] ) {
@@ -168,15 +156,4 @@ function themedd_edd_fes_vendor_contact_form() {
 	}
 
 	return $vendor_contact_form;
-}
-
-/**
- * Download author avatar size
- *
- * @since 1.0.0
- *
- * @return int $size The size of the avatar
- */
-function themedd_edd_download_author_avatar_size() {
-	return apply_filters( 'themedd_edd_download_author_avatar_size', 80 );
 }

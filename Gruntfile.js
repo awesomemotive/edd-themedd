@@ -120,7 +120,7 @@ module.exports = function(grunt) {
 	    },
 
 		// SVG min
-	    svgmin: { //minimize SVG files
+	    svgmin: {
 	        options: {
 	            plugins: [
 	                { removeViewBox: false },
@@ -171,7 +171,7 @@ module.exports = function(grunt) {
 				}
 			},
 		}
-  });
+	});
 
 	// Saves having to declare each dependency
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );

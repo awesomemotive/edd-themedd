@@ -31,11 +31,11 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  */
 function themedd_edd_secondary_menu_after() {
 
-	if ( 'secondary_menu' !== themedd_edd_cart_link_position() ) {
+	if ( 'secondary_menu' !== themedd_edd_cart_position() ) {
 		return;
 	}
 
-    echo themedd_edd_cart_link( array( 'list_item' => false ) );
+    echo themedd_edd_cart( array( 'list_item' => false ) );
 }
 add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' );
 
@@ -50,7 +50,7 @@ add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' )
 if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
 	function themedd_edd_pre_get_posts( $query ) {
 
-		$options = themedd_download_grid_options();
+		$options = themedd_edd_download_grid_options();
 
 		// Defaults to 9 downloads like EDD's [downloads] shortcode.
 		$downloads_per_page = $options['number'];
@@ -117,31 +117,3 @@ function themedd_edd_set_distraction_free_checkout() {
 }
 endif;
 add_action( 'template_redirect', 'themedd_edd_set_distraction_free_checkout' );
-
-
-/**
- * Load the vendor contact form at the bottom of the page if another page template is active
- *
- * @since 1.0.0
- */
-function themedd_edd_fes_load_vendor_contact_form() {
-
-	// Return early if FES is not active.
-	if ( ! themedd_is_edd_fes_active() ) {
-		return;
-	}
-
-	// Load the contact form at the bottom of the page if a page template is being used,
-	// And the vendor contact form is enabled.
-	if (
-		is_page_template() &&
-		themedd_edd_fes_vendor_contact_form() &&
-		is_page( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) )
-	) {
-		$vendor_id = absint( fes_get_vendor()->ID );
-		echo (new FES_Forms)->render_vendor_contact_form( $vendor_id );
-	}
-
-}
-
-add_action( 'themedd_entry_content_end', 'themedd_edd_fes_load_vendor_contact_form' );

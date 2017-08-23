@@ -3,7 +3,7 @@ Theme Name: Themedd
 Theme URI: https://themedd.com
 Author: Easy Digital Downloads
 Author URI: https://easydigitaldownloads.com
-Description: A simple yet extensible theme for Easy Digital Downloads.
+Description: Themedd is a simple and extensible WordPress theme that provides a solid integration with Easy Digital Downloads and its extensions. It's the perfect theme to sell your digital products.
 Version: 1.0.0
 License: GNU General Public License
 License URI: license.txt
@@ -310,6 +310,7 @@ h6 {
   color: #222;
   line-height: 1.2;
   margin: 0 0 1.62rem 0;
+  font-weight: 600;
 }
 h1 {
   font-size: 1.75rem;
@@ -485,7 +486,6 @@ input[type="submit"],
   font-weight: 500;
   text-align: center;
   vertical-align: middle;
-  background-image: none;
   border-radius: 0;
   border: 1px solid #448FD5;
   -webkit-user-select: none;
@@ -510,7 +510,19 @@ input[type=submit],
 button,
 .button {
   font-size: 1.1rem;
-  padding: 0.875rem 1.75rem;
+  padding: 0.875rem 1.5rem;
+}
+.button-small {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+.button-large {
+  font-size: 1.4rem;
+  padding: 1rem 2.25rem;
+}
+.button-full-width {
+  width: 100%;
+  display: block;
 }
 /* Fonts */
 .menu-item-has-children a:after,
@@ -1054,9 +1066,6 @@ button,
 #main {
   padding: 1rem;
 }
-#primary-sidebar .widget {
-  padding: 1rem;
-}
 #page {
   max-width: 1480px;
   min-height: 100%;
@@ -1107,7 +1116,7 @@ body .wrapper {
 }
 /* Header */
 #masthead {
-  background: #fff;
+  background-color: #fff;
 }
 .site-header-main {
   margin: 0 auto;
@@ -1586,10 +1595,16 @@ article[class^="post-"] + article[class^="post-"] {
 aside li {
   font-size: 1rem;
   padding: 0;
-  line-height: 2;
 }
-#primary-sidebar aside:last-child {
-  border-bottom: none;
+#primary-sidebar .widget {
+  padding: 1rem;
+}
+#primary-sidebar .widget > *:last-child {
+  margin-bottom: 0;
+}
+#wp-calendar td,
+#wp-calendar th {
+  padding: 0.5rem;
 }
 #wp-calendar caption {
   margin-bottom: 0.5rem;
@@ -1650,7 +1665,6 @@ textarea {
   border: 2px solid #f5f5f5;
   width: 100%;
   border-radius: 0;
-  -webkit-appearance: none;
 }
 select {
   border: 2px solid #f5f5f5;
@@ -1661,6 +1675,11 @@ input {
 input:focus,
 textarea:focus {
   outline: 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  -webkit-appearance: none;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -2609,12 +2628,6 @@ span.edd_price {
 .has-price.no-buy-button div[itemprop="offers"] {
   margin: auto 0 0 0;
 }
-.single-download .edd_download_columns_1 {
-  width: 50%;
-}
-#edd_checkout_wrap .edd_download_columns_1 {
-  width: 25%;
-}
 #edd_checkout_wrap .edd_download_columns_2 {
   width: 50%;
 }
@@ -2623,9 +2636,6 @@ span.edd_price {
 }
 #edd_checkout_wrap .edd_download_columns_4 {
   width: auto;
-}
-.slim #edd_checkout_wrap .edd_download_columns_1 {
-  width: 50%;
 }
 .slim #edd_checkout_wrap .edd_download_columns_2 {
   width: auto;
@@ -2639,9 +2649,6 @@ span.edd_price {
 }
 .widget_edd_product_details .edd_download_purchase_form:first-child {
   margin-top: 2rem;
-}
-.single-download .download-title {
-  font-size: 2rem;
 }
 .edd_download_purchase_form + .edd-meta {
   margin: 1rem 0 0 0;
@@ -2733,12 +2740,6 @@ span.padlock {
   width: 1.5rem;
   height: 1.5rem;
 }
-#edd_terms_agreement {
-  margin-bottom: 2rem;
-}
-#edd_agree_to_terms {
-  margin-right: 0.5rem;
-}
 .no-sidebar .edd_empty_cart {
   text-align: center;
   display: block;
@@ -2786,6 +2787,12 @@ span.padlock {
 #edd-stripe-manage-cards > fieldset p:last-child,
 #edd_payment_mode_select p:last-child {
   margin-bottom: 0.5rem;
+}
+#edd_terms_agreement {
+  margin-bottom: 2rem;
+}
+#edd_agree_to_terms {
+  margin-right: 0.5rem;
 }
 #edd_simple_shipping_diff_address label {
   margin-bottom: 0;
@@ -2894,16 +2901,16 @@ span.card-type.off {
   display: none;
 }
 span.card-type.visa {
-  background: url(assets/images/icons/visa.gif ) no-repeat;
+  background: url(assets/images/icons/visa.gif) no-repeat;
 }
 span.card-type.mastercard {
-  background: url(assets/images/icons/mastercard.gif ) no-repeat;
+  background: url(assets/images/icons/mastercard.gif) no-repeat;
 }
 span.card-type.discover {
-  background: url(assets/images/icons/discover.gif ) no-repeat;
+  background: url(assets/images/icons/discover.gif) no-repeat;
 }
 span.card-type.amex {
-  background: url(assets/images/icons/americanexpress.gif ) no-repeat;
+  background: url(assets/images/icons/americanexpress.gif) no-repeat;
 }
 #edd_purchase_submit {
   margin-bottom: 0;
@@ -3044,7 +3051,7 @@ p.edd_error {
 }
 .edd-alert-info {
   background-color: #d9edf7;
-  border-color: #bce8f1;
+  border-color: #cbe3ef;
 }
 .edd-alert-info p,
 .edd-alert-info a {
@@ -3084,6 +3091,10 @@ p.edd_error {
 #edd-license-key-container-wrap {
   margin-bottom: 1rem;
 }
+#edd_sl_license_add_site_form span {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
 #edd_sl_license_add_site_form .edd-input {
   margin-bottom: 1rem;
 }
@@ -3092,13 +3103,13 @@ input[readonly] {
   border-color: #f4f4f4;
 }
 .edd-sl-active {
-  color: green;
+  color: #3c763d;
 }
 .edd-sl-inactive {
   color: gray;
 }
 .edd-sl-expired {
-  color: red;
+  color: #a94442;
 }
 .edd_sl_license_row .view-key-wrapper {
   position: relative;
@@ -3109,12 +3120,15 @@ input[readonly] {
   left: 0;
   top: 30px;
   z-index: 999;
-  border: 1px solid #ddd;
-  background: #f0f0f0;
-  padding: 4px;
-  width: 20em;
-  max-width: inherit;
-  text-align: center;
+  border: 2px solid #f5f5f5;
+  background: #fff;
+  padding: 1rem;
+  width: 24rem;
+  text-align: left;
+}
+.edd-sl-manage-license-key,
+.edd-sl-manage-license-product {
+  display: block;
 }
 #edd_user_commissions_unpaid,
 #edd_user_commissions_paid,
@@ -3213,7 +3227,6 @@ a.delete {
 .downloadAuthor ul,
 .downloadDetails ul {
   margin-left: 0;
-  line-height: 2;
 }
 .downloadAuthor ul li,
 .downloadDetails ul li {
@@ -3253,74 +3266,6 @@ a.delete {
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
 }
-/* Restrict Content Pro */
-#rcp_subscription_levels {
-  list-style-type: none;
-  margin: 0 0 2rem 0;
-}
-.rcp_subscription_level input[type="radio"] {
-  vertical-align: top;
-  margin: 7px 7px 0 0;
-}
-.rcp_level_description {
-  font-size: 1rem;
-}
-#rcp_discount_code {
-  width: auto;
-}
-.rcp_form label {
-  margin-bottom: 0.5rem;
-}
-.rcp_form label {
-  cursor: pointer;
-}
-label[for*="rcp_discount_code"] {
-  display: block;
-}
-#rcp_auto_renew {
-  margin-right: 7px;
-}
-.rcp_button {
-  font-size: 1rem;
-  padding: 1.2rem;
-  vertical-align: top;
-}
-.rcp_message p {
-  padding: 1rem;
-}
-/* Download Meta */
-.download-meta span {
-  vertical-align: middle;
-  font-size: 1rem;
-}
-.download-meta {
-  margin-bottom: 1rem;
-}
-.download-meta:last-child {
-  margin-bottom: 0;
-}
-.download-meta img {
-  vertical-align: middle;
-  margin-right: 0.5rem;
-}
-.download-meta svg {
-  vertical-align: middle;
-  margin-right: 0.5rem;
-}
-.download-meta a {
-  border-bottom: 1px solid #f5f5f5;
-  font-size: 1rem;
-  display: inline-block;
-  color: #696969;
-}
-.download-meta a:hover {
-  border-color: #215b92;
-}
-.meta-categories .title,
-.meta-tags .title {
-  display: none;
-}
-/* Media queries */
 @media only screen and (max-width: 991px) {
   .account-nav ul {
     line-height: 2;
@@ -3372,6 +3317,9 @@ label[for*="rcp_discount_code"] {
   .edd_discount_link {
     display: block;
   }
+  #edd_sl_show_renewal_form {
+    display: block;
+  }
 }
 @media only screen and (min-width: 768px) {
   .text-center-sm {
@@ -3404,22 +3352,7 @@ label[for*="rcp_discount_code"] {
   .page-header .wrapper {
     max-width: 1188px;
   }
-  .button.small {
-    font-size: 0.875rem;
-    padding: 0.875rem 1.25rem;
-  }
-  .button.large {
-    font-size: 1.5rem;
-    padding: 1.5rem 2.25rem;
-  }
-  .button.huge {
-    font-size: 2rem;
-    padding: 1.75rem 2.5rem;
-  }
   #main {
-    padding: 2rem;
-  }
-  #primary-sidebar .widget {
     padding: 2rem;
   }
   .site-header-wrap {
@@ -3450,6 +3383,9 @@ label[for*="rcp_discount_code"] {
   .page-header {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  #primary-sidebar .widget {
+    padding: 2rem;
   }
   .gallery .gallery-item {
     width: 33.333333333%;
@@ -4008,9 +3944,6 @@ label[for*="rcp_discount_code"] {
   .edd_download_inner {
     padding: 1.5rem;
   }
-  .edd_download_columns_1 {
-    max-width: 50%;
-  }
   .edd_download_columns_3 .edd_download {
     width: 33.333333333%;
   }
@@ -4028,7 +3961,6 @@ label[for*="rcp_discount_code"] {
   #edd_profile_personal_fieldset,
   #edd_profile_address_fieldset,
   #edd_profile_password_fieldset,
-  #edd_discount_code,
   #edd_checkout_user_info,
   #edd_register_account_fields,
   #edd_login_fields,
@@ -4042,16 +3974,21 @@ label[for*="rcp_discount_code"] {
   #edd_payment_mode_select {
     padding: 2rem;
   }
+  #edd_discount_code {
+    padding: 1rem 2rem;
+  }
+  #edd_register_fields #edd_register_account_fields {
+    margin-bottom: 0;
+  }
   #edd_checkout_cart td,
   #edd_checkout_cart th {
     padding: 1rem 2rem;
   }
-  .edd-checkout-distraction-free #primary {
-    width: 62%;
-    margin: 0 auto;
-  }
   .navCart {
     margin-left: 1rem;
+  }
+  #edd_sl_renewal_fields {
+    padding: 1rem 2rem;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -4060,12 +3997,6 @@ label[for*="rcp_discount_code"] {
   }
   .text-left-md {
     text-align: left;
-  }
-  .button.wide {
-    display: block;
-  }
-  button.wide {
-    width: 100%;
   }
   .content-wrapper {
     display: -webkit-box;
@@ -4090,7 +4021,7 @@ label[for*="rcp_discount_code"] {
     margin: 0 auto;
   }
   .slim #primary {
-    width: 62%;
+    width: 66.667%;
     margin: 0 auto;
   }
   .comment {

@@ -13,7 +13,7 @@ themedd_page_header( array( 'title' => single_term_title( '', false ), 'subtitle
 
 		<?php if ( have_posts() ) : ?>
 
-			<div class="edd_downloads_list edd_download_columns_<?php echo themedd_edd_download_columns(); ?>">
+			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

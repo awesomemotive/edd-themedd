@@ -21,23 +21,20 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			/**
 			 * Vendor's avatar.
 			 */
-			if ( apply_filters( 'themedd_edd_download_author_avatar', true, $post ) ) : ?>
-				<div class="downloadAuthor-avatar">
-					<?php echo get_avatar( $vendor_id, themedd_edd_download_author_avatar_size() ); ?>
-				</div>
-			<?php endif; ?>
+			?>
+			<div class="downloadAuthor-avatar">
+				<?php echo get_avatar( $vendor_id, 80 ); ?>
+			</div>
 
 			<?php
 			/**
-			 * Vendor name
+			 * Vendor's name.
 			 */
 			$user_info    = get_userdata( $vendor_id );
 			$display_name = $user_info->display_name;
 			?>
-			<div class="downloadAuthor-name">
-				<p><?php echo $display_name; ?></p>
-			</div>
-			
+			<h2 class="widget-title"><?php echo $display_name; ?></h2>
+
 			<?php
 			/**
 			 * Vendor's description.
@@ -56,18 +53,19 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			$website = get_the_author_meta( 'user_url', $vendor_id );
 			if ( $website ) : ?>
 			<div class="downloadAuthor-website">
-				<p><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener">Visit website</a></p>
+				<p><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener"><?php _e( 'Visit website', 'themedd' ); ?></a></p>
 			</div>
 			<?php endif; ?>
 
 			<?php
 			/**
-			 * Vendor contact form.
+			 * Vendor's contact form.
 			 */
-			if ( themedd_edd_fes_vendor_contact_form() ) {
-				echo (new FES_Forms)->render_vendor_contact_form( $vendor_id );
-			}
-			?>
+			if ( themedd_edd_fes_vendor_contact_form() ) : ?>
+
+				<?php echo (new FES_Forms)->render_vendor_contact_form( $vendor_id ); ?>
+
+			<?php endif; ?>
 
 		</section>
 

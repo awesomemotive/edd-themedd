@@ -4,12 +4,19 @@
  *
  * @since 1.0.0
  */
+
+// Get the author options.
+$author_options = themedd_edd_download_author_options();
+
+// Get the download options.
+$download_options = themedd_edd_download_details_options();
+
 ?>
 <div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
 
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
-		<?php do_action( 'themedd_sidebar_download_start' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_start' ); ?>
 
 		<?php if ( ! dynamic_sidebar( 'sidebar-download' ) ) : ?>
 
@@ -22,134 +29,140 @@
 		<?php echo themedd_edd_download_info(); ?>
 		</section>
 
-		<?php do_action( 'themedd_sidebar_download_product_details_after' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_product_details_after' ); ?>
 
 		<?php
 		/**
-		 * Author Details
+		 * Show the Author Details
 		 */
-		?>
-		<?php if ( themedd_is_edd_fes_active() || apply_filters( 'themedd_edd_download_author', false, $post ) ) : ?>
+		if ( themedd_edd_show_download_author() ) : ?>
 
 			<section class="widget downloadAuthor">
-				<?php
-					$user       = new WP_User( $post->post_author );
-					$vendor_url = themedd_is_edd_fes_active() ? (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $post->post_author ) ) : '';
-				?>
 
 				<?php
 				/**
 				 * Author avatar
 				 */
-				if ( apply_filters( 'themedd_edd_download_author_avatar', true, $post ) ) : ?>
+				$user       = new WP_User( $post->post_author );
+				$vendor_url = themedd_is_edd_fes_active() ? (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $post->post_author ) ) : '';
+
+				if ( true === $author_options['avatar'] ) : ?>
+
 					<div class="downloadAuthor-avatar">
 					<?php if ( $vendor_url ) : ?>
-						<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, themedd_edd_download_author_avatar_size() ); ?></a>
+						<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, $author_options['avatar_size'] ); ?></a>
 					<?php else : ?>
-						<?php echo get_avatar( $user->ID, themedd_edd_download_author_avatar_size() ); ?>
+						<?php echo get_avatar( $user->ID, $author_options['avatar_size'] ); ?>
 					<?php endif; ?>
 					</div>
 				<?php endif; ?>
 
 				<?php
+				/**
+				 * Author's store name.
+				 */
+				if ( true === $author_options['store_name'] ) :
+					$store_name = get_the_author_meta( 'name_of_store', $post->post_author );
+				?>
 
-				// Only display store name if it exists and is set to show
-				$store_name = get_the_author_meta( 'name_of_store', $post->post_author );
-
-				if ( themedd_is_edd_fes_active() && apply_filters( 'themedd_edd_fes_store_name', true, $post ) && ! empty( $store_name ) ) : ?>
+					<?php if ( themedd_is_edd_fes_active() && ! empty( $store_name ) ) : ?>
 					<h2 class="widget-title"><?php echo $store_name; ?></h2>
+					<?php endif; ?>
+
 				<?php endif; ?>
 
 				<ul>
-					<?php if ( apply_filters( 'themedd_edd_download_author_name', true, $post ) ) : ?>
-						<li class="downloadAuthor-author">
+				<?php
+				/**
+				 * Author name.
+				 */
+				if ( true === $author_options['name'] ) : ?>
 
-							<span class="downloadAuthor-name"><?php _e( 'Author:', 'themedd' ); ?></span>
-							<span class="downloadAuthor-value">
-								<?php if ( themedd_is_edd_fes_active() ) : ?>
-									<a href="<?php echo $vendor_url; ?>">
-										<?php echo $user->display_name; ?>
-									</a>
-								<?php else : ?>
+					<li class="downloadAuthor-author">
+
+						<span class="downloadAuthor-name"><?php _e( 'Author:', 'themedd' ); ?></span>
+						<span class="downloadAuthor-value">
+							<?php if ( themedd_is_edd_fes_active() ) : ?>
+								<a href="<?php echo $vendor_url; ?>">
 									<?php echo $user->display_name; ?>
-								<?php endif; ?>
-							</span>
+								</a>
+							<?php else : ?>
+								<?php echo $user->display_name; ?>
+							<?php endif; ?>
+						</span>
 
-						</li>
-					<?php endif; ?>
-
-					<?php if ( apply_filters( 'themedd_edd_download_author_since', true, $post ) ) : ?>
-						<li class="downloadAuthor-authorSince">
-							<span class="downloadAuthor-name"><?php _e( 'Author since:', 'themedd' ); ?></span>
-							<span class="downloadAuthor-value"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ); ?></span>
-						</li>
-					<?php endif; ?>
-
-					<?php
-
-					$website = get_the_author_meta( 'user_url', $post->post_author );
-
-					if ( ! empty( $website ) && apply_filters( 'themedd_edd_download_author_website', true, $post ) ) : ?>
-					<li class="downloadAuthor-website">
-						<span class="downloadAuthor-name"><?php _e( 'Website:', 'themedd' ); ?></span>
-						<span class="downloadAuthor-value"><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener"><?php echo esc_url( $website ); ?></a></span>
 					</li>
-					<?php endif; ?>
+				<?php endif; ?>
+
+				<?php
+				/**
+				 * Author signup date.
+				 */
+				if ( true === $author_options['signup_date'] ) : ?>
+
+					<li class="downloadAuthor-authorSignupDate">
+						<span class="downloadAuthor-name"><?php _e( 'Author since:', 'themedd' ); ?></span>
+						<span class="downloadAuthor-value"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ); ?></span>
+					</li>
+				<?php endif; ?>
+
+				<?php
+				/**
+				 * Author website.
+				 */
+				$website = get_the_author_meta( 'user_url', $post->post_author );
+
+				if ( ! empty( $website ) && true === $author_options['website'] ) : ?>
+
+				<li class="downloadAuthor-website">
+					<span class="downloadAuthor-name"><?php _e( 'Website:', 'themedd' ); ?></span>
+					<span class="downloadAuthor-value"><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener"><?php echo esc_url( $website ); ?></a></span>
+				</li>
+				<?php endif; ?>
 
 				</ul>
+
 			</section>
 
 		<?php endif; ?>
 
-		<?php do_action( 'themedd_sidebar_download_author_after' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_author_after' ); ?>
 
 		<?php
 		/**
-		 * Download Details
+		 * Show the Download Details
 		 */
-		?>
+		if ( themedd_edd_show_download_details() ) : ?>
+
 		<section class="widget downloadDetails">
-			<h2 class="widget-title"><?php echo sprintf( __( '%s Details', 'themedd' ), edd_get_label_plural() ); ?></h2>
+
+			<?php
+			/**
+			 * Widget title.
+			 */
+			if ( ! empty( $download_options['title'] ) ) : ?>
+			<h2 class="widget-title"><?php echo $download_options['title']; ?></h2>
+			<?php endif; ?>
 
 			<ul>
-				<li class="downloadDetails-published">
-					<?php
-						$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-						$time_string = sprintf( $time_string,
-							esc_attr( get_the_date( 'c' ) ),
-							esc_html( get_the_date() ),
-							esc_attr( get_the_modified_date( 'c' ) ),
-							esc_html( get_the_modified_date() )
-						);
-					?>
+				<?php
+				/**
+				 * Date published.
+				 */
+				if ( true === $download_options['date_published'] ) : ?>
+				<li class="downloadDetails-datePublished">
 					<span class="downloadDetails-name"><?php _e( 'Published:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $time_string; ?></span>
+					<span class="downloadDetails-value"><?php echo themedd_edd_download_date_published(); ?></span>
 				</li>
+				<?php endif; ?>
 
 				<?php
 				/**
 				 * Sale count.
 				 */
-				$sale_count = false;
-				$sales      = edd_get_download_sales_stats( $post->ID );
-
-				// Whether to display sale count or not.
-				if (
-					// Display sale count when FES is activated.
-					themedd_is_edd_fes_active() ||
-
-					// Display sale count when filter is set to true.
-					apply_filters( 'themedd_edd_download_details_sale_count', false, $post ) ||
-
-					// Display sale count when the Download Meta plugin is activated and the display sales checkbox is enabled
-					( themedd_is_edd_download_meta_active() && get_post_meta( $post->ID, '_edd_download_meta_sale_count', true ) )
-				) {
-					$sale_count = true;
-				}
-
+				if ( true === $download_options['sale_count'] ) :
+					$sales = edd_get_download_sales_stats( $post->ID );
 				?>
-
-				<?php if ( $sale_count ) : ?>
 				<li class="downloadDetails-sales">
 					<span class="downloadDetails-name"><?php _e( 'Sales:', 'themedd' ); ?></span>
 					<span class="downloadDetails-value"><?php echo $sales; ?></span>
@@ -160,57 +173,57 @@
 				/**
 				 * Version.
 				 */
-				if ( function_exists( 'edd_download_meta_has_edd_sl_enabled' ) && edd_download_meta_has_edd_sl_enabled() && themedd_is_edd_sl_active() && (new Themedd_EDD_Software_Licensing)->has_licensing_enabled() ) {
-					// Get version number from EDD Software Licensing.
-					$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-				} elseif ( themedd_is_edd_download_meta_active() ) {
-					// Get version number from EDD Download Meta.
-					$version = get_post_meta( get_the_ID(), '_edd_download_meta_version', true );
-				} else {
-					// No version number.
-					$version = '';
-				}
-				?>
+				if ( true === $download_options['version'] ) :
 
-				<?php if ( $version && apply_filters( 'themedd_edd_download_details_version', true, $post ) ) : ?>
-				<li class="downloadDetails-version">
-					<span class="downloadDetails-name"><?php _e( 'Version:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $version; ?></span>
-				</li>
+					$version = themedd_edd_download_version( $post->ID );
+
+					if ( $version ) : ?>
+					<li class="downloadDetails-version">
+						<span class="downloadDetails-name"><?php _e( 'Version:', 'themedd' ); ?></span>
+						<span class="downloadDetails-value"><?php echo $version; ?></span>
+					</li>
+					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php
 				/**
 				 * Download categories.
 				 */
-				$categories = get_the_term_list( $post->ID, 'download_category', '', ', ', '' );
+				if ( true === $download_options['categories'] ) :
 
-				if ( $categories && apply_filters( 'themedd_edd_download_details_categories', true, $post ) ) : ?>
+					$categories = themedd_edd_download_categories( $post->ID );
+
+					if ( $categories ) : ?>
 					<li class="downloadDetails-categories">
 						<span class="downloadDetails-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
 						<span class="downloadDetails-value"><?php echo $categories; ?></span>
 					</li>
+					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php
 				/**
 				 * Download tags.
 				 */
-				$tags = get_the_term_list( $post->ID, 'download_tag', '', ', ', '' );
+				if ( true === $download_options['tags'] ) :
 
-				if ( $tags && apply_filters( 'themedd_edd_download_details_tags', true, $post ) ) : ?>
+					$tags = themedd_edd_download_tags( $post->ID );
+
+					if ( $tags ) : ?>
 					<li class="downloadDetails-tags">
 						<span class="downloadDetails-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
 						<span class="downloadDetails-value"><?php echo $tags; ?></span>
 					</li>
+					<?php endif; ?>
 				<?php endif; ?>
 
 			</ul>
 		</section>
+		<?php endif; ?>
 
 		<?php endif; // end sidebar widget area ?>
 
-		<?php do_action( 'themedd_sidebar_download_end' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_end' ); ?>
 
 	</div>
 

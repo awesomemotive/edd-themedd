@@ -11,6 +11,7 @@
  */
 
 global $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i;
+$download_meta = themedd_edd_download_meta_options();
 ?>
 
 <?php $schema = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : ''; ?>
@@ -42,11 +43,6 @@ global $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i;
 			elseif ( 'yes' === $edd_download_shortcode_item_atts['full_content'] ) :
 				edd_get_template_part( 'shortcode', 'content-full' );
 				do_action( 'edd_download_after_content' );
-			endif;
-
-			if ( 'yes' === $edd_download_shortcode_item_atts['price'] ) :
-				edd_get_template_part( 'shortcode', 'content-price' );
-				do_action( 'edd_download_after_price' );
 			endif;
 
 			/**

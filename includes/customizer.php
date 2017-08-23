@@ -72,7 +72,7 @@ function themedd_customize_color_defaults() {
 
 	$defaults = array(
 		'background_color'                          => $white,
-		'header_background_color'                   => '',
+		'header_background_color'                   => $white,
 		'header_textcolor'                          => $dark_grey,
 		'site_title_color'                          => $dark_grey,
 		'menu_primary_sub_background_hover_color'   => '',
@@ -248,7 +248,7 @@ function themedd_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagline_color', array(
 		'label'       => __( 'Tagline Color', 'themedd' ),
-		'description' => __( 'The site tagline (if set) color.', 'themedd' ),
+		'description' => __( 'The color of the site tagline (if set).', 'themedd' ),
 		'section'     => 'header_colors',
 		'settings'    => 'colors[tagline_color]',
 	) ) );
@@ -378,7 +378,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_primary_link_hover_color',
 		array(
 			'label'       => __( 'Primary Menu Link Hover Color', 'themedd' ),
-			'description' => __( 'The color of primary menu links when hovered over.', 'themedd' ),
+			'description' => __( 'The hover color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_hover_color]',
 			'section'     => 'header_colors',
 		)
@@ -396,7 +396,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_primary_link_active_color',
 		array(
 			'label'       => __( 'Primary Menu Link Active Color', 'themedd' ),
-			'description' => __( 'The color of primary menu links when active.', 'themedd' ),
+			'description' => __( 'The active color of primary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_primary_link_active_color]',
 			'section'     => 'header_colors',
 		)
@@ -472,7 +472,7 @@ function themedd_customize_register( $wp_customize ) {
  		'menu_primary_sub_link_hover_color',
  		array(
  			'label'       => __( 'Primary Sub-menu Link Hover Color', 'themedd' ),
- 			'description' => __( 'The color of primary sub-menu links when hovered over.', 'themedd' ),
+ 			'description' => __( 'The hover color of primary sub-menu links.', 'themedd' ),
  			'settings'    => 'colors[menu_primary_sub_link_hover_color]',
  			'section'     => 'header_colors',
  		)
@@ -490,7 +490,7 @@ function themedd_customize_register( $wp_customize ) {
  		'menu_primary_sub_link_active_color',
  		array(
  			'label'       => __( 'Primary Sub-menu Link Active Color', 'themedd' ),
- 			'description' => __( 'The color of primary sub-menu links when active.', 'themedd' ),
+ 			'description' => __( 'The active color of primary sub-menu links.', 'themedd' ),
  			'settings'    => 'colors[menu_primary_sub_link_active_color]',
  			'section'     => 'header_colors',
  		)
@@ -584,7 +584,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_secondary_link_hover_color',
 		array(
 			'label'       => __( 'Secondary Menu Link Hover', 'themedd' ),
-			'description' => __( 'The color of secondary menu links when hovered over.', 'themedd' ),
+			'description' => __( 'The hover color of secondary menu links.', 'themedd' ),
 			'settings'    => 'colors[menu_secondary_link_hover_color]',
 			'section'     => 'header_colors',
 		)
@@ -657,7 +657,7 @@ function themedd_customize_register( $wp_customize ) {
 		'button_background_hover_color',
 		array(
 			'label'       => __( 'Button Background Hover Color', 'themedd' ),
-			'description' => __( 'The background color of buttons when hovered over.', 'themedd' ),
+			'description' => __( 'The background hover color of buttons.', 'themedd' ),
 			'settings'    => 'colors[button_background_hover_color]',
 			'section'     => 'general_colors',
 		)
@@ -675,7 +675,7 @@ function themedd_customize_register( $wp_customize ) {
 		'button_text_color',
 		array(
 			'label'       => __( 'Button Text Color', 'themedd' ),
-			'description' => __( 'The button text color of buttons.', 'themedd' ),
+			'description' => __( 'The button text color.', 'themedd' ),
 			'settings'    => 'colors[button_text_color]',
 			'section'     => 'general_colors',
 		)
@@ -688,6 +688,21 @@ function themedd_customize_register( $wp_customize ) {
 		'title'           => __( 'Easy Digital Downloads', 'themedd' ),
 		'priority'        => 22,
 		'active_callback' => 'themedd_is_edd_active'
+	));
+
+	/**
+	 * Distraction Free Checkout setting
+	 */
+	$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
+		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	));
+
+	$wp_customize->add_control( 'distraction_free_checkout', array(
+		'label'       => __( 'Distraction Free Checkout', 'themedd' ),
+		'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
+		'section'     => 'easy_digital_downloads',
+		'type'        => 'checkbox',
+		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
 	));
 
 	/**
@@ -717,27 +732,12 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( 'cart_options', array(
-		'label'       => __( 'Item Quantity and Cart Price', 'themedd' ),
-		'description' => __( 'Select to display the item quantity, cart total, or both.', 'themedd' ),
+		'label'       => __( 'Item Quantity and Cart Total', 'themedd' ),
+		'description' => __( 'Display either the item quantity or cart total, both the item quantity and cart total, or nothing at all.', 'themedd' ),
 		'settings'    => 'easy_digital_downloads[cart_options]',
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'select',
 		'choices'     => themedd_customize_cart_options()
-	));
-
-	/**
-	 * Distraction Free Checkout setting
-	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
-		'sanitize_callback' => 'themedd_sanitize_checkbox'
-	));
-
-	$wp_customize->add_control( 'distraction_free_checkout', array(
-		'label'       => __( 'Distraction Free Checkout', 'themedd' ),
-		'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
-		'section'     => 'easy_digital_downloads',
-		'type'        => 'checkbox',
-		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
 	));
 
 	/**
@@ -775,8 +775,8 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( 'theme_options[layout_full_width]', array(
-		'label'       => __( 'Full-width layout', 'themedd' ),
-		'description' => __( 'Display a full-width layout. This will be noticeable once colors have been configured.', 'themedd' ),
+		'label'       => __( 'Full Width Layout', 'themedd' ),
+		'description' => __( 'Display a full width layout. This will be noticeable once colors have been configured.', 'themedd' ),
 		'settings'    => 'theme_options[layout_full_width]',
 		'section'     => 'theme_options',
 		'type'        => 'checkbox',
@@ -791,7 +791,7 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_control( 'theme_options[display_excerpts]', array(
-		'label'       => __( 'Display excerpts', 'themedd' ),
+		'label'       => __( 'Display Excerpts', 'themedd' ),
 		'description' => __( 'Display excerpts for posts instead of the full content.', 'themedd' ),
 		'settings'    => 'theme_options[display_excerpts]',
 		'section'     => 'theme_options',
@@ -985,8 +985,8 @@ function themedd_customize_register( $wp_customize ) {
 			$wp_customize,
 			'mobile_cart_icon_color',
 			array(
-				'label'       => __( 'Cart Icon Color', 'themedd' ),
-				'description' => __( 'The color of the cart icon. Use the mobile/tablet preview buttons below.', 'themedd' ),
+				'label'       => __( 'Mobile Menu Cart Icon Color', 'themedd' ),
+				'description' => __( 'The color of the cart icon.', 'themedd' ),
 				'settings'    => 'colors[mobile_cart_icon_color]',
 				'section'     => 'mobile_device_colors',
 			)
@@ -1004,7 +1004,7 @@ function themedd_customize_register( $wp_customize ) {
 			'cart_icon_color',
 			array(
 				'label'       => __( 'Cart Icon Color', 'themedd' ),
-				'description' => __( 'The color of the cart icon.', 'themedd' ),
+				'description' => __( 'The color of the cart icon in the mobile menu.', 'themedd' ),
 				'settings'    => 'colors[cart_icon_color]',
 				'section'     => 'header_colors',
 			)
@@ -1063,7 +1063,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Site header background.
 			if ( isset( $colors['header_background_color'] ) ) {
-				echo '#masthead { background:' . $colors['header_background_color'] . ';}';
+				echo '#masthead { background-color:' . $colors['header_background_color'] . ';}';
 			}
 
 			// Primary menu background color.
@@ -1326,7 +1326,7 @@ function themedd_customize_cart_options() {
 	return array(
 		'item_quantity' => __( 'Display item quantity only', 'themedd' ),
 		'cart_total'    => __( 'Display cart total only', 'themedd' ),
-		'all'           => __( 'Display item count and cart total', 'themedd' ),
+		'all'           => __( 'Display item quantity and cart total', 'themedd' ),
 		'none'          => __( 'Display nothing', 'themedd' )
 	);
 }

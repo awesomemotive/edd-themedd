@@ -1,10 +1,10 @@
 <?php
 /**
- * The FES vendor page
+ * The template for displaying the single vendor page in Frontend Submissions
  */
 
 get_header();
-themedd_page_header( array( 'classes' => 'center-xs' ) );
+themedd_page_header();
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
@@ -27,7 +27,12 @@ themedd_page_header( array( 'classes' => 'center-xs' ) );
 
     </div>
 
-    <?php themedd_get_sidebar( 'vendor-page' ); ?>
+    <?php
+	// Only load the single vendor sidebar if a vendor exists.
+	if ( fes_get_vendor() ) {
+		themedd_get_sidebar( 'single-vendor' );
+	}
+	?>
 
 </div>
 

@@ -28,11 +28,15 @@ if ( themedd_is_subtitles_active() ) {
 if ( themedd_is_edd_active() ) {
 
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/download-grid-functions.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions-download-grid.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions-download-author.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions-download-meta.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions-download-details.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/nav-cart.php' );
-	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/widgets.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-widget-download-author.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-widget-download-details.php' );
 
 	// EDD - Software Licensing
 	if ( themedd_is_edd_sl_active() ) {
@@ -62,11 +66,6 @@ if ( themedd_is_edd_active() ) {
 	// EDD - Reviews
 	if ( themedd_is_edd_reviews_active() ) {
 		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-reviews.php' );
-	}
-
-	// EDD Download Meta
-	if ( themedd_is_edd_download_meta_active() ) {
-		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-download-meta.php' );
 	}
 
 }

@@ -35,7 +35,7 @@ themedd_page_header();
 
 		</main>
 
-		<?php do_action( 'themedd_single_download_primary_end' ); ?>
+		<?php do_action( 'themedd_edd_single_download_primary_end' ); ?>
 
 	</div>
 

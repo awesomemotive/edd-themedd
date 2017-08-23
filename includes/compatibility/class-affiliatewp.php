@@ -16,22 +16,8 @@ class Themedd_AffiliateWP {
 		add_action( 'template_redirect', array( $this, 'shortcode' ) );
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
 		add_filter( 'affwp_login_form', array( $this, 'login_form' ) );
+		add_filter( 'affwp_register_form', array( $this, 'registration_form' ) );
 		add_filter( 'themedd_show_sidebar', array( $this, 'hide_sidebar' ) );
-		add_filter( 'themedd_page_header_classes', array( $this, 'header_classes' ) );
-	}
-
-	/**
-	 * Add classes to header.
-	 *
-	 * @since 1.0.0
-	 */
-	public function header_classes( $classes ) {
-
-		if ( is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ) {
-			$classes[] = 'center-xs';
-		}
-
-		return $classes;
 	}
 
 	/**
@@ -219,6 +205,25 @@ class Themedd_AffiliateWP {
 	<?php
 		return ob_get_clean();
 	}
+
+	/**
+	 * Wrap [affilate_registration] form in div
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 */
+	public function registration_form() {
+		ob_start();
+	?>
+
+	<div class="box register">
+	<?php affiliate_wp()->templates->get_template_part( 'register' ); ?>
+	<div>
+
+	<?php
+		return ob_get_clean();
+	}
+
 
 }
 new Themedd_AffiliateWP;

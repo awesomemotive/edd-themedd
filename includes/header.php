@@ -93,17 +93,17 @@ function themedd_site_branding() {
         <?php if ( is_front_page() && is_home() ) : ?>
             <h1 class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_before' ); ?>
                     <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_after' ); ?>
                 </a>
             </h1>
         <?php else : ?>
             <p class="site-title">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_before_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_before' ); ?>
                     <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_after_site_title' ); ?>
+                    <?php do_action( 'themedd_site_branding_site_title_after' ); ?>
                 </a>
             </p>
         <?php endif; ?>
@@ -194,7 +194,7 @@ function themedd_secondary_menu() {
     /**
      * Show #site-header-secondary-menu if the secondary menu is active or cart icon is still positioned there
      */
-	if ( has_nav_menu( 'secondary' ) || 'secondary_menu' === apply_filters( 'themedd_edd_cart_link_position', 'secondary_menu' ) ) : ?>
+	if ( has_nav_menu( 'secondary' ) || 'secondary_menu' === apply_filters( 'themedd_edd_cart_position', 'secondary_menu' ) ) : ?>
 	<div id="site-header-secondary-menu" class="site-header-menu">
 
         <?php do_action( 'themedd_secondary_menu_before' ); ?>

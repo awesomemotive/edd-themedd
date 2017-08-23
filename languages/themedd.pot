@@ -1,0 +1,985 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Themedd\n"
+"POT-Creation-Date: 2017-08-19 23:09+1200\n"
+"PO-Revision-Date: 2017-05-29 21:32-0700\n"
+"Last-Translator: \n"
+"Language-Team: support@easydigitaldownloads.com\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:7 includes/template-tags.php:253
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:17
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: affiliatewp/dashboard.php:7
+msgid "Your affiliate account is pending approval"
+msgstr ""
+
+#: affiliatewp/dashboard.php:11
+msgid "Your affiliate account is not active"
+msgstr ""
+
+#: affiliatewp/dashboard.php:15
+msgid "Your affiliate account request has been rejected"
+msgstr ""
+
+#: affiliatewp/dashboard.php:36
+msgid "Your affiliate profile has been updated"
+msgstr ""
+
+#: affiliatewp/dashboard.php:59
+msgid "Affiliate URLs"
+msgstr ""
+
+#: affiliatewp/dashboard.php:65
+msgid "Statistics"
+msgstr ""
+
+#: affiliatewp/dashboard.php:71
+msgid "Graphs"
+msgstr ""
+
+#: affiliatewp/dashboard.php:77
+msgid "Referrals"
+msgstr ""
+
+#: affiliatewp/dashboard.php:83
+msgid "Payouts"
+msgstr ""
+
+#: affiliatewp/dashboard.php:89
+msgid "Visits"
+msgstr ""
+
+#: affiliatewp/dashboard.php:95
+msgid "Creatives"
+msgstr ""
+
+#: affiliatewp/dashboard.php:101
+msgid "Settings"
+msgstr ""
+
+#: affiliatewp/dashboard.php:107
+msgid "Log out"
+msgstr ""
+
+#: comments.php:24
+#, php-format
+msgctxt "comments title"
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:49
+msgid "Comments are closed."
+msgstr ""
+
+#: edd_templates/checkout_recommendations.php:20
+msgid "this item"
+msgstr ""
+
+#: edd_templates/checkout_recommendations.php:21
+msgid "these items"
+msgstr ""
+
+#: edd_templates/checkout_recommendations.php:25
+#: edd_templates/single_recommendations.php:13
+#, php-format
+msgid "Users who purchased %s, also purchased:"
+msgstr ""
+
+#: edd_templates/shortcode-content-price.php:9
+#: includes/compatibility/edd/functions.php:61
+msgid "Free"
+msgstr ""
+
+#: edd_templates/widget-cart-item.php:6
+#: includes/compatibility/edd/class-points-and-rewards.php:154
+msgid "Remove"
+msgstr ""
+
+#: includes/back-compat.php:39 includes/back-compat.php:51
+#: includes/back-compat.php:66
+#, php-format
+msgid ""
+"Themedd requires at least WordPress version 4.7. You are running version %s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: includes/class-themedd.php:28
+msgid "Sidebar"
+msgstr ""
+
+#: includes/class-themedd.php:30
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: includes/class-themedd.php:38
+msgid "Download Sidebar"
+msgstr ""
+
+#: includes/class-themedd.php:40
+#, php-format
+msgid "Add widgets here to appear in your %s sidebar."
+msgstr ""
+
+#: includes/class-themedd.php:54
+#, php-format
+msgid "Footer %d"
+msgstr ""
+
+#: includes/class-themedd.php:56
+#, php-format
+msgid "Add widgets here to appear in footer %d."
+msgstr ""
+
+#: includes/compatibility/edd/class-cross-sell-upsell.php:93
+#: includes/compatibility/edd/class-cross-sell-upsell.php:107
+msgid "Add to cart"
+msgstr ""
+
+#: includes/compatibility/edd/class-cross-sell-upsell.php:104
+msgid "Added to cart"
+msgstr ""
+
+#: includes/compatibility/edd/class-frontend-submissions.php:57
+msgid "Contact vendor"
+msgstr ""
+
+#: includes/compatibility/edd/class-points-and-rewards.php:140
+msgid "Apply Discount"
+msgstr ""
+
+#: includes/compatibility/edd/class-points-and-rewards.php:153
+#, php-format
+msgid "Remove %s Discount"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:22
+#, php-format
+msgid "%s Author"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:24
+#, php-format
+msgid "Display the %s author's details."
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:142
+#: sidebar-download.php:83
+msgid "Author:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:161
+#: sidebar-download.php:104
+msgid "Author since:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:174
+#: sidebar-download.php:118
+msgid "Website:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:210
+#: includes/compatibility/edd/class-widget-download-details.php:203
+msgid "Only for use in Download Sidebar"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:213
+#: includes/compatibility/edd/class-widget-download-details.php:206
+msgid "Title:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:219
+msgid "Show author avatar"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:225
+msgid "Show store name"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:231
+msgid "Show author name"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:236
+msgid "Show author signup date"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-author.php:241
+msgid "Show website"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:24
+#: includes/compatibility/edd/functions-download-details.php:27
+#, php-format
+msgid "%s Details"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:26
+#, php-format
+msgid "Display the %s details such as date published and number of sales."
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:107
+#: sidebar-download.php:154
+msgid "Published:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:120
+#: sidebar-download.php:167
+msgid "Sales:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:135
+#: sidebar-download.php:182
+msgid "Version:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:151
+#: sidebar-download.php:198
+msgid "Categories:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:168
+#: sidebar-download.php:214
+msgid "Tags:"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:212
+msgid "Show date published"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:217
+msgid "Show number of sales"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:223
+msgid "Show version number"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:229
+msgid "Show categories"
+msgstr ""
+
+#: includes/compatibility/edd/class-widget-download-details.php:234
+msgid "Show tags"
+msgstr ""
+
+#: includes/compatibility/edd/filters.php:100
+msgid "Purchase"
+msgstr ""
+
+#: includes/compatibility/edd/filters.php:102
+msgid "Free Download"
+msgstr ""
+
+#: includes/compatibility/edd/functions-download-meta.php:47
+msgid "by"
+msgstr ""
+
+#: includes/compatibility/edd/functions.php:63
+msgid "From"
+msgstr ""
+
+#: includes/compatibility/edd/nav-cart.php:262
+msgid "item"
+msgstr ""
+
+#: includes/compatibility/edd/nav-cart.php:263
+msgid "items"
+msgstr ""
+
+#: includes/customizer.php:222
+msgid "Site Title Color"
+msgstr ""
+
+#: includes/customizer.php:225
+msgid "The color of the site title."
+msgstr ""
+
+#: includes/customizer.php:234
+msgid "The color of the site's background."
+msgstr ""
+
+#: includes/customizer.php:250
+msgid "Tagline Color"
+msgstr ""
+
+#: includes/customizer.php:251
+msgid "The site tagline (if set) color."
+msgstr ""
+
+#: includes/customizer.php:263
+msgid "Colors"
+msgstr ""
+
+#: includes/customizer.php:274
+msgid "General"
+msgstr ""
+
+#: includes/customizer.php:285
+msgid "Header"
+msgstr ""
+
+#: includes/customizer.php:296
+msgid "Footer"
+msgstr ""
+
+#: includes/customizer.php:307
+msgid "Mobile Devices"
+msgstr ""
+
+#: includes/customizer.php:322
+msgid "Header Background Color"
+msgstr ""
+
+#: includes/customizer.php:323
+msgid "The background color of the site header."
+msgstr ""
+
+#: includes/customizer.php:344
+msgid "Primary Menu Background Color"
+msgstr ""
+
+#: includes/customizer.php:345
+msgid "The background color of the primary menu."
+msgstr ""
+
+#: includes/customizer.php:362
+msgid "Primary Menu Link Color"
+msgstr ""
+
+#: includes/customizer.php:363
+msgid "The color of primary menu links."
+msgstr ""
+
+#: includes/customizer.php:380
+msgid "Primary Menu Link Hover Color"
+msgstr ""
+
+#: includes/customizer.php:381
+msgid "The color of primary menu links when hovered over."
+msgstr ""
+
+#: includes/customizer.php:398
+msgid "Primary Menu Link Active Color"
+msgstr ""
+
+#: includes/customizer.php:399
+msgid "The color of primary menu links when active."
+msgstr ""
+
+#: includes/customizer.php:416
+msgid "Primary Menu Link Background Hover Color"
+msgstr ""
+
+#: includes/customizer.php:417
+msgid "The background hover color of primary menu links."
+msgstr ""
+
+#: includes/customizer.php:434
+msgid "Primary Menu Link Background Active Color"
+msgstr ""
+
+#: includes/customizer.php:435
+msgid "The background active color of primary menu links."
+msgstr ""
+
+#: includes/customizer.php:456
+msgid "Primary Sub-menu Link Color"
+msgstr ""
+
+#: includes/customizer.php:457
+msgid "The color of primary sub-menu links."
+msgstr ""
+
+#: includes/customizer.php:474
+msgid "Primary Sub-menu Link Hover Color"
+msgstr ""
+
+#: includes/customizer.php:475
+msgid "The color of primary sub-menu links when hovered over."
+msgstr ""
+
+#: includes/customizer.php:492
+msgid "Primary Sub-menu Link Active Color"
+msgstr ""
+
+#: includes/customizer.php:493
+msgid "The color of primary sub-menu links when active."
+msgstr ""
+
+#: includes/customizer.php:510
+msgid "Primary Sub-menu Background Color"
+msgstr ""
+
+#: includes/customizer.php:511
+msgid "The background color of primary sub-menus."
+msgstr ""
+
+#: includes/customizer.php:528
+msgid "Primary Sub-menu Background Hover Color"
+msgstr ""
+
+#: includes/customizer.php:529
+msgid "The background hover color of primary sub-menu links."
+msgstr ""
+
+#: includes/customizer.php:546
+msgid "Primary Sub-menu Background Active Color"
+msgstr ""
+
+#: includes/customizer.php:547
+msgid "The background active color of primary sub-menu links."
+msgstr ""
+
+#: includes/customizer.php:568
+msgid "Secondary Menu Link Color"
+msgstr ""
+
+#: includes/customizer.php:569
+msgid "The color of secondary menu links."
+msgstr ""
+
+#: includes/customizer.php:586
+msgid "Secondary Menu Link Hover"
+msgstr ""
+
+#: includes/customizer.php:587
+msgid "The color of secondary menu links when hovered over."
+msgstr ""
+
+#: includes/customizer.php:605
+msgid "Link Color"
+msgstr ""
+
+#: includes/customizer.php:606
+msgid "The color of general links."
+msgstr ""
+
+#: includes/customizer.php:623
+msgid "Link Hover Color"
+msgstr ""
+
+#: includes/customizer.php:624
+msgid "The hover color of general links."
+msgstr ""
+
+#: includes/customizer.php:641
+msgid "Button Background Color"
+msgstr ""
+
+#: includes/customizer.php:642
+msgid "The background color of buttons."
+msgstr ""
+
+#: includes/customizer.php:659
+msgid "Button Background Hover Color"
+msgstr ""
+
+#: includes/customizer.php:660
+msgid "The background color of buttons when hovered over."
+msgstr ""
+
+#: includes/customizer.php:677
+msgid "Button Text Color"
+msgstr ""
+
+#: includes/customizer.php:678
+msgid "The button text color of buttons."
+msgstr ""
+
+#. Author of the plugin/theme
+#: includes/customizer.php:688
+msgid "Easy Digital Downloads"
+msgstr ""
+
+#: includes/customizer.php:701
+msgid "Distraction Free Checkout"
+msgstr ""
+
+#: includes/customizer.php:705
+msgid ""
+"Header menus, footer widgets and sidebars will all be removed from checkout, "
+"allowing customers to complete their purchase with no distractions."
+msgstr ""
+
+#: includes/customizer.php:718
+msgid "Display Cart Icon"
+msgstr ""
+
+#: includes/customizer.php:735
+msgid "Item Quantity and Cart Price"
+msgstr ""
+
+#: includes/customizer.php:736
+msgid ""
+"Display only the item quantity, cart total, item quantity and cart total, or "
+"nothing at all."
+msgstr ""
+
+#: includes/customizer.php:754
+msgid "Display Vendor Contact Form"
+msgstr ""
+
+#: includes/customizer.php:758
+msgid "Display the vendor contact form on the vendor page."
+msgstr ""
+
+#: includes/customizer.php:766
+msgid "Theme Options"
+msgstr ""
+
+#: includes/customizer.php:778
+msgid "Full Width Layout"
+msgstr ""
+
+#: includes/customizer.php:779
+msgid ""
+"Display a full width layout. This will be noticeable once colors have been "
+"configured."
+msgstr ""
+
+#: includes/customizer.php:794
+msgid "Display Excerpts"
+msgstr ""
+
+#: includes/customizer.php:795
+msgid "Display excerpts for posts instead of the full content."
+msgstr ""
+
+#: includes/customizer.php:817
+msgid "Mobile Menu Button Background Color"
+msgstr ""
+
+#: includes/customizer.php:818
+msgid "The background color of the mobile menu button."
+msgstr ""
+
+#: includes/customizer.php:835
+msgid "Mobile Menu Button Text Color"
+msgstr ""
+
+#: includes/customizer.php:836
+msgid "The text color of the mobile menu button."
+msgstr ""
+
+#: includes/customizer.php:853
+msgid "Mobile Menu Background Color"
+msgstr ""
+
+#: includes/customizer.php:854
+msgid "The background color of the mobile menu."
+msgstr ""
+
+#: includes/customizer.php:871
+msgid "Mobile Menu Link Color"
+msgstr ""
+
+#: includes/customizer.php:872
+msgid "The link color of the mobile menu."
+msgstr ""
+
+#: includes/customizer.php:893
+msgid "Footer Background Color"
+msgstr ""
+
+#: includes/customizer.php:894
+msgid "The background color of the footer."
+msgstr ""
+
+#: includes/customizer.php:911
+msgid "Footer Text Color"
+msgstr ""
+
+#: includes/customizer.php:912
+msgid "The color of footer text."
+msgstr ""
+
+#: includes/customizer.php:929
+msgid "Footer Link Color"
+msgstr ""
+
+#: includes/customizer.php:930
+msgid "The color of footer links."
+msgstr ""
+
+#: includes/customizer.php:947
+msgid "Footer Link Hover Color"
+msgstr ""
+
+#: includes/customizer.php:948
+msgid "The hover color of footer links."
+msgstr ""
+
+#: includes/customizer.php:965
+msgid "Footer Heading Color"
+msgstr ""
+
+#: includes/customizer.php:966
+msgid "The color of footer headings."
+msgstr ""
+
+#: includes/customizer.php:988 includes/customizer.php:1006
+msgid "Cart Icon Color"
+msgstr ""
+
+#: includes/customizer.php:989
+msgid ""
+"The color of the cart icon. Use the mobile/tablet preview buttons below."
+msgstr ""
+
+#: includes/customizer.php:1007
+msgid "The color of the cart icon."
+msgstr ""
+
+#: includes/customizer.php:1327
+msgid "Display item quantity only"
+msgstr ""
+
+#: includes/customizer.php:1328
+msgid "Display cart total only"
+msgstr ""
+
+#: includes/customizer.php:1329
+msgid "Display item count and cart total"
+msgstr ""
+
+#: includes/customizer.php:1330
+msgid "Display nothing"
+msgstr ""
+
+#: includes/filters.php:73
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: includes/footer.php:82
+#, php-format
+msgid "Copyright &copy; %s %s"
+msgstr ""
+
+#: includes/header.php:43
+msgid "Skip to content"
+msgstr ""
+
+#: includes/header.php:67
+msgid "Menu"
+msgstr ""
+
+#: includes/scripts.php:31
+msgid "expand child menu"
+msgstr ""
+
+#: includes/scripts.php:32
+msgid "collapse child menu"
+msgstr ""
+
+#: includes/setup.php:52
+msgid "Primary Menu"
+msgstr ""
+
+#: includes/setup.php:53
+msgid "Secondary Menu"
+msgstr ""
+
+#: includes/setup.php:54
+msgid "Mobile Menu"
+msgstr ""
+
+#: includes/template-tags.php:18
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: includes/template-tags.php:52
+#, php-format
+msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
+msgstr ""
+
+#: includes/template-tags.php:69
+msgid "Comment navigation"
+msgstr ""
+
+#: includes/template-tags.php:72
+msgid "Older Comments"
+msgstr ""
+
+#: includes/template-tags.php:76
+msgid "Newer Comments"
+msgstr ""
+
+#: includes/template-tags.php:95
+msgid ", "
+msgstr ""
+
+#: includes/template-tags.php:114
+msgid "Categories: "
+msgstr ""
+
+#: includes/template-tags.php:118
+msgid "Tags: "
+msgstr ""
+
+#: includes/template-tags.php:146
+#, php-format
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: includes/template-tags.php:318
+msgid "Older posts"
+msgstr ""
+
+#: includes/template-tags.php:319
+msgid "Newer posts"
+msgstr ""
+
+#: includes/template-tags.php:325
+msgid "Posts navigation"
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:145
+#, php-format
+msgid "%s License Key & Child Theme Management"
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:147
+#, php-format
+msgid "Activate Your %s License Key"
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:149
+msgid ""
+"Your license key grants you access to theme updates and support. If your "
+"license key is deactivated or expired, your theme will work properly but you "
+"will not receive automatic updates."
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:152
+msgid "License activation instructions"
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:154
+msgid "Enter your license key."
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:155
+msgid "Click the \"Save License Key Changes\" button."
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:156
+msgid "Click the new \"Activate License\" button."
+msgstr ""
+
+#: includes/updater/theme-updater-admin.php:157
+msgid ""
+"You're done! The status of your license displays below the License Key field."
+msgstr ""
+
+#: includes/updater/theme-updater.php:29
+msgctxt "part of the WordPress dashboard Themedd menu title"
+msgid " License"
+msgstr ""
+
+#: includes/updater/theme-updater.php:30
+msgid "Enter your theme license key."
+msgstr ""
+
+#: includes/updater/theme-updater.php:31
+msgid "License Key"
+msgstr ""
+
+#: includes/updater/theme-updater.php:32
+msgid "License Action"
+msgstr ""
+
+#: includes/updater/theme-updater.php:33
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/updater/theme-updater.php:34
+msgid "Activate License"
+msgstr ""
+
+#: includes/updater/theme-updater.php:35 includes/updater/theme-updater.php:48
+msgid "License status is unknown."
+msgstr ""
+
+#: includes/updater/theme-updater.php:36
+msgid "Renew?"
+msgstr ""
+
+#: includes/updater/theme-updater.php:37
+msgid "unlimited"
+msgstr ""
+
+#: includes/updater/theme-updater.php:38
+msgid "License key is active."
+msgstr ""
+
+#: includes/updater/theme-updater.php:39
+#, php-format
+msgid "Expires %s."
+msgstr ""
+
+#: includes/updater/theme-updater.php:40
+msgid "Lifetime License."
+msgstr ""
+
+#: includes/updater/theme-updater.php:41
+#, php-format
+msgid "You have %1$s / %2$s sites activated."
+msgstr ""
+
+#: includes/updater/theme-updater.php:42
+#, php-format
+msgid "License key expired %s."
+msgstr ""
+
+#: includes/updater/theme-updater.php:43
+msgid "License key has expired."
+msgstr ""
+
+#: includes/updater/theme-updater.php:44
+msgid "License keys do not match."
+msgstr ""
+
+#: includes/updater/theme-updater.php:45
+msgid "License is inactive."
+msgstr ""
+
+#: includes/updater/theme-updater.php:46
+msgid "License key is disabled."
+msgstr ""
+
+#: includes/updater/theme-updater.php:47
+msgid "Site is inactive."
+msgstr ""
+
+#: includes/updater/theme-updater.php:49
+msgid ""
+"Updating this theme will lose any customizations you have made. 'Cancel' to "
+"stop, 'OK' to update."
+msgstr ""
+
+#: includes/updater/theme-updater.php:50
+#, php-format
+msgid ""
+"<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" "
+"title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</"
+"a>."
+msgstr ""
+
+#: search.php:7
+msgid "Search Results"
+msgstr ""
+
+#: sidebar-single-vendor.php:57
+msgid "Visit website"
+msgstr ""
+
+#: single.php:31
+msgctxt "Parent post link"
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">"
+"%title</span>"
+msgstr ""
+
+#: single.php:36
+msgid "Next"
+msgstr ""
+
+#: single.php:37
+msgid "Next post:"
+msgstr ""
+
+#: single.php:39
+msgid "Previous"
+msgstr ""
+
+#: single.php:40
+msgid "Previous post:"
+msgstr ""
+
+#: template-parts/biography.php:27
+msgid "About the author:"
+msgstr ""
+
+#: template-parts/content-none.php:8
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:14
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:18
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:23
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:19 template-parts/content-single.php:23
+#: template-parts/content.php:33
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-search.php:28 template-parts/content-search.php:43
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: template-parts/content.php:28
+#, php-format
+msgid "Continue reading %s"
+msgstr ""
+
+#: template-parts/content.php:37
+msgid "Page"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Themedd"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://themedd.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Themedd is a simple and extensible WordPress theme that provides a solid "
+"integration with Easy Digital Downloads and its extensions. It's the perfect "
+"theme to sell your digital products."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://easydigitaldownloads.com"
+msgstr ""

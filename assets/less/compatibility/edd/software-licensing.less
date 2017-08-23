@@ -14,6 +14,20 @@
     padding: 1rem;
 }
 
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+	#edd_sl_renewal_fields {
+		padding: 1rem 2rem;
+	}
+
+}
+
+.media-mixin(@break) when (@break = @screen-xs-max) {
+	#edd_sl_show_renewal_form {
+		display: block;
+	}
+}
+
 .edd-sl-renewal-actions,
 #edd_sl_show_renewal_form_wrap {
     margin-bottom: 0;
@@ -23,8 +37,16 @@
     margin-bottom: 1rem;
 }
 
-#edd_sl_license_add_site_form .edd-input {
-	margin-bottom: 1rem;
+#edd_sl_license_add_site_form {
+
+	span {
+		margin-bottom: 0.5rem;
+		display: inline-block;
+	}
+
+	.edd-input {
+		margin-bottom: 1rem;
+	}
 }
 
 input[readonly] {
@@ -33,7 +55,7 @@ input[readonly] {
 }
 
 .edd-sl-active {
-	color: green;
+	color: @alert-success-text-color;
 }
 
 .edd-sl-inactive {
@@ -41,7 +63,7 @@ input[readonly] {
 }
 
 .edd-sl-expired {
-	color: red;
+	color: @alert-error-text-color;
 }
 
 .edd_sl_license_row .view-key-wrapper {
@@ -54,10 +76,14 @@ input[readonly] {
 	left: 0;
 	top: 30px;
 	z-index: 999;
-	border: 1px solid #ddd;
-	background: #f0f0f0;
-	padding: 4px;
-	width: 20em;
-	max-width: inherit;
-	text-align: center;
+	border: 2px solid @light-grey;
+	background: #fff;
+	padding: 1rem;
+	width: 24rem;
+	text-align: left;
+}
+
+.edd-sl-manage-license-key,
+.edd-sl-manage-license-product {
+    display: block;
 }

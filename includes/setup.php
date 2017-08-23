@@ -71,7 +71,12 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
-		add_theme_support( 'custom-logo' );
+		add_theme_support( 'custom-logo', array(
+			'width'       => 250,
+			'height'      => 50,
+			'flex-height' => true,
+			'flex-width'  => true
+		) );
 
 		// This theme uses its own gallery styles.
 		add_filter( 'use_default_gallery_style', '__return_false' );
