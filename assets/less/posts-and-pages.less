@@ -225,6 +225,15 @@ article[class^="post-"] + article[class^="post-"] {
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
+	.author-info:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+
 	.author-avatar {
 		float: left;
 		margin: 0 1.5rem 0 0;
