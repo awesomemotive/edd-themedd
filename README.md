@@ -2,7 +2,7 @@
 
 Themedd is a free and extensible WordPress theme, providing a solid integration with [Easy Digital Downloads](https://easydigitaldownloads.com) and its extensions.
 
-Themedd was built by Andrew Munro and the EDD Team.
+Themedd was built by Andrew Munro and the Easy Digital Downloads Team.
 
 ## Installation
 
@@ -25,5 +25,5 @@ Anyone is welcome to contribute to Themedd.
 There are various ways you can contribute:
 
 1. Raise an [Issue](https://github.com/easydigitaldownloads/themedd/issues) on GitHub
-2. Send us a Pull Request with your bug fixes and/or new features
+2. Send us a Pull Request with your bug fixes and/or new features. Please open an issue beforehand if one does not currently exist.
 3. Provide feedback and suggestions on [enhancements](https://github.com/easydigitaldownloads/themedd/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open)
