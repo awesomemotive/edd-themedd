@@ -3375,8 +3375,13 @@ a.delete {
   .footer-widgets .widget {
     margin-bottom: 4rem;
   }
+  .author-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .author-avatar {
-    float: left;
     margin: 0 1.5rem 0 0;
   }
   .page-header {
