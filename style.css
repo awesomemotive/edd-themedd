@@ -2740,9 +2740,8 @@ span.padlock {
   width: 1.5rem;
   height: 1.5rem;
 }
-.no-sidebar .edd_empty_cart {
+.edd-empty-cart #edd_checkout_wrap {
   text-align: center;
-  display: block;
 }
 #edd_checkout_form_wrap span.edd-required-indicator {
   color: #a94442;
