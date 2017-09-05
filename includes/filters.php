@@ -19,11 +19,14 @@ function themedd_body_classes( $classes ) {
 	 * Add a "slim" body class when:
 	 *
 	 * 1. Using the slim page template.
-	 * 2. When viewing a single post with no sidebar
+	 * 2. When viewing a single post with no sidebar.
+	 * 3. When viewing an author archive page with no sidebar.
+	 * 4. When viewing the blog page with no sidebar.
 	 */
 	if (
 		is_page_template( 'page-templates/slim.php' ) ||
-		( is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ) ||
+		is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ||
+		is_author() && in_array( 'no-sidebar', $classes ) ||
 		in_array( 'blog', $classes ) && in_array( 'no-sidebar', $classes )
 	) {
 		$classes[] = 'slim';
