@@ -10,6 +10,8 @@ $vendor_id = absint( fes_get_vendor()->ID );
 
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
+		<?php do_action( 'themedd_edd_fes_sidebar_single_vendor_start' ); ?>
+
 		<?php
 		/**
 		 * The vendor profile and contact form (if enabled)
@@ -68,6 +70,8 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			<?php endif; ?>
 
 		</section>
+
+		<?php do_action( 'themedd_edd_fes_sidebar_single_vendor_end' ); ?>
 
 	</div>
 
