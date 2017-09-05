@@ -118,13 +118,12 @@ span.padlock {
 	width: 1.5rem;
 	height: 1.5rem;
 }
-
 // end discounts
 
-// Center the empty cart text if the slim or full-width page template is used
-.no-sidebar .edd_empty_cart {
+// Center the "Your cart is empty" text when there are no items in the cart.
+// The "Restore Previous Cart." text will also appear on the same line if cart saving is enabled.
+.edd-empty-cart #edd_checkout_wrap {
 	text-align: center;
-	display: block;
 }
 
 #edd_checkout_form_wrap span.edd-required-indicator {

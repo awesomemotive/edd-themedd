@@ -225,8 +225,11 @@ article[class^="post-"] + article[class^="post-"] {
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
 
+	.author-info {
+		display: flex;
+	}
+
 	.author-avatar {
-		float: left;
 		margin: 0 1.5rem 0 0;
 	}
 

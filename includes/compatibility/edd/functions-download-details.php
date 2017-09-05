@@ -92,13 +92,13 @@ function themedd_edd_has_download_details( $options = array() ) {
  *
  * @since 1.0.0
  */
-function themedd_edd_download_categories( $download_id = 0 ) {
+function themedd_edd_download_categories( $download_id = 0, $before = '', $sep = ', ', $after = '' ) {
 
 	if ( ! $download_id ) {
 		return false;
 	}
 
-	$categories = get_the_term_list( $download_id, 'download_category', '', ', ', '' );
+	$categories = get_the_term_list( $download_id, 'download_category', $before, $sep, $after );
 
 	if ( $categories ) {
 		return $categories;
@@ -113,13 +113,13 @@ function themedd_edd_download_categories( $download_id = 0 ) {
  *
  * @since 1.0.0
  */
-function themedd_edd_download_tags( $download_id = 0 ) {
+function themedd_edd_download_tags( $download_id = 0, $before = '', $sep = ', ', $after = '' ) {
 
 	if ( ! $download_id ) {
 		return false;
 	}
 
-	$tags = get_the_term_list( $download_id, 'download_tag', '', ', ', '' );
+	$tags = get_the_term_list( $download_id, 'download_tag', $before, $sep, $after );
 
 	if ( $tags ) {
 		return $tags;

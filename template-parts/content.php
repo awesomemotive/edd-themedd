@@ -6,12 +6,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php themedd_post_thumbnail(); ?>
-
 	<header class="entry-header">
 		<?php themedd_posted_on( false ); ?>
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 	</header>
+
+	<?php themedd_post_thumbnail(); ?>
 
 	<?php if ( is_search() || is_archive() || themedd_display_excerpts() ) : ?>
 

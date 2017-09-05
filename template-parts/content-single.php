@@ -10,7 +10,7 @@
 	/**
 	 * The featured image is loaded onto this hook
 	 */
-	 do_action( 'themedd_article_start' ); ?>
+	do_action( 'themedd_article_start' ); ?>
 
 	<div class="entry-content">
 

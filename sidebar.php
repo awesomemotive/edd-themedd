@@ -14,6 +14,8 @@
 
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 
+		<?php do_action( 'themedd_primary_sidebar_end' ); ?>
+
 	</div>
 </div>
 <?php endif; ?>
