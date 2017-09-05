@@ -66,6 +66,8 @@
 		value.bind(function( to ) {
 
 			jQuery('a')
+				.not('.button, button, input[type="submit"], #submit')
+				.not('.edd_download_title a')
 				.not('.main-navigation a')
 				.not('.site-title a')
 				.not('#site-header-secondary-menu a')
@@ -85,6 +87,8 @@
 
 			jQuery('a')
 				.not('.main-navigation a')
+				.not('.button, button, input[type="submit"], #submit')
+				.not('.edd_download_title a')
 				.not('.site-title a')
 				.not('#site-header-secondary-menu a')
 				.not('.entry-title a')
