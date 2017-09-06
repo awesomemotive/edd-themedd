@@ -84,7 +84,7 @@ class Themedd_Download_Details extends WP_Widget {
 		);
 
 		// Return if download details cannot be shown.
-		if ( ! themedd_edd_show_download_details() ) {
+		if ( ! themedd_edd_show_download_details( $options ) ) {
 			return;
 		}
 
