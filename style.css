@@ -3384,6 +3384,12 @@ a.delete {
   .author-avatar {
     margin: 0 1.5rem 0 0;
   }
+  .author-description {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
   .page-header {
     padding-left: 2rem;
     padding-right: 2rem;
