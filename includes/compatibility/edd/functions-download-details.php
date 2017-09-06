@@ -68,18 +68,13 @@ function themedd_edd_has_download_details( $options = array() ) {
 
 	$download_id = get_the_ID();
 
-	// If download categories are enabled and exist, the download details can be shown.
-	if ( true === $options['categories'] && themedd_edd_download_categories( $download_id ) ) {
-		return true;
-	}
-
-	// If download tags are enabled and exist, the download details can be shown.
-	if ( true === $options['tags'] && themedd_edd_download_tags( $download_id ) ) {
-		return true;
-	}
-
-	// If version number is allowed, and the download has a version number, the download details can be shown.
-	if ( true === $options['version'] && themedd_edd_download_version( $download_id ) ) {
+	if (
+		true === $options['categories'] && themedd_edd_download_categories( $download_id ) || // Download categories are enabled and exist.
+		true === $options['tags'] && themedd_edd_download_tags( $download_id )             || // Download tags are enabled and exist.
+		true === $options['sale_count']                                                    || // Sale count has been enabled from the "Themedd: Download Details" widget.
+		true === $options['date_published']                                                || // Date published as been enabled from the "Themedd: Download Details" widget.
+		true === $options['version'] && themedd_edd_download_version( $download_id )          // Version number is allowed, and the download has a version number, the download details can be shown.
+	) {
 		return true;
 	}
 
