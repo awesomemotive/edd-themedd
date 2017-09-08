@@ -149,7 +149,7 @@ $download_options = themedd_edd_download_details_options();
 
 			<ul>
 
-				<?php do_action( 'themedd_edd_sidebar_download_details_list_start' ); ?>
+				<?php do_action( 'themedd_edd_sidebar_download_details_list_start', $download_options ); ?>
 
 				<?php
 				/**
@@ -223,7 +223,7 @@ $download_options = themedd_edd_download_details_options();
 					<?php endif; ?>
 				<?php endif; ?>
 
-				<?php do_action( 'themedd_edd_sidebar_download_details_list_end' ); ?>
+				<?php do_action( 'themedd_edd_sidebar_download_details_list_end', $download_options ); ?>
 
 			</ul>
 		</section>
