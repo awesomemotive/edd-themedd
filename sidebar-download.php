@@ -38,7 +38,7 @@ $download_options = themedd_edd_download_details_options();
 		if ( themedd_edd_show_download_author() ) : ?>
 
 		<section class="widget downloadAuthor">
-			
+
 			<?php
 			/**
 			 * Author avatar
@@ -72,6 +72,9 @@ $download_options = themedd_edd_download_details_options();
 			<?php endif; ?>
 
 			<ul>
+
+			<?php do_action( 'themedd_edd_sidebar_download_author_list_start' ); ?>
+
 			<?php
 			/**
 			 * Author name.
@@ -79,18 +82,16 @@ $download_options = themedd_edd_download_details_options();
 			if ( true === $author_options['name'] ) : ?>
 
 				<li class="downloadAuthor-author">
-
 					<span class="downloadAuthor-name"><?php _e( 'Author:', 'themedd' ); ?></span>
 					<span class="downloadAuthor-value">
 						<?php if ( themedd_is_edd_fes_active() ) : ?>
-							<a href="<?php echo $vendor_url; ?>">
+							<a class="vendor-url" href="<?php echo $vendor_url; ?>">
 								<?php echo $user->display_name; ?>
 							</a>
 						<?php else : ?>
 							<?php echo $user->display_name; ?>
 						<?php endif; ?>
 					</span>
-
 				</li>
 			<?php endif; ?>
 
@@ -120,6 +121,8 @@ $download_options = themedd_edd_download_details_options();
 			</li>
 			<?php endif; ?>
 
+			<?php do_action( 'themedd_edd_sidebar_download_author_list_end' ); ?>
+
 			</ul>
 
 		</section>
@@ -145,6 +148,9 @@ $download_options = themedd_edd_download_details_options();
 			<?php endif; ?>
 
 			<ul>
+
+				<?php do_action( 'themedd_edd_sidebar_download_details_list_start' ); ?>
+
 				<?php
 				/**
 				 * Date published.
@@ -216,6 +222,8 @@ $download_options = themedd_edd_download_details_options();
 					</li>
 					<?php endif; ?>
 				<?php endif; ?>
+
+				<?php do_action( 'themedd_edd_sidebar_download_details_list_end' ); ?>
 
 			</ul>
 		</section>

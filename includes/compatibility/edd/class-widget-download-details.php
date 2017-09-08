@@ -97,6 +97,9 @@ class Themedd_Download_Details extends WP_Widget {
 		?>
 
 		<ul>
+
+			<?php do_action( 'themedd_edd_sidebar_download_details_list_start' ); ?>
+
 			<?php
 			/**
 			 * Published
@@ -171,6 +174,8 @@ class Themedd_Download_Details extends WP_Widget {
 				<?php endif; ?>
 
 			<?php endif; ?>
+
+			<?php do_action( 'themedd_edd_sidebar_download_details_list_end' ); ?>
 
 		</ul>
 		<?php

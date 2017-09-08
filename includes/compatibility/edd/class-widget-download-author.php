@@ -133,6 +133,9 @@ class Themedd_Download_Author extends WP_Widget {
 		<?php endif; ?>
 
 		<ul>
+
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_start' ); ?>
+
 		<?php
 		/**
 		 * Author name.
@@ -177,6 +180,8 @@ class Themedd_Download_Author extends WP_Widget {
 			<?php endif; ?>
 
 		<?php endif; ?>
+
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_end' ); ?>
 
 		</ul>
 
