@@ -45,51 +45,33 @@ class Themedd_Download_Author extends WP_Widget {
 			return;
 		}
 
+		// Get the author.
 		$author  = new WP_User( $post->post_author );
 
 		if ( themedd_is_edd_fes_active() ) {
 			$vendor_url = (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $author->post_author ) );
 		}
 
-		// Get the name of the store.
-		$vendor_store = get_the_author_meta( 'name_of_store', $post->post_author );
-
-		// Show the author avatar.
-		$avatar = $instance['avatar'];
-
-		// Show the store name.
-		$store_name = $instance['store_name'];
-
-		// Show the author name.
-		$name = $instance['name'];
-
-		// Show the author signup date.
-		$signup_date  = $instance['signup_date'];
-
-		// Show the website.
-		$show_website = $instance['website'];
-
-		// Get the website.
-		$website = get_the_author_meta( 'user_url', $post->post_author );
-
 		// Get the title.
-		$title = $instance['title'];
+		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 		/**
-		 * Download author options.
+		 * Download author widget defaults.
 		 * The values of the widget settings are passed into themedd_edd_download_author_options()
 		 */
-		$options = themedd_edd_download_author_options(
+		$options = apply_filters( 'themedd_edd_download_author_widget_defaults',
 			array(
-				'avatar'      => $avatar,
-				'store_name'  => $store_name,
-				'name'        => $name,
-				'signup_date' => $signup_date,
-				'website'     => $show_website,
-				'title'       => apply_filters( 'widget_title', $title, $instance, $this->id_base ),
+				'avatar'      => $instance['avatar'],      // Show the author avatar.
+				'store_name'  => $instance['store_name'],  // Show the store name.
+				'name'        => $instance['name'],        // Show the author name.
+				'signup_date' => $instance['signup_date'], // Show the author signup date.
+				'website'     => $instance['website'],     // Show the website.
+				'title'       => $title,
 				'show'        => true
-			)
+			), $instance
 		);
+
+		$options = themedd_edd_download_author_options( $options );
 
 		// Return early if author details cannot be shown.
 		if ( ! themedd_edd_show_download_author( $options ) ) {
@@ -126,7 +108,12 @@ class Themedd_Download_Author extends WP_Widget {
 		 */
 		if ( true === $options['store_name'] ) : ?>
 
-			<?php if ( themedd_is_edd_fes_active() ) : ?>
+			<?php if ( themedd_is_edd_fes_active() ) :
+
+				// Get the name of the store.
+				$vendor_store = get_the_author_meta( 'name_of_store', $post->post_author );
+
+				?>
 			<h2 class="widget-title"><?php echo $vendor_store; ?></h2>
 			<?php endif; ?>
 
@@ -134,7 +121,7 @@ class Themedd_Download_Author extends WP_Widget {
 
 		<ul>
 
-		<?php do_action( 'themedd_edd_sidebar_download_author_list_start' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_start', $options ); ?>
 
 		<?php
 		/**
@@ -170,7 +157,12 @@ class Themedd_Download_Author extends WP_Widget {
 		/**
 		 * Author website.
 		 */
-		if ( true === $options['website'] ) : ?>
+		if ( true === $options['website'] ) :
+
+			// Get the website.
+			$website = get_the_author_meta( 'user_url', $post->post_author );
+
+		?>
 
 			<?php if ( ! empty( $website ) ) : ?>
 			<li class="downloadAuthor-website">
@@ -181,7 +173,7 @@ class Themedd_Download_Author extends WP_Widget {
 
 		<?php endif; ?>
 
-		<?php do_action( 'themedd_edd_sidebar_download_author_list_end' ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_end', $options ); ?>
 
 		</ul>
 
