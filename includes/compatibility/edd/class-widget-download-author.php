@@ -260,7 +260,7 @@ class Themedd_Download_Author extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance                = $old_instance;
-		$instance['title']       = ( ! empty( $new_instance['title'] ) )   ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title']       = ! empty( $new_instance['title'] )       ? strip_tags( $new_instance['title'] ) : '';
 		$instance['avatar']      = ! empty( $new_instance['avatar'] )      ? true : false;
 		$instance['store_name']  = ! empty( $new_instance['store_name'] )  ? true : false;
 		$instance['name']        = ! empty( $new_instance['name'] )        ? true : false;
