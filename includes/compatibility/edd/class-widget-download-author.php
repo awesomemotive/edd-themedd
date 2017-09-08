@@ -76,7 +76,7 @@ class Themedd_Download_Author extends WP_Widget {
 		$title = $instance['title'];
 
 		/**
-		 * Author options.
+		 * Download author options.
 		 * The values of the widget settings are passed into themedd_edd_download_author_options()
 		 */
 		$options = themedd_edd_download_author_options(
