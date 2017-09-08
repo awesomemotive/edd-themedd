@@ -13,7 +13,7 @@
  */
 function themedd_edd_download_details_options( $args = array() ) {
 
-	// Set some defaults for the download sidebar when the widgets are not in use.
+	// Set some defaults for the download sidebar when the widget is not in use.
 	$defaults = apply_filters( 'themedd_edd_download_details_defaults', array(
 		'show'           => true,
 		'sale_count'     => false,
