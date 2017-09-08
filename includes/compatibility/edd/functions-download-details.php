@@ -6,14 +6,15 @@
 /**
  * Download details options.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  array $args Download Details options passed in from the Themedd: Download Details widget
  *
- * @return array $options Download Details options
+ * @return array $args The final Download Details options
  */
 function themedd_edd_download_details_options( $args = array() ) {
 
-	// Defaults.
-	$defaults = array(
+	// Set some defaults for the download sidebar when the widgets are not in use.
+	$defaults = apply_filters( 'themedd_edd_download_details_defaults', array(
 		'show'           => true,
 		'sale_count'     => false,
 		'date_published' => false,
@@ -21,20 +22,27 @@ function themedd_edd_download_details_options( $args = array() ) {
 		'tags'           => true,
 		'version'        => false,
 		'title'          => ''
-	);
+	) );
 
+	// Set some defaults when Frontend Submissions is activated.
 	if ( themedd_is_edd_fes_active() ) {
 		$defaults['title']          = sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() );
 		$defaults['date_published'] = true;
 		$defaults['sale_count']     = true;
 	}
 
+	// Set some defaults when Software Licensing is activated.
 	if ( themedd_is_edd_sl_active() ) {
 		$defaults['version'] = true;
 	}
 
+	// Merge any args passed in from the widget with the defaults.
 	$args = wp_parse_args( $args, $defaults );
 
+	/**
+	 * Return the final $args
+	 * Developers can use this filter hook to override options from widget settings or on a per-download basis.
+	 */
 	return apply_filters( 'themedd_edd_download_details_options', $args );
 
 }
