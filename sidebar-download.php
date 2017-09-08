@@ -121,7 +121,7 @@ $download_options = themedd_edd_download_details_options();
 			</li>
 			<?php endif; ?>
 
-			<?php do_action( 'themedd_edd_sidebar_download_author_list_end' ); ?>
+			<?php do_action( 'themedd_edd_sidebar_download_author_list_end', $author_options ); ?>
 
 			</ul>
 
@@ -129,7 +129,7 @@ $download_options = themedd_edd_download_details_options();
 
 		<?php endif; ?>
 
-		<?php do_action( 'themedd_edd_sidebar_download_author_after', $author_options ); ?>
+		<?php do_action( 'themedd_edd_sidebar_download_author_after' ); ?>
 
 		<?php
 		/**
