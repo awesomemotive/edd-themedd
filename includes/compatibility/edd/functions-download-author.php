@@ -7,8 +7,8 @@
  */
 function themedd_edd_download_author_options( $args = array() ) {
 
-	// Defaults.
-	$defaults = array(
+	// Set some defaults for the download sidebar when the widget is not in use.
+	$defaults = apply_filters( 'themedd_edd_download_author_defaults', array(
 		'avatar'      => true,
 		'avatar_size' => 80,
 		'store_name'  => true,
@@ -16,8 +16,9 @@ function themedd_edd_download_author_options( $args = array() ) {
 		'signup_date' => true,
 		'website'     => true,
 		'title'       => ''
-	);
+	) );
 
+	// Merge any args passed in from the widget with the defaults.
 	$args = wp_parse_args( $args, $defaults );
 
 	// If Frontend Submissions is active, show the author details by default.
@@ -25,6 +26,10 @@ function themedd_edd_download_author_options( $args = array() ) {
 		$args['show'] = true;
 	}
 
+	/**
+	 * Return the final $args
+	 * Developers can use this filter hook to override options from widget settings or on a per-download basis.
+	 */
 	return apply_filters( 'themedd_edd_download_author_options', $args );
 
 }
