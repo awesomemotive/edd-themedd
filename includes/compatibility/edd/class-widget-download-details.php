@@ -47,41 +47,25 @@ class Themedd_Download_Details extends WP_Widget {
 			return;
 		}
 
-		// Get the author.
-		$author = new WP_User( $post->post_author );
-
-		// Show the published date.
-		$show_date_published = $instance['published'];
-
-		// Show the sale count.
-		$show_sale_count = $instance['sales'];
-
-		// Show the version number. This is only set when Software Licensing is active.
-		$show_version = isset( $instance['version'] ) ? $instance['version'] : false;
-
-		// Show the categories.
-		$show_categories = $instance['categories'];
-
-		// Show the tags.
-		$show_tags = $instance['tags'];
-
 		// Get the title.
-		$title = $instance['title'];
+		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 		/**
-		 * Author options.
-		 * The values of the widget settings are passed into themedd_edd_download_author_options()
+		 * Download details widget defaults.
+		 * The values of the widget settings are passed into themedd_edd_download_details_options()
 		 */
-		$options = themedd_edd_download_details_options(
+		$options = apply_filters( 'themedd_edd_download_details_widget_defaults',
 			array(
-				'version'        => $show_version,
-				'sale_count'     => $show_sale_count,
-				'date_published' => $show_date_published,
-				'categories'     => $show_categories,
-				'tags'           => $show_tags,
-				'title'          => apply_filters( 'widget_title', $title, $instance, $this->id_base )
-			)
+				'version'        => isset( $instance['version'] ) ? $instance['version'] : false, // Show the version number. This is only set when Software Licensing is active.
+				'sale_count'     => $instance['sales'],                                           // Show the sale count.
+				'date_published' => $instance['published'],                                       // Show the published date.
+				'categories'     => $instance['categories'],                                      // Show the categories.
+				'tags'           => $instance['tags'],                                            // Show the tags.
+				'title'          => $title
+			), $instance
 		);
+
+		$options = themedd_edd_download_details_options( $options );
 
 		// Return if download details cannot be shown.
 		if ( ! themedd_edd_show_download_details( $options ) ) {
@@ -98,7 +82,7 @@ class Themedd_Download_Details extends WP_Widget {
 
 		<ul>
 
-			<?php do_action( 'themedd_edd_sidebar_download_details_list_start' ); ?>
+			<?php do_action( 'themedd_edd_sidebar_download_details_list_start', $options ); ?>
 
 			<?php
 			/**
@@ -175,7 +159,7 @@ class Themedd_Download_Details extends WP_Widget {
 
 			<?php endif; ?>
 
-			<?php do_action( 'themedd_edd_sidebar_download_details_list_end' ); ?>
+			<?php do_action( 'themedd_edd_sidebar_download_details_list_end', $options ); ?>
 
 		</ul>
 		<?php
@@ -253,7 +237,7 @@ class Themedd_Download_Details extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance               = $old_instance;
-		$instance['title']      = ( ! empty( $new_instance['title'] ) )  ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title']      = ! empty( $new_instance['title'] )      ? strip_tags( $new_instance['title'] ) : '';
 		$instance['published']  = ! empty( $new_instance['published'] )  ? true : false;
 		$instance['sales']      = ! empty( $new_instance['sales'] )      ? true : false;
 		$instance['categories'] = ! empty( $new_instance['categories'] ) ? true : false;
