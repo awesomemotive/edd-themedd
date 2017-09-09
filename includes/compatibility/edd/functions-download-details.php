@@ -74,6 +74,8 @@ function themedd_edd_show_download_details( $options = array() ) {
  */
 function themedd_edd_has_download_details( $options = array() ) {
 
+	$return = false;
+
 	$download_id = get_the_ID();
 
 	if (
@@ -83,10 +85,10 @@ function themedd_edd_has_download_details( $options = array() ) {
 		true === $options['date_published']                                                || // Date published as been enabled from the "Themedd: Download Details" widget.
 		true === $options['version'] && themedd_edd_download_version( $download_id )          // Version number is allowed, and the download has a version number, the download details can be shown.
 	) {
-		return true;
+		$return = true;
 	}
 
-	return false;
+	return apply_filters( 'themedd_edd_has_download_details', $return, $options );
 
 }
 
