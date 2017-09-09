@@ -46,7 +46,7 @@ class Themedd_Download_Author extends WP_Widget {
 		}
 
 		// Get the author.
-		$author  = new WP_User( $post->post_author );
+		$author = new WP_User( $post->post_author );
 
 		if ( themedd_is_edd_fes_active() ) {
 			$vendor_url = (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $author->post_author ) );
@@ -55,23 +55,10 @@ class Themedd_Download_Author extends WP_Widget {
 		// Get the title.
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
-		/**
-		 * Download author widget defaults.
-		 * The values of the widget settings are passed into themedd_edd_download_author_options()
-		 */
-		$options = apply_filters( 'themedd_edd_download_author_widget_defaults',
-			array(
-				'avatar'      => $instance['avatar'],      // Show the author avatar.
-				'store_name'  => $instance['store_name'],  // Show the store name.
-				'name'        => $instance['name'],        // Show the author name.
-				'signup_date' => $instance['signup_date'], // Show the author signup date.
-				'website'     => $instance['website'],     // Show the website.
-				'title'       => $title,
-				'show'        => true
-			), $instance
-		);
+		// Allow the author details to show when using the widget.
+		$instance['show'] = true;
 
-		$options = themedd_edd_download_author_options( $options );
+		$options = themedd_edd_download_author_options( $instance );
 
 		// Return early if author details cannot be shown.
 		if ( ! themedd_edd_show_download_author( $options ) ) {
