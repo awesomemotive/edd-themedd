@@ -50,22 +50,8 @@ class Themedd_Download_Details extends WP_Widget {
 		// Get the title.
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
-		/**
-		 * Download details widget defaults.
-		 * The values of the widget settings are passed into themedd_edd_download_details_options()
-		 */
-		$options = apply_filters( 'themedd_edd_download_details_widget_defaults',
-			array(
-				'version'        => isset( $instance['version'] ) ? $instance['version'] : false, // Show the version number. This is only set when Software Licensing is active.
-				'sale_count'     => $instance['sales'],                                           // Show the sale count.
-				'date_published' => $instance['published'],                                       // Show the published date.
-				'categories'     => $instance['categories'],                                      // Show the categories.
-				'tags'           => $instance['tags'],                                            // Show the tags.
-				'title'          => $title
-			), $instance
-		);
-
-		$options = themedd_edd_download_details_options( $options );
+		// Pass $instance to themedd_edd_download_details_options()
+		$options = themedd_edd_download_details_options( $instance );
 
 		// Return if download details cannot be shown.
 		if ( ! themedd_edd_show_download_details( $options ) ) {
@@ -179,11 +165,11 @@ class Themedd_Download_Details extends WP_Widget {
 
 		// Default settings.
 		$defaults = array(
-			'published'  => true,
-			'sales'      => true,
-			'version'    => true,
-			'categories' => true,
-			'tags'       => true
+			'date_published' => true,
+			'sale_count'     => true,
+			'version'        => true,
+			'categories'     => true,
+			'tags'           => true
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -197,13 +183,13 @@ class Themedd_Download_Details extends WP_Widget {
 		</p>
 
 		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'published' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'published' ) ); ?>" <?php checked( $instance['published'], true ); ?>/>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'published' ) ); ?>"><?php _e( 'Show date published', 'themedd' ); ?></label>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'date_published' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date_published' ) ); ?>" <?php checked( $instance['date_published'], true ); ?>/>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'date_published' ) ); ?>"><?php _e( 'Show date published', 'themedd' ); ?></label>
 		</p>
 
 		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'sales' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'sales' ) ); ?>" <?php checked( $instance['sales'], true ); ?>/>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'sales' ) ); ?>"><?php _e( 'Show number of sales', 'themedd' ); ?></label>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'sale_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'sale_count' ) ); ?>" <?php checked( $instance['sale_count'], true ); ?>/>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'sale_count' ) ); ?>"><?php _e( 'Show number of sales', 'themedd' ); ?></label>
 		</p>
 
 		<?php if ( themedd_is_edd_sl_active() ) : ?>
@@ -236,12 +222,12 @@ class Themedd_Download_Details extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance               = $old_instance;
-		$instance['title']      = ! empty( $new_instance['title'] )      ? strip_tags( $new_instance['title'] ) : '';
-		$instance['published']  = ! empty( $new_instance['published'] )  ? true : false;
-		$instance['sales']      = ! empty( $new_instance['sales'] )      ? true : false;
-		$instance['categories'] = ! empty( $new_instance['categories'] ) ? true : false;
-		$instance['tags']       = ! empty( $new_instance['tags'] )       ? true : false;
+		$instance                    = $old_instance;
+		$instance['title']           = ! empty( $new_instance['title'] )          ? strip_tags( $new_instance['title'] ) : '';
+		$instance['date_published']  = ! empty( $new_instance['date_published'] ) ? true : false;
+		$instance['sale_count']      = ! empty( $new_instance['sale_count'] )     ? true : false;
+		$instance['categories']      = ! empty( $new_instance['categories'] )     ? true : false;
+		$instance['tags']            = ! empty( $new_instance['tags'] )           ? true : false;
 
 		if ( themedd_is_edd_sl_active() ) {
 			$instance['version'] = ! empty( $new_instance['version'] ) ? true : false;
