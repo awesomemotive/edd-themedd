@@ -99,7 +99,7 @@ function themedd_edd_set_distraction_free_checkout() {
 		remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
 
 	    // Remove the mobile menu.
-	    remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
+		remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
 
 		// Remove the secondary menu.
 		remove_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
