@@ -124,14 +124,17 @@ function themedd_edd_body_classes( $classes ) {
 	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
 	if ( $cart_items ) {
+
 		$classes[] = 'edd-items-in-cart';
+
+		if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() ) {
+			$classes[] = 'edd-checkout-distraction-free';
+		}
+
 	} else {
 		$classes[] = 'edd-empty-cart';
 	}
 
-	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && ! empty( edd_get_cart_contents() ) ) {
-		$classes[] = 'edd-checkout-distraction-free';
-	}
 
 	return $classes;
 

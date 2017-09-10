@@ -222,7 +222,7 @@ function themedd_edd_cart_quantity() {
 	// Cart quantity.
 	$count = edd_get_cart_quantity();
 
-	if ( empty( edd_get_cart_quantity() ) ) {
+	if ( empty( $count ) ) {
 		$count = '0';
 	}
 
