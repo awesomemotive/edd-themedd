@@ -2266,18 +2266,12 @@ section.account .wrapper {
 .post-navigation .nav-links div {
   margin-bottom: 1rem;
 }
-.post-navigation a {
-  display: block;
-}
+.post-navigation a,
 .post-navigation span {
   display: block;
 }
 .post-navigation .meta-nav {
   color: #a2a2a2;
-}
-.post-navigation a:hover .post-title,
-.post-navigation a:focus .post-title {
-  color: #215b92;
 }
 #menu-toggle-wrap {
   display: -webkit-box;
