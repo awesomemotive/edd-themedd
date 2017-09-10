@@ -87,7 +87,7 @@ function themedd_edd_set_distraction_free_checkout() {
 	 * Distraction Free Checkout
 	 * Removes various distractions from the EDD checkout page to improve the customer's buying experience.
 	 */
-	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && ! empty( edd_get_cart_contents() ) ) {
+	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) {
 
 		// Remove page header.
 		add_filter( 'themedd_page_header', '__return_false' );
