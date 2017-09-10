@@ -25,8 +25,7 @@ function themedd_body_classes( $classes ) {
 	 */
 	if (
 		is_page_template( 'page-templates/slim.php' ) ||
-		is_singular( 'post' ) && in_array( 'no-sidebar', $classes ) ||
-		is_author() && in_array( 'no-sidebar', $classes ) ||
+		( is_singular( 'post' ) || is_author() ) && in_array( 'no-sidebar', $classes ) ||
 		in_array( 'blog', $classes ) && in_array( 'no-sidebar', $classes )
 	) {
 		$classes[] = 'slim';
