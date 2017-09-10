@@ -98,7 +98,7 @@ function themedd_edd_set_distraction_free_checkout() {
 		// Remove the primary navigation if moved to the themedd_site_header_main hook.
 		remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
 
-	    // Remove the mobile menu.
+		// Remove the mobile menu.
 		remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
 
 		// Remove the secondary menu.
