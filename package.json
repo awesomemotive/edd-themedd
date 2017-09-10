@@ -9,15 +9,15 @@
   "text_domain": "themedd",
   "browserslist": "last 1 versions",
   "devDependencies": {
-	"grunt": "latest",
+    "grunt": "latest",
     "grunt-autoprefixer": "latest",
     "grunt-banner": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-svgmin": "latest",
+    "grunt-svgmin": "^4.0.0",
     "grunt-svgstore": "latest",
-    "matchdep": "*"
+    "matchdep": "^2.0.0"
   }
 }
