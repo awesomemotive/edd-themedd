@@ -4,7 +4,7 @@ Theme URI: https://themedd.com
 Author: Easy Digital Downloads
 Author URI: https://easydigitaldownloads.com
 Description: Themedd is a simple and extensible WordPress theme that provides a solid integration with Easy Digital Downloads and its extensions. It's the perfect theme to sell your digital products.
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License
 License URI: license.txt
 Text Domain: themedd
@@ -2266,18 +2266,12 @@ section.account .wrapper {
 .post-navigation .nav-links div {
   margin-bottom: 1rem;
 }
-.post-navigation a {
-  display: block;
-}
+.post-navigation a,
 .post-navigation span {
   display: block;
 }
 .post-navigation .meta-nav {
   color: #a2a2a2;
-}
-.post-navigation a:hover .post-title,
-.post-navigation a:focus .post-title {
-  color: #215b92;
 }
 #menu-toggle-wrap {
   display: -webkit-box;
@@ -3383,6 +3377,12 @@ a.delete {
   }
   .author-avatar {
     margin: 0 1.5rem 0 0;
+  }
+  .author-description {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
   .page-header {
     padding-left: 2rem;

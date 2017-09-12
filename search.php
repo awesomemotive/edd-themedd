@@ -4,7 +4,15 @@
  */
 
 get_header();
-themedd_page_header( array( 'title' => __( 'Search Results', 'themedd' ) ) );
+
+if ( have_posts() ) {
+	$page_title = __( 'Search Results', 'themedd' );
+} else {
+	$page_title = __( 'Nothing Found', 'themedd' );
+}
+
+themedd_page_header( array( 'title' => $page_title, 'subtitle' => sprintf( __( 'You searched for "%s"', 'themedd' ), get_search_query() ) ) );
+
 ?>
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
 

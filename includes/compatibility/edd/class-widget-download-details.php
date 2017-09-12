@@ -47,44 +47,15 @@ class Themedd_Download_Details extends WP_Widget {
 			return;
 		}
 
-		// Get the author.
-		$author = new WP_User( $post->post_author );
+		if ( isset( $instance['title'] ) ) {
+			$instance['title'] = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		}
 
-		// Show the published date.
-		$show_date_published = $instance['published'];
-
-		// Show the sale count.
-		$show_sale_count = $instance['sales'];
-
-		// Show the version number. This is only set when Software Licensing is active.
-		$show_version = isset( $instance['version'] ) ? $instance['version'] : false;
-
-		// Show the categories.
-		$show_categories = $instance['categories'];
-
-		// Show the tags.
-		$show_tags = $instance['tags'];
-
-		// Get the title.
-		$title = $instance['title'];
-
-		/**
-		 * Author options.
-		 * The values of the widget settings are passed into themedd_edd_download_author_options()
-		 */
-		$options = themedd_edd_download_details_options(
-			array(
-				'version'        => $show_version,
-				'sale_count'     => $show_sale_count,
-				'date_published' => $show_date_published,
-				'categories'     => $show_categories,
-				'tags'           => $show_tags,
-				'title'          => apply_filters( 'widget_title', $title, $instance, $this->id_base )
-			)
-		);
+		// Pass $instance to themedd_edd_download_details_options()
+		$options = themedd_edd_download_details_options( $instance );
 
 		// Return if download details cannot be shown.
-		if ( ! themedd_edd_show_download_details() ) {
+		if ( ! themedd_edd_show_download_details( $options ) ) {
 			return;
 		}
 
@@ -97,6 +68,9 @@ class Themedd_Download_Details extends WP_Widget {
 		?>
 
 		<ul>
+
+			<?php do_action( 'themedd_edd_sidebar_download_details_list_start', $options ); ?>
+
 			<?php
 			/**
 			 * Published
@@ -172,6 +146,8 @@ class Themedd_Download_Details extends WP_Widget {
 
 			<?php endif; ?>
 
+			<?php do_action( 'themedd_edd_sidebar_download_details_list_end', $options ); ?>
+
 		</ul>
 		<?php
 		echo $args['after_widget'];
@@ -190,11 +166,11 @@ class Themedd_Download_Details extends WP_Widget {
 
 		// Default settings.
 		$defaults = array(
-			'published'  => true,
-			'sales'      => true,
-			'version'    => true,
-			'categories' => true,
-			'tags'       => true
+			'date_published' => true,
+			'sale_count'     => true,
+			'version'        => true,
+			'categories'     => true,
+			'tags'           => true
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -208,13 +184,13 @@ class Themedd_Download_Details extends WP_Widget {
 		</p>
 
 		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'published' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'published' ) ); ?>" <?php checked( $instance['published'], true ); ?>/>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'published' ) ); ?>"><?php _e( 'Show date published', 'themedd' ); ?></label>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'date_published' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date_published' ) ); ?>" <?php checked( $instance['date_published'], true ); ?>/>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'date_published' ) ); ?>"><?php _e( 'Show date published', 'themedd' ); ?></label>
 		</p>
 
 		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'sales' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'sales' ) ); ?>" <?php checked( $instance['sales'], true ); ?>/>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'sales' ) ); ?>"><?php _e( 'Show number of sales', 'themedd' ); ?></label>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'sale_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'sale_count' ) ); ?>" <?php checked( $instance['sale_count'], true ); ?>/>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'sale_count' ) ); ?>"><?php _e( 'Show number of sales', 'themedd' ); ?></label>
 		</p>
 
 		<?php if ( themedd_is_edd_sl_active() ) : ?>
@@ -247,12 +223,12 @@ class Themedd_Download_Details extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance               = $old_instance;
-		$instance['title']      = ( ! empty( $new_instance['title'] ) )  ? strip_tags( $new_instance['title'] ) : '';
-		$instance['published']  = ! empty( $new_instance['published'] )  ? true : false;
-		$instance['sales']      = ! empty( $new_instance['sales'] )      ? true : false;
-		$instance['categories'] = ! empty( $new_instance['categories'] ) ? true : false;
-		$instance['tags']       = ! empty( $new_instance['tags'] )       ? true : false;
+		$instance                    = $old_instance;
+		$instance['title']           = ! empty( $new_instance['title'] )          ? strip_tags( $new_instance['title'] ) : '';
+		$instance['date_published']  = ! empty( $new_instance['date_published'] ) ? true : false;
+		$instance['sale_count']      = ! empty( $new_instance['sale_count'] )     ? true : false;
+		$instance['categories']      = ! empty( $new_instance['categories'] )     ? true : false;
+		$instance['tags']            = ! empty( $new_instance['tags'] )           ? true : false;
 
 		if ( themedd_is_edd_sl_active() ) {
 			$instance['version'] = ! empty( $new_instance['version'] ) ? true : false;

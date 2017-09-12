@@ -45,58 +45,26 @@ class Themedd_Download_Author extends WP_Widget {
 			return;
 		}
 
-		$author  = new WP_User( $post->post_author );
+		// Get the author.
+		$author = new WP_User( $post->post_author );
 
 		if ( themedd_is_edd_fes_active() ) {
 			$vendor_url = (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $author->post_author ) );
 		}
 
-		// Get the name of the store.
-		$vendor_store = get_the_author_meta( 'name_of_store', $post->post_author );
+		if ( isset( $instance['title'] ) ) {
+			$instance['title'] = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		}
 
-		// Show the author avatar.
-		$avatar = $instance['avatar'];
+		// Allow the author details to show when using the widget.
+		$instance['show'] = true;
 
-		// Show the store name.
-		$store_name = $instance['store_name'];
-
-		// Show the author name.
-		$name = $instance['name'];
-
-		// Show the author signup date.
-		$signup_date  = $instance['signup_date'];
-
-		// Show the website.
-		$show_website = $instance['website'];
-
-		// Get the website.
-		$website = get_the_author_meta( 'user_url', $post->post_author );
-
-		// Get the title.
-		$title = $instance['title'];
-
-		/**
-		 * Author options.
-		 * The values of the widget settings are passed into themedd_edd_download_author_options()
-		 */
-		$options = themedd_edd_download_author_options(
-			array(
-				'avatar'      => $avatar,
-				'store_name'  => $store_name,
-				'name'        => $name,
-				'signup_date' => $signup_date,
-				'website'     => $show_website,
-				'title'       => apply_filters( 'widget_title', $title, $instance, $this->id_base ),
-				'show'        => true
-			)
-		);
+		$options = themedd_edd_download_author_options( $instance );
 
 		// Return early if author details cannot be shown.
 		if ( ! themedd_edd_show_download_author( $options ) ) {
 			return;
 		}
-
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 		echo $args['before_widget'];
 
@@ -126,13 +94,21 @@ class Themedd_Download_Author extends WP_Widget {
 		 */
 		if ( true === $options['store_name'] ) : ?>
 
-			<?php if ( themedd_is_edd_fes_active() ) : ?>
+			<?php if ( themedd_is_edd_fes_active() ) :
+
+				// Get the name of the store.
+				$vendor_store = get_the_author_meta( 'name_of_store', $post->post_author );
+
+				?>
 			<h2 class="widget-title"><?php echo $vendor_store; ?></h2>
 			<?php endif; ?>
 
 		<?php endif; ?>
 
 		<ul>
+
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_start', $options ); ?>
+
 		<?php
 		/**
 		 * Author name.
@@ -167,7 +143,12 @@ class Themedd_Download_Author extends WP_Widget {
 		/**
 		 * Author website.
 		 */
-		if ( true === $options['website'] ) : ?>
+		if ( true === $options['website'] ) :
+
+			// Get the website.
+			$website = get_the_author_meta( 'user_url', $post->post_author );
+
+		?>
 
 			<?php if ( ! empty( $website ) ) : ?>
 			<li class="downloadAuthor-website">
@@ -177,6 +158,8 @@ class Themedd_Download_Author extends WP_Widget {
 			<?php endif; ?>
 
 		<?php endif; ?>
+
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_end', $options ); ?>
 
 		</ul>
 
@@ -255,7 +238,7 @@ class Themedd_Download_Author extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance                = $old_instance;
-		$instance['title']       = ( ! empty( $new_instance['title'] ) )   ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title']       = ! empty( $new_instance['title'] )       ? strip_tags( $new_instance['title'] ) : '';
 		$instance['avatar']      = ! empty( $new_instance['avatar'] )      ? true : false;
 		$instance['store_name']  = ! empty( $new_instance['store_name'] )  ? true : false;
 		$instance['name']        = ! empty( $new_instance['name'] )        ? true : false;

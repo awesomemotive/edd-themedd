@@ -110,7 +110,7 @@ function themedd_is_subtitles_active() {
  */
 function themedd_get_sidebar( $sidebar = '' ) {
 
-	// disable sidebar
+	// Disable all sidebars.
 	if ( ! apply_filters( 'themedd_show_sidebar', true ) ) {
 		return false;
 	}

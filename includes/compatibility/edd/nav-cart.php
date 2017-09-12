@@ -101,6 +101,11 @@ function themedd_edd_cart( $args = array() ) {
         return;
     }
 
+	// Return early if nothing is set to be shown.
+	if ( ! themedd_edd_display_cart_icon() && 'none' === themedd_edd_display_cart_options() ) {
+		return;
+	}
+
     ob_start();
 
 	// Set up defaults.
@@ -122,10 +127,10 @@ function themedd_edd_cart( $args = array() ) {
 
     $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
-	// whether or not to include list item markup
+	// Whether or not to include list item markup.
 	$list_item = $args['list_item'];
 
-	// cart link
+	// Cart link.
 	$cart_link = $args['cart_link'];
 
 	if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
@@ -217,7 +222,7 @@ function themedd_edd_cart_quantity() {
 	// Cart quantity.
 	$count = edd_get_cart_quantity();
 
-	if ( empty( edd_get_cart_quantity() ) ) {
+	if ( empty( $count ) ) {
 		$count = '0';
 	}
 
