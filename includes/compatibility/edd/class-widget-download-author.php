@@ -52,8 +52,9 @@ class Themedd_Download_Author extends WP_Widget {
 			$vendor_url = (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $author->post_author ) );
 		}
 
-		// Get the title.
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		if ( isset( $instance['title'] ) ) {
+			$instance['title'] = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		}
 
 		// Allow the author details to show when using the widget.
 		$instance['show'] = true;
@@ -64,8 +65,6 @@ class Themedd_Download_Author extends WP_Widget {
 		if ( ! themedd_edd_show_download_author( $options ) ) {
 			return;
 		}
-
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 		echo $args['before_widget'];
 

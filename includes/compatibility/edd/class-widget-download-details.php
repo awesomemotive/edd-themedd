@@ -47,8 +47,9 @@ class Themedd_Download_Details extends WP_Widget {
 			return;
 		}
 
-		// Get the title.
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		if ( isset( $instance['title'] ) ) {
+			$instance['title'] = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		}
 
 		// Pass $instance to themedd_edd_download_details_options()
 		$options = themedd_edd_download_details_options( $instance );
