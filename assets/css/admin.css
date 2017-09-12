@@ -3,6 +3,7 @@
 	padding: 10px;
 }
 
-#sidebar-download .themedd-widget-usage {
+#sidebar-download .themedd-widget-usage,
+#sub-accordion-section-sidebar-widgets-sidebar-download .themedd-widget-usage {
 	display: none;
 }
