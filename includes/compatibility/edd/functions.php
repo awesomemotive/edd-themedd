@@ -136,7 +136,7 @@ function themedd_edd_distraction_free_checkout() {
 	$edd_theme_options         = get_theme_mod( 'easy_digital_downloads' );
 	$distraction_free_checkout = isset( $edd_theme_options['distraction_free_checkout'] ) && true === $edd_theme_options['distraction_free_checkout'] ? true : false;
 
-	return $distraction_free_checkout;
+	return apply_filters( 'themedd_edd_distraction_free_checkout', $distraction_free_checkout );
 }
 
 /**
