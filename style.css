@@ -2734,7 +2734,7 @@ span.padlock {
   width: 1.5rem;
   height: 1.5rem;
 }
-.edd-empty-cart #edd_checkout_wrap {
+.no-sidebar.edd-empty-cart #edd_checkout_wrap {
   text-align: center;
 }
 #edd_checkout_form_wrap span.edd-required-indicator {
