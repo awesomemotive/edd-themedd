@@ -61,6 +61,16 @@ function themedd_is_edd_cross_sell_upsell_active() {
 }
 
 /**
+ * Is EDD Coming Soon active?
+ *
+ * @since 1.0.2
+ * @return bool
+ */
+function themedd_is_edd_coming_soon_active() {
+	return class_exists( 'EDD_Coming_Soon' );
+}
+
+/**
  * Is EDD Points and Rewards active?
  *
  * @since 1.0.0

@@ -68,4 +68,13 @@ if ( themedd_is_edd_active() ) {
 		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-reviews.php' );
 	}
 
+	/**
+	 * EDD - Coming Soon
+	 *
+	 * @since 1.0.2
+	 */
+	if ( themedd_is_edd_coming_soon_active() ) {
+		require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-coming-soon.php' );
+	}
+
 }
