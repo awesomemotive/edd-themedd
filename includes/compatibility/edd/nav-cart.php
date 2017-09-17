@@ -313,12 +313,13 @@ function themedd_edd_display_cart_icon() {
  * Display cart options
  *
  * @since 1.0.0
+ * @see themedd_customize_cart_options()
  *
- * @return boolean true if cart is enabled, false otherwise
+ * @return string $cart_option The cart option to display. item_quantity | cart_total | all | none
  */
 function themedd_edd_display_cart_options() {
 	$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
-	$cart_options = isset( $edd_theme_options['cart_options'] ) ? $edd_theme_options['cart_options'] : 'all';
+	$cart_option       = isset( $edd_theme_options['cart_options'] ) ? $edd_theme_options['cart_options'] : 'all';
 
-	return apply_filters( 'themedd_edd_display_cart_options', $cart_options );
+	return apply_filters( 'themedd_edd_display_cart_options', $cart_option );
 }
