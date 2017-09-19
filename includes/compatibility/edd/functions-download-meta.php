@@ -180,14 +180,6 @@ function themedd_edd_display_download_meta( $args = array() ) {
 	// Classes.
 	$classes = array( 'eddDownloadMeta' );
 
-	if ( 'after' === $args['position'] ) {
-		$classes[] = 'eddDownloadMeta-after';
-	} elseif ( 'after_title' === $args['position'] ) {
-		$classes[] = 'eddDownloadMeta-afterTitle';
-	} elseif ( 'before_title' === $args['position'] ) {
-		$classes[] = 'eddDownloadMeta-beforeTitle';
-	}
-
 	$echo = true;
 
 	// Don't output download meta if everything has been turned off.
