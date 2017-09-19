@@ -21,7 +21,7 @@ class Themedd_EDD_Points_And_Rewards {
 		remove_action( 'edd_before_download_content', array( $edd_points_render, 'edd_points_message_content' ) );
 
 		// Points message.
-		add_action( 'themedd_edd_download_info_price_after', array( $edd_points_render, 'edd_points_message_content' ), 10, 1 );
+		add_action( 'themedd_edd_download_info', array( $edd_points_render, 'edd_points_message_content' ), 10, 1 );
 
 		// Remove the "Complete your order and earn 20 Points for a discount on a future purchase." and re-hook it with new callback.
 		remove_action( 'edd_before_purchase_form', array( $edd_points_render, 'edd_points_checkout_message_content' ) );
