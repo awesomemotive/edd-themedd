@@ -18,3 +18,25 @@
 	font-size: 0.875rem;
 	padding: 0.25rem 0.75rem;
 }
+
+// EDD - Coming Soon
+.edd-cs-voted {
+	margin-bottom: 0;
+}
+
+.edd-cs-voted,
+.edd-cs-vote-description {
+	font-style: italic;
+	font-size: 0.875rem;
+}
+
+.edd-cs-vote-description {
+	margin-bottom: 1rem;
+}
+
+.media-mixin(@break) when (@break = @screen-md-min) {
+    .edd-coming-soon-vote-btn {
+        width: 100%;
+        display: block;
+    }
+}
