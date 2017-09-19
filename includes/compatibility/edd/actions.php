@@ -1,14 +1,58 @@
 <?php
 
 /**
- * Add the themedd_edd_download_info() function to the download details widget
+ * Adds themedd_edd_price() and themedd_edd_purchase_link() to the download details widget.
  *
  * @since 1.0.0
  */
 function themedd_edd_download_details_widget( $instance, $download_id ) {
-	echo themedd_edd_download_info();
+
+	do_action( 'themedd_edd_download_info', $download_id );
+
 }
 add_action( 'edd_product_details_widget_before_purchase_button', 'themedd_edd_download_details_widget', 10, 2 );
+
+/**
+ * Download price
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_price( $download_id ) {
+
+	// Return early if price enhancements has been disabled.
+	if ( false === themedd_edd_price_enhancements() ) {
+		return;
+	}
+
+	if ( edd_is_free_download( $download_id ) ) {
+		$price = '<span class="edd_price">' . __( 'Free', 'themedd' ) . '</span>';
+	} elseif ( edd_has_variable_prices( $download_id ) ) {
+		$price = '<div itemprop="price" class="edd_price">' . __( 'From', 'themedd' ) . '&nbsp;' . edd_currency_filter( edd_format_amount( edd_get_lowest_price_option( $download_id ) ) ) . '</div>';
+		
+	} else {
+		$price = edd_price( $download_id, false );
+	}
+
+	echo $price;
+
+}
+add_action( 'themedd_edd_download_info', 'themedd_edd_price', 10, 1 );
+
+/**
+ * Download purchase link
+ *
+ * @since 1.0.0
+ */
+function themedd_edd_purchase_link( $download_id ) {
+
+	if ( get_post_meta( $download_id, '_edd_hide_purchase_link', true ) ) {
+		return; // Do not show if auto output is disabled
+	}
+
+	echo edd_get_purchase_link();
+
+}
+add_action( 'themedd_edd_download_info', 'themedd_edd_purchase_link', 10, 1 );
 
 /**
  * Remove and deactivate all styling included with EDD

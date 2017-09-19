@@ -20,13 +20,13 @@ $download_options = themedd_edd_download_details_options();
 
 		<?php if ( ! dynamic_sidebar( 'sidebar-download' ) ) : ?>
 
-		<?php
-		/**
-		 * The price and purchase button
-		 */
-		?>
 		<section class="widget widget_edd_product_details">
-		<?php echo themedd_edd_download_info(); ?>
+			<?php
+			/**
+			 * The price and purchase button are loaded onto this hook.
+			 * This hook is also added to EDD's Download Details widget.
+			 */
+			do_action( 'themedd_edd_download_info', $post->ID ); ?>
 		</section>
 
 		<?php do_action( 'themedd_edd_sidebar_download_product_details_after' ); ?>
