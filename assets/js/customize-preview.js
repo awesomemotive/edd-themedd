@@ -189,6 +189,16 @@
 
 	});
 
+	// Footer site info color.
+ 	wp.customize('colors[footer_site_info_color]', function( value ) {
+
+ 		value.bind(function( to ) {
+ 			jQuery('.site-info')
+ 				.css('color', to ? to : defaults.footer_site_info_color );
+ 		});
+
+ 	});
+
 	/**
 	 * Buttons
 	 */

@@ -105,7 +105,8 @@ function themedd_customize_color_defaults() {
 		'footer_text_color'                         => $medium_grey,
 		'footer_link_color'                         => $medium_grey,
 		'footer_heading_color'                      => $dark_grey,
-		'footer_link_hover_color'                   => $dark_grey
+		'footer_link_hover_color'                   => $dark_grey,
+		'footer_site_info_color'                    => $medium_grey
 	);
 
 	return apply_filters( 'themedd_customize_color_defaults', $defaults );
@@ -969,6 +970,24 @@ function themedd_customize_register( $wp_customize ) {
 		)
 	));
 
+	// Footer site info color.
+	$wp_customize->add_setting( 'colors[footer_site_info_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['footer_site_info_color']
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'footer_site_info_color',
+		array(
+			'label'       => __( 'Footer Site Info Color', 'themedd' ),
+			'description' => __( 'The color of footer site info.', 'themedd' ),
+			'section'     => 'footer_colors',
+			'settings'    => 'colors[footer_site_info_color]',
+		)
+	));
+
 	/**
 	 * Show EDD related options
 	 */
@@ -1217,6 +1236,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			// Footer heading color.
 			if ( isset( $colors['footer_heading_color'] ) ) {
 				echo '.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6 { color:' . $colors['footer_heading_color'] . '; }';
+			}
+
+			// Footer site info color.
+			if ( isset( $colors['footer_site_info_color'] ) ) {
+				echo '.site-info { color:' . $colors['footer_site_info_color'] . '; }';
 			}
 
 			?>
