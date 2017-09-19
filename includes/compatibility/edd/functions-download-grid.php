@@ -179,13 +179,15 @@ function themedd_edd_show_download_footer( $atts ) {
  */
 function themedd_edd_show_price( $atts ) {
 
+	$return = false;
+
 	$download_meta = themedd_edd_download_meta_options();
 
 	// [downloads] shortcode is being used
 	if ( ! empty( $atts ) ) {
 
 		if ( isset( $atts['price'] ) && 'yes' === $atts['price'] && true !== $download_meta['price'] ) {
-			return true;
+			$return = true;
 		}
 
 	} else {
@@ -194,12 +196,12 @@ function themedd_edd_show_price( $atts ) {
 
 		// The download grid is being shown without using the [downloads] shortcode
 		if ( true === $options['price'] && true !== $download_meta['price'] ) {
-			return true;
+			$return = true;
 		}
 
 	}
 
-	return false;
+	return apply_filters( 'themedd_edd_show_price', $return );
 
 }
 
@@ -210,11 +212,13 @@ function themedd_edd_show_price( $atts ) {
  */
 function themedd_edd_show_buy_button( $atts ) {
 
+	$return = false;
+
 	// [downloads] shortcode is being used
 	if ( ! empty( $atts ) ) {
 
 		if ( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) {
-			return true;
+			$return = true;
 		}
 
 	} else {
@@ -224,12 +228,12 @@ function themedd_edd_show_buy_button( $atts ) {
 		$options = themedd_edd_download_grid_options();
 
 		if ( true === $options['buy_button'] ) {
-			return true;
+			$return = true;
 		}
 
 	}
 
-	return false;
+	return apply_filters( 'themedd_edd_show_buy_button', $return );
 
 }
 
