@@ -21,14 +21,14 @@
 
 .media-mixin(@break) when (@break = @screen-md-min) {
 
-	// Make purchase buttons 100% width on single download page only.
-	.single-download a.edd-add-to-cart.edd-has-js,
-	.single-download .edd_go_to_checkout {
-		width: 100%;
-	}
-
-	// Make the purchase button 100% width on single download pages when there is no JS.
-	.single-download .edd_purchase_submit_wrapper .edd-add-to-cart.edd-no-js {
+	// Make any buttons in the product details widget 100% wide on the single download page.
+	// This includes:
+	//
+	// 1. The purchase button
+	// 2. The go to checkout button
+	// 3. The purchase button when JS is disabled
+	// 4. Other buttons such as the voting button from EDD Coming Soon
+	.single-download .widget_edd_product_details .button {
 		width: 100%;
 	}
 

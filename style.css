@@ -4425,11 +4425,7 @@ a.delete {
     height: 40000px;
     z-index: 1;
   }
-  .single-download a.edd-add-to-cart.edd-has-js,
-  .single-download .edd_go_to_checkout {
-    width: 100%;
-  }
-  .single-download .edd_purchase_submit_wrapper .edd-add-to-cart.edd-no-js {
+  .single-download .widget_edd_product_details .button {
     width: 100%;
   }
   .edd_download_columns_4 .edd_download {
@@ -4443,10 +4439,6 @@ a.delete {
   }
   #edd_purchase_form_wrap select {
     width: 60%;
-  }
-  .single-download .edd-coming-soon-vote-btn {
-    width: 100%;
-    display: block;
   }
 }
 @media only screen and (min-width: 1220px) {
