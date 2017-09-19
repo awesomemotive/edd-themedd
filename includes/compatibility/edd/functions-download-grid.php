@@ -126,6 +126,8 @@ function themedd_edd_download_footer( $atts = array() ) {
 	<div class="downloadFooter">
 		<?php
 
+		do_action( 'themedd_edd_download_footer_start' );
+
 		/**
 		 * Show the price.
 		 */
