@@ -152,6 +152,41 @@ function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
 
 /**
+ * Filter the download class.
+ *
+ * @since 1.0.2
+ *
+ * @return string $class The classes of the download
+ */
+function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
+
+	// Explode the string so we can work with it easier.
+	$classes = explode( ' ', $class );
+
+	// Add classes based on the position of the download meta.
+	switch ( themedd_edd_download_meta_position() ) {
+
+		case 'before_title':
+			$classes[] = 'eddDownloadMeta-beforeTitle';
+			break;
+
+		case 'after_title':
+			$classes[] = 'eddDownloadMeta-afterTitle';
+			break;
+
+		case 'after':
+			$classes[] = 'eddDownloadMeta-after';
+			break;
+					
+	}
+
+	// Implode the $classes array and return it as a string.
+	return implode( ' ', array_filter( $classes ) );
+
+}
+add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
+
+/**
  * Filter the page header classes for the single download page.
  *
  * @since 1.0.0
