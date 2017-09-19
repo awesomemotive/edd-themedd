@@ -4444,7 +4444,7 @@ a.delete {
   #edd_purchase_form_wrap select {
     width: 60%;
   }
-  .edd-coming-soon-vote-btn {
+  .single-download .edd-coming-soon-vote-btn {
     width: 100%;
     display: block;
   }
