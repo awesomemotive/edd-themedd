@@ -2513,9 +2513,7 @@ a.edd-add-to-cart .edd-add-to-cart-label,
 }
 h3.edd_download_title {
   margin-top: 0;
-}
-.has-download-meta .edd_download_title {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .downloadFooter {
   margin: auto 0 0 0;
@@ -2561,12 +2559,15 @@ h3.edd_download_title {
 .eddDownloadMeta-authorAvatar + .eddDownloadMeta-authorName {
   margin-left: 0.5rem;
 }
-.eddDownloadMeta-beforeTitle,
-.eddDownloadMeta-afterTitle {
-  margin-bottom: 1.5rem;
+.eddDownloadMeta-beforeTitle .eddDownloadMeta,
+.eddDownloadMeta-afterTitle .eddDownloadMeta {
+  margin-bottom: 1rem;
 }
-.eddDownloadMeta-after {
+.eddDownloadMeta-after .eddDownloadMeta {
   margin-top: 2rem;
+}
+.eddDownloadMeta-afterTitle .edd_download_title {
+  margin-bottom: 0.5rem;
 }
 .edd_download_title a {
   color: #222;

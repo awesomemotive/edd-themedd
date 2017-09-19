@@ -33,18 +33,10 @@
 	}
 }
 
-// No top margin for download titles
+// Margin for download titles
 h3.edd_download_title {
 	margin-top: 0;
-}
-
-// When FES is active or the specific filter is enabled, this class will be applied to the download grid to help style the download meta.
-.has-download-meta {
-
-	.edd_download_title {
-		margin-bottom: 0.5rem;
-	}
-
+	margin-bottom: 1rem;
 }
 
 // Download footer
@@ -89,14 +81,19 @@ h3.edd_download_title {
 }
 
 // Download meta shown before or after the title.
-.eddDownloadMeta-beforeTitle,
-.eddDownloadMeta-afterTitle {
-	margin-bottom: 1.5rem;
+.eddDownloadMeta-beforeTitle .eddDownloadMeta,
+.eddDownloadMeta-afterTitle .eddDownloadMeta {
+	margin-bottom: 1rem;
 }
 
 // Download meta shown at the very bottom of the download.
-.eddDownloadMeta-after {
+.eddDownloadMeta-after .eddDownloadMeta {
 	margin-top: 2rem;
+}
+
+// Adjust the bottom margin of the download title when the download meta is positioned after the title.
+.eddDownloadMeta-afterTitle .edd_download_title {
+	margin-bottom: 0.5rem;
 }
 
 .edd_download_title a {
