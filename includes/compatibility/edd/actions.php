@@ -118,7 +118,7 @@ endif;
 add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
 
 /**
- * Template redirect actions
+ * Distraction Free Checkout
  *
  * @since  1.0.0
  *
