@@ -520,7 +520,7 @@ button,
   font-size: 1.4rem;
   padding: 1rem 2.25rem;
 }
-.button-full-width {
+.button-block {
   width: 100%;
   display: block;
 }
@@ -2509,6 +2509,7 @@ a.edd-add-to-cart .edd-add-to-cart-label,
   overflow: hidden;
   width: 100%;
   margin-bottom: 4rem;
+  font-size: 1rem;
 }
 h3.edd_download_title {
   margin-top: 0;
@@ -2590,7 +2591,6 @@ h3.edd_download_title {
   padding: 0.25rem 0;
   line-height: 1.62;
   cursor: pointer;
-  font-size: 1rem;
   margin-bottom: 0;
 }
 .edd_price_options li label {
@@ -2644,7 +2644,7 @@ span.edd_price {
 .widget_edd_product_details .edd_download_purchase_form:first-child {
   margin-top: 2rem;
 }
-.edd_download_purchase_form + .edd-meta {
+.widget_edd_product_details .edd-meta {
   margin: 1rem 0 0 0;
   font-size: 0.875rem;
 }
@@ -3258,6 +3258,17 @@ a.delete {
 .edd-select ~ .button {
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
+}
+.edd-cs-voted {
+  margin-bottom: 0;
+}
+.edd-cs-voted,
+.edd-cs-vote-description {
+  font-style: italic;
+  font-size: 0.875rem;
+}
+.edd-cs-vote-description {
+  margin-bottom: 1rem;
 }
 @media only screen and (max-width: 991px) {
   .account-nav ul {
@@ -4432,6 +4443,10 @@ a.delete {
   }
   #edd_purchase_form_wrap select {
     width: 60%;
+  }
+  .edd-coming-soon-vote-btn {
+    width: 100%;
+    display: block;
   }
 }
 @media only screen and (min-width: 1220px) {
