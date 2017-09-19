@@ -24,9 +24,6 @@ class Themedd_EDD_Coming_Soon {
 		// Removing the "Coming Soon" notice (or custom text) from the end of the single download.
 		remove_action( 'edd_after_download_content', array( edd_coming_soon(), 'coming_soon_notice' ), 10, 1 );
 
-		// Filter the vote button classes.
-		add_filter( 'edd_coming_soon_vote_btn_classes', array( $this, 'vote_button_classes' ) );
-
 		// Remove the icon class.
 		add_filter( 'edd_cs_btn_icon', array( $this, 'remove_icon' ) );
 
@@ -91,24 +88,6 @@ class Themedd_EDD_Coming_Soon {
 		return $html;
 	}
 
-	/**
-	 * Filter the vote button classes
-	 *
-	 * @access  public
-	 * @since   1.0.2
-	 */
-	 public function vote_button_classes( $classes ) {
-		
-		if ( ! is_singular( 'download' ) ) {
-			return $classes;
-		}
-
-		$classes[] = 'button-block-md';
-		
-		return $classes;
-
-	}
-	
 	/**
 	 * Remove the icon HTML from inside the button
 	 *
