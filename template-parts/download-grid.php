@@ -4,7 +4,8 @@ $download_meta = themedd_edd_download_meta_options();
 $options       = themedd_edd_download_grid_options();
 ?>
 
-<div <?php echo $schema; ?>class="edd_download mb-xs-4 mb-sm-0" id="edd_download_<?php echo get_the_ID(); ?>">
+<div <?php echo $schema; ?>class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), '', '' ) ); ?>" id="edd_download_<?php the_ID(); ?>">
+
 	<div class="edd_download_inner">
 
 		<?php
