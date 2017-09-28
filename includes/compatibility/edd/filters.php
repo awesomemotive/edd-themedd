@@ -93,22 +93,12 @@ add_filter( 'edd_checkout_image_size', 'themedd_edd_checkout_image_size' );
  * @since 1.0.0
  */
 function themedd_edd_checkout_button_purchase() {
-
-	$label = edd_get_option( 'checkout_label', '' );
-
-	if ( edd_get_cart_total() ) {
-		$complete_purchase = ! empty( $label ) ? $label : __( 'Purchase', 'easy-digital-downloads' );
-	} else {
-		$complete_purchase = ! empty( $label ) ? $label : __( 'Free Download', 'easy-digital-downloads' );
-	}
-
+	$label = edd_get_checkout_button_purchase_label();
 	ob_start();
 ?>
-
 	<div id="edd-purchase-button-wrap">
-		<input type="submit" class="edd-submit" id="edd-purchase-button" name="edd-purchase" value="<?php echo $complete_purchase; ?>" />
+		<input type="submit" class="edd-submit button button-large button-block" id="edd-purchase-button" name="edd-purchase" value="<?php echo $label; ?>" />
 	</div>
-
 <?php
 	return ob_get_clean();
 }
