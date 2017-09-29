@@ -801,6 +801,22 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	/**
+	 * Enable search in header
+	 */
+	 $wp_customize->add_setting( 'theme_options[header_search]', array(
+		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	));
+
+	$wp_customize->add_control( 'theme_options[header_search]', array(
+		'label'       => __( 'Header Search Box', 'themedd' ),
+		'description' => __( 'Display a search box in the header.', 'themedd' ),
+		'settings'    => 'theme_options[header_search]',
+		'section'     => 'theme_options',
+		'type'        => 'checkbox',
+
+	));	
+
+	/**
 	 * Mobile Menu
 	 */
 
