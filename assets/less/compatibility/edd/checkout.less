@@ -93,16 +93,23 @@ span.padlock {
     margin-bottom: 1rem;
 }
 
-// discount
-#edd_checkout_form_wrap .edd-apply-discount {
-	vertical-align: top;
-}
-
 .media-mixin(@break) when (@break = @screen-sm-min) {
-	#edd-discount {
-		width: 70%;
-		margin-bottom: 0;
+
+	// New wrapper as of EDD 2.8.7
+	.edd-discount-code-field-wrap {
+		display: flex;
+
+		#edd-discount { 
+			margin-bottom: 0;
+		}
+
+		.edd-apply-discount {
+			width: auto;
+			margin-left: 0.5rem;
+		}
+
 	}
+
 }
 
 #edd-discount-code-wrap,
@@ -167,8 +174,20 @@ span.padlock {
     margin-bottom: 2rem;
 }
 
+// Terms of use - checkbox.
 #edd_agree_to_terms {
-    margin-right: 0.5rem;
+	margin-top: 0.375rem; // 6px
+	margin-right: 0.5rem;
+	align-self: flex-start;
+}
+
+// Terms of use - text.
+#edd_show_terms + .edd-terms-agreement {
+	margin-top: 0.5rem;
+}
+
+.edd-terms-agreement {
+	display: flex;
 }
 
 // Simple shipping
@@ -219,11 +238,6 @@ span.padlock {
 	}
 }
 
-// terms
-#edd_show_terms + .edd-terms-agreement {
-	margin-top: 0.5rem;
-}
-
 // submit button wrap
 #edd_profile_submit_wrap {
 	margin-bottom: 0;
@@ -255,17 +269,16 @@ span.padlock {
 
 #edd_final_total_wrap {
 	text-align: center;
-	font-size: 1.5rem;
+	margin-bottom: 2rem;
 }
 
 #edd-purchase-button-wrap {
 	position: relative;
 }
 
+#edd_final_total_wrap,
 #edd-purchase-button {
-	width: 100%;
 	font-size: 1.5rem;
-	padding: 1rem;
 }
 
 .edd_cart_header_row,
@@ -322,8 +335,7 @@ span.padlock {
 	vertical-align: middle;
 }
 
-label[for=edds-confirm-update-default],
-label[for=edd_agree_to_terms] {
+label[for=edds-confirm-update-default] {
     width: 90%;
     vertical-align: top;
 }

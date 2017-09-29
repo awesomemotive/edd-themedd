@@ -1,7 +1,6 @@
-.button,
 button,
-input[type="submit"],
-#submit {
+#submit,
+.button, {
     background: @button-background-color;
     color: #fff;
     cursor: pointer;
@@ -13,14 +12,12 @@ input[type="submit"],
     border: @button-border;
     user-select: none;
     outline: none;
-	width: auto; // Required for buttons on EDD's download grid.
 	line-height: 1.5rem;
 }
 
-.button:hover,
 button:hover,
-input[type=submit]:hover,
-#submit:hover {
+#submit:hover,
+.button:hover, {
     text-decoration: none;
     color: #fff;
     background: @button-background-hover-color;
@@ -28,11 +25,10 @@ input[type=submit]:hover,
 }
 
 #submit,
-input[type=submit],
 button,
 .button {
     font-size: 1.1rem;
-    padding: @button-padding; // 0.875rem 1.5rem;
+    padding: @button-padding; // 0.75rem 1.5rem;
 }
 
 // Small button.
@@ -43,8 +39,8 @@ button,
 
 // Large button.
 .button-large {
-	font-size: 1.4rem;
-	padding: 1rem 2.25rem;
+	font-size: 1.25rem;
+	padding: 1.25rem 2.5rem;
 }
 
 // Full width button.
