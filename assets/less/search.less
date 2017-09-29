@@ -1,22 +1,76 @@
+// The search field that appears in the mobile menu
+#mobile-menu .search-form {
+    padding: 1rem;
+}
+
 .search-form {
-    display: flex;
-	flex-wrap: wrap;
-    border-right: none;
+   display: flex;
 }
 
-.search-form label {
-    flex: 1 0 8em;
-    margin-bottom: 0;
+// Search icon color
+.search-submit svg * {
+    stroke: @search-icon-color;
 }
 
-.search-submit {
-    flex: 0 0 auto;
+// Search form.
+.search-form {
+
+    label {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .search-field {
+        border-right: none;
+        font-size: 1rem; // 16px
+    }
+
+    .search-field,
+    .search-submit {
+        border: none;
+        background: @light-grey;
+    }
+
+    .search-submit {
+        padding: 0.8125rem;
+        
+        svg {
+            vertical-align: inherit;
+        }
+
+    }
+
 }
 
-input[type="search"] {
-    width: 100%;
+.site-header-menu {
+    .search-form {
+
+        .search-field,
+        .search-submit {
+            padding: 0.5rem;
+        }
+
+    }
 }
 
-input.search-submit {
-	width: auto;
+.site-header-menu .primary-menu .search-form {
+    align-items: center;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+
+    // Search forms in a menu.
+    .site-header-menu {
+
+        .search-form {
+            margin-left: 1rem;
+            width: 13rem;
+        }
+
+        .search-field {
+            font-size: 0.875rem;
+        }
+
+    }
+
 }
