@@ -62,11 +62,12 @@ add_action( 'after_setup_theme', 'themedd_custom_header' );
  */
 function themedd_customize_color_defaults() {
 
-	$dark_grey   = '#222222';
-	$medium_grey = '#a2a2a2';
-	$white       = '#ffffff';
-	$body        = '#696969';
-	$primary     = '#448fd5';
+	$light_grey   = '#f5f5f5';
+	$dark_grey    = '#222222';
+	$medium_grey  = '#a2a2a2';
+	$white        = '#ffffff';
+	$body         = '#696969';
+	$primary      = '#448fd5';
 	$button_hover = '#2f83d0';
 	$link_hover   = '#215b92';
 
@@ -74,6 +75,9 @@ function themedd_customize_color_defaults() {
 		'background_color'                          => $white,
 		'header_background_color'                   => $white,
 		'header_textcolor'                          => $dark_grey,
+		'header_search_box_background_color'        => $light_grey,
+		'header_search_box_text_color'              => $body,
+		'header_search_box_icon_color'              => $body,
 		'site_title_color'                          => $dark_grey,
 		'menu_primary_sub_background_hover_color'   => '',
 		'menu_primary_sub_background_color'         => $dark_grey,
@@ -101,6 +105,9 @@ function themedd_customize_color_defaults() {
 		'menu_mobile_background_color'              => '',
 		'menu_mobile_link_color'                    => $dark_grey,
 		'menu_mobile_button_text_color'             => $white,
+		'menu_mobile_search_box_background_color'        => $light_grey,
+		'menu_mobile_search_box_text_color'              => $body,
+		'menu_mobile_search_box_icon_color'              => $body,
 		'footer_background_color'                   => $white,
 		'footer_text_color'                         => $medium_grey,
 		'footer_link_color'                         => $medium_grey,
@@ -1046,6 +1053,114 @@ function themedd_customize_register( $wp_customize ) {
 		));
 
 	}
+	
+	// Header Search Box Background Color
+	$wp_customize->add_setting( 'colors[header_search_box_background_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['header_search_box_background_color']
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'header_search_box_background_color',
+		array(
+			'label'       => __( 'Header Search Box Background Color', 'themedd' ),
+			'description' => __( 'The background color of the search box in the header.', 'themedd' ),
+			'settings'    => 'colors[header_search_box_background_color]',
+			'section'     => 'header_colors',
+		)
+	));
+
+	// Header Search Box Text Color
+	$wp_customize->add_setting( 'colors[header_search_box_text_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['header_search_box_text_color']
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'header_search_box_text_color',
+		array(
+			'label'       => __( 'Header Search Box Text Color', 'themedd' ),
+			'description' => __( 'The color of the search box text in the header.', 'themedd' ),
+			'settings'    => 'colors[header_search_box_text_color]',
+			'section'     => 'header_colors',
+		)
+	));
+
+	// Header Search Box icon Color
+	$wp_customize->add_setting( 'colors[header_search_box_icon_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['header_search_box_icon_color']
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'header_search_box_icon_color',
+		array(
+			'label'       => __( 'Header Search Box Icon Color', 'themedd' ),
+			'description' => __( 'The color of the search box icon in the header.', 'themedd' ),
+			'settings'    => 'colors[header_search_box_icon_color]',
+			'section'     => 'header_colors',
+		)
+	));
+
+	// Mobile Search Box Background Color
+	$wp_customize->add_setting( 'colors[menu_mobile_search_box_background_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_mobile_search_box_background_color']
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'menu_mobile_search_box_background_color',
+		array(
+			'label'       => __( 'Mobile Search Box Background Color', 'themedd' ),
+			'description' => __( 'The background color of the search box in the mobile menu.', 'themedd' ),
+			'settings'    => 'colors[menu_mobile_search_box_background_color]',
+			'section'     => 'mobile_device_colors',
+		)
+	));
+
+	// Mobile Search Box Text Color
+	$wp_customize->add_setting( 'colors[menu_mobile_search_box_text_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_mobile_search_box_text_color']
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'menu_mobile_search_box_text_color',
+		array(
+			'label'       => __( 'Mobile Search Box Text Color', 'themedd' ),
+			'description' => __( 'The color of the search box in the mobile menu.', 'themedd' ),
+			'settings'    => 'colors[menu_mobile_search_box_text_color]',
+			'section'     => 'mobile_device_colors',
+		)
+	));
+
+	// Mobile Search Box icon Color
+	$wp_customize->add_setting( 'colors[menu_mobile_search_box_icon_color]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+		'default'           => $defaults['menu_mobile_search_box_icon_color']
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'menu_mobile_search_box_icon_color',
+		array(
+			'label'       => __( 'Mobile Search Box Icon Color', 'themedd' ),
+			'description' => __( 'The color of the search box icon in the mobile menu.', 'themedd' ),
+			'settings'    => 'colors[menu_mobile_search_box_icon_color]',
+			'section'     => 'mobile_device_colors',
+		)
+	));
 
 }
 add_action( 'customize_register', 'themedd_customize_register' );
@@ -1184,7 +1299,6 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.navCart-icon { fill:' . $colors['cart_icon_color'] . ';}';
 			}
 
-
 			// Button background color.
 			if ( isset( $colors['button_background_color'] ) ) {
 				echo '.button, button, input[type="submit"], #submit { background:' . $colors['button_background_color'] . '; border-color: ' . $colors['button_background_color'] . '; }';
@@ -1199,6 +1313,25 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			if ( isset( $colors['button_text_color'] ) ) {
 				echo '.button, button, input[type="submit"], #submit { color:' . $colors['button_text_color'] . '; }';
 				echo '.button:hover, button:hover, input[type="submit"]:hover, #submit:hover { color:' . $colors['button_text_color'] . '; }';
+			}
+
+			/**
+			 * Header search box
+			 */
+
+			 // Header search box background color. 
+			if ( isset( $colors['header_search_box_background_color'] ) ) {
+				echo '.site-header-menu .search-form .search-field, .site-header-menu .search-form .search-submit { background:' . $colors['header_search_box_background_color'] . '; }';
+			}
+			
+			// Header search box text color. 
+			if ( isset( $colors['header_search_box_text_color'] ) ) {
+				echo '.site-header-menu .search-form .search-field { color:' . $colors['header_search_box_text_color'] . '; }';
+			}
+
+			// Header search box icon color. 
+			if ( isset( $colors['header_search_box_icon_color'] ) ) {
+				echo '.site-header-menu .search-form .search-submit svg * { stroke:' . $colors['header_search_box_icon_color'] . '; }';
 			}
 
 			/**
@@ -1223,6 +1356,21 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			// Mobile menu link color.
 			if ( isset( $colors['menu_mobile_link_color'] ) ) {
 				echo '#mobile-menu a, #mobile-menu .current-menu-item > a, .dropdown-toggle, .dropdown-toggle:hover  { color:' . $colors['menu_mobile_link_color'] . '; }';
+			}
+
+			// Mobile search box background color. 
+			if ( isset( $colors['menu_mobile_search_box_background_color'] ) ) {
+				echo '#mobile-menu .search-form .search-field, #mobile-menu .search-form .search-submit { background:' . $colors['menu_mobile_search_box_background_color'] . '; }';
+			}
+			
+			// Mobile search box text color. 
+			if ( isset( $colors['menu_mobile_search_box_text_color'] ) ) {
+				echo '#mobile-menu .search-form .search-field { color:' . $colors['menu_mobile_search_box_text_color'] . '; }';
+			}
+
+			// Mobile search box icon color. 
+			if ( isset( $colors['menu_mobile_search_box_icon_color'] ) ) {
+				echo '#mobile-menu .search-form .search-submit svg * { stroke:' . $colors['menu_mobile_search_box_icon_color'] . '; }';
 			}
 
 			/**
