@@ -59,14 +59,12 @@ function themedd_edd_mobile_menu_items( $items, $args ) {
 
 		if (
 			'primary_menu' !== themedd_edd_cart_position() || // Append the nav cart to the mobile menu if the nav cart has not been moved to the primary navigation (from the default location of the secondary navigation)
-			( 'primary_menu' === themedd_edd_cart_position() && $has_mobile_menu && $menu_locations['mobile'] !== $menu_locations['primary'] ) // Or, append the nav cart to the mobile menu if the nav cart has been moved from the secondary naivigation, there's a menu assigned to the mobile menu location and the mobile menu has been assigned to the mobile menu location.
+			( 'primary_menu' === themedd_edd_cart_position() && $has_mobile_menu && $menu_locations['mobile'] !== $menu_locations['primary'] ) // Or, append the nav cart to the mobile menu if the nav cart has been moved from the secondary navigation, there's a menu assigned to the mobile menu location and the mobile menu has been assigned to the mobile menu location.
 		) {
 			return $mobile_cart_link . $items;
 		}
 
 	}
-
-	$items = apply_filters( 'themedd_wp_nav_menu_items', $items, $args );
 
 	return $items;
 
