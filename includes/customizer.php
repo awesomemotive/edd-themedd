@@ -1021,7 +1021,7 @@ function themedd_customize_register( $wp_customize ) {
 			'mobile_cart_icon_color',
 			array(
 				'label'       => __( 'Mobile Menu Cart Icon Color', 'themedd' ),
-				'description' => __( 'The color of the cart icon.', 'themedd' ),
+				'description' => __( 'The color of the cart icon in the mobile menu.', 'themedd' ),
 				'settings'    => 'colors[mobile_cart_icon_color]',
 				'section'     => 'mobile_device_colors',
 			)
@@ -1039,7 +1039,7 @@ function themedd_customize_register( $wp_customize ) {
 			'cart_icon_color',
 			array(
 				'label'       => __( 'Cart Icon Color', 'themedd' ),
-				'description' => __( 'The color of the cart icon in the mobile menu.', 'themedd' ),
+				'description' => __( 'The color of the cart icon.', 'themedd' ),
 				'settings'    => 'colors[cart_icon_color]',
 				'section'     => 'header_colors',
 			)
