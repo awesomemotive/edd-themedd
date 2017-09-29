@@ -983,6 +983,9 @@ p.edd_error {
 #edd-license-key-container-wrap {
   margin-bottom: 1rem;
 }
+#edd_sl_show_renewal_form_wrap + #edd-license-key-container-wrap {
+  margin-top: 0.5rem;
+}
 #edd_sl_license_add_site_form span {
   margin-bottom: 0.5rem;
   display: inline-block;
