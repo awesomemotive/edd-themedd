@@ -5,12 +5,18 @@
 	padding: 0.5rem 1rem;
 }
 
+// This is for when the secondary navigation might wrap below the site title
+.secondary-navigation ul {
+	margin-left: -0.5rem;
+}
+
 // show secondary navigation
 .media-mixin(@break) when (@break = @desktop-nav) {
 
     #site-header-secondary-menu {
 		display: flex;
 		font-size: @nav-secondary-font-size;
+		align-items: center;
 
 		a {
 			color: @nav-secondary-color;

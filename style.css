@@ -867,9 +867,10 @@ span.card-type.amex {
   margin-bottom: 0;
 }
 .navCart {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .navCart-icon {
   position: relative;
@@ -2112,34 +2113,46 @@ a:hover {
   color: #215b92;
 }
 /* Search */
+#mobile-menu .search-form {
+  padding: 1rem;
+}
 .search-form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  border-right: none;
+}
+.search-submit svg * {
+  stroke: #696969;
 }
 .search-form label {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 8em;
-      -ms-flex: 1 0 8em;
-          flex: 1 0 8em;
   margin-bottom: 0;
-}
-.search-submit {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-}
-input[type="search"] {
   width: 100%;
 }
-input.search-submit {
-  width: auto;
+.search-form .search-field {
+  border-right: none;
+  font-size: 1rem;
+}
+.search-form .search-field,
+.search-form .search-submit {
+  border: none;
+  background: #f5f5f5;
+}
+.search-form .search-submit {
+  padding: 0.8125rem;
+}
+.search-form .search-submit svg {
+  vertical-align: inherit;
+}
+.site-header-menu .search-form .search-field,
+.site-header-menu .search-form .search-submit {
+  padding: 0.5rem;
+}
+.site-header-menu .primary-menu .search-form {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /* Accessibility */
 .says,
@@ -2587,7 +2600,8 @@ textarea:focus {
 }
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+input[type="search"] {
   -webkit-appearance: none;
 }
 input[type="checkbox"],
@@ -3281,6 +3295,9 @@ section.account .wrapper {
   line-height: 32px;
   padding: 0.5rem 1rem;
 }
+.secondary-navigation ul {
+  margin-left: -0.5rem;
+}
 @media only screen and (max-width: 991px) {
   .account-nav ul {
     line-height: 2;
@@ -3456,6 +3473,13 @@ section.account .wrapper {
   }
   .footer-widgets .widget {
     margin-bottom: 4rem;
+  }
+  .site-header-menu .search-form {
+    margin-left: 1rem;
+    width: 13rem;
+  }
+  .site-header-menu .search-field {
+    font-size: 0.875rem;
   }
   .author-info {
     display: -webkit-box;
@@ -3845,19 +3869,9 @@ section.account .wrapper {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     margin-left: -1rem;
-    margin-right: -1rem;
   }
   .site-branding {
     margin-right: 2rem;
-  }
-  .main-navigation ul.menu:after,
-  .secondary-navigation ul.menu:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
   }
   .site-header-menu {
     display: block;
@@ -4018,6 +4032,10 @@ section.account .wrapper {
     display: -ms-flexbox;
     display: flex;
     font-size: 0.875rem;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   #site-header-secondary-menu a {
     color: #696969;
