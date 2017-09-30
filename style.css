@@ -2601,7 +2601,8 @@ textarea:focus {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="search"] {
+input[type="search"],
+input[type="number"] {
   -webkit-appearance: none;
 }
 input[type="checkbox"],
