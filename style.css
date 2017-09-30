@@ -807,6 +807,25 @@ span.card-type.amex {
 #edd_purchase_submit {
   margin-bottom: 0;
 }
+.edd-amazon-profile-wrapper {
+  font-size: 1rem;
+}
+.edd-amazon-profile-name {
+  font-weight: bold;
+}
+.edd-amazon-logout a {
+  cursor: pointer;
+}
+.edd-amazon-fields #edd_cc_address {
+  display: none;
+}
+#edd-amazon-wallet-box,
+#edd-amazon-address-box {
+  height: 228px;
+}
+#edd-amazon-address-box {
+  margin-bottom: 1rem;
+}
 .edd-checkout-distraction-free .site-branding {
   margin-left: auto;
   margin-right: auto;

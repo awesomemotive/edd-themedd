@@ -379,6 +379,36 @@ span.card-type.amex {
 	margin-bottom: 0;
 }
 
+// Amazon Payments
+
+.edd-amazon-profile-wrapper {
+	font-size: 1rem;
+}
+
+.edd-amazon-profile-name {
+	font-weight: bold;
+}
+
+// Make the Amazon logout link look clickable.
+.edd-amazon-logout a {
+	cursor: pointer;
+}
+
+// Hide the div with border since all fields inside are hidden anyway
+.edd-amazon-fields #edd_cc_address {
+	display: none;
+}
+
+// Hard-set the height so the Amazon iframe appears
+#edd-amazon-wallet-box,
+#edd-amazon-address-box {
+	height: 228px;
+}
+
+#edd-amazon-address-box {
+	margin-bottom: 1rem;
+}
+
 // Distraction Free checkout styling.
 
 .edd-checkout-distraction-free {
