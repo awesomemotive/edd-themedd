@@ -224,6 +224,12 @@ function themedd_customize_register( $wp_customize ) {
 			'render_callback'     => 'themedd_customize_partial_cart_options',
 		) );
 
+		$wp_customize->selective_refresh->add_partial( 'theme_options[header_search_box]', array(
+			'selector'            => '.site-header-menu .search-form',
+			'container_inclusive' => true,
+			'render_callback'     => 'themedd_customize_partial_header_search_box',
+		) );
+
 	}
 
 	// Rename the label to "Site Title Color" because this only affects the site title in this theme.
@@ -810,14 +816,16 @@ function themedd_customize_register( $wp_customize ) {
 	/**
 	 * Enable search in header
 	 */
-	 $wp_customize->add_setting( 'theme_options[header_search]', array(
-		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	$wp_customize->add_setting( 'theme_options[header_search_box]', array(
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'themedd_sanitize_checkbox',
+		'default'           => false
 	));
 
-	$wp_customize->add_control( 'theme_options[header_search]', array(
+	$wp_customize->add_control( 'theme_options[header_search_box]', array(
 		'label'       => __( 'Header Search Box', 'themedd' ),
 		'description' => __( 'Display a search box in the header.', 'themedd' ),
-		'settings'    => 'theme_options[header_search]',
+		'settings'    => 'theme_options[header_search_box]',
 		'section'     => 'theme_options',
 		'type'        => 'checkbox',
 
@@ -1449,6 +1457,18 @@ function themedd_customize_partial_blogdescription() {
  */
 function themedd_customize_partial_cart_icon() {
 	echo themedd_edd_cart_icon();
+}
+
+/**
+ * Render the header search box for the selective refresh partial.
+ *
+ * @since 1.0.3
+ * @see themedd_customize_register()
+ *
+ * @return void
+ */
+function themedd_customize_partial_header_search_box() {
+	themedd_search_secondary_menu();
 }
 
 /**

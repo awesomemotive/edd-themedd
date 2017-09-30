@@ -62,7 +62,7 @@ function themedd_search_icon() {
  function themedd_search_in_header_enabled() {
 
 	$theme_options    = get_theme_mod( 'theme_options' );
-	$search_in_header = isset( $theme_options['header_search'] ) && true === $theme_options['header_search'] ? true : false;
+	$search_in_header = isset( $theme_options['header_search_box'] ) && true === $theme_options['header_search_box'] ? true : false;
 
     return $search_in_header;
     
