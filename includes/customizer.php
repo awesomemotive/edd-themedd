@@ -824,7 +824,7 @@ function themedd_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'theme_options[header_search_box]', array(
 		'label'       => __( 'Header Search Box', 'themedd' ),
-		'description' => __( 'Display a search box in the header.', 'themedd' ),
+		'description' => __( 'Display a search box in the header and mobile menu.', 'themedd' ),
 		'settings'    => 'theme_options[header_search_box]',
 		'section'     => 'theme_options',
 		'type'        => 'checkbox',
