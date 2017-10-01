@@ -2,7 +2,6 @@
 /**
  * Template for displaying search forms in Themedd
  */
-
 $unique_id   = esc_attr( uniqid( 'search-form-' ) );
 $search_text = apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) );
 ?>
