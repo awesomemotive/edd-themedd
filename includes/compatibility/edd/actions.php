@@ -137,16 +137,16 @@ function themedd_edd_set_distraction_free_checkout() {
 		add_filter( 'themedd_page_header', '__return_false' );
 
 		// Remove the primary navigation.
-		remove_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
-
-		// Remove the primary navigation if moved to the themedd_site_header_main hook.
 		remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
+
+		// Remove the primary navigation if moved to the themedd_site_header_wrap hook.
+		remove_action( 'themedd_site_header_wrap', 'themedd_primary_menu' );
 
 		// Remove the mobile menu.
 		remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
 
 		// Remove the secondary menu.
-		remove_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
+		remove_action( 'themedd_site_header_wrap', 'themedd_secondary_menu' );
 
 		// Remove the footer.
 		remove_action( 'themedd_footer', 'themedd_footer_widgets' );

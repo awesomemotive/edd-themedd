@@ -1,93 +1,111 @@
 <?php
 
 /**
- * Loads the header onto the themedd_header action hook found in /header.php
- *
- * @since 1.0.0
- */
-function themedd_header() {
-	$site_header_wrap_classes = apply_filters( 'themedd_header_site_header_wrap_classes', array( 'site-header-wrap', 'between-xs' ) );
-	?>
-
-    <?php do_action( 'themedd_masthead_before' ); ?>
-
-    <header id="masthead" class="site-header" role="banner">
-
-        <?php do_action( 'themedd_masthead_start' ); ?>
-
-        <div class="site-header-main">
-			<?php do_action( 'themedd_site_header_main_start' ); ?>
-            <div class="<?php echo implode( ' ', array_filter( $site_header_wrap_classes ) ); ?>">
-                <?php do_action( 'themedd_site_header_main' ); ?>
-            </div>
-            <?php do_action( 'themedd_site_header_main_end' ); ?>
-        </div>
-
-        <?php do_action( 'themedd_masthead_end' ); ?>
-
-    </header>
-
-    <?php do_action( 'themedd_masthead_after' ); ?>
-
-    <?php
-}
-add_action( 'themedd_header', 'themedd_header' );
-
-/**
- * Load the skip link
+ * Load the "skip" link onto the themedd_header hook found in /header.php.
  *
  * @since 1.0.0
  */
 function themedd_skip_link() {
-	?>
+?>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themedd' ); ?></a>
-	<?php
+<?php
 }
-add_action( 'themedd_masthead_before', 'themedd_skip_link' );
+add_action( 'themedd_header', 'themedd_skip_link' );
 
 /**
- * Load the menu toggle
+ * Load the header section onto the themedd_header hook found in /header.php.
+ *
+ * @since 1.0.0
+ */
+function themedd_header() {
+?>
+    <header id="masthead" class="site-header" role="banner">
+        <?php do_action( 'themedd_header_masthead' ); ?>
+    </header>
+<?php
+}
+add_action( 'themedd_header', 'themedd_header' );
+
+/**
+ * Load div.site-header-main inside header#masthead.
+ *
+ * @see themedd_header()
+ * @since 1.0.3
+ */
+function themedd_header_masthead() {
+?>
+    <div class="site-header-main">
+        <?php do_action( 'themedd_site_header_main' ); ?>
+    </div>
+<?php
+}
+add_action( 'themedd_header_masthead', 'themedd_header_masthead' );
+
+/**
+ * Load div.site-header-wrap inside div.site-header-main.
+ *
+ * @since 1.0.3
+ */
+function themedd_site_header_main() {
+    $site_header_wrap_classes = apply_filters( 'themedd_header_site_header_wrap_classes', array( 'site-header-wrap', 'between-xs' ) );
+?>
+    <div class="<?php echo implode( ' ', array_filter( $site_header_wrap_classes ) ); ?>">
+        <?php do_action( 'themedd_site_header_wrap' ); ?>
+    </div>
+<?php
+}
+add_action( 'themedd_site_header_main', 'themedd_site_header_main' );
+
+/**
+ * Load the menu toggle inside div.site-header-wrap.
+ * This displays a "Menu" button, and when clicked changes to "Close Menu"
  *
  * @since 1.0.0
  */
 function themedd_menu_toggle() {
-
     if ( ! ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) ) {
         return;
     }
-
-    ?>
-
-    <?php do_action( 'themedd_menu_toggle_wrap_before' ); ?>
-
+?>
     <div id="menu-toggle-wrap">
-
-        <?php do_action( 'themedd_menu_toggle_before' ); ?>
-
         <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
-
-        <?php do_action( 'themedd_menu_toggle_after' ); ?>
-
     </div>
-
-    <?php do_action( 'themedd_menu_toggle_wrap_after' ); ?>
-
-    <?php
+<?php
 }
-// place the mobile menu toggle into the site header
-add_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
+add_action( 'themedd_site_header_wrap', 'themedd_menu_toggle' );
 
 /**
- * Load our site logo
+ * Loads the mobile menu onto the themedd_site_header_wrap action hook
+ *
+ * @since 1.0.0
+ */
+function themedd_mobile_menu() {
+    
+    // Use the mobile menu if it exists, otherwise fallback to primary.
+    $theme_location = has_nav_menu( 'mobile' ) ? 'mobile' : 'primary';
+
+    wp_nav_menu(
+        apply_filters( 'themedd_mobile_menu', array(
+            'menu_id'         => 'mobile-menu',
+            'menu_class'      => 'menu',
+            'theme_location'  => $theme_location,
+            'container_class' => 'mobile-navigation',
+        ))
+    );
+
+}
+add_action( 'themedd_site_header_wrap', 'themedd_mobile_menu' );
+
+/**
+ * Load the site branding (site title, site description, logo) inside div.site-header-wrap.
  *
  * @since 1.0.0
  */
 function themedd_site_branding() {
 ?>
 
-    <?php do_action( 'themedd_site_branding_before' ); ?>
-
 	<div class="<?php echo implode( ' ', array_filter( apply_filters( 'themedd_site_branding_classes', array( 'site-branding', 'center-xs', 'start-sm' ) ) ) ); ?>">
+        
         <?php do_action( 'themedd_site_branding_start' ); ?>
 
         <?php if ( is_front_page() && is_home() ) : ?>
@@ -121,11 +139,9 @@ function themedd_site_branding() {
 
     </div>
 
-    <?php do_action( 'themedd_site_branding_after' ); ?>
-
 	<?php
 }
-add_action( 'themedd_site_header_main', 'themedd_site_branding' );
+add_action( 'themedd_site_header_wrap', 'themedd_site_branding' );
 
 /**
  * Loads the site navigation onto the themedd_masthead action hook
@@ -133,14 +149,10 @@ add_action( 'themedd_site_header_main', 'themedd_site_branding' );
  * @since 1.0.0
  */
 function themedd_primary_menu() {
-	?>
 
-    <?php if ( has_nav_menu( 'primary' ) ) : ?>
-
-		<?php do_action( 'themedd_primary_menu_start' ); ?>
+    if ( has_nav_menu( 'primary' ) ) : ?>
 
 		<div id="site-header-menu" class="site-header-menu">
-
 	    	<nav id="site-navigation" class="main-navigation" role="navigation">
 	            <?php
 				wp_nav_menu(
@@ -153,36 +165,11 @@ function themedd_primary_menu() {
 				);
 	    		?>
 	    	</nav>
-
 	    </div>
 
-    <?php endif; ?>
-
-	<?php
+    <?php endif;
 }
-add_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
-
-/**
- * Loads the mobile menu onto the themedd_menu_toggle_wrap_after action hook
- *
- * @since 1.0.0
- */
-function themedd_mobile_menu() {
-
-	// Use the mobile menu if it exists, otherwise fallback to primary.
-	$theme_location = has_nav_menu( 'mobile' ) ? 'mobile' : 'primary';
-
-	wp_nav_menu(
-        apply_filters( 'themedd_mobile_menu', array(
-            'menu_id'         => 'mobile-menu',
-            'menu_class'      => 'menu',
-            'theme_location'  => $theme_location,
-            'container_class' => 'mobile-navigation',
-        ))
-    );
-
-}
-add_action( 'themedd_menu_toggle_wrap_after', 'themedd_mobile_menu' );
+add_action( 'themedd_site_header_main', 'themedd_primary_menu' );
 
 /**
  * Loads the site's secondary navigation
@@ -203,13 +190,15 @@ function themedd_secondary_menu() {
     	<nav id="secondary-navigation" class="secondary-navigation" role="navigation">
             <?php
 			wp_nav_menu(
-				apply_filters( 'themedd_secondary_menu', array(
-					'menu_id'        => 'secondary-menu',
-					'menu_class'     => 'menu',
-					'theme_location' => 'secondary',
-					'depth'          => 1,
-					'container'      => '',
-				))
+                apply_filters( 'themedd_secondary_menu', 
+                    array(
+                        'menu_id'        => 'secondary-menu',
+                        'menu_class'     => 'menu',
+                        'theme_location' => 'secondary',
+                        'depth'          => 1,
+                        'container'      => '',
+                    )
+                )
 			);
     		?>
     	</nav>
@@ -222,7 +211,7 @@ function themedd_secondary_menu() {
 
 	<?php
 }
-add_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
+add_action( 'themedd_site_header_wrap', 'themedd_secondary_menu' );
 
 /**
  * Themedd custom header
@@ -230,9 +219,8 @@ add_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
  * @since 1.0.0
  */
 function themedd_header_image() {
-?>
-
-<?php if ( get_header_image() ) : ?>
+    
+    if ( get_header_image() ) : ?>
 
     <div class="header-image">
 
@@ -256,10 +244,8 @@ function themedd_header_image() {
 
     </div>
 <?php endif;
-
 }
-add_action( 'themedd_masthead_after', 'themedd_header_image' );
-
+add_action( 'themedd_header', 'themedd_header_image' );
 
 /**
  * Themedd custom logo
