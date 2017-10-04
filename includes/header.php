@@ -156,7 +156,7 @@ function themedd_primary_menu() {
 	    	<nav id="site-navigation" class="main-navigation" role="navigation">
 	            <?php
 				wp_nav_menu(
-					apply_filters( 'themedd_primary_menu', array(
+					apply_filters( 'themedd_primary_navigation', array(
 						'menu_id'        => 'primary-menu',
 						'menu_class'     => 'primary-menu menu',
 						'theme_location' => 'primary',
@@ -172,46 +172,53 @@ function themedd_primary_menu() {
 add_action( 'themedd_site_header_main', 'themedd_primary_menu' );
 
 /**
- * Loads the site's secondary navigation
+ * Loads the site's secondary menu
+ *
+ * This contains:
+ *
+ * 1. The secondary navigation (if set)
+ * 2. The EDD cart (if enabled)
+ * 3. The header search box (if enabled)  
  *
  * @since 1.0.0
  */
 function themedd_secondary_menu() {
 
     /**
-     * Show #site-header-secondary-menu if the secondary menu is active or cart icon is still positioned there
+     * Only show the secondary menu if there's something hooked onto it
      */
-	if ( has_nav_menu( 'secondary' ) || 'secondary_menu' === apply_filters( 'themedd_edd_cart_position', 'secondary_menu' ) ) : ?>
+    if ( has_action( 'themedd_secondary_menu' ) ) : ?>
 	<div id="site-header-secondary-menu" class="site-header-menu">
-
-        <?php do_action( 'themedd_secondary_menu_before' ); ?>
-
-        <?php if ( has_nav_menu( 'secondary' ) ) : ?>
-    	<nav id="secondary-navigation" class="secondary-navigation" role="navigation">
-            <?php
-			wp_nav_menu(
-                apply_filters( 'themedd_secondary_menu', 
-                    array(
-                        'menu_id'        => 'secondary-menu',
-                        'menu_class'     => 'menu',
-                        'theme_location' => 'secondary',
-                        'depth'          => 1,
-                        'container'      => '',
-                    )
-                )
-			);
-    		?>
-    	</nav>
-        <?php endif; ?>
-
-        <?php do_action( 'themedd_secondary_menu_after' ); ?>
-
+        <?php do_action( 'themedd_secondary_menu' ); ?>
     </div>
-    <?php endif; ?>
-
-	<?php
+    <?php endif;
 }
 add_action( 'themedd_site_header_wrap', 'themedd_secondary_menu' );
+
+/**
+ * Loads the site's secondary navigation
+ *
+ * @since 1.0.0
+ */
+function themedd_secondary_navigation() {
+    ?>
+    <nav id="secondary-navigation" class="secondary-navigation" role="navigation">
+        <?php
+        wp_nav_menu(
+            apply_filters( 'themedd_secondary_navigation', 
+                array(
+                    'menu_id'        => 'secondary-menu',
+                    'menu_class'     => 'menu',
+                    'theme_location' => 'secondary',
+                    'depth'          => 1,
+                    'container'      => '',
+                )
+            )
+        );
+        ?>
+    </nav>
+    <?php
+}
 
 /**
  * Themedd custom header

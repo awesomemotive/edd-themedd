@@ -6,9 +6,7 @@
  * @since 1.0.0
  */
 function themedd_edd_download_details_widget( $instance, $download_id ) {
-
 	do_action( 'themedd_edd_download_info', $download_id );
-
 }
 add_action( 'edd_product_details_widget_before_purchase_button', 'themedd_edd_download_details_widget', 10, 2 );
 
@@ -67,21 +65,6 @@ remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
  * @since 1.0.0
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
-
-/**
- * Add cart link to secondary menu
- *
- * @since 1.0.0
- */
-function themedd_edd_secondary_menu_after() {
-
-	if ( 'secondary_menu' !== themedd_edd_cart_position() ) {
-		return;
-	}
-
-    echo themedd_edd_cart( array( 'list_item' => false ) );
-}
-add_action( 'themedd_secondary_menu_after', 'themedd_edd_secondary_menu_after' );
 
 /**
  * Alter EDD download loops.
