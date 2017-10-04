@@ -27,4 +27,28 @@ jQuery(document).ready(function($) {
 
 	});
 
+	$('body').on('edd_cart_item_removed', function( event, response ) {
+
+		if ( typeof cartQuantityText !== 'undefined' ) {
+
+			var textSingular = cartQuantityText.singular,
+				textPlural   = cartQuantityText.plural,
+				cartText     = ' ' + textPlural;
+
+			if ( response.cart_quantity === '1' ) {
+				cartText = ' ' + textSingular;
+			}
+
+			if ( response.cart_quantity === '' ) {
+				cartText = '0 ' + textPlural;
+			}
+
+			$('.navCart-quantityText').html( cartText );
+
+		}
+
+		cartTotalAmount.html( response.total );
+
+	});
+
 });
