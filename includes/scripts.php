@@ -32,14 +32,22 @@ function themedd_scripts() {
 		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>'
 	) );
 
-	// Cart text
-	$cart_quantity_text = function_exists( 'themedd_edd_cart_quantity_text' ) ? themedd_edd_cart_quantity_text() : '';
+	// Load the nav cart.
+	if ( class_exists( 'Themedd_EDD_Nav_Cart' ) ) {
+		
+		$cart_option = Themedd_EDD_Nav_Cart::cart_option();
 
-	if ( $cart_quantity_text ) {
-		wp_localize_script( 'themedd-js', 'cartQuantityText', array(
-			'singular' => $cart_quantity_text['singular'],
-			'plural'   => $cart_quantity_text['plural']
-		) );
+		if ( 'item_quantity' === $cart_option || 'all' === $cart_option ) {
+			
+			$cart_quantity_text = Themedd_EDD_Nav_Cart::cart_quantity_text();
+		
+			// Cart text
+			wp_localize_script( 'themedd-js', 'cartQuantityText', array(
+				'singular' => $cart_quantity_text['singular'],
+				'plural'   => $cart_quantity_text['plural']
+			) );
+		}
+
 	}
 
 	/**
