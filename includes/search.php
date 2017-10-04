@@ -3,11 +3,14 @@
 /**
  * Load the search form in the mobile menu.
  *
+ * A priority of 20 is used so it loads after the nav cart has been loaded, since
+ * It needs to prepend the search form to $items.
+ *
  * @since 1.0.3
 */
 function themedd_search_mobile_menu( $items, $args ) {
 
-    if ( true !== themedd_header_search_box() ) {
+    if ( true !== themedd_display_header_search_box() ) {
         return $items;
     }
 
@@ -18,26 +21,25 @@ function themedd_search_mobile_menu( $items, $args ) {
     return $items;
     
 }
-add_filter( 'wp_nav_menu_items', 'themedd_search_mobile_menu', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'themedd_search_mobile_menu', 20, 2 );
 
 /**
- * Load the search form in the secondary menu.
+ * Load the search form inside the secondary menu.
  *
  * @since 1.0.3
  */
-function themedd_search_secondary_menu() {
+function themedd_search_form() {
 
-    if ( true !== themedd_header_search_box() ) {
+    if ( true !== themedd_display_header_search_box() ) {
         return;
     }
 
     get_search_form();
     
 }
-add_action( 'themedd_secondary_menu_after', 'themedd_search_secondary_menu' );
 
 /**
- * The search icon.
+ * The search icon for all search fields.
  *
  * @since 1.0.3
  */
@@ -57,6 +59,7 @@ function themedd_search_icon() {
     ob_end_clean();
 
     return $content;
+
 }
 
 /**
@@ -64,12 +67,19 @@ function themedd_search_icon() {
  *
  * @since 1.0.3
  *
- * @return boolean true if the search in header is enabled, false otherwise
+ * @return boolean true True if the header search box is enabled, false otherwise.
  */
- function themedd_header_search_box() {
+ function themedd_display_header_search_box() {
 
-	$theme_options     = get_theme_mod( 'theme_options' );
-	$header_search_box = isset( $theme_options['header_search_box'] ) && true === $theme_options['header_search_box'] ? true : false;
+	$theme_options             = get_theme_mod( 'theme_options' );
+	$display_header_search_box = isset( $theme_options['header_search_box'] ) && true === $theme_options['header_search_box'] ? true : false;
 
-    return apply_filters( 'themedd_header_search_box', $header_search_box );
+    /**
+     * Filter the display of the header search box.
+     *
+     * @param boolean $display_header_search_box True if the header search box is enabled, false otherwise.
+     * @since 1.0.3
+     */
+    return apply_filters( 'themedd_display_header_search_box', $display_header_search_box );
+    
 }
