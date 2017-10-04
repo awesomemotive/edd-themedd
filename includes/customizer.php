@@ -1448,18 +1448,6 @@ function themedd_customize_partial_blogdescription() {
 }
 
 /**
- * Render the cart icon for the selective refresh partial.
- *
- * @since 1.0.0
- * @see themedd_customize_register()
- *
- * @return void
- */
-function themedd_customize_partial_cart_icon() {
-	echo themedd_edd_cart_icon();
-}
-
-/**
  * Render the header search box for the selective refresh partial.
  *
  * @since 1.0.3
@@ -1468,7 +1456,19 @@ function themedd_customize_partial_cart_icon() {
  * @return void
  */
 function themedd_customize_partial_header_search_box() {
-	themedd_search_secondary_menu();
+	themedd_search_form();
+}
+
+/**
+ * Render the cart icon for the selective refresh partial.
+ *
+ * @since 1.0.0
+ * @see themedd_customize_register()
+ *
+ * @return void
+ */
+ function themedd_customize_partial_cart_icon() {
+	echo (new Themedd_EDD_Nav_Cart)->cart_icon();
 }
 
 /**
@@ -1481,13 +1481,23 @@ function themedd_customize_partial_header_search_box() {
  */
 function themedd_customize_partial_cart_options() {
 
-	if ( 'all' === themedd_edd_display_cart_options() ) {
-		echo themedd_edd_cart_quantity();
-		echo themedd_edd_cart_total();
-	} elseif ( 'item_quantity' === themedd_edd_display_cart_options() ) {
-		echo themedd_edd_cart_quantity();
-	} elseif( 'cart_total' === themedd_edd_display_cart_options() ) {
-		echo themedd_edd_cart_total();
+	$cart_option = Themedd_EDD_Nav_Cart::cart_option();
+
+	switch ( $cart_option ) {
+
+		case 'all':
+			echo Themedd_EDD_Nav_Cart::cart_quantity();
+			echo Themedd_EDD_Nav_Cart::cart_total();
+			break;
+
+		case 'item_quantity':
+			echo Themedd_EDD_Nav_Cart::cart_quantity();
+			break;	
+		
+		case 'cart_total':
+			echo Themedd_EDD_Nav_Cart::cart_total();
+			break;
+		
 	}
 
 }
