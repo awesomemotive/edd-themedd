@@ -1354,6 +1354,9 @@ td {
   margin-bottom: 0;
 }
 /* Posts and Pages */
+.sticky {
+  position: relative;
+}
 .entry-meta,
 .entry-footer {
   font-size: 1rem;
@@ -1650,6 +1653,9 @@ aside li {
 .entry-content .gallery {
   margin-bottom: 4rem;
 }
+.wp-caption-text {
+  font-style: italic;
+}
 .gallery-item {
   width: 100%;
 }
@@ -1657,7 +1663,7 @@ aside li {
   margin: 0 auto;
   display: block;
 }
-.gallery-item figcaption {
+.gallery-item .gallery-caption {
   margin: 0.5rem 0 2rem 0;
   text-align: center;
 }
