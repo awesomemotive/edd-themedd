@@ -2390,6 +2390,10 @@ section.account .wrapper {
   padding: 0.5rem 1rem;
 }
 .secondary-navigation ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-left: -0.5rem;
 }
 /* Easy Digital Downloads */
@@ -3036,7 +3040,7 @@ span.card-type.amex {
   fill: #222;
 }
 .navCart-icon + * {
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 }
 .main-navigation .navCart {
   padding: 0.25rem 0;
@@ -3865,9 +3869,6 @@ a.delete {
   }
   .main-navigation li:hover > a {
     color: #222;
-  }
-  .secondary-navigation li {
-    float: left;
   }
   .secondary-navigation a {
     padding: 0.5rem;
