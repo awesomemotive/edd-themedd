@@ -39,6 +39,21 @@ function themedd_search_form() {
 }
 
 /**
+ * Loads the header search box into the secondary menu.
+ *
+ * @since 1.0.3
+ */
+function themedd_secondary_navigation_search_box() {
+
+	// Load the header search box.
+	if ( true === themedd_display_header_search_box() ) {
+		add_action( 'themedd_secondary_menu', 'themedd_search_form' );
+	}
+
+}
+add_action( 'template_redirect', 'themedd_secondary_navigation_search_box', 20 );
+
+/**
  * The search icon for all search fields.
  *
  * @since 1.0.3
