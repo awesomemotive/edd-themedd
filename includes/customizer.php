@@ -757,7 +757,6 @@ function themedd_customize_register( $wp_customize ) {
 	/**
 	 * Frontend Submissions - Display vendor contact form
 	 */
-
 	if ( themedd_is_edd_fes_active() ) {
 		$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
 			'sanitize_callback' => 'themedd_sanitize_checkbox',
@@ -771,6 +770,29 @@ function themedd_customize_register( $wp_customize ) {
 			'type'        => 'checkbox',
 			'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
 		));
+	}
+
+	/**
+	 * Custom Post Type Archive page title.
+	 * This option does not show if the archive page has been disabled.
+	 */
+	if ( ! ( defined( 'EDD_DISABLE_ARCHIVE' ) && true === EDD_DISABLE_ARCHIVE ) ) {
+
+		$wp_customize->add_setting( 'easy_digital_downloads[post_type_archive_title]', array(
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => edd_get_label_plural()
+		));
+
+		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
+
+		$wp_customize->add_control( 'post_type_archive_title', array(
+			'label'       => __( 'Custom Post Type Archive Title', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[post_type_archive_title]',
+			'section'     => 'easy_digital_downloads',
+			'type'        => 'text',
+			'description' => sprintf( __( 'Configure the title for the Custom Post Type Archive Title page at %s', 'themedd' ), esc_url( home_url( $slug ) ) ),
+		));
+		
 	}
 
 	/**
