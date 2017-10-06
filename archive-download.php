@@ -4,6 +4,13 @@
  * This is used by default unless EDD_DISABLE_ARCHIVE is set to true.
  */
 get_header();
+
+$title = themedd_edd_post_type_archive_title();
+
+if ( $title ) {
+	themedd_page_header( array( 'title' => $title ) );
+}
+
 ?>
 
 <div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
