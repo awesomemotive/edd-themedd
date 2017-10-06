@@ -98,7 +98,7 @@ function themedd_edd_fes_vendor_contact_form() {
  */
  function themedd_edd_post_type_archive_title() {
 	$edd_theme_options       = get_theme_mod( 'easy_digital_downloads' );
-	$post_type_archive_title = isset( $edd_theme_options['post_type_archive_title'] ) ? $edd_theme_options['post_type_archive_title'] : edd_get_label_plural();
+	$post_type_archive_title = isset( $edd_theme_options['post_type_archive_title'] ) ? $edd_theme_options['post_type_archive_title'] : '';
 
 	return apply_filters( 'themedd_edd_post_type_archive_title', $post_type_archive_title );
 }

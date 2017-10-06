@@ -779,8 +779,7 @@ function themedd_customize_register( $wp_customize ) {
 	if ( ! ( defined( 'EDD_DISABLE_ARCHIVE' ) && true === EDD_DISABLE_ARCHIVE ) ) {
 
 		$wp_customize->add_setting( 'easy_digital_downloads[post_type_archive_title]', array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => edd_get_label_plural()
+			'sanitize_callback' => 'sanitize_text_field'
 		));
 
 		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
