@@ -48,7 +48,7 @@ class Themedd_Search {
         if ( true !== $this->display_header_search_box() ) {
             return;
         }
-    
+
         add_filter( 'get_search_form', array( $this, 'search_form' ) );
         get_search_form();
         remove_filter( 'get_search_form', array( $this, 'search_form' ) );
@@ -61,7 +61,7 @@ class Themedd_Search {
      */
     public function search_form( $form ) {
         
-        if ( ! self::enhanced_search() ) {
+        if ( true !== self::enhanced_search() ) {
             return $form;
         }
 
@@ -197,8 +197,8 @@ class Themedd_Search {
      */
      public static function enhanced_search() {
         
-        $theme_options   = get_theme_mod( 'theme_options' );
-        $enhanced_search = isset( $theme_options['enhanced_search'] ) && true === $theme_options['enhanced_search'] ? true : false;
+        $edd_theme_options   = get_theme_mod( 'easy_digital_downloads' );
+        $enhanced_search = isset( $edd_theme_options['enhanced_search'] ) && true === $edd_theme_options['enhanced_search'] ? true : false;
     
         /**
         * Filter the display of the enhanced search.
