@@ -54,7 +54,7 @@ require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'actions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'filters.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'customizer.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility.php' );
-require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'search.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-search.php' );
 
 /**
  * Admin page
