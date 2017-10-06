@@ -10,7 +10,8 @@ function themedd_body_classes( $classes ) {
 		! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ||
 		! apply_filters( 'themedd_show_sidebar', true ) ||
 		is_page_template( 'page-templates/full-width.php' ) ||
-		is_page_template( 'page-templates/slim.php' )
+		is_page_template( 'page-templates/slim.php' ) ||
+		is_search() && Themedd_Search::is_product_search_results()
 	) {
 		$classes[] = 'no-sidebar';
 	}
@@ -26,7 +27,8 @@ function themedd_body_classes( $classes ) {
 	if (
 		is_page_template( 'page-templates/slim.php' ) ||
 		( is_singular( 'post' ) || is_author() ) && in_array( 'no-sidebar', $classes ) ||
-		in_array( 'blog', $classes ) && in_array( 'no-sidebar', $classes )
+		in_array( 'blog', $classes ) && in_array( 'no-sidebar', $classes ) ||
+		is_search() && ! Themedd_Search::is_product_search_results()
 	) {
 		$classes[] = 'slim';
 	}
