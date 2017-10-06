@@ -13,6 +13,7 @@ $search_text = apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'plac
 	</label>
 	
 	<?php if ( apply_filters( 'themedd_search_button', true ) ) : ?>
-	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'themedd' ); ?></span><?php echo themedd_search_icon(); ?></button>
+	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'themedd' ); ?></span><?php echo Themedd_Search::search_icon(); ?></button>
 	<?php endif; ?>
+
 </form>

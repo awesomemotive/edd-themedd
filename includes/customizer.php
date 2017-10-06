@@ -705,6 +705,21 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	/**
+	 * Enhanced Header Search Box setting
+	 */
+	$wp_customize->add_setting( 'easy_digital_downloads[enhanced_search]', array(
+		'sanitize_callback' => 'themedd_sanitize_checkbox'
+	));
+
+	$wp_customize->add_control( 'enhanced_search', array(
+		'label'       => __( 'Enhanced Header Search Box', 'themedd' ),
+		'settings'    => 'easy_digital_downloads[enhanced_search]',
+		'section'     => 'easy_digital_downloads',
+		'type'        => 'checkbox',
+		'description' => sprintf( __( 'The search results page will only show %s when searching via the header search box. Requires the "Header Search Box" option from the Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
+	));
+
+	/**
 	 * Distraction Free Checkout setting
 	 */
 	$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
@@ -754,23 +769,6 @@ function themedd_customize_register( $wp_customize ) {
 		'choices'     => themedd_customize_cart_options()
 	));
 
-	/**
-	 * Frontend Submissions - Display vendor contact form
-	 */
-	if ( themedd_is_edd_fes_active() ) {
-		$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
-			'sanitize_callback' => 'themedd_sanitize_checkbox',
-			'default'           => true
-		));
-
-		$wp_customize->add_control( 'fes_vendor_contact_form', array(
-			'label'       => __( 'Display Vendor Contact Form', 'themedd' ),
-			'settings'    => 'easy_digital_downloads[fes_vendor_contact_form]',
-			'section'     => 'easy_digital_downloads',
-			'type'        => 'checkbox',
-			'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
-		));
-	}
 
 	/**
 	 * Custom Post Type Archive page title.
@@ -792,6 +790,24 @@ function themedd_customize_register( $wp_customize ) {
 			'description' => sprintf( __( 'Configure the title for the Custom Post Type Archive Title page at %s', 'themedd' ), esc_url( home_url( $slug ) ) ),
 		));
 		
+	}
+
+	/**
+	 * Frontend Submissions - Display vendor contact form
+	 */
+	 if ( themedd_is_edd_fes_active() ) {
+		$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
+			'sanitize_callback' => 'themedd_sanitize_checkbox',
+			'default'           => true
+		));
+
+		$wp_customize->add_control( 'fes_vendor_contact_form', array(
+			'label'       => __( 'Display Vendor Contact Form', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[fes_vendor_contact_form]',
+			'section'     => 'easy_digital_downloads',
+			'type'        => 'checkbox',
+			'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
+		));
 	}
 
 	/**

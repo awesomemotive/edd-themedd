@@ -195,7 +195,8 @@ function themedd_primary_classes() {
 		! (
 			in_array( 'no-sidebar', get_body_class() ) ||
 			in_array( 'slim', get_body_class() ) ||
-			( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() )
+			( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() ) ||
+			Themedd_Search::is_product_search_results()
 		) ||
 		is_singular( 'download' )
 	) {
