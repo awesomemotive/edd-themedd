@@ -4,24 +4,73 @@
  *
  * @since 1.0.3
  */
-class Themedd_EDD_Nav_Cart {
+final class Themedd_EDD_Nav_Cart {
 
     /**
-	 * Get things started.
-	 *
-	 * @access  public
-	 * @since   1.0.3
-	*/
-	public function __construct() {
-        add_filter( 'edd_get_cart_quantity',     array( $this, 'set_cart_quantity'   ), 10, 2 );
-        add_filter( 'wp_nav_menu_items',         array( $this, 'add_to_menus'  ), 10, 2 );
-        add_action( 'template_redirect',         array( $this, 'add_to_secondary_menu' ), 10 );
-	}
+     * Holds the instance
+     *
+     * Ensures that only one instance of Themedd_EDD_Nav_Cart exists in memory at any one
+     * time and it also prevents needing to define globals all over the place.
+     *
+     * TL;DR This is a static property that holds the singleton instance.
+     *
+     * @var object
+     * @static
+     * @since 1.0.3
+     */
+    private static $instance;
+
+    /**
+     * Main Themedd_EDD_Nav_Cart Instance
+     *
+     * Insures that only one instance of Themedd_EDD_Nav_Cart exists in memory at any one
+     * time. Also prevents needing to define globals all over the place.
+     *
+     * @since 1.0.3
+     * @static var array $instance
+     * 
+     * @return The one true Themedd_EDD_Nav_Cart
+    */    
+    public static function instance() {
+
+        if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Themedd_EDD_Nav_Cart ) ) {
+            self::$instance = new self;
+            self::$instance->hooks();
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * Constructor Function
+     *
+     * @since 1.0.3
+     *
+     * @access private
+     */
+	private function __construct() {
+        self::$instance = $this;
+    }
+
+    /**
+     * Setup the default hooks and actions
+     *
+     * @since 1.0.3
+     *
+     * @return void
+     */
+    private function hooks() {
+        add_filter( 'edd_get_cart_quantity', array( $this, 'set_cart_quantity'   ), 10, 2 );
+        add_filter( 'wp_nav_menu_items',     array( $this, 'add_to_menus'  ), 10, 2 );
+        add_action( 'template_redirect',     array( $this, 'add_to_secondary_menu' ), 10 );
+    }
 
     /**
      * Make the total quantity blank when no items exist in the cart.
      *
      * @since 1.0.0
+     * 
+     * @return $total_quantity string
      */
     public function set_cart_quantity( $total_quantity, $cart ) {
     
@@ -58,6 +107,8 @@ class Themedd_EDD_Nav_Cart {
      * Add cart to menus.
      *
      * @since 1.0.0
+     * 
+     * @return string $items The HTML list content for the menu items.
      */
     public function add_to_menus( $items, $args ) {
 
@@ -86,9 +137,14 @@ class Themedd_EDD_Nav_Cart {
      * Possible options are secondary_menu | primary_menu
      *
      * @since 1.0.0
+     * 
+     * @return string $position The position of the cart.
      */
     public function cart_position() {
-        return apply_filters( 'themedd_edd_cart_position', 'secondary_menu' );
+
+        $position = 'secondary_menu';
+
+        return apply_filters( 'themedd_edd_cart_position', $position );
     }
 
     /**
@@ -271,6 +327,8 @@ class Themedd_EDD_Nav_Cart {
      * The cart icon.
      *
      * @since 1.0.0
+     * 
+     * @return string $html The HTML of the nav cart icon.
      */
     public function cart_icon() {
         
@@ -285,10 +343,10 @@ class Themedd_EDD_Nav_Cart {
         </div>
         <?php
     
-        $content = apply_filters( 'themedd_edd_cart_icon', ob_get_contents() );
+        $html = apply_filters( 'themedd_edd_cart_icon', ob_get_contents() );
         ob_end_clean();
     
-        return $content;
+        return $html;
     }
 
     /**
@@ -296,7 +354,7 @@ class Themedd_EDD_Nav_Cart {
      *
      * @since 1.0.0
      *
-     * @return string cart quantity
+     * @return string Cart quantity.
      */
     public static function cart_quantity() {
         
@@ -339,7 +397,7 @@ class Themedd_EDD_Nav_Cart {
      *
      * @since 1.0.0
      *
-     * @return array cart quantity singular and plural name
+     * @return array $cart_quantity_text Cart quantity singular and plural name
      */
     public static function cart_quantity_text() {
         
@@ -376,4 +434,19 @@ class Themedd_EDD_Nav_Cart {
     }
     
 }
-new Themedd_EDD_Nav_Cart();
+
+/**
+  * The main function responsible for returning the one true Themedd_EDD_Nav_Cart instance to functions everywhere.
+  * 
+  * Use this function like you would a global variable, except without needing to declare the global.
+  * 
+  * Example: <?php $themedd_edd_nav_cart = themedd_edd_nav_cart(); ?>
+  *
+  * @since 1.0.3
+  * @return object The one true Themedd_EDD_Nav_Cart Instance.
+  */
+function themedd_edd_nav_cart() {
+    return Themedd_EDD_Nav_Cart::instance();
+}
+
+themedd_edd_nav_cart();
