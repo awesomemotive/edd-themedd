@@ -212,7 +212,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 	$i = 1;
 
 	$wrapper_class = 'edd_download_columns_' . $columns;
-	$download_meta = themedd_edd_download_meta_options();
+	$download_grid_options = themedd_edd_download_grid_options();
 	ob_start();
 
 	?>
@@ -231,8 +231,11 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					endif;
 
 					do_action( 'edd_download_before_title' );
+					
+					if ( true === $download_grid_options['title'] ) {
+						edd_get_template_part( 'shortcode', 'content-title' );
+					}
 
-					edd_get_template_part( 'shortcode', 'content-title' );
 					do_action( 'edd_download_after_title' );
 
 					if ( 'yes' === $atts['excerpt'] && 'yes' !== $atts['full_content'] ) :

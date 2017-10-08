@@ -87,6 +87,7 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 function themedd_edd_download_grid_options() {
 
 	$options = array(
+		'title'        => true,
 		'excerpt'      => true,
 		'full_content' => false,
 		'price'        => true,
