@@ -129,6 +129,19 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 		$out['excerpt'] = 'no';
 	}
 
+	/**
+	 * Do not display the full content if:
+	 * 
+	 * 1. The "full_content" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "full_content" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
+	 * 
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['full_content'] ) && false === $download_grid_options['full_content'] ) {
+		$out['full_content'] = 'no';
+	}
+
 	return $out;
 
 }
