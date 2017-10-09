@@ -80,7 +80,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	 * Do not display thumbnails if:
 	 * 
 	 * 1. The "thumbnails" attribute is not set on the [downloads] shortcode.
-	 * and:
+	 * And:
 	 * 2. The "thumbnails" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
 	 * 
 	 * @since 1.0.3
@@ -101,6 +101,19 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	} else {
 		// Always show the price.
 		$out['price'] = 'yes';
+	}
+
+	/**
+	 * Do not display the buy button if:
+	 * 
+	 * 1. The "buy_button" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "buy_button" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook.
+	 *
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['buy_button'] ) && false === $download_grid_options['buy_button'] ) {
+		$out['buy_button'] = 'no';
 	}
 
 	return $out;
