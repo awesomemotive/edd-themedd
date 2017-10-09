@@ -86,7 +86,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	}
 
 	return $out;
-	
+
 }
 add_filter( 'shortcode_atts_downloads', 'themedd_edd_shortcode_atts_downloads', 10, 4 );
 
