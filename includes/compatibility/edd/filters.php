@@ -72,6 +72,11 @@ add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' )
 function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode ) {
 	
 	/**
+	 * Get the download grid options.
+	 */
+	$download_grid_options = themedd_edd_download_grid_options();
+	
+	/**
 	 * Makes the price always shown by default.
 	 * The price will not be shown if the "price" attribute on the [downloads] shortcode is set to "no".
 	 *
