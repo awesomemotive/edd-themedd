@@ -116,6 +116,19 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 		$out['buy_button'] = 'no';
 	}
 
+	/**
+	 * Do not display the excerpt if:
+	 * 
+	 * 1. The "excerpt" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "excerpt" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
+	 * 
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['excerpt'] ) && false === $download_grid_options['excerpt'] ) {
+		$out['excerpt'] = 'no';
+	}
+
 	return $out;
 
 }
