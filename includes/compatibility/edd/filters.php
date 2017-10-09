@@ -142,6 +142,19 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 		$out['full_content'] = 'no';
 	}
 
+	/**
+	 * Filter the number of downloads shown if:
+	 * 
+	 * 1. The "number" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "number attribute has been set via the themedd_edd_download_grid_options filter hook.
+	 * 
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['number'] ) && isset( $download_grid_options['number'] ) ) {
+		$out['number'] = $download_grid_options['number'];
+	}
+
 	return $out;
 
 }
