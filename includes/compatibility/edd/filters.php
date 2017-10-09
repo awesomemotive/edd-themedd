@@ -57,13 +57,26 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' );
 
 /**
- * Filter the [downloads] shortcode so the price is always shown by default.
- * The price will not be shown if the "price" attribute on the [downloads] shortcode is set to "no"
+ * Filter the [downloads] shortcode's default attributes.
  *
- * @since 1.0.0
+ * @since 1.0.0 Filtered the price
+ * @since 1.0.3 Filtered other attributes
+ * 
+ * @param array  $out       The output array of shortcode attributes.
+ * @param array  $pairs     The supported attributes and their defaults.
+ * @param array  $atts      The user defined shortcode attributes.
+ * @param string $shortcode The shortcode name.
+ * 
+ * @return array $out       The output array of shortcode attributes.
  */
 function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode ) {
-
+	
+	/**
+	 * Makes the price always shown by default.
+	 * The price will not be shown if the "price" attribute on the [downloads] shortcode is set to "no".
+	 *
+	 * @since 1.0.0
+	 */
 	if ( isset( $atts['price'] ) && $atts['price'] === 'no' ) {
 		// Don't show the price if the "price" attribute has been set to "no".
 		$out['price'] = 'no';
