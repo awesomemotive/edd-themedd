@@ -716,7 +716,7 @@ function themedd_customize_register( $wp_customize ) {
 		'settings'    => 'easy_digital_downloads[enhanced_search]',
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'checkbox',
-		'description' => sprintf( __( 'The search results page will only show %s when searching via the header search box. Requires the "Header Search Box" option from the Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
+		'description' => sprintf( __( 'The search results page will only show %s when searching via the header search box. Requires the "Header Search Box" option from Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
 	));
 
 	/**
