@@ -735,6 +735,24 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	/**
+	 * Frontend Submissions - Display vendor contact form
+	*/
+	if ( themedd_is_edd_fes_active() ) {
+		$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
+			'sanitize_callback' => 'themedd_sanitize_checkbox',
+			'default'           => true
+		));
+
+		$wp_customize->add_control( 'fes_vendor_contact_form', array(
+			'label'       => __( 'Display Vendor Contact Form', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[fes_vendor_contact_form]',
+			'section'     => 'easy_digital_downloads',
+			'type'        => 'checkbox',
+			'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
+		));
+	}
+
+	/**
 	 * Cart icon setting
 	 */
 	$wp_customize->add_setting( 'easy_digital_downloads[cart_icon]', array(
@@ -790,24 +808,6 @@ function themedd_customize_register( $wp_customize ) {
 			'description' => sprintf( __( 'Configure the title for the Custom Post Type Archive Title page at %s', 'themedd' ), esc_url( home_url( $slug ) ) ),
 		));
 		
-	}
-
-	/**
-	 * Frontend Submissions - Display vendor contact form
-	 */
-	 if ( themedd_is_edd_fes_active() ) {
-		$wp_customize->add_setting( 'easy_digital_downloads[fes_vendor_contact_form]', array(
-			'sanitize_callback' => 'themedd_sanitize_checkbox',
-			'default'           => true
-		));
-
-		$wp_customize->add_control( 'fes_vendor_contact_form', array(
-			'label'       => __( 'Display Vendor Contact Form', 'themedd' ),
-			'settings'    => 'easy_digital_downloads[fes_vendor_contact_form]',
-			'section'     => 'easy_digital_downloads',
-			'type'        => 'checkbox',
-			'description' => __( 'Display the vendor contact form on the vendor page.', 'themedd' ),
-		));
 	}
 
 	/**
