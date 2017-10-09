@@ -218,12 +218,8 @@ function themedd_edd_show_buy_button( $atts ) {
 	$return = false;
 
 	// [downloads] shortcode is being used
-	if ( ! empty( $atts ) ) {
-
-		if ( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) {
-			$return = true;
-		}
-
+	if ( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) {
+		$return = true;
 	} else {
 
 		// The download grid is being shown without using the [downloads] shortcode
