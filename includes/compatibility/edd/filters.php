@@ -62,7 +62,7 @@ add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' )
  *
  * @since 1.0.0
  */
-function themedd_edd_downloads_shortcode_show_price( $out, $pairs, $atts, $shortcode ) {
+function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode ) {
 
 	if ( isset( $atts['price'] ) && $atts['price'] === 'no' ) {
 		// Don't show the price if the "price" attribute has been set to "no".
@@ -73,9 +73,9 @@ function themedd_edd_downloads_shortcode_show_price( $out, $pairs, $atts, $short
 	}
 
 	return $out;
-
+	
 }
-add_filter( 'shortcode_atts_downloads', 'themedd_edd_downloads_shortcode_show_price', 10, 4 );
+add_filter( 'shortcode_atts_downloads', 'themedd_edd_shortcode_atts_downloads', 10, 4 );
 
 /**
  * Set the default EDD checkout image size
