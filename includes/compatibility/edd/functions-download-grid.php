@@ -95,7 +95,9 @@ function themedd_edd_download_grid_options() {
 		'columns'      => 3,
 		'thumbnails'   => true,
 		'pagination'   => true,
-		'number'       => 9
+		'number'       => 9,
+		'order'        => 'DESC',
+		'orderby'      => 'post_date'
 	);
 
 	return apply_filters( 'themedd_edd_download_grid_options', $options );
