@@ -168,6 +168,19 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 		$out['columns'] = $download_grid_options['columns'];
 	}
 
+	/**
+	 * Do not display the download pagination if:
+	 * 
+	 * 1. The "pagination" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "pagination" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
+	 * 
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['pagination'] ) && false === $download_grid_options['pagination'] ) {
+		$out['pagination'] = 'false';
+	}
+
 	return $out;
 
 }
