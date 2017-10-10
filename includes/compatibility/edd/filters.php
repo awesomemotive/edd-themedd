@@ -130,16 +130,16 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	}
 
 	/**
-	 * Do not display the full content if:
-	 * 
-	 * 1. The "full_content" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "full_content" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
+	 * Force the [downloads] shortcode to show the full content
 	 * 
 	 * @since 1.0.3
 	 */
-	if ( ! isset( $atts['full_content'] ) && false === $download_grid_options['full_content'] ) {
-		$out['full_content'] = 'no';
+	if ( 
+		true === $download_grid_options['full_content'] && 
+		! isset( $atts['excerpt'] ) && 
+		! isset( $atts['full_content'] ) 
+	) {
+		$out['full_content'] = 'yes';
 	}
 
 	/**
@@ -206,6 +206,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	if ( ! isset( $atts['orderby'] ) && isset( $download_grid_options['orderby'] ) ) {
 		$out['orderby'] = $download_grid_options['orderby'];
 	}
+	
 	return $out;
 
 }
@@ -328,7 +329,7 @@ function themedd_edd_page_header_classes( $classes ) {
 add_filter( 'themedd_page_header_classes', 'themedd_edd_page_header_classes' );
 
 /**
- * Filter the content of the [downloads] shortcode, at least until the downloads shortcode is a bit more flexible.
+ * Filter the content of the [downloads] shortcode for EDD versions below v2.8.
  *
  * This:
  *
