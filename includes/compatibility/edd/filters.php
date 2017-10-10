@@ -147,12 +147,25 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	 * 
 	 * 1. The "number" attribute is not set on the [downloads] shortcode.
 	 * And:
-	 * 2. The "number attribute has been set via the themedd_edd_download_grid_options filter hook.
+	 * 2. The "number" attribute has been set via the themedd_edd_download_grid_options filter hook.
 	 * 
 	 * @since 1.0.3
 	 */
 	if ( ! isset( $atts['number'] ) && isset( $download_grid_options['number'] ) ) {
 		$out['number'] = $download_grid_options['number'];
+	}
+
+	/**
+	 * Filter the number of download columns shown if:
+	 * 
+	 * 1. The "columns" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "columns" attribute has been set via the themedd_edd_download_grid_options filter hook.
+	 * 
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['columns'] ) && isset( $download_grid_options['columns'] ) ) {
+		$out['columns'] = $download_grid_options['columns'];
 	}
 
 	return $out;
