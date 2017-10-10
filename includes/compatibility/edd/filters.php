@@ -181,6 +181,19 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 		$out['pagination'] = 'false';
 	}
 
+	/**
+	 * Filter the "order" if:
+	 * 
+	 * 1. The "order" attribute is not set on the [downloads] shortcode.
+	 * And:
+	 * 2. The "order" attribute has been set via the themedd_edd_download_grid_options filter hook. 
+	 * 
+	 * @since 1.0.3
+	 */
+	if ( ! isset( $atts['order'] ) && isset( $download_grid_options['order'] ) ) {
+		$out['order'] = $download_grid_options['order'];
+	}
+
 	return $out;
 
 }
