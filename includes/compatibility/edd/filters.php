@@ -338,8 +338,10 @@ add_filter( 'themedd_page_header_classes', 'themedd_edd_page_header_classes' );
  */
 function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns, $null, $downloads, $excerpt, $full_content, $price, $thumbnails, $query ) {
 
-	// Return early if using EDD 2.8 or greater.
-	// The new edd_templates/shortcode-download.php template file now outputs the download grid.
+	/**
+	 * Return early if using EDD 2.8 or later.
+	 * The new edd_templates/shortcode-download.php template file now outputs the download grid.
+	 */
 	if ( version_compare( EDD_VERSION, '2.8', '>=' ) ) {
 		return $display;
 	}
