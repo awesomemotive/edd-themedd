@@ -362,7 +362,10 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 
 					do_action( 'edd_download_before' );
 
-					if ( 'false' != $atts['thumbnails'] ) :
+					if ( 
+						'false' !== $atts['thumbnails'] ||
+						( 'true' !== $atts['thumbnails'] && false !== $download_grid_options['thumbnails'] )
+					) :
 						edd_get_template_part( 'shortcode', 'content-image' );
 						do_action( 'edd_download_after_thumbnail' );
 					endif;
@@ -375,12 +378,71 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 
 					do_action( 'edd_download_after_title' );
 
-					if ( 'yes' === $atts['excerpt'] && 'yes' !== $atts['full_content'] ) :
+					/**
+					 * Display either the download's excerpt or full content.
+					 */
+					if (
+						/**
+						 * Show the excerpt if any of these these shortcodes are used:
+						 * 
+						 * [downloads] (except is the default)
+						 * [downloads excerpt="yes"]
+						 * [downloads full_content="no"]
+						 */
+						( 
+							'yes' === $atts['excerpt'] && 
+							'yes' !== $atts['full_content']
+						) 
+						
+						||
+					
+						/**
+						 * Show the excerpt if:
+						 * 
+						 * "excerpt" is set to "yes" on the [downloads] shortcode
+						 * AND
+						 * "full_content" is NOT set to "yes" on the [downloads] shortcode.
+						 * AND
+						 * "excerpt" is not set to "false" via the themedd_edd_download_grid_options filter hook. 
+						 */
+						( 
+							'yes' === $atts['excerpt'] && 
+							'yes' !== $atts['full_content'] && 
+							false !== $download_grid_options['excerpt']
+						)
+					) :
+						
+						// Show the excerpt.
 						edd_get_template_part( 'shortcode', 'content-excerpt' );
+
 						do_action( 'edd_download_after_content' );
-					elseif ( 'yes' === $atts['full_content'] ) :
+
+					elseif (
+						/**
+						 * Show the full_content if [downloads full_content="yes"]
+						 */
+						( 'yes' === $atts['full_content'] ) 
+						
+						||
+
+						/**
+						 * Show the full_content if:
+						 * 
+						 * "full_content" is set to "true" via the themedd_edd_download_grid_options filter hook.
+						 * AND
+						 * "full_content" is NOT set to "no" on the [downloads] shortcode.
+						 */
+						( 
+							true === $download_grid_options['full_content'] && 
+							'no' !== $atts['full_content']
+						)
+					) :
+						
+						// Show the full content.
 						edd_get_template_part( 'shortcode', 'content-full' );
+						
 						do_action( 'edd_download_after_content' );
+						
 					endif;
 
 					themedd_edd_download_footer( $atts );
