@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Themedd\n"
-"POT-Creation-Date: 2017-08-19 23:09+1200\n"
+"POT-Creation-Date: 2017-10-11 21:39+1300\n"
 "PO-Revision-Date: 2017-05-29 21:32-0700\n"
 "Last-Translator: \n"
 "Language-Team: support@easydigitaldownloads.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: affiliatewp/dashboard.php:107
+#: affiliatewp/dashboard.php:120
 msgid "Log out"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgid "Users who purchased %s, also purchased:"
 msgstr ""
 
 #: edd_templates/shortcode-content-price.php:9
-#: includes/compatibility/edd/functions.php:61
+#: includes/compatibility/edd/actions.php:26
 msgid "Free"
 msgstr ""
 
@@ -122,6 +122,21 @@ msgstr ""
 msgid ""
 "Themedd requires at least WordPress version 4.7. You are running version %s. "
 "Please upgrade and try again."
+msgstr ""
+
+#: includes/class-search.php:130
+msgctxt "placeholder"
+msgid "Search products"
+msgstr ""
+
+#: includes/class-search.php:135
+msgctxt "label"
+msgid "Search products:"
+msgstr ""
+
+#: includes/class-search.php:140 searchform.php:16
+msgctxt "submit button"
+msgid "Search"
 msgstr ""
 
 #: includes/class-themedd.php:28
@@ -151,6 +166,10 @@ msgstr ""
 msgid "Add widgets here to appear in footer %d."
 msgstr ""
 
+#: includes/compatibility/edd/actions.php:28
+msgid "From"
+msgstr ""
+
 #: includes/compatibility/edd/class-cross-sell-upsell.php:93
 #: includes/compatibility/edd/class-cross-sell-upsell.php:107
 msgid "Add to cart"
@@ -162,6 +181,14 @@ msgstr ""
 
 #: includes/compatibility/edd/class-frontend-submissions.php:57
 msgid "Contact vendor"
+msgstr ""
+
+#: includes/compatibility/edd/class-nav-cart.php:406
+msgid "item"
+msgstr ""
+
+#: includes/compatibility/edd/class-nav-cart.php:407
+msgid "items"
 msgstr ""
 
 #: includes/compatibility/edd/class-points-and-rewards.php:140
@@ -183,53 +210,53 @@ msgstr ""
 msgid "Display the %s author's details."
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:142
-#: sidebar-download.php:83
+#: includes/compatibility/edd/class-widget-download-author.php:118
+#: sidebar-download.php:85
 msgid "Author:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:161
-#: sidebar-download.php:104
+#: includes/compatibility/edd/class-widget-download-author.php:137
+#: sidebar-download.php:105
 msgid "Author since:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:174
-#: sidebar-download.php:118
+#: includes/compatibility/edd/class-widget-download-author.php:155
+#: sidebar-download.php:119
 msgid "Website:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:210
-#: includes/compatibility/edd/class-widget-download-details.php:203
+#: includes/compatibility/edd/class-widget-download-author.php:193
+#: includes/compatibility/edd/class-widget-download-details.php:179
 msgid "Only for use in Download Sidebar"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:213
-#: includes/compatibility/edd/class-widget-download-details.php:206
+#: includes/compatibility/edd/class-widget-download-author.php:196
+#: includes/compatibility/edd/class-widget-download-details.php:182
 msgid "Title:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:219
+#: includes/compatibility/edd/class-widget-download-author.php:202
 msgid "Show author avatar"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:225
+#: includes/compatibility/edd/class-widget-download-author.php:208
 msgid "Show store name"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:231
+#: includes/compatibility/edd/class-widget-download-author.php:214
 msgid "Show author name"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:236
+#: includes/compatibility/edd/class-widget-download-author.php:219
 msgid "Show author signup date"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-author.php:241
+#: includes/compatibility/edd/class-widget-download-author.php:224
 msgid "Show website"
 msgstr ""
 
 #: includes/compatibility/edd/class-widget-download-details.php:24
-#: includes/compatibility/edd/functions-download-details.php:27
+#: includes/compatibility/edd/functions-download-details.php:29
 #, php-format
 msgid "%s Details"
 msgstr ""
@@ -239,436 +266,504 @@ msgstr ""
 msgid "Display the %s details such as date published and number of sales."
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:107
-#: sidebar-download.php:154
+#: includes/compatibility/edd/class-widget-download-details.php:81
+#: sidebar-download.php:160
 msgid "Published:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:120
-#: sidebar-download.php:167
+#: includes/compatibility/edd/class-widget-download-details.php:94
+#: sidebar-download.php:173
 msgid "Sales:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:135
-#: sidebar-download.php:182
+#: includes/compatibility/edd/class-widget-download-details.php:109
+#: sidebar-download.php:188
 msgid "Version:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:151
-#: sidebar-download.php:198
+#: includes/compatibility/edd/class-widget-download-details.php:125
+#: sidebar-download.php:204
 msgid "Categories:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:168
-#: sidebar-download.php:214
+#: includes/compatibility/edd/class-widget-download-details.php:142
+#: sidebar-download.php:220
 msgid "Tags:"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:212
+#: includes/compatibility/edd/class-widget-download-details.php:188
 msgid "Show date published"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:217
+#: includes/compatibility/edd/class-widget-download-details.php:193
 msgid "Show number of sales"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:223
+#: includes/compatibility/edd/class-widget-download-details.php:199
 msgid "Show version number"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:229
+#: includes/compatibility/edd/class-widget-download-details.php:205
 msgid "Show categories"
 msgstr ""
 
-#: includes/compatibility/edd/class-widget-download-details.php:234
+#: includes/compatibility/edd/class-widget-download-details.php:210
 msgid "Show tags"
 msgstr ""
 
-#: includes/compatibility/edd/filters.php:100
-msgid "Purchase"
-msgstr ""
-
-#: includes/compatibility/edd/filters.php:102
-msgid "Free Download"
-msgstr ""
-
-#: includes/compatibility/edd/functions-download-meta.php:47
+#: includes/compatibility/edd/functions-download-meta.php:71
 msgid "by"
 msgstr ""
 
-#: includes/compatibility/edd/functions.php:63
-msgid "From"
-msgstr ""
-
-#: includes/compatibility/edd/nav-cart.php:262
-msgid "item"
-msgstr ""
-
-#: includes/compatibility/edd/nav-cart.php:263
-msgid "items"
-msgstr ""
-
-#: includes/customizer.php:222
+#: includes/customizer.php:236
 msgid "Site Title Color"
 msgstr ""
 
-#: includes/customizer.php:225
+#: includes/customizer.php:239
 msgid "The color of the site title."
 msgstr ""
 
-#: includes/customizer.php:234
+#: includes/customizer.php:248
 msgid "The color of the site's background."
 msgstr ""
 
-#: includes/customizer.php:250
+#: includes/customizer.php:264
 msgid "Tagline Color"
 msgstr ""
 
-#: includes/customizer.php:251
-msgid "The site tagline (if set) color."
+#: includes/customizer.php:265
+msgid "The color of the site tagline (if set)."
 msgstr ""
 
-#: includes/customizer.php:263
+#: includes/customizer.php:277
 msgid "Colors"
 msgstr ""
 
-#: includes/customizer.php:274
+#: includes/customizer.php:288
 msgid "General"
 msgstr ""
 
-#: includes/customizer.php:285
+#: includes/customizer.php:299
 msgid "Header"
 msgstr ""
 
-#: includes/customizer.php:296
+#: includes/customizer.php:310
 msgid "Footer"
 msgstr ""
 
-#: includes/customizer.php:307
+#: includes/customizer.php:321
 msgid "Mobile Devices"
 msgstr ""
 
-#: includes/customizer.php:322
+#: includes/customizer.php:336
 msgid "Header Background Color"
 msgstr ""
 
-#: includes/customizer.php:323
+#: includes/customizer.php:337
 msgid "The background color of the site header."
 msgstr ""
 
-#: includes/customizer.php:344
+#: includes/customizer.php:358
 msgid "Primary Menu Background Color"
 msgstr ""
 
-#: includes/customizer.php:345
+#: includes/customizer.php:359
 msgid "The background color of the primary menu."
 msgstr ""
 
-#: includes/customizer.php:362
+#: includes/customizer.php:376
 msgid "Primary Menu Link Color"
 msgstr ""
 
-#: includes/customizer.php:363
+#: includes/customizer.php:377
 msgid "The color of primary menu links."
 msgstr ""
 
-#: includes/customizer.php:380
+#: includes/customizer.php:394
 msgid "Primary Menu Link Hover Color"
 msgstr ""
 
-#: includes/customizer.php:381
-msgid "The color of primary menu links when hovered over."
+#: includes/customizer.php:395
+msgid "The hover color of primary menu links."
 msgstr ""
 
-#: includes/customizer.php:398
+#: includes/customizer.php:412
 msgid "Primary Menu Link Active Color"
 msgstr ""
 
-#: includes/customizer.php:399
-msgid "The color of primary menu links when active."
+#: includes/customizer.php:413
+msgid "The active color of primary menu links."
 msgstr ""
 
-#: includes/customizer.php:416
+#: includes/customizer.php:430
 msgid "Primary Menu Link Background Hover Color"
 msgstr ""
 
-#: includes/customizer.php:417
+#: includes/customizer.php:431
 msgid "The background hover color of primary menu links."
 msgstr ""
 
-#: includes/customizer.php:434
+#: includes/customizer.php:448
 msgid "Primary Menu Link Background Active Color"
 msgstr ""
 
-#: includes/customizer.php:435
+#: includes/customizer.php:449
 msgid "The background active color of primary menu links."
 msgstr ""
 
-#: includes/customizer.php:456
+#: includes/customizer.php:470
 msgid "Primary Sub-menu Link Color"
 msgstr ""
 
-#: includes/customizer.php:457
+#: includes/customizer.php:471
 msgid "The color of primary sub-menu links."
 msgstr ""
 
-#: includes/customizer.php:474
+#: includes/customizer.php:488
 msgid "Primary Sub-menu Link Hover Color"
 msgstr ""
 
-#: includes/customizer.php:475
-msgid "The color of primary sub-menu links when hovered over."
+#: includes/customizer.php:489
+msgid "The hover color of primary sub-menu links."
 msgstr ""
 
-#: includes/customizer.php:492
+#: includes/customizer.php:506
 msgid "Primary Sub-menu Link Active Color"
 msgstr ""
 
-#: includes/customizer.php:493
-msgid "The color of primary sub-menu links when active."
+#: includes/customizer.php:507
+msgid "The active color of primary sub-menu links."
 msgstr ""
 
-#: includes/customizer.php:510
+#: includes/customizer.php:524
 msgid "Primary Sub-menu Background Color"
 msgstr ""
 
-#: includes/customizer.php:511
+#: includes/customizer.php:525
 msgid "The background color of primary sub-menus."
 msgstr ""
 
-#: includes/customizer.php:528
+#: includes/customizer.php:542
 msgid "Primary Sub-menu Background Hover Color"
 msgstr ""
 
-#: includes/customizer.php:529
+#: includes/customizer.php:543
 msgid "The background hover color of primary sub-menu links."
 msgstr ""
 
-#: includes/customizer.php:546
+#: includes/customizer.php:560
 msgid "Primary Sub-menu Background Active Color"
 msgstr ""
 
-#: includes/customizer.php:547
+#: includes/customizer.php:561
 msgid "The background active color of primary sub-menu links."
 msgstr ""
 
-#: includes/customizer.php:568
+#: includes/customizer.php:582
 msgid "Secondary Menu Link Color"
 msgstr ""
 
-#: includes/customizer.php:569
+#: includes/customizer.php:583
 msgid "The color of secondary menu links."
 msgstr ""
 
-#: includes/customizer.php:586
+#: includes/customizer.php:600
 msgid "Secondary Menu Link Hover"
 msgstr ""
 
-#: includes/customizer.php:587
-msgid "The color of secondary menu links when hovered over."
+#: includes/customizer.php:601
+msgid "The hover color of secondary menu links."
 msgstr ""
 
-#: includes/customizer.php:605
+#: includes/customizer.php:619
 msgid "Link Color"
 msgstr ""
 
-#: includes/customizer.php:606
+#: includes/customizer.php:620
 msgid "The color of general links."
 msgstr ""
 
-#: includes/customizer.php:623
+#: includes/customizer.php:637
 msgid "Link Hover Color"
 msgstr ""
 
-#: includes/customizer.php:624
+#: includes/customizer.php:638
 msgid "The hover color of general links."
 msgstr ""
 
-#: includes/customizer.php:641
+#: includes/customizer.php:655
 msgid "Button Background Color"
 msgstr ""
 
-#: includes/customizer.php:642
+#: includes/customizer.php:656
 msgid "The background color of buttons."
 msgstr ""
 
-#: includes/customizer.php:659
+#: includes/customizer.php:673
 msgid "Button Background Hover Color"
 msgstr ""
 
-#: includes/customizer.php:660
-msgid "The background color of buttons when hovered over."
+#: includes/customizer.php:674
+msgid "The background hover color of buttons."
 msgstr ""
 
-#: includes/customizer.php:677
+#: includes/customizer.php:691
 msgid "Button Text Color"
 msgstr ""
 
-#: includes/customizer.php:678
-msgid "The button text color of buttons."
+#: includes/customizer.php:692
+msgid "The button text color."
 msgstr ""
 
 #. Author of the plugin/theme
-#: includes/customizer.php:688
+#: includes/customizer.php:702
 msgid "Easy Digital Downloads"
 msgstr ""
 
-#: includes/customizer.php:701
+#: includes/customizer.php:715
+msgid "Enhanced Header Search Box"
+msgstr ""
+
+#: includes/customizer.php:719
+#, php-format
+msgid ""
+"The search results page will only show %s when searching via the header "
+"search box. Requires the \"Header Search Box\" option from Theme Options to "
+"be enabled."
+msgstr ""
+
+#: includes/customizer.php:730
 msgid "Distraction Free Checkout"
 msgstr ""
 
-#: includes/customizer.php:705
+#: includes/customizer.php:734
 msgid ""
 "Header menus, footer widgets and sidebars will all be removed from checkout, "
 "allowing customers to complete their purchase with no distractions."
 msgstr ""
 
-#: includes/customizer.php:718
-msgid "Display Cart Icon"
-msgstr ""
-
-#: includes/customizer.php:735
-msgid "Item Quantity and Cart Price"
-msgstr ""
-
-#: includes/customizer.php:736
-msgid ""
-"Display only the item quantity, cart total, item quantity and cart total, or "
-"nothing at all."
-msgstr ""
-
-#: includes/customizer.php:754
+#: includes/customizer.php:747
 msgid "Display Vendor Contact Form"
 msgstr ""
 
-#: includes/customizer.php:758
+#: includes/customizer.php:751
 msgid "Display the vendor contact form on the vendor page."
 msgstr ""
 
-#: includes/customizer.php:766
+#: includes/customizer.php:765
+msgid "Display Cart Icon"
+msgstr ""
+
+#: includes/customizer.php:782
+msgid "Item Quantity and Cart Total"
+msgstr ""
+
+#: includes/customizer.php:783
+msgid ""
+"Display either the item quantity or cart total, both the item quantity and "
+"cart total, or nothing at all."
+msgstr ""
+
+#: includes/customizer.php:804
+msgid "Custom Post Type Archive Title"
+msgstr ""
+
+#: includes/customizer.php:808
+#, php-format
+msgid "Configure the title for the Custom Post Type Archive Title page at %s"
+msgstr ""
+
+#: includes/customizer.php:817
 msgid "Theme Options"
 msgstr ""
 
-#: includes/customizer.php:778
+#: includes/customizer.php:829
 msgid "Full Width Layout"
 msgstr ""
 
-#: includes/customizer.php:779
+#: includes/customizer.php:830
 msgid ""
 "Display a full width layout. This will be noticeable once colors have been "
 "configured."
 msgstr ""
 
-#: includes/customizer.php:794
+#: includes/customizer.php:845
 msgid "Display Excerpts"
 msgstr ""
 
-#: includes/customizer.php:795
+#: includes/customizer.php:846
 msgid "Display excerpts for posts instead of the full content."
 msgstr ""
 
-#: includes/customizer.php:817
+#: includes/customizer.php:863
+msgid "Header Search Box"
+msgstr ""
+
+#: includes/customizer.php:864
+msgid "Display a search box in the header and mobile menu."
+msgstr ""
+
+#: includes/customizer.php:886
 msgid "Mobile Menu Button Background Color"
 msgstr ""
 
-#: includes/customizer.php:818
+#: includes/customizer.php:887
 msgid "The background color of the mobile menu button."
 msgstr ""
 
-#: includes/customizer.php:835
+#: includes/customizer.php:904
 msgid "Mobile Menu Button Text Color"
 msgstr ""
 
-#: includes/customizer.php:836
+#: includes/customizer.php:905
 msgid "The text color of the mobile menu button."
 msgstr ""
 
-#: includes/customizer.php:853
+#: includes/customizer.php:922
 msgid "Mobile Menu Background Color"
 msgstr ""
 
-#: includes/customizer.php:854
+#: includes/customizer.php:923
 msgid "The background color of the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:871
+#: includes/customizer.php:940
 msgid "Mobile Menu Link Color"
 msgstr ""
 
-#: includes/customizer.php:872
+#: includes/customizer.php:941
 msgid "The link color of the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:893
+#: includes/customizer.php:962
 msgid "Footer Background Color"
 msgstr ""
 
-#: includes/customizer.php:894
+#: includes/customizer.php:963
 msgid "The background color of the footer."
 msgstr ""
 
-#: includes/customizer.php:911
+#: includes/customizer.php:980
 msgid "Footer Text Color"
 msgstr ""
 
-#: includes/customizer.php:912
+#: includes/customizer.php:981
 msgid "The color of footer text."
 msgstr ""
 
-#: includes/customizer.php:929
+#: includes/customizer.php:998
 msgid "Footer Link Color"
 msgstr ""
 
-#: includes/customizer.php:930
+#: includes/customizer.php:999
 msgid "The color of footer links."
 msgstr ""
 
-#: includes/customizer.php:947
+#: includes/customizer.php:1016
 msgid "Footer Link Hover Color"
 msgstr ""
 
-#: includes/customizer.php:948
+#: includes/customizer.php:1017
 msgid "The hover color of footer links."
 msgstr ""
 
-#: includes/customizer.php:965
+#: includes/customizer.php:1034
 msgid "Footer Heading Color"
 msgstr ""
 
-#: includes/customizer.php:966
+#: includes/customizer.php:1035
 msgid "The color of footer headings."
 msgstr ""
 
-#: includes/customizer.php:988 includes/customizer.php:1006
+#: includes/customizer.php:1052
+msgid "Footer Site Info Color"
+msgstr ""
+
+#: includes/customizer.php:1053
+msgid "The color of footer site info."
+msgstr ""
+
+#: includes/customizer.php:1075
+msgid "Mobile Menu Cart Icon Color"
+msgstr ""
+
+#: includes/customizer.php:1076
+msgid "The color of the cart icon in the mobile menu."
+msgstr ""
+
+#: includes/customizer.php:1093
 msgid "Cart Icon Color"
 msgstr ""
 
-#: includes/customizer.php:989
-msgid ""
-"The color of the cart icon. Use the mobile/tablet preview buttons below."
-msgstr ""
-
-#: includes/customizer.php:1007
+#: includes/customizer.php:1094
 msgid "The color of the cart icon."
 msgstr ""
 
-#: includes/customizer.php:1327
+#: includes/customizer.php:1113
+msgid "Header Search Box Background Color"
+msgstr ""
+
+#: includes/customizer.php:1114
+msgid "The background color of the search box in the header."
+msgstr ""
+
+#: includes/customizer.php:1131
+msgid "Header Search Box Text Color"
+msgstr ""
+
+#: includes/customizer.php:1132
+msgid "The color of the search box text in the header."
+msgstr ""
+
+#: includes/customizer.php:1149
+msgid "Header Search Box Icon Color"
+msgstr ""
+
+#: includes/customizer.php:1150
+msgid "The color of the search box icon in the header."
+msgstr ""
+
+#: includes/customizer.php:1167
+msgid "Mobile Search Box Background Color"
+msgstr ""
+
+#: includes/customizer.php:1168
+msgid "The background color of the search box in the mobile menu."
+msgstr ""
+
+#: includes/customizer.php:1185
+msgid "Mobile Search Box Text Color"
+msgstr ""
+
+#: includes/customizer.php:1186
+msgid "The color of the search box in the mobile menu."
+msgstr ""
+
+#: includes/customizer.php:1203
+msgid "Mobile Search Box Icon Color"
+msgstr ""
+
+#: includes/customizer.php:1204
+msgid "The color of the search box icon in the mobile menu."
+msgstr ""
+
+#: includes/customizer.php:1582
 msgid "Display item quantity only"
 msgstr ""
 
-#: includes/customizer.php:1328
+#: includes/customizer.php:1583
 msgid "Display cart total only"
 msgstr ""
 
-#: includes/customizer.php:1329
-msgid "Display item count and cart total"
+#: includes/customizer.php:1584
+msgid "Display item quantity and cart total"
 msgstr ""
 
-#: includes/customizer.php:1330
+#: includes/customizer.php:1585
 msgid "Display nothing"
 msgstr ""
 
-#: includes/filters.php:73
+#: includes/filters.php:77
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
@@ -678,11 +773,11 @@ msgstr ""
 msgid "Copyright &copy; %s %s"
 msgstr ""
 
-#: includes/header.php:43
+#: includes/header.php:10
 msgid "Skip to content"
 msgstr ""
 
-#: includes/header.php:67
+#: includes/header.php:71
 msgid "Menu"
 msgstr ""
 
@@ -889,11 +984,30 @@ msgid ""
 "a>."
 msgstr ""
 
-#: search.php:7
+#: search.php:9
 msgid "Search Results"
 msgstr ""
 
-#: sidebar-single-vendor.php:57
+#: search.php:11
+msgid "Nothing Found"
+msgstr ""
+
+#: search.php:14
+#, php-format
+msgid "You searched for \"%s\""
+msgstr ""
+
+#: searchform.php:6
+msgctxt "placeholder"
+msgid "Search"
+msgstr ""
+
+#: searchform.php:11
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: sidebar-single-vendor.php:58
 msgid "Visit website"
 msgstr ""
 
@@ -924,23 +1038,19 @@ msgstr ""
 msgid "About the author:"
 msgstr ""
 
-#: template-parts/content-none.php:8
-msgid "Nothing Found"
-msgstr ""
-
-#: template-parts/content-none.php:14
+#: template-parts/content-none.php:10
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:18
+#: template-parts/content-none.php:14
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:23
+#: template-parts/content-none.php:19
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -982,4 +1092,12 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://easydigitaldownloads.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Slim"
 msgstr ""
