@@ -475,6 +475,7 @@ h2.widget-title {
   display: block;
 }
 /* Buttons */
+input[type="submit"],
 button,
 #submit,
 .button {
@@ -494,6 +495,7 @@ button,
   outline: none;
   line-height: 1.5rem;
 }
+input[type="submit"]:hover,
 button:hover,
 #submit:hover,
 .button:hover {
@@ -502,6 +504,7 @@ button:hover,
   background: #2f83d0;
   border: 1px solid #2f83d0;
 }
+input[type="submit"],
 #submit,
 button,
 .button {
