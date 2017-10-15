@@ -2908,6 +2908,9 @@ span.padlock {
 #edd-purchase-button {
   font-size: 1.5rem;
 }
+#edd-purchase-button {
+  padding: 1.25rem 2.5rem;
+}
 .edd_cart_header_row,
 .edd_cart_item {
   border-bottom: 2px solid #f5f5f5;
