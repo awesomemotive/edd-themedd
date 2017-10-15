@@ -12,7 +12,7 @@
  */
 function themedd_edd_has_download_meta() {
 
-	$has_meta = false;
+	$has_download_meta = false;
 
 	// Get the download meta options
 	$options = themedd_edd_download_meta_options();
@@ -22,10 +22,10 @@ function themedd_edd_has_download_meta() {
 		true === $options['author_name'] ||
 		true === $options['avatar']
 	) {
-		$has_meta = true;
+		$has_download_meta = true;
 	}
 
-	return $has_meta;
+	return $has_download_meta;
 
 }
 
