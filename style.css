@@ -1301,19 +1301,34 @@ dd {
 }
 ul,
 ol {
-  margin: 0 0 1.62rem 1rem;
+  margin: 0 0 1.62rem 2rem;
   padding: 0;
+}
+ul li,
+ol li {
+  margin-bottom: 1rem;
+  line-height: 1.62rem;
+}
+ul li img,
+ol li img {
+  margin-top: 1rem;
 }
 ul {
   list-style: disc;
 }
 ol {
   list-style: decimal;
-  margin-left: 1.62rem;
+  margin-left: 2rem;
+}
+li > ul {
+  list-style: circle;
+}
+li > ul ul {
+  list-style: square;
 }
 li > ul,
 li > ol {
-  margin-bottom: 0;
+  margin: 1rem 0 0 2rem;
 }
 table,
 th,
