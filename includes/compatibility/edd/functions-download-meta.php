@@ -84,62 +84,63 @@ function themedd_edd_download_meta_options() {
 }
 
 /**
- * Load the download meta in Themedd's download footer.
+ * Load the download meta.
+ *
+ * @since 1.0.3
+ */
+function themedd_edd_load_download_meta() {
+	
+	// Return early if download meta has been disabled.
+	if ( ! apply_filters( 'themedd_edd_download_meta', true, get_the_ID() ) ) {
+		return;
+	}
+
+	switch ( themedd_edd_download_meta_position() ) {
+
+		case 'after':
+			add_action( 'themedd_edd_download_footer_end', 'themedd_edd_download_meta_after' );
+			break;
+		
+		case 'after_title':
+			add_action( 'edd_download_after_title', 'themedd_edd_download_meta_after_title' );
+			break;
+
+		case 'before_title':
+			add_action( 'edd_download_before_title', 'themedd_edd_download_meta_before_title' );
+			break;
+
+	}
+
+}
+add_action( 'template_redirect', 'themedd_edd_load_download_meta' );
+
+/**
+ * Display the download meta in the download footer.
  *
  * @since 1.0.0
  */
 function themedd_edd_download_meta_after() {
-
-	// Return early if download meta has been disabled.
-	if ( ! apply_filters( 'themedd_edd_download_meta', true, get_the_ID() ) ) {
-		return;
-	}
-
-	if ( 'after' === themedd_edd_download_meta_position() ) {
-		themedd_edd_display_download_meta( array( 'position' => 'after' ) );
-	}
-
+	themedd_edd_display_download_meta( array( 'position' => 'after' ) );
 }
-add_action( 'themedd_edd_download_footer_end', 'themedd_edd_download_meta_after' );
 
 /**
- * Load the download meta after the download title.
+ * Display the download meta after the download title.
  *
  * @since 1.0.0
  */
 function themedd_edd_download_meta_after_title() {
-
-	// Return early if download meta has been disabled.
-	if ( ! apply_filters( 'themedd_edd_download_meta', true, get_the_ID() ) ) {
-		return;
-	}
-
-	if ( 'after_title' === themedd_edd_download_meta_position() ) {
-		themedd_edd_display_download_meta( array( 'position' => 'after_title' ) );
-	}
-
+	themedd_edd_display_download_meta( array( 'position' => 'after_title' ) );
 }
-add_action( 'edd_download_after_title', 'themedd_edd_download_meta_after_title' );
 
 /**
- * Load the download meta before the download title
+ * Display the download meta before the download title.
  *
  * @since 1.0.0
  */
 function themedd_edd_download_meta_before_title() {
-
-	// Return early if download meta has been disabled.
-	if ( ! apply_filters( 'themedd_edd_download_meta', true, get_the_ID() ) ) {
-		return;
-	}
-
-	if ( 'before_title' === themedd_edd_download_meta_position() ) {
-		themedd_edd_display_download_meta( array( 'position' => 'before_title' ) );
-	}
-
+	themedd_edd_display_download_meta( array( 'position' => 'before_title' ) );
 }
-add_action( 'edd_download_before_title', 'themedd_edd_download_meta_before_title' );
-
+	
 /**
  * Display the download meta
  *
