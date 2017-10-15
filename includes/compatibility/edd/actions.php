@@ -68,36 +68,91 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
 /**
  * Alter EDD download loops.
- * Affects archive-download.php, taxonomy-download-category.php and taxonomy-download-category.php
+ * 
+ * Affects:
+ * 
+ * archive-download.php, 
+ * taxonomy-download-category.php
+ * taxonomy-download-category.php
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.0.3 Added support for all orderby options.
  *
  * @return void
  */
-if ( ! function_exists( 'themedd_edd_pre_get_posts' ) ):
-	function themedd_edd_pre_get_posts( $query ) {
 
-		$download_grid_options = themedd_edd_download_grid_options();
+function themedd_edd_pre_get_posts( $query ) {
 
-		// Defaults to 9 downloads like EDD's [downloads] shortcode.
-		$downloads_per_page = $download_grid_options['number'];
+	// Get the download grid options.
+	$download_grid_options = themedd_edd_download_grid_options();
 
-		// Bail if in the admin or we're not working with the main WP query.
-		if ( is_admin() || ! $query->is_main_query() ) {
-			return;
-		}
+	// Defaults to 9 downloads like EDD's [downloads] shortcode.
+	$downloads_per_page = $download_grid_options['number'];
 
-		// Set the number of downloads to show.
-		if (
-			is_post_type_archive( 'download' ) || // archive-download.php page
-			is_tax( 'download_category' ) ||      // taxonomy-download-category.php
-			is_tax( 'download_tag' )              // taxonomy-download-category.php
-		) {
-			$query->set( 'posts_per_page', $downloads_per_page );
-		}
+	// Get the order
+	$order = $download_grid_options['order'];
+
+	// Get the orderby
+	$orderby = $download_grid_options['orderby'];
+
+	switch ( $orderby ) {
+
+		case 'price':
+			$orderby = 'meta_value_num';
+		break;
+
+		case 'title':
+			$orderby = 'title';
+		break;
+
+		case 'id':
+			$orderby = 'ID';
+		break;
+
+		case 'random':
+			$orderby = 'rand';
+		break;
+
+		case 'post__in':
+			$orderby = 'post__in';
+		break;
+
+		default:
+			$orderby = 'post_date';
+		break;
 
 	}
-endif;
+
+	// Bail if in the admin or we're not working with the main WP query.
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	// Set the number of downloads to show.
+	if (
+		is_post_type_archive( 'download' ) || // archive-download.php page
+		is_tax( 'download_category' ) ||      // taxonomy-download-category.php
+		is_tax( 'download_tag' )              // taxonomy-download-category.php
+	) {
+
+		// Set the number of downloads per page
+		$query->set( 'posts_per_page', $downloads_per_page );
+
+		// Set the order. ASC | DESC
+		$query->set( 'order', $order );
+
+		// Set meta_key query when ordering by price.
+		if ( 'meta_value_num' === $orderby ) {
+			$query->set( 'meta_key', 'edd_price' );
+		}
+		
+		// Set the orderby.
+		$query->set( 'orderby', $orderby );
+
+	}
+
+}
+
 add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
 
 /**
@@ -107,7 +162,6 @@ add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
  *
  * @return void
  */
-if ( ! function_exists( 'themedd_edd_set_distraction_free_checkout' ) ):
 function themedd_edd_set_distraction_free_checkout() {
 
 	/**
@@ -142,5 +196,4 @@ function themedd_edd_set_distraction_free_checkout() {
 	}
 
 }
-endif;
 add_action( 'template_redirect', 'themedd_edd_set_distraction_free_checkout' );
