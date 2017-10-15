@@ -57,6 +57,8 @@ class Themedd {
 			);
 
 		}
+		
+		$sidebar_args = apply_filters( 'themedd_sidebar_args', $sidebar_args );
 
 		foreach ( $sidebar_args as $sidebar => $args ) {
 
