@@ -1368,7 +1368,7 @@ td {
 }
 .box,
 .comment-respond {
-  padding: 2rem;
+  padding: 1rem;
   border: 2px solid #f4f4f4;
   background: #fcfcfc;
 }
@@ -3487,6 +3487,10 @@ a.delete {
   }
   .site-header-menu .search-field {
     font-size: 0.875rem;
+  }
+  .box,
+  .comment-respond {
+    padding: 2rem;
   }
   .author-info {
     display: -webkit-box;

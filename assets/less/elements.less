@@ -92,22 +92,30 @@ td {
 	padding: 0.5rem;
 }
 
-.media-mixin(@break) when (@break = @screen-lg-min) {
-	th,
-	td {
-		padding: 0.5rem 1rem;
-	}
-}
-
 .box,
 .comment-respond {
-    padding: @box-padding;
-    border: @box-border;
-    background: @box-background-color;
+    padding: 1rem;
+	border: @box-border;
+	background: @box-background-color;
 }
 
 // remove any bottom margin from paragraph tags included inside boxes
 .box p:last-of-type:not(:first-child),
 .comment-respond p:last-of-type:not(:first-child) {
 	margin-bottom: 0;
+}
+
+.media-mixin(@break) when (@break = @screen-sm-min) {
+	.box,
+	.comment-respond {
+		padding: @box-padding;
+	}
+}
+
+.media-mixin(@break) when (@break = @screen-lg-min) {
+
+	th,
+	td {
+		padding: 0.5rem 1rem;
+	}
 }
