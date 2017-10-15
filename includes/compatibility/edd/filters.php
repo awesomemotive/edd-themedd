@@ -74,137 +74,54 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	/**
 	 * Get the download grid options.
 	 */
-	$download_grid_options = themedd_edd_download_grid_options();
+	$download_grid_options = themedd_edd_download_grid_options( $out );
 
 	/**
-	 * Do not display thumbnails if:
-	 * 
-	 * 1. The "thumbnails" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "thumbnails" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
+	 * Filter the pagination.
 	 * 
 	 * @since 1.0.3
 	 */
-	if ( ! isset( $atts['thumbnails'] ) && false === $download_grid_options['thumbnails'] ) {
-		$out['thumbnails'] = 'false';
+	if ( false === $download_grid_options['pagination'] ) {
+		$out['pagination'] = 'false';
+	} else if ( true === $download_grid_options['pagination'] ) {
+		$out['pagination'] = 'true';
 	}
 
 	/**
-	 * Makes the price always shown by default.
-	 * The price will not be shown if the "price" attribute on the [downloads] shortcode is set to "no".
+	 * Sets the number of download columns shown.
+	 * 
+	 * @since 1.0.3
+	 */
+	$out['columns'] = $download_grid_options['columns'];
+
+	/**
+	 * Sets the number of downloads shown.
+	 * 
+	 * @since 1.0.3
+	 */
+	$out['number'] = $download_grid_options['number'];
+
+	/**
+	 * Sets the "order".
+	 * 
+	 * @since 1.0.3
+	 */
+	$out['order'] = $download_grid_options['order'];
+
+	/**
+	 * Sets the "orderby"
+	 * 
+	 * @since 1.0.3
+	 */
+	$out['orderby'] = $download_grid_options['orderby'];
+
+	/**
+	 * Sets the price attribute to "yes" automatically if not set on the [downloads] shortcode.
 	 *
 	 * @since 1.0.0
 	 */
-	if ( isset( $atts['price'] ) && $atts['price'] === 'no' ) {
-		// Don't show the price if the "price" attribute has been set to "no".
-		$out['price'] = 'no';
-	} else {
-		// Always show the price.
+	if ( ! isset( $atts['price'] ) && false !== $download_grid_options['price'] ) {
 		$out['price'] = 'yes';
-	}
-
-	/**
-	 * Do not display the buy button if:
-	 * 
-	 * 1. The "buy_button" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "buy_button" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook.
-	 *
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['buy_button'] ) && false === $download_grid_options['buy_button'] ) {
-		$out['buy_button'] = 'no';
-	}
-
-	/**
-	 * Do not display the excerpt if:
-	 * 
-	 * 1. The "excerpt" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "excerpt" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['excerpt'] ) && false === $download_grid_options['excerpt'] ) {
-		$out['excerpt'] = 'no';
-	}
-
-	/**
-	 * Force the [downloads] shortcode to show the full content
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( 
-		true === $download_grid_options['full_content'] && 
-		! isset( $atts['excerpt'] ) && 
-		! isset( $atts['full_content'] ) 
-	) {
-		$out['full_content'] = 'yes';
-	}
-
-	/**
-	 * Filter the number of downloads shown if:
-	 * 
-	 * 1. The "number" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "number" attribute has been set via the themedd_edd_download_grid_options filter hook.
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['number'] ) && isset( $download_grid_options['number'] ) ) {
-		$out['number'] = $download_grid_options['number'];
-	}
-
-	/**
-	 * Filter the number of download columns shown if:
-	 * 
-	 * 1. The "columns" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "columns" attribute has been set via the themedd_edd_download_grid_options filter hook.
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['columns'] ) && isset( $download_grid_options['columns'] ) ) {
-		$out['columns'] = $download_grid_options['columns'];
-	}
-
-	/**
-	 * Do not display the download pagination if:
-	 * 
-	 * 1. The "pagination" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "pagination" attribute has been set to "false" via the themedd_edd_download_grid_options filter hook. 
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['pagination'] ) && false === $download_grid_options['pagination'] ) {
-		$out['pagination'] = 'false';
-	}
-
-	/**
-	 * Filter the "order" attribute if:
-	 * 
-	 * 1. The "order" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "order" attribute has been set via the themedd_edd_download_grid_options filter hook. 
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['order'] ) && isset( $download_grid_options['order'] ) ) {
-		$out['order'] = $download_grid_options['order'];
-	}
-
-	/**
-	 * Filter the "orderby" attribute if:
-	 * 
-	 * 1. The "orderby" attribute is not set on the [downloads] shortcode.
-	 * And:
-	 * 2. The "orderby" attribute has been set via the themedd_edd_download_grid_options filter hook. 
-	 * 
-	 * @since 1.0.3
-	 */
-	if ( ! isset( $atts['orderby'] ) && isset( $download_grid_options['orderby'] ) ) {
-		$out['orderby'] = $download_grid_options['orderby'];
 	}
 	
 	return $out;
@@ -213,7 +130,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 add_filter( 'shortcode_atts_downloads', 'themedd_edd_shortcode_atts_downloads', 10, 4 );
 
 /**
- * Set the default EDD checkout image size
+ * Set the default EDD checkout image size.
  *
  * @since 1.0
  */
@@ -223,7 +140,7 @@ function themedd_edd_checkout_image_size() {
 add_filter( 'edd_checkout_image_size', 'themedd_edd_checkout_image_size' );
 
 /**
- * Renders the Purchase button on the Checkout
+ * Renders the Purchase button on the Checkout.
  *
  * @since 1.0.0
  */
@@ -267,7 +184,7 @@ function themedd_edd_body_classes( $classes ) {
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
 /**
- * Downloads wrapper classes
+ * Downloads wrapper classes.
  *
  * @since 1.0.0
  */
@@ -349,7 +266,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 	$i = 1;
 
 	$wrapper_class = 'edd_download_columns_' . $columns;
-	$download_grid_options = themedd_edd_download_grid_options();
+	$download_grid_options = themedd_edd_download_grid_options( $atts );
 	ob_start();
 
 	?>
@@ -362,13 +279,10 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 
 					do_action( 'edd_download_before' );
 
-					if ( 
-						'false' !== $atts['thumbnails'] ||
-						( 'true' !== $atts['thumbnails'] && false !== $download_grid_options['thumbnails'] )
-					) :
+					if ( true === $download_grid_options['thumbnails'] ) {
 						edd_get_template_part( 'shortcode', 'content-image' );
 						do_action( 'edd_download_after_thumbnail' );
-					endif;
+					}
 
 					do_action( 'edd_download_before_title' );
 					
@@ -378,73 +292,21 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 
 					do_action( 'edd_download_after_title' );
 
-					/**
-					 * Display either the download's excerpt or full content.
-					 */
-					if (
-						/**
-						 * Show the excerpt if any of these these shortcodes are used:
-						 * 
-						 * [downloads] (except is the default)
-						 * [downloads excerpt="yes"]
-						 * [downloads full_content="no"]
-						 */
-						( 
-							'yes' === $atts['excerpt'] && 
-							'yes' !== $atts['full_content']
-						) 
-						
-						||
-					
-						/**
-						 * Show the excerpt if:
-						 * 
-						 * "excerpt" is set to "yes" on the [downloads] shortcode
-						 * AND
-						 * "full_content" is NOT set to "yes" on the [downloads] shortcode.
-						 * AND
-						 * "excerpt" is not set to "false" via the themedd_edd_download_grid_options filter hook. 
-						 */
-						( 
-							'yes' === $atts['excerpt'] && 
-							'yes' !== $atts['full_content'] && 
-							false !== $download_grid_options['excerpt']
-						)
-					) :
-						
+					if ( true === $download_grid_options['excerpt'] && true !== $download_grid_options['full_content'] ) {
 						// Show the excerpt.
 						edd_get_template_part( 'shortcode', 'content-excerpt' );
-
+		
 						do_action( 'edd_download_after_content' );
-
-					elseif (
-						/**
-						 * Show the full_content if [downloads full_content="yes"]
-						 */
-						( 'yes' === $atts['full_content'] ) 
-						
-						||
-
-						/**
-						 * Show the full_content if:
-						 * 
-						 * "full_content" is set to "true" via the themedd_edd_download_grid_options filter hook.
-						 * AND
-						 * "full_content" is NOT set to "no" on the [downloads] shortcode.
-						 */
-						( 
-							true === $download_grid_options['full_content'] && 
-							'no' !== $atts['full_content']
-						)
-					) :
-						
+					} elseif ( true === $download_grid_options['full_content'] ) {
 						// Show the full content.
 						edd_get_template_part( 'shortcode', 'content-full' );
 						
 						do_action( 'edd_download_after_content' );
-						
-					endif;
+					}
 
+					/**
+					 * Download footer
+					 */
 					themedd_edd_download_footer( $atts );
 
 					do_action( 'edd_download_after' );
