@@ -2894,6 +2894,9 @@ span.padlock {
 .edd_cart_actions {
   text-align: right;
 }
+.edd_cart_actions .edd-item-quantity {
+  margin-right: 0.5rem;
+}
 #edd_final_total_wrap {
   text-align: center;
   margin-bottom: 2rem;
@@ -3025,6 +3028,10 @@ span.card-type.amex {
 }
 #edd_purchase_receipt_products ul {
   margin-bottom: 0;
+  font-size: 1rem;
+}
+#edd_purchase_receipt_products ul li {
+  margin-bottom: 0;
 }
 #edd_purchase_receipt,
 #edd_purchase_receipt_products {
@@ -3048,11 +3055,9 @@ span.card-type.amex {
 #edd_purchase_receipt_products tr td:first-child {
   border-right: 2px solid #f5f5f5;
 }
-#edd_purchase_receipt_products ul {
-  font-size: 1rem;
-}
 .edd_purchase_receipt_product_name {
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 .edd_purchase_receipt_files li:last-child {
   margin-bottom: 0;
@@ -3321,6 +3326,7 @@ a.delete {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 0;
 }
 .downloadAuthor-name,
 .downloadDetails-name {
@@ -3345,6 +3351,7 @@ a.delete {
 .edd-item-quantity {
   width: 4rem;
   margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 .edd-select {
   vertical-align: middle;
