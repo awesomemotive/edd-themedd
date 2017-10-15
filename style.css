@@ -1166,9 +1166,14 @@ body .wrapper {
 }
 .site-footer ul {
   margin-left: 0;
+  margin-top: 0;
+}
+.site-footer ul ul {
+  margin-left: 1rem;
 }
 .site-footer li {
   list-style-type: none;
+  margin-bottom: 0;
 }
 .site-footer a {
   color: #a2a2a2;
@@ -2275,6 +2280,7 @@ section.account .wrapper {
 }
 .main-navigation li {
   position: relative;
+  margin-bottom: 0;
 }
 .main-navigation ul ul {
   display: none;
@@ -2351,6 +2357,20 @@ section.account .wrapper {
   overflow: hidden;
   max-height: 0;
 }
+#mobile-menu .sub-menu a {
+  padding-left: 2rem;
+}
+#mobile-menu ul {
+  display: none;
+  list-style-type: none;
+}
+#mobile-menu ul .sub-menu a {
+  padding-left: 4rem;
+}
+#mobile-menu li {
+  position: relative;
+  margin-bottom: 0;
+}
 #mobile-menu a {
   display: block;
   line-height: 1.5;
@@ -2366,18 +2386,9 @@ section.account .wrapper {
 #mobile-menu .current_page_ancestor > a {
   color: #222;
 }
-#mobile-menu li {
-  position: relative;
-}
-#mobile-menu ul {
-  display: none;
-}
 #mobile-menu .menu-item-has-children > a {
   margin: 0;
   padding-right: 1rem;
-}
-#mobile-menu .sub-menu a {
-  padding-left: 2rem;
 }
 .dropdown-toggle {
   background-color: transparent;
@@ -2419,6 +2430,9 @@ section.account .wrapper {
   display: -ms-flexbox;
   display: flex;
   margin-left: -0.5rem;
+}
+.secondary-navigation ul li {
+  margin-bottom: 0;
 }
 /* Easy Digital Downloads */
 .edd-submit {
@@ -3453,9 +3467,6 @@ a.delete {
   }
   .footer-widgets .widget-column {
     padding: 2rem;
-  }
-  .site-footer ul {
-    margin-bottom: 0;
   }
   .footer-widgets .widget {
     margin-bottom: 4rem;

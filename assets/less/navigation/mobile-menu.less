@@ -1,14 +1,33 @@
 #mobile-menu {
 	overflow: hidden;
 	max-height: 0;
-}
 
-#mobile-menu a {
-    display: block;
-    line-height: 1.5;
-    font-size: @mobile-menu-font-size;
-    padding: 0.75rem 1rem;
-    color: @mobile-menu-link-color;
+	.sub-menu a {
+		padding-left: 2rem;
+	}
+
+	ul {
+		display: none;
+		list-style-type: none;
+	
+		.sub-menu a {
+			padding-left: 4rem;
+		}
+	}
+
+	li {
+		position: relative;
+		margin-bottom: 0;
+	}
+
+	a {
+		display: block;
+		line-height: 1.5;
+		font-size: @mobile-menu-font-size;
+		padding: 0.75rem 1rem;
+		color: @mobile-menu-link-color;
+	}
+
 }
 
 .no-js #mobile-menu,
@@ -21,22 +40,10 @@
 	color: @nav-active-color;
 }
 
-#mobile-menu li {
-	position: relative;
-}
-
-#mobile-menu ul {
-	display: none;
-}
-
 // leave right margin for the button
 #mobile-menu .menu-item-has-children > a {
 	margin: 0;
 	padding-right: 1rem;
-}
-
-#mobile-menu .sub-menu a {
-    padding-left: 2rem;
 }
 
 .media-mixin(@break) when (@break = @nav-sm-max) {
