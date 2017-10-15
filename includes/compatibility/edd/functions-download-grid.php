@@ -3,7 +3,6 @@
  * Download grid functions
  */
 
-
 /**
  * Downloads list wrapper classes
  * These classes are applied wherever a downloads grid is outputted and used by:
@@ -75,19 +74,60 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 /**
  * Download grid options.
  *
- * Used by:
+ * Used by all download grids:
+ * 
+ * via the [downloads] shortcode
  * archive-download.php
  * taxonomy-download_category.php
  * taxonomy-download_tag.php
  *
  * @since 1.0.0
- *
+ * 
+ * @param array $atts Attributes from [downloads] shortcode (if passed in).
+ * 
  * @return array $options Download grid options
  */
-function themedd_edd_download_grid_options() {
+function themedd_edd_download_grid_options( $atts = array() ) {
 
+	/**
+	 * Do some homekeeping on the [downloads] shortcode.
+	 * 
+	 * Converts the various "yes", "no, "true" etc into a format that the $options array uses.
+	 */
+	if ( ! empty( $atts ) ) {
+		
+		// Buy button.
+		if ( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) {
+			$atts['buy_button'] = true;
+		}
+
+		// Price.
+		if ( isset( $atts['price'] ) && 'yes' === $atts['price'] ) {
+			$atts['price'] = true;
+		}
+
+		// Excerpt.
+		if ( isset( $atts['excerpt'] ) && 'yes' === $atts['excerpt'] ) {
+			$atts['excerpt'] = true;
+		}
+
+		// Full content.
+		if ( isset( $atts['full_content'] ) && 'yes' === $atts['full_content'] ) {
+			$atts['full_content'] = true;
+		}
+
+		// Thumbnails.
+		if ( isset( $atts['thumbnails'] ) ) {
+			if ( 'true' === $atts['thumbnails'] || 'yes' === $atts['thumbnails'] ) {
+				$atts['thumbnails'] = true;
+			}
+		}
+
+	}
+
+	// Options.
 	$options = array(
-		'title'        => true,
+		'title'        => true, // This is unique to Themedd.
 		'excerpt'      => true,
 		'full_content' => false,
 		'price'        => true,
@@ -100,6 +140,10 @@ function themedd_edd_download_grid_options() {
 		'orderby'      => 'post_date'
 	);
 
+	// Merge the arrays.
+	$options = wp_parse_args( $atts, $options );
+
+	// Return the options.
 	return apply_filters( 'themedd_edd_download_grid_options', $options );
 
 }
@@ -112,130 +156,82 @@ function themedd_edd_download_grid_options() {
  *
  * 1. Wherever the [downloads] shortcode is used.
  * 2. The custom post type archive page (/downloads), unless it has been disabled.
+ * 3. archive-download.php
+ * 4. taxonomy-download_category.php
+ * 5. taxonomy-download_tag.php
  *
+ * @param array $atts Attributes from [downloads] shortcode.
  * @since 1.0.0
  */
 function themedd_edd_download_footer( $atts = array() ) {
 
+	// Pass the shortcode options into the download grid options.
+	$download_grid_options = themedd_edd_download_grid_options( $atts );
+
+	// Get the download ID.
+	$download_id = get_the_ID();
+
 	/**
 	 * Show the download footer.
 	 *
-	 * The download footer will be shown if:
-	 * 1. The price is shown.
-	 * 2. The buy button is shown.
-	 * 3. Another function is loaded onto the themedd_edd_download_footer_end hook.
+	 * The download footer will be shown if one of the following is true:
+	 * 
+	 * - The price is shown.
+	 * - The buy button is shown.
+	 * - The download meta is loaded into the download footer.
+	 * - The themedd_edd_download_footer filter hook has been set to true.
 	 */
-	if ( themedd_edd_show_download_footer( $atts ) ) : ?>
+	if (
+		true === $download_grid_options['buy_button']                                ||
+		true === $download_grid_options['price']                                     ||
+		true === apply_filters( 'themedd_edd_download_footer', false, $download_id ) ||
+		'after' === themedd_edd_download_meta_position()
+	) : 
+	?>
+
 	<div class="downloadFooter">
 		<?php
 
-		do_action( 'themedd_edd_download_footer_start' );
+		/**
+		 * Fires at the start of the download footer.
+		 *
+		 * @since 1.0.2
+		 * @since 1.0.3 Added $download_id
+		 * 
+		 * @param int $download_id The ID of the download.
+		 */
+		do_action( 'themedd_edd_download_footer_start', $download_id );
 
 		/**
 		 * Show the price.
 		 */
-		if ( themedd_edd_show_price( $atts ) ) :
+		if ( true === $download_grid_options['price'] ) :
 			edd_get_template_part( 'shortcode', 'content-price' );
-			do_action( 'edd_download_after_price' );
+			do_action( 'edd_download_after_price', $download_id );
 		endif;
 
 		/**
 		 * Show the buy button.
 		 */
-		if ( themedd_edd_show_buy_button( $atts ) ) {
+		if ( true === $download_grid_options['buy_button'] ) {
 			edd_get_template_part( 'shortcode', 'content-cart-button' );
 		}
 
-		// Used by the download meta.
-		do_action( 'themedd_edd_download_footer_end' );
+		/**
+		 * Fires at the end of the download footer.
+		 *
+		 * @since 1.0.2
+		 * @since 1.0.3 Added $download_id
+		 * 
+		 * @param int $download_id The ID of the download.
+		 */
+		do_action( 'themedd_edd_download_footer_end', $download_id );
 
 		?>
 	</div>
 	<?php endif; ?>
 
 	<?php
-}
-
-/**
- * Determine if the download footer can be shown.
- * The download footer contains the buy button, the price and optionally the download meta.
- *
- * @since 1.0.0
- */
-function themedd_edd_show_download_footer( $atts ) {
-
-	if (
-		true === themedd_edd_show_buy_button( $atts ) ||    // Show download footer if the buy button can be shown.
-		true === themedd_edd_show_price( $atts ) ||         // Show the download footer is the price has been enabled from themedd_edd_download_grid_options().
-		'after' === themedd_edd_download_meta_position() || // Show the download footer if the download meta has been placed in the download footer.
-		has_action( 'themedd_edd_download_footer_end' )     // SHow the download footer if anything has been loaded onto the themedd_edd_download_footer_end hook.
-	) {
-		return true;
-	}
-
-	return false;
-
-}
-
-/**
- * Determine if the price can be shown.
- *
- * @since 1.0.0
- */
-function themedd_edd_show_price( $atts ) {
-
-	$return = false;
-
-	$download_meta = themedd_edd_download_meta_options();
-
-	// [downloads] shortcode is being used
-	if ( ! empty( $atts ) ) {
-
-		if ( isset( $atts['price'] ) && 'yes' === $atts['price'] && true !== $download_meta['price'] ) {
-			$return = true;
-		}
-
-	} else {
-
-		$options = themedd_edd_download_grid_options();
-
-		// The download grid is being shown without using the [downloads] shortcode
-		if ( true === $options['price'] && true !== $download_meta['price'] ) {
-			$return = true;
-		}
-
-	}
-
-	return apply_filters( 'themedd_edd_show_price', $return );
-
-}
-
-/**
- * Determine if the buy button can be shown.
- *
- * @since 1.0.0
- */
-function themedd_edd_show_buy_button( $atts ) {
-
-	$return = false;
-
-	// [downloads] shortcode is being used
-	if ( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) {
-		$return = true;
-	} else {
-
-		// The download grid is being shown without using the [downloads] shortcode
-
-		$options = themedd_edd_download_grid_options();
-
-		if ( true === $options['buy_button'] ) {
-			$return = true;
-		}
-
-	}
-
-	return apply_filters( 'themedd_edd_show_buy_button', $return );
-
 }
 
 /**
