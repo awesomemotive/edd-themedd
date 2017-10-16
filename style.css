@@ -3374,6 +3374,9 @@ a.delete {
 .edd-cs-vote-description {
   margin-bottom: 1rem;
 }
+.edd-wl-wish-lists .edd-wish-list li::after {
+  width: auto;
+}
 @media only screen and (max-width: 991px) {
   .account-nav ul {
     line-height: 2;
