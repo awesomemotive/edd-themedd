@@ -75,9 +75,9 @@ function themedd_customize_color_defaults() {
 		'background_color'                          => $white,
 		'header_background_color'                   => $white,
 		'header_textcolor'                          => $dark_grey,
-		'header_search_box_background_color'        => $light_grey,
-		'header_search_box_text_color'              => $body,
-		'header_search_box_icon_color'              => $body,
+		'header_search_background_color'            => $light_grey,
+		'header_search_text_color'                  => $body,
+		'header_search_icon_color'                  => $body,
 		'site_title_color'                          => $dark_grey,
 		'menu_primary_sub_background_hover_color'   => '',
 		'menu_primary_sub_background_color'         => $dark_grey,
@@ -105,9 +105,9 @@ function themedd_customize_color_defaults() {
 		'menu_mobile_background_color'              => '',
 		'menu_mobile_link_color'                    => $dark_grey,
 		'menu_mobile_button_text_color'             => $white,
-		'menu_mobile_search_box_background_color'        => $light_grey,
-		'menu_mobile_search_box_text_color'              => $body,
-		'menu_mobile_search_box_icon_color'              => $body,
+		'menu_mobile_search_background_color'       => $light_grey,
+		'menu_mobile_search_text_color'             => $body,
+		'menu_mobile_search_icon_color'             => $body,
 		'footer_background_color'                   => $white,
 		'footer_text_color'                         => $medium_grey,
 		'footer_link_color'                         => $medium_grey,
@@ -705,18 +705,18 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 	/**
-	 * Enhanced Header Search Box setting
+	 * "Restrict Header Search" setting
 	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[enhanced_search]', array(
+	$wp_customize->add_setting( 'easy_digital_downloads[restrict_header_search]', array(
 		'sanitize_callback' => 'themedd_sanitize_checkbox'
 	));
 
-	$wp_customize->add_control( 'enhanced_search', array(
-		'label'       => __( 'Enhanced Header Search Box', 'themedd' ),
-		'settings'    => 'easy_digital_downloads[enhanced_search]',
+	$wp_customize->add_control( 'restrict_header_search', array(
+		'label'       => __( 'Restrict Header Search', 'themedd' ),
+		'settings'    => 'easy_digital_downloads[restrict_header_search]',
 		'section'     => 'easy_digital_downloads',
 		'type'        => 'checkbox',
-		'description' => sprintf( __( 'The search results page will only show %s when searching via the header search box. Requires the "Header Search Box" option from Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
+		'description' => sprintf( __( 'If enabled, the header search will only search %s. Requires the "Header Search" option from Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
 	));
 
 	/**
@@ -853,16 +853,16 @@ function themedd_customize_register( $wp_customize ) {
 	/**
 	 * Enable search in header
 	 */
-	$wp_customize->add_setting( 'theme_options[header_search_box]', array(
+	$wp_customize->add_setting( 'theme_options[header_search]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'themedd_sanitize_checkbox',
 		'default'           => false
 	));
 
-	$wp_customize->add_control( 'theme_options[header_search_box]', array(
-		'label'       => __( 'Header Search Box', 'themedd' ),
-		'description' => __( 'Display a search box in the header and mobile menu.', 'themedd' ),
-		'settings'    => 'theme_options[header_search_box]',
+	$wp_customize->add_control( 'theme_options[header_search]', array(
+		'label'       => __( 'Header Search', 'themedd' ),
+		'description' => __( 'Displays a search box in the header and mobile menu.', 'themedd' ),
+		'settings'    => 'theme_options[header_search]',
 		'section'     => 'theme_options',
 		'type'        => 'checkbox',
 
@@ -1099,110 +1099,110 @@ function themedd_customize_register( $wp_customize ) {
 
 	}
 	
-	// Header Search Box Background Color
-	$wp_customize->add_setting( 'colors[header_search_box_background_color]', array(
+	// Header Search Background Color
+	$wp_customize->add_setting( 'colors[header_search_background_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
-		'default'           => $defaults['header_search_box_background_color']
+		'default'           => $defaults['header_search_background_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
-		'header_search_box_background_color',
+		'header_search_background_color',
 		array(
-			'label'       => __( 'Header Search Box Background Color', 'themedd' ),
+			'label'       => __( 'Header Search Background Color', 'themedd' ),
 			'description' => __( 'The background color of the search box in the header.', 'themedd' ),
-			'settings'    => 'colors[header_search_box_background_color]',
+			'settings'    => 'colors[header_search_background_color]',
 			'section'     => 'header_colors',
 		)
 	));
 
-	// Header Search Box Text Color
-	$wp_customize->add_setting( 'colors[header_search_box_text_color]', array(
+	// Header Search Text Color
+	$wp_customize->add_setting( 'colors[header_search_text_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
-		'default'           => $defaults['header_search_box_text_color']
+		'default'           => $defaults['header_search_text_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
-		'header_search_box_text_color',
+		'header_search_text_color',
 		array(
-			'label'       => __( 'Header Search Box Text Color', 'themedd' ),
+			'label'       => __( 'Header Search Text Color', 'themedd' ),
 			'description' => __( 'The color of the search box text in the header.', 'themedd' ),
-			'settings'    => 'colors[header_search_box_text_color]',
+			'settings'    => 'colors[header_search_text_color]',
 			'section'     => 'header_colors',
 		)
 	));
 
-	// Header Search Box icon Color
-	$wp_customize->add_setting( 'colors[header_search_box_icon_color]', array(
+	// Header Search icon Color
+	$wp_customize->add_setting( 'colors[header_search_icon_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
-		'default'           => $defaults['header_search_box_icon_color']
+		'default'           => $defaults['header_search_icon_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
-		'header_search_box_icon_color',
+		'header_search_icon_color',
 		array(
-			'label'       => __( 'Header Search Box Icon Color', 'themedd' ),
+			'label'       => __( 'Header Search Icon Color', 'themedd' ),
 			'description' => __( 'The color of the search box icon in the header.', 'themedd' ),
-			'settings'    => 'colors[header_search_box_icon_color]',
+			'settings'    => 'colors[header_search_icon_color]',
 			'section'     => 'header_colors',
 		)
 	));
 
-	// Mobile Search Box Background Color
-	$wp_customize->add_setting( 'colors[menu_mobile_search_box_background_color]', array(
+	// Mobile Search Background Color
+	$wp_customize->add_setting( 'colors[menu_mobile_search_background_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
-		'default'           => $defaults['menu_mobile_search_box_background_color']
+		'default'           => $defaults['menu_mobile_search_background_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
-		'menu_mobile_search_box_background_color',
+		'menu_mobile_search_background_color',
 		array(
-			'label'       => __( 'Mobile Search Box Background Color', 'themedd' ),
+			'label'       => __( 'Mobile Search Background Color', 'themedd' ),
 			'description' => __( 'The background color of the search box in the mobile menu.', 'themedd' ),
-			'settings'    => 'colors[menu_mobile_search_box_background_color]',
+			'settings'    => 'colors[menu_mobile_search_background_color]',
 			'section'     => 'mobile_device_colors',
 		)
 	));
 
-	// Mobile Search Box Text Color
-	$wp_customize->add_setting( 'colors[menu_mobile_search_box_text_color]', array(
+	// Mobile Search Text Color
+	$wp_customize->add_setting( 'colors[menu_mobile_search_text_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
-		'default'           => $defaults['menu_mobile_search_box_text_color']
+		'default'           => $defaults['menu_mobile_search_text_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
-		'menu_mobile_search_box_text_color',
+		'menu_mobile_search_text_color',
 		array(
-			'label'       => __( 'Mobile Search Box Text Color', 'themedd' ),
+			'label'       => __( 'Mobile Search Text Color', 'themedd' ),
 			'description' => __( 'The color of the search box in the mobile menu.', 'themedd' ),
-			'settings'    => 'colors[menu_mobile_search_box_text_color]',
+			'settings'    => 'colors[menu_mobile_search_text_color]',
 			'section'     => 'mobile_device_colors',
 		)
 	));
 
-	// Mobile Search Box icon Color
-	$wp_customize->add_setting( 'colors[menu_mobile_search_box_icon_color]', array(
+	// Mobile Search icon Color
+	$wp_customize->add_setting( 'colors[menu_mobile_search_icon_color]', array(
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
-		'default'           => $defaults['menu_mobile_search_box_icon_color']
+		'default'           => $defaults['menu_mobile_search_icon_color']
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
-		'menu_mobile_search_box_icon_color',
+		'menu_mobile_search_icon_color',
 		array(
-			'label'       => __( 'Mobile Search Box Icon Color', 'themedd' ),
+			'label'       => __( 'Mobile Search Icon Color', 'themedd' ),
 			'description' => __( 'The color of the search box icon in the mobile menu.', 'themedd' ),
-			'settings'    => 'colors[menu_mobile_search_box_icon_color]',
+			'settings'    => 'colors[menu_mobile_search_icon_color]',
 			'section'     => 'mobile_device_colors',
 		)
 	));
@@ -1361,22 +1361,22 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			}
 
 			/**
-			 * Header search box
+			 * Header search
 			 */
 
-			 // Header search box background color. 
-			if ( isset( $colors['header_search_box_background_color'] ) ) {
-				echo '.site-header-menu .search-form .search-field, .site-header-menu .search-form .search-submit { background:' . $colors['header_search_box_background_color'] . '; }';
+			 // Header search background color. 
+			if ( isset( $colors['header_search_background_color'] ) ) {
+				echo '.site-header-menu .search-form .search-field, .site-header-menu .search-form .search-submit { background:' . $colors['header_search_background_color'] . '; }';
 			}
 			
-			// Header search box text color. 
-			if ( isset( $colors['header_search_box_text_color'] ) ) {
-				echo '.site-header-menu .search-form .search-field { color:' . $colors['header_search_box_text_color'] . '; }';
+			// Header search text color. 
+			if ( isset( $colors['header_search_text_color'] ) ) {
+				echo '.site-header-menu .search-form .search-field { color:' . $colors['header_search_text_color'] . '; }';
 			}
 
-			// Header search box icon color. 
-			if ( isset( $colors['header_search_box_icon_color'] ) ) {
-				echo '.site-header-menu .search-form .search-submit svg * { stroke:' . $colors['header_search_box_icon_color'] . '; }';
+			// Header search icon color. 
+			if ( isset( $colors['header_search_icon_color'] ) ) {
+				echo '.site-header-menu .search-form .search-submit svg * { stroke:' . $colors['header_search_icon_color'] . '; }';
 			}
 
 			/**
@@ -1403,19 +1403,19 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#mobile-menu a, #mobile-menu .current-menu-item > a, .dropdown-toggle, .dropdown-toggle:hover  { color:' . $colors['menu_mobile_link_color'] . '; }';
 			}
 
-			// Mobile search box background color. 
-			if ( isset( $colors['menu_mobile_search_box_background_color'] ) ) {
-				echo '#mobile-menu .search-form .search-field, #mobile-menu .search-form .search-submit { background:' . $colors['menu_mobile_search_box_background_color'] . '; }';
+			// Mobile search background color. 
+			if ( isset( $colors['menu_mobile_search_background_color'] ) ) {
+				echo '#mobile-menu .search-form .search-field, #mobile-menu .search-form .search-submit { background:' . $colors['menu_mobile_search_background_color'] . '; }';
 			}
 			
-			// Mobile search box text color. 
-			if ( isset( $colors['menu_mobile_search_box_text_color'] ) ) {
-				echo '#mobile-menu .search-form .search-field { color:' . $colors['menu_mobile_search_box_text_color'] . '; }';
+			// Mobile search text color. 
+			if ( isset( $colors['menu_mobile_search_text_color'] ) ) {
+				echo '#mobile-menu .search-form .search-field { color:' . $colors['menu_mobile_search_text_color'] . '; }';
 			}
 
-			// Mobile search box icon color. 
-			if ( isset( $colors['menu_mobile_search_box_icon_color'] ) ) {
-				echo '#mobile-menu .search-form .search-submit svg * { stroke:' . $colors['menu_mobile_search_box_icon_color'] . '; }';
+			// Mobile search icon color. 
+			if ( isset( $colors['menu_mobile_search_icon_color'] ) ) {
+				echo '#mobile-menu .search-form .search-submit svg * { stroke:' . $colors['menu_mobile_search_icon_color'] . '; }';
 			}
 
 			/**

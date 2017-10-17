@@ -500,61 +500,61 @@
 	 */
 	
 	// Header search box background color.
-	wp.customize('colors[header_search_box_background_color]', function( value ) {
+	wp.customize('colors[header_search_background_color]', function( value ) {
 
 		value.bind(function( to ) {
 			jQuery('.site-header-menu .search-form .search-field, .site-header-menu .search-form .search-submit')
-			.css('background', to ? to : defaults.header_search_box_background_color )
+			.css('background', to ? to : defaults.header_search_background_color )
 		});
 
 	});
 
 	// Header search box text color.
-	wp.customize('colors[header_search_box_text_color]', function( value ) {
+	wp.customize('colors[header_search_text_color]', function( value ) {
 
 		value.bind(function( to ) {
 			jQuery('.site-header-menu .search-form .search-field')
-			.css('color', to ? to : defaults.header_search_box_text_color )
+			.css('color', to ? to : defaults.header_search_text_color )
 		});
 
 	});
 
 	// Header search box icon color.
-	wp.customize('colors[header_search_box_icon_color]', function( value ) {
+	wp.customize('colors[header_search_icon_color]', function( value ) {
 
 		value.bind(function( to ) {
 			jQuery('.site-header-menu .search-form .search-submit svg *')
-			.css('stroke', to ? to : defaults.header_search_box_icon_color )
+			.css('stroke', to ? to : defaults.header_search_icon_color )
 		});
 
 	});
 
 	// Mobile search box background color.
-	wp.customize('colors[menu_mobile_search_box_background_color]', function( value ) {
+	wp.customize('colors[menu_mobile_search_background_color]', function( value ) {
 
 		value.bind(function( to ) {
 			jQuery('#mobile-menu .search-form .search-field, #mobile-menu .search-form .search-submit')
-			.css('background', to ? to : defaults.menu_mobile_search_box_background_color )
+			.css('background', to ? to : defaults.menu_mobile_search_background_color )
 		});
 
 	});
 
 	// Mobile search box text color.
-	wp.customize('colors[menu_mobile_search_box_text_color]', function( value ) {
+	wp.customize('colors[menu_mobile_search_text_color]', function( value ) {
 
 		value.bind(function( to ) {
 			jQuery('#mobile-menu .search-form .search-field')
-			.css('color', to ? to : defaults.menu_mobile_search_box_text_color )
+			.css('color', to ? to : defaults.menu_mobile_search_text_color )
 		});
 
 	});
 
 	// Mobile search box icon color.
-	wp.customize('colors[menu_mobile_search_box_icon_color]', function( value ) {
+	wp.customize('colors[menu_mobile_search_icon_color]', function( value ) {
 
 		value.bind(function( to ) {
 			jQuery('#mobile-menu .search-form .search-submit svg *')
-			.css('stroke', to ? to : defaults.menu_mobile_search_box_icon_color )
+			.css('stroke', to ? to : defaults.menu_mobile_search_icon_color )
 		});
 
 	});	
