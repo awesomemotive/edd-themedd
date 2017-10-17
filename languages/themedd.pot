@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Themedd\n"
-"POT-Creation-Date: 2017-10-11 21:39+1300\n"
+"POT-Creation-Date: 2017-10-17 16:53+1300\n"
 "PO-Revision-Date: 2017-05-29 21:32-0700\n"
 "Last-Translator: \n"
 "Language-Team: support@easydigitaldownloads.com\n"
@@ -124,17 +124,17 @@ msgid ""
 "Please upgrade and try again."
 msgstr ""
 
-#: includes/class-search.php:130
+#: includes/class-search.php:128
 msgctxt "placeholder"
 msgid "Search products"
 msgstr ""
 
-#: includes/class-search.php:135
+#: includes/class-search.php:132
 msgctxt "label"
 msgid "Search products:"
 msgstr ""
 
-#: includes/class-search.php:140 searchform.php:16
+#: includes/class-search.php:137 searchform.php:16
 msgctxt "submit button"
 msgid "Search"
 msgstr ""
@@ -183,11 +183,11 @@ msgstr ""
 msgid "Contact vendor"
 msgstr ""
 
-#: includes/compatibility/edd/class-nav-cart.php:406
+#: includes/compatibility/edd/class-nav-cart.php:407
 msgid "item"
 msgstr ""
 
-#: includes/compatibility/edd/class-nav-cart.php:407
+#: includes/compatibility/edd/class-nav-cart.php:408
 msgid "items"
 msgstr ""
 
@@ -521,15 +521,14 @@ msgid "Easy Digital Downloads"
 msgstr ""
 
 #: includes/customizer.php:715
-msgid "Enhanced Header Search Box"
+msgid "Restrict Header Search"
 msgstr ""
 
 #: includes/customizer.php:719
 #, php-format
 msgid ""
-"The search results page will only show %s when searching via the header "
-"search box. Requires the \"Header Search Box\" option from Theme Options to "
-"be enabled."
+"If enabled, the header search will only search %s. Requires the \"Header "
+"Search\" option from Theme Options to be enabled."
 msgstr ""
 
 #: includes/customizer.php:730
@@ -596,11 +595,11 @@ msgid "Display excerpts for posts instead of the full content."
 msgstr ""
 
 #: includes/customizer.php:863
-msgid "Header Search Box"
+msgid "Header Search"
 msgstr ""
 
 #: includes/customizer.php:864
-msgid "Display a search box in the header and mobile menu."
+msgid "Displays a search box in the header and mobile menu."
 msgstr ""
 
 #: includes/customizer.php:886
@@ -700,7 +699,7 @@ msgid "The color of the cart icon."
 msgstr ""
 
 #: includes/customizer.php:1113
-msgid "Header Search Box Background Color"
+msgid "Header Search Background Color"
 msgstr ""
 
 #: includes/customizer.php:1114
@@ -708,7 +707,7 @@ msgid "The background color of the search box in the header."
 msgstr ""
 
 #: includes/customizer.php:1131
-msgid "Header Search Box Text Color"
+msgid "Header Search Text Color"
 msgstr ""
 
 #: includes/customizer.php:1132
@@ -716,7 +715,7 @@ msgid "The color of the search box text in the header."
 msgstr ""
 
 #: includes/customizer.php:1149
-msgid "Header Search Box Icon Color"
+msgid "Header Search Icon Color"
 msgstr ""
 
 #: includes/customizer.php:1150
@@ -724,7 +723,7 @@ msgid "The color of the search box icon in the header."
 msgstr ""
 
 #: includes/customizer.php:1167
-msgid "Mobile Search Box Background Color"
+msgid "Mobile Search Background Color"
 msgstr ""
 
 #: includes/customizer.php:1168
@@ -732,7 +731,7 @@ msgid "The background color of the search box in the mobile menu."
 msgstr ""
 
 #: includes/customizer.php:1185
-msgid "Mobile Search Box Text Color"
+msgid "Mobile Search Text Color"
 msgstr ""
 
 #: includes/customizer.php:1186
@@ -740,26 +739,26 @@ msgid "The color of the search box in the mobile menu."
 msgstr ""
 
 #: includes/customizer.php:1203
-msgid "Mobile Search Box Icon Color"
+msgid "Mobile Search Icon Color"
 msgstr ""
 
 #: includes/customizer.php:1204
 msgid "The color of the search box icon in the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:1582
+#: includes/customizer.php:1583
 msgid "Display item quantity only"
 msgstr ""
 
-#: includes/customizer.php:1583
+#: includes/customizer.php:1584
 msgid "Display cart total only"
 msgstr ""
 
-#: includes/customizer.php:1584
+#: includes/customizer.php:1585
 msgid "Display item quantity and cart total"
 msgstr ""
 
-#: includes/customizer.php:1585
+#: includes/customizer.php:1586
 msgid "Display nothing"
 msgstr ""
 
