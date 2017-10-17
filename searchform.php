@@ -12,7 +12,7 @@ $search_text = apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'plac
 		<input type="search" id="<?php echo $unique_id; ?>" class="search-field" placeholder="<?php echo $search_text; ?>" value="<?php echo get_search_query(); ?>" name="s" />
 	</label>
 	
-	<?php if ( apply_filters( 'themedd_search_button', true ) ) : ?>
+	<?php if ( apply_filters( 'themedd_show_search_button', true ) ) : ?>
 	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'themedd' ); ?></span><?php echo Themedd_Search::search_icon(); ?></button>
 	<?php endif; ?>
 
