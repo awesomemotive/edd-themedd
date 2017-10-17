@@ -214,20 +214,20 @@ function themedd_customize_register( $wp_customize ) {
 
 		$wp_customize->selective_refresh->add_partial( 'easy_digital_downloads[cart_icon]', array(
 			'selector'            => '.navCart-icon',
-			'container_inclusive' => false,
+			'container_inclusive' => true,
 			'render_callback'     => 'themedd_customize_partial_cart_icon',
 		) );
 
 		$wp_customize->selective_refresh->add_partial( 'easy_digital_downloads[cart_options]', array(
 			'selector'            => '.navCart-cartQuantityAndTotal',
-			'container_inclusive' => false,
+			'container_inclusive' => true,
 			'render_callback'     => 'themedd_customize_partial_cart_options',
 		) );
 
-		$wp_customize->selective_refresh->add_partial( 'theme_options[header_search_box]', array(
-			'selector'            => '.site-header-menu .search-form',
+		$wp_customize->selective_refresh->add_partial( 'theme_options[header_search]', array(
+			'selector'            => array( '.site-header-menu .search-form', '#mobile-menu .menu-item-search' ),
 			'container_inclusive' => true,
-			'render_callback'     => 'themedd_customize_partial_header_search_box',
+			'render_callback'     => 'themedd_customize_partial_header_search',
 		) );
 
 	}
