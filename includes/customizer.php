@@ -1485,15 +1485,15 @@ function themedd_customize_partial_blogdescription() {
 }
 
 /**
- * Render the header search box for the selective refresh partial.
+ * Render the header search for the selective refresh partial.
  *
  * @since 1.0.3
  * @see themedd_customize_register()
  *
  * @return void
  */
-function themedd_customize_partial_header_search_box() {
-	themedd_search_form();
+function themedd_customize_partial_header_search() {
+	themedd_search()->themedd_search_form();
 }
 
 /**
@@ -1505,7 +1505,7 @@ function themedd_customize_partial_header_search_box() {
  * @return void
  */
  function themedd_customize_partial_cart_icon() {
-	echo (new Themedd_EDD_Nav_Cart)->cart_icon();
+	echo themedd_edd_nav_cart()->cart_icon();
 }
 
 /**
@@ -1518,21 +1518,22 @@ function themedd_customize_partial_header_search_box() {
  */
 function themedd_customize_partial_cart_options() {
 
-	$cart_option = Themedd_EDD_Nav_Cart::cart_option();
+	$cart_option = themedd_edd_nav_cart()->cart_option();
 
 	switch ( $cart_option ) {
 
 		case 'all':
-			echo Themedd_EDD_Nav_Cart::cart_quantity();
-			echo Themedd_EDD_Nav_Cart::cart_total();
+			echo themedd_edd_nav_cart()->cart_quantity();
+			echo themedd_edd_nav_cart()->cart_total();
+
 			break;
 
 		case 'item_quantity':
-			echo Themedd_EDD_Nav_Cart::cart_quantity();
+			echo themedd_edd_nav_cart()->cart_quantity();
 			break;	
 		
 		case 'cart_total':
-			echo Themedd_EDD_Nav_Cart::cart_total();
+			echo themedd_edd_nav_cart()->cart_total();
 			break;
 		
 	}
