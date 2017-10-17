@@ -88,7 +88,7 @@ final class Themedd_EDD_Nav_Cart {
      */
     public function add_to_secondary_menu() {
         
-        if ( 'secondary_menu' === $this->cart_position() && true === $this->display_cart() ) {
+        if ( 'secondary_menu' === $this->cart_position() && true === $this->show_cart() ) {
             add_action( 'themedd_secondary_menu', array( $this, 'load_cart' ), 10, 1 );
         }
 
@@ -132,7 +132,7 @@ final class Themedd_EDD_Nav_Cart {
     }
 
     /**
-     * Determine where the cart should be displayed.
+     * Determine where the cart should be shown.
      *
      * Possible options are secondary_menu | primary_menu
      *
@@ -152,54 +152,55 @@ final class Themedd_EDD_Nav_Cart {
      *
      * @since 1.0.3
      *
-     * @return boolean $display_cart True if cart is enabled, false otherwise.
+     * @return boolean $show_cart True if cart is enabled, false otherwise.
      */
-    public static function display_cart() {
+    public static function show_cart() {
         
-        $display_cart = false;
+        $show_cart = false;
 
         // There is a cart when there is at least a cart icon, or an option selected (which isn't "none") for the cart options. 
-        if ( self::display_cart_icon() || 'none' !== self::cart_option() ) {
-            $display_cart = true;
+        if ( self::show_cart_icon() || 'none' !== self::cart_option() ) {
+            $show_cart = true;
         }
 
         /**
-		 * Filter the display of the cart.
+		 * Whether or not the cart is shown.
 		 *
-		 * @param boolean $display_cart True if cart is enabled, false otherwise.
+		 * @param boolean $show_cart True if cart is enabled, false otherwise.
 		 * @since 1.0.0
 		 */
-        return apply_filters( 'themedd_edd_cart', $display_cart );
+        return apply_filters( 'themedd_edd_show_cart', $show_cart );
 
     }
 
     /**
-     * Determines whether the cart icon should be displayed.
+     * Determines whether the cart icon is being shown.
      *
      * @since 1.0.0
      *
-     * @return boolean $display_cart_icon true if cart is enabled, false otherwise.
+     * @return boolean $show_cart_icon true if cart is enabled, false otherwise.
      */
-    public static function display_cart_icon() {
+    public static function show_cart_icon() {
 
         $edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
-        $display_cart_icon = isset( $edd_theme_options['cart_icon'] ) && true === $edd_theme_options['cart_icon'] ? true : false;
+        $show_cart_icon = isset( $edd_theme_options['cart_icon'] ) && true === $edd_theme_options['cart_icon'] ? true : false;
         
         /**
          * Set to "true" if no options exist in theme mods array.
          * This is because the option is enabled by default in the customizer.
          */
         if ( ! isset( $edd_theme_options['cart_icon'] ) ) {
-            $display_cart_icon = true;
+            $show_cart_icon = true;
         }
 
         /**
-		 * Filter the display of the cart icon.
+		 * Whether the cart icon is shown.
 		 *
-		 * @param boolean $display_cart_icon True if cart is enabled, false otherwise.
+		 * @param boolean $show_cart_icon True if cart is enabled, false otherwise.
+         * 
 		 * @since 1.0.3
 		 */
-        return apply_filters( 'themedd_edd_display_cart_icon', $display_cart_icon );
+        return apply_filters( 'themedd_edd_show_cart_icon', $show_cart_icon );
     }    
 
     /**
@@ -208,7 +209,7 @@ final class Themedd_EDD_Nav_Cart {
      * @since 1.0.0
      * @see themedd_customize_cart_options()
      *
-     * @return string $cart_option The cart option to display. item_quantity | cart_total | all | none
+     * @return string $cart_option The cart option to show. item_quantity | cart_total | all | none
      */
      public static function cart_option() {
 
@@ -218,7 +219,7 @@ final class Themedd_EDD_Nav_Cart {
         /**
 		 * Filter the cart option.
 		 *
-		 * @param string $cart_option The cart option to display. item_quantity | cart_total | all | none
+		 * @param string $cart_option The cart option to show. item_quantity | cart_total | all | none
 		 * @since 1.0.0
          */     
         return apply_filters( 'themedd_edd_cart_option', $cart_option );
@@ -234,12 +235,12 @@ final class Themedd_EDD_Nav_Cart {
      * 3. The cart total
      *
      * @since 1.0.0
-     * @return string $html The HTML of the cart to be displayed.
+     * @return string $html The HTML of the cart to be shown.
      */
     public function cart( $args = array() ) {
 
-        // Return early if nothing is set to be displayed.
-        if ( true !== self::display_cart() ) {
+        // Return early if nothing is set to be shown.
+        if ( true !== self::show_cart() ) {
             return;
         }
     
@@ -332,7 +333,7 @@ final class Themedd_EDD_Nav_Cart {
      */
     public function cart_icon() {
         
-        if ( ! self::display_cart_icon() ) {
+        if ( ! self::show_cart_icon() ) {
             return;
         }
     
