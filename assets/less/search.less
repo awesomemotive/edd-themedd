@@ -1,10 +1,12 @@
-// The search field that appears in the mobile menu
-#mobile-menu .search-form {
-    padding: 1rem;
-}
+#mobile-menu {
+    .menu-item-search {
+        display: block; // Fixes a display issue in Chrome on the <li>
+    }
 
-.search-form {
-   display: flex;
+    .search-form {
+        padding: 1rem;
+    }
+
 }
 
 // Search icon color
@@ -14,6 +16,7 @@
 
 // Search form.
 .search-form {
+    display: flex;
 
     label {
         margin-bottom: 0;

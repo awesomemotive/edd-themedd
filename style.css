@@ -1210,17 +1210,20 @@ a:hover {
   color: #215b92;
 }
 /* Search */
+#mobile-menu .menu-item-search {
+  display: block;
+}
 #mobile-menu .search-form {
   padding: 1rem;
+}
+.search-submit svg * {
+  stroke: #696969;
 }
 .search-form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-}
-.search-submit svg * {
-  stroke: #696969;
 }
 .search-form label {
   margin-bottom: 0;
