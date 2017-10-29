@@ -79,6 +79,17 @@ class Themedd_AffiliateWP {
 	}
 
 	/**
+	 * Helper function for determining if the affiliate registration form can be shown.
+	 *
+	 * @access private
+	 * @since AffiliateWP 2.0
+	 * @param bool $show Whether to show the registration form. Default true.
+	 */
+	private static function show_registration() {
+		return apply_filters( 'affwp_affiliate_area_show_registration', true );
+	}
+
+	/**
 	 * Renders the affiliate area
 	 *
 	 * @since  1.0.0
@@ -94,14 +105,6 @@ class Themedd_AffiliateWP {
 		affwp_enqueue_script( 'affwp-frontend', 'affiliate_area' );
 
 		/**
-		 * Filters the display of the registration form
-		 *
-		 * @since AffiliateWP 2.0
-		 * @param bool $show Whether to show the registration form. Default true.
-		 */
-		$show_registration = apply_filters( 'affwp_affiliate_area_show_registration', true );
-
-		/**
 		 * Filters the display of the login form
 		 *
 		 * @since AffiliateWP 2.0
@@ -114,11 +117,11 @@ class Themedd_AffiliateWP {
 	    if ( is_user_logged_in() && affwp_is_affiliate() ) {
 	        affiliate_wp()->templates->get_template_part( 'dashboard' );
 
-	    } elseif ( is_user_logged_in() && affiliate_wp()->settings->get( 'allow_affiliate_registration' ) ) {
+	    } elseif ( is_user_logged_in() && affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && true === self::show_registration() ) {
 
-			if ( true === $show_registration ) {
-				affiliate_wp()->templates->get_template_part( 'register' );
-			}
+			echo '<div class="box">';
+			affiliate_wp()->templates->get_template_part( 'register' );
+			echo '</div>';
 
 	    } else {
 
@@ -138,13 +141,11 @@ class Themedd_AffiliateWP {
 
 	        echo '<div class="row' . $class . '">';
 
-	        if ( affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && true === $show_registration ) {
+	        if ( affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && true === self::show_registration() ) {
 
 	            echo '<div class="col-xs-12 col-sm-8">';
-	            echo '<div class="box register">';
-
+	            echo '<div class="box">';
 				affiliate_wp()->templates->get_template_part( 'register' );
-
 	            echo '</div>';
 	            echo '</div>';
 	        }
@@ -185,7 +186,18 @@ class Themedd_AffiliateWP {
 			$classes[] = 'affiliate-area';
 		}
 
+		// Apply a "slim" class when the user is logged in, affiliate registration is allowed, and the registration form can be shown.
+		if ( 
+			is_user_logged_in() && 
+			affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && 
+			true === self::show_registration() && 
+			! ( affwp_is_active_affiliate() && affwp_is_affiliate() ) 
+		) {
+			$classes[] = 'slim';
+		}
+
 		return $classes;
+		
 	}
 
 	/**
