@@ -50,9 +50,9 @@ $download_options = themedd_edd_download_details_options();
 
 				<div class="downloadAuthor-avatar">
 				<?php if ( $vendor_url ) : ?>
-					<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, $author_options['avatar_size'] ); ?></a>
+					<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, $author_options['avatar_size'], '', get_the_author_meta( 'display_name' ) ); ?></a>
 				<?php else : ?>
-					<?php echo get_avatar( $user->ID, $author_options['avatar_size'] ); ?>
+					<?php echo get_avatar( $user->ID, $author_options['avatar_size'], '', get_the_author_meta( 'display_name' ) ); ?>
 				<?php endif; ?>
 				</div>
 			<?php endif; ?>

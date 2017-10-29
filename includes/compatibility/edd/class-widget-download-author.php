@@ -79,11 +79,11 @@ class Themedd_Download_Author extends WP_Widget {
 
 			if ( themedd_is_edd_fes_active() ) : ?>
 				<div class="downloadAuthor-avatar">
-					<a class="vendor-url" href="<?php echo esc_url( $vendor_url ); ?>"><?php echo get_avatar( $author->ID, $options['avatar_size'] ); ?></a>
+					<a class="vendor-url" href="<?php echo esc_url( $vendor_url ); ?>"><?php echo get_avatar( $author->ID, $options['avatar_size'], '', get_the_author_meta( 'display_name' ) ); ?></a>
 				</div>
 			<?php else : ?>
 				<div class="downloadAuthor-avatar">
-					<?php echo get_avatar( $author->ID, $options['avatar_size'] ); ?>
+					<?php echo get_avatar( $author->ID, $options['avatar_size'], '', get_the_author_meta( 'display_name' ) ); ?>
 				</div>
 			<?php endif;
 

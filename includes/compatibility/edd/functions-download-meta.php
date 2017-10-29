@@ -236,7 +236,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 				?>
 				<?php if ( $avatar ) : ?>
 				<span class="eddDownloadMeta-authorAvatar">
-					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, null, $vendor_store_name ); ?>
+					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, '', $vendor_store_name ); ?>
 				</span>
 				<?php endif; ?>
 
@@ -258,7 +258,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 
 				<?php if ( $avatar ) : ?>
 				<span class="eddDownloadMeta-authorAvatar">
-					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, null, $vendor_name ); ?>
+					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, '', $vendor_name ); ?>
 				</span>
 				<?php endif; ?>
 

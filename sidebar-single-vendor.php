@@ -5,6 +5,7 @@
  * @since 1.0.0
  */
 $vendor_id = absint( fes_get_vendor()->ID );
+$user_data = get_userdata( $vendor_id );
 ?>
 <div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
 
@@ -25,7 +26,7 @@ $vendor_id = absint( fes_get_vendor()->ID );
 			 */
 			?>
 			<div class="downloadAuthor-avatar">
-				<?php echo get_avatar( $vendor_id, 80 ); ?>
+				<?php echo get_avatar( $vendor_id, 80, '', $user_data->display_name ); ?>
 			</div>
 
 			<?php
