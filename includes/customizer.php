@@ -704,35 +704,37 @@ function themedd_customize_register( $wp_customize ) {
 		'active_callback' => 'themedd_is_edd_active'
 	));
 
-	/**
-	 * "Restrict Header Search" setting
-	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[restrict_header_search]', array(
-		'sanitize_callback' => 'themedd_sanitize_checkbox'
-	));
+	if ( themedd_is_edd_active() ) {
+		/**
+		* "Restrict Header Search" setting
+		*/
+		$wp_customize->add_setting( 'easy_digital_downloads[restrict_header_search]', array(
+			'sanitize_callback' => 'themedd_sanitize_checkbox'
+		));
 
-	$wp_customize->add_control( 'restrict_header_search', array(
-		'label'       => __( 'Restrict Header Search', 'themedd' ),
-		'settings'    => 'easy_digital_downloads[restrict_header_search]',
-		'section'     => 'easy_digital_downloads',
-		'type'        => 'checkbox',
-		'description' => sprintf( __( 'If enabled, the header search will only search %s. Requires the "Header Search" option from Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
-	));
+		$wp_customize->add_control( 'restrict_header_search', array(
+			'label'       => __( 'Restrict Header Search', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[restrict_header_search]',
+			'section'     => 'easy_digital_downloads',
+			'type'        => 'checkbox',
+			'description' => sprintf( __( 'If enabled, the header search will only search %s. Requires the "Header Search" option from Theme Options to be enabled.', 'themedd' ), strtolower( edd_get_label_plural() ) ),
+		));
 
-	/**
-	 * Distraction Free Checkout setting
-	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
-		'sanitize_callback' => 'themedd_sanitize_checkbox'
-	));
+		/**
+		* Distraction Free Checkout setting
+		*/
+		$wp_customize->add_setting( 'easy_digital_downloads[distraction_free_checkout]', array(
+			'sanitize_callback' => 'themedd_sanitize_checkbox'
+		));
 
-	$wp_customize->add_control( 'distraction_free_checkout', array(
-		'label'       => __( 'Distraction Free Checkout', 'themedd' ),
-		'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
-		'section'     => 'easy_digital_downloads',
-		'type'        => 'checkbox',
-		'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
-	));
+		$wp_customize->add_control( 'distraction_free_checkout', array(
+			'label'       => __( 'Distraction Free Checkout', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[distraction_free_checkout]',
+			'section'     => 'easy_digital_downloads',
+			'type'        => 'checkbox',
+			'description' => __( 'Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions.', 'themedd' ),
+		));
+	}
 
 	/**
 	 * Frontend Submissions - Display vendor contact form
@@ -752,62 +754,64 @@ function themedd_customize_register( $wp_customize ) {
 		));
 	}
 
-	/**
-	 * Cart icon setting
-	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[cart_icon]', array(
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'themedd_sanitize_checkbox',
-		'default'           => true
-	));
-
-	$wp_customize->add_control( 'cart_icon', array(
-		'label'    => __( 'Display Cart Icon', 'themedd' ),
-		'settings' => 'easy_digital_downloads[cart_icon]',
-		'section'  => 'easy_digital_downloads',
-		'type'     => 'checkbox',
-
-	));
-
-	/**
-	 * Cart options setting
-	 */
-	$wp_customize->add_setting( 'easy_digital_downloads[cart_options]', array(
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'themedd_sanitize_cart_options',
-		'default'           => 'all'
-	));
-
-	$wp_customize->add_control( 'cart_options', array(
-		'label'       => __( 'Item Quantity and Cart Total', 'themedd' ),
-		'description' => __( 'Display either the item quantity or cart total, both the item quantity and cart total, or nothing at all.', 'themedd' ),
-		'settings'    => 'easy_digital_downloads[cart_options]',
-		'section'     => 'easy_digital_downloads',
-		'type'        => 'select',
-		'choices'     => themedd_customize_cart_options()
-	));
-
-
-	/**
-	 * Custom Post Type Archive page title.
-	 * This option does not show if the archive page has been disabled.
-	 */
-	if ( ! ( defined( 'EDD_DISABLE_ARCHIVE' ) && true === EDD_DISABLE_ARCHIVE ) ) {
-
-		$wp_customize->add_setting( 'easy_digital_downloads[post_type_archive_title]', array(
-			'sanitize_callback' => 'sanitize_text_field'
+	if ( themedd_is_edd_active() ) {
+		/**
+		* Cart icon setting
+		*/
+		$wp_customize->add_setting( 'easy_digital_downloads[cart_icon]', array(
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'themedd_sanitize_checkbox',
+			'default'           => true
 		));
 
-		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
+		$wp_customize->add_control( 'cart_icon', array(
+			'label'    => __( 'Display Cart Icon', 'themedd' ),
+			'settings' => 'easy_digital_downloads[cart_icon]',
+			'section'  => 'easy_digital_downloads',
+			'type'     => 'checkbox',
 
-		$wp_customize->add_control( 'post_type_archive_title', array(
-			'label'       => __( 'Custom Post Type Archive Title', 'themedd' ),
-			'settings'    => 'easy_digital_downloads[post_type_archive_title]',
+		));
+
+		/**
+		* Cart options setting
+		*/
+		$wp_customize->add_setting( 'easy_digital_downloads[cart_options]', array(
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'themedd_sanitize_cart_options',
+			'default'           => 'all'
+		));
+
+		$wp_customize->add_control( 'cart_options', array(
+			'label'       => __( 'Item Quantity and Cart Total', 'themedd' ),
+			'description' => __( 'Display either the item quantity or cart total, both the item quantity and cart total, or nothing at all.', 'themedd' ),
+			'settings'    => 'easy_digital_downloads[cart_options]',
 			'section'     => 'easy_digital_downloads',
-			'type'        => 'text',
-			'description' => sprintf( __( 'Configure the title for the Custom Post Type Archive Title page at %s', 'themedd' ), esc_url( home_url( $slug ) ) ),
+			'type'        => 'select',
+			'choices'     => themedd_customize_cart_options()
 		));
-		
+
+
+		/**
+		* Custom Post Type Archive page title.
+		* This option does not show if the archive page has been disabled.
+		*/
+		if ( ! ( defined( 'EDD_DISABLE_ARCHIVE' ) && true === EDD_DISABLE_ARCHIVE ) ) {
+
+			$wp_customize->add_setting( 'easy_digital_downloads[post_type_archive_title]', array(
+				'sanitize_callback' => 'sanitize_text_field'
+			));
+
+			$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
+
+			$wp_customize->add_control( 'post_type_archive_title', array(
+				'label'       => __( 'Custom Post Type Archive Title', 'themedd' ),
+				'settings'    => 'easy_digital_downloads[post_type_archive_title]',
+				'section'     => 'easy_digital_downloads',
+				'type'        => 'text',
+				'description' => sprintf( __( 'Configure the title for the Custom Post Type Archive Title page at %s', 'themedd' ), esc_url( home_url( $slug ) ) ),
+			));
+			
+		}
 	}
 
 	/**
