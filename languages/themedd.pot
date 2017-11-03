@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Themedd\n"
-"POT-Creation-Date: 2017-10-17 16:53+1300\n"
+"POT-Creation-Date: 2017-11-03 15:54+1300\n"
 "PO-Revision-Date: 2017-05-29 21:32-0700\n"
 "Last-Translator: \n"
 "Language-Team: support@easydigitaldownloads.com\n"
@@ -520,245 +520,245 @@ msgstr ""
 msgid "Easy Digital Downloads"
 msgstr ""
 
-#: includes/customizer.php:715
+#: includes/customizer.php:716
 msgid "Restrict Header Search"
 msgstr ""
 
-#: includes/customizer.php:719
+#: includes/customizer.php:720
 #, php-format
 msgid ""
 "If enabled, the header search will only search %s. Requires the \"Header "
 "Search\" option from Theme Options to be enabled."
 msgstr ""
 
-#: includes/customizer.php:730
+#: includes/customizer.php:731
 msgid "Distraction Free Checkout"
 msgstr ""
 
-#: includes/customizer.php:734
+#: includes/customizer.php:735
 msgid ""
 "Header menus, footer widgets and sidebars will all be removed from checkout, "
 "allowing customers to complete their purchase with no distractions."
 msgstr ""
 
-#: includes/customizer.php:747
+#: includes/customizer.php:749
 msgid "Display Vendor Contact Form"
 msgstr ""
 
-#: includes/customizer.php:751
+#: includes/customizer.php:753
 msgid "Display the vendor contact form on the vendor page."
 msgstr ""
 
-#: includes/customizer.php:765
+#: includes/customizer.php:768
 msgid "Display Cart Icon"
 msgstr ""
 
-#: includes/customizer.php:782
+#: includes/customizer.php:785
 msgid "Item Quantity and Cart Total"
 msgstr ""
 
-#: includes/customizer.php:783
+#: includes/customizer.php:786
 msgid ""
 "Display either the item quantity or cart total, both the item quantity and "
 "cart total, or nothing at all."
 msgstr ""
 
-#: includes/customizer.php:804
+#: includes/customizer.php:807
 msgid "Custom Post Type Archive Title"
 msgstr ""
 
-#: includes/customizer.php:808
+#: includes/customizer.php:811
 #, php-format
 msgid "Configure the title for the Custom Post Type Archive Title page at %s"
 msgstr ""
 
-#: includes/customizer.php:817
+#: includes/customizer.php:821
 msgid "Theme Options"
 msgstr ""
 
-#: includes/customizer.php:829
+#: includes/customizer.php:833
 msgid "Full Width Layout"
 msgstr ""
 
-#: includes/customizer.php:830
+#: includes/customizer.php:834
 msgid ""
 "Display a full width layout. This will be noticeable once colors have been "
 "configured."
 msgstr ""
 
-#: includes/customizer.php:845
+#: includes/customizer.php:849
 msgid "Display Excerpts"
 msgstr ""
 
-#: includes/customizer.php:846
+#: includes/customizer.php:850
 msgid "Display excerpts for posts instead of the full content."
 msgstr ""
 
-#: includes/customizer.php:863
+#: includes/customizer.php:867
 msgid "Header Search"
 msgstr ""
 
-#: includes/customizer.php:864
+#: includes/customizer.php:868
 msgid "Displays a search box in the header and mobile menu."
 msgstr ""
 
-#: includes/customizer.php:886
+#: includes/customizer.php:890
 msgid "Mobile Menu Button Background Color"
 msgstr ""
 
-#: includes/customizer.php:887
+#: includes/customizer.php:891
 msgid "The background color of the mobile menu button."
 msgstr ""
 
-#: includes/customizer.php:904
+#: includes/customizer.php:908
 msgid "Mobile Menu Button Text Color"
 msgstr ""
 
-#: includes/customizer.php:905
+#: includes/customizer.php:909
 msgid "The text color of the mobile menu button."
 msgstr ""
 
-#: includes/customizer.php:922
+#: includes/customizer.php:926
 msgid "Mobile Menu Background Color"
 msgstr ""
 
-#: includes/customizer.php:923
+#: includes/customizer.php:927
 msgid "The background color of the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:940
+#: includes/customizer.php:944
 msgid "Mobile Menu Link Color"
 msgstr ""
 
-#: includes/customizer.php:941
+#: includes/customizer.php:945
 msgid "The link color of the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:962
+#: includes/customizer.php:966
 msgid "Footer Background Color"
 msgstr ""
 
-#: includes/customizer.php:963
+#: includes/customizer.php:967
 msgid "The background color of the footer."
 msgstr ""
 
-#: includes/customizer.php:980
+#: includes/customizer.php:984
 msgid "Footer Text Color"
 msgstr ""
 
-#: includes/customizer.php:981
+#: includes/customizer.php:985
 msgid "The color of footer text."
 msgstr ""
 
-#: includes/customizer.php:998
+#: includes/customizer.php:1002
 msgid "Footer Link Color"
 msgstr ""
 
-#: includes/customizer.php:999
+#: includes/customizer.php:1003
 msgid "The color of footer links."
 msgstr ""
 
-#: includes/customizer.php:1016
+#: includes/customizer.php:1020
 msgid "Footer Link Hover Color"
 msgstr ""
 
-#: includes/customizer.php:1017
+#: includes/customizer.php:1021
 msgid "The hover color of footer links."
 msgstr ""
 
-#: includes/customizer.php:1034
+#: includes/customizer.php:1038
 msgid "Footer Heading Color"
 msgstr ""
 
-#: includes/customizer.php:1035
+#: includes/customizer.php:1039
 msgid "The color of footer headings."
 msgstr ""
 
-#: includes/customizer.php:1052
+#: includes/customizer.php:1056
 msgid "Footer Site Info Color"
 msgstr ""
 
-#: includes/customizer.php:1053
+#: includes/customizer.php:1057
 msgid "The color of footer site info."
 msgstr ""
 
-#: includes/customizer.php:1075
+#: includes/customizer.php:1079
 msgid "Mobile Menu Cart Icon Color"
 msgstr ""
 
-#: includes/customizer.php:1076
+#: includes/customizer.php:1080
 msgid "The color of the cart icon in the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:1093
+#: includes/customizer.php:1097
 msgid "Cart Icon Color"
 msgstr ""
 
-#: includes/customizer.php:1094
+#: includes/customizer.php:1098
 msgid "The color of the cart icon."
 msgstr ""
 
-#: includes/customizer.php:1113
+#: includes/customizer.php:1117
 msgid "Header Search Background Color"
 msgstr ""
 
-#: includes/customizer.php:1114
+#: includes/customizer.php:1118
 msgid "The background color of the search box in the header."
 msgstr ""
 
-#: includes/customizer.php:1131
+#: includes/customizer.php:1135
 msgid "Header Search Text Color"
 msgstr ""
 
-#: includes/customizer.php:1132
+#: includes/customizer.php:1136
 msgid "The color of the search box text in the header."
 msgstr ""
 
-#: includes/customizer.php:1149
+#: includes/customizer.php:1153
 msgid "Header Search Icon Color"
 msgstr ""
 
-#: includes/customizer.php:1150
+#: includes/customizer.php:1154
 msgid "The color of the search box icon in the header."
 msgstr ""
 
-#: includes/customizer.php:1167
+#: includes/customizer.php:1171
 msgid "Mobile Search Background Color"
 msgstr ""
 
-#: includes/customizer.php:1168
+#: includes/customizer.php:1172
 msgid "The background color of the search box in the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:1185
+#: includes/customizer.php:1189
 msgid "Mobile Search Text Color"
 msgstr ""
 
-#: includes/customizer.php:1186
+#: includes/customizer.php:1190
 msgid "The color of the search box in the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:1203
+#: includes/customizer.php:1207
 msgid "Mobile Search Icon Color"
 msgstr ""
 
-#: includes/customizer.php:1204
+#: includes/customizer.php:1208
 msgid "The color of the search box icon in the mobile menu."
 msgstr ""
 
-#: includes/customizer.php:1583
+#: includes/customizer.php:1587
 msgid "Display item quantity only"
 msgstr ""
 
-#: includes/customizer.php:1584
+#: includes/customizer.php:1588
 msgid "Display cart total only"
 msgstr ""
 
-#: includes/customizer.php:1585
+#: includes/customizer.php:1589
 msgid "Display item quantity and cart total"
 msgstr ""
 
-#: includes/customizer.php:1586
+#: includes/customizer.php:1590
 msgid "Display nothing"
 msgstr ""
 
@@ -1006,7 +1006,7 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: sidebar-single-vendor.php:58
+#: sidebar-single-vendor.php:61
 msgid "Visit website"
 msgstr ""
 
