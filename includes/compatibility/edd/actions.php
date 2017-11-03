@@ -191,8 +191,8 @@ function themedd_edd_set_distraction_free_checkout() {
 		// Remove the sidebar.
 		add_filter( 'themedd_show_sidebar', '__return_false' );
 
-		// Remove the custom header (if any)
-		remove_action( 'themedd_masthead_after', 'themedd_header_image' );
+		// Remove the custom header (if set)
+		remove_action( 'themedd_header', 'themedd_header_image' );
 	}
 
 }
