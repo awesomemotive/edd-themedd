@@ -18,41 +18,54 @@ dd {
 	margin: 0 0 1.62rem;
 }
 
+
 ul,
 ol {
-	margin: 0 0 1.62rem 2rem;
+	list-style-type: none;
 	padding: 0;
 
 	li {
-		margin-bottom: 1rem;
-		line-height: 1.62rem;
 
 		img {
 			margin-top: 1rem;
 		}
+
 	}
 }
 
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-	margin-left: 2rem;
-}
-
-li > ul {
-	list-style: circle;
+// ul and ol styles for lists within the entry content
+.entry-content {
 
 	ul {
-		list-style: square;
+		list-style: disc;
 	}
-}
+	
+	ol {
+		list-style: decimal;
+	}
 
-li > ul,
-li > ol {
-	margin: 1rem 0 0 2rem;
+	ul, ol {
+		margin: 0 0 1.62rem 2rem;
+		line-height: 1.5;
+
+		li {
+			margin-bottom: 1rem;
+		}
+	}
+
+	li > ul,
+	li > ol {
+		margin: 1rem 0 0 2rem;
+	}
+
+	li > ul {
+		list-style: circle;
+	
+		ul {
+			list-style: square;
+		}
+	}
+
 }
 
 table,

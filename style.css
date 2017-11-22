@@ -1177,6 +1177,7 @@ body .wrapper {
 }
 .site-footer a {
   color: #a2a2a2;
+  display: inline-block;
 }
 .site-footer a:hover {
   color: #222;
@@ -1309,34 +1310,37 @@ dd {
 }
 ul,
 ol {
-  margin: 0 0 1.62rem 2rem;
+  list-style-type: none;
   padding: 0;
-}
-ul li,
-ol li {
-  margin-bottom: 1rem;
-  line-height: 1.62rem;
 }
 ul li img,
 ol li img {
   margin-top: 1rem;
 }
-ul {
+.entry-content ul {
   list-style: disc;
 }
-ol {
+.entry-content ol {
   list-style: decimal;
-  margin-left: 2rem;
 }
-li > ul {
+.entry-content ul,
+.entry-content ol {
+  margin: 0 0 1.62rem 2rem;
+  line-height: 1.5;
+}
+.entry-content ul li,
+.entry-content ol li {
+  margin-bottom: 1rem;
+}
+.entry-content li > ul,
+.entry-content li > ol {
+  margin: 1rem 0 0 2rem;
+}
+.entry-content li > ul {
   list-style: circle;
 }
-li > ul ul {
+.entry-content li > ul ul {
   list-style: square;
-}
-li > ul,
-li > ol {
-  margin: 1rem 0 0 2rem;
 }
 table,
 th,
@@ -1629,6 +1633,9 @@ article[class^="post-"] + article[class^="post-"] {
 .widget {
   line-height: 1.62;
 }
+.widget li {
+  margin-bottom: 0.5rem;
+}
 aside li {
   font-size: 1rem;
   padding: 0;
@@ -1652,6 +1659,9 @@ aside li {
 }
 #wp-calendar td#next {
   text-align: right;
+}
+.widget_recent_entries .post-date {
+  display: block;
 }
 /* Gallery */
 .gallery {
