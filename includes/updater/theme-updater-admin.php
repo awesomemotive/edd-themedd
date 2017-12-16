@@ -142,7 +142,7 @@ class Themedd_Updater_Admin {
 		}
 		?>
 		<div class="wrap license-wrap">
-			<h2 class="headline"><?php echo sprintf( __( '%s License Key & Child Theme Management', 'themedd' ), THEMEDD_NAME ); ?></h2>
+			<h2 class="headline"><?php echo sprintf( __( '%s License', 'themedd' ), THEMEDD_NAME ); ?></h2>
 			<div class="themedd-license-management-wrap">
 				<h2 class="themedd-license-management-headline"><?php echo sprintf( __( 'Activate Your %s License Key', 'themedd' ), THEMEDD_NAME ); ?></h2>
 				<p>
