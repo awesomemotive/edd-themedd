@@ -371,7 +371,7 @@ class Themedd_Updater_Admin {
 		$license_data = $this->get_api_response( $api_params );
 
 		// If response doesn't include license data, return
-		if ( !isset( $license_data->license ) ) {
+		if ( ! isset( $license_data->license ) ) {
 			$message = $strings['license-unknown'];
 			return $message;
 		}
@@ -383,9 +383,11 @@ class Themedd_Updater_Admin {
 			$renew_link = '<a href="' . esc_url( $this->get_renewal_link() ) . '" target="_blank">' . $strings['renew'] . '</a>';
 		}
 
-		// Get site counts
-		$site_count = $license_data->site_count;
-		$license_limit = $license_data->license_limit;
+		// Get site count.
+		$site_count = isset( $license_data->site_count ) ? $license_data->site_count : '';
+
+		// Get license limit.
+		$license_limit = isset( $license_data->license_limit ) ? $license_data->license_limit : '';
 
 		// If unlimited
 		if ( 0 == $license_limit ) {
