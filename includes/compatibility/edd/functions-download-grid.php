@@ -24,8 +24,8 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 	// Get the download grid options.
 	$options = themedd_edd_download_grid_options();
 
-	// Set up $classes array.
-	$classes = array();
+	// Set up default $classes array.
+	$classes = array( $wrapper_class );
 
 	// [downloads] shortcode is being used
 	if ( ! empty( $atts ) ) {
