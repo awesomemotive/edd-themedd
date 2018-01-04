@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Themedd\n"
-"POT-Creation-Date: 2017-11-03 15:54+1300\n"
+"POT-Creation-Date: 2018-01-04 20:37+1300\n"
 "PO-Revision-Date: 2017-05-29 21:32-0700\n"
 "Last-Translator: \n"
 "Language-Team: support@easydigitaldownloads.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.0.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -44,39 +44,7 @@ msgstr ""
 msgid "Your affiliate profile has been updated"
 msgstr ""
 
-#: affiliatewp/dashboard.php:59
-msgid "Affiliate URLs"
-msgstr ""
-
-#: affiliatewp/dashboard.php:65
-msgid "Statistics"
-msgstr ""
-
-#: affiliatewp/dashboard.php:71
-msgid "Graphs"
-msgstr ""
-
-#: affiliatewp/dashboard.php:77
-msgid "Referrals"
-msgstr ""
-
-#: affiliatewp/dashboard.php:83
-msgid "Payouts"
-msgstr ""
-
-#: affiliatewp/dashboard.php:89
-msgid "Visits"
-msgstr ""
-
-#: affiliatewp/dashboard.php:95
-msgid "Creatives"
-msgstr ""
-
-#: affiliatewp/dashboard.php:101
-msgid "Settings"
-msgstr ""
-
-#: affiliatewp/dashboard.php:120
+#: affiliatewp/dashboard.php:85
 msgid "Log out"
 msgstr ""
 
@@ -853,7 +821,7 @@ msgstr ""
 
 #: includes/updater/theme-updater-admin.php:145
 #, php-format
-msgid "%s License Key & Child Theme Management"
+msgid "%s License"
 msgstr ""
 
 #: includes/updater/theme-updater-admin.php:147
