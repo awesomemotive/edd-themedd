@@ -90,7 +90,7 @@ class Themedd_EDD_Cross_Sell_Upsell {
 					if ( edd_is_checkout() ) {
 
 						if ( ! edd_item_in_cart( get_the_ID() ) ) {
-							$text = apply_filters( 'edd_csau_cross_sell_add_to_cart_text', __( 'Add to cart', 'edd-csau' ) );
+							$text = apply_filters( 'edd_csau_cross_sell_add_to_cart_text', __( 'Add to cart', 'themedd' ) );
 							$price = apply_filters( 'edd_csau_cross_sell_show_button_price', false );
 
 							if ( $show_button ) : ?>
@@ -101,10 +101,10 @@ class Themedd_EDD_Cross_Sell_Upsell {
 							<?php endif; ?>
 
 						<?php } else {
-							echo apply_filters( 'edd_csau_added_to_cart_text', '<span class="edd-cart-added-alert">'. __( 'Added to cart', 'edd-csau' ) . '</span>' );
+							echo apply_filters( 'edd_csau_added_to_cart_text', '<span class="edd-cart-added-alert">'. __( 'Added to cart', 'themedd' ) . '</span>' );
 						}
 					} else {
-						$text        = apply_filters( 'edd_csau_upsell_add_to_cart_text', __( 'Add to cart', 'edd-csau' ) );
+						$text        = apply_filters( 'edd_csau_upsell_add_to_cart_text', __( 'Add to cart', 'themedd' ) );
 						$price       = apply_filters( 'edd_csau_upsell_show_button_price', false );
 						$show_button = apply_filters( 'edd_csau_upsell_show_button', true );
 
