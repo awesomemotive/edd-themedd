@@ -10,7 +10,7 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 
 	if ( $suggested_downloads->have_posts() ) : ?>
 		<div id="edd-rp-single-wrapper">
-			<h5 id="edd-rp-single-header"><?php echo sprintf( __( 'Users who purchased %s, also purchased:', 'edd-rp-txt' ), get_the_title() ); ?></h5>
+			<h5 id="edd-rp-single-header"><?php echo sprintf( __( 'Users who purchased %s, also purchased:', 'themedd' ), get_the_title() ); ?></h5>
 			<div id="edd-rp-items-wrapper" class="mb-xs-2 edd_downloads_list edd_download_columns_<?php echo $count; ?> edd-rp-single">
 				<?php while ( $suggested_downloads->have_posts() ) : ?>
 					<?php $suggested_downloads->the_post();	?>
