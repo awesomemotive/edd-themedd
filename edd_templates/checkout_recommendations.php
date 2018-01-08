@@ -17,12 +17,12 @@ $count      = (int) edd_get_option( 'edd_rp_suggestion_count', 3 );
 
 	if ( $suggested_downloads->have_posts() ) :
 
-		$single = __( 'this item', 'edd-rp-txt' );
-		$plural = __( 'these items', 'edd-rp-txt' );
-		$cart_items_text = _n( $single, $plural, count( $post_ids ), 'edd-rp-txt' );
+		$single = __( 'this item', 'themedd' );
+		$plural = __( 'these items', 'themedd' );
+		$cart_items_text = _n( $single, $plural, count( $post_ids ), 'themedd' );
 		?>
 		<div id="edd-rp-checkout-wrapper">
-			<h5 id="edd-rp-checkout-header"><?php echo sprintf( __( 'Users who purchased %s, also purchased:', 'edd-rp-txt' ), $cart_items_text ); ?></h5>
+			<h5 id="edd-rp-checkout-header"><?php echo sprintf( __( 'Users who purchased %s, also purchased:', 'themedd' ), $cart_items_text ); ?></h5>
 			<div id="edd-rp-items-wrapper" class="mb-xs-2 edd-rp-checkout edd_downloads_list edd_download_columns_<?php echo $count; ?>">
 				<?php while ( $suggested_downloads->have_posts() ) : ?>
 					<?php $suggested_downloads->the_post();	?>
