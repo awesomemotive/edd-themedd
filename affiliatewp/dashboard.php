@@ -4,15 +4,15 @@
 
 	<?php if ( 'pending' == affwp_get_affiliate_status( affwp_get_affiliate_id() ) ) : ?>
 
-		<p class="affwp-notice"><?php _e( 'Your affiliate account is pending approval', 'affiliate-wp' ); ?></p>
+		<p class="affwp-notice"><?php _e( 'Your affiliate account is pending approval', 'themedd' ); ?></p>
 
 	<?php elseif ( 'inactive' == affwp_get_affiliate_status( affwp_get_affiliate_id() ) ) : ?>
 
-		<p class="affwp-notice"><?php _e( 'Your affiliate account is not active', 'affiliate-wp' ); ?></p>
+		<p class="affwp-notice"><?php _e( 'Your affiliate account is not active', 'themedd' ); ?></p>
 
 	<?php elseif ( 'rejected' == affwp_get_affiliate_status( affwp_get_affiliate_id() ) ) : ?>
 
-		<p class="affwp-notice"><?php _e( 'Your affiliate account request has been rejected', 'affiliate-wp' ); ?></p>
+		<p class="affwp-notice"><?php _e( 'Your affiliate account request has been rejected', 'themedd' ); ?></p>
 
 	<?php endif; ?>
 
@@ -33,7 +33,7 @@
 
 		<?php if ( ! empty( $_GET['affwp_notice'] ) && 'profile-updated' == $_GET['affwp_notice'] ) : ?>
 
-			<p class="affwp-notice"><?php _e( 'Your affiliate profile has been updated', 'affiliate-wp' ); ?></p>
+			<p class="affwp-notice"><?php _e( 'Your affiliate profile has been updated', 'themedd' ); ?></p>
 
 		<?php endif; ?>
 
@@ -82,7 +82,7 @@
 
 				<?php if ( affiliate_wp()->settings->get( 'logout_link' ) ) : ?>
 				<li class="affwp-affiliate-dashboard-tab">
-					<a href="<?php echo esc_url( affwp_get_logout_url() ); ?>"><?php _e( 'Log out', 'affiliate-wp' ); ?></a>
+					<a href="<?php echo esc_url( affwp_get_logout_url() ); ?>"><?php _e( 'Log out', 'themedd' ); ?></a>
 				</li>
 				<?php endif; ?>
 

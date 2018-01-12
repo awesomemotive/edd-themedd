@@ -137,7 +137,7 @@ class Themedd_EDD_Points_And_Rewards {
 			<div class="edd-points-redeem-points-wrap">
 				<p class="edd-points-redeem-message"><?php echo $message; ?></p>
 				<form method="POST" action="">
-					<input type="submit" id="edd_points_apply_discount" name="edd_points_apply_discount" class="button edd-submit <?php echo $button_color; ?> edd-points-apply-discount-button" value="<?php _e( 'Apply Discount', 'eddpoints' ); ?>" />
+					<input type="submit" id="edd_points_apply_discount" name="edd_points_apply_discount" class="button edd-submit <?php echo $button_color; ?> edd-points-apply-discount-button" value="<?php _e( 'Apply Discount', 'themedd' ); ?>" />
 				</form>
 			</div>
 			<?php
@@ -150,8 +150,8 @@ class Themedd_EDD_Points_And_Rewards {
 			$removfeesurl = add_query_arg( array( 'edd_points_remove_discount' => 'remove' ), edd_get_current_page_url() );
 			?>
 				<div class="edd-points-checkout-message">
-					<p class="edd-points-remove-discount-message"><?php printf( __( 'Remove %s Discount', 'eddpoints' ), $plurallabel ); ?></p>
-					<a href="<?php echo $removfeesurl;?>" class="button edd-point-remove-discount-link edd-points-float-right"><?php _e( 'Remove', 'eddpoints' ); ?></a>
+					<p class="edd-points-remove-discount-message"><?php printf( __( 'Remove %s Discount', 'themedd' ), $plurallabel ); ?></p>
+					<a href="<?php echo $removfeesurl;?>" class="button edd-point-remove-discount-link edd-points-float-right"><?php _e( 'Remove', 'themedd' ); ?></a>
 				</div>
 			<?php
 		}

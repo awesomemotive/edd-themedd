@@ -180,7 +180,7 @@ class Themedd_Updater_Admin {
 								<?php
 							}
 						}
-						submit_button( 'Save License Key Changes' );
+						submit_button( __( 'Save License Key Changes', 'themedd' ) );
 					?>
 				</form>
 			</div>
