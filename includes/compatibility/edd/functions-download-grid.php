@@ -68,7 +68,12 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 	// Add has-download-meta class.
 	$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
 
-	return implode( ' ', array_filter( $classes ) );
+	$classes = implode( ' ', array_filter( $classes ) );
+
+	// Finally, make sure that any classes can be added via EDD's filter
+	$classes = apply_filters( 'edd_downloads_list_wrapper_class', $classes, $atts );
+
+	return $classes;
 }
 
 /**
