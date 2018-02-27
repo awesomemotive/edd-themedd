@@ -184,16 +184,6 @@ function themedd_edd_body_classes( $classes ) {
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
 /**
- * Downloads wrapper classes.
- *
- * @since 1.0.0
- */
-function themedd_edd_downloads_list_wrapper_class( $wrapper_class, $atts ) {
-	return themedd_edd_downloads_list_wrapper_classes( $wrapper_class, $atts );
-}
-add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
-
-/**
  * Filter the download class.
  *
  * @since 1.0.2
