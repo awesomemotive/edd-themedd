@@ -10,7 +10,7 @@
 
 	<?php do_action( 'themedd_content_after' ); ?>
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer py-4" role="contentinfo">
 		<?php do_action( 'themedd_footer' ); ?>
 	</footer>
 
