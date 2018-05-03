@@ -83,6 +83,14 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 
 		// Indicate widget sidebars can use selective refresh in the Customizer.
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Support wide images in WordPress 5.0
+		 *
+		 * @since 1.1
+		 */
+		add_theme_support( 'align-wide' );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
