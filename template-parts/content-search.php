@@ -26,7 +26,7 @@
 					sprintf(
 						/* translators: %s: Name of current post */
 						esc_html__( 'Edit %s', 'themedd' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+						the_title( '<span class="sr-only">"', '"</span>', false )
 					),
 					'<span class="edit-link">',
 					'</span>'
@@ -41,7 +41,7 @@
 				sprintf(
 					/* translators: %s: Name of current post */
 					esc_html__( 'Edit %s', 'themedd' ),
-					the_title( '<span class="screen-reader-text">', '</span>', false )
+					the_title( '<span class="sr-only">', '</span>', false )
 				),
 				'<footer class="entry-footer"><span class="edit-link">',
 				'</span></footer><!-- .entry-footer -->'
