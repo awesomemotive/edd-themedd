@@ -52,29 +52,27 @@ module.exports = function(grunt) {
 	        }
 	    },
 
-	    // LESS CSS
-		less: {
-			style: {
+		sass: {
+			default: {
 				files: {
-					"style.css": "assets/less/style.less",
-					"assets/css/affiliatewp.css": "assets/less/compatibility/affiliatewp.less",
-					"assets/css/edd-fes.css": "assets/less/compatibility/edd-fes.less",
-					"assets/css/edd-reviews.css": "assets/less/compatibility/edd-reviews.less",
-					"assets/css/edd-points-and-rewards.css": "assets/less/compatibility/edd-points-and-rewards.less",
+					'style.css' : 'assets/scss/style.scss',
+					'assets/css/affiliatewp.css': 'assets/scss/compatibility/affiliatewp.scss',
+					'assets/css/edd-points-and-rewards.css': 'assets/scss/compatibility/edd-points-and-rewards.scss',
+					'assets/css/edd-reviews.css': 'assets/scss/compatibility/edd-reviews.scss',
+					'assets/css/edd-fes.css': 'assets/scss/compatibility/edd-fes.scss',
 				}
 			},
 			minify: {
 				options: {
-					compress: true
+					style: 'compressed'
 				},
 				files: {
-					"style.min.css": "assets/less/style.less",
-					"assets/css/affiliatewp.min.css": "assets/less/compatibility/affiliatewp.less",
-					"assets/css/edd-fes.min.css": "assets/less/compatibility/edd-fes.less",
-					"assets/css/edd-reviews.min.css": "assets/less/compatibility/edd-reviews.less",
-					"assets/css/edd-points-and-rewards.min.css": "assets/less/compatibility/edd-points-and-rewards.less"
+					'style.min.css' : 'assets/scss/style.scss',
+					'assets/css/edd-points-and-rewards.min.css': 'assets/scss/compatibility/edd-points-and-rewards.scss',
+					'assets/css/edd-reviews.min.css': 'assets/scss/compatibility/edd-reviews.scss',
+					'assets/css/edd-fes.min.css': 'assets/scss/compatibility/edd-fes.scss',
 				}
-			}
+			},
 		},
 
 		// Autoprefixer
@@ -156,26 +154,26 @@ module.exports = function(grunt) {
 				tasks: ['svgmin:dist']
 			},
 
-			// CSS
 			css: {
-				files: ['assets/less/**/*.less'],
-				tasks: ['less:style', 'less:minify', 'autoprefixer:main']
+                files: 'assets/scss/**/*.scss',
+                tasks: ['sass', 'autoprefixer:main']
 			},
-
+			
 			// Add banner
-			addbanner: {
-				files: ['assets/less/**/*.less', 'style.css', 'style.min.css'],
-				tasks: ['usebanner:addbanner'],
-				options: {
-					spawn: false
-				}
-			},
+			// addbanner: {
+			// //	files: ['assets/scss/**/*.scss', 'style.css', 'style.min.css'],
+			// 	files: ['style.css', 'style.min.css'],
+			// 	tasks: ['usebanner:addbanner'],
+			// 	options: {
+			// 		spawn: false
+			// 	}
+			// },
 		}
 	});
 
 	// Saves having to declare each dependency
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask('default', ['concat', 'uglify', 'less', 'autoprefixer', 'usebanner', 'svgstore', 'svgmin' ]);
+	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'usebanner', 'svgstore', 'svgmin' ]);
 
 };
