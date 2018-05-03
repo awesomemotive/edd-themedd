@@ -26,7 +26,7 @@
 				/* translators: %s: Name of current post */
 				the_content( sprintf(
 					__( 'Continue reading %s', 'themedd' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+					the_title( '<span class="sr-only">"', '"</span>', false )
 				) );
 
 				wp_link_pages( array(
@@ -34,8 +34,8 @@
 					'after'       => '</div>',
 					'link_before' => '<span>',
 					'link_after'  => '</span>',
-					'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'themedd' ) . ' </span>%',
-					'separator'   => '<span class="screen-reader-text">, </span>',
+					'pagelink'    => '<span class="sr-only">' . __( 'Page', 'themedd' ) . ' </span>%',
+					'separator'   => '<span class="sr-only">, </span>',
 				) );
 			?>
 		</div>
