@@ -7,7 +7,13 @@
  */
 function themedd_skip_link() {
 ?>
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themedd' ); ?></a>
+
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+		<div class="container">
+			<span class="skiplink-text"><?php esc_html_e( 'Skip to main content', 'themedd' ); ?></span>
+		</div>
+    </a>
+    
 <?php
 }
 add_action( 'themedd_header', 'themedd_skip_link' );
