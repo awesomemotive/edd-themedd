@@ -24,8 +24,6 @@ class Themedd_Subtitles {
 		}
 
 		add_action( 'init', array( $this, 'add_subtitles_support' ) );
-		add_action( 'themedd_page_header_before', array( $this, 'page_header_before' ) );
-		add_action( 'themedd_page_header_end', array( $this, 'page_header_end' ) );
 		add_filter( 'subtitle_markup', array( $this, 'markup' ) );
 		add_filter( 'subtitle_view_supported', array( $this, 'supported_views' ) );
 	}
@@ -43,26 +41,6 @@ class Themedd_Subtitles {
 	 */
 	public function add_subtitles_support() {
 		add_post_type_support( 'download', 'subtitles' );
-	}
-
-	/**
-	 * Enable support for subtitles within themedd's page header
-	 * Subtitles don't usually appear because the title is rendered outside of the loop
-	 *
-	 * @since 1.0.0
-	 */
-	public function page_header_before( ) {
-	   add_filter( 'subtitle_view_supported', '__return_true' );
-	}
-
-	/**
-	 * Remove support for subtitles after the header has been rendered
-	 * This is so the subtitles don't leak out and affect things like sharing icons etc
-	 *
-	 * @since 1.0.0
-	 */
-	public function page_header_end( ) {
-		add_filter( 'subtitle_view_supported', '__return_false' );
 	}
 
 	/**
