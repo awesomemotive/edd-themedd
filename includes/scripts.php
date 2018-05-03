@@ -27,11 +27,6 @@ function themedd_scripts() {
 
 	wp_enqueue_script( 'themedd-js', get_theme_file_uri( '/assets/js/themedd' . $suffix . '.js' ), array( 'jquery' ), THEMEDD_VERSION, true );
 
-	wp_localize_script( 'themedd-js', 'screenReaderText', array(
-		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'themedd' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'themedd' ) . '</span>'
-	) );
-
 	// Load the nav cart.
 	if ( class_exists( 'Themedd_EDD_Nav_Cart' ) ) {
 		
