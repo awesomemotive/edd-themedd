@@ -49,7 +49,7 @@ function themedd_time_link() {
 	// Wrap the time string in a link, and preface it with 'Posted on'.
 	return sprintf(
 		/* translators: %s: post date */
-		__( '<span class="screen-reader-text">Posted on</span> %s', 'themedd' ),
+		__( '<span class="sr-only">Posted on</span> %s', 'themedd' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 }
@@ -66,7 +66,7 @@ function themedd_comment_nav() {
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 	?>
 	<nav class="navigation comment-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'themedd' ); ?></h2>
+		<h2 class="sr-only"><?php esc_html_e( 'Comment navigation', 'themedd' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'themedd' ) ) ) {
@@ -143,7 +143,7 @@ function themedd_edit_link() {
 	$link = edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'themedd' ),
+			__( 'Edit<span class="sr-only"> "%s"</span>', 'themedd' ),
 			get_the_title()
 		),
 		'<span class="edit-link">',
@@ -322,7 +322,7 @@ function themedd_paging_nav() {
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
 
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'themedd' ); ?></h1>
+		<h1 class="sr-only"><?php _e( 'Posts navigation', 'themedd' ); ?></h1>
 
 		<div class="nav-links">
 			<?php if ( get_next_posts_link() ) : ?>
