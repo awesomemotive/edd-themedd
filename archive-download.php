@@ -13,7 +13,7 @@ if ( $title ) {
 
 ?>
 
-<div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
+<div class="<?php echo themedd_wrapper_classes(); ?>">
 
 	<main id="main" class="site-main" role="main">
 
