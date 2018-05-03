@@ -129,12 +129,12 @@ final class Themedd_Search {
         ?>
         <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
             <label for="<?php echo $unique_id; ?>">
-                <span class="screen-reader-text"><?php echo _x( 'Search products:', 'label', 'themedd' ); ?></span>
+                <span class="sr-only"><?php echo _x( 'Search products:', 'label', 'themedd' ); ?></span>
                 <input type="search" id="<?php echo $unique_id; ?>" class="search-field" placeholder="<?php echo $search_text; ?>" value="<?php echo get_search_query(); ?>" name="s" />
             </label>
             
             <?php if ( apply_filters( 'themedd_show_search_button', true ) ) : ?>
-            <button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'themedd' ); ?></span><?php echo self::search_icon(); ?></button>
+            <button type="submit" class="search-submit"><span class="sr-only"><?php echo _x( 'Search', 'submit button', 'themedd' ); ?></span><?php echo self::search_icon(); ?></button>
             <?php endif; ?>
 
             <?php 
