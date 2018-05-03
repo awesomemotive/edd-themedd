@@ -20,7 +20,7 @@ function themedd_footer_widgets() {
 		$widget_columns = apply_filters( 'themedd_footer_widget_regions', 0 );
 	}
 
-	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'container', 'wrapper', 'columns-' . intval( $widget_columns ) ), $widget_columns );
+	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'container', 'columns-' . intval( $widget_columns ) ), $widget_columns );
 
 	if ( $widget_columns > 0 ) : ?>
 
