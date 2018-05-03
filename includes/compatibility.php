@@ -33,6 +33,7 @@ if ( themedd_is_edd_active() ) {
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions-download-meta.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/functions-download-details.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/actions.php' );
+	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/checkout-template.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/filters.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-nav-cart.php' );
 	require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility/edd/class-widget-download-author.php' );
