@@ -7,40 +7,47 @@ get_header(); ?>
 
 <div class="<?php echo themedd_wrapper_classes(); ?>">
 
-	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
+	<?php if ( themedd_has_sidebar() ) : ?>
+	<div class="row justify-content-center">
+	<?php endif; ?>	
 
-		<main id="main" class="site-main" role="main">
+		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 
-			<?php
-				if ( have_posts() ) :
+			<main id="main" class="site-main" role="main">
 
-					while ( have_posts() ) : the_post();
+				<?php
+					if ( have_posts() ) :
 
-						/*
-						 * Include the post format-specific template for the content. If you want to
-						 * use this in a child theme, then include a file called called content-___.php
-						 * (where ___ is the post format) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', get_post_format() );
+						while ( have_posts() ) : the_post();
 
-					endwhile;
+							/*
+							 * Include the post format-specific template for the content. If you want to
+							 * use this in a child theme, then include a file called called content-___.php
+							 * (where ___ is the post format) and that will be used instead.
+							 */
+							get_template_part( 'template-parts/content', get_post_format() );
 
-					themedd_paging_nav();
+						endwhile;
 
-				else :
-					// If no content, include the "No posts found" template.
-					get_template_part( 'template-parts/content', 'none' );
+						themedd_paging_nav();
 
-				endif;
-			?>
+					else :
+						// If no content, include the "No posts found" template.
+						get_template_part( 'template-parts/content', 'none' );
 
-		</main>
+					endif;
+				?>
+
+			</main>
+		</div>
+
+		<?php themedd_get_sidebar(); ?>
+
+	<?php if ( themedd_has_sidebar() ) : ?>	
 	</div>
-
-	<?php themedd_get_sidebar(); ?>
+	<?php endif; ?>
 
 </div>
-
 
 <?php
 get_footer();
