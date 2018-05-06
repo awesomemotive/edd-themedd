@@ -7,34 +7,41 @@ get_header();
 themedd_page_header();
 ?>
 
-<div class="content-wrapper<?php echo themedd_wrapper_classes(); ?>">
-    <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-		<main id="main" class="site-main" role="main">
+<div class="<?php echo themedd_wrapper_classes(); ?>">
 
-		<?php
-        do_action( 'themedd_main_start' );
+	<?php if ( themedd_has_sidebar() ) : ?>
+	<div class="row justify-content-center">
+	<?php endif; ?>
+		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
+			<main id="main" class="site-main" role="main">
 
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+			<?php
+			do_action( 'themedd_main_start' );
 
-			// Include the page content template.
-			get_template_part( 'template-parts/content', 'page' );
+			// Start the loop.
+			while ( have_posts() ) : the_post();
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) {
-				comments_template();
-			}
+				// Include the page content template.
+				get_template_part( 'template-parts/content', 'page' );
 
-		// End of the loop.
-		endwhile;
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
 
-        do_action( 'themedd_main_end' );
-		?>
-		</main>
-    </div>
+			// End of the loop.
+			endwhile;
 
-    <?php themedd_get_sidebar(); ?>
+			do_action( 'themedd_main_end' );
+			?>
+			</main>
+		</div>
 
+		<?php themedd_get_sidebar(); ?>
+
+	<?php if ( themedd_has_sidebar() ) : ?>	
+	</div>
+	<?php endif; ?>
 </div>
 
 <?php get_footer(); ?>
