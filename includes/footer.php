@@ -63,15 +63,15 @@ add_action( 'themedd_footer', 'themedd_footer_widgets' );
  * @since 1.0.0
  */
 if ( ! function_exists( 'themedd_site_info' ) ) :
-function themedd_site_info() {
-	?>
-	<section class="site-info wrapper">
+	function themedd_site_info() {
+		?>
+		<section class="container site-info">
 			<?php do_action( 'themedd_site_info' ); ?>
-	</section>
-	<?php
-}
-endif;
-add_action( 'themedd_footer', 'themedd_site_info' );
+		</section>
+		<?php
+	}
+	endif;
+	add_action( 'themedd_footer', 'themedd_site_info' );
 
 /**
  * Copyright
@@ -79,7 +79,7 @@ add_action( 'themedd_footer', 'themedd_site_info' );
  * @since 1.0.0
  */
 function themedd_copyright() {
-	echo apply_filters( 'themedd_copyright', '<p>' . sprintf( __( 'Copyright &copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p>' );
+	echo apply_filters( 'themedd_copyright', '<p class="text-center">' . sprintf( __( 'Copyright &copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p>' );
 }
 add_action( 'themedd_site_info', 'themedd_copyright' );
 
@@ -96,16 +96,16 @@ function themedd_footer_widget_column_classes( $widget_columns ) {
 	switch ( $widget_columns ) {
 
 		case 4:
-			$classes = 'col-xs-12 col-sm-6 col-lg-3';
+			$classes = 'col-12 col-sm-6 col-lg-3';
 			break;
 
 		case 3:
-			$classes = 'col-xs-12 col-sm-6 col-lg-4';
+			$classes = 'col-12 col-sm-6 col-lg-4';
 			break;
 
 		case 2:
 		case 1:
-			$classes = 'col-xs-12 col-sm-6';
+			$classes = 'col-12 col-sm-6';
 			break;
 
 	}
