@@ -48,106 +48,58 @@ function themedd_header_masthead() {
 add_action( 'themedd_header_masthead', 'themedd_header_masthead' );
 
 /**
- * Load div.site-header-wrap inside div.site-header-main.
- *
- * @since 1.0.3
- */
-function themedd_site_header_main() {
-    $site_header_wrap_classes = apply_filters( 'themedd_header_site_header_wrap_classes', array( 'site-header-wrap', 'between-xs' ) );
-?>
-    <div class="<?php echo implode( ' ', array_filter( $site_header_wrap_classes ) ); ?>">
-        <?php do_action( 'themedd_site_header_wrap' ); ?>
-    </div>
-<?php
-}
-add_action( 'themedd_site_header_main', 'themedd_site_header_main' );
-
-/**
- * Load the menu toggle inside div.site-header-wrap.
- * This displays a "Menu" button, and when clicked changes to "Close Menu"
- *
- * @since 1.0.0
- */
-function themedd_menu_toggle() {
-    if ( ! ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) ) {
-        return;
-    }
-?>
-    <div id="menu-toggle-wrap">
-        <button id="menu-toggle" class="menu-toggle"><?php esc_html_e( 'Menu', 'themedd' ); ?></button>
-    </div>
-<?php
-}
-add_action( 'themedd_site_header_wrap', 'themedd_menu_toggle' );
-
-/**
- * Loads the mobile menu onto the themedd_site_header_wrap action hook
- *
- * @since 1.0.0
- */
-function themedd_mobile_menu() {
-    
-    // Use the mobile menu if it exists, otherwise fallback to primary.
-    $theme_location = has_nav_menu( 'mobile' ) ? 'mobile' : 'primary';
-
-    wp_nav_menu(
-        apply_filters( 'themedd_mobile_menu', array(
-            'menu_id'         => 'mobile-menu',
-            'menu_class'      => 'menu',
-            'theme_location'  => $theme_location,
-            'container_class' => 'mobile-navigation',
-        ))
-    );
-
-}
-add_action( 'themedd_site_header_wrap', 'themedd_mobile_menu' );
-
-/**
  * Load the site branding (site title, site description, logo) inside div.site-header-wrap.
  *
  * @since 1.0.0
  */
 function themedd_site_branding() {
-?>
+	?>
+	<div class="navbar navbar-expand-lg navbar-light px-0">
+		<div class="container">
 
-	<div class="<?php echo implode( ' ', array_filter( apply_filters( 'themedd_site_branding_classes', array( 'site-branding', 'center-xs', 'start-sm' ) ) ) ); ?>">
-        
-        <?php do_action( 'themedd_site_branding_start' ); ?>
+			<div class="site-branding">
+					
+				<?php if ( is_front_page() && is_home() ) : ?>
+					<h1 class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
+							<?php do_action( 'themedd_site_branding_site_title_before' ); ?>
+							<span><?php bloginfo( 'name' ); ?></span>
+							<?php do_action( 'themedd_site_branding_site_title_after' ); ?>
+						</a>
+					</h1>
+				<?php else : ?>
+					<p class="site-title mb-0">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
+							<?php do_action( 'themedd_site_branding_site_title_before' ); ?>
+							<span><?php bloginfo( 'name' ); ?></span>
+							<?php do_action( 'themedd_site_branding_site_title_after' ); ?>
+						</a>
+					</p>
+				<?php endif; ?>
 
-        <?php if ( is_front_page() && is_home() ) : ?>
-            <h1 class="site-title">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_site_title_before' ); ?>
-                    <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_site_title_after' ); ?>
-                </a>
-            </h1>
-        <?php else : ?>
-            <p class="site-title">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php do_action( 'themedd_site_branding_site_title_before' ); ?>
-                    <span><?php bloginfo( 'name' ); ?></span>
-                    <?php do_action( 'themedd_site_branding_site_title_after' ); ?>
-                </a>
-            </p>
-        <?php endif; ?>
+				<?php
+				/**
+				 * Description
+				 */
+				$description = get_bloginfo( 'description', 'display' );
+				if ( $description || is_customize_preview() ) : ?>
+					<p class="site-description mb-0 d-none d-sm-block"><?php echo $description; ?></p>
+				<?php endif; ?>
 
-        <?php
-        /**
-         * Description
-         */
-        $description = get_bloginfo( 'description', 'display' );
-        if ( $description || is_customize_preview() ) : ?>
-            <p class="site-description"><?php echo $description; ?></p>
-        <?php endif; ?>
+			</div>
 
-        <?php do_action( 'themedd_site_branding_end' ); ?>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-    </div>
+			<?php do_action( 'themedd_site_branding_end' ); ?>
+
+		</div>
+	</div>
 
 	<?php
 }
-add_action( 'themedd_site_header_wrap', 'themedd_site_branding' );
+add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 
 /**
  * Loads the site navigation onto the themedd_masthead action hook
@@ -159,18 +111,28 @@ function themedd_primary_menu() {
     if ( has_nav_menu( 'primary' ) ) : ?>
 
 		<div id="site-header-menu" class="site-header-menu">
-	    	<nav id="site-navigation" class="main-navigation" role="navigation">
-	            <?php
-				wp_nav_menu(
-					apply_filters( 'themedd_primary_navigation', array(
-						'menu_id'        => 'primary-menu',
-						'menu_class'     => 'primary-menu menu',
-						'theme_location' => 'primary',
-						'container'      => '',
-					))
-				);
-	    		?>
-	    	</nav>
+			<nav class="navbar navbar-expand-lg navbar-light px-0">
+				<div class="container">
+
+					<div class="collapse navbar-collapse" id="navbar">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'primary',
+								'depth'				=> 2, // 1 = with dropdowns, 0 = no dropdowns.
+								'container'			=> '',
+								'container_class'	=> '',
+								'container_id'		=> '',
+								'menu_id'           => 'menu-primary',
+								'menu_class'		=> 'navbar-nav mr-auto',
+								'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
+								'walker'			=> new WP_Bootstrap_Navwalker()
+							)
+						);
+					?>
+					</div>
+				</div>
+			</nav>
 	    </div>
 
     <?php endif;
@@ -199,7 +161,7 @@ function themedd_secondary_menu() {
     </div>
     <?php endif;
 }
-add_action( 'themedd_site_header_wrap', 'themedd_secondary_menu' );
+add_action( 'themedd_site_branding_end', 'themedd_secondary_menu' );
 
 /**
  * Loads the site's secondary navigation
@@ -207,22 +169,33 @@ add_action( 'themedd_site_header_wrap', 'themedd_secondary_menu' );
  * @since 1.0.0
  */
 function themedd_secondary_navigation() {
-    ?>
-    <nav id="secondary-navigation" class="secondary-navigation" role="navigation">
-        <?php
-        wp_nav_menu(
-            apply_filters( 'themedd_secondary_navigation', 
-                array(
-                    'menu_id'        => 'secondary-menu',
-                    'menu_class'     => 'menu',
-                    'theme_location' => 'secondary',
-                    'depth'          => 1,
-                    'container'      => '',
-                )
-            )
-        );
-        ?>
-    </nav>
+	?>
+	
+	<nav class="navbar navbar-expand-lg navbar-light px-0">
+		<div class="container">
+
+			<div class="collapse navbar-collapse" id="navbar2">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location'   => 'secondary',
+						'depth'            => 2, // 1 = with dropdowns, 0 = no dropdowns.
+						'container'	       => '',
+						'container_class'  => '',
+						'container_id'     => '',
+						'menu_id'          => 'menu-secondary',
+						'menu_class'       => 'navbar-nav mr-auto',
+						'fallback_cb'      => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'           => new WP_Bootstrap_Navwalker()
+					)
+				);
+			?>
+			</div>
+
+			<?php do_action( 'themedd_secondary_menu_after' ); ?>
+		</div>
+	</nav>
+
     <?php
 }
 
