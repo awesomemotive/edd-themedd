@@ -51,6 +51,19 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 		$defaults['price'] = (bool) false;
 	}
 
+	$classes = explode( ' ', $defaults['class'] );
+
+	// Add our button classes
+	$classes[] = 'btn';
+	$classes[] = 'btn-primary';
+
+	// Make the button larger on single download page.
+	if ( is_singular( 'download' ) ) {
+		$classes[] = 'btn-lg';
+	}
+
+	$defaults['class'] = implode( ' ', $classes );
+
 	return $defaults;
 
 }
