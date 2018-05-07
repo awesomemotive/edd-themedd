@@ -312,7 +312,7 @@ function themedd_edd_download_inner_class( $classes, $download_id, $edd_download
 		$classes[] = 'card';
 	}
 
-	$classes[] = 'd-flex flex-column';
+	$classes[] = 'd-flex flex-column w-100';
 
 	return implode( ' ', $classes );
 
