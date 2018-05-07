@@ -197,6 +197,29 @@ function themedd_edd_body_classes( $classes ) {
 add_filter( 'body_class', 'themedd_edd_body_classes' );
 
 /**
+ * Filter the downloads list wrapper class.
+ *
+ * @since 1.1
+ *
+ * @return string $classes The classes of the download wrapper
+ */
+function themedd_edd_downloads_list_wrapper_class( $classes, $atts ) {
+
+	// Explode the $classes into an array to make it easier to work with.
+	$classes = explode( ' ', $classes );
+
+	// Prevent from ever being slim width at large break point
+	$classes[] = 'full-width';
+
+	// Add new class to array.
+	$classes[] = 'row';
+
+	// Implode back into class names.
+	return implode( ' ', $classes );
+}
+add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
+
+/**
  * Filter the download class.
  *
  * @since 1.0.2
