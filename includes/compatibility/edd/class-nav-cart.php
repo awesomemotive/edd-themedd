@@ -89,7 +89,7 @@ final class Themedd_EDD_Nav_Cart {
     public function add_to_secondary_menu() {
         
         if ( 'secondary_menu' === $this->cart_position() && true === $this->show_cart() ) {
-            add_action( 'themedd_secondary_menu', array( $this, 'load_cart' ), 10, 1 );
+			add_action( 'themedd_secondary_menu_after', array( $this, 'load_cart' ), 10, 1 );
         }
 
     }
