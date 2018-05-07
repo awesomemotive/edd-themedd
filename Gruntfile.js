@@ -160,14 +160,13 @@ module.exports = function(grunt) {
 			},
 			
 			// Add banner
-			// addbanner: {
-			// //	files: ['assets/scss/**/*.scss', 'style.css', 'style.min.css'],
-			// 	files: ['style.css', 'style.min.css'],
-			// 	tasks: ['usebanner:addbanner'],
-			// 	options: {
-			// 		spawn: false
-			// 	}
-			// },
+			addbanner: {
+				files: ['style.css', 'style.min.css'],
+				tasks: ['usebanner:addbanner'],
+				options: {
+					spawn: false
+				}
+			},
 		}
 	});
 
