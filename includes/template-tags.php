@@ -216,20 +216,19 @@ function themedd_post_thumbnail() {
 
 	if ( is_singular() ) : ?>
 
-	<div class="post-thumbnail">
+	<div class="post-thumbnail mb-3 mb-lg-4">
 		<?php the_post_thumbnail(); ?>
 	</div>
 
 	<?php else : ?>
 
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+	<a class="post-thumbnail mb-3 mb-lg-4" href="<?php the_permalink(); ?>" aria-hidden="true">
 		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
 	</a>
 
 	<?php endif; // End is_singular()
 }
 endif;
-
 
 /**
  * Display the post header
