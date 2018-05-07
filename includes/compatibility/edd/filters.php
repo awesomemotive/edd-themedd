@@ -224,7 +224,7 @@ add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrap
  *
  * @since 1.0.2
  *
- * @return string $class The classes of the download
+ * @return string $classes The classes of the download
  */
 function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 
@@ -248,6 +248,47 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 					
 	}
 
+	// Change classes based on column count.
+	$options = themedd_edd_download_grid_options();
+
+	// Get column count from shortcode attributes.
+	if ( isset( $atts['columns'] ) ) {
+		$columns = $atts['columns'];
+	} else {
+		// Else get column count from download grid options.
+		$columns = $options['columns'];
+	}
+
+	if ( $columns ) {
+		
+		switch ( $columns ) {
+
+			case 1:
+				$classes[] = 'col-12';
+				break;
+	
+			case 2:
+				$classes[] = 'col-12 col-lg-6';
+				break;
+	
+			case 3:
+				$classes[] = 'col-12 col-lg-4';
+				break;
+	
+			case 4:
+				$classes[] = 'col-12 col-md-6 col-xl-3';
+				break;	
+
+		}
+
+	}
+
+	// Margins.
+	$classes[] = 'mb-5';
+
+	// Flexbox
+	$classes[] = 'd-flex';
+
 	// Implode the $classes array and return it as a string.
 	return implode( ' ', array_filter( $classes ) );
 
@@ -255,21 +296,28 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
 
 /**
- * Filter the page header classes for the single download page.
+ * Filter the download inner class.
  *
- * @since 1.0.0
+ * @since 1.1
  *
- * @return array $classes
+ * @return string $classes The classes
  */
-function themedd_edd_page_header_classes( $classes ) {
+function themedd_edd_download_inner_class( $classes, $download_id, $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) {
 
-	if ( is_singular( 'download' ) ) {
-		$classes[] = 'mb-md-2';
+	$classes = explode( ' ', $classes );
+
+	$download_grid_options = themedd_edd_download_grid_options( $edd_download_shortcode_item_atts );
+
+	if ( true === $download_grid_options['cards'] ) {
+		$classes[] = 'card';
 	}
 
-	return $classes;
+	$classes[] = 'd-flex flex-column';
+
+	return implode( ' ', $classes );
+
 }
-add_filter( 'themedd_page_header_classes', 'themedd_edd_page_header_classes' );
+add_filter( 'edd_download_inner_class', 'themedd_edd_download_inner_class', 10, 4 );
 
 /**
  * Filter the content of the [downloads] shortcode for EDD versions below v2.8.
