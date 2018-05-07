@@ -1,0 +1,37 @@
+// Tables.
+// Table styles in Bootstrap are "opt-in" due to the widespread use of tables across third-party widgets like calendars and date pickers.
+// Since we can't expect users in WordPress to add a .table class to each table they create, we'll target tables in content areas and automatically style them.
+
+.entry-content table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: $spacer;
+	background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+	border: $table-border-width solid $table-border-color;
+
+	th,
+	td {
+	  padding: $table-cell-padding;
+	  vertical-align: top;
+	  border: $table-border-width solid $table-border-color;
+	}
+
+	thead {
+		th,
+		td {
+			border-bottom-width: (2 * $table-border-width);
+		}
+	}
+
+	thead th {
+	  vertical-align: bottom;
+	}
+  
+	tbody + tbody {
+	  border-top: (2 * $table-border-width) solid $table-border-color;
+	}
+  
+	.table {
+	  background-color: $body-bg;
+	}
+}

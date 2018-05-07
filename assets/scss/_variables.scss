@@ -1,0 +1,50 @@
+// Colors.
+$required-color: $red;
+$search-icon-color: #fff;
+
+// Compatibility - Easy Digital Downloads.
+$edd-download-title-color: $gray-700;
+$edd-download-title-font-size: 1.2rem;
+$edd-download-title-hover-color: #000;
+
+// Pre v1.1 variables (to review for v1.1)
+$primary-color: #448FD5;
+$light-grey: #f5f5f5;
+$light-grey-alt: #fcfcfc;
+$border-light-grey-alt: darken( $light-grey-alt, 3% );
+$dark-grey: #222;
+$medium-grey: #a2a2a2;
+$body-text-color: #696969;
+// Box.
+$box-padding: 2rem;
+$box-border: 2px solid $border-light-grey-alt;
+$box-background-color: $light-grey-alt;
+// Account page.
+$account-tab-link-color: $body-text-color;
+$account-tab-link-hover-color: $primary-color;
+$account-tab-link-active-color: $primary-color;
+$account-tab-active-color: $primary-color;
+
+// Notices/errors.
+$alert-background-color: #fdfdd5;
+$alert-text-color: #787878;
+
+// Alert - error.
+$alert-error-background-color: #f2dede;
+$alert-error-border-color: #ebccd1;
+$alert-error-text-color: #a94442;
+
+// Alert - Success.
+$alert-success-text-color: #3c763d;
+$alert-success-background-color: #dff0d8;
+$alert-success-border-color: #d6e9c6;
+
+// Alert - Info.
+$alert-info-text-color: #31708f;
+$alert-info-background-color: #d9edf7;
+$alert-info-border-color: #cbe3ef;
+
+// Alert - Warn.
+$alert-warn-text-color: #8a6d3b;
+$alert-warn-background-color: #fcf8e3;
+$alert-warn-border-color: #faebcc;

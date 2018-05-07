@@ -1,0 +1,204 @@
+// EDD Reviews
+
+// Load Bootstrap variables and mixins.
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+// Load Themedd variables
+@import '../variables';
+
+$yellow: #f1c40f;
+
+// Reviews breakdown box.
+.edd-reviews-average-rating {
+	margin-bottom: 1rem;
+}
+
+.edd_reviews_breakdown .edd-reviews-total-count {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.edd_reviews_breakdown .edd-counter-front {
+	background: $yellow;
+	padding: 0.75rem 0;
+	display: block;
+}
+
+.edd-counter-container {
+	display: flex;
+	align-items: center;
+	padding: 0.25rem 0;
+}
+
+.edd_reviews_breakdown .edd-counter-back {
+	display: block;
+	width: 100px;
+	background: $light-grey;
+}
+
+.edd_reviews_breakdown .edd-review-count {
+	margin-left: 1rem;
+}
+
+.edd_reviews_breakdown .edd-counter-label {
+	display: inline-block;
+	width: 70px;
+}
+
+.edd-reviews-breakdown-ratings {
+	margin-bottom: 2rem;
+}
+// End Reviews breakdown box.
+
+.dashicons-star-filled,
+.dashicons-star-empty {
+	color: $yellow;
+}
+
+.edd-reviews-star-rating {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.edd-reviews-stars-filled {
+	position: absolute;
+	width: 0;
+	overflow: hidden;
+	height: 20px;
+}
+
+.edd-reviews-awaiting-moderation {
+	font-weight: bold;
+}
+
+// Single review
+.edd_review {
+	margin: 10px 0;
+	position: relative;
+	outline: none;
+	list-style: none;
+	padding: 20px 0;
+}
+
+.edd-review-meta-rating {
+	vertical-align: middle;
+	line-height: 1;
+	display: inline-block;
+}
+
+.edd_review .avatar {
+	float: left;
+	margin-right: 1rem;
+	position: relative;
+}
+
+.edd-review-author b {
+	vertical-align: middle;
+	color: $dark-grey;
+}
+
+// Metadata
+// By {name} on {date} at {time} Edit
+
+.edd-review-metadata {
+	color: $medium-grey;
+	font-size: 0.875rem;
+
+	a {
+		color: $medium-grey;
+
+		&:hover {
+			color: $dark-grey;
+		}
+	}
+
+}
+
+// End single review
+
+
+// Vendor feedback in vendor dashboard
+.fes-vendor-dashboard .edd-reviews-vendor-feedback-item {
+	border-bottom: 2px solid $light-grey;
+	padding-bottom: 2rem;
+	margin-bottom: 2rem;
+
+	// The rating paragraph tag.
+	p:nth-child(4) {
+		strong, span {
+			vertical-align: middle;
+		}
+	}
+}
+// End vendor feedback
+
+// Paragraph tags shown on the "Vendor Feedback" dashboard tab as well as on the vendor feedback page.
+.edd-reviews-vendor-feedback-item > p {
+	margin-bottom: 0;
+	line-height: 2rem;
+}
+
+// Vendor feedback page
+.edd-reviews-vendor-feedback-item .wp-post-image {
+	margin-bottom: 2rem;
+}
+
+.edd-reviews-vendor-feedback-item h3 a {
+	color: $body-text-color;
+}
+
+.edd-reviews-form {
+	padding: $box-padding;
+	border: $box-border;
+	background: $box-background-color;
+	margin-top: 2rem;
+
+	.edd-reviews-review-form-submit {
+		margin-bottom: 0;
+	}
+
+}
+// End vendor feedback page
+
+// Download grid rating
+.edd-reviews-rating {
+	font-size: 0.875rem;
+	margin-bottom: 0.5rem;
+
+	span {
+		vertical-align: middle;
+	}
+}
+// End download grid rating
+
+// "Help other customers find the most helpful reviews"
+.edd-review-review-helpful {
+
+	.edd-review-vote p {
+		margin-bottom: 0;
+	}
+
+	.edd-review-vote .edd-review-voting-feedback {
+		font-size: 0.875rem;
+		margin-bottom: 2rem;
+		font-style: italic;
+	}
+
+	.edd-review-voting-feedback + p,
+	p {
+		font-weight: bold;
+		font-size: 0.875rem;
+	}
+
+	p + p {
+		font-weight: normal;
+	}
+
+}
+// End "help other customers find the most helpful reviews"
+
+.single-download .comments-area .no-comments {
+	display: none;
+}

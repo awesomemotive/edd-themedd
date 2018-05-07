@@ -1,0 +1,5 @@
+// Bootstrap requies an opt-in for responsive images via the .img-fluid class.
+// This makes all images responsive.
+img {
+	@include img-fluid;
+}

@@ -1,0 +1,79 @@
+// Content
+
+// Hide updated date.
+.updated:not(.published) {
+	display: none;
+}
+
+.alignfull,
+.alignwide {
+	margin-bottom: 2rem;
+}
+
+.no-sidebar {
+
+	.entry-content > * {
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	// For normal images
+	.entry-content > .alignwide {
+		max-width: 1200px;
+
+		// Cover images have the padding included so needs to be accounted for.
+		&.wp-block-cover-image {
+			max-width: 1170px;
+		}
+	}
+
+	.entry-content > .alignfull {
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	figure.alignfull {
+		width: 100%;
+	
+		img {
+			width: 100%;
+		}
+		
+	}
+
+	.wp-block-embed.is-type-video iframe {
+		width: 100%;
+	}
+
+	@if $enable-grid-classes {
+		.entry-content > * {
+			@include make-container-max-widths();
+		}
+	}
+
+}
+
+.no-sidebar .edd_downloads_list {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+@include media-breakpoint-up(xl) {
+
+	.no-sidebar:not(.page-template-full-width) .entry-content > *,
+	.no-sidebar #comments {
+		max-width: 740px;
+	} 
+
+	.no-sidebar .entry-content > .full-width {
+		max-width: 1200px;
+	}
+}

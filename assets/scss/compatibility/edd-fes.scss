@@ -1,0 +1,455 @@
+// Frontend Submissions
+// https://easydigitaldownloads.com/downloads/frontend-submissions/
+
+// Load Bootstrap variables and mixins.
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+// Load Themedd variables
+@import '../variables';
+
+$published-color: #5BCC5B;
+$pending-color: #fca432;
+$has-purchased: $published-color;
+$has-not-purchased: $pending-color;
+
+// Legends.
+#fes-submission-form-title,
+#fes-profile-form-title {
+	font-size: 1.75rem;
+	font-weight: 600;
+	margin-bottom: 1.62rem;
+}
+
+// Vendor contact form.
+.fes-vendor-contact-form {
+	padding: $box-padding;
+    border: $box-border;
+    background: $box-background-color;
+
+	fieldset {
+		margin-bottom: 0;
+	}
+}
+
+
+.fes-vendor-menu ul {
+	list-style-type: none;
+	margin: 0;
+
+	li {
+		position: relative;
+		margin-bottom: 0;
+	}
+
+	a {
+		display: block;
+		font-size: 1rem;
+		color: $account-tab-link-color;
+    }
+
+	a:hover {
+		color: $account-tab-link-hover-color;
+	}
+
+}
+
+@include media-breakpoint-up(md) {
+	.fes-vendor-menu ul li {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+
+	.edd-fes-edit-download .fes-vendor-products-tab,
+	.edd-fes-edit-order .fes-vendor-orders-tab,
+	.fes-vendor-menu-tab.active {
+        background: #fff;
+
+		a {
+	        color: $account-tab-link-active-color;
+	    }
+    }
+
+	// The main div that contains the .fes-vendor-menu and #fes-vendor-dashboard
+	.fes-vendor-dashboard-wrap {
+		display: flex;
+		overflow: hidden;
+	}
+
+	.fes-vendor-menu {
+		flex-basis: 16.667%;
+		max-width: 16.667%;
+	}
+
+	// Tab content
+	.fes-vendor-dashboard {
+	    border: 2px solid $border-light-grey-alt;
+	    border-left: none;
+		min-height: 50rem;
+		padding: 2rem;
+		flex-basis: 83.333%;
+		max-width: 83.333%;
+	}
+
+	.fes-vendor-menu ul a {
+		display: block;
+		padding: 1rem 2rem;
+		margin: 0;
+	}
+
+	.fes-vendor-menu ul:last-child {
+		border-bottom: 2px solid $border-light-grey-alt;
+	}
+
+	.fes-vendor-menu ul li {
+		background: $light-grey-alt;
+		border: 2px solid $border-light-grey-alt;
+		border-right: none;
+		border-bottom: none;
+	}
+
+	.fes-vendor-menu ul li {
+		display: block;
+		margin-right: 0;
+	}
+
+	.edd-fes-edit-order .fes-vendor-orders-tab:before,
+	.edd-fes-edit-order .fes-vendor-orders-tab:after,
+	.edd-fes-edit-download .fes-vendor-products-tab:before,
+	.edd-fes-edit-download .fes-vendor-products-tab:after,
+	.fes-vendor-menu-tab.active:before,
+	.fes-vendor-menu-tab.active:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 100%;
+		width: 2px;
+		height: 1000px;
+		background: $border-light-grey-alt;
+	}
+
+	.edd-fes-edit-order .fes-vendor-orders-tab:after,
+	.edd-fes-edit-download .fes-vendor-products-tab:after,
+	.fes-vendor-menu-tab.active:after {
+		top: 100%;
+		bottom: auto;
+		height: 40000px;
+		z-index: 1;
+	}
+
+}
+
+// Remove bottom margins on form fieldsets
+.fes-form-fieldset {
+	margin-bottom: 0;
+}
+
+.fes-login-form,
+.fes-login-registration-combo form {
+	padding: $box-padding;
+    border: $box-border;
+    background: $box-background-color;
+}
+
+// Standalone login form.
+.entry-content > .fes-login-form + #fes_lost_password_link,
+.entry-content > .fes-login-form {
+	width: 62%;
+	margin: 0 auto 1rem auto;
+}
+
+
+// This can be removed (and the rule just above) once the following issue is fixed:
+// https://github.com/easydigitaldownloads/edd-fes/issues/1294
+.entry-content > .fes-login-form + #fes_lost_password_link {
+	display: block;
+}
+
+// Give more space above the forgot password link on the login form
+// Plus more space underneath each form element.
+.fes-el,
+.fes-login-form {
+	margin-bottom: 1rem;
+}
+
+// Remove margin caused by the fieldset on the registration form
+fieldset.fes-submit {
+	margin-bottom: 0;
+}
+
+// Labels shown on profile form
+.fes-help {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: lighten( $body-text-color, 10% );
+}
+
+// Text that is shown on the vendor dashboard.
+#fes-vendor-announcements {
+	margin-bottom: 1rem;
+	line-height: 1.62;
+}
+
+// Store link on dashboard
+#fes-vendor-store-link {
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background-color: $alert-info-background-color;
+	border-color: $alert-info-border-color;
+
+	color: $alert-info-text-color;
+
+	p {
+		color: $alert-info-text-color;
+	}
+}
+
+.fes-vendor-comment-respond-form {
+	table:last-child {
+		border: none;
+		margin: 0;
+	}
+
+	button {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+
+.fes-vendor-comment-respond-form .button {
+	margin-right: 1rem;
+}
+
+// Badges
+.fes-purchase-badge {
+	line-height: 1.3;
+	font-size: 0.875rem;
+
+	// Has purchased badge.
+	&.fes-purchase-badge-purchased {
+		display: inline-block;
+		color: $alert-success-text-color;
+		background: $alert-success-background-color;
+		padding: 0.5rem 1rem;
+	}
+
+	// Has not purchased badge.
+	&.fes-purchase-badge-not-purchased {
+		display: inline-block;
+		color: $alert-error-text-color;
+		background: $alert-error-background-color;
+		padding: 0.5rem 1rem;
+	}
+
+}
+
+
+.fes-comment-author-name {
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+// Product list status bar.
+// vendor-dashboard/?task=products
+.fes-product-list-status-bar {
+	margin-bottom: 1rem;
+}
+
+// action links
+.edd-fes-action {
+	display: block;
+}
+
+#fes-product-list {
+	.edd_price {
+		margin-bottom: 0;
+	}
+}
+
+.fes-required-indicator {
+	color: $required-color;
+    font-size: 1.5rem;
+	margin-left: 0.25rem;
+}
+
+.fes-fields + .edd_errors {
+	margin-top: 1rem;
+}
+
+// Products tab
+// ?task=products
+#fes-product-list {
+
+	abbr {
+		display: block;
+	}
+
+	.download-status {
+		white-space: nowrap;
+		padding: 0.25rem 0.75rem;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	.draft,
+	.pending-review {
+		background: $pending-color;
+	}
+
+	.published {
+	    background: $published-color;
+	}
+
+
+}
+
+// Registration notice.
+.fes-login-registration-notice {
+	text-align: center;
+}
+
+// Save draft button on "Add Product page"
+
+#fes-save-as-draft {
+	margin-right: 1rem;
+}
+
+// Utility classes
+.fes-hide {
+	display: none;
+}
+
+// File upload table columns.
+// Setting this low will make sure the input fields have more room.
+.fes-url-choose-row {
+	width: 100px;
+}
+
+.fes-avatar-image {
+	display: block;
+}
+
+// Image upload fields
+// This CSS should eventually be merged into 1 selector as per https://github.com/easydigitaldownloads/edd-fes/issues/1293
+.fes-fields .fes-avatar-image-upload,
+.fes-fields .fes-feat-image-upload {
+	border: 4px dashed $light-grey;
+	margin-bottom: 2rem;
+	max-width: 12rem;
+	position: relative;
+	padding: 1.5rem;
+	display: inline-block;
+
+	.instruction-inside {
+		text-align: center;
+	}
+
+	.button {
+		font-size: 0.875rem;
+		padding: 0.25rem 0.75rem;
+		display: block;
+	}
+
+	a.close {
+		background: #000;
+		color: $alert-error-text-color;
+		display: none;
+		font-size: 4rem;
+		height: 100%;
+		opacity: 0.7;
+		position: absolute;
+		left: 0;
+		top: 0;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	&:hover a.close {
+		display: flex;
+	}
+}
+
+// Featured image should stretch full-width
+.fes-fields .fes-feat-image-upload {
+	max-width: 100%;
+	display: block;
+
+	.button {
+		display: inline-block;
+	}
+}
+
+// End image upload fields
+
+@include media-breakpoint-up(md) {
+
+	.fes-login-registration-combo {
+		display: flex;
+		justify-content: space-between;
+
+		form {
+			padding: $box-padding;
+		    border: $box-border;
+		    background: $box-background-color;
+		}
+	}
+
+	.fes-login-registration-combo > div + div {
+		order: 1;
+		width: 48%;
+	}
+
+	.fes-login-registration-combo > div {
+		order: 2;
+		width: 48%;
+	}
+
+}
+
+// .media-mixin(@break) when ( @break = @nav-sm-max ) {
+// 	.fes-vendor-menu ul {
+// 		line-height: 2;
+// 		margin-bottom: 2rem;
+// 	}
+// }
+
+@include media-breakpoint-up(xl) {
+
+	.fes-login-registration-combo > div + div {
+		width: 65%;
+	}
+
+	.fes-login-registration-combo > div {
+		width: 30%;
+	}
+
+}
+
+// Media queries
+
+// @media only screen and ( max-width: @nav-sm-max ) {
+// 	.media-mixin( @nav-sm-max );
+// }
+
+// @media only screen and ( max-width: @screen-xs-max ) {
+// 	.media-mixin( @screen-xs-max );
+// }
+
+// @media only screen and ( min-width: @screen-sm-min ) {
+//     .media-mixin( @screen-sm-min );
+// }
+
+// @media only screen and ( min-width: @screen-md-min ) {
+//     .media-mixin( @screen-md-min );
+// }
+
+// @media only screen and ( min-width: @screen-lg-min ) {
+//     .media-mixin( @screen-lg-min );
+// }

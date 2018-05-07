@@ -1,0 +1,28 @@
+// Download grid - price options.
+.edd_price_options {
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+}
+
+// Download grid - download title.
+.edd_download_title a {
+	color: $edd-download-title-color;
+	font-size: $edd-download-title-font-size;
+	display: block;
+
+	&:hover {
+		color: $edd-download-title-hover-color;
+		text-decoration: none;
+	}
+}
+
+// Download footer
+// Always aligned to the bottom.
+// Optional: May contain .eddDownloadMeta
+.downloadFooter {
+	margin: auto 0 0 0;
+}

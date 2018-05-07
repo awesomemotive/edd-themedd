@@ -1,0 +1,28 @@
+
+// Make the nav-bar toggler not dependant on the .navbar-light or .navbar-dark classes
+.navbar-toggler {
+	color: $navbar-light-color;
+	border-color: $navbar-light-toggler-border-color;
+}
+
+.navbar-toggler-icon {
+	background-image: $navbar-light-toggler-icon-bg;
+}
+
+.navbar > .container {
+	padding-right: ($grid-gutter-width / 2);
+	padding-left: ($grid-gutter-width / 2);
+}
+
+@include media-breakpoint-up(lg) {
+		
+	// Move the primary menu so it aligns with everything else
+	#menu-primary {
+		margin-left: -1rem;
+	}
+}
+
+// Allow the nav items to wrap on to a new line.
+.navbar-nav {
+	flex-wrap: wrap;
+}
