@@ -274,28 +274,37 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
             )
         );
 
-        $args = wp_parse_args( $args, $defaults );
-		?>
+		$args = wp_parse_args( $args, $defaults );
+		
+		$subtitle = $args['subtitle'];
 
-		<header class="page-header<?php echo themedd_page_header_classes( $classes ); ?>">
+		if ( function_exists( 'get_the_subtitle' ) && get_the_subtitle() ) {
+			$subtitle = get_the_subtitle();
+		}
+		
+		?>
+		<header<?php echo themedd_page_header_classes( 'header' ); ?>>
 			<?php do_action( 'themedd_page_header_start' ); ?>
-			<div class="wrapper">
-				<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
-				<h1 class="<?php echo get_post_type(); ?>-title">
-					<?php if ( $args['subtitle'] ) : ?>
-						<span class="entry-title-primary"><?php echo $args['title']; ?></span>
-						<span class="subtitle"><?php echo $args['subtitle']; ?></span>
-					<?php elseif ( $args['title'] ) : ?>
-						<?php echo $args['title']; ?>
-					<?php endif; ?>
-				</h1>
-				<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
+			<div class="container">
+				<div<?php echo themedd_page_header_classes( 'row' ); ?>>
+					<div<?php echo themedd_page_header_classes( 'column' ); ?>>
+						<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
+
+						<h1<?php echo themedd_page_header_classes( 'heading' ); ?>><?php echo $args['title']; ?></h1>
+						<?php if ( $subtitle ) : ?>
+						<span class="lead">
+							<?php echo $subtitle; ?>
+						</span>
+						<?php endif; ?>
+
+						<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
+					</div>	
+				</div>	
 			</div>
 			<?php do_action( 'themedd_page_header_end' ); ?>
 		</header>
 
 	<?php
-
 	}
 
 endif;
