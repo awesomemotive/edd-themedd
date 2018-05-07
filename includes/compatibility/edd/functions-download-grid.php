@@ -142,7 +142,8 @@ function themedd_edd_download_grid_options( $atts = array() ) {
 		'pagination'   => true,
 		'number'       => 9,
 		'order'        => 'DESC',
-		'orderby'      => 'post_date'
+		'orderby'      => 'post_date',
+		'cards'        => false,
 	);
 
 	// Merge the arrays.
