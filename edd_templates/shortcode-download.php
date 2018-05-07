@@ -14,19 +14,30 @@ global $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i;
 
 $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortcode_item_atts );
 $schema_microdata      = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : '';
+
 ?>
 
 <div <?php echo $schema_microdata; ?>class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>" id="edd_download_<?php the_ID(); ?>">
 
 	<div class="<?php echo esc_attr( apply_filters( 'edd_download_inner_class', 'edd_download_inner', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>">
 
+	<?php
+
+		if ( true === $download_grid_options['thumbnails'] ) {
+			edd_get_template_part( 'shortcode', 'content-image' );
+			do_action( 'edd_download_after_thumbnail' );
+		}
+
+	?>
+
+	<?php if ( true === $download_grid_options['cards'] ) : ?>
+		<div class="card-body">
+	<?php endif; ?>
+
 		<?php
 			do_action( 'edd_download_before' );
 
-			if ( true === $download_grid_options['thumbnails'] ) {
-				edd_get_template_part( 'shortcode', 'content-image' );
-				do_action( 'edd_download_after_thumbnail' );
-			}
+			
 
 			/**
 			 * Used by themedd_edd_download_meta_before_title()
@@ -59,6 +70,11 @@ $schema_microdata      = edd_add_schema_microdata() ? 'itemscope itemtype="http:
 			do_action( 'edd_download_after' );
 
 		?>
+
+		<?php if ( true === $download_grid_options['cards'] ) : ?>
+		</div>
+		<?php endif; ?>
+
 	</div>
 
 </div>
