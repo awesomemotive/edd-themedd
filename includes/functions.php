@@ -128,36 +128,30 @@ function themedd_get_sidebar( $sidebar = '' ) {
 	return get_sidebar( apply_filters( 'themedd_get_sidebar', $sidebar ) );
 }
 
-/**
- * Themedd page header div classes
- *
- * @since 1.0.0
- * @param array $more_classes Any more classes that need to be added.
- *
- * @return string Classes
- */
-function themedd_page_header_classes( $more_classes = array() ) {
+// Helper function to get the class names for specific elements.
+function themedd_page_header_classes( $type = '', $classes = array() ) {
 
-	// Set up the default classes.
-	$classes = array();
-
-	$classes[] = 'pv-xs-2';
-	$classes[] = 'pv-sm-3';
-	$classes[] = 'pv-lg-4';
-	$classes[] = 'center-xs';
-
-	// Merge any new classes passed in.
-	if ( is_array( $more_classes ) ) {
-		$classes = array_merge( $classes, $more_classes );
+	// Must be a type declared.
+	if ( ! $type ) {
+		return '';
 	}
 
-	// Make the classes filterable.
-	$classes = apply_filters( 'themedd_page_header_classes', $classes );
+	$default_classes = array(
+		'header'  => array( 'py-5', 'py-lg-10' ),
+		'row'     => array( 'row', 'justify-content-center', 'text-center' ),
+		'column'  => array( 'col-12', 'col-md-8' ),
+		'heading' => array( get_post_type() . '-title' ),
+	);
 
-	// Return the classes in a string.
+	// Merge the additional classes with what we already have
 	if ( ! empty( $classes ) ) {
-		return ' ' . implode( ' ', $classes );
+		$default_classes[$type] = array_merge( $default_classes[$type], $classes );
 	}
+
+	// Allow the classes to be filtered.
+	$default_classes = apply_filters( 'themedd_page_header_classes', $default_classes );
+
+	return ' class="' . implode( ' ', array_filter( $default_classes[$type] ) ) . '"';
 
 }
 
@@ -171,11 +165,17 @@ function themedd_wrapper_classes() {
 
 	$classes = array();
 
+	if ( themedd_has_sidebar() ) {
+		$classes[] = 'container';
+	} elseif( ! themedd_has_sidebar() ) {
+		$classes[] = 'container-fluid';
+	}
+
 	// allow filtering of the wrapper classes
 	$classes = apply_filters( 'themedd_wrapper_classes', $classes );
 
 	if ( $classes ) {
-		return ' ' . implode( ' ', $classes );
+		return implode( ' ', $classes );
 	}
 
 	return implode( ' ', $classes );
@@ -190,18 +190,8 @@ function themedd_primary_classes() {
 
 	$classes = array();
 
-	if (
-		is_active_sidebar( 'sidebar-1' ) &&
-		! (
-			in_array( 'no-sidebar', get_body_class() ) ||
-			in_array( 'slim', get_body_class() ) ||
-			( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && themedd_edd_distraction_free_checkout() ) ||
-			Themedd_Search::is_product_search_results()
-		) ||
-		is_singular( 'download' )
-	) {
-		$classes[] = 'col-xs-12';
-		$classes[] = 'col-md-8';
+	if ( themedd_has_sidebar() ) {
+		$classes = array( 'col-12 col-lg-8' );
 	}
 
 	$classes = apply_filters( 'themedd_primary_classes', $classes );
@@ -213,6 +203,28 @@ function themedd_primary_classes() {
 }
 
 /**
+ * Determines if the current page has a sidebar.
+ *
+ * @since 1.1
+ */
+function themedd_has_sidebar() {
+
+	if ( ! ( 
+			! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ||
+			! apply_filters( 'themedd_show_sidebar', true ) ||
+			is_page_template( 'page-templates/full-width.php' ) ||
+			is_page_template( 'page-templates/slim.php' ) ||
+			is_search() && Themedd_Search::is_product_search_results()
+		)
+	) {
+		return true;
+	}
+
+	return false;
+
+}
+
+/**
  * Themedd secondary div classes
  *
  * @since 1.0.0
@@ -220,7 +232,7 @@ function themedd_primary_classes() {
 function themedd_secondary_classes() {
 
 	$classes   = array();
-	$classes[] = 'col-xs-12 col-md-4';
+	$classes[] = 'col-12 col-lg-4';
 
 	$classes = apply_filters( 'themedd_secondary_classes', $classes );
 
