@@ -149,7 +149,7 @@ function themedd_edd_checkout_button_purchase() {
 	ob_start();
 ?>
 	<div id="edd-purchase-button-wrap">
-		<input type="submit" class="button button-block" id="edd-purchase-button" name="edd-purchase" value="<?php echo $label; ?>" />
+		<input type="submit" class="btn btn-lg btn-primary btn-block" id="edd-purchase-button" name="edd-purchase" value="<?php echo $label; ?>" />
 	</div>
 <?php
 	return ob_get_clean();
