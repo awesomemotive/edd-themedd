@@ -16,13 +16,14 @@ function themedd_secondary_navigation_menu() {
 add_action( 'template_redirect', 'themedd_secondary_navigation_menu', 5 );
 
 /**
- * Show the date and author in the header on single posts
+ * Show the date and author in the header on single posts.
  *
  * @since 1.0.0
  */
 function themedd_show_posted_on() {
 
-	if ( is_singular( 'post' ) ) {
+	// Show post date and author on the blog page (home) and single posts.
+	if ( is_home() || is_singular( 'post' ) ) {
 		themedd_posted_on();
 	}
 
