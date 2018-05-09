@@ -16,11 +16,11 @@ function themedd_posted_on( $show_author = true ) {
 	$byline = sprintf(
 		/* translators: %s: post author */
 		__( 'by %s', 'themedd' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
+		'<span class="author vcard"><a class="text-muted url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
 	);
 
 	// Finally, let's write all of this to the page.
-	echo '<div class="entry-meta">';
+	echo '<div class="entry-meta text-muted">';
 	echo '<span class="posted-on">' . themedd_time_link() . '</span>';
 	if ( $show_author ) {
 		echo '<span class="byline"> ' . $byline . '</span>';
@@ -50,7 +50,7 @@ function themedd_time_link() {
 	return sprintf(
 		/* translators: %s: post date */
 		__( '<span class="sr-only">Posted on</span> %s', 'themedd' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		'<a class="text-muted" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 }
 endif;
