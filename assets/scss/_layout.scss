@@ -3,7 +3,7 @@
 //
 
 // Flexbox sticky footer.
-body, #page {
+body {
 	height: 100vh;
 }
 
@@ -12,6 +12,7 @@ body, #page {
 }
 
 #page {
+	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 }
