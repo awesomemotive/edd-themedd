@@ -29,29 +29,6 @@ module.exports = function(grunt) {
 	        }
 	    },
 
-	    // Add banner to style.css
-	    usebanner: {
-	       addbanner: {
-	          options: {
-	            position: 'top',
-	            banner: '/*\nTheme Name: <%= pkg.title %>\n' +
-						'Theme URI: <%= pkg.theme_uri %>\n' +
-						'Author: <%= pkg.author %>\n' +
-						'Author URI: <%= pkg.author_uri %>\n' +
-						'Description: <%= pkg.description %>\n' +
-						'Version: <%= pkg.version %>\n' +
-						'License: GNU General Public License\n' +
-						'License URI: license.txt\n' +
-						'Text Domain: <%= pkg.text_domain %>\n' +
-	                    '*/',
-	            linebreak: true
-	          },
-	          files: {
-	            src: [ 'style.css', 'style.min.css' ]
-	          }
-	        }
-	    },
-
 		sass: {
 			default: {
 				files: {
@@ -158,21 +135,13 @@ module.exports = function(grunt) {
                 files: 'assets/scss/**/*.scss',
                 tasks: ['sass', 'autoprefixer:main']
 			},
-			
-			// Add banner
-			addbanner: {
-				files: ['style.css', 'style.min.css'],
-				tasks: ['usebanner:addbanner'],
-				options: {
-					spawn: false
-				}
-			},
+
 		}
 	});
 
 	// Saves having to declare each dependency
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'usebanner', 'svgstore', 'svgmin' ]);
+	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'svgstore', 'svgmin' ]);
 
 };

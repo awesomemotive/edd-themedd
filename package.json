@@ -1,17 +1,9 @@
 {
   "name": "themedd",
-  "title": "Themedd",
-  "version": "1.1.0",
-  "description": "Themedd is a simple and extensible WordPress theme that provides a solid integration with Easy Digital Downloads and its extensions. It's the perfect theme to sell your digital products.",
-  "author": "Easy Digital Downloads",
-  "theme_uri": "https://themedd.com",
-  "author_uri": "https://easydigitaldownloads.com",
-  "text_domain": "themedd",
   "browserslist": "last 1 versions",
   "devDependencies": {
     "grunt": "latest",
     "grunt-autoprefixer": "latest",
-    "grunt-banner": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "latest",
