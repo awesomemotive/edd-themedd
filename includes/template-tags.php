@@ -231,6 +231,25 @@ function themedd_post_thumbnail() {
 endif;
 
 /**
+ * Output a class attribute with its values, given an array, or strings
+ *
+ * @since 1.1
+ */
+function themedd_output_classes( $classes = array() ) {
+
+	if ( ! empty( $classes ) ) {
+		
+		if ( is_array( $classes ) ) {
+			$classes = implode( ' ', array_filter( $classes ) );
+		}
+
+		return ' class="' . $classes . '"';
+	}
+
+	return false;
+}
+
+/**
  * Display the post header
  *
  * @since 1.0.0
@@ -248,49 +267,42 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
 
 		do_action( 'themedd_page_header_before' );
 
-		if ( is_404() ) {
-			$title = esc_html__( 'Oops! That page can&rsquo;t be found.', 'themedd' );
-		} else {
-			$title = ! empty( $args['title'] ) ? $args['title'] : get_the_title();
-		}
+		// Set up defaults.
+		$defaults = array(
+			'subtitle'        => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
+			'title'           => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
+			'header_classes'  => array( 'py-5', 'py-lg-10' ),
+			'row_classes'     => array( 'row', 'justify-content-center', 'text-center' ),
+			'column_classes'  => array( 'col-12', 'col-md-8' ),
+			'heading_classes' => array( get_post_type() . '-title' ),
+		);
 
-		// Process any classes passed in.
-		if ( ! empty( $args['classes'] ) ) {
-			if ( is_array( $args['classes'] ) ) {
-				// array of classes
-				$classes = $args['classes'];
-			} else {
-				// must be string, explode it into an array
-				$classes = explode( ' ', $args['classes'] );
-			}
-		} else {
-			$classes = array();
-		}
-
-        $defaults = apply_filters( 'themedd_header_defaults',
-            array(
-                'subtitle' => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
-                'title'    => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
-            )
-        );
+		$defaults = apply_filters( 'themedd_header_defaults', $defaults );
 
 		$args = wp_parse_args( $args, $defaults );
 		
+		// Classes.
+		$header_classes  = ! empty( $args['header_classes'] ) ? $args['header_classes'] : array();
+		$row_classes     = ! empty( $args['row_classes'] ) ? $args['row_classes'] : array();
+		$column_classes  = ! empty( $args['column_classes'] ) ? $args['column_classes'] : array();
+		$heading_classes = ! empty( $args['heading_classes'] ) ? $args['heading_classes'] : array();
+
+		// Subtitle.
 		$subtitle = $args['subtitle'];
 
 		if ( function_exists( 'get_the_subtitle' ) && get_the_subtitle() ) {
 			$subtitle = get_the_subtitle();
 		}
-		
+
 		?>
-		<header<?php echo themedd_page_header_classes( 'header' ); ?>>
+		<header<?php echo themedd_output_classes( $header_classes ); ?>>
 			<?php do_action( 'themedd_page_header_start' ); ?>
 			<div class="container">
-				<div<?php echo themedd_page_header_classes( 'row' ); ?>>
-					<div<?php echo themedd_page_header_classes( 'column' ); ?>>
+				<div<?php echo themedd_output_classes( $row_classes ); ?>>
+					<div<?php echo themedd_output_classes( $column_classes ); ?>>
 						<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
 
-						<h1<?php echo themedd_page_header_classes( 'heading' ); ?>><?php echo $args['title']; ?></h1>
+						<h1<?php echo themedd_output_classes( $heading_classes ); ?>><?php echo $args['title']; ?></h1>
 						<?php if ( $subtitle ) : ?>
 						<span class="lead">
 							<?php echo $subtitle; ?>
