@@ -128,33 +128,6 @@ function themedd_get_sidebar( $sidebar = '' ) {
 	return get_sidebar( apply_filters( 'themedd_get_sidebar', $sidebar ) );
 }
 
-// Helper function to get the class names for specific elements.
-function themedd_page_header_classes( $type = '', $classes = array() ) {
-
-	// Must be a type declared.
-	if ( ! $type ) {
-		return '';
-	}
-
-	$default_classes = array(
-		'header'  => array( 'py-5', 'py-lg-10' ),
-		'row'     => array( 'row', 'justify-content-center', 'text-center' ),
-		'column'  => array( 'col-12', 'col-md-8' ),
-		'heading' => array( get_post_type() . '-title' ),
-	);
-
-	// Merge the additional classes with what we already have
-	if ( ! empty( $classes ) ) {
-		$default_classes[$type] = array_merge( $default_classes[$type], $classes );
-	}
-
-	// Allow the classes to be filtered.
-	$default_classes = apply_filters( 'themedd_page_header_classes', $default_classes );
-
-	return ' class="' . implode( ' ', array_filter( $default_classes[$type] ) ) . '"';
-
-}
-
 /**
  * Controls the CSS classes applied to the main wrappers
  * Useful for overriding the wrapper widths etc
