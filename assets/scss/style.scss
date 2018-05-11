@@ -46,18 +46,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import "../../node_modules/bootstrap/scss/print";
 
 // Custom styling
-@import "variables";
-@import "layout";
 @import "common";
-@import "forms";
-@import "tables";
-@import "type";
 @import "navbar";
 @import "blog";
-@import "search";
-@import "widgets";
-@import "images";
-@import "content";
 
 // Easy Digital Downloads
 @import "compatibility/edd/download-grid";
