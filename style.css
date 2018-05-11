@@ -6033,85 +6033,6 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #dee2e6 !important; } }
-body {
-  height: 100vh; }
-
-#content {
-  -ms-flex: 1 0 auto;
-      flex: 1 0 auto; }
-
-#page {
-  min-height: 100%;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-
-span.required {
-  color: #dc3545; }
-
-.entry-content table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
-  border: 1px solid #dee2e6; }
-  .entry-content table th,
-  .entry-content table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border: 1px solid #dee2e6; }
-  .entry-content table thead th,
-  .entry-content table thead td {
-    border-bottom-width: 2px; }
-  .entry-content table thead th {
-    vertical-align: bottom; }
-  .entry-content table tbody + tbody {
-    border-top: 2px solid #dee2e6; }
-  .entry-content table .table {
-    background-color: #fff; }
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility; }
-
-.site-description {
-  font-size: 1.2rem;
-  margin-bottom: 0;
-  color: #adb5bd; }
-
-.navbar-toggler {
-  color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.1); }
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
-
-.navbar > .container {
-  padding-right: 15px;
-  padding-left: 15px; }
-
-@media (min-width: 992px) {
-  #menu-primary {
-    margin-left: -1rem; } }
-.navbar-nav {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-
-.search-submit svg {
-  vertical-align: middle; }
-  .search-submit svg * {
-    stroke: #fff; }
-
-.widget ul {
-  list-style-type: none;
-  padding-left: 0; }
-
-img {
-  max-width: 100%;
-  height: auto; }
-
 .updated:not(.published) {
   display: none; }
 
@@ -6170,6 +6091,105 @@ img {
 
   .no-sidebar .entry-content > .full-width {
     max-width: 1200px; } }
+body {
+  height: 100vh; }
+
+#content {
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto; }
+
+#page {
+  min-height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+.entry-content table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: 1px solid #dee2e6; }
+  .entry-content table th,
+  .entry-content table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid #dee2e6; }
+  .entry-content table thead th,
+  .entry-content table thead td {
+    border-bottom-width: 2px; }
+  .entry-content table thead th {
+    vertical-align: bottom; }
+  .entry-content table tbody + tbody {
+    border-top: 2px solid #dee2e6; }
+  .entry-content table .table {
+    background-color: #fff; }
+
+.widget ul {
+  list-style-type: none;
+  padding-left: 0; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility; }
+
+.site-description {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  color: #adb5bd; }
+
+.search-submit svg {
+  vertical-align: middle; }
+  .search-submit svg * {
+    stroke: #fff; }
+
+span.required {
+  color: #dc3545; }
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0; }
+
+.navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1); }
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+
+.navbar > .container {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+@media (min-width: 992px) {
+  #menu-primary {
+    margin-left: -1rem; } }
+.navbar-nav {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
 .edd_price_options ul {
   list-style-type: none;
   padding-left: 0; }
