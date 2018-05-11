@@ -6,16 +6,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<header class="entry-header py-5 py-lg-10">
-		<div class="container">
-			<div class="row justify-content-center text-center">
-				<div class="col-12 col-md-8">
-				<?php themedd_posted_on(); ?>
-				<?php the_title( sprintf( '<h2 class="entry-title h1"><a class="text-body" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-				</div>
-			</div>
-		</div>
-	</header>
+	<?php 
+		themedd_page_header( 
+			array(
+				'heading_size'    => 'h2',
+				'heading_classes' => array( 'entry-title h1' ),
+				'permalink'       => esc_url( get_permalink() ),
+				'header_classes'  => array( 'entry-header', 'py-5', 'py-lg-10' ),
+			) 
+		); 
+	?>
 
 	<?php themedd_post_thumbnail(); ?>
 
