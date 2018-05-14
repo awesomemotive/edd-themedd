@@ -15,16 +15,15 @@ $container-max-widths: (
 // Spacers.
 // Extends to include 5 more levels.
 
-// $spacer: 1rem;
-
-// $spacers: (
-// 	5: ($spacer * 2 ),   // 2rem
-// 	6: ($spacer * 2.5 ), // 2.5rem
-// 	7: ($spacer * 3 ),   // 3rem
-// 	8: ($spacer * 3.5 ), // 3.5rem
-// 	9: ($spacer * 4 ),   // 4rem
-// 	10: ($spacer * 4.5 ), // 4.5 rem
-// );
+$spacer: 1rem;
+$spacers: (
+	5: ($spacer * 2 ),   // 2rem
+	6: ($spacer * 2.5 ), // 2.5rem
+	7: ($spacer * 3 ),   // 3rem
+	8: ($spacer * 3.5 ), // 3.5rem
+	9: ($spacer * 4 ),   // 4rem
+	10: ($spacer * 4.5 ), // 4.5 rem
+);
 
 $enable-rounded: false;
 
