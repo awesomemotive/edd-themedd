@@ -1,3 +1,7 @@
 span.required {
     color: $required-color;
 }
+
+legend {
+	float: left; // Neccessary to position the legend inside the fieldset and have that padding affect it.
+}
