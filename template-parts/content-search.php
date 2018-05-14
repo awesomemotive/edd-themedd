@@ -14,7 +14,7 @@
 
 	<?php themedd_post_thumbnail(); ?>
 
-	<div class="entry-summary">
+	<div class="entry-summary content-wrapper">
 		<?php the_excerpt(); ?>
 	</div>
 

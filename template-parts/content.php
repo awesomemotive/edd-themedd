@@ -21,13 +21,13 @@
 
 	<?php if ( is_search() || is_archive() || themedd_display_excerpts() ) : ?>
 
-		<div class="entry-summary">
+		<div class="entry-summary content-wrapper">
 			<?php the_excerpt(); ?>
 		</div>
 
 	<?php else : ?>
 
-		<div class="entry-content">
+		<div class="entry-content content-wrapper">
 			<?php
 				/* translators: %s: Name of current post */
 				the_content( sprintf(

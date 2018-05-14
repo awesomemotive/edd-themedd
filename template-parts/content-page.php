@@ -8,7 +8,7 @@
 
 	<?php themedd_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content content-wrapper">
 
 		<?php do_action( 'themedd_entry_content_start' ); ?>
 

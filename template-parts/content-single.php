@@ -12,7 +12,7 @@
 	 */
 	do_action( 'themedd_article_start' ); ?>
 
-	<div class="entry-content">
+	<div class="entry-content content-wrapper">
 
 		<?php do_action( 'themedd_entry_content_start' ); ?>
 

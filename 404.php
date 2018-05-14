@@ -15,7 +15,7 @@ themedd_page_header( array( 'title' => __( 'Oops! That page can&rsquo;t be found
 		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 			<main id="main" class="site-main" role="main">
 				<section class="error-404 not-found">
-					<div class="entry-content">
+					<div class="content-wrapper">
 						<?php get_search_form(); ?>
 					</div>
 				</section>
