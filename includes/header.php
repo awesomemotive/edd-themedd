@@ -55,7 +55,7 @@ add_action( 'themedd_header_masthead', 'themedd_header_masthead' );
 function themedd_site_branding() {
 	?>
 	<div class="navbar navbar-expand-lg navbar-light px-0">
-		<div class="container">
+		<div class="container<?php if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) { echo ' justify-content-center text-center'; } ?>">
 
 			<div class="site-branding">
 					
