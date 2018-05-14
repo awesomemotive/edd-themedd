@@ -1,0 +1,59 @@
+
+// Card type.
+// Shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method.
+span.card-type {
+	width: 43px;
+	height: 32px;
+	background-size: 43px 32px !important;
+	top: -0.25rem;
+	position: relative;
+}
+
+span.card-type.off {
+	display: none;
+}
+
+span.card-type.visa {
+	background: url(assets/images/icons/visa.gif) no-repeat;
+}
+
+span.card-type.mastercard {
+	background: url(assets/images/icons/mastercard.gif) no-repeat;
+}
+
+span.card-type.discover {
+	background: url(assets/images/icons/discover.gif) no-repeat;
+}
+
+span.card-type.amex {
+	background: url(assets/images/icons/americanexpress.gif) no-repeat;
+}
+
+// Amazon Payments.
+.edd-amazon-profile-wrapper {
+	font-size: 1rem;
+}
+
+.edd-amazon-profile-name {
+	font-weight: bold;
+}
+
+// Make the Amazon logout link look clickable.
+.edd-amazon-logout a {
+	cursor: pointer;
+}
+
+// Hide the div with border since all fields inside are hidden anyway.
+.edd-amazon-fields #edd_cc_address {
+	display: none;
+}
+
+// Hard-set the height so the Amazon iframe appears.
+#edd-amazon-wallet-box,
+#edd-amazon-address-box {
+	height: 228px;
+}
+
+#edd-amazon-address-box {
+	margin-bottom: 2rem;
+}
