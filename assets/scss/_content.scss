@@ -12,8 +12,7 @@
 
 .no-sidebar {
 
-	.entry-header,
-	.entry-content > * {
+	.content-wrapper > * {
 		margin-left: auto;
 		margin-right: auto;
 		padding-left: 15px;
@@ -21,7 +20,7 @@
 	}
 
 	// For normal images
-	.entry-content > .alignwide {
+	.content-wrapper > .alignwide {
 		max-width: 1200px;
 
 		// Cover images have the padding included so needs to be accounted for.
@@ -30,7 +29,7 @@
 		}
 	}
 
-	.entry-content > .alignfull {
+	.content-wrapper > .alignfull {
 		max-width: 100%;
 		padding-left: 0;
 		padding-right: 0;
@@ -55,8 +54,7 @@
 	}
 
 	@if $enable-grid-classes {
-		.entry-content > *,
-		.entry-header {
+		.content-wrapper > * {
 			@include make-container-max-widths();
 		}
 	}
@@ -70,12 +68,12 @@
 
 @include media-breakpoint-up(xl) {
 
-	.no-sidebar .entry-content > *,
+	.no-sidebar .content-wrapper > *,
 	.no-sidebar #comments {
 		max-width: 740px;
 	} 
 
-	.no-sidebar .entry-content > .full-width {
+	.no-sidebar .content-wrapper > .full-width {
 		max-width: 1200px;
 	}
 }
