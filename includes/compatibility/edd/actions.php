@@ -183,7 +183,7 @@ function themedd_edd_set_distraction_free_checkout() {
 		remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
 
 		// Remove the secondary menu.
-		remove_action( 'themedd_site_header_wrap', 'themedd_secondary_menu' );
+		remove_action( 'themedd_site_branding_end', 'themedd_secondary_menu' );
 
 		// Remove the footer.
 		remove_action( 'themedd_footer', 'themedd_footer_widgets' );
@@ -193,6 +193,7 @@ function themedd_edd_set_distraction_free_checkout() {
 
 		// Remove the custom header (if set)
 		remove_action( 'themedd_header', 'themedd_header_image' );
+
 	}
 
 }
