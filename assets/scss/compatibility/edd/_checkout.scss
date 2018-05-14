@@ -1,3 +1,6 @@
+.edd_form legend {
+	float: left; // Neccessary to position the legend inside the fieldset and have that padding affect it.
+}
 
 // Card type.
 // Shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method.
