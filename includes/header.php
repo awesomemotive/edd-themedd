@@ -88,9 +88,11 @@ function themedd_site_branding() {
 
 			</div>
 
+			<?php if ( ! ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) ) : ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+			<?php endif; ?>
 
 			<?php do_action( 'themedd_site_branding_end' ); ?>
 
