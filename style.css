@@ -6040,17 +6040,16 @@ a.text-dark:hover, a.text-dark:focus {
 .alignwide {
   margin-bottom: 2rem; }
 
-.no-sidebar .entry-header,
-.no-sidebar .entry-content > * {
+.no-sidebar .content-wrapper > * {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px; }
-.no-sidebar .entry-content > .alignwide {
+.no-sidebar .content-wrapper > .alignwide {
   max-width: 1200px; }
-  .no-sidebar .entry-content > .alignwide.wp-block-cover-image {
+  .no-sidebar .content-wrapper > .alignwide.wp-block-cover-image {
     max-width: 1170px; }
-.no-sidebar .entry-content > .alignfull {
+.no-sidebar .content-wrapper > .alignfull {
   max-width: 100%;
   padding-left: 0;
   padding-right: 0; }
@@ -6064,20 +6063,16 @@ a.text-dark:hover, a.text-dark:focus {
 .no-sidebar .wp-block-embed.is-type-video iframe {
   width: 100%; }
 @media (min-width: 576px) {
-  .no-sidebar .entry-content > *,
-  .no-sidebar .entry-header {
+  .no-sidebar .content-wrapper > * {
     max-width: 540px; } }
 @media (min-width: 768px) {
-  .no-sidebar .entry-content > *,
-  .no-sidebar .entry-header {
+  .no-sidebar .content-wrapper > * {
     max-width: 720px; } }
 @media (min-width: 992px) {
-  .no-sidebar .entry-content > *,
-  .no-sidebar .entry-header {
+  .no-sidebar .content-wrapper > * {
     max-width: 960px; } }
 @media (min-width: 1200px) {
-  .no-sidebar .entry-content > *,
-  .no-sidebar .entry-header {
+  .no-sidebar .content-wrapper > * {
     max-width: 1200px; } }
 
 .no-sidebar .edd_downloads_list {
@@ -6085,11 +6080,11 @@ a.text-dark:hover, a.text-dark:focus {
   padding-right: 0; }
 
 @media (min-width: 1200px) {
-  .no-sidebar .entry-content > *,
+  .no-sidebar .content-wrapper > *,
   .no-sidebar #comments {
     max-width: 740px; }
 
-  .no-sidebar .entry-content > .full-width {
+  .no-sidebar .content-wrapper > .full-width {
     max-width: 1200px; } }
 body {
   height: 100vh; }
@@ -6154,6 +6149,12 @@ body {
   margin-bottom: 0;
   color: #adb5bd; }
 
+.single .entry-content p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #2a2c2e;
+  margin-bottom: 2rem; }
+
 .search-submit svg {
   vertical-align: middle; }
   .search-submit svg * {
@@ -6204,6 +6205,9 @@ span.required {
 
 .downloadFooter {
   margin: auto 0 0 0; }
+
+.edd_download_purchase_form {
+  margin-top: 1rem; }
 
 .edd-submit {
   width: auto; }
@@ -6290,3 +6294,7 @@ a.edd-add-to-cart .edd-add-to-cart-label,
 .edd-add-to-cart[data-edd-loading] .edd-loading,
 .edd-discount-loader.edd-loading {
   opacity: 1; }
+
+.widget_edd_product_details .edd_price {
+  display: inline-block;
+  font-size: 2rem; }
