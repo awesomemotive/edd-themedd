@@ -89,7 +89,7 @@ global $post; ?>
 
 		<?php if( has_action( 'edd_cart_footer_buttons' ) ) : ?>
 			<tr class="edd_cart_footer_row<?php if ( edd_is_cart_saving_disabled() ) { echo ' edd-no-js'; } ?>">
-				<th colspan="<?php echo edd_checkout_cart_columns(); ?>">
+				<th colspan="<?php echo edd_checkout_cart_columns(); ?>" class="text-right">
 					<?php do_action( 'edd_cart_footer_buttons' ); ?>
 				</th>
 			</tr>
