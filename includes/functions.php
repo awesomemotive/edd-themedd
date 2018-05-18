@@ -170,6 +170,23 @@ function themedd_primary_classes() {
 }
 
 /**
+ * Themedd secondary div classes
+ *
+ * @since 1.0.0
+ */
+function themedd_secondary_classes() {
+
+	$classes   = array();
+	$classes[] = 'col-12 col-lg-4';
+
+	$classes = apply_filters( 'themedd_secondary_classes', $classes );
+
+	if ( $classes ) {
+		return implode( ' ', $classes );
+	}
+}
+
+/**
  * Determines if the current page has a sidebar.
  *
  * @since 1.1
@@ -189,23 +206,6 @@ function themedd_has_sidebar() {
 
 	return false;
 
-}
-
-/**
- * Themedd secondary div classes
- *
- * @since 1.0.0
- */
-function themedd_secondary_classes() {
-
-	$classes   = array();
-	$classes[] = 'col-12 col-lg-4';
-
-	$classes = apply_filters( 'themedd_secondary_classes', $classes );
-
-	if ( $classes ) {
-		return implode( ' ', $classes );
-	}
 }
 
 /**
