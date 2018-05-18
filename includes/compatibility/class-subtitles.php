@@ -30,7 +30,7 @@ class Themedd_Subtitles {
 
 	/**
 	 * Turn off subtitles
-	 * Subtitles are only allowed in the themedd_page_header() function
+	 * Subtitles are only allowed in the themedd_header() function
 	 */
 	public function supported_views() {
 		return false;

@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_page_header();
+themedd_header();
 ?>
 
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">

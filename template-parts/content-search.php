@@ -8,7 +8,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php 
-		themedd_page_header( 
+		themedd_header( 
 			array(
 				'posted_on'       => true,
 				'heading_size'    => 'h2',

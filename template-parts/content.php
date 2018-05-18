@@ -7,7 +7,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'mb-5' ); ?>>
 	
 	<?php 
-		themedd_page_header( 
+		themedd_header( 
 			array(
 				'heading_size'    => 'h2',
 				'posted_on'       => true,

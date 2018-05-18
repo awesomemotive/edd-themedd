@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_page_header( array( 'title' => __( 'Oops! That page can&rsquo;t be found.', 'themedd' ), 'subtitle' => __( 'It looks like nothing was found at this location. Maybe try a search?', 'themedd' ) ) );
+themedd_header( array( 'title' => __( 'Oops! That page can&rsquo;t be found.', 'themedd' ), 'subtitle' => __( 'It looks like nothing was found at this location. Maybe try a search?', 'themedd' ) ) );
 ?>
 
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">

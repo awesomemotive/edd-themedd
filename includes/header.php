@@ -320,7 +320,7 @@ function themedd_header_image() {
     </div>
 <?php endif;
 }
-add_action( 'themedd_header', 'themedd_header_image' );
+add_action( 'themedd_site_header', 'themedd_header_image' );
 
 /**
  * Themedd custom logo

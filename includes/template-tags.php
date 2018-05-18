@@ -260,12 +260,12 @@ function themedd_output_classes( $classes = array() ) {
  *
  * @since 1.0.0
  */
-function themedd_page_header( $args = array() ) {
+function themedd_header( $args = array() ) {
 
 	/**
 	 * Allow header to be removed via filter.
 	 */
-	if ( ! apply_filters( 'themedd_page_header', true ) ) {
+	if ( ! apply_filters( 'themedd_header', true ) ) {
 		return;
 	}
 

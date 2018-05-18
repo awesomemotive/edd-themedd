@@ -8,7 +8,7 @@ get_header();
 $title = themedd_edd_post_type_archive_title();
 
 if ( $title ) {
-	themedd_page_header( array( 'title' => $title ) );
+	themedd_header( array( 'title' => $title ) );
 }
 
 ?>

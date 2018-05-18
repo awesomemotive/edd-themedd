@@ -171,7 +171,7 @@ function themedd_edd_set_distraction_free_checkout() {
 	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) {
 
 		// Remove page header.
-		add_filter( 'themedd_page_header', '__return_false' );
+		add_filter( 'themedd_header', '__return_false' );
 
 		// Remove the primary navigation.
 		remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );

@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_page_header();
+themedd_header();
 ?>
 
 <section>

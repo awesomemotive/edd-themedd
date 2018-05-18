@@ -4,7 +4,7 @@
  */
 
 get_header();
-themedd_page_header( array( 'posted_on' => true ) ); 
+themedd_header( array( 'posted_on' => true ) ); 
 ?>
 
 <?php do_action( 'themedd_single_start' ); ?>
