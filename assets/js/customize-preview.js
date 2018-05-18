@@ -258,7 +258,7 @@
 	wp.customize('colors[menu_primary_background_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#site-header-menu, .toggled-on #mobile-menu').css('background', to ? to : defaults.menu_primary_background_color );
+			jQuery('#navbar-primary, .toggled-on #mobile-menu').css('background', to ? to : defaults.menu_primary_background_color );
 		});
 
 	});
