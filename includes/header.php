@@ -6,14 +6,12 @@
  * @since 1.0.0
  */
 function themedd_skip_link() {
-?>
-
-    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+	?>
+	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php esc_html_e( 'Skip to main content', 'themedd' ); ?></span>
 		</div>
-    </a>
-    
+	</a>
 <?php
 }
 add_action( 'themedd_header', 'themedd_skip_link' );
@@ -22,30 +20,225 @@ add_action( 'themedd_header', 'themedd_skip_link' );
  * Load the header section onto the themedd_header hook found in /header.php.
  *
  * @since 1.0.0
+ * @since 1.1
  */
 function themedd_header() {
-?>
-    <header id="masthead" class="site-header" role="banner">
-        <?php do_action( 'themedd_header_masthead' ); ?>
-    </header>
+
+	$container_classes = array( 'container' );
+
+	if ( themedd_edd_is_distraction_free_checkout() ) {
+		$container_classes[] = 'justify-content-center text-center';
+	}
+
+	?>
+	<header id="masthead" class="site-header" role="banner">
+		<div class="navbar navbar-expand-lg navbar-light px-0 py-3">
+			<div<?php echo themedd_output_classes( $container_classes ); ?>>
+
+				<?php echo themedd_site_branding(); ?>
+
+				<div class="d-inline-flex d-lg-none">
+					<?php echo themedd_nav_cart( array( 'cart_option' => 'none', 'classes' => array( 'nav-cart', 'd-lg-none', 'd-flex', 'align-items-center', 'px-3' ) ) ); ?>
+					<?php echo themedd_navbar_toggler(); ?>
+				</div>
+
+				<?php if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
+				<nav id="nav-secondary" class="navbar-collapse collapse justify-content-end">
+					<?php echo themedd_secondary_navigation( array( 'menu_classes' => array( 'navbar-right' ) ) ); ?>
+					<?php echo themedd_nav_cart(); ?>
+					<?php echo themedd_header_search( array( 'classes' => 'ml-3 w-25' ) ); ?>
+				</nav>
+				<?php endif; ?>
+
+			</div>
+		</div>
+
+		<?php if ( themedd_primary_navigation() ) : ?>
+		<div id="navbar-primary" class="navbar navbar-expand-lg navbar-light px-0 py-0">
+			<div class="container">
+				<nav class="navbar-collapse collapse" id="nav-primary">
+					<?php echo themedd_primary_navigation( array( 'menu_classes' => array( 'navbar-left' ) ) ); ?>
+
+				</nav>
+			</div>
+		</div>
+		<?php endif; ?>
+
+		<div id="navbar-mobile" class="navbar navbar-light px-0 px-lg-3 py-0 d-lg-none">
+			<div class="container">
+				<nav class="navbar-collapse collapse" id="nav-mobile">
+					<?php echo themedd_header_search(); ?>
+					<?php echo themedd_mobile_menu(); ?>
+				</nav>
+			</div>
+		</div>
+
+	</header>
 <?php
 }
 add_action( 'themedd_header', 'themedd_header' );
 
 /**
- * Load div.site-header-main inside header#masthead.
+ * Navbar toggler.
  *
- * @see themedd_header()
- * @since 1.0.3
+ * @since 1.1
  */
-function themedd_header_masthead() {
-?>
-    <div class="site-header-main">
-        <?php do_action( 'themedd_site_header_main' ); ?>
-    </div>
-<?php
+function themedd_navbar_toggler() {
+
+	if ( themedd_mobile_menu_theme_location() ) : ?>
+	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#nav-mobile" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<?php endif;
 }
-add_action( 'themedd_header_masthead', 'themedd_header_masthead' );
+
+/**
+ * Get the theme location for the mobile menu.
+ *
+ * @since 1.1
+ */
+function themedd_mobile_menu_theme_location() {
+
+	if ( has_nav_menu( 'mobile' ) ) {
+		$theme_location = 'mobile';
+	} elseif ( has_nav_menu( 'primary' ) ) {
+		$theme_location = 'primary';
+	} else {
+		$theme_location = false;
+	}
+	
+	return $theme_location;
+
+}
+
+/**
+ * Loads the mobile menu.
+ *
+ * @since 1.1
+ */
+function themedd_mobile_menu() {
+	
+	if ( themedd_mobile_menu_theme_location() ) {
+		wp_nav_menu(
+			array(
+				'theme_location'  => themedd_mobile_menu_theme_location(),
+				'depth'           => 2,
+				'menu_id'         => 'menu-mobile',
+				'menu_class'      => 'navbar-nav',
+				'walker'          => new WP_Bootstrap_Navwalker()
+			)
+		);
+	}
+
+}
+
+/**
+ * Loads the primary navigation.
+ *
+ * @since 1.0.0
+ */
+function themedd_primary_navigation( $args = array() ) {
+
+	// Return false if there is no menu assigned or we're on EDD checkout with Distraction Free Checkout enabled.
+	if ( ! ( has_nav_menu( 'primary' ) ) || themedd_edd_is_distraction_free_checkout() ) {
+		return false;
+	}
+
+	$defaults = array(
+		'menu_classes' => array()
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// Add any default menu classes that cannot be overridden.
+	$args['menu_classes'][] = 'navbar-nav';
+
+	ob_start();
+
+	wp_nav_menu(
+		array(
+			'theme_location'  => 'primary',
+			'depth'           => 2,
+			'container'       => '',
+			'container_class' => '',
+			'container_id'    => '',
+			'menu_id'         => 'menu-primary',
+			'menu_class'      => implode( ' ', $args['menu_classes'] ),
+			'fallback_cb'     => '',
+			'walker'          => new WP_Bootstrap_Navwalker()
+		)
+	);
+
+	return ob_get_clean();
+}
+
+/**
+ * Loads the site's secondary navigation
+ *
+ * @since 1.0.0
+ */
+function themedd_secondary_navigation( $args = array() ) {
+	
+	// Return false if there is no menu assigned or we're on EDD checkout with Distraction Free Checkout enabled.
+	if ( ! ( has_nav_menu( 'secondary' ) ) || themedd_edd_is_distraction_free_checkout() ) {
+		return false;
+	}
+
+	$defaults = array(
+		'menu_classes' => array()
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// Add any default menu classes that cannot be overridden.
+	$args['menu_classes'][] = 'navbar-nav';
+
+	ob_start();
+
+	wp_nav_menu(
+		array(
+			'theme_location'  => 'secondary',
+			'depth'           => 2,
+			'container'	      => '',
+			'container_class' => '',
+			'container_id'    => '',
+			'menu_id'         => 'menu-secondary',
+			'menu_class'      => implode( ' ', $args['menu_classes'] ),
+			'fallback_cb'     => '',
+			'walker'          => new WP_Bootstrap_Navwalker()
+		)
+	);
+
+	return ob_get_clean();
+}
+
+
+/**
+ * Load the nav cart.
+ *
+ * @since 1.1
+ */
+function themedd_nav_cart( $args = array() ) {
+	
+	// && ! themedd_edd_is_distraction_free_checkout()
+
+	// Easy Digital Downloads must be active.
+	if ( ! themedd_is_edd_active() ) {
+		return false;
+	}
+
+	return themedd_edd_load_nav_cart()->cart( $args );
+
+}
+
+/**
+ * Load the header search
+ *
+ * @since 1.1
+ */
+function themedd_header_search( $args = array() ) {
+	return themedd_load_search()->search_form( $args );
+}
 
 /**
  * Load the site branding (site title, site description, logo) inside div.site-header-wrap.
@@ -53,156 +246,42 @@ add_action( 'themedd_header_masthead', 'themedd_header_masthead' );
  * @since 1.0.0
  */
 function themedd_site_branding() {
+	$tag     = is_front_page() || is_home() ? 'h1' : 'p';
+	$classes = array( 'site-title', 'mb-0', 'h1' );
 	?>
-	<div class="navbar navbar-expand-lg navbar-light px-0">
-		<div class="container<?php if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) { echo ' justify-content-center text-center'; } ?>">
 
-			<div class="site-branding">
-					
-				<?php if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
-							<?php do_action( 'themedd_site_branding_site_title_before' ); ?>
-							<span><?php bloginfo( 'name' ); ?></span>
-							<?php do_action( 'themedd_site_branding_site_title_after' ); ?>
-						</a>
-					</h1>
-				<?php else : ?>
-					<p class="site-title mb-0">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
-							<?php do_action( 'themedd_site_branding_site_title_before' ); ?>
-							<span><?php bloginfo( 'name' ); ?></span>
-							<?php do_action( 'themedd_site_branding_site_title_after' ); ?>
-						</a>
-					</p>
-				<?php endif; ?>
+	<div class="site-branding">
 
-				<?php
-				/**
-				 * Description
-				 */
-				$description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description mb-0 d-none d-sm-block"><?php echo $description; ?></p>
-				<?php endif; ?>
+		<?php do_action( 'themedd_site_branding_start' ); ?>
 
-			</div>
+		<?php 
+		/**
+		 * Site title.
+		 */
+		?>
+		<<?php echo $tag; ?> <?php echo themedd_output_classes( $classes ); ?>>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
+				<?php //do_action( 'themedd_site_branding_site_title_before' ); ?>
+				<span><?php bloginfo( 'name' ); ?></span>
+				<?php //do_action( 'themedd_site_branding_site_title_after' ); ?>
+			</a>
+		</<?php echo $tag; ?>>
 
-			<?php if ( ! ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) ) : ?>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<?php endif; ?>
-
-			<?php do_action( 'themedd_site_branding_end' ); ?>
-
-		</div>
+	<?php
+	/**
+	 * Site description.
+	 */
+	$description = get_bloginfo( 'description', 'display' );
+	if ( $description || is_customize_preview() ) : ?>
+		<p class="site-description mb-0 d-none d-md-block"><?php echo $description; ?></p>
+	<?php endif; ?>
 	</div>
 
 	<?php
 }
-add_action( 'themedd_site_header_main', 'themedd_site_branding' );
 
 /**
- * Loads the site navigation onto the themedd_masthead action hook
- *
- * @since 1.0.0
- */
-function themedd_primary_menu() {
-
-    if ( has_nav_menu( 'primary' ) ) : ?>
-
-		<div id="site-header-menu" class="site-header-menu">
-			<nav class="navbar navbar-expand-lg navbar-light px-0">
-				<div class="container">
-
-					<div class="collapse navbar-collapse" id="navbar">
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'primary',
-								'depth'				=> 2, // 1 = with dropdowns, 0 = no dropdowns.
-								'container'			=> '',
-								'container_class'	=> '',
-								'container_id'		=> '',
-								'menu_id'           => 'menu-primary',
-								'menu_class'		=> 'navbar-nav mr-auto',
-								'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
-								'walker'			=> new WP_Bootstrap_Navwalker()
-							)
-						);
-					?>
-					</div>
-				</div>
-			</nav>
-	    </div>
-
-    <?php endif;
-}
-add_action( 'themedd_site_header_main', 'themedd_primary_menu' );
-
-/**
- * Loads the site's secondary menu
- *
- * This contains:
- *
- * 1. The secondary navigation (if set)
- * 2. The EDD cart (if enabled)
- * 3. The header search box (if enabled)  
- *
- * @since 1.0.0
- */
-function themedd_secondary_menu() {
-
-    /**
-     * Only show the secondary menu if there's something hooked onto it
-     */
-    if ( has_action( 'themedd_secondary_menu' ) ) : ?>
-	<div id="site-header-secondary-menu" class="site-header-menu">
-        <?php do_action( 'themedd_secondary_menu' ); ?>
-    </div>
-    <?php endif;
-}
-add_action( 'themedd_site_branding_end', 'themedd_secondary_menu' );
-
-/**
- * Loads the site's secondary navigation
- *
- * @since 1.0.0
- */
-function themedd_secondary_navigation() {
-	?>
-	
-	<nav class="navbar navbar-expand-lg navbar-light px-0">
-		<div class="container">
-
-			<div class="collapse navbar-collapse" id="navbar2">
-			<?php
-				wp_nav_menu(
-					array(
-						'theme_location'   => 'secondary',
-						'depth'            => 2, // 1 = with dropdowns, 0 = no dropdowns.
-						'container'	       => '',
-						'container_class'  => '',
-						'container_id'     => '',
-						'menu_id'          => 'menu-secondary',
-						'menu_class'       => 'navbar-nav mr-auto',
-						'fallback_cb'      => 'WP_Bootstrap_Navwalker::fallback',
-						'walker'           => new WP_Bootstrap_Navwalker()
-					)
-				);
-			?>
-			</div>
-
-			<?php do_action( 'themedd_secondary_menu_after' ); ?>
-		</div>
-	</nav>
-
-    <?php
-}
-
-/**
- * Themedd custom header
+ * Themedd custom header.
  *
  * @since 1.0.0
  */
