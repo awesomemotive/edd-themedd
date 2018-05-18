@@ -14,7 +14,7 @@ if ( have_posts() ) {
 themedd_page_header( array( 'title' => $page_title, 'subtitle' => sprintf( __( 'You searched for "%s"', 'themedd' ), get_search_query() ) ) );
 
 ?>
-<div class="<?php echo themedd_wrapper_classes(); ?>">
+<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 
 	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">

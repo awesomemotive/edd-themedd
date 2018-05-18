@@ -9,7 +9,7 @@ themedd_page_header();
 
 <?php do_action( 'themedd_single_start' ); ?>
 
-<div class="<?php echo themedd_wrapper_classes(); ?>">
+<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 	<?php if ( themedd_has_sidebar() ) : ?>
 	<div class="row justify-content-center">
 	<?php endif; ?>	

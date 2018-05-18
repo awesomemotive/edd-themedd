@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<div class="<?php echo themedd_wrapper_classes(); ?>">
+<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 	<?php if ( themedd_has_sidebar() ) : ?>
 	<div class="row justify-content-center">
 	<?php endif; ?>

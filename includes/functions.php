@@ -129,8 +129,7 @@ function themedd_get_sidebar( $sidebar = '' ) {
 }
 
 /**
- * Controls the CSS classes applied to the main wrappers
- * Useful for overriding the wrapper widths etc
+ * Controls the CSS classes applied to the main wrappers.
  *
  * @since 1.0.0
  */
@@ -144,14 +143,9 @@ function themedd_wrapper_classes() {
 		$classes[] = 'container-fluid';
 	}
 
-	// allow filtering of the wrapper classes
-	$classes = apply_filters( 'themedd_wrapper_classes', $classes );
+	// Allow filtering of the wrapper classes.
+	return apply_filters( 'themedd_wrapper_classes', $classes );
 
-	if ( $classes ) {
-		return implode( ' ', $classes );
-	}
-
-	return implode( ' ', $classes );
 }
 
 /**

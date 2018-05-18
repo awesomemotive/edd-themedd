@@ -7,7 +7,7 @@ get_header();
 themedd_page_header();
 ?>
 
-<div class="<?php echo themedd_wrapper_classes(); ?>">
+<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 	<div class="row">
 		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 
