@@ -1497,7 +1497,7 @@ function themedd_customize_partial_blogdescription() {
  * @return void
  */
 function themedd_customize_partial_header_search() {
-	themedd_search()->themedd_search_form();
+	themedd_load_search()->themedd_search_form();
 }
 
 /**
@@ -1509,7 +1509,7 @@ function themedd_customize_partial_header_search() {
  * @return void
  */
  function themedd_customize_partial_cart_icon() {
-	echo themedd_edd_nav_cart()->cart_icon();
+	echo themedd_edd_load_nav_cart()->cart_icon();
 }
 
 /**
@@ -1522,22 +1522,22 @@ function themedd_customize_partial_header_search() {
  */
 function themedd_customize_partial_cart_options() {
 
-	$cart_option = themedd_edd_nav_cart()->cart_option();
+	$cart_option = themedd_edd_load_nav_cart()->cart_option();
 
 	switch ( $cart_option ) {
 
 		case 'all':
-			echo themedd_edd_nav_cart()->cart_quantity();
-			echo themedd_edd_nav_cart()->cart_total();
+			echo themedd_edd_load_nav_cart()->cart_quantity();
+			echo themedd_edd_load_nav_cart()->cart_total();
 
 			break;
 
 		case 'item_quantity':
-			echo themedd_edd_nav_cart()->cart_quantity();
+			echo themedd_edd_load_nav_cart()->cart_quantity();
 			break;	
 		
 		case 'cart_total':
-			echo themedd_edd_nav_cart()->cart_total();
+			echo themedd_edd_load_nav_cart()->cart_total();
 			break;
 		
 	}
