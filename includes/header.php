@@ -83,10 +83,18 @@ add_action( 'themedd_header', 'themedd_header' );
  *
  * @since 1.1
  */
-function themedd_navbar_toggler() {
+function themedd_navbar_toggler( $args = array() ) {
+
+	$defaults = array(
+		'target' => 'nav-mobile',
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$target = $args['target'];
 
 	if ( themedd_mobile_menu_theme_location() ) : ?>
-	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#nav-mobile" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#<?php echo $target; ?>" aria-controls="<?php echo $target; ?>" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<?php endif;
