@@ -14,7 +14,7 @@ function themedd_skip_link() {
 	</a>
 <?php
 }
-add_action( 'themedd_header', 'themedd_skip_link' );
+add_action( 'themedd_site_header', 'themedd_skip_link' );
 
 /**
  * Load the header section onto the themedd_header hook found in /header.php.
@@ -22,7 +22,7 @@ add_action( 'themedd_header', 'themedd_skip_link' );
  * @since 1.0.0
  * @since 1.1
  */
-function themedd_header() {
+function themedd_site_header() {
 
 	$container_classes = array( 'container' );
 
@@ -76,7 +76,7 @@ function themedd_header() {
 	</header>
 <?php
 }
-add_action( 'themedd_header', 'themedd_header' );
+add_action( 'themedd_site_header', 'themedd_site_header' );
 
 /**
  * Navbar toggler.
