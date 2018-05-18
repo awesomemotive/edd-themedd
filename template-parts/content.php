@@ -10,6 +10,7 @@
 		themedd_page_header( 
 			array(
 				'heading_size'    => 'h2',
+				'posted_on'       => true,
 				'heading_classes' => array( 'entry-title h1' ),
 				'permalink'       => esc_url( get_permalink() ),
 				'header_classes'  => themedd_has_sidebar() ? array( 'entry-header', 'mb-3' ) : array( 'entry-header', 'py-5', 'py-lg-10' )
