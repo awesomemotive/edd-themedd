@@ -1,21 +1,6 @@
 <?php
 
 /**
- * Loads the secondary menu into the secondary menu.
- *
- * @since 1.0.3
- */
-function themedd_secondary_navigation_menu() {
-	
-	// Load the secondary navigation.
-	if ( has_nav_menu( 'secondary' ) ) {
-		add_action( 'themedd_secondary_menu', 'themedd_secondary_navigation' );
-	}
-
-}
-add_action( 'template_redirect', 'themedd_secondary_navigation_menu', 5 );
-
-/**
  * Show the date and author in the header on single posts.
  *
  * @since 1.0.0
