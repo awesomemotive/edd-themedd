@@ -159,7 +159,7 @@ function themedd_header_style() {
 		// If the user has set a custom color for the text, use that.
 		elseif ( $text_color != get_theme_support( 'custom-header', 'default-text-color' ) && ( '#' . $text_color !== $defaults['header_textcolor'] ) ) :
 	?>
-		.site-title a, .site-title a:hover { color: #<?php echo esc_attr( $text_color ); ?>; }
+		#masthead .site-title a, #masthead .site-title a:hover { color: #<?php echo esc_attr( $text_color ); ?>; }
 	<?php endif; ?>
 	</style>
 
@@ -1267,7 +1267,7 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 
 			// Primary menu background color.
 			if ( isset( $colors['menu_primary_background_color'] ) ) {
-				echo '#site-header-menu { background-color:' . $colors['menu_primary_background_color'] . ';}';
+				echo '#navbar-primary { background-color:' . $colors['menu_primary_background_color'] . ';}';
 			}
 
 			// Primary menu link color.
