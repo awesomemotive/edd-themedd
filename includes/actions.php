@@ -1,21 +1,6 @@
 <?php
 
 /**
- * Show the date and author in the header on single posts.
- *
- * @since 1.0.0
- */
-function themedd_show_posted_on() {
-
-	// Show post date and author on the blog page (home) and single posts.
-	if ( is_home() || is_singular( 'post' ) ) {
-		themedd_posted_on();
-	}
-
-}
-add_action( 'themedd_page_header_wrapper_start', 'themedd_show_posted_on' );
-
-/**
  * Show the featured image on the themedd_article_start hook.
  * This allows us to remove the featured image dynamically where needed.
  *
