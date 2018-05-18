@@ -91,7 +91,7 @@ final class Themedd_Search {
 
 		?>
 
-		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>"<?php echo themedd_output_classes( $args['classes'] ); ?>>
+		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo themedd_output_classes( $args['classes'] ); ?>">
 			<div class="input-group">
 				<label for="<?php echo $unique_id; ?>">
 					<?php

@@ -33,7 +33,7 @@ function themedd_header() {
 	?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="navbar navbar-expand-lg navbar-light px-0 py-3">
-			<div<?php echo themedd_output_classes( $container_classes ); ?>>
+			<div class="<?php echo themedd_output_classes( $container_classes ); ?>">
 
 				<?php echo themedd_site_branding(); ?>
 
@@ -267,7 +267,7 @@ function themedd_site_branding() {
 		 * Site title.
 		 */
 		?>
-		<<?php echo $tag; ?> <?php echo themedd_output_classes( $classes ); ?>>
+		<<?php echo $tag; ?> class="<?php echo themedd_output_classes( $classes ); ?>">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
 				<?php //do_action( 'themedd_site_branding_site_title_before' ); ?>
 				<span><?php bloginfo( 'name' ); ?></span>

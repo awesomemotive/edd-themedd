@@ -243,7 +243,7 @@ function themedd_output_classes( $classes = array() ) {
 			$classes = implode( ' ', array_filter( $classes ) );
 		}
 
-		return ' class="' . $classes . '"';
+		return $classes;
 	}
 
 	return false;
@@ -309,10 +309,10 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
 
 		<?php if ( themedd_has_sidebar() && ! is_singular() ) : ?>
 
-		<header<?php echo themedd_output_classes( $header_classes ); ?>>
+		<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
 			<?php do_action( 'themedd_page_header_start' ); ?>
 
-			<<?php echo $heading_size; ?><?php echo themedd_output_classes( $heading_classes ); ?>>
+			<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
 			<?php
 				if ( $permalink ) {
 					echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
@@ -330,13 +330,13 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
 
 		<?php else : ?>
 		
-		<header<?php echo themedd_output_classes( $header_classes ); ?>>
+		<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
 			<?php do_action( 'themedd_page_header_start' ); ?>
 			<div class="container">
-				<div<?php echo themedd_output_classes( $row_classes ); ?>>
-					<div<?php echo themedd_output_classes( $column_classes ); ?>>
+				<div class="<?php echo themedd_output_classes( $row_classes ); ?>">
+					<div class="<?php echo themedd_output_classes( $column_classes ); ?>">
 						<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
-						<<?php echo $heading_size; ?><?php echo themedd_output_classes( $heading_classes ); ?>>
+						<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
 						<?php
 							if ( $permalink ) {
 								echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
