@@ -70,7 +70,7 @@ function themedd_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 	}
 
 	// Only apply class to top-level menu links
-	if ( 'dropdown-item' !== $atts['class'] ) {
+	if ( isset( $atts['class'] ) && 'dropdown-item' !== $atts['class'] && is_object( $args ) && 'primary' === $args->theme_location ) {
 		$atts['class'] .= ' px-lg-3';
 	}
 
