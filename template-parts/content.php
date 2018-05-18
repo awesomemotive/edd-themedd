@@ -4,7 +4,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'mb-5' ); ?>>
 	
 	<?php 
 		themedd_page_header( 
@@ -12,7 +12,7 @@
 				'heading_size'    => 'h2',
 				'heading_classes' => array( 'entry-title h1' ),
 				'permalink'       => esc_url( get_permalink() ),
-				'header_classes'  => array( 'entry-header', 'py-5', 'py-lg-10' ),
+				'header_classes'  => themedd_has_sidebar() ? array( 'entry-header', 'mb-3' ) : array( 'entry-header', 'py-5', 'py-lg-10' )
 			) 
 		); 
 	?>
