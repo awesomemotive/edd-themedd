@@ -260,113 +260,99 @@ function themedd_output_classes( $classes = array() ) {
  *
  * @since 1.0.0
  */
-if ( ! function_exists( 'themedd_page_header' ) ) :
+function themedd_page_header( $args = array() ) {
 
-	function themedd_page_header( $args = array() ) {
-
-		/**
-		 * Allow header to be removed via filter.
-		 */
-		if ( ! apply_filters( 'themedd_page_header', true ) ) {
-			return;
-		}
-
-		do_action( 'themedd_page_header_before' );
-
-		// Set up defaults.
-		$defaults = array(
-			'subtitle'        => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
-			'title'           => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
-			'permalink'       => ! empty( $args['permalink'] ) ? $args['permalink'] : '',
-			'heading_size'    => ! empty( $args['heading_size'] ) ? $args['heading_size'] : 'h1',
-			'header_classes'  => array( 'py-5', 'py-lg-10' ),
-			'row_classes'     => array( 'row', 'justify-content-center', 'text-center' ),
-			'column_classes'  => array( 'col-12', 'col-md-10' ),
-			'heading_classes' => array( get_post_type() . '-title' ),
-		);
-
-		$args = wp_parse_args( $args, $defaults );
-		$args = apply_filters( 'themedd_header_args', $args );
-
-		// Classes.
-		$header_classes  = ! empty( $args['header_classes'] ) ? $args['header_classes'] : array();
-		$row_classes     = ! empty( $args['row_classes'] ) ? $args['row_classes'] : array();
-		$column_classes  = ! empty( $args['column_classes'] ) ? $args['column_classes'] : array();
-		$heading_classes = ! empty( $args['heading_classes'] ) ? $args['heading_classes'] : array();
-
-		// Title.
-		$title = $args['title'];
-
-		// Subtitle.
-		$subtitle = $args['subtitle'];
-
-		// Override subtitle if one exists from the subtitle plugin.
-		if ( function_exists( 'get_the_subtitle' ) && get_the_subtitle() ) {
-			$subtitle = get_the_subtitle();
-		}
-
-		// Permalink.
-		$permalink = $args['permalink'];
-
-		// Heading size.
-		$heading_size = $args['heading_size'];
-
-		?>
-
-		<?php if ( themedd_has_sidebar() && ! is_singular() ) : ?>
-
-		<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
-			<?php do_action( 'themedd_page_header_start' ); ?>
-
-			<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
-			<?php
-				if ( $permalink ) {
-					echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
-				} else {
-					echo $title;
-				}
-			?>
-			</<?php echo $heading_size; ?>>
-			<?php if ( $subtitle ) : ?>
-			<span class="lead"><?php echo $subtitle; ?></span>
-			<?php endif; ?>
-
-			<?php do_action( 'themedd_page_header_end' ); ?>
-		</header>
-
-		<?php else : ?>
-		
-		<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
-			<?php do_action( 'themedd_page_header_start' ); ?>
-			<div class="container">
-				<div class="<?php echo themedd_output_classes( $row_classes ); ?>">
-					<div class="<?php echo themedd_output_classes( $column_classes ); ?>">
-						<?php do_action( 'themedd_page_header_wrapper_start' ); ?>
-						<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
-						<?php
-							if ( $permalink ) {
-								echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
-							} else {
-								echo $title;
-							}
-						?>
-						</<?php echo $heading_size; ?>>
-						<?php if ( $subtitle ) : ?>
-						<span class="lead"><?php echo $subtitle; ?></span>
-						<?php endif; ?>
-						<?php do_action( 'themedd_page_header_wrapper_end' ); ?>
-					</div>	
-				</div>	
-			</div>
-			<?php do_action( 'themedd_page_header_end' ); ?>
-		</header>
-
-		<?php endif; ?>
-
-	<?php
+	/**
+	 * Allow header to be removed via filter.
+	 */
+	if ( ! apply_filters( 'themedd_page_header', true ) ) {
+		return;
 	}
 
-endif;
+	// Set up defaults.
+	$defaults = array(
+		'subtitle'        => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
+		'title'           => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
+		'posted_on'       => false,
+		'permalink'       => ! empty( $args['permalink'] ) ? $args['permalink'] : '',
+		'heading_size'    => ! empty( $args['heading_size'] ) ? $args['heading_size'] : 'h1',
+		'header_classes'  => array( 'py-5', 'py-lg-10' ),
+		'row_classes'     => array( 'row', 'justify-content-center', 'text-center' ),
+		'column_classes'  => array( 'col-12', 'col-md-10' ),
+		'heading_classes' => array( get_post_type() . '-title' ),
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+	$args = apply_filters( 'themedd_header_args', $args );
+
+	// Classes.
+	$header_classes  = ! empty( $args['header_classes'] ) ? $args['header_classes'] : array();
+	$row_classes     = ! empty( $args['row_classes'] ) ? $args['row_classes'] : array();
+	$column_classes  = ! empty( $args['column_classes'] ) ? $args['column_classes'] : array();
+	$heading_classes = ! empty( $args['heading_classes'] ) ? $args['heading_classes'] : array();
+
+	// Title.
+	$title = $args['title'];
+
+	// Subtitle.
+	$subtitle = $args['subtitle'];
+
+	// Override subtitle if one exists from the subtitle plugin.
+	if ( function_exists( 'get_the_subtitle' ) && get_the_subtitle() ) {
+		$subtitle = get_the_subtitle();
+	}
+
+	// Permalink.
+	$permalink = $args['permalink'];
+
+	// Heading size.
+	$heading_size = $args['heading_size'];
+
+	?>
+
+	<?php if ( themedd_has_sidebar() && ! is_singular() ) : ?>
+
+	<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
+		<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
+		<?php
+			if ( $permalink ) {
+				echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
+			} else {
+				echo $title;
+			}
+		?>
+		</<?php echo $heading_size; ?>>
+		<?php if ( $subtitle ) : ?>
+		<span class="lead"><?php echo $subtitle; ?></span>
+		<?php endif; ?>
+	</header>
+
+	<?php else : ?>
+	
+	<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
+		<div class="container">
+			<div class="<?php echo themedd_output_classes( $row_classes ); ?>">
+				<div class="<?php echo themedd_output_classes( $column_classes ); ?>">
+					<?php if ( $args['posted_on'] ) { echo themedd_posted_on(); } ?>
+					
+					<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
+					<?php
+						if ( $permalink ) {
+							echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
+						} else {
+							echo $title;
+						}
+					?>
+					</<?php echo $heading_size; ?>>
+					<?php if ( $subtitle ) : ?>
+					<span class="lead"><?php echo $subtitle; ?></span>
+					<?php endif; ?>
+				</div>	
+			</div>	
+		</div>
+	</header>
+	<?php endif;
+}
 
 if ( ! function_exists( 'themedd_paging_nav' ) ) :
 /**
