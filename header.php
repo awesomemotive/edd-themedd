@@ -19,7 +19,7 @@
 
 <div id="page" class="hfeed site">
 
-	<?php do_action( 'themedd_header' ); ?>
+	<?php do_action( 'themedd_site_header' ); ?>
 
 	<div id="content" class="site-content">
 
