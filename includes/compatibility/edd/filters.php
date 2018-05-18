@@ -448,3 +448,19 @@ function themedd_edd_schema_microdata( $ret ) {
 	return false;
 }
 add_filter( 'edd_add_schema_microdata', 'themedd_edd_schema_microdata', 10, 1 );
+
+/**
+ * Filter the item quantity input on the download grid.
+ *
+ * @since 1.1
+ */
+function themedd_edd_purchase_form_quantity_input( $quantity_input, $download_id, $args ) {
+	ob_start();
+	?>
+	<div class="edd_download_quantity_wrapper">
+		<input type="number" min="1" step="1" name="edd_download_quantity" class="edd-input edd-item-quantity form-control mb-2" value="1" />
+	</div>
+	<?php
+	return ob_get_clean();
+}
+add_filter( 'edd_purchase_form_quantity_input', 'themedd_edd_purchase_form_quantity_input', 10, 3 );
