@@ -12,6 +12,8 @@ function themedd_posted_on( $show_author = true ) {
 	$post_author_id   = get_post_field( 'post_author', get_the_ID() );
 	$post_author_name = get_the_author_meta( 'display_name', $post_author_id );
 
+	ob_start();
+
 	// Get the author name; wrap it in a link.
 	$byline = sprintf(
 		/* translators: %s: post author */
@@ -19,13 +21,17 @@ function themedd_posted_on( $show_author = true ) {
 		'<span class="author vcard"><a class="text-muted url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
 	);
 
-	// Finally, let's write all of this to the page.
-	echo '<div class="entry-meta text-muted">';
-	echo '<span class="posted-on">' . themedd_time_link() . '</span>';
-	if ( $show_author ) {
-		echo '<span class="byline"> ' . $byline . '</span>';
-	}
-	echo '</div>';
+	?>
+	<div class="entry-meta text-muted">
+		<span class="posted-on"><?php echo themedd_time_link(); ?></span>
+		<?php if ( $show_author ) : ?>
+		<span class="byline"><?php echo $byline; ?></span>
+		<?php endif; ?>
+	</div>
+
+	<?php
+	return ob_get_clean();
+
 }
 endif;
 
