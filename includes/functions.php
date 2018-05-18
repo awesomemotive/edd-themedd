@@ -241,3 +241,14 @@ function themedd_layout_full_width() {
 
 	return $layout_full_width;
 }
+
+/**
+ * Whether we are viewing the EDD checkout with Distraction Free Checkout enabled.
+ *
+ * @since 1.1
+ *
+ * @return boolean
+ */
+function themedd_edd_is_distraction_free_checkout() {
+	return themedd_is_edd_active() && edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents();
+}
