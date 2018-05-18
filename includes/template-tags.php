@@ -306,6 +306,30 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
 		$heading_size = $args['heading_size'];
 
 		?>
+
+		<?php if ( themedd_has_sidebar() && ! is_singular() ) : ?>
+
+		<header<?php echo themedd_output_classes( $header_classes ); ?>>
+			<?php do_action( 'themedd_page_header_start' ); ?>
+
+			<<?php echo $heading_size; ?><?php echo themedd_output_classes( $heading_classes ); ?>>
+			<?php
+				if ( $permalink ) {
+					echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
+				} else {
+					echo $title;
+				}
+			?>
+			</<?php echo $heading_size; ?>>
+			<?php if ( $subtitle ) : ?>
+			<span class="lead"><?php echo $subtitle; ?></span>
+			<?php endif; ?>
+
+			<?php do_action( 'themedd_page_header_end' ); ?>
+		</header>
+
+		<?php else : ?>
+		
 		<header<?php echo themedd_output_classes( $header_classes ); ?>>
 			<?php do_action( 'themedd_page_header_start' ); ?>
 			<div class="container">
@@ -330,6 +354,8 @@ if ( ! function_exists( 'themedd_page_header' ) ) :
 			</div>
 			<?php do_action( 'themedd_page_header_end' ); ?>
 		</header>
+
+		<?php endif; ?>
 
 	<?php
 	}
