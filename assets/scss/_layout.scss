@@ -12,7 +12,17 @@ body {
 }
 
 #page {
+	background-color: #fff;
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+
+	// Centered layout.
+	max-width: $page-max-width;
+	margin-left: auto;
+	margin-right: auto;
+
+	.layout-full-width & {
+		max-width: inherit;
+	}
 }

@@ -22,7 +22,7 @@ $spacers: (
 	7: ($spacer * 3 ),   // 3rem
 	8: ($spacer * 3.5 ), // 3.5rem
 	9: ($spacer * 4 ),   // 4rem
-	10: ($spacer * 4.5 ), // 4.5 rem
+	10: ($spacer * 4.5 ), // 4.5rem
 );
 
 $enable-rounded: false;
@@ -33,3 +33,9 @@ $dropdown-spacer: 0;
 $theme-colors: (
   "primary":  #448fd5
 );
+
+$dropdown-link-active-color: #fff; // Previously $component-active-color
+$dropdown-link-active-bg: #000; // Previously $component-active-bg
+
+// Change padding of dropdown items.
+$dropdown-item-padding-x: 1rem;

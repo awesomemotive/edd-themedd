@@ -1,24 +1,37 @@
-
-// Make the nav-bar toggler not dependant on the .navbar-light or .navbar-dark classes
-.navbar-toggler {
-	color: $navbar-light-color;
-	border-color: $navbar-light-toggler-border-color;
-}
-
-.navbar-toggler-icon {
-	background-image: $navbar-light-toggler-icon-bg;
-}
-
+// Add padding to the navigation containers.
+// Bootstrap removes this padding automatically but because of the way the header is set up, this is needed again.
 .navbar > .container {
-	padding-right: ($grid-gutter-width / 2);
-	padding-left: ($grid-gutter-width / 2);
+	padding-right: ($grid-gutter-width / 2); // 15px
+	padding-left: ($grid-gutter-width / 2); // 15px
 }
 
 @include media-breakpoint-up(lg) {
-		
-	// Move the primary menu so it aligns with everything else
-	#menu-primary {
-		margin-left: -1rem;
+
+	#nav-primary {
+		.navbar-left {
+			margin-left: -1rem;
+		}
+
+		.navbar-right {
+			margin-right: -1rem;
+		}
+	}
+
+	#nav-secondary {
+		.navbar-left {
+			margin-left: -0.5rem;
+		}
+
+		.navbar-right {
+			margin-right: -0.5rem;
+		}
+	}
+
+	.navbar-centered {
+		& > :first-child, 
+		& > :last-child { 
+			flex: 1;
+		}
 	}
 }
 

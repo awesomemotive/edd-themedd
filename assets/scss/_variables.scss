@@ -1,11 +1,25 @@
+// Page max-width when Full Width Layout is enabled.
+$page-max-width: 1440px;
+
 // Colors.
 $required-color: $red;
-$search-icon-color: #fff;
 
 // Compatibility - Easy Digital Downloads.
 $edd-download-title-color: $gray-700;
 $edd-download-title-font-size: 1.2rem;
 $edd-download-title-hover-color: #000;
+
+// Nav cart
+$cart-color: #fff;
+$cart-link-color: rgba($black, .5);
+$cart-link-hover-color: rgba($black, .7);
+
+// Search.
+$search-icon-color: $body-color;
+$search-bg: #f5f5f5;
+
+// Navigation.
+$nav-secondary-font-size: $font-size-sm;
 
 // Pre v1.1 variables (to review for v1.1)
 $primary-color: #448FD5;
