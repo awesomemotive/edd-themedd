@@ -5,3 +5,17 @@
 
 	vertical-align: middle;
 }
+
+.search-field {
+	font-size: inherit;	
+}
+
+.search-field,
+.btn-search {
+	background-color: $search-bg;
+	border-color: $search-bg;
+}
+
+.search-form .form-control:focus {
+	background: $search-bg;
+}
