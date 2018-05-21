@@ -152,7 +152,7 @@ function themedd_mobile_menu() {
 function themedd_primary_navigation( $args = array() ) {
 
 	// Return false if there is no menu assigned or we're on EDD checkout with Distraction Free Checkout enabled.
-	if ( ! ( has_nav_menu( 'primary' ) ) || themedd_edd_is_distraction_free_checkout() ) {
+	if ( ! has_nav_menu( 'primary' ) || themedd_edd_is_distraction_free_checkout() ) {
 		return false;
 	}
 
