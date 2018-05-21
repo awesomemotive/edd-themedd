@@ -24,8 +24,7 @@ add_action( 'themedd_site_header', 'themedd_skip_link' );
  */
 function themedd_site_header() {
 
-	$cart_position = themedd_edd_load_nav_cart()->cart_position();
-
+	$cart_position = themedd_is_edd_active() ? themedd_edd_load_nav_cart()->cart_position() : false;
 	$container_classes = array( 'container' );
 
 	if ( themedd_edd_is_distraction_free_checkout() ) {
