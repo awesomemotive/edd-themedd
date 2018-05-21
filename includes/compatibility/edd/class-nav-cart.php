@@ -149,7 +149,7 @@ final class Themedd_EDD_Nav_Cart {
 		 * @since 1.0.3
 		 */
 		return apply_filters( 'themedd_edd_show_cart_icon', $show_cart_icon );
-	}    
+	}
 
 	/**
 	 * Cart option.
@@ -159,7 +159,7 @@ final class Themedd_EDD_Nav_Cart {
 	 *
 	 * @return string $cart_option The cart option to show. item_quantity | cart_total | all | none
 	 */
-		public static function cart_option() {
+	public static function cart_option() {
 
 		$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
 		$cart_option       = isset( $edd_theme_options['cart_options'] ) ? $edd_theme_options['cart_options'] : 'all';
@@ -169,9 +169,9 @@ final class Themedd_EDD_Nav_Cart {
 		 *
 		 * @param string $cart_option The cart option to show. item_quantity | cart_total | all | none
 		 * @since 1.0.0
-		 */     
+		 */
 		return apply_filters( 'themedd_edd_cart_option', $cart_option );
-	}     
+	}
 
 	/**
 	 * The Cart.
