@@ -60,7 +60,7 @@ final class Themedd_EDD_Nav_Cart {
 	 * @return void
 	 */
 	private function hooks() {
-		add_filter( 'edd_get_cart_quantity', array( $this, 'set_cart_quantity'   ), 10, 2 );
+		add_filter( 'edd_get_cart_quantity', array( $this, 'set_cart_quantity' ), 10, 2 );
 	}
 
 	/**
