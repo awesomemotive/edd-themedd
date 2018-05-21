@@ -227,8 +227,6 @@ function themedd_secondary_navigation( $args = array() ) {
  * @since 1.1
  */
 function themedd_nav_cart( $args = array() ) {
-	
-	// && ! themedd_edd_is_distraction_free_checkout()
 
 	// Easy Digital Downloads must be active.
 	if ( ! themedd_is_edd_active() ) {
