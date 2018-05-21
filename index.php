@@ -3,7 +3,18 @@
  * The main template file
  */
 
-get_header(); ?>
+get_header();
+
+if ( ! is_front_page() ) {
+	themedd_header( 
+		array( 
+			'title' => get_the_title( get_option( 'page_for_posts', true ) ), 
+			'header_classes' => array( 'py-5', 'py-lg-10', 'text-center' ) 
+		) 
+	);
+}
+
+?>
 
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 
