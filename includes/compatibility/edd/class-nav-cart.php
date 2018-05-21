@@ -80,15 +80,6 @@ final class Themedd_EDD_Nav_Cart {
 	}
 
 	/**
-	 * Load the EDD cart
-	 *
-	 * @since 1.0.3
-	 */
-	public function load_cart() {
-		echo $this->cart( array( 'list_item' => false ) );
-	}
-
-	/**
 	 * Determine where the cart should be shown.
 	 *
 	 * Possible options are secondary_menu | primary_menu
