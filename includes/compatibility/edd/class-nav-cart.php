@@ -192,90 +192,70 @@ final class Themedd_EDD_Nav_Cart {
 			return false;
 		}
 
+		// Return early if we're on the EDD checkout page.
+		if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) {
+			return false;
+		}
+
 		ob_start();
 
 		// Set up defaults.
 		$defaults = apply_filters( 'themedd_edd_cart_defaults',
 			array(
-				'classes'     => array( 'nav-cart d-flex ml-lg-3' ),
+				'classes'     => array( 'ml-lg-3' ),
 				'cart_link'   => isset( $args['cart_link'] ) ? $args['cart_link'] : edd_get_checkout_uri(),
-				'list_item'   => isset( $args['list_item'] ) && $args['list_item'] === true ? true : false,
 				'text_before' => isset( $args['text_before'] ) ? $args['text_before'] : '',
 				'text_after'  => isset( $args['text_after'] ) ? $args['text_after'] : '',
-				'cart_option' => self::cart_option(), // item_quantity | cart_total | all | none
-
+				'cart_option' => ! empty( $args['cart_option'] ) ? $args['cart_option'] : self::cart_option(), // item_quantity | cart_total | all | none
 			)
 		);
 
-		$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
-
-		$defaults['classes'][] = ! $cart_items ? 'empty' : '';
-
 		$args = wp_parse_args( $args, $defaults );
-
-		$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
-
-		// Whether or not to include list item markup.
-		$list_item = $args['list_item'];
 
 		// Cart link.
 		$cart_link = $args['cart_link'];
 		
+		// Default classes.
+		$args['classes'][] = 'nav-cart d-flex';
+
 		// Cart option.
 		$cart_option = $args['cart_option'];
-
-		if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
-
-			<?php if ( $list_item ) : ?>
-			<li class="nav-action checkout menu-item">
-			<?php endif; ?>
-
-				<a class="<?php echo implode( ' ', array_filter( $args['classes'] ) ); ?>" href="<?php echo $cart_link; ?>">
-
-					<?php
-
-					echo $this->cart_icon();
-
-					if ( $args['text_before'] ) {
-						echo '<span class="nav-cart-text-before">' . $args['text_before'] . '</span>';
-					}
-
-					if ( 'none' !== $cart_option ) {
-						echo '<span class="nav-cart-quantity-and-total align-self-center">';
-
-						if ( 'all' === $cart_option || 'item_quantity' === $cart_option ) {
-							echo self::cart_quantity();
-						}
-
-						if ( 'all' === $cart_option || 'cart_total' === $cart_option ) {
-							echo self::cart_total();
-						}
-
-						echo '</span>';
-
-					}
-
-					if ( $args['text_after'] ) {
-						echo '<span class="nav-cart-text-after">' . $args['text_after'] . '</span>';
-					}
-
-					?>
-
-				</a>
-			<?php if ( $list_item ) : ?>
-			</li>
-			<?php endif; ?>
-
-		<?php endif;
-
-		$html = ob_get_contents();
-		ob_end_clean();
-
-		return $html;
-
 		?>
+		<a class="<?php echo themedd_output_classes( $args['classes'] ); ?>" href="<?php echo $cart_link; ?>">
+			<?php
+			// Cart icon.
+			echo $this->cart_icon();
 
-	<?php }
+			// Text before.
+			if ( $args['text_before'] ) {
+				echo '<span class="nav-cart-text-before align-self-center">' . $args['text_before'] . '</span>';
+			}
+
+			// Cart quantity and total.
+			if ( 'none' !== $cart_option ) {
+				echo '<span class="nav-cart-quantity-and-total align-self-center">';
+
+				if ( 'all' === $cart_option || 'item_quantity' === $cart_option ) {
+					echo self::cart_quantity();
+				}
+
+				if ( 'all' === $cart_option || 'cart_total' === $cart_option ) {
+					echo self::cart_total( $args );
+				}
+
+				echo '</span>';
+
+			}
+
+			// Text after.
+			if ( $args['text_after'] ) {
+				echo '<span class="nav-cart-text-after align-self-center">' . $args['text_after'] . '</span>';
+			}
+
+			?>
+		</a>
+		<?php return ob_get_clean();
+	}
 
 	/**
 	 * The cart icon.
@@ -373,9 +353,9 @@ final class Themedd_EDD_Nav_Cart {
 	 *
 	 * @return string cart total
 	 */
-	public static function cart_total() {
+	public static function cart_total( $args ) {
 
-		if ( 'all' === self::cart_option() ) {
+		if ( 'all' === $args['cart_option'] ) {	
 			$sep = apply_filters( 'themedd_edd_cart_total_separator', '-' );
 			$sep = '<span class="nav-cart-total-separator"> ' . $sep . ' </span>';
 		} else {
