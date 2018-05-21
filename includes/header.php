@@ -85,6 +85,10 @@ add_action( 'themedd_site_header', 'themedd_site_header' );
  */
 function themedd_navbar_toggler( $args = array() ) {
 
+	if ( themedd_edd_is_distraction_free_checkout() ) {
+		return false;
+	}
+
 	$defaults = array(
 		'target' => 'nav-mobile',
 	);
