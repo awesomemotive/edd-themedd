@@ -24,6 +24,8 @@ add_action( 'themedd_site_header', 'themedd_skip_link' );
  */
 function themedd_site_header() {
 
+	$cart_position = themedd_edd_load_nav_cart()->cart_position();
+
 	$container_classes = array( 'container' );
 
 	if ( themedd_edd_is_distraction_free_checkout() ) {
@@ -45,8 +47,12 @@ function themedd_site_header() {
 				<?php if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
 				<nav id="nav-secondary" class="navbar-collapse collapse justify-content-end">
 					<?php echo themedd_secondary_navigation( array( 'menu_classes' => array( 'navbar-right' ) ) ); ?>
-					<?php echo themedd_nav_cart(); ?>
-					<?php echo themedd_header_search( array( 'classes' => 'ml-3 w-25' ) ); ?>
+					<?php 
+						if ( 'secondary_menu' === $cart_position ) {
+							echo themedd_nav_cart(); 
+						}
+					?>
+					<?php echo themedd_header_search( array( 'classes' => array( 'ml-3', 'w-25' ) ) ); ?>
 				</nav>
 				<?php endif; ?>
 
@@ -58,7 +64,11 @@ function themedd_site_header() {
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-primary">
 					<?php echo themedd_primary_navigation( array( 'menu_classes' => array( 'navbar-left' ) ) ); ?>
-
+					<?php 
+						if ( 'primary_menu' === $cart_position ) {
+							echo themedd_nav_cart( array( 'classes' => array( 'ml-auto' ) ) ); 
+						}
+					?>
 				</nav>
 			</div>
 		</div>
