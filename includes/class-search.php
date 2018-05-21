@@ -81,12 +81,12 @@ final class Themedd_Search {
 			'classes' => array()
 		);
 
-		$defaults['classes'][] = 'form-inline search-form';
-
 		$args = wp_parse_args( $args, $defaults );
 
-		$unique_id   = esc_attr( uniqid( 'search-form-' ) );
-		
+		$args['classes'][] = 'form-inline search-form';
+
+		$unique_id = esc_attr( uniqid( 'search-form-' ) );
+
 		$search_text = true === self::restrict_header_search() ? apply_filters( 'themedd_search_products_text', esc_attr_x( 'Search products', 'placeholder', 'themedd' ) ) : apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) );
 
 		?>
