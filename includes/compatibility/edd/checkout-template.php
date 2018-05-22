@@ -561,6 +561,10 @@ add_action( 'edd_cc_form', 'themedd_edd_get_cc_form' );
  */
 function themedd_edds_credit_card_form( $echo = true ) {
 
+	if ( ! themedd_is_edd_stripe_active() ) {
+		return;
+	}
+
 	global $edd_options;
 
 	if( edd_get_option( 'stripe_checkout', false ) ) {
