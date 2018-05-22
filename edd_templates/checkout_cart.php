@@ -24,12 +24,12 @@ global $post; ?>
 					<td class="edd_cart_item_name">
 						<?php
 							if ( current_theme_supports( 'post-thumbnails' ) && has_post_thumbnail( $item['id'] ) ) {
-								echo '<div class="edd_cart_item_image">';
+								echo '<div class="edd_cart_item_image d-inline-block mr-2">';
 									echo get_the_post_thumbnail( $item['id'], apply_filters( 'edd_checkout_image_size', array( 25,25 ) ) );
 								echo '</div>';
 							}
 							$item_title = edd_get_cart_item_name( $item );
-							echo '<span class="edd_checkout_cart_item_title">' . esc_html( $item_title ) . '</span>';
+							echo '<span class="edd_checkout_cart_item_title align-middle">' . esc_html( $item_title ) . '</span>';
 
 							/**
 							 * Runs after the item in cart's title is echoed
@@ -41,13 +41,13 @@ global $post; ?>
 							do_action( 'edd_checkout_cart_item_title_after', $item, $key );
 						?>
 					</td>
-					<td class="edd_cart_item_price">
+					<td class="edd_cart_item_price align-middle">
 						<?php
 						echo edd_cart_item_price( $item['id'], $item['options'] );
 						do_action( 'edd_checkout_cart_item_price_after', $item );
 						?>
 					</td>
-					<td class="edd_cart_actions text-right">
+					<td class="edd_cart_actions text-right align-middle">
 						<?php if( edd_item_quantities_enabled() && ! edd_download_quantities_disabled( $item['id'] ) ) : ?>
 							<input type="number" min="1" step="1" name="edd-cart-download-<?php echo $key; ?>-quantity" data-key="<?php echo $key; ?>" class="edd-input edd-item-quantity form-control d-inline-block mr-2" value="<?php echo edd_get_cart_item_quantity( $item['id'], $item['options'] ); ?>"/>
 							<input type="hidden" name="edd-cart-downloads[]" value="<?php echo $item['id']; ?>"/>
