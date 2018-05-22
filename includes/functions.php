@@ -21,6 +21,16 @@ function themedd_is_edd_sl_active() {
 }
 
 /**
+ * Is EDD Stripe active?
+ *
+ * @since 1.1
+ * @return bool
+ */
+function themedd_is_edd_stripe_active() {
+	return class_exists( 'EDD_Stripe' );
+}
+
+/**
  * Is EDD Recurring active?
  *
  * @since 1.0.0
