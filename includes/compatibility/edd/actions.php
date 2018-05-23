@@ -50,7 +50,7 @@ function themedd_edd_purchase_link( $download_id ) {
 	echo edd_get_purchase_link();
 
 }
-add_action( 'themedd_edd_download_info', 'themedd_edd_purchase_link', 10, 1 );
+add_action( 'themedd_edd_download_info', 'themedd_edd_purchase_link', 20, 1 );
 
 /**
  * Remove and deactivate all styling included with EDD
