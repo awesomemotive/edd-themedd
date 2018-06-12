@@ -1,0 +1,11 @@
+.site-footer {
+
+	a {
+		color: $nav-footer-link-color;
+		
+		&:hover {
+			color: $nav-footer-link-hover-color;
+		}
+	}
+
+}
