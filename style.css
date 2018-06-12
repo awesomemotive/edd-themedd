@@ -7177,10 +7177,12 @@ span.required {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
-.site-footer a {
-  color: #6c757d; }
-  .site-footer a:hover {
-    color: #343a40; }
+.site-footer {
+  background: #fff; }
+  .site-footer a {
+    color: #6c757d; }
+    .site-footer a:hover {
+      color: #343a40; }
 
 .edd-item-quantity {
   width: 4rem; }
