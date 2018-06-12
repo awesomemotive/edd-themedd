@@ -79,7 +79,7 @@ if ( ! function_exists( 'themedd_site_info' ) ) :
  * @since 1.0.0
  */
 function themedd_copyright() {
-	echo apply_filters( 'themedd_copyright', '<p class="text-center">' . sprintf( __( 'Copyright &copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p>' );
+	echo apply_filters( 'themedd_copyright', '<p class="text-center">' . sprintf( __( '&copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p>' );
 }
 add_action( 'themedd_site_info', 'themedd_copyright' );
 
