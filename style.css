@@ -7177,6 +7177,11 @@ span.required {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
+.site-footer a {
+  color: #6c757d; }
+  .site-footer a:hover {
+    color: #343a40; }
+
 .edd-item-quantity {
   width: 4rem; }
 
@@ -7199,7 +7204,7 @@ span.required {
   margin-top: 1rem; }
 
 .edd_price {
-  font-weight: bold; }
+  font-weight: 600; }
 
 .edd-submit {
   width: auto; }
