@@ -216,7 +216,7 @@ final class Themedd_EDD_Nav_Cart {
 		$cart_link = $args['cart_link'];
 		
 		// Default classes.
-		$args['classes'][] = 'nav-cart d-flex';
+		$args['classes'][] = 'nav-cart d-flex align-items-center';
 
 		// Cart option.
 		$cart_option = $args['cart_option'];
