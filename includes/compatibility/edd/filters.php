@@ -351,3 +351,15 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 	return $display;
 }
 add_filter( 'downloads_shortcode', 'themedd_edd_downloads_shortcode', 10, 11 );
+
+/**
+ * Disable schema.org microdata until EDD core implements JSON-LD.
+ * https://github.com/easydigitaldownloads/easy-digital-downloads/issues/5240
+ *
+ * @since 1.0.5
+ * @return bool
+ */
+function themedd_edd_schema_microdata( $ret ) {
+	return false;
+}
+add_filter( 'edd_add_schema_microdata', 'themedd_edd_schema_microdata', 10, 1 );
