@@ -25,7 +25,7 @@ function themedd_edd_price( $download_id ) {
 	if ( edd_is_free_download( $download_id ) ) {
 		$price = '<span class="edd_price">' . __( 'Free', 'themedd' ) . '</span>';
 	} elseif ( edd_has_variable_prices( $download_id ) ) {
-		$price = '<div itemprop="price" class="edd_price">' . __( 'From', 'themedd' ) . '&nbsp;' . edd_currency_filter( edd_format_amount( edd_get_lowest_price_option( $download_id ) ) ) . '</div>';
+		$price = '<div class="edd_price">' . __( 'From', 'themedd' ) . '&nbsp;' . edd_currency_filter( edd_format_amount( edd_get_lowest_price_option( $download_id ) ) ) . '</div>';
 		
 	} else {
 		$price = edd_price( $download_id, false );
