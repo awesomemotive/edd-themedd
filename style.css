@@ -2695,9 +2695,6 @@ h3.edd_download_title {
   margin-bottom: 0;
   font-size: 1rem;
 }
-span.edd_price {
-  display: inline-block;
-}
 #edd_checkout_wrap .edd_download_columns_2 {
   width: 50%;
 }
