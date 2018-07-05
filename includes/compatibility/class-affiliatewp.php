@@ -184,6 +184,8 @@ class Themedd_AffiliateWP {
 
 		if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'affiliate_area' ) ) {
 			$classes[] = 'affiliate-area';
+		} else {
+			return $classes;
 		}
 
 		// Apply a "slim" class when the user is logged in, affiliate registration is allowed, and the registration form can be shown.
