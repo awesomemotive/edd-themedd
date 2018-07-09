@@ -13,7 +13,7 @@ $search-icon-color: $body-color;
 $search-bg: #f5f5f5;
 
 // Page max-width when Full Width Layout is enabled.
-$page-max-width: 1440px;
+$page-max-width: 1440px !default;
 
 // Colors.
 $required-color: $red;
@@ -28,7 +28,8 @@ $cart-color: #fff;
 $cart-link-color: rgba($black, .5);
 $cart-link-hover-color: rgba($black, .7);
 
-
+// Dropdown.
+$dropdown-font-size: 0.875rem !default;
 
 
 
