@@ -2187,7 +2187,7 @@ input[type="button"].btn-block {
   color: #495057;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #222;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15); }
 
@@ -2282,15 +2282,15 @@ input[type="button"].btn-block {
   padding: 0.25rem 1rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: #a2a2a2;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
   border: 0; }
   .dropdown-item:hover, .dropdown-item:focus {
-    color: #16181b;
+    color: #fff;
     text-decoration: none;
-    background-color: #f8f9fa; }
+    background-color: #222; }
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
@@ -2313,7 +2313,7 @@ input[type="button"].btn-block {
 .dropdown-item-text {
   display: block;
   padding: 0.25rem 1rem;
-  color: #212529; }
+  color: #a2a2a2; }
 
 .btn-group,
 .btn-group-vertical {
@@ -7183,6 +7183,9 @@ span.required {
     color: #6c757d; }
     .site-footer a:hover {
       color: #343a40; }
+
+.dropdown-menu {
+  font-size: 0.875rem; }
 
 .edd-item-quantity {
   width: 4rem; }

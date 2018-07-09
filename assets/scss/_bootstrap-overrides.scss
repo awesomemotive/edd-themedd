@@ -1,10 +1,9 @@
 // Bootstrap overrides.
 
-$body-color: #495057;
-
-// navbar brand
+// Navbar brand.
 $navbar-brand-font-size: 2rem;
 
+// Container max widths.
 $container-max-widths: (
   sm: 540px,
   md: 720px,
@@ -14,8 +13,6 @@ $container-max-widths: (
 
 // Spacers.
 // Extends to include 5 more levels.
-
-$spacer: 1rem;
 $spacers: (
 	5: ($spacer * 2 ),   // 2rem
 	6: ($spacer * 2.5 ), // 2.5rem
@@ -27,15 +24,22 @@ $spacers: (
 
 $enable-rounded: false;
 
-$dropdown-spacer: 0;
 
 // Theme colors
 $theme-colors: (
   "primary":  #448fd5
 );
 
-$dropdown-link-active-color: #fff; // Previously $component-active-color
-$dropdown-link-active-bg: #000; // Previously $component-active-bg
 
 // Change padding of dropdown items.
 $dropdown-item-padding-x: 1rem;
+
+// Dropdowns.
+$dropdown-spacer: 0;
+
+$dropdown-bg: $dark-grey;
+$dropdown-link-color: $medium-grey;
+$dropdown-link-hover-color: #fff;
+$dropdown-link-hover-bg: $dark-grey;
+$dropdown-link-active-color: #fff; // Previously $component-active-color
+$dropdown-link-active-bg: #000; // Previously $component-active-bg
