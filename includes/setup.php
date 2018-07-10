@@ -51,7 +51,8 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 		register_nav_menus( array(
 			'primary'   => __( 'Primary Menu', 'themedd' ),
 			'secondary' => __( 'Secondary Menu', 'themedd' ),
-			'mobile'    => __( 'Mobile Menu', 'themedd' )
+			'mobile'    => __( 'Mobile Menu', 'themedd' ),
+			'social'    => __( 'Social Links Menu', 'themedd' )
 		) );
 
 		/*
