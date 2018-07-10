@@ -5,7 +5,6 @@
  *
  * @since 1.0.0
  */
-if ( ! function_exists( 'themedd_footer_widgets' ) ) :
 function themedd_footer_widgets() {
 
 	if ( is_active_sidebar( 'footer-4' ) ) {
@@ -20,7 +19,7 @@ function themedd_footer_widgets() {
 		$widget_columns = apply_filters( 'themedd_footer_widget_regions', 0 );
 	}
 
-	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'container', 'columns-' . intval( $widget_columns ) ), $widget_columns );
+	$classes = apply_filters( 'themedd_footer_widgets_classes', array( 'footer-widgets', 'py-5', 'columns-' . intval( $widget_columns ) ), $widget_columns );
 
 	if ( $widget_columns > 0 ) : ?>
 
@@ -28,60 +27,142 @@ function themedd_footer_widgets() {
 
 		<?php if ( apply_filters( 'themedd_footer_widgets_show', true ) ) : ?>
 		<section class="<?php echo implode( ' ', $classes ); ?>">
-			<div class="row">
-			<?php do_action( 'themedd_footer_widgets_start' ); ?>
+			<div class="container">	
+				<div class="row">
+				<?php do_action( 'themedd_footer_widgets_start' ); ?>
 
-			<?php
-			$i = 0;
-			while ( $i < $widget_columns ) : $i++;
+				<?php
+				$i = 0;
+				while ( $i < $widget_columns ) : $i++;
 
-				if ( is_active_sidebar( 'footer-' . $i ) ) :
-					$widget_column_classes = apply_filters( 'themedd_footer_widget_classes', array( themedd_footer_widget_column_classes( $widget_columns ), 'footer-widget', 'widget-column', 'footer-widget-' . intval( $i ) ) );
-				?>
-				<div class="<?php echo implode( ' ', array_filter( $widget_column_classes ) ); ?>">
-					<?php dynamic_sidebar( 'footer-' . intval( $i ) ); ?>
+					if ( is_active_sidebar( 'footer-' . $i ) ) :
+						$widget_column_classes = apply_filters( 'themedd_footer_widget_classes', array( themedd_footer_widget_column_classes( $widget_columns ), 'footer-widget', 'widget-column', 'footer-widget-' . intval( $i ) ) );
+					?>
+					<div class="<?php echo implode( ' ', array_filter( $widget_column_classes ) ); ?>">
+						<?php dynamic_sidebar( 'footer-' . intval( $i ) ); ?>
+					</div>
+					<?php endif;
+				endwhile; ?>
+
+				<?php do_action( 'themedd_footer_widgets_end' ); ?>
 				</div>
-				<?php endif;
-			endwhile; ?>
-
-			<?php do_action( 'themedd_footer_widgets_end' ); ?>
-			</div>
+			</div>	
 		</section>
 		<?php endif; ?>
 
 		<?php do_action( 'themedd_footer_widgets_after' ); ?>
 
 	<?php endif;
-
 }
-endif;
 add_action( 'themedd_footer', 'themedd_footer_widgets' );
 
 /**
- * Display the site info
+ * Themedd footer.
  *
- * @since 1.0.0
+ * @since 1.1
  */
-if ( ! function_exists( 'themedd_site_info' ) ) :
-	function themedd_site_info() {
-		?>
-		<section class="container site-info">
-			<?php do_action( 'themedd_site_info' ); ?>
-		</section>
-		<?php
+function themedd_footer() {
+
+	$container_classes = array( 'container py-4' );
+
+	if ( has_nav_menu( 'social' ) ) {
+		$container_classes[] = 'd-md-flex justify-content-md-between align-items-center';
+		$copyright_classes[] = 'order-md-1';
 	}
-	endif;
-	add_action( 'themedd_footer', 'themedd_site_info' );
+
+	?>
+	<section class="footer-bottom">
+		<div class="<?php echo themedd_output_classes( $container_classes ); ?>">
+			<?php 
+			/**
+			 * Display the social links.
+			 *
+			 * @since 1.1
+			 */
+			if ( has_nav_menu( 'social' ) ) {
+				echo themedd_social_links_menu( array( 'theme_location' => 'social', 'classes' => array( 'order-md-2 mb-3 mb-md-0' ) ) );
+			}
+
+			/**
+			 * Copyright notice.
+			 */
+			echo themedd_copyright();
+			?>
+		</div>
+	</section>
+	<?php
+}
+add_action( 'themedd_footer', 'themedd_footer' );
 
 /**
- * Copyright
+ * Copyright notice.
  *
  * @since 1.0.0
  */
 function themedd_copyright() {
-	echo apply_filters( 'themedd_copyright', '<p class="text-center">' . sprintf( __( '&copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p>' );
+
+	$copyright_classes = array( 'copyright-notice' );
+
+	if ( has_nav_menu( 'social' ) ) {
+		$copyright_classes[] = 'order-md-1';
+	} else {
+		// Center the copyright when there is no social menu.
+		$copyright_classes[] = 'text-md-center';
+	}
+
+	return apply_filters( 'themedd_copyright', '<div class="' . themedd_output_classes( $copyright_classes ) . '"><p class="mb-0">' . sprintf( __( '&copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p></div>', $copyright_classes );
 }
-add_action( 'themedd_site_info', 'themedd_copyright' );
+
+/**
+ * Social Links Menu.
+ *
+ * @since 1.1
+ */
+function themedd_social_links_menu( $args = array() ) {
+
+	$defaults = apply_filters( 'themedd_social_links_menu_defaults', 
+		array(
+			'menu'           => '',
+			'theme_location' => '',
+			'classes'        => array(),
+			'icons'          => true,
+			'text_before'    => ''
+		)
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( ! empty( $args['text_before'] ) ) {
+		$args['classes'][] = 'd-flex flex-column flex-md-row align-items-md-center has-text-before';
+	}
+
+	if ( $args['icons'] ) {
+		$args['classes'][] = 'has-icons';
+	}
+
+	$args['classes'][] = 'social-navigation';
+	?>
+	<nav class="<?php echo themedd_output_classes( $args['classes'] ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'themedd' ); ?>">
+		<?php if ( ! empty( $args['text_before'] ) ) : ?>
+		<span class="mr-md-2 mb-2 mb-md-0"><?php echo $args['text_before']; ?></span>
+		<?php endif; ?>		
+		
+		<?php
+			wp_nav_menu(
+				array(
+					'menu'            => $args['menu'],
+					'theme_location'  => $args['theme_location'],
+					'menu_class'      => 'social-links-menu p-0 m-0',
+					'container_class' => 'social-links',
+					'depth'           => 1,
+					'link_before'     => $args['icons'] ? '<span class="screen-reader-text">' : '',
+					'link_after'      => $args['icons'] ? '</span>' . themedd_get_svg( array( 'icon' => 'chain' ) ) : '',
+				)
+			);
+		?>
+	</nav>
+	<?php
+}
 
 /**
  * Footer widget column classes
