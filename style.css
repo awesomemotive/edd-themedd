@@ -7187,6 +7187,27 @@ span.required {
 .dropdown-menu {
   font-size: 0.875rem; }
 
+.social-navigation {
+  font-size: 1rem; }
+  .social-navigation ul {
+    list-style: none; }
+  .social-navigation li {
+    display: inline-block; }
+  .social-navigation.has-icons li {
+    vertical-align: middle; }
+  .social-navigation a {
+    display: -ms-flexbox;
+    display: flex; }
+
+.site-footer .social-links-menu li:last-child {
+  padding-right: 0 !important; }
+
+.icon {
+  fill: currentColor;
+  color: #6c757d; }
+  .icon:hover {
+    color: rgba(0, 0, 0, 0.9); }
+
 .edd-item-quantity {
   width: 4rem; }
 
