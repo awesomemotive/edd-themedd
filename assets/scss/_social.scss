@@ -1,0 +1,34 @@
+// Social links.
+
+.social-navigation {
+	font-size: 1rem;
+
+	ul {
+		list-style: none;
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	&.has-icons li { 
+		vertical-align: middle; // Only vertically align when there are icons present.
+	}
+
+	a {
+		display: flex;
+	}
+}
+
+.site-footer .social-links-menu li:last-child {
+	padding-right: 0 !important; // !important so it can override the Bootstrap utility classes
+}
+
+.icon {
+	fill: currentColor;
+	color: $gray-600;
+
+	&:hover {
+		color: rgba(0, 0, 0, 0.9);
+	}
+}
