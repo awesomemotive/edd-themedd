@@ -55,6 +55,7 @@ require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'filters.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'customizer.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-search.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'icon-functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-wp-bootstrap-navwalker.php' );
 
 /**
