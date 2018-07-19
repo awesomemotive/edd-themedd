@@ -1,9 +1,8 @@
 <?php
-$schema_microdata      = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : '';
 $download_grid_options = themedd_edd_download_grid_options();
 ?>
 
-<div <?php echo $schema_microdata; ?>class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), '', '' ) ); ?>" id="edd_download_<?php the_ID(); ?>">
+<div class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), '', '' ) ); ?>" id="edd_download_<?php the_ID(); ?>">
 
 	<div class="edd_download_inner">
 
@@ -21,7 +20,7 @@ $download_grid_options = themedd_edd_download_grid_options();
 		if ( true === $download_grid_options['title'] ) {
 			edd_get_template_part( 'shortcode', 'content-title' );
 		}
-		
+
 		do_action( 'edd_download_after_title' );
 
 		if ( true === $download_grid_options['excerpt'] && true !== $download_grid_options['full_content'] ) {
