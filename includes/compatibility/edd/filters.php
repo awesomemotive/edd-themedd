@@ -208,9 +208,6 @@ function themedd_edd_downloads_list_wrapper_class( $classes, $atts ) {
 	// Explode the $classes into an array to make it easier to work with.
 	$classes = explode( ' ', $classes );
 
-	// Prevent from ever being slim width at large break point
-	$classes[] = 'full-width';
-
 	// Add new class to array.
 	$classes[] = 'row';
 
