@@ -20,38 +20,49 @@ add_action( 'themedd_site_header', 'themedd_skip_link' );
  * Load the header section onto the themedd_header hook found in /header.php.
  *
  * @since 1.0.0
- * @since 1.1
  */
 function themedd_site_header() {
 
 	$cart_position = themedd_is_edd_active() ? themedd_edd_load_nav_cart()->cart_position() : false;
-	$container_classes = array( 'container' );
+	$container_classes = array( 'container py-3 justify-content-center' );
+
+	if ( ! themedd_edd_is_distraction_free_checkout() ) {
+		$container_classes[] = 'justify-content-md-start';
+	}
 
 	if ( themedd_edd_is_distraction_free_checkout() ) {
-		$container_classes[] = 'justify-content-center text-center';
+		$container_classes[] = 'text-center';
 	}
 
 	?>
 	<header id="masthead" class="site-header" role="banner">
-		<div class="navbar navbar-expand-lg navbar-light px-0 py-3">
+
+		<div class="navbar navbar-expand-md px-0 py-0">
+			<?php echo themedd_navbar_toggler(); ?>
+		</div>
+
+		<div id="navbar-mobile" class="navbar navbar-light px-0 px-md-3 py-0 d-md-none">
+			<div class="container">
+				<nav class="navbar-collapse collapse" id="nav-mobile">
+					<?php echo themedd_header_search( array( 'classes' => array( 'py-2' ) ) ); ?>
+					<?php echo themedd_nav_cart( array( 'classes' => array( 'py-2' ) ) ); ?>
+					<?php echo themedd_mobile_menu(); ?>
+				</nav>
+			</div>
+		</div>
+
+		<div class="navbar navbar-expand-md navbar-light px-0 py-0">
+
 			<div class="<?php echo themedd_output_classes( $container_classes ); ?>">
 
 				<?php echo themedd_site_branding(); ?>
 
-				<div class="d-inline-flex d-lg-none">
-					<?php echo themedd_nav_cart( array( 'cart_option' => 'none', 'classes' => array( 'nav-cart', 'd-lg-none', 'd-flex', 'align-items-center', 'px-3' ) ) ); ?>
-					<?php echo themedd_navbar_toggler(); ?>
-				</div>
-
 				<?php if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
+
 				<nav id="nav-secondary" class="navbar-collapse collapse justify-content-end">
 					<?php echo themedd_secondary_navigation( array( 'menu_classes' => array( 'navbar-right' ) ) ); ?>
-					<?php 
-						if ( 'secondary_menu' === $cart_position ) {
-							echo themedd_nav_cart(); 
-						}
-					?>
-					<?php echo themedd_header_search( array( 'classes' => array( 'ml-3', 'w-25' ) ) ); ?>
+					<?php if ( 'secondary_menu' === $cart_position ) { echo themedd_nav_cart(); } ?>
+					<?php echo themedd_header_search( array( 'classes' => array( 'ml-3' ) ) ); ?>
 				</nav>
 				<?php endif; ?>
 
@@ -59,28 +70,15 @@ function themedd_site_header() {
 		</div>
 
 		<?php if ( themedd_primary_navigation() ) : ?>
-		<div id="navbar-primary" class="navbar navbar-expand-lg navbar-light px-0 py-0">
+		<div id="navbar-primary" class="navbar navbar-expand-md navbar-light px-0 py-0">
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-primary">
 					<?php echo themedd_primary_navigation( array( 'menu_classes' => array( 'navbar-left' ) ) ); ?>
-					<?php 
-						if ( 'primary_menu' === $cart_position ) {
-							echo themedd_nav_cart( array( 'classes' => array( 'ml-auto' ) ) ); 
-						}
-					?>
+					<?php if ( 'primary_menu' === $cart_position ) { echo themedd_nav_cart( array( 'classes' => array( 'ml-auto' ) ) ); } ?>
 				</nav>
 			</div>
 		</div>
 		<?php endif; ?>
-
-		<div id="navbar-mobile" class="navbar navbar-light px-0 px-lg-3 py-0 d-lg-none">
-			<div class="container">
-				<nav class="navbar-collapse collapse" id="nav-mobile">
-					<?php echo themedd_header_search(); ?>
-					<?php echo themedd_mobile_menu(); ?>
-				</nav>
-			</div>
-		</div>
 
 	</header>
 <?php
@@ -98,17 +96,68 @@ function themedd_navbar_toggler( $args = array() ) {
 		return false;
 	}
 
-	$defaults = array(
-		'target' => 'nav-mobile',
-	);
-
-	$args = wp_parse_args( $args, $defaults );
+	$args = wp_parse_args( $args, themedd_navbar_toggler_defaults() );
 
 	$target = $args['target'];
 
+	// No target, no menu.
+	if ( empty( $target ) ) {
+		return false;
+	}
+
+	// Must have either text or icon, otherwise don't show menu.
+	if ( empty( $args['text_menu_hidden'] ) && empty( $args['icon_menu_hidden'] ) ) {
+		return false;
+	}
+
+	// Add button classes that should never change.
+	$args['button_classes'][] = 'navbar-toggler collapsed';
+
+	// Text for when menu is hidden. Default: Menu
+	$text_menu_hidden = ! empty( $args['text_menu_hidden'] ) ? $args['text_menu_hidden'] : '';
+
+	if ( $text_menu_hidden ) {
+		$data_text_menu_hidden = ' data-text-menu-hidden="' . $text_menu_hidden . '"';
+	} else {
+		$data_text_menu_hidden = '';
+	}
+
+	// Text for when menu is shown. Default: Close
+	$text_menu_shown = ! empty( $args['text_menu_shown'] ) ? $args['text_menu_shown'] : '';
+
+	if ( $text_menu_shown ) {
+		$data_text_menu_shown = ' data-text-menu-shown="' . $text_menu_shown . '"';
+	} else {
+		$data_text_menu_shown = '';
+	}
+
+	// Icon for when menu is hidden. Default: menu
+	$icon_menu_hidden = ! empty( $args['icon_menu_hidden'] ) ? $args['icon_menu_hidden'] : '';
+
+	if ( $icon_menu_hidden ) {
+		$data_icon_menu_hidden = ' data-icon-menu-hidden="' . $icon_menu_hidden . '"';
+	} else {
+		$data_icon_menu_hidden = '';
+	}
+
+	// Icon for when menu is shown. Default: close-menu
+	$icon_menu_shown = ! empty( $args['icon_menu_shown'] ) ? $args['icon_menu_shown'] : '';
+
+	if ( $icon_menu_shown ) {
+		$data_icon_menu_shown = ' data-icon-menu-shown="' . $icon_menu_shown . '"';
+	} else {
+		$data_icon_menu_shown = '';
+	}
+
 	if ( themedd_mobile_menu_theme_location() ) : ?>
-	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#<?php echo $target; ?>" aria-controls="<?php echo $target; ?>" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<button class="<?php echo themedd_output_classes( $args['button_classes'] ); ?>" type="button"<?php echo $data_text_menu_hidden . $data_text_menu_shown . $data_icon_menu_hidden . $data_icon_menu_shown; ?> data-toggle="collapse" data-target="#<?php echo $target; ?>" aria-controls="<?php echo $target; ?>" aria-expanded="false" aria-label="<?php echo $args['aria_label']; ?>">
+		<?php if ( $icon_menu_hidden ) { 
+			echo themedd_get_svg( array( 'icon' => $icon_menu_hidden ) ); 
+		} ?>
+
+		<?php if ( $text_menu_hidden ) : ?>
+		<span class="navbar-toggler-text text-light ml-1"><?php echo $text_menu_hidden; ?></span>
+		<?php endif; ?>
 	</button>
 	<?php endif;
 }
@@ -142,11 +191,11 @@ function themedd_mobile_menu() {
 	if ( themedd_mobile_menu_theme_location() ) {
 		wp_nav_menu(
 			array(
-				'theme_location'  => themedd_mobile_menu_theme_location(),
-				'depth'           => 2,
-				'menu_id'         => 'menu-mobile',
-				'menu_class'      => 'navbar-nav',
-				'walker'          => new WP_Bootstrap_Navwalker()
+				'theme_location' => themedd_mobile_menu_theme_location(),
+				'depth'          => 2,
+				'menu_id'        => 'menu-mobile',
+				'menu_class'     => 'navbar-nav',
+				'walker'         => new WP_Bootstrap_Navwalker()
 			)
 		);
 	}
@@ -279,7 +328,7 @@ function themedd_site_branding() {
 		 */
 		?>
 		<<?php echo $tag; ?> class="<?php echo themedd_output_classes( $classes ); ?>">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand<?php if ( themedd_edd_is_distraction_free_checkout() ) { echo ' mr-0'; } ?>">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand mr-0">
 				<?php //do_action( 'themedd_site_branding_site_title_before' ); ?>
 				<span><?php bloginfo( 'name' ); ?></span>
 				<?php //do_action( 'themedd_site_branding_site_title_after' ); ?>
