@@ -38,6 +38,8 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 		$buy_button  = $atts['buy_button'] == 'yes' ? true : false;
 		$thumbnails  = $atts['thumbnails'] == 'true' ? true : false;
 
+		$align_class = isset( $atts['align'] ) && ! empty( $atts['align'] ) ? $atts['align'] : '';
+
 	} else {
 		/**
 		 * The download grid is being outputted by either:
@@ -60,18 +62,25 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 
 	}
 
+	// If no align has been set in themedd_edd_download_grid_options(), add one if it was passed in.
+	if ( empty( $options['align'] ) ) {
+		$classes[] = ! empty( $align_class ) ? 'align' . $align_class : '';
+	} else {
+		// Not empty, it's been filtered, so add it
+		$classes[] = 'align' . $options['align'];
+	}
+
 	$classes[] = true === $has_price ? 'has-price' : 'no-price';
 	$classes[] = true === $has_excerpt ? 'has-excerpt' : '';
 	$classes[] = true === $buy_button ? 'has-buy-button' : 'no-buy-button';
 	$classes[] = true === $thumbnails ? 'has-thumbnails' : 'no-thumbnails';
 
+	$classes[] = 'row';
+
 	// Add has-download-meta class.
 	$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
 
 	$classes = implode( ' ', array_filter( $classes ) );
-
-	// Finally, make sure that any classes can be added via EDD's filter
-	$classes = apply_filters( 'edd_downloads_list_wrapper_class', $classes, $atts );
 
 	return $classes;
 }
@@ -144,7 +153,13 @@ function themedd_edd_download_grid_options( $atts = array() ) {
 		'order'        => 'DESC',
 		'orderby'      => 'post_date',
 		'cards'        => false,
+		'align'        => ''
 	);
+
+	// Set alignment to "wide" for custom post type archive page.
+	if ( is_post_type_archive( 'download' ) ) {
+		$options['align'] = 'wide';
+	}
 
 	// Merge the arrays.
 	$options = wp_parse_args( $atts, $options );
