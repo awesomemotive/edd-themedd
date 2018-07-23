@@ -170,22 +170,7 @@ final class Themedd_Search {
 	 * @return string $content The HTML of the SVG
 	 */
 	public static function search_icon() {
-		
-		ob_start();
-	?>
-		<svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
-			<g>
-				<circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"/>
-				<path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"/>
-			</g>
-		</svg>
-	<?php
-		
-		$html = apply_filters( 'themedd_search_icon', ob_get_contents() );
-		ob_end_clean();
-
-		return $html;
-
+		return themedd_get_svg( apply_filters( 'themedd_search_icon', array( 'icon' => 'search', 'size' => '16' ) ) );
 	}
 
 	/**
