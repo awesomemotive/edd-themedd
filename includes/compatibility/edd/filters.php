@@ -137,6 +137,21 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 		$out['price'] = 'yes';
 	}
 	
+	/**
+	 * Adds an "align" shortcode attribute
+	 * 
+	 * @since 1.1
+	 */
+	if ( isset( $atts['align'] ) ) {
+		if ( 'wide' === $atts['align'] ) {
+			$out['align'] = 'wide';
+		}
+	
+		if ( 'full' === $atts['align'] ) {
+			$out['align'] = 'full';
+		}
+	}
+
 	return $out;
 
 }
