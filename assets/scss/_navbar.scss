@@ -5,6 +5,18 @@
 	padding-left: ($grid-gutter-width / 2); // 15px
 }
 
+@include media-breakpoint-up(md) {
+	#nav-primary {
+		.navbar-left {
+			margin-left: -0.5rem;
+		}
+
+		.navbar-right {
+			margin-right: -0.5rem;
+		}
+	}
+}
+
 @include media-breakpoint-up(lg) {
 
 	#nav-primary {
