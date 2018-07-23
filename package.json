@@ -8,8 +8,6 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-svgmin": "^4.0.0",
-    "grunt-svgstore": "latest",
     "matchdep": "^2.0.0"
   },
   "dependencies": {
