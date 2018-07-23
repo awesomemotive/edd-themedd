@@ -51,4 +51,48 @@ jQuery(document).ready(function($) {
 
 	});
 
+	var navMobile = '#' + themedd_scripts.navMobile;
+	
+	$(navMobile).on('show.bs.collapse', function (e) {
+
+		var elementId = $(this).attr('id'), // ID of this collapsible menu.
+			button = $("button[data-target='#" + elementId +"']"), // Find the corresponding button that triggered the call.
+			textToChange = button.find('.navbar-toggler-text'); // Find the text to change.
+
+		if ( textToChange.length ) {
+			textToChange.text(button.data('text-menu-shown'));
+		}
+
+		toggleIcon( button, 'icon-menu-shown' );
+
+	});
+
+	$(navMobile).on('hide.bs.collapse', function (e) {
+
+		var elementId = $(this).attr('id'), // ID of this collapsible menu.
+			button = $("button[data-target='#" + elementId +"']"), // Find the corresponding button that triggered the call.
+			textToChange = button.find('.navbar-toggler-text'); // Find the text to change.
+	
+		if ( textToChange.length ) {
+			textToChange.text(button.data('text-menu-hidden'));
+		}
+
+		toggleIcon( button, 'icon-menu-hidden' );
+
+	});
+
+	// Toggle the icon.
+	function toggleIcon( button, dataAttribute ) {
+
+		var svgIcon = button.find('.icon use');
+
+		if ( svgIcon.length ) {
+			var	iconToToggle = button.data(dataAttribute);
+
+			$(svgIcon).attr('href', '#icon-' + iconToToggle);
+			$(svgIcon).get(0).setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#icon-' + iconToToggle);
+		}
+
+	}
+
 });
