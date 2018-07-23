@@ -30,7 +30,7 @@ function themedd_edd_price( $download_id ) {
 		$price = edd_price( $download_id, false );
 	}
 
-	echo $price;
+	return $price;
 
 }
 add_action( 'themedd_edd_download_info', 'themedd_edd_price', 10, 1 );
