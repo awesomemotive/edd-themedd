@@ -11,19 +11,23 @@ if ( $title ) {
 	themedd_header( array( 'title' => $title ) );
 }
 
+$wrapper_classes = array();
+
+if ( ! $title ) {
+	$wrapper_classes[] = 'pt-10';
+}
+
 ?>
 
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 
 	<main id="main" class="site-main" role="main">
-		<div class="entry-content">
+		<div class="entry-content content-wrapper">
 		<?php if ( have_posts() ) : ?>
-			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
+			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes( themedd_output_classes( $wrapper_classes ) ); ?>">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-
 				<?php get_template_part( 'template-parts/download-grid' ); ?>
-
 			<?php endwhile; ?>
 
 			<?php
