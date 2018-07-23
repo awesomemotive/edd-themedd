@@ -11,9 +11,9 @@ jQuery(document).ready(function($) {
 
 		$( '.navCart' ).removeClass('empty');
 
-		if ( typeof cartQuantityText !== 'undefined' ) {
-			var textSingular = cartQuantityText.singular,
-				textPlural   = cartQuantityText.plural,
+		if ( typeof themedd_scripts !== 'undefined' ) {
+			var textSingular = themedd_scripts.cartQuantityTextSingular,
+				textPlural   = themedd_scripts.cartQuantityTextPlural,
 				cartText     = ' ' + textPlural;
 
 			if ( response.cart_quantity === '1' ) {
@@ -29,10 +29,10 @@ jQuery(document).ready(function($) {
 
 	$('body').on('edd_cart_item_removed', function( event, response ) {
 
-		if ( typeof cartQuantityText !== 'undefined' ) {
+		if ( typeof themedd_scripts !== 'undefined' ) {
 
-			var textSingular = cartQuantityText.singular,
-				textPlural   = cartQuantityText.plural,
+			var textSingular = themedd_scripts.cartQuantityTextSingular,
+				textPlural   = themedd_scripts.cartQuantityTextPlural,
 				cartText     = ' ' + textPlural;
 
 			if ( response.cart_quantity === '1' ) {
