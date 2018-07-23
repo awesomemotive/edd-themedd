@@ -77,6 +77,10 @@ final class Themedd_Search {
 			return false;
 		}
 
+		if ( themedd_edd_is_distraction_free_checkout() ) {
+			return false;
+		}
+		
 		$defaults = array(
 			'classes' => array()
 		);
@@ -89,10 +93,11 @@ final class Themedd_Search {
 
 		$search_text = true === self::restrict_header_search() ? apply_filters( 'themedd_search_products_text', esc_attr_x( 'Search products', 'placeholder', 'themedd' ) ) : apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) );
 
+		ob_start();
 		?>
 
 		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo themedd_output_classes( $args['classes'] ); ?>">
-			<div class="input-group">
+			<div class="input-group w-100">
 				<label for="<?php echo $unique_id; ?>">
 					<?php
 					$search_label = true === self::restrict_header_search() ? _x( 'Search products:', 'label', 'themedd' ) : _x( 'Search for:', 'label', 'themedd' );
@@ -118,6 +123,7 @@ final class Themedd_Search {
 		</form>
 	
 		<?php
+		return ob_get_clean();
 	}
 
 	/**
