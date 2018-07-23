@@ -223,11 +223,11 @@ function themedd_edd_downloads_list_wrapper_class( $classes, $atts ) {
 	// Explode the $classes into an array to make it easier to work with.
 	$classes = explode( ' ', $classes );
 
-	// Add new class to array.
-	$classes[] = 'row';
+	$classes[] = themedd_edd_downloads_list_wrapper_classes( '', $atts );
 
 	// Implode back into class names.
 	return implode( ' ', $classes );
+
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
 
