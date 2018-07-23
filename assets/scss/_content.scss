@@ -73,7 +73,11 @@
 		max-width: 740px;
 	} 
 
-	.no-sidebar .content-wrapper > .full-width {
+	.no-sidebar .content-wrapper > .alignwide {
 		max-width: 1200px;
+	}
+
+	.no-sidebar .content-wrapper > .alignfull {
+		max-width: 100%;
 	}
 }
