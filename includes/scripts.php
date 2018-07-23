@@ -35,12 +35,15 @@ function themedd_scripts() {
 		if ( 'item_quantity' === $cart_option || 'all' === $cart_option ) {
 			
 			$cart_quantity_text = Themedd_EDD_Nav_Cart::cart_quantity_text();
-		
+			$navbar_toggler_defaults = themedd_navbar_toggler_defaults();
+
 			// Cart text
-			wp_localize_script( 'themedd-js', 'cartQuantityText', array(
-				'singular' => $cart_quantity_text['singular'],
-				'plural'   => $cart_quantity_text['plural']
+			wp_localize_script( 'themedd-js', 'themedd_scripts', array(
+				'cartQuantityTextSingular' => $cart_quantity_text['singular'],
+				'cartQuantityTextPlural'   => $cart_quantity_text['plural'],
+				'navMobile'                => $navbar_toggler_defaults['target'],
 			) );
+
 		}
 
 	}
