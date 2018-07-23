@@ -70,46 +70,6 @@ module.exports = function(grunt) {
 			},
 		},
 
-		// SVG Store
-	    svgstore: {
-	      options: {
-	        prefix : 'icon-', // This will prefix each <g> ID
-	         svg : {
-	            'xmlns:sketch' : 'http://www.bohemiancoding.com/sketch/ns',
-	            'xmlns:dc': "http://purl.org/dc/elements/1.1/",
-	            'xmlns:cc': "http://creativecommons.org/ns#",
-	            'xmlns:rdf': "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-	            'xmlns:svg': "http://www.w3.org/2000/svg",
-	            'xmlns': "http://www.w3.org/2000/svg",
-	            'xmlns:sodipodi': "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
-	            'xmlns:inkscape': "http://www.inkscape.org/namespaces/inkscape"
-	        }
-	      },
-	      default : {
-	        files: {
-	            // svgs in the combined folder will be combined into the svg-defs.svg file
-	            // usage: <svg><use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-name-of-svg'; ?>"></use></svg>
-	            'assets/images/svg-defs.svg': ['assets/images/svgs/combined/*.svg'],
-	        }
-	      }
-	    },
-
-		// SVG min
-	    svgmin: {
-	        options: {
-	            plugins: [
-	                { removeViewBox: false },
-	                { removeUselessStrokeAndFill: false }
-	            ]
-	        },
-	        dist: {
-	            expand: true,
-	            cwd: 'assets/images/svgs/original',
-	            src: ['*.svg'],
-	            dest: 'assets/images/svgs'
-	        }
-	    },
-
 	    // watch our project for changes
 		watch: {
 
@@ -117,18 +77,6 @@ module.exports = function(grunt) {
 			js: {
 				files: ['assets/js/src/**/*.js'],
 				tasks: ['concat:main', 'uglify:js']
-			},
-
-			// svgstore
-			svgstore: {
-				files: ['assets/images/svgs/combined/*.svg'],
-				tasks: ['svgstore:default']
-			},
-
-			// svgmin
-			svgmin: {
-				files: ['assets/images/svgs/original/*.svg'],
-				tasks: ['svgmin:dist']
 			},
 
 			css: {
@@ -142,6 +90,6 @@ module.exports = function(grunt) {
 	// Saves having to declare each dependency
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'svgstore', 'svgmin' ]);
+	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer' ]);
 
 };
