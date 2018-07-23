@@ -156,7 +156,7 @@ function themedd_social_links_menu( $args = array() ) {
 					'container_class' => 'social-links',
 					'depth'           => 1,
 					'link_before'     => $args['icons'] ? '<span class="screen-reader-text">' : '',
-					'link_after'      => $args['icons'] ? '</span>' . themedd_get_svg( array( 'icon' => 'chain' ) ) : '',
+					'link_after'      => $args['icons'] ? '</span>' . themedd_get_svg( array( 'icon' => 'link' ) ) : '',
 				)
 			);
 		?>
