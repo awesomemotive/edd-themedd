@@ -256,3 +256,24 @@ function themedd_layout_full_width() {
 function themedd_edd_is_distraction_free_checkout() {
 	return themedd_is_edd_active() && edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents();
 }
+
+/**
+ * Navbar toggler defaults.
+ *
+ * @since 1.1
+ */
+function themedd_navbar_toggler_defaults() {
+	$defaults = apply_filters( 'themedd_navbar_toggler_defaults', 
+		array(
+			'target'           => 'nav-mobile',
+			'text_menu_hidden' => __( 'Menu', 'themedd' ),
+			'text_menu_shown'  => __( 'Close', 'themedd' ),
+			'icon_menu_hidden' => 'menu',
+			'icon_menu_shown'  => 'close-menu',
+			'button_classes'   => array( 'w-100 bg-dark py-3 d-flex d-md-none justify-content-center align-items-center' ),
+			'aria_label'       => __( 'Toggle navigation', 'themedd' ),
+		)
+	);
+
+	return $defaults;
+}
