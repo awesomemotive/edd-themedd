@@ -2189,7 +2189,7 @@ input[type="button"].btn-block {
   list-style: none;
   background-color: #222;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15); }
+  border: 1px solid #222; }
 
 .dropdown-menu-right {
   right: 0;
@@ -2849,7 +2849,7 @@ input[type="button"].btn-block {
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent; }
@@ -3035,7 +3035,7 @@ input[type="button"].btn-block {
   color: rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.1); }
 .navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+  background-image: none; }
 .navbar-light .navbar-text {
   color: rgba(0, 0, 0, 0.5); }
   .navbar-light .navbar-text a {
@@ -3062,7 +3062,7 @@ input[type="button"].btn-block {
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.1); }
 .navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+  background-image: none; }
 .navbar-dark .navbar-text {
   color: rgba(255, 255, 255, 0.5); }
   .navbar-dark .navbar-text a {
@@ -7034,8 +7034,11 @@ a.text-dark:hover, a.text-dark:focus {
   .no-sidebar #comments {
     max-width: 740px; }
 
-  .no-sidebar .content-wrapper > .full-width {
-    max-width: 1200px; } }
+  .no-sidebar .content-wrapper > .alignwide {
+    max-width: 1200px; }
+
+  .no-sidebar .content-wrapper > .alignfull {
+    max-width: 100%; } }
 body {
   height: 100vh; }
 
@@ -7159,6 +7162,11 @@ span.required {
   padding-right: 15px;
   padding-left: 15px; }
 
+@media (min-width: 768px) {
+  #nav-primary .navbar-left {
+    margin-left: -0.5rem; }
+  #nav-primary .navbar-right {
+    margin-right: -0.5rem; } }
 @media (min-width: 992px) {
   #nav-primary .navbar-left {
     margin-left: -1rem; }
@@ -7214,6 +7222,9 @@ span.required {
 .edd_price_options ul {
   list-style-type: none;
   padding-left: 0; }
+.edd_price_options li {
+  display: -ms-flexbox;
+  display: flex; }
 
 .edd_download_title a {
   color: #495057;
