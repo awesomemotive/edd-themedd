@@ -43,3 +43,9 @@ $dropdown-link-hover-color: #fff;
 $dropdown-link-hover-bg: $dark-grey;
 $dropdown-link-active-color: #fff; // Previously $component-active-color
 $dropdown-link-active-bg: #000; // Previously $component-active-bg
+$dropdown-border-color: $dropdown-bg;
+
+// Navbar toggler
+$navbar-toggler-font-size: 1rem;
+$navbar-light-toggler-icon-bg: none;
+$navbar-dark-toggler-icon-bg: none;
