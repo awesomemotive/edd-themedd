@@ -10,6 +10,9 @@
 		padding-left: 0;
 	}
 
+	li {
+		display: flex; // Fixes alignment issues at smaller widths.
+	}
 }
 
 // Download grid - download title.
