@@ -35,7 +35,6 @@ function themedd_edd_purchase_variable_pricing( $download_id = 0, $args = array(
 
 	$type   = edd_single_price_option_mode( $download_id ) ? 'checkbox' : 'radio';
 	$mode   = edd_single_price_option_mode( $download_id ) ? 'multi' : 'single';
-	$schema = edd_add_schema_microdata() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '';
 
 	// Filter the class names for the edd_price_options div
 	$css_classes_array = apply_filters( 'edd_price_options_classes', array(
@@ -57,26 +56,17 @@ function themedd_edd_purchase_variable_pricing( $download_id = 0, $args = array(
 			if ( $prices ) :
 				$checked_key = isset( $_GET['price_option'] ) ? absint( $_GET['price_option'] ) : edd_get_default_variable_price( $download_id );
 				foreach ( $prices as $key => $price ) :
-					echo '<li class="custom-control custom-radio" id="edd_price_option_' . $download_id . '_' . sanitize_key( $price['name'] ) . $form_id . '"' . $schema . '>';
+					echo '<li class="custom-control custom-radio" id="edd_price_option_' . $download_id . '_' . sanitize_key( $price['name'] ) . $form_id . '">';
 						
 							echo '<input type="' . $type . '" ' . checked( apply_filters( 'edd_price_option_checked', $checked_key, $download_id, $key ), $key, false ) . ' name="edd_options[price_id][]" id="' . esc_attr( 'edd_price_option_' . $download_id . '_' . $key . $form_id ) . '" class="custom-control-input ' . esc_attr( 'edd_price_option_' . $download_id ) . '" value="' . esc_attr( $key ) . '" data-price="' . edd_get_price_option_amount( $download_id, $key ) .'"/>&nbsp;';
 
-							$item_prop = edd_add_schema_microdata() ? ' itemprop="description"' : '';
-
-							
-
-							if( edd_add_schema_microdata() ) {
-								echo '<meta itemprop="price" content="' . esc_attr( $price['amount'] ) .'" />';
-								echo '<meta itemprop="priceCurrency" content="' . esc_attr( edd_get_currency() ) .'" />';
-							}
-						
 						echo '<label class="custom-control-label" for="' . esc_attr( 'edd_price_option_' . $download_id . '_' . $key . $form_id ) . '">';
 						
 						// Construct the default price output.
-						$price_output = '<span class="edd_price_option_name"' . $item_prop . '>' . esc_html( $price['name'] ) . '</span><span class="edd_price_option_sep">&nbsp;&ndash;&nbsp;</span><span class="edd_price_option_price">' . edd_currency_filter( edd_format_amount( $price['amount'] ) ) . '</span>';
+						$price_output = '<span class="edd_price_option_name">' . esc_html( $price['name'] ) . '</span><span class="edd_price_option_sep">&nbsp;&ndash;&nbsp;</span><span class="edd_price_option_price">' . edd_currency_filter( edd_format_amount( $price['amount'] ) ) . '</span>';
 
 						// Filter the default price output
-						$price_output = apply_filters( 'edd_price_option_output', $price_output, $download_id, $key, $price, $form_id, $item_prop );
+						$price_output = apply_filters( 'edd_price_option_output', $price_output, $download_id, $key, $price, $form_id );
 
 						// Output the filtered price output
 						echo $price_output;
