@@ -61,9 +61,8 @@ class Themedd_EDD_Cross_Sell_Upsell {
 		<?php
 		$i = 1;
 		while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
-			<?php $schema = edd_add_schema_microdata() ? 'itemscope itemtype="http://schema.org/Product" ' : ''; ?>
 
-			<div <?php echo $schema; ?>class="<?php echo apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), '', $i ); ?>" id="edd_download_<?php echo get_the_ID(); ?>">
+			<div class="<?php echo apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), '', $i ); ?>" id="edd_download_<?php echo get_the_ID(); ?>">
 				<div class="edd_download_inner">
 
 					<?php
