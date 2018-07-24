@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
 	$('body').on('edd_cart_item_added', function( event, response ) {
 
-		$( '.navCart' ).removeClass('empty');
+		$( '.nav-cart' ).removeClass('empty');
 
 		if ( typeof themedd_scripts !== 'undefined' ) {
 			var textSingular = themedd_scripts.cartQuantityTextSingular,
@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 				cartText = ' ' + textSingular;
 			}
 
-			$('.navCart-quantityText').html( cartText );
+			$('.nav-cart-quantity-text').html( cartText );
 		}
 
 		cartTotalAmount.html( response.total );
@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
 				cartText = '0 ' + textPlural;
 			}
 
-			$('.navCart-quantityText').html( cartText );
+			$('.nav-cart-quantity-text').html( cartText );
 
 		}
 
