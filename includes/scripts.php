@@ -27,26 +27,24 @@ function themedd_scripts() {
 
 	wp_enqueue_script( 'themedd-js', get_theme_file_uri( '/assets/js/themedd' . $suffix . '.js' ), array( 'jquery' ), THEMEDD_VERSION, true );
 
+	$navbar_toggler_defaults = themedd_navbar_toggler_defaults();
+
+	$scripts = array(
+		'navMobile' => $navbar_toggler_defaults['target'],
+	);
+
 	// Load the nav cart.
 	if ( class_exists( 'Themedd_EDD_Nav_Cart' ) ) {
-		
 		$cart_option = Themedd_EDD_Nav_Cart::cart_option();
 
 		if ( 'item_quantity' === $cart_option || 'all' === $cart_option ) {
-			
 			$cart_quantity_text = Themedd_EDD_Nav_Cart::cart_quantity_text();
-			$navbar_toggler_defaults = themedd_navbar_toggler_defaults();
-
-			// Cart text
-			wp_localize_script( 'themedd-js', 'themedd_scripts', array(
-				'cartQuantityTextSingular' => $cart_quantity_text['singular'],
-				'cartQuantityTextPlural'   => $cart_quantity_text['plural'],
-				'navMobile'                => $navbar_toggler_defaults['target'],
-			) );
-
+			$scripts['cartQuantityTextSingular'] = $cart_quantity_text['singular'];
+			$scripts['cartQuantityTextPlural'] = $cart_quantity_text['plural'];
 		}
-
 	}
+
+	wp_localize_script( 'themedd-js', 'themedd_scripts', $scripts );
 
 	/**
 	 * Comments
