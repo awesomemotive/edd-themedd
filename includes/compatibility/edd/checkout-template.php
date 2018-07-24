@@ -338,12 +338,13 @@ function themedd_edd_payment_mode_select() {
 						$label         = apply_filters( 'edd_gateway_checkout_label_' . $gateway_id, $gateway['checkout_label'] );
 						$checked       = checked( $gateway_id, $chosen_gateway, false );
 						$checked_class = $checked ? ' edd-gateway-option-selected' : '';
+						$nonce         = ' data-' . esc_attr( $gateway_id ) . '-nonce="' . wp_create_nonce( 'edd-gateway-selected-' . esc_attr( $gateway_id ) ) .'"';
 						?>
 
 						<?php
 						echo '<div class="d-block d-sm-inline-flex form-check form-check-inline">';
 						
-						echo '<input type="radio" name="payment-mode" class="edd-gateway form-check-input" id="edd-gateway-' . esc_attr( $gateway_id ) . '" value="' . esc_attr( $gateway_id ) . '"' . $checked . '>';
+						echo '<input type="radio" name="payment-mode" class="edd-gateway form-check-input" id="edd-gateway-' . esc_attr( $gateway_id ) . '" value="' . esc_attr( $gateway_id ) . '"' . $checked . $nonce . '>';
 						
 						echo '<label for="edd-gateway-' . esc_attr( $gateway_id ) . '" class="form-check-label edd-gateway-option' . $checked_class . '" id="edd-gateway-option-' . esc_attr( $gateway_id ) . '">' . esc_html( $label ) . '</label>';
 
