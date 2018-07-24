@@ -6995,10 +6995,8 @@ a.text-dark:hover, a.text-dark:focus {
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px; }
-.no-sidebar .content-wrapper > .alignwide {
-  max-width: 1200px; }
-  .no-sidebar .content-wrapper > .alignwide.wp-block-cover-image {
-    max-width: 1170px; }
+.no-sidebar .content-wrapper > .alignwide.wp-block-cover-image {
+  max-width: 1170px; }
 .no-sidebar .content-wrapper > .alignfull {
   max-width: 100%;
   padding-left: 0;
