@@ -4016,11 +4016,11 @@
 	/**
 	 * EDD cart information in the header
 	 */
-	var cartTotalAmount = $('.navCart-cartTotalAmount');
+	var cartTotalAmount = $('.nav-cart-total-amount');
 
 	$('body').on('edd_cart_item_added', function( event, response ) {
 
-		$( '.navCart' ).removeClass('empty');
+		$( '.nav-cart' ).removeClass('empty');
 
 		if ( typeof themedd_scripts !== 'undefined' ) {
 			var textSingular = themedd_scripts.cartQuantityTextSingular,
@@ -4031,7 +4031,7 @@
 				cartText = ' ' + textSingular;
 			}
 
-			$('.navCart-quantityText').html( cartText );
+			$('.nav-cart-quantity-text').html( cartText );
 		}
 
 		cartTotalAmount.html( response.total );
@@ -4054,7 +4054,7 @@
 				cartText = '0 ' + textPlural;
 			}
 
-			$('.navCart-quantityText').html( cartText );
+			$('.nav-cart-quantity-text').html( cartText );
 
 		}
 
