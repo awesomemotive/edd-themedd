@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	/**
 	 * EDD cart information in the header
 	 */
-	var cartTotalAmount = $('.navCart-cartTotalAmount');
+	var cartTotalAmount = $('.nav-cart-total-amount');
 
 	$('body').on('edd_cart_item_added', function( event, response ) {
 
