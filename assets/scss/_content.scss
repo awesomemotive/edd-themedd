@@ -21,8 +21,6 @@
 
 	// For normal images
 	.content-wrapper > .alignwide {
-		max-width: 1200px;
-
 		// Cover images have the padding included so needs to be accounted for.
 		&.wp-block-cover-image {
 			max-width: 1170px;
