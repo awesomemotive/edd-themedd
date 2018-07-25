@@ -159,7 +159,7 @@ function themedd_navbar_toggler( $args = array() ) {
 		} ?>
 
 		<?php if ( $text_menu_hidden ) : ?>
-		<span class="navbar-toggler-text text-light ml-1"><?php echo $text_menu_hidden; ?></span>
+		<span class="navbar-toggler-text ml-1"><?php echo $text_menu_hidden; ?></span>
 		<?php endif; ?>
 	</button>
 	<?php endif;
