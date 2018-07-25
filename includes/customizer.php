@@ -1497,7 +1497,7 @@ function themedd_customize_partial_blogdescription() {
  * @return void
  */
 function themedd_customize_partial_header_search() {
-	themedd_load_search()->themedd_search_form();
+	themedd_load_search()->search_form();
 }
 
 /**
