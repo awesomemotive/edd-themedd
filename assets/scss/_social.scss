@@ -26,9 +26,9 @@
 
 .icon {
 	fill: currentColor;
-	color: $gray-600;
+	color: $icon-color;
 
 	&:hover {
-		color: rgba(0, 0, 0, 0.9);
+		color: $icon-hover-color;
 	}
 }
