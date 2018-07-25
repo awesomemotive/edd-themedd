@@ -262,22 +262,22 @@ function themedd_edd_is_distraction_free_checkout() {
  *
  * @since 1.1
  */
-function themedd_navbar_toggler_defaults() {
-	$defaults = apply_filters( 'themedd_navbar_toggler_defaults', 
-		array(
-			'target'           => 'nav-mobile',
-			'text_menu_hidden' => __( 'Menu', 'themedd' ),
-			'text_menu_shown'  => __( 'Close', 'themedd' ),
-			'icon_menu_hidden' => 'menu',
-			'icon_menu_shown'  => 'close-menu',
-			'button_classes'   => array( 'w-100 bg-dark py-3 d-flex d-' . themedd_menu_breakpoint() . '-none justify-content-center align-items-center' ),
-			'aria_label'       => __( 'Toggle navigation', 'themedd' ),
-		)
+function themedd_navbar_toggler_defaults( $args = array() ) {
+
+	$defaults = array(
+		'target'           => 'nav-mobile',
+		'text_menu_hidden' => __( 'Menu', 'themedd' ),
+		'text_menu_shown'  => __( 'Close', 'themedd' ),
+		'icon_menu_hidden' => 'menu',
+		'icon_menu_shown'  => 'close-menu',
+		'button_classes'   => array( 'w-100 py-3 d-flex d-' . themedd_menu_breakpoint() . '-none justify-content-center align-items-center' ),
+		'aria_label'       => __( 'Toggle navigation', 'themedd' ),
 	);
 
-	return $defaults;
-}
+	$args = wp_parse_args( $args, $defaults );
 
+	return apply_filters( 'themedd_navbar_toggler_defaults', $args );
+}
 
 /**
  * Set the breakpoint at which the mobile menu is hidden, and the primary navigation is shown.
