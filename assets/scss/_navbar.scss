@@ -5,6 +5,68 @@
 	padding-left: ($grid-gutter-width / 2); // 15px
 }
 
+// Navbar toggler.
+.navbar-toggler {
+	// Icon
+	.icon {
+		color: $navbar-toggler-icon-color;
+	}
+
+	// Sets to button color by default.
+	.navbar-toggler-text {
+		color: $navbar-toggler-text-color;
+	}
+
+}
+
+// Removes the dependency on the .navbar-light and .navbar-dark classes.
+
+.navbar-brand {
+	color: $navbar-active-color;
+
+	@include hover-focus {
+		color: $navbar-active-color;
+	}
+}
+
+.navbar-nav {
+	.nav-link {
+		color: $navbar-color;
+
+		@include hover-focus {
+			color: $navbar-hover-color;
+		}
+
+		&.disabled {
+			color: $navbar-disabled-color;
+		}
+	}
+
+	.show > .nav-link,
+	.active > .nav-link,
+	.nav-link.show,
+	.nav-link.active {
+		color: $navbar-active-color;
+	}
+}
+
+.navbar-toggler {
+	color: $navbar-color;
+	border-color: $navbar-toggler-border-color;
+	background: $navbar-toggler-bg;
+}
+
+.navbar-text {
+	color: $navbar-color;
+	a {
+		color: $navbar-active-color;
+
+		@include hover-focus {
+			color: $navbar-active-color;
+		}
+	}
+}
+
 @include media-breakpoint-up(md) {
 	#nav-primary {
 		.navbar-left {
