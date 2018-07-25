@@ -99,7 +99,9 @@ function themedd_navbar_toggler( $args = array() ) {
 		return false;
 	}
 
-	$args = wp_parse_args( $args, themedd_navbar_toggler_defaults() );
+	$toggler_defaults = themedd_navbar_toggler_defaults( $args );
+
+	$args = wp_parse_args( $args, $toggler_defaults );
 
 	$target = $args['target'];
 
