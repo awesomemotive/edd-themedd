@@ -24,7 +24,7 @@ add_action( 'themedd_site_header', 'themedd_skip_link' );
 function themedd_site_header() {
 
 	// Get the position of the cart.
-	$cart_position     = themedd_is_edd_active() ? themedd_edd_load_nav_cart()->cart_position() : false;
+	$cart_position = themedd_is_edd_active() ? themedd_edd_load_nav_cart()->cart_position() : false;
 
 	// Get the breakpoint at which the menus switch (mobile menu vs primary menu).
 	$breakpoint = themedd_menu_breakpoint();
@@ -34,9 +34,6 @@ function themedd_site_header() {
 	
 	// Centers .site-branding when Distraction Free checkout is enabled, otherwise left aligns it.
 	$container_classes[] = themedd_edd_is_distraction_free_checkout() ? 'text-center' : 'justify-content-' . $breakpoint . '-start';
-
-
-
 	?>
 	<header id="masthead" class="site-header" role="banner">
 
@@ -44,7 +41,7 @@ function themedd_site_header() {
 			<?php echo themedd_navbar_toggler(); ?>
 		</div>
 
-		<div id="navbar-mobile" class="navbar navbar-light px-0 px-<?php echo $breakpoint; ?>-3 py-0 d-<?php echo $breakpoint; ?>-none">
+		<div id="navbar-mobile" class="navbar px-0 px-<?php echo $breakpoint; ?>-3 py-0 d-<?php echo $breakpoint; ?>-none">
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-mobile">
 					<?php echo themedd_header_search( array( 'classes' => array( 'py-2' ) ) ); ?>
@@ -54,14 +51,12 @@ function themedd_site_header() {
 			</div>
 		</div>
 
-		<div class="navbar navbar-expand-<?php echo $breakpoint; ?> navbar-light px-0 py-0">
-
+		<div class="navbar navbar-expand-<?php echo $breakpoint; ?> px-0 py-0">
 			<div class="<?php echo themedd_output_classes( $container_classes ); ?>">
 
 				<?php echo themedd_site_branding(); ?>
 
 				<?php if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
-
 				<nav id="nav-secondary" class="navbar-collapse collapse justify-content-end">
 					<?php echo themedd_secondary_navigation( array( 'menu_classes' => array( 'navbar-right' ) ) ); ?>
 					<?php if ( 'secondary_menu' === $cart_position ) { echo themedd_nav_cart(); } ?>
@@ -73,7 +68,7 @@ function themedd_site_header() {
 		</div>
 
 		<?php if ( themedd_primary_navigation() ) : ?>
-		<div id="navbar-primary" class="navbar navbar-expand-<?php echo $breakpoint; ?> navbar-light px-0 py-0">
+		<div id="navbar-primary" class="navbar navbar-expand-<?php echo $breakpoint; ?> px-0 py-0">
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-primary">
 					<?php echo themedd_primary_navigation( array( 'menu_classes' => array( 'navbar-left' ) ) ); ?>
