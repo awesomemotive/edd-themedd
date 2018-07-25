@@ -101,12 +101,6 @@
 		}
 	}
 
-	.navbar-centered {
-		& > :first-child, 
-		& > :last-child { 
-			flex: 1;
-		}
-	}
 }
 
 // Allow the nav items to wrap on to a new line.
