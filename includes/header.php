@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Load the "skip" link onto the themedd_header hook found in /header.php.
+ * Load the "skip" link onto the themedd_site_header hook found in /header.php.
  *
  * @since 1.0.0
  */
@@ -17,31 +17,34 @@ function themedd_skip_link() {
 add_action( 'themedd_site_header', 'themedd_skip_link' );
 
 /**
- * Load the header section onto the themedd_header hook found in /header.php.
+ * Load the header section onto the themedd_site_header hook found in /header.php.
  *
  * @since 1.0.0
  */
 function themedd_site_header() {
 
-	$cart_position = themedd_is_edd_active() ? themedd_edd_load_nav_cart()->cart_position() : false;
+	// Get the position of the cart.
+	$cart_position     = themedd_is_edd_active() ? themedd_edd_load_nav_cart()->cart_position() : false;
+
+	// Get the breakpoint at which the menus switch (mobile menu vs primary menu).
+	$breakpoint = themedd_menu_breakpoint();
+
+	// Set up default container classes.
 	$container_classes = array( 'container py-3 justify-content-center' );
+	
+	// Centers .site-branding when Distraction Free checkout is enabled, otherwise left aligns it.
+	$container_classes[] = themedd_edd_is_distraction_free_checkout() ? 'text-center' : 'justify-content-' . $breakpoint . '-start';
 
-	if ( ! themedd_edd_is_distraction_free_checkout() ) {
-		$container_classes[] = 'justify-content-md-start';
-	}
 
-	if ( themedd_edd_is_distraction_free_checkout() ) {
-		$container_classes[] = 'text-center';
-	}
 
 	?>
 	<header id="masthead" class="site-header" role="banner">
 
-		<div class="navbar navbar-expand-md px-0 py-0">
+		<div class="navbar navbar-expand-<?php echo $breakpoint; ?> px-0 py-0">
 			<?php echo themedd_navbar_toggler(); ?>
 		</div>
 
-		<div id="navbar-mobile" class="navbar navbar-light px-0 px-md-3 py-0 d-md-none">
+		<div id="navbar-mobile" class="navbar navbar-light px-0 px-<?php echo $breakpoint; ?>-3 py-0 d-<?php echo $breakpoint; ?>-none">
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-mobile">
 					<?php echo themedd_header_search( array( 'classes' => array( 'py-2' ) ) ); ?>
@@ -51,7 +54,7 @@ function themedd_site_header() {
 			</div>
 		</div>
 
-		<div class="navbar navbar-expand-md navbar-light px-0 py-0">
+		<div class="navbar navbar-expand-<?php echo $breakpoint; ?> navbar-light px-0 py-0">
 
 			<div class="<?php echo themedd_output_classes( $container_classes ); ?>">
 
@@ -70,7 +73,7 @@ function themedd_site_header() {
 		</div>
 
 		<?php if ( themedd_primary_navigation() ) : ?>
-		<div id="navbar-primary" class="navbar navbar-expand-md navbar-light px-0 py-0">
+		<div id="navbar-primary" class="navbar navbar-expand-<?php echo $breakpoint; ?> navbar-light px-0 py-0">
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-primary">
 					<?php echo themedd_primary_navigation( array( 'menu_classes' => array( 'navbar-left' ) ) ); ?>
@@ -243,7 +246,7 @@ function themedd_primary_navigation( $args = array() ) {
 }
 
 /**
- * Loads the site's secondary navigation
+ * Loads the site's secondary navigation.
  *
  * @since 1.0.0
  */
@@ -300,7 +303,7 @@ function themedd_nav_cart( $args = array() ) {
 }
 
 /**
- * Load the header search
+ * Load the header search.
  *
  * @since 1.1
  */
@@ -309,7 +312,7 @@ function themedd_header_search( $args = array() ) {
 }
 
 /**
- * Load the site branding (site title, site description, logo) inside div.site-header-wrap.
+ * Load the site branding (site title, site description, logo).
  *
  * @since 1.0.0
  */
@@ -341,7 +344,7 @@ function themedd_site_branding() {
 	 */
 	$description = get_bloginfo( 'description', 'display' );
 	if ( $description || is_customize_preview() ) : ?>
-		<p class="site-description mb-0 d-none d-md-block"><?php echo $description; ?></p>
+		<p class="site-description mb-0 d-none d-<?php echo themedd_menu_breakpoint(); ?>-block"><?php echo $description; ?></p>
 	<?php endif; ?>
 	</div>
 
@@ -383,7 +386,7 @@ function themedd_header_image() {
 add_action( 'themedd_site_header', 'themedd_header_image' );
 
 /**
- * Themedd custom logo
+ * Themedd custom logo.
  *
  * @since 1.0.0
  */
