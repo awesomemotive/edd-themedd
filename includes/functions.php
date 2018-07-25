@@ -270,10 +270,22 @@ function themedd_navbar_toggler_defaults() {
 			'text_menu_shown'  => __( 'Close', 'themedd' ),
 			'icon_menu_hidden' => 'menu',
 			'icon_menu_shown'  => 'close-menu',
-			'button_classes'   => array( 'w-100 bg-dark py-3 d-flex d-md-none justify-content-center align-items-center' ),
+			'button_classes'   => array( 'w-100 bg-dark py-3 d-flex d-' . themedd_menu_breakpoint() . '-none justify-content-center align-items-center' ),
 			'aria_label'       => __( 'Toggle navigation', 'themedd' ),
 		)
 	);
 
 	return $defaults;
+}
+
+
+/**
+ * Set the breakpoint at which the mobile menu is hidden, and the primary navigation is shown.
+ * Possible values: sm | md (default) | lg | xl
+ * 
+ * @since 1.1
+ * @return string Breakpoint to hide mobile menu.
+ */
+function themedd_menu_breakpoint() {
+	return apply_filters( 'themedd_menu_breakpoint', 'md' );
 }
