@@ -8,11 +8,12 @@ $icon-color: $gray-600;
 $icon-hover-color: rgba($black, .9);
 
 // Navbar toggler.
-$navbar-toggler-icon-color: #fff;
-$navbar-toggler-bg: $gray-800;
-$navbar-toggler-border-color: rgba($black, .1);
-$navbar-toggler-text-color: #fff;
+$navbar-toggler-icon-color: #fff !default;
+$navbar-toggler-bg: $gray-800 !default;
+$navbar-toggler-border-color: rgba($black, .1) !default;
+$navbar-toggler-text-color: #fff !default;
 
+// Navbar.
 $navbar-color:  rgba($black, .5);
 $navbar-active-color: rgba($black, .9);
 $navbar-hover-color: rgba($black, .7);
