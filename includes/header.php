@@ -44,7 +44,7 @@ function themedd_site_header() {
 		<div id="navbar-mobile" class="navbar px-0 px-<?php echo $breakpoint; ?>-3 py-0 d-<?php echo $breakpoint; ?>-none">
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-mobile">
-					<?php echo themedd_header_search( array( 'classes' => array( 'py-2' ) ) ); ?>
+					<?php echo themedd_header_search( array( 'classes' => array( 'py-2 pt-3' ) ) ); ?>
 					<?php echo themedd_nav_cart( array( 'classes' => array( 'py-2' ) ) ); ?>
 					<?php echo themedd_mobile_menu(); ?>
 				</nav>
