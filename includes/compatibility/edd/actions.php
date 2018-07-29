@@ -197,3 +197,58 @@ function themedd_edd_set_distraction_free_checkout() {
 
 }
 add_action( 'template_redirect', 'themedd_edd_set_distraction_free_checkout' );
+
+/**
+ * Downloads pagination.
+ *
+ * @since  1.1
+ */
+function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() ) {
+	
+	if ( empty( $query ) ) {
+		return;
+	}
+
+	if ( filter_var( $atts['pagination'], FILTER_VALIDATE_BOOLEAN ) ) :
+
+		$pagination = false;
+
+		if ( is_single() ) {
+			$pagination = paginate_links( apply_filters( 'edd_download_pagination_args', array(
+				'base'    => get_permalink() . '%#%',
+				'format'  => '?paged=%#%',
+				'current' => max( 1, $query['paged'] ),
+				'total'   => $downloads->max_num_pages
+			), $atts, $downloads, $query ) );
+		} else {
+			$big = 999999;
+			$search_for   = array( $big, '#038;' );
+			$replace_with = array( '%#%', '&' );
+			$pagination = paginate_links( apply_filters( 'edd_download_pagination_args', array(
+				'base'    => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
+				'format'  => '?paged=%#%',
+				'current' => max( 1, $query['paged'] ),
+				'total'   => $downloads->max_num_pages,
+				'type' => 'array',
+				'prev_text' => __( 'Previous', 'themedd' ),
+				'next_text' => __( 'Next', 'themedd' ),
+			), $atts, $downloads, $query ) );
+		}
+
+		if ( ! empty( $pagination ) ) : ?>
+		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation">
+			<ul class="pagination justify-content-center mt-5">
+				<?php foreach ( $pagination as $page ) : 
+					$page = str_replace( 'page-numbers', 'page-link', $page );
+					$active = strpos( $page, 'current' ) !== false ? ' active' : '';
+				?>
+					<li class="page-item<?php echo $active; ?>"><?php echo $page; ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</nav>
+		<?php endif; ?>
+
+	<?php endif;
+}
+remove_action( 'edd_downloads_list_after', 'edd_downloads_pagination', 10, 3 );
+add_action( 'edd_downloads_list_after', 'themedd_edd_downloads_pagination', 10, 3 );

@@ -42,14 +42,24 @@ if ( ! function_exists( 'themedd_edd_download_nav' ) ) :
 			'base'    => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
 			'format'  => '?paged=%#%',
 			'current' => max( 1, get_query_var( 'paged' ) ),
-			'total'   => $wp_query->max_num_pages
+			'total'   => $wp_query->max_num_pages,
+			'type' => 'array',
+			'prev_text' => __( 'Previous', 'themedd' ),
+			'next_text' => __( 'Next', 'themedd' ),
 		) );
 		?>
 
 		<?php if ( ! empty( $pagination ) ) : ?>
-		<div id="edd_download_pagination" class="navigation">
-			<?php echo $pagination; ?>
-		</div>
+		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation">
+			<ul class="pagination justify-content-center mt-5">
+				<?php foreach ( $pagination as $page ) : 
+					$page = str_replace( 'page-numbers', 'page-link', $page );
+					$active = strpos( $page, 'current' ) !== false ? ' active' : '';
+				?>
+					<li class="page-item<?php echo $active; ?>"><?php echo $page; ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</nav>
 		<?php endif; ?>
 
 	<?php
