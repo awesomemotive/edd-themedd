@@ -27,28 +27,19 @@ themedd_header(
 	<?php endif; ?>
 
 		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-			<main id="main" class="site-main" role="main">
+			<main id="main" class="site-main content-wrapper" role="main">
 				
 				<?php if ( have_posts() ) : ?>
 
 					<?php if ( themedd_is_edd_active() && Themedd_Search::is_product_search_results() ) : ?>
 						
 					<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
-						
 						<?php while ( have_posts() ) : the_post(); ?>
-
 							<?php get_template_part( 'template-parts/download-grid' ); ?>
-
 						<?php endwhile; ?>
-					
-						<?php
-						/**
-						* Download pagination
-						*/
-						themedd_edd_download_nav();
-						?>
-								
 					</div>
+
+					<?php themedd_edd_download_nav(); ?>
 
 					<?php else : ?>
 					
