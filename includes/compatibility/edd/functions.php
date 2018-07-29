@@ -39,11 +39,11 @@ if ( ! function_exists( 'themedd_edd_download_nav' ) ) :
 		$replace_with = array( '%#%', '&' );
 
 		$pagination = paginate_links( array(
-			'base'    => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
-			'format'  => '?paged=%#%',
-			'current' => max( 1, get_query_var( 'paged' ) ),
-			'total'   => $wp_query->max_num_pages,
-			'type' => 'array',
+			'base'      => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
+			'format'    => '?paged=%#%',
+			'current'   => max( 1, get_query_var( 'paged' ) ),
+			'total'     => $wp_query->max_num_pages,
+			'type'      => 'array',
 			'prev_text' => __( 'Previous', 'themedd' ),
 			'next_text' => __( 'Next', 'themedd' ),
 		) );

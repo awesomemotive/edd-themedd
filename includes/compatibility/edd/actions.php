@@ -225,11 +225,11 @@ function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() )
 			$search_for   = array( $big, '#038;' );
 			$replace_with = array( '%#%', '&' );
 			$pagination = paginate_links( apply_filters( 'edd_download_pagination_args', array(
-				'base'    => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
-				'format'  => '?paged=%#%',
-				'current' => max( 1, $query['paged'] ),
-				'total'   => $downloads->max_num_pages,
-				'type' => 'array',
+				'base'      => str_replace( $search_for, $replace_with, get_pagenum_link( $big ) ),
+				'format'    => '?paged=%#%',
+				'current'   => max( 1, $query['paged'] ),
+				'total'     => $downloads->max_num_pages,
+				'type'      => 'array',
 				'prev_text' => __( 'Previous', 'themedd' ),
 				'next_text' => __( 'Next', 'themedd' ),
 			), $atts, $downloads, $query ) );
