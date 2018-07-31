@@ -21,9 +21,8 @@ function themedd_include_svg_icons() {
 				<circle cx="14" cy="20" r="2" transform="matrix(-1.14998 0 0 1.14998 25.8 -1.8)"/>
 			</symbol>
 
-			<symbol id="icon-search" viewBox="0 0 16 16">
-				<circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"/>
-				<path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"/>
+			<symbol id="icon-search" viewBox="0 0 24 24">
+			 	<path d="M22.4,20.6l-4-4C21.3,12.8,21,7.4,17.6,4C13.8,0.2,7.7,0.2,4,4s-3.7,9.8,0,13.6c1.9,1.9,4.3,2.8,6.8,2.8 c2,0,4.1-0.7,5.8-1.9l4,4c0.3,0.3,0.6,0.4,0.9,0.4s0.7-0.1,0.9-0.4C23,21.9,23,21.1,22.4,20.6z M5.9,15.7c-2.7-2.7-2.7-7.1,0-9.8 c1.4-1.4,3.1-2,4.9-2s3.5,0.7,4.9,2c2.7,2.7,2.7,7.1,0,9.8C13,18.4,8.6,18.4,5.9,15.7z"/>
 			</symbol>
 
 			<symbol id="icon-menu" viewBox="0 0 24 24">
