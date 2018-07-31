@@ -123,6 +123,7 @@ add_action( 'wp_footer', 'themedd_include_svg_icons', 9999 );
  * @return string SVG markup.
  */
 function themedd_get_svg( $args = array() ) {
+
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
 		return __( 'Please define default parameters in the form of an array.', 'themedd' );
@@ -135,15 +136,18 @@ function themedd_get_svg( $args = array() ) {
 
 	// Set defaults.
 	$defaults = array(
-		'icon'     => '',
-		'title'    => '',
-		'desc'     => '',
-		'fallback' => false,
-		'size'     => '24',
+		'icon'        => '',
+		'title'       => '',
+		'desc'        => '',
+		'fallback'    => false,
+		'size'        => '24',
+		'svg_classes' => array()
 	);
 
 	// Parse args.
 	$args = wp_parse_args( $args, $defaults );
+
+	$args['svg_classes'][] = 'icon icon-' . esc_attr( $args['icon'] );
 
 	// Set aria hidden.
 	$aria_hidden = ' aria-hidden="true"';
@@ -173,7 +177,7 @@ function themedd_get_svg( $args = array() ) {
 	}
 
 	// Begin SVG markup.
-	$svg = '<svg width="'.esc_attr( $args['size'] ).'" height="'.esc_attr( $args['size'] ).'" class="icon icon-' . esc_attr( $args['icon'] ) . '"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg width="'.esc_attr( $args['size'] ).'" height="'.esc_attr( $args['size'] ).'" class="'. themedd_output_classes( $args['svg_classes'] ).'"' . $aria_hidden . $aria_labelledby . ' role="img">';
 
 	// Display the title.
 	if ( $args['title'] ) {
