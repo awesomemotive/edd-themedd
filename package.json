@@ -11,6 +11,6 @@
     "matchdep": "^2.0.0"
   },
   "dependencies": {
-    "bootstrap": "^4.1.0"
+    "bootstrap": "^4.1.3"
   }
 }
