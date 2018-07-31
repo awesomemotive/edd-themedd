@@ -153,7 +153,8 @@ function themedd_edd_download_grid_options( $atts = array() ) {
 		'order'        => 'DESC',
 		'orderby'      => 'post_date',
 		'cards'        => false,
-		'align'        => ''
+		'align'        => '',
+		'size'         => 'thumbnail'
 	);
 
 	// Set alignment to "wide" for custom post type archive page.
