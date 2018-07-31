@@ -82,22 +82,24 @@ final class Themedd_Search {
 		}
 		
 		$defaults = array(
-			'classes' => array()
+			'form_classes' => array(),
+			'input_classes' => array(),
+			'placeholder' => true === self::restrict_header_search() ? apply_filters( 'themedd_search_products_text', esc_attr_x( 'Search products', 'placeholder', 'themedd' ) ) : apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) ),
+			'search_button' => true ? apply_filters( 'themedd_show_search_button', true ) : false
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$args['classes'][] = 'form-inline search-form';
+		$args['form_classes'][] = 'form-inline search-form';
+		$args['input_classes'][] = 'search-field form-control';
 
 		$unique_id = esc_attr( uniqid( 'search-form-' ) );
-
-		$search_text = true === self::restrict_header_search() ? apply_filters( 'themedd_search_products_text', esc_attr_x( 'Search products', 'placeholder', 'themedd' ) ) : apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) );
 
 		ob_start();
 		?>
 
-		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo themedd_output_classes( $args['classes'] ); ?>">
-			<div class="input-group w-100">
+		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo themedd_output_classes( $args['form_classes'] ); ?>">
+			<div class="input-group">
 				<label for="<?php echo $unique_id; ?>">
 					<?php
 					$search_label = true === self::restrict_header_search() ? _x( 'Search products:', 'label', 'themedd' ) : _x( 'Search for:', 'label', 'themedd' );
@@ -105,9 +107,9 @@ final class Themedd_Search {
 					<span class="sr-only"><?php echo $search_label; ?></span>
 				</label>	
 				
-				<input type="search" id="<?php echo $unique_id; ?>" class="search-field form-control" placeholder="<?php echo $search_text; ?>" value="<?php echo get_search_query(); ?>" name="s" />
+				<input type="search" id="<?php echo $unique_id; ?>" class="<?php echo themedd_output_classes( $args['input_classes'] ); ?>" placeholder="<?php echo $args['placeholder']; ?>" value="<?php echo get_search_query(); ?>" name="s" />
 
-				<?php if ( apply_filters( 'themedd_show_search_button', true ) ) : ?>
+				<?php if ( $args['search_button'] ) : ?>
 				<div class="input-group-append">
 					<button type="submit" class="search-submit btn btn-search"><span class="sr-only"><?php echo _x( 'Search', 'submit button', 'themedd' ); ?></span><?php echo self::search_icon(); ?></button>
 				</div>
