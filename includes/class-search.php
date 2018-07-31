@@ -172,7 +172,7 @@ final class Themedd_Search {
 	 * @return string $content The HTML of the SVG
 	 */
 	public static function search_icon() {
-		return themedd_get_svg( apply_filters( 'themedd_search_icon', array( 'icon' => 'search', 'size' => '16' ) ) );
+		return themedd_get_svg( apply_filters( 'themedd_search_icon', array( 'icon' => 'search', 'size' => '16', 'svg_classes' => array( 'align-middle' ) ) ) );
 	}
 
 	/**
