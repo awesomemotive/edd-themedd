@@ -32,13 +32,20 @@
 // Optional: May contain .eddDownloadMeta
 .downloadFooter {
 	margin: auto 0 0 0;
-}
 
-.edd_download_purchase_form {
-	margin-top: 1rem;
+	.edd_download_purchase_form {
+		margin-top: 1rem;
+	}
 }
 
 // EDD Price.
 .edd_price {
 	font-weight: 600;
+}
+
+// For backwards compatibility. Prior to EDD 2.9.7 the download pagination was
+// included within the download grid. The following forces the pagination to clear
+// the other downloads.
+#edd_download_pagination {
+	width: 100%;
 }
