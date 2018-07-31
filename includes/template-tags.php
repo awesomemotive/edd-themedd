@@ -228,7 +228,7 @@ function themedd_post_thumbnail() {
 
 	<?php else : ?>
 
-	<a class="post-thumbnail mb-3 mb-lg-4" href="<?php the_permalink(); ?>" aria-hidden="true">
+	<a class="post-thumbnail mb-3 mb-lg-4 d-block" href="<?php the_permalink(); ?>" aria-hidden="true">
 		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
 	</a>
 
