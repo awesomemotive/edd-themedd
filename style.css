@@ -7182,7 +7182,8 @@ span.required {
   padding-right: 15px;
   padding-left: 15px; }
 
-.navbar-toggler .icon {
+.navbar-toggler .icon,
+.navbar-toggler .icon:hover {
   color: #fff; }
 .navbar-toggler .navbar-toggler-text {
   color: #fff; }

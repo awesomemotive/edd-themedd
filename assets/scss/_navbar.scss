@@ -8,7 +8,8 @@
 // Navbar toggler.
 .navbar-toggler {
 	// Icon
-	.icon {
+	.icon,
+	.icon:hover {
 		color: $navbar-toggler-icon-color;
 	}
 
