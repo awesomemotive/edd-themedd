@@ -296,7 +296,7 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 	}
 
 	// Margins.
-	$classes[] = 'mb-5';
+	$classes[] = 'mb-7';
 
 	// Flexbox
 	$classes[] = 'd-flex';
