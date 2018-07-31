@@ -202,7 +202,7 @@ final class Themedd_EDD_Nav_Cart {
 		// Set up defaults.
 		$defaults = apply_filters( 'themedd_edd_cart_defaults',
 			array(
-				'classes'     => array( 'ml-lg-3' ),
+				'classes'     => array(),
 				'cart_link'   => isset( $args['cart_link'] ) ? $args['cart_link'] : edd_get_checkout_uri(),
 				'text_before' => isset( $args['text_before'] ) ? $args['text_before'] : '',
 				'text_after'  => isset( $args['text_after'] ) ? $args['text_after'] : '',
