@@ -17,6 +17,32 @@ function themedd_edd_price_enhancements() {
 }
 
 /**
+ * Get a download's price.
+ * Will either output "Free", "From $5.00" (lowest variable price), or "$5.00".
+ *
+ * @param int $download_id The download to get the price for. 
+ * @since 1.0.0
+ */
+function themedd_edd_get_price( $download_id ) {
+	
+	// Return early if price enhancements has been disabled.
+	if ( false === themedd_edd_price_enhancements() ) {
+		return;
+	}
+
+	if ( edd_is_free_download( $download_id ) ) {
+		$price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">' . __( 'Free', 'themedd' ) . '</span>';
+	} elseif ( edd_has_variable_prices( $download_id ) ) {
+		$price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">' . __( 'From', 'themedd' ) . '&nbsp;' . edd_currency_filter( edd_format_amount( edd_get_lowest_price_option( $download_id ) ) ) . '</span>';
+	} else {
+		$price = edd_price( $download_id, false );
+	}
+
+	return $price;
+
+}
+
+/**
  * Download navigation
  * This is used by archive-download.php, taxonomy-download_category.php, taxonomy-download_tag.php
  *

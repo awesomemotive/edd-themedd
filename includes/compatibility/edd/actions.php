@@ -11,32 +11,17 @@ function themedd_edd_download_details_widget( $instance, $download_id ) {
 add_action( 'edd_product_details_widget_before_purchase_button', 'themedd_edd_download_details_widget', 10, 2 );
 
 /**
- * Download price
+ * Download purchase price.
  *
- * @since 1.0.0
+ * @since 1.1
  */
 function themedd_edd_price( $download_id ) {
-
-	// Return early if price enhancements has been disabled.
-	if ( false === themedd_edd_price_enhancements() ) {
-		return;
-	}
-
-	if ( edd_is_free_download( $download_id ) ) {
-		$price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">' . __( 'Free', 'themedd' ) . '</span>';
-	} elseif ( edd_has_variable_prices( $download_id ) ) {
-		$price = '<span id="edd_price_' . get_the_ID() . '" class="edd_price">' . __( 'From', 'themedd' ) . '&nbsp;' . edd_currency_filter( edd_format_amount( edd_get_lowest_price_option( $download_id ) ) ) . '</span>';
-	} else {
-		$price = edd_price( $download_id, false );
-	}
-
-	return $price;
-
+	echo themedd_edd_get_price( $download_id );
 }
 add_action( 'themedd_edd_download_info', 'themedd_edd_price', 10, 1 );
 
 /**
- * Download purchase link
+ * Download purchase link.
  *
  * @since 1.0.0
  */
@@ -151,7 +136,6 @@ function themedd_edd_pre_get_posts( $query ) {
 	}
 
 }
-
 add_action( 'pre_get_posts', 'themedd_edd_pre_get_posts', 1 );
 
 /**
