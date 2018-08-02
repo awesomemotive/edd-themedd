@@ -4,7 +4,7 @@
  */
 
 /**
- * Determine if there's download meta
+ * Determine if there's download meta.
  *
  * @since 1.0.0
  *
@@ -28,7 +28,6 @@ function themedd_edd_has_download_meta() {
 	return $has_download_meta;
 
 }
-
 
 /**
  * Download meta position.
