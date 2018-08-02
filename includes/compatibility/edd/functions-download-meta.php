@@ -184,7 +184,15 @@ function themedd_edd_display_download_meta( $args = array() ) {
 	$price_link = $args['price_link'];
 
 	// Classes.
-	$classes = array( 'eddDownloadMeta' );
+	$classes = array( 'edd-download-meta', 'd-sm-flex', 'align-items-sm-center', 'justify-content-sm-between' );
+	
+	if ( 'after_title' === $args['position'] || 'before_title' === $args['position'] ) {
+		$classes[] = 'mb-3';
+	}
+
+	if ( 'after' === $args['position'] ) {
+		$classes[] = 'mt-3';
+	}
 
 	$echo = true;
 
@@ -207,9 +215,9 @@ function themedd_edd_display_download_meta( $args = array() ) {
 		if ( $price ) : ?>
 
 			<?php if ( $price_link ) : ?>
-				<a href="<?php the_permalink(); ?>" class="eddDownloadMeta-price"><?php echo themedd_edd_download_meta_price(); ?></a>
+				<a href="<?php the_permalink(); ?>" class="edd-download-meta-price"><?php echo themedd_edd_price(); ?></a>
 			<?php else : ?>
-				<span class="eddDownloadMeta-price"><?php echo themedd_edd_download_meta_price(); ?></span>
+				<div class="edd-download-meta-price"><?php echo themedd_edd_price(); ?></div>
 			<?php endif; ?>
 
 		<?php endif; ?>
@@ -229,9 +237,9 @@ function themedd_edd_display_download_meta( $args = array() ) {
 			?>
 
 			<?php if ( $author_link ) : ?>
-				<a class="eddDownloadMeta-author" href="<?php echo $vendor_url; ?>">
+				<a class="edd-download-meta-author d-flex align-items-center mt-2 mt-sm-0" href="<?php echo $vendor_url; ?>">
 			<?php else : ?>
-				<span class="eddDownloadMeta-author">
+				<div class="edd-download-meta-author d-flex align-items-center mt-2 mt-sm-0">
 			<?php endif; ?>
 
 				<?php
@@ -240,13 +248,13 @@ function themedd_edd_display_download_meta( $args = array() ) {
 				 */
 				?>
 				<?php if ( $avatar ) : ?>
-				<span class="eddDownloadMeta-authorAvatar">
+				<span class="edd-download-meta-author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, '', $vendor_store_name ); ?>
 				</span>
 				<?php endif; ?>
 
 				<?php if ( $author ) : ?>
-				<span class="eddDownloadMeta-authorName">
+				<span class="edd-download-meta-author-name">
 					<?php echo ! empty( $vendor_store_name ) ? $author_by . $vendor_store_name : $vendor_name; ?>
 				</span>
 				<?php endif; ?>
@@ -254,26 +262,26 @@ function themedd_edd_display_download_meta( $args = array() ) {
 			<?php if ( $author_link ) : ?>
 				</a>
 			<?php else : ?>
-				</span>
+				</div>
 			<?php endif; ?>
 
 		<?php else : ?>
 
-			<span class="eddDownloadMeta-author">
+			<div class="edd-download-meta-author d-flex align-items-center mt-2 mt-sm-0">
 
 				<?php if ( $avatar ) : ?>
-				<span class="eddDownloadMeta-authorAvatar">
+				<span class="edd-download-meta-author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), $avatar_size, '', $vendor_name ); ?>
 				</span>
 				<?php endif; ?>
 
 				<?php if ( $author ) : ?>
-				<span class="eddDownloadMeta-authorName">
+				<span class="edd-download-meta-author-name">
 					<?php echo $author_by . get_the_author_meta( 'display_name', $post->post_author ); ?>
 				</span>
 				<?php endif; ?>
 
-			</span>
+			</div>
 
 		<?php endif; ?>
 
