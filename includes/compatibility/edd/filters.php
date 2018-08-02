@@ -298,9 +298,6 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 	// Margins.
 	$classes[] = 'mb-7';
 
-	// Flexbox
-	$classes[] = 'd-flex';
-
 	// Implode the $classes array and return it as a string.
 	return implode( ' ', array_filter( $classes ) );
 
