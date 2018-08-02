@@ -210,7 +210,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 	) : 
 	?>
 
-	<div class="downloadFooter">
+	<div class="edd-download-footer mt-auto">
 		<?php
 
 		/**
