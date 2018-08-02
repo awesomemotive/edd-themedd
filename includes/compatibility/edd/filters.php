@@ -317,12 +317,6 @@ function themedd_edd_download_inner_class( $classes, $download_id, $edd_download
 
 	$download_grid_options = themedd_edd_download_grid_options( $edd_download_shortcode_item_atts );
 
-	if ( true === $download_grid_options['cards'] ) {
-		$classes[] = 'card';
-	}
-
-	$classes[] = 'd-flex flex-column w-100';
-
 	return implode( ' ', $classes );
 
 }
