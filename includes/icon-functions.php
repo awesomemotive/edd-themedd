@@ -26,12 +26,10 @@ function themedd_include_svg_icons() {
 			</symbol>
 
 			<symbol id="icon-menu" viewBox="0 0 24 24">
-				<rect x="0" y="0" width="24" height="24" style="fill:none;"/>
 				<path d="M3,18L21,18L21,16L3,16L3,18ZM3,13L21,13L21,11L3,11L3,13ZM3,6L3,8L21,8L21,6L3,6Z" />
 			</symbol>
 
 			<symbol id="icon-close-menu" viewBox="0 0 24 24">
-				<rect x="0" y="0" width="24" height="24" style="fill:none;"/>	
 				<path d="M6.343,4.929L4.929,6.343L17.657,19.071L19.071,17.657L6.343,4.929Z" />
 				<path d="M19.071,6.343L17.657,4.929L4.929,17.657L6.343,19.071L19.071,6.343Z" />
 			</symbol>
