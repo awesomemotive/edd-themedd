@@ -95,22 +95,9 @@ function themedd_edd_load_download_meta() {
 		return;
 	}
 
-	switch ( themedd_edd_download_meta_position() ) {
-
-		case 'after':
-			add_action( 'themedd_edd_download_footer_end', 'themedd_edd_download_meta_after' );
-			break;
-		
-		case 'after_title':
-			add_action( 'edd_download_after_title', 'themedd_edd_download_meta_after_title' );
-			break;
-
-		case 'before_title':
-			add_action( 'edd_download_before_title', 'themedd_edd_download_meta_before_title' );
-			break;
-
-	}
-
+	add_action( 'themedd_edd_download_footer_end', 'themedd_edd_download_meta_after' );
+	add_action( 'edd_download_after_title', 'themedd_edd_download_meta_after_title' );
+	add_action( 'edd_download_before_title', 'themedd_edd_download_meta_before_title' );
 }
 add_action( 'template_redirect', 'themedd_edd_load_download_meta' );
 
@@ -120,7 +107,13 @@ add_action( 'template_redirect', 'themedd_edd_load_download_meta' );
  * @since 1.0.0
  */
 function themedd_edd_download_meta_after() {
-	themedd_edd_display_download_meta( array( 'position' => 'after' ) );
+	$position = themedd_edd_download_meta_position();
+
+	if ( 'after' !== $position ) {
+		return;
+	}
+
+	themedd_edd_display_download_meta( array( 'position' => $position ) );
 }
 
 /**
@@ -129,7 +122,13 @@ function themedd_edd_download_meta_after() {
  * @since 1.0.0
  */
 function themedd_edd_download_meta_after_title() {
-	themedd_edd_display_download_meta( array( 'position' => 'after_title' ) );
+	$position = themedd_edd_download_meta_position();
+
+	if ( 'after_title' !== $position ) {
+		return;
+	}
+
+	themedd_edd_display_download_meta( array( 'position' => $position ) );
 }
 
 /**
@@ -138,7 +137,13 @@ function themedd_edd_download_meta_after_title() {
  * @since 1.0.0
  */
 function themedd_edd_download_meta_before_title() {
-	themedd_edd_display_download_meta( array( 'position' => 'before_title' ) );
+	$position = themedd_edd_download_meta_position();
+
+	if ( 'before_title' !== $position ) {
+		return;
+	}
+
+	themedd_edd_display_download_meta( array( 'position' => $position ) );
 }
 	
 /**
@@ -151,7 +156,8 @@ function themedd_edd_display_download_meta( $args = array() ) {
 	global $post;
 
 	$options = themedd_edd_download_meta_options();
-	$args    = wp_parse_args( $args, $options );
+
+	$args = wp_parse_args( $args, $options );
 
 	if ( empty( $args['position'] ) ) {
 		$args['position'] = 'after_title';
