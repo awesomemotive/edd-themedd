@@ -247,15 +247,15 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 	switch ( themedd_edd_download_meta_position() ) {
 
 		case 'before_title':
-			$classes[] = 'eddDownloadMeta-beforeTitle';
+			$classes[] = 'edd-download-meta-before-title';
 			break;
 
 		case 'after_title':
-			$classes[] = 'eddDownloadMeta-afterTitle';
+			$classes[] = 'edd-download-meta-after-title';
 			break;
 
 		case 'after':
-			$classes[] = 'eddDownloadMeta-after';
+			$classes[] = 'edd-download-meta-after';
 			break;
 					
 	}
