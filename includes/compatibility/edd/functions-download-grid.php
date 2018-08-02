@@ -254,15 +254,3 @@ function themedd_edd_download_footer( $atts = array() ) {
 
 	<?php
 }
-
-/**
- * The price shown in the download meta
- *
- * @since 1.0.0
- * @uses themedd_edd_price()
- */
-if ( ! function_exists( 'themedd_edd_download_meta_price' ) ):
-	function themedd_edd_download_meta_price() {
-		return themedd_edd_price();
-	}
-endif;
