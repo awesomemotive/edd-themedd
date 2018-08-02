@@ -56,11 +56,7 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 		</div>
 
 		<?php
-			/**
-			 * Download footer
-			 */
 			themedd_edd_download_footer( $edd_download_shortcode_item_atts );
-
 			do_action( 'edd_download_after' );
 		?>
 
