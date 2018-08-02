@@ -11,14 +11,23 @@ function themedd_edd_download_details_widget( $instance, $download_id ) {
 add_action( 'edd_product_details_widget_before_purchase_button', 'themedd_edd_download_details_widget', 10, 2 );
 
 /**
- * Download purchase price.
+ * Single download purchase price.
  *
  * @since 1.1
  */
-function themedd_edd_price( $download_id ) {
-	echo themedd_edd_get_price( $download_id );
+function themedd_edd_single_download_price( $download_id ) {
+
+	if ( ! is_singular( 'download' ) ) {
+		return;
+	}
+
+	?>
+	<div class="mb-3">
+	<?php echo themedd_edd_price( $download_id ); ?>
+	</div>
+	<?php
 }
-add_action( 'themedd_edd_download_info', 'themedd_edd_price', 10, 1 );
+add_action( 'themedd_edd_download_info', 'themedd_edd_single_download_price', 10, 1 );
 
 /**
  * Download purchase link.
