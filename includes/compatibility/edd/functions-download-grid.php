@@ -152,7 +152,6 @@ function themedd_edd_download_grid_options( $atts = array() ) {
 		'number'       => 9,
 		'order'        => 'DESC',
 		'orderby'      => 'post_date',
-		'cards'        => false,
 		'align'        => '',
 		'size'         => 'thumbnail'
 	);
