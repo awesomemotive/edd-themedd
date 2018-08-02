@@ -16,26 +16,18 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 ?>
 
 <div class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>" id="edd_download_<?php the_ID(); ?>">
-
 	<div class="<?php echo esc_attr( apply_filters( 'edd_download_inner_class', 'edd_download_inner', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>">
-
 	<?php
-
 		if ( true === $download_grid_options['thumbnails'] ) {
 			edd_get_template_part( 'shortcode', 'content-image' );
 			do_action( 'edd_download_after_thumbnail' );
 		}
-
 	?>
 
-	<?php if ( true === $download_grid_options['cards'] ) : ?>
-		<div class="card-body">
-	<?php endif; ?>
+		<div class="edd-download-body">
 
 		<?php
 			do_action( 'edd_download_before' );
-
-			
 
 			/**
 			 * Used by themedd_edd_download_meta_before_title()
@@ -60,19 +52,18 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 				do_action( 'edd_download_after_content' );
 			}
 
+		?>
+		</div>
+
+		<?php
 			/**
 			 * Download footer
 			 */
 			themedd_edd_download_footer( $edd_download_shortcode_item_atts );
 
 			do_action( 'edd_download_after' );
-
 		?>
 
-		<?php if ( true === $download_grid_options['cards'] ) : ?>
-		</div>
-		<?php endif; ?>
-
 	</div>
-
+		
 </div>
