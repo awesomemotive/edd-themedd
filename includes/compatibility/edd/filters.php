@@ -242,23 +242,25 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 
 	$themedd_classes = array();
 
-	// Add classes based on the position of the download meta.
-	switch ( themedd_edd_download_meta_position() ) {
+	if ( themedd_edd_has_download_meta() ) {
+		// Add classes based on the position of the download meta.
+		switch ( themedd_edd_download_meta_position() ) {
 
-		case 'before_title':
-			$themedd_classes['download_meta_position'] = 'edd-download-meta-before-title';
-			break;
+			case 'before_title':
+				$themedd_classes['download_meta_position'] = 'edd-download-meta-before-title';
+				break;
 
-		case 'after_title':
-			$themedd_classes['download_meta_position'] = 'edd-download-meta-after-title';
-			break;
+			case 'after_title':
+				$themedd_classes['download_meta_position'] = 'edd-download-meta-after-title';
+				break;
 
-		case 'after':
-			$themedd_classes['download_meta_position'] = 'edd-download-meta-after';
-			break;
+			case 'after':
+				$themedd_classes['download_meta_position'] = 'edd-download-meta-after';
+				break;
 
+		}
 	}
-
+	
 	// Change classes based on column count.
 	$options = themedd_edd_download_grid_options();
 
