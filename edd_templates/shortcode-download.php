@@ -17,6 +17,7 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 
 <div class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>" id="edd_download_<?php the_ID(); ?>">
 	<div class="<?php echo esc_attr( apply_filters( 'edd_download_inner_class', 'edd_download_inner', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>">
+	
 	<?php
 		if ( true === $download_grid_options['thumbnails'] ) {
 			edd_get_template_part( 'shortcode', 'content-image' );
