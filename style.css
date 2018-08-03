@@ -7178,6 +7178,14 @@ body {
 span.required {
   color: #dc3545; }
 
+li.custom-control {
+  padding-left: 1.25rem; }
+  li.custom-control .custom-control-label {
+    font-size: 0.875rem; }
+    li.custom-control .custom-control-label span {
+      margin-top: 0.0625rem;
+      display: inline-block; }
+
 .navbar > .container {
   padding-right: 15px;
   padding-left: 15px; }
