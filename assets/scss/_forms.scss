@@ -1,3 +1,16 @@
 span.required {
     color: $required-color;
 }
+
+li.custom-control {
+	padding-left: 1.25rem;
+
+	.custom-control-label {
+		font-size: 0.875rem;
+	
+		span {
+			margin-top: 0.0625rem;
+			display: inline-block;
+		}
+	}
+}
