@@ -236,28 +236,27 @@ add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrap
  *
  * @since 1.0.2
  *
- * @return string $classes The classes of the download
+ * @return string $class Classes for each download.
  */
 function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 
-	// Explode the string so we can work with it easier.
-	$classes = explode( ' ', $class );
+	$themedd_classes = array();
 
 	// Add classes based on the position of the download meta.
 	switch ( themedd_edd_download_meta_position() ) {
 
 		case 'before_title':
-			$classes[] = 'edd-download-meta-before-title';
+			$themedd_classes['download_meta_position'] = 'edd-download-meta-before-title';
 			break;
 
 		case 'after_title':
-			$classes[] = 'edd-download-meta-after-title';
+			$themedd_classes['download_meta_position'] = 'edd-download-meta-after-title';
 			break;
 
 		case 'after':
-			$classes[] = 'edd-download-meta-after';
+			$themedd_classes['download_meta_position'] = 'edd-download-meta-after';
 			break;
-					
+
 	}
 
 	// Change classes based on column count.
@@ -271,35 +270,36 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 		$columns = $options['columns'];
 	}
 
+	// Columns.
 	if ( $columns ) {
 		
 		switch ( $columns ) {
 
 			case 1:
-				$classes[] = 'col-12';
+				$themedd_classes['column_classes'] = 'col-12';
 				break;
 	
 			case 2:
-				$classes[] = 'col-12 col-lg-6';
+				$themedd_classes['column_classes'] = 'col-12 col-lg-6';
 				break;
 	
 			case 3:
-				$classes[] = 'col-12 col-lg-4';
+				$themedd_classes['column_classes'] = 'col-12 col-lg-4';
 				break;
 	
 			case 4:
-				$classes[] = 'col-12 col-md-6 col-xl-3';
+				$themedd_classes['column_classes'] = 'col-12 col-md-6 col-xl-3';
 				break;	
 
 		}
 
 	}
 
-	// Margins.
-	$classes[] = 'mb-7';
+	// Margin.
+	$themedd_classes['margin'] = 'mb-7';
 
-	// Implode the $classes array and return it as a string.
-	return implode( ' ', array_filter( $classes ) );
+	// Return the original $class string with our new classes appended to the end.
+	return $class .= ' ' . themedd_output_classes( apply_filters( 'themedd_edd_download_classes', $themedd_classes ) );
 
 }
 add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
