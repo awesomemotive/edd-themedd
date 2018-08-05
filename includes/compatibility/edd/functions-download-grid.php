@@ -186,6 +186,16 @@ function themedd_edd_download_grid_options( $atts = array() ) {
  */
 function themedd_edd_download_footer( $atts = array() ) {
 
+	$defaults = apply_filters( 'themedd_edd_download_footer_defaults', 
+		array(
+			'footer_classes' => array( 'mt-auto' )
+		)
+	);
+
+	$atts = wp_parse_args( $atts, $defaults );
+
+	$atts['footer_classes'][] = 'edd-download-footer';
+
 	// Pass the shortcode options into the download grid options.
 	$download_grid_options = themedd_edd_download_grid_options( $atts );
 
@@ -210,7 +220,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 	) : 
 	?>
 
-	<div class="edd-download-footer mt-auto">
+	<div class="<?php echo themedd_output_classes( $atts['footer_classes'] ); ?>">
 		<?php
 
 		/**
