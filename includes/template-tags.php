@@ -220,16 +220,27 @@ function themedd_post_thumbnail() {
 		return;
 	}
 
+	$defaults = array(
+		'classes'        => array( 'post-thumbnail', 'mb-3', 'mb-lg-4' ),
+		'post_thumbnail' => get_the_post_thumbnail()
+	);
+
+	if ( ! is_singular() ) {
+		$defaults['classes'][] = 'd-block';
+	}
+
+	$defaults = apply_filters( 'themedd_post_thumbnail_defaults', $defaults );
+
 	if ( is_singular() ) : ?>
 
-	<div class="post-thumbnail mb-3 mb-lg-4">
-		<?php the_post_thumbnail(); ?>
+	<div class="<?php echo themedd_output_classes( $defaults['classes'] ); ?>">
+		<?php echo $defaults['post_thumbnail']; ?>
 	</div>
 
 	<?php else : ?>
 
-	<a class="post-thumbnail mb-3 mb-lg-4 d-block" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
+	<a class="<?php echo themedd_output_classes( $defaults['classes'] ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true">
+		<?php echo $defaults['post_thumbnail']; ?>
 	</a>
 
 	<?php endif; // End is_singular()
