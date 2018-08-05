@@ -362,7 +362,7 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 0.875rem;
   font-weight: 400; }
 
 mark,
@@ -1499,7 +1499,7 @@ textarea.form-control {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
+  font-size: 0.875rem;
   color: #28a745; }
 
 .valid-tooltip {
@@ -1573,7 +1573,7 @@ textarea.form-control {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
+  font-size: 0.875rem;
   color: #dc3545; }
 
 .invalid-tooltip {
