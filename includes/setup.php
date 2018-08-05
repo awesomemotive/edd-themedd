@@ -103,7 +103,7 @@ add_action( 'after_setup_theme', 'themedd_setup' );
  */
 if ( ! function_exists( 'themedd_set_post_thumbnail_size' ) ) :
 	function themedd_set_post_thumbnail_size() {
-		set_post_thumbnail_size( 991, 9999 );
+		set_post_thumbnail_size( 770, 9999 );
 	}
 endif;
 
@@ -115,6 +115,6 @@ endif;
  * @global int $content_width
  */
 function themedd_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 991 );
+	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 770 );
 }
 add_action( 'after_setup_theme', 'themedd_content_width', 0 );
