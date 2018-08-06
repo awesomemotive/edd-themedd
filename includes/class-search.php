@@ -90,7 +90,7 @@ final class Themedd_Search {
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$args['form_classes'][] = 'form-inline search-form';
+		$args['form_classes'][] = 'search-form';
 		$args['input_classes'][] = 'search-field form-control';
 
 		$unique_id = esc_attr( uniqid( 'search-form-' ) );
