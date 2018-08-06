@@ -118,3 +118,20 @@ function themedd_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 770 );
 }
 add_action( 'after_setup_theme', 'themedd_content_width', 0 );
+
+/**
+ * Filters the maximum image width to be included in a ‘srcset’ attribute.
+ * This increases the max width to 2880 (from the default of 1600) so we can
+ * properly serve images to retina displays based on the featured image size. 
+ * 
+ * @since 1.1
+ * 
+ * @param int $max_width The maximum image width to be included in the 'srcset'. Default '1600'.
+ * @param array $size_array Array of width and height values in pixels (in that order).
+ */
+function themedd_max_srcset_image_width( $max_width, $size_array ) {
+	$max_width = 2880;
+
+	return $max_width;
+}
+add_filter( 'max_srcset_image_width', 'themedd_max_srcset_image_width', 10, 2 );
