@@ -64,6 +64,12 @@
 	padding-right: 0;
 }
 
+.entry-content.content-wrapper {
+	ul {
+		padding-left: 2rem;
+	}
+}
+
 @include media-breakpoint-up(xl) {
 
 	.no-sidebar .content-wrapper > *,
