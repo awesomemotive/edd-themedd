@@ -206,46 +206,53 @@ endif;
  *
  * @since 1.0.0
  */
-if ( ! function_exists( 'themedd_post_thumbnail' ) ) :
-function themedd_post_thumbnail() {
+
+function themedd_post_thumbnail( $args = array() ) {
 
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
 
 	/**
-	 * Allow developers to remove the post thumbnail
+	 * Allow developers to remove the post thumbnail.
 	 */
 	if ( ! apply_filters( 'themedd_post_thumbnail', true ) ) {
 		return;
 	}
 
-	$defaults = array(
-		'classes'        => array( 'post-thumbnail', 'mb-3', 'mb-lg-4' ),
-		'post_thumbnail' => get_the_post_thumbnail()
+	$defaults = apply_filters( 'themedd_post_thumbnail_defaults',
+		array(
+			'classes' => array( 'post-thumbnail', 'mb-3', 'mb-lg-4', 'd-flex', 'justify-content-center' ),
+			'size'    => 'post-thumbnail',
+		)
 	);
 
 	if ( ! is_singular() ) {
 		$defaults['classes'][] = 'd-block';
 	}
 
-	$defaults = apply_filters( 'themedd_post_thumbnail_defaults', $defaults );
+	$args = wp_parse_args( $args, $defaults );
+
+	// Create the post thumbnail.
+	$post_thumbnail = get_the_post_thumbnail( get_the_ID(), $args['size'] );
+
+	// Classes.
+	$classes = $args['classes'];
 
 	if ( is_singular() ) : ?>
 
-	<div class="<?php echo themedd_output_classes( $defaults['classes'] ); ?>">
-		<?php echo $defaults['post_thumbnail']; ?>
+	<div class="<?php echo themedd_output_classes( $classes ); ?>">
+		<?php echo $post_thumbnail; ?>
 	</div>
 
 	<?php else : ?>
 
-	<a class="<?php echo themedd_output_classes( $defaults['classes'] ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php echo $defaults['post_thumbnail']; ?>
+	<a class="<?php echo themedd_output_classes( $classes ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true">
+		<?php echo $post_thumbnail; ?>
 	</a>
 
-	<?php endif; // End is_singular()
+	<?php endif;
 }
-endif;
 
 /**
  * Output a class attribute with its values, given an array, or strings
@@ -388,13 +395,13 @@ function themedd_paging_nav() {
 
 		<h1 class="sr-only"><?php _e( 'Posts navigation', 'themedd' ); ?></h1>
 
-		<div class="nav-links">
+		<div class="nav-links d-flex justify-content-between">
 			<?php if ( get_next_posts_link() ) : ?>
 			<div class="nav-previous"><?php next_posts_link( $defaults['next_posts_link'] ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( $defaults['previous_posts_link'] ); ?></div>
+			<div class="nav-next ml-auto"><?php previous_posts_link( $defaults['previous_posts_link'] ); ?></div>
 			<?php endif; ?>
 
 		</div>
