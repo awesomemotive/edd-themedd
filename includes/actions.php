@@ -1,17 +1,6 @@
 <?php
 
 /**
- * Show the featured image on the themedd_article_start hook.
- * This allows us to remove the featured image dynamically where needed.
- *
- * @since 1.0.0
- */
-function themedd_show_post_thumbnail() {
-	themedd_post_thumbnail();
-}
-add_action( 'themedd_article_start', 'themedd_show_post_thumbnail' );
-
-/**
  * Show the entry footer info (Categories and tags + edit link).
  *
  * @since 1.0.0
