@@ -7027,17 +7027,43 @@ a.text-dark:hover, a.text-dark:focus {
 .alignwide {
   margin-bottom: 2rem; }
 
-.no-sidebar .content-wrapper > * {
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 15px;
-  padding-left: 15px; }
-.no-sidebar .content-wrapper > .alignwide.wp-block-cover-image {
-  max-width: 1170px; }
-.no-sidebar .content-wrapper > .alignfull {
-  max-width: 100%;
-  padding-left: 0;
-  padding-right: 0; }
+.wp-block-embed.is-type-video iframe {
+  width: 100%; }
+
+.entry-content.content-wrapper > ul:not(.wp-block-gallery) {
+  padding-left: 2rem;
+  width: 100%; }
+
+.wp-block-gallery {
+  margin-left: 0;
+  margin-right: 0; }
+
+.entry-content.content-wrapper .wp-block-gallery {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; }
+
+.no-sidebar .content-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .no-sidebar .content-wrapper > * {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%; }
+  .no-sidebar .content-wrapper .wp-block-separator {
+    width: auto; }
+  .no-sidebar .content-wrapper .edd_downloads_list {
+    padding-left: 0;
+    padding-right: 0; }
+  .no-sidebar .content-wrapper > .alignwide.wp-block-cover-image {
+    max-width: 1170px; }
+  .no-sidebar .content-wrapper > .alignfull {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0; }
 .no-sidebar .container-fluid {
   padding-left: 0;
   padding-right: 0; }
@@ -7045,7 +7071,7 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
   .no-sidebar figure.alignfull img {
     width: 100%; }
-.no-sidebar .wp-block-embed.is-type-video iframe {
+.no-sidebar .wp-block-embed {
   width: 100%; }
 @media (min-width: 576px) {
   .no-sidebar .content-wrapper > * {
@@ -7060,14 +7086,10 @@ a.text-dark:hover, a.text-dark:focus {
   .no-sidebar .content-wrapper > * {
     max-width: 1200px; } }
 
-.no-sidebar .edd_downloads_list {
-  padding-left: 0;
-  padding-right: 0; }
-
 @media (min-width: 1200px) {
   .no-sidebar .content-wrapper > *,
   .no-sidebar #comments {
-    max-width: 740px; }
+    max-width: 770px; }
 
   .no-sidebar .content-wrapper > .alignwide {
     max-width: 1200px; }
@@ -7246,6 +7268,9 @@ li.custom-control {
 
 .post-navigation .meta-nav {
   color: rgba(0, 0, 0, 0.5); }
+
+figure.wp-caption {
+  max-width: 100%; }
 
 .site-footer {
   background: #fff; }
