@@ -10,27 +10,65 @@
 	margin-bottom: 2rem;
 }
 
+.wp-block-embed.is-type-video iframe {
+	width: 100%;
+}
+
+.entry-content.content-wrapper {
+	> ul:not(.wp-block-gallery) {
+		padding-left: 2rem;
+		width: 100%;
+	}
+
+}
+
+.wp-block-gallery {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.entry-content.content-wrapper {
+
+	.wp-block-gallery {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+}
+
 .no-sidebar {
 
-	.content-wrapper > * {
-		margin-left: auto;
-		margin-right: auto;
-		padding-right: ($grid-gutter-width / 2);
- 		padding-left: ($grid-gutter-width / 2);
-	}
+	.content-wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
 
-	// For normal images
-	.content-wrapper > .alignwide {
-		// Cover images have the padding included so needs to be accounted for.
-		&.wp-block-cover-image {
-			max-width: 1170px;
+		> * {
+			padding-left: ($grid-gutter-width / 2);
+			padding-right: ($grid-gutter-width / 2);
+			width: 100%;
 		}
-	}
 
-	.content-wrapper > .alignfull {
-		max-width: 100%;
-		padding-left: 0;
-		padding-right: 0;
+		.wp-block-separator {
+			width: auto;
+		}
+
+		.edd_downloads_list {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		> .alignwide {
+			&.wp-block-cover-image {
+				max-width: 1170px; // Cover images have the padding included so needs to be accounted for.
+			}
+		}
+
+		> .alignfull {
+			max-width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 	}
 
 	.container-fluid {
@@ -47,7 +85,7 @@
 		
 	}
 
-	.wp-block-embed.is-type-video iframe {
+	.wp-block-embed {
 		width: 100%;
 	}
 
@@ -59,22 +97,11 @@
 
 }
 
-.no-sidebar .edd_downloads_list {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.entry-content.content-wrapper {
-	ul {
-		padding-left: 2rem;
-	}
-}
-
 @include media-breakpoint-up(xl) {
 
 	.no-sidebar .content-wrapper > *,
 	.no-sidebar #comments {
-		max-width: 740px;
+		max-width: 770px;
 	} 
 
 	.no-sidebar .content-wrapper > .alignwide {
