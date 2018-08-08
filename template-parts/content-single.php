@@ -6,11 +6,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php
-	/**
-	 * The featured image is loaded onto this hook
-	 */
-	do_action( 'themedd_article_start' ); ?>
+	<?php do_action( 'themedd_entry_article_start' ); ?>
+
+	<?php themedd_post_thumbnail( array( 'size' => 'themedd-featured-image' ) ); ?>
 
 	<div class="entry-content content-wrapper">
 
