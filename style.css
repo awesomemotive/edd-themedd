@@ -7089,7 +7089,7 @@ a.text-dark:hover, a.text-dark:focus {
 @media (min-width: 1200px) {
   .no-sidebar .content-wrapper > *,
   .no-sidebar #comments {
-    max-width: 770px; }
+    max-width: 750px; }
 
   .no-sidebar .content-wrapper > .alignwide {
     max-width: 1200px; }
@@ -7177,7 +7177,6 @@ body {
 
 .single .entry-content p {
   font-size: 1.125rem;
-  line-height: 1.7;
   margin-bottom: 2rem; }
 
 #nav-secondary {
@@ -7485,6 +7484,9 @@ a.edd-add-to-cart .edd-add-to-cart-label,
 
 .widget_edd_product_details .edd_price {
   font-size: 1.5rem; }
+
+.single-download #main {
+  max-width: 720px; }
 
 .edd_form legend {
   float: left; }
