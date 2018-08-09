@@ -222,8 +222,8 @@ function themedd_post_thumbnail( $args = array() ) {
 
 	$defaults = apply_filters( 'themedd_post_thumbnail_defaults',
 		array(
-			'classes' => array( 'post-thumbnail', 'mb-3', 'mb-lg-4', 'd-flex', 'justify-content-center' ),
-			'size'    => 'post-thumbnail',
+			'classes' => array( 'post-thumbnail', 'mb-3', 'mb-lg-5', 'd-flex', 'justify-content-center' ),
+			'size'    => 'themedd-featured-image',
 		)
 	);
 
