@@ -9,7 +9,7 @@
 
 	<?php do_action( 'themedd_entry_article_start' ); ?>
 
-    <?php themedd_post_thumbnail(); ?>
+    <?php themedd_post_thumbnail( array( 'size' => 'themedd-standard-image' ) ); ?>
 
     <div class="entry-content content-wrapper">
 
