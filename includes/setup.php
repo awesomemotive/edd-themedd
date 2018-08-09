@@ -123,17 +123,6 @@ endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
 
 /**
- * Set the post thumbnail size (aka featured image)
- *
- * @since 1.0.0
- */
-if ( ! function_exists( 'themedd_set_post_thumbnail_size' ) ) :
-	function themedd_set_post_thumbnail_size() {
-		set_post_thumbnail_size( 770, 9999 );
-	}
-endif;
-
-/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -141,7 +130,7 @@ endif;
  * @global int $content_width
  */
 function themedd_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 770 );
+	$GLOBALS['content_width'] = apply_filters( 'themedd_content_width', 720 );
 }
 add_action( 'after_setup_theme', 'themedd_content_width', 0 );
 
@@ -156,8 +145,35 @@ add_action( 'after_setup_theme', 'themedd_content_width', 0 );
  * @param array $size_array Array of width and height values in pixels (in that order).
  */
 function themedd_max_srcset_image_width( $max_width, $size_array ) {
-	$max_width = 2880;
+
+	$width = $size_array[0];
+
+	if ( $width === 720 ) {
+		$max_width = 1440;
+	}
+
+	if ( $width === 1440 ) {
+		$max_width = 2880;
+	}
 
 	return $max_width;
+
 }
 add_filter( 'max_srcset_image_width', 'themedd_max_srcset_image_width', 10, 2 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for content images.
+ *
+ * @since 1.1
+ *
+ * @param string $sizes A source size value for use in a 'sizes' attribute.
+ * @param array  $size  Image size. Accepts an array of width and height
+ *                      values in pixels (in that order).
+ * @return string A source size value for use in a content image 'sizes' attribute.
+ */
+function themedd_content_image_sizes_attr( $sizes, $size ) {
+	$sizes = '(max-width: 1440px) 100vw, 1440px';
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'themedd_content_image_sizes_attr', 10, 2 );
