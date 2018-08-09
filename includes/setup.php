@@ -42,10 +42,36 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 	 	 *
 	 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 	 */
-	 	add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'post-thumbnails' );
 
-		themedd_set_post_thumbnail_size();
+		/*
+		 * Standard image.
+		 * 
+		 * Used by:
+		 * Single download images in Easy Digital Downloads.
+		 * Images that are shown in single columns.
+		 */
+		add_image_size( 'themedd-standard-image', 720, 9999 );
+
+		/*
+		 * Featured image.
+		 * 
+		 * Used by:
+		 * Images made full width by the Gutenberg "Full width" control.
+		 * Featured images on pages and posts.
+		 * Retina displays when viewing the themedd-standard-image image size
+		 */
+		add_image_size( 'themedd-featured-image', 1440, 9999 );
+
+		/*
+		 * Featured image @ 2x resolution.
+		 * 
+		 * Used by:
+		 * Retina displays when viewing the themedd-featured-image image size.
+		 */
+		add_image_size( 'themedd-featured-image-2x', 2880, 9999 );
+
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		// Register menus
 		register_nav_menus( array(
