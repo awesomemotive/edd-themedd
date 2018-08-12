@@ -8,6 +8,7 @@ themedd_header( array( 'title' => single_term_title( '', false ), 'subtitle' => 
 ?>
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 	<main id="main" class="site-main" role="main">
+		<div class="entry-content content-wrapper">
 		<?php if ( have_posts() ) : ?>
 			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -16,6 +17,7 @@ themedd_header( array( 'title' => single_term_title( '', false ), 'subtitle' => 
 			</div>
 			<?php themedd_edd_download_nav(); ?>
 		<?php endif; ?>
+		</div>
 	</main>
 </div>
 <?php
