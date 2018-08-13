@@ -1187,7 +1187,7 @@ function themedd_customize_register( $wp_customize ) {
 		'menu_mobile_search_text_color',
 		array(
 			'label'       => __( 'Mobile Search Text Color', 'themedd' ),
-			'description' => __( 'The color of the search box in the mobile menu.', 'themedd' ),
+			'description' => __( 'The color of the search box text in the mobile menu.', 'themedd' ),
 			'settings'    => 'colors[menu_mobile_search_text_color]',
 			'section'     => 'mobile_device_colors',
 		)
