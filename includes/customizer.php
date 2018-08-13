@@ -1283,6 +1283,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#nav-mobile .search-field { color:' . $color . '; }';
 			}
 
+			// Mobile search icon color. 
+			$color = themedd_customize_get_color( 'menu_mobile_search_icon_color' );
+			if ( $color ) {
+				echo '#nav-mobile .icon-search { color:' . $color . '; }';
+			}
+
 			?>
 		</style>
 		<?php endif; ?>

@@ -569,8 +569,8 @@
 	wp.customize('colors[menu_mobile_search_icon_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#mobile-menu .search-form .search-submit svg *')
-			.css('stroke', to ? to : defaults.menu_mobile_search_icon_color )
+			jQuery('#nav-mobile .icon-search')
+			.css('color', to ? to : defaults.menu_mobile_search_icon_color )
 		});
 
 	});	
