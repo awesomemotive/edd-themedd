@@ -7214,7 +7214,8 @@ li.custom-control {
 .navbar-toggler .icon,
 .navbar-toggler .icon:hover {
   color: #fff; }
-.navbar-toggler .navbar-toggler-text {
+
+.navbar-toggler-text {
   color: #fff; }
 
 .navbar-brand {
@@ -7537,7 +7538,5 @@ span.card-type.amex {
     color: rgba(0, 0, 0, 0.7);
     text-decoration: none; }
 
-.nav-cart-icon {
-  fill: #6c757d; }
-  .nav-cart-icon + * {
-    margin-left: 0.5rem; }
+.nav-cart-icon + * {
+  margin-left: 0.5rem; }
