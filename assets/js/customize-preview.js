@@ -559,7 +559,7 @@
 	wp.customize('colors[menu_mobile_search_text_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#mobile-menu .search-form .search-field')
+			jQuery('#nav-mobile .search-field')
 			.css('color', to ? to : defaults.menu_mobile_search_text_color )
 		});
 

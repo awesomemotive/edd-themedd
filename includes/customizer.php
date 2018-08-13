@@ -1277,6 +1277,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#nav-mobile .search-field, #nav-mobile .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
 			}
 
+			// Mobile search text color.
+			$color = themedd_customize_get_color( 'menu_mobile_search_text_color' );
+			if ( $color ) {
+				echo '#nav-mobile .search-field { color:' . $color . '; }';
+			}
+
 			?>
 		</style>
 		<?php endif; ?>
