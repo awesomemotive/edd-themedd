@@ -1386,11 +1386,10 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			/**
 			 * Mobile menu
 			 */
-
 			// Mobile menu button background color.
 	 		if ( isset( $colors['menu_mobile_button_background_color'] ) ) {
-	 			echo '#menu-toggle { background:' . $colors['menu_mobile_button_background_color'] . '; border-color: ' . $colors['menu_mobile_button_background_color'] . '; }';
-	 		}
+	 			echo '.navbar-toggler { background:' . $colors['menu_mobile_button_background_color'] . '; border-color: ' . $colors['menu_mobile_button_background_color'] . '; }';
+			}
 
 			// Mobile menu button background color.
 	 		if ( isset( $colors['menu_mobile_button_text_color'] ) ) {
