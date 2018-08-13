@@ -461,7 +461,7 @@
 	wp.customize('colors[menu_mobile_button_background_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#menu-toggle')
+			jQuery('.navbar-toggler')
 			.css('background', to ? to : defaults.menu_mobile_button_background_color )
 			.css('border-color', to ? to : defaults.menu_mobile_button_background_color );
 		});
