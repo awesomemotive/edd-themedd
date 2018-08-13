@@ -1259,8 +1259,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 	 			echo '#navbar-mobile { background:' .  $color . '; }';
 	 		}
 
-			
-
+			// Mobile menu link color.
+			$color = themedd_customize_get_color( 'menu_mobile_link_color' );
+			if ( $color ) {
+				echo '#navbar-mobile .nav-link, #navbar-mobile .nav-cart { color:' . $color . '; }';
+			}
 
 			?>
 		</style>

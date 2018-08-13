@@ -491,7 +491,7 @@
 	wp.customize('colors[menu_mobile_link_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#mobile-menu a, .dropdown-toggle').css('color', to ? to : defaults.menu_mobile_link_color );
+			jQuery('#navbar-mobile .nav-link, #navbar-mobile .nav-cart').css('color', to ? to : defaults.menu_mobile_link_color );
 		});
 
 	});
