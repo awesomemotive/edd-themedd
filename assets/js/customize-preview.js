@@ -457,6 +457,16 @@
 	 * Mobile menu
 	 */
 
+	// Mobile cart icon color.
+	wp.customize('colors[mobile_cart_icon_color]', function( value ) {
+
+		value.bind(function( to ) {
+			jQuery('#nav-mobile .nav-cart-icon .icon')
+				.css('fill', to ? to : defaults.cart_icon_color );
+		});
+
+	});
+
 	// Mobile menu button background color.
 	wp.customize('colors[menu_mobile_button_background_color]', function( value ) {
 

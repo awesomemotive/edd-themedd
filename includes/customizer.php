@@ -1265,6 +1265,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-mobile .nav-link, #navbar-mobile .nav-cart { color:' . $color . '; }';
 			}
 
+			// Mobile cart icon color.
+			$color = themedd_customize_get_color( 'mobile_cart_icon_color' );
+			if ( $color ) {
+				echo '#nav-mobile .nav-cart-icon .icon { color:' . $color . '; }';
+			}
+
 			?>
 		</style>
 		<?php endif; ?>
