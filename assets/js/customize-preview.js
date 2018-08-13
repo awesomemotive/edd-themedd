@@ -462,8 +462,8 @@
 
 		value.bind(function( to ) {
 			jQuery('.navbar-toggler')
-			.css('background', to ? to : defaults.menu_mobile_button_background_color )
-			.css('border-color', to ? to : defaults.menu_mobile_button_background_color );
+				.css('background', to ? to : '' )
+				.css('border-color', to ? to : '' );
 		});
 
 	});
@@ -472,7 +472,8 @@
 	wp.customize('colors[menu_mobile_button_text_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#menu-toggle').css('color', to ? to : defaults.menu_mobile_button_text_color )
+			jQuery('.navbar-toggler-text').css('color', to ? to : '' )
+			jQuery('.navbar-toggler .icon').css('color', to ? to : '' )
 		});
 
 	});
