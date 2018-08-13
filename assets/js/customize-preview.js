@@ -482,7 +482,7 @@
 	wp.customize('colors[menu_mobile_background_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#mobile-menu').css('background', to ? to : defaults.menu_mobile_background_color );
+			jQuery('#navbar-mobile').css('background', to ? to : '' );
 		});
 
 	});

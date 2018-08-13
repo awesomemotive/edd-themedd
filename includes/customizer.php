@@ -1238,22 +1238,30 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			/**
 			 * Mobile menu
 			 */
-			
+
 			// Mobile menu button background color.
 			$color = themedd_customize_get_color( 'menu_mobile_button_background_color' );
 			
 			if ( $color ) {
 				echo '.navbar-toggler { background:' . $color . '; border-color: ' . $color . '; }';
 			}
-			
+
 			// Mobile menu button text (and icon) color.
 			$color = themedd_customize_get_color( 'menu_mobile_button_text_color' );
 
 	 		if ( $color ) {
 	 			echo '.navbar-toggler-text { color:' . $color . '; }' . '.navbar-toggler .icon { color:' . $color . '; }';
 			}
-			 
-	
+
+			// Mobile menu background color.
+			$color = themedd_customize_get_color( 'menu_mobile_background_color' );
+			if ( $color ) {
+	 			echo '#navbar-mobile { background:' .  $color . '; }';
+	 		}
+
+			
+
+
 			?>
 		</style>
 		<?php endif; ?>
