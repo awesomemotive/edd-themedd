@@ -7235,8 +7235,7 @@ li.custom-control {
   color: rgba(0, 0, 0, 0.9); }
 
 .navbar-toggler {
-  color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: #343a40;
   background: #343a40; }
 
 .navbar-text {
