@@ -544,8 +544,13 @@
 	wp.customize('colors[menu_mobile_search_background_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('#mobile-menu .search-form .search-field, #mobile-menu .search-form .search-submit')
-			.css('background', to ? to : defaults.menu_mobile_search_background_color )
+			jQuery('#nav-mobile .search-field, #nav-mobile .btn-search')
+				.css('backgroundColor', to ? to : defaults.menu_mobile_search_background_color )
+				.css('borderColor', to ? to : defaults.menu_mobile_search_background_color )
+
+			// Turn off transitions.
+			jQuery('#nav-mobile .form-control, #nav-mobile .btn-search').css('transition', 'none');
+
 		});
 
 	});

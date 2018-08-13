@@ -1271,6 +1271,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#nav-mobile .nav-cart-icon .icon { color:' . $color . '; }';
 			}
 
+			// Mobile search background color.
+			$color = themedd_customize_get_color( 'menu_mobile_search_background_color' );
+			if ( $color ) {
+				echo '#nav-mobile .search-field, #nav-mobile .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
+			}
+
 			?>
 		</style>
 		<?php endif; ?>
