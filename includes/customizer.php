@@ -1228,18 +1228,8 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		if ( ! apply_filters( 'themedd_customize_color_options', true ) ) {
 			return;
 		}
-
-		// Get the default colors to compare against.
-		$defaults = themedd_customize_color_defaults();
-
+		
 		$colors = get_theme_mod( 'colors' );
-
-		// Merge the $colors and $defaults.
-		$colors = wp_parse_args( $colors, $defaults );
-
-		if ( $colors ) {
-			$colors = array_filter( $colors );
-		}
 
 		if ( ! empty( $colors ) ) : ?>
 			<style id="themedd-custom-css" type="text/css">
@@ -1248,10 +1238,13 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			/**
 			 * Mobile menu
 			 */
-			// Mobile menu button background color.
-	 		if ( isset( $colors['menu_mobile_button_background_color'] ) ) {
-	 			echo '.navbar-toggler { background:' . $colors['menu_mobile_button_background_color'] . '; border-color: ' . $colors['menu_mobile_button_background_color'] . '; }';
+			
+			 // Mobile menu button background color.
+			$color = themedd_customize_get_color( 'menu_mobile_button_background_color' );
+			if ( $color ) {
+				echo '.navbar-toggler { background:' . $color . '; border-color: ' . $color . '; }';
 			}
+
 
 			?>
 		</style>
@@ -1260,6 +1253,72 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 	<?php }
 endif;
 add_action( 'wp_head', 'themedd_colors_output_customizer_styling' );
+
+/**
+ * Get the value of a color control.
+ *
+ * @since 1.1
+ * @param string $control The name of the control.
+ * 
+ * @return string $color The color value of the control.
+ */
+function themedd_customize_get_color( $control = '' ) {
+
+	if ( empty( $control ) ) {
+		return false;
+	}
+
+	/**
+	 * Get the theme_mods colors array.
+	 * These are the colors saved to the theme_mods_{theme} options row.
+	 */
+	$colors = get_theme_mod( 'colors' );
+
+	/**
+	 * Get the default colors array.
+	 * These default colors are used by the customizer when a color is not set,
+	 * or when the "Default" button is clicked.
+	 */
+	$color_defaults = themedd_customize_color_defaults();
+
+	/**
+	 * Get the color overrides array.
+	 * By default this is empty but passing colors to this array will override
+	 * any color set by the customizer.
+	 */
+	$color_overrides = themedd_customize_color_overrides();
+
+	if ( array_key_exists( $control, $color_overrides ) ) {
+		// Color is being overridden.
+		$color = $color_overrides[$control];
+	} else {
+		if ( ! empty( $colors[$control] && $colors[$control] !== $color_defaults[$control] ) ) {
+			// Color must be set and must not be the same as the color in the $defaults array.
+			$color = $colors[$control];
+		} else {
+			$color = false;
+		}
+	}
+
+	// Return the color.
+	return $color;
+
+}
+
+/**
+ * Color overrides.
+ * 
+ * Any color options added to this array will completely override the color set
+ * from the customizer and the resulting theme_mods colors array.
+ * 
+ * @since 1.1
+ *
+ * @return array $colors
+ */
+function themedd_customize_color_overrides() {
+	$colors = array();
+	return apply_filters( 'themedd_customize_color_overrides', $colors );
+}
 
 /**
  * Render the site title for the selective refresh partial.
