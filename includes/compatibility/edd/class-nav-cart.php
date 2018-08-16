@@ -278,6 +278,7 @@ final class Themedd_EDD_Nav_Cart {
 		?>
 		<div class="nav-cart-icon d-flex">
 			<?php echo themedd_get_svg( array( 'icon' => 'cart' ) ); ?>
+			<span class="sr-only"><?php _e( 'Cart', 'themedd' ); ?></span>
 		</div>
 		<?php
 
