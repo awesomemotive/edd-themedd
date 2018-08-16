@@ -7349,7 +7349,7 @@ figure.wp-caption {
   color: #6c757d; }
 
 .icon:hover,
-button:hover .icon {
+button:not(.navbar-toggler):hover .icon {
   color: rgba(0, 0, 0, 0.9); }
 
 .edd-item-quantity {
