@@ -1,0 +1,10 @@
+
+.icon {
+	fill: currentColor;
+	color: $icon-color;
+}
+
+.icon:hover,
+button:hover .icon {
+	color: $icon-hover-color;
+}
