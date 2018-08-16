@@ -202,11 +202,12 @@ final class Themedd_EDD_Nav_Cart {
 		// Set up defaults.
 		$defaults = apply_filters( 'themedd_edd_cart_defaults',
 			array(
-				'classes'     => array(),
-				'cart_link'   => isset( $args['cart_link'] ) ? $args['cart_link'] : edd_get_checkout_uri(),
-				'text_before' => isset( $args['text_before'] ) ? $args['text_before'] : '',
-				'text_after'  => isset( $args['text_after'] ) ? $args['text_after'] : '',
-				'cart_option' => ! empty( $args['cart_option'] ) ? $args['cart_option'] : self::cart_option(), // item_quantity | cart_total | all | none
+				'nav_cart_classes'                    => array(),
+				'nav_cart_quantity_and_total_classes' => array(),
+				'cart_link'                           => isset( $args['cart_link'] ) ? $args['cart_link'] : edd_get_checkout_uri(),
+				'text_before'                         => isset( $args['text_before'] ) ? $args['text_before'] : '',
+				'text_after'                          => isset( $args['text_after'] ) ? $args['text_after'] : '',
+				'cart_option'                         => ! empty( $args['cart_option'] ) ? $args['cart_option'] : self::cart_option(), // item_quantity | cart_total | all | none
 			)
 		);
 
@@ -215,13 +216,16 @@ final class Themedd_EDD_Nav_Cart {
 		// Cart link.
 		$cart_link = $args['cart_link'];
 		
-		// Default classes.
-		$args['classes'][] = 'nav-cart d-flex align-items-center';
+		// Add nav cart classes.
+		$args['nav_cart_classes'][] = 'nav-cart d-flex align-items-center';
+
+		// Add quantity and total classes.
+		$args['nav_cart_quantity_and_total_classes'][] = 'nav-cart-quantity-and-total align-self-center';
 
 		// Cart option.
 		$cart_option = $args['cart_option'];
 		?>
-		<a class="<?php echo themedd_output_classes( $args['classes'] ); ?>" href="<?php echo $cart_link; ?>">
+		<a class="<?php echo themedd_output_classes( $args['nav_cart_classes'] ); ?>" href="<?php echo $cart_link; ?>">
 			<?php
 			// Cart icon.
 			echo $this->cart_icon();
@@ -233,7 +237,7 @@ final class Themedd_EDD_Nav_Cart {
 
 			// Cart quantity and total.
 			if ( 'none' !== $cart_option ) {
-				echo '<span class="nav-cart-quantity-and-total align-self-center">';
+				echo '<span class="' . themedd_output_classes( $args['nav_cart_quantity_and_total_classes'] ) . '">';
 
 				if ( 'all' === $cart_option || 'item_quantity' === $cart_option ) {
 					echo self::cart_quantity();
