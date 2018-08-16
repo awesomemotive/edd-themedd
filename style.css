@@ -7344,6 +7344,14 @@ figure.wp-caption {
 
   .gallery.gallery-columns-4 .gallery-item {
     width: 25%; } }
+.icon {
+  fill: currentColor;
+  color: #6c757d; }
+
+.icon:hover,
+button:hover .icon {
+  color: rgba(0, 0, 0, 0.9); }
+
 .edd-item-quantity {
   width: 4rem; }
 
