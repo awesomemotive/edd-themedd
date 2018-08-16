@@ -7296,12 +7296,6 @@ figure.wp-caption {
 .site-footer .social-links-menu li:last-child {
   padding-right: 0 !important; }
 
-.icon {
-  fill: currentColor;
-  color: #6c757d; }
-  .icon:hover {
-    color: rgba(0, 0, 0, 0.9); }
-
 .gallery {
   margin-right: -1rem;
   margin-left: -1rem; }

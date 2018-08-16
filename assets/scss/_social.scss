@@ -23,12 +23,3 @@
 .site-footer .social-links-menu li:last-child {
 	padding-right: 0 !important; // !important so it can override the Bootstrap utility classes
 }
-
-.icon {
-	fill: currentColor;
-	color: $icon-color;
-
-	&:hover {
-		color: $icon-hover-color;
-	}
-}
