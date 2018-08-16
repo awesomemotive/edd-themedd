@@ -468,3 +468,14 @@ function themedd_edd_purchase_form_quantity_input( $quantity_input, $download_id
 	return ob_get_clean();
 }
 add_filter( 'edd_purchase_form_quantity_input', 'themedd_edd_purchase_form_quantity_input', 10, 3 );
+
+/**
+ * Filter the empty cart message.
+ *
+ * @since 1.1
+ */
+function themedd_edd_empty_cart_message() {
+	// Center the empty cart message.
+	return '<div class="edd_empty_cart text-center">' . __( 'Your cart is empty.', 'themedd' ) . '</div>';
+}
+add_filter( 'edd_empty_cart_message', 'themedd_edd_empty_cart_message' );
