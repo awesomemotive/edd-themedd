@@ -98,7 +98,9 @@ function themedd_edd_user_info_fields() {
 function themedd_edd_default_cc_address_fields() {
 
 	$logged_in = is_user_logged_in();
+
 	$customer  = EDD()->session->get( 'customer' );
+
 	$customer  = wp_parse_args( $customer, array( 'address' => array(
 		'line1'   => '',
 		'line2'   => '',
@@ -110,20 +112,16 @@ function themedd_edd_default_cc_address_fields() {
 
 	$customer['address'] = array_map( 'sanitize_text_field', $customer['address'] );
 
-	if( $logged_in ) {
+	if ( $logged_in ) {
+		$user_address = edd_get_customer_address();
 
-		$user_address = get_user_meta( get_current_user_id(), '_edd_user_address', true );
-
-		foreach( $customer['address'] as $key => $field ) {
-
+		foreach ( $customer['address'] as $key => $field ) {
 			if ( empty( $field ) && ! empty( $user_address[ $key ] ) ) {
 				$customer['address'][ $key ] = $user_address[ $key ];
 			} else {
 				$customer['address'][ $key ] = '';
 			}
-
 		}
-
 	}
 
 	/**
