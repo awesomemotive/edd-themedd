@@ -9,8 +9,6 @@ jQuery(document).ready(function($) {
 
 	$('body').on('edd_cart_item_added', function( event, response ) {
 
-		$( '.nav-cart' ).removeClass('empty');
-
 		if ( typeof themedd_scripts !== 'undefined' ) {
 			var textSingular = themedd_scripts.cartQuantityTextSingular,
 				textPlural   = themedd_scripts.cartQuantityTextPlural,
