@@ -5,6 +5,6 @@
 }
 
 .icon:hover,
-button:hover .icon {
+button:not(.navbar-toggler):hover .icon {
 	color: $icon-hover-color;
 }
