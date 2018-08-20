@@ -156,8 +156,13 @@ function themedd_edd_download_grid_options( $atts = array() ) {
 		'size'         => 'themedd-standard-image'
 	);
 
-	// Set alignment to "wide" for custom post type archive page.
-	if ( is_post_type_archive( 'download' ) || is_tax( 'download_category' ) || is_tax( 'download_tag' ) ) {
+	// Set alignment to "wide" for various pages.
+	if ( 
+		is_post_type_archive( 'download' ) || 
+		is_tax( 'download_category' ) || 
+		is_tax( 'download_tag' ) ||
+		is_search()
+	) {
 		$options['align'] = 'wide';
 	}
 
