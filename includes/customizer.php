@@ -1236,6 +1236,15 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			<?php
 
 			/**
+			 * General
+			 */
+			// Link color.
+			$color = themedd_customize_get_color( 'link_color' );
+			if ( $color ) {
+				echo 'a { color:' . $color . '; }';
+			}
+
+			/**
 			 * Mobile menu
 			 */
 
