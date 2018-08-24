@@ -1290,6 +1290,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-primary { background-color:' . $color . '; }';
 			}
 
+			// Primary menu link color.
+			$color = themedd_customize_get_color( 'menu_primary_link_color' );
+			if ( $color ) {
+				echo '#nav-primary .nav-link { color:' . $color . '; }';
+			}
+			
 
 
 			/**
