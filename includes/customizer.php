@@ -1304,6 +1304,13 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.site-footer { color:' . $color . '; }';
 			}
 
+			// Footer link color.
+			$color = themedd_customize_get_color( 'footer_link_color' );
+			if ( $color ) {
+				echo '.site-footer a { color:' . $color . '; }';
+			}
+
+			
 			?>
 		</style>
 		<?php endif; ?>
