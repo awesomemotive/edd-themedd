@@ -1293,10 +1293,14 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			// Primary menu link color.
 			$color = themedd_customize_get_color( 'menu_primary_link_color' );
 			if ( $color ) {
-				echo '#nav-primary .nav-link { color:' . $color . '; }';
+				echo '.navbar-nav .nav-link { color:' . $color . '; }';
 			}
 			
-
+			// Primary menu link hover color.
+			$color = themedd_customize_get_color( 'menu_primary_link_hover_color' );
+			if ( $color ) {
+				echo '.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus { color:' . $color . '; }';
+			}
 
 			/**
 			 * Mobile menu
