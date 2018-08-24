@@ -1288,6 +1288,15 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			if ( $color ) {
 				echo '#nav-mobile .icon-search { color:' . $color . '; }';
 			}
+			
+			/**
+			 * Footer
+			 */
+			// Footer background color.
+			$color = themedd_customize_get_color( 'footer_background_color' );
+			if ( $color ) {
+				echo '.site-footer { background-color:' . $color . '; }';
+			}
 
 			?>
 		</style>
