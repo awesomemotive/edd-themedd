@@ -1272,17 +1272,25 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			 * Header
 			 */
 			
-			// Tagline Color.
+			// Tagline color.
 			$color = themedd_customize_get_color( 'tagline_color' );
 			if ( $color ) {
 				echo '.site-description { color:' . $color . '; }';
 			}
 
-			// Header Background Color.
+			// Header background color.
 			$color = themedd_customize_get_color( 'header_background_color' );
 			if ( $color ) {
 				echo '#masthead { background-color:' . $color . '; }';
 			}
+
+			// Primary menu background color.
+			$color = themedd_customize_get_color( 'menu_primary_background_color' );
+			if ( $color ) {
+				echo '#navbar-primary { background-color:' . $color . '; }';
+			}
+
+
 
 			/**
 			 * Mobile menu
