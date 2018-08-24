@@ -1268,16 +1268,21 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.btn-primary, .btn-primary:hover { color:' . $color . '; }';
 			}
 
-
 			/**
 			 * Header
 			 */
+			
 			// Tagline Color.
 			$color = themedd_customize_get_color( 'tagline_color' );
 			if ( $color ) {
 				echo '.site-description { color:' . $color . '; }';
 			}
 
+			// Header Background Color.
+			$color = themedd_customize_get_color( 'header_background_color' );
+			if ( $color ) {
+				echo '#masthead { background-color:' . $color . '; }';
+			}
 
 			/**
 			 * Mobile menu
