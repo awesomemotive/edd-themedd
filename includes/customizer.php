@@ -1262,6 +1262,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.btn-primary:hover { background-color:' . $color . '; border-color:' . $color . '; }';
 			}
 
+			// Button text color.
+			$color = themedd_customize_get_color( 'button_text_color' );
+			if ( $color ) {
+				echo '.btn-primary, .btn-primary:hover { color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
