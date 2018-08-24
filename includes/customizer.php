@@ -1244,6 +1244,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo 'a { color:' . $color . '; }';
 			}
 
+			// Link hover color.
+			$color = themedd_customize_get_color( 'link_hover_color' );
+			if ( $color ) {
+				echo 'a:hover { color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
