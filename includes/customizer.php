@@ -1322,6 +1322,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.site-footer h1, .site-footer h2, .site-footer h3 { color:' . $color . '; }';
 			}
 
+			// Footer site info color.
+			$color = themedd_customize_get_color( 'footer_site_info_color' );
+			if ( $color ) {
+				echo '.site-footer .site-info { color:' . $color . '; }';
+			}
+
 			
 			?>
 		</style>
