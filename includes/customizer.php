@@ -1310,6 +1310,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.site-footer a { color:' . $color . '; }';
 			}
 
+			// Footer link hover color.
+			$color = themedd_customize_get_color( 'footer_link_hover_color' );
+			if ( $color ) {
+				echo '.site-footer a:hover { color:' . $color . '; }';
+			}
+
 			
 			?>
 		</style>
