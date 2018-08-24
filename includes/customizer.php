@@ -1250,6 +1250,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo 'a:hover { color:' . $color . '; }';
 			}
 
+			// Button background color.
+			$color = themedd_customize_get_color( 'button_background_color' );
+			if ( $color ) {
+				echo '.btn-primary { background-color:' . $color . '; border-color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
