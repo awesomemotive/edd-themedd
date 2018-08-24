@@ -1316,6 +1316,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.site-footer a:hover { color:' . $color . '; }';
 			}
 
+			// Footer heading color.
+			$color = themedd_customize_get_color( 'footer_heading_color' );
+			if ( $color ) {
+				echo '.site-footer h1, .site-footer h2, .site-footer h3 { color:' . $color . '; }';
+			}
+
 			
 			?>
 		</style>
