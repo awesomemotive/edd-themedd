@@ -1298,6 +1298,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.site-footer { background-color:' . $color . '; }';
 			}
 
+			// Footer text color.
+			$color = themedd_customize_get_color( 'footer_text_color' );
+			if ( $color ) {
+				echo '.site-footer { color:' . $color . '; }';
+			}
+
 			?>
 		</style>
 		<?php endif; ?>
