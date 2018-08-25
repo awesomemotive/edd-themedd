@@ -1326,7 +1326,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-primary .dropdown-item { color:' . $color . '; }';
 			}
 
-
+			// Primary sub-menu link hover color.
+			$color = themedd_customize_get_color( 'menu_primary_sub_link_hover_color' );
+			if ( $color ) {
+				echo '#navbar-primary .dropdown-item:hover { color:' . $color . '; }';
+			}
 
 			/**
 			 * Mobile menu
