@@ -1332,6 +1332,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-primary .dropdown-item:hover { color:' . $color . '; }';
 			}
 
+			// Primary sub-menu link active color.
+			$color = themedd_customize_get_color( 'menu_primary_sub_link_active_color' );
+			if ( $color ) {
+				echo '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
