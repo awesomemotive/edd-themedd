@@ -1314,7 +1314,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.navbar-nav .nav-item:hover { background-color:' . $color . '; }';
 			}
 
-	
+			// Primary menu link background active color.
+			$color = themedd_customize_get_color( 'menu_primary_link_background_active_color' );
+			if ( $color ) {
+				echo '.navbar-nav .nav-item.active { background-color:' . $color . '; }';
+			}
 
 			/**
 			 * Mobile menu
