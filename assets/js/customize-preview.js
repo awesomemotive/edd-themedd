@@ -255,9 +255,8 @@
 	wp.customize('colors[menu_primary_link_hover_color]', function( value ) {
 		value.bind(function( to ) {
 
-			jQuery('#navbar-primary .navbar-nav').hover(function(e) {
+			jQuery('#navbar-primary .navbar-nav .nav-link').hover(function(e) {
 				jQuery(this)
-					.find( '.nav-link' )
 					.css('color', e.type === 'mouseenter' ? to : wp.customize('colors[menu_primary_link_color]')._value )
 			})
 
