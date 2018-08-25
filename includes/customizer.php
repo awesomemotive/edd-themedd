@@ -1338,6 +1338,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { color:' . $color . '; }';
 			}
 
+			// Primary sub-menu background color.
+			$color = themedd_customize_get_color( 'menu_primary_sub_background_color' );
+			if ( $color ) {
+				echo '#navbar-primary .dropdown-menu { background-color:' . $color . '; border-color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
