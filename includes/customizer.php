@@ -1302,6 +1302,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus { color:' . $color . '; }';
 			}
 
+			// Primary menu link active color.
+			$color = themedd_customize_get_color( 'menu_primary_link_active_color' );
+			if ( $color ) {
+				echo '.navbar-nav .active > .nav-link { color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
