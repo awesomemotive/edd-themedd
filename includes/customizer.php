@@ -1381,6 +1381,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.navbar .search-form .form-control { color:' . $color . '; }';
 			}
 
+			// Header search icon color.
+			$color = themedd_customize_get_color( 'header_search_icon_color' );
+			if ( $color ) {
+				echo '.navbar .icon-search { color:' . $color . '; }';
+			}
 
 			/**
 			 * Mobile menu
