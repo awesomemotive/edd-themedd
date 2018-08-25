@@ -1356,6 +1356,11 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { background-color:' . $color . '; }';
 			}
 
+			// Secondary menu link color.
+			$color = themedd_customize_get_color( 'menu_secondary_link_color' );
+			if ( $color ) {
+				echo '#nav-secondary .navbar-nav .nav-link { color:' . $color . '; }';
+			}
 			/**
 			 * Mobile menu
 			 */
