@@ -1361,6 +1361,13 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			if ( $color ) {
 				echo '#nav-secondary .navbar-nav .nav-link { color:' . $color . '; }';
 			}
+
+			// Secondary menu link hover color.
+			$color = themedd_customize_get_color( 'menu_secondary_link_hover_color' );
+			if ( $color ) {
+				echo '#nav-secondary .navbar-nav .nav-link:hover { color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
