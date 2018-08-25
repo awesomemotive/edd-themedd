@@ -1344,6 +1344,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#navbar-primary .dropdown-menu { background-color:' . $color . '; border-color:' . $color . '; }';
 			}
 
+			// Primary sub-menu background hover color.
+			$color = themedd_customize_get_color( 'menu_primary_sub_background_hover_color' );
+			if ( $color ) {
+				echo '#navbar-primary .dropdown-item:hover { background-color:' . $color . '; }';
+			}
+
 			/**
 			 * Mobile menu
 			 */
