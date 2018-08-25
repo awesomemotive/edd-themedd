@@ -1368,11 +1368,17 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#nav-secondary .navbar-nav .nav-link:hover { color:' . $color . '; }';
 			}
 
-			// Header search background color. 
+			// Header search background color.
 			$color = themedd_customize_get_color( 'header_search_background_color' );
 			if ( $color ) {
 				echo '.navbar .search-field, .navbar .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
 				echo '.navbar .search-form .form-control:focus { background-color:' . $color . '; }';
+			}
+
+			// Header search text color.
+			$color = themedd_customize_get_color( 'header_search_text_color' );
+			if ( $color ) {
+				echo '.navbar .search-form .form-control { color:' . $color . '; }';
 			}
 
 
