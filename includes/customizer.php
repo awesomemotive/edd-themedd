@@ -1293,32 +1293,40 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			// Primary menu link color.
 			$color = themedd_customize_get_color( 'menu_primary_link_color' );
 			if ( $color ) {
-				echo '.navbar-nav .nav-link { color:' . $color . '; }';
+				echo '#navbar-primary .navbar-nav .nav-link { color:' . $color . '; }';
 			}
 			
 			// Primary menu link hover color.
 			$color = themedd_customize_get_color( 'menu_primary_link_hover_color' );
 			if ( $color ) {
-				echo '.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus { color:' . $color . '; }';
+				echo '#navbar-primary .navbar-nav .nav-link:hover, #navbar-primary .navbar-nav .nav-link:focus { color:' . $color . '; }';
 			}
 
 			// Primary menu link active color.
 			$color = themedd_customize_get_color( 'menu_primary_link_active_color' );
 			if ( $color ) {
-				echo '.navbar-nav .active > .nav-link { color:' . $color . '; }';
+				echo '#navbar-primary .navbar-nav .active > .nav-link { color:' . $color . '; }';
 			}
 
 			// Primary menu link background hover color.
 			$color = themedd_customize_get_color( 'menu_primary_link_background_hover_color' );
 			if ( $color ) {
-				echo '.navbar-nav .nav-item:hover { background-color:' . $color . '; }';
+				echo '#navbar-primary .navbar-nav .nav-item:hover { background-color:' . $color . '; }';
 			}
 
 			// Primary menu link background active color.
 			$color = themedd_customize_get_color( 'menu_primary_link_background_active_color' );
 			if ( $color ) {
-				echo '.navbar-nav .nav-item.active { background-color:' . $color . '; }';
+				echo '#navbar-primary .navbar-nav .nav-item.active { background-color:' . $color . '; }';
 			}
+
+			// Primary sub-menu link color.
+			$color = themedd_customize_get_color( 'menu_primary_sub_link_color' );
+			if ( $color ) {
+				echo '#navbar-primary .dropdown-item { color:' . $color . '; }';
+			}
+
+
 
 			/**
 			 * Mobile menu
