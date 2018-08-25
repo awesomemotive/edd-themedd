@@ -1308,6 +1308,14 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '.navbar-nav .active > .nav-link { color:' . $color . '; }';
 			}
 
+			// Primary menu link background hover color.
+			$color = themedd_customize_get_color( 'menu_primary_link_background_hover_color' );
+			if ( $color ) {
+				echo '.navbar-nav .nav-item:hover { background-color:' . $color . '; }';
+			}
+
+	
+
 			/**
 			 * Mobile menu
 			 */
