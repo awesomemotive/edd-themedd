@@ -1368,20 +1368,32 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 				echo '#nav-secondary .navbar-nav .nav-link:hover { color:' . $color . '; }';
 			}
 
+			// Header search background color. 
+			$color = themedd_customize_get_color( 'header_search_background_color' );
+			if ( $color ) {
+				echo '.navbar .search-field, .navbar .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
+				echo '.navbar .search-form .form-control:focus { background-color:' . $color . '; }';
+			}
+
+
 			/**
 			 * Mobile menu
 			 */
 
 			// Mobile menu button background color.
 			$color = themedd_customize_get_color( 'menu_mobile_button_background_color' );
-			
 			if ( $color ) {
 				echo '.navbar-toggler { background:' . $color . '; border-color: ' . $color . '; }';
+			}
+			
+			// Mobile cart icon color.
+			$color = themedd_customize_get_color( 'mobile_cart_icon_color' );
+			if ( $color ) {
+				echo '#nav-mobile .nav-cart-icon .icon { color:' . $color . '; }';
 			}
 
 			// Mobile menu button text (and icon) color.
 			$color = themedd_customize_get_color( 'menu_mobile_button_text_color' );
-
 	 		if ( $color ) {
 	 			echo '.navbar-toggler-text { color:' . $color . '; }' . '.navbar-toggler .icon { color:' . $color . '; }';
 			}
@@ -1396,12 +1408,6 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			$color = themedd_customize_get_color( 'menu_mobile_link_color' );
 			if ( $color ) {
 				echo '#navbar-mobile .nav-link, #navbar-mobile .nav-cart { color:' . $color . '; }';
-			}
-
-			// Mobile cart icon color.
-			$color = themedd_customize_get_color( 'mobile_cart_icon_color' );
-			if ( $color ) {
-				echo '#nav-mobile .nav-cart-icon .icon { color:' . $color . '; }';
 			}
 
 			// Mobile search background color.
