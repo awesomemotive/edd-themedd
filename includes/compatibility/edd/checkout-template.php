@@ -42,7 +42,7 @@ function themedd_edd_user_info_fields() {
 
 	$customer = array_map( 'sanitize_text_field', $customer );
 	?>
-	<fieldset id="edd_checkout_user_info" class="p-3 p-sm-4 bg-light mb-3 mb-sm-5">
+	<fieldset id="edd_checkout_user_info" class="mb-3 mb-sm-5">
 		<legend><?php echo apply_filters( 'edd_checkout_personal_info_text', esc_html__( 'Personal Info', 'easy-digital-downloads' ) ); ?></legend>
 		<?php do_action( 'edd_purchase_form_before_email' ); ?>
 
@@ -137,7 +137,7 @@ function themedd_edd_default_cc_address_fields() {
 	$customer['address'] = apply_filters( 'edd_checkout_billing_details_address', $customer['address'], $customer );
 
 	ob_start(); ?>
-	<fieldset id="edd_cc_address" class="cc-address p-3 p-sm-4 bg-light">
+	<fieldset id="edd_cc_address" class="cc-address">
 		<legend><?php _e( 'Billing Details', 'easy-digital-downloads' ); ?></legend>
 		<?php do_action( 'edd_cc_billing_top' ); ?>
 
@@ -277,8 +277,8 @@ function themedd_edd_discount_field() {
 		$color = ( $color == 'inherit' ) ? '' : $color;
 		$style = edd_get_option( 'button_style', 'button' );
 ?>
-		<fieldset id="edd_discount_code" class="mb-3">
-			<div class="form-group" id="edd_show_discount" style="display:none;">
+		<fieldset id="edd_discount_code" class="mb-4">
+			<div id="edd_show_discount" style="display:none;">
 				<?php _e( 'Have a discount code?', 'easy-digital-downloads' ); ?> <a href="#" class="edd_discount_link"><?php echo _x( 'Click to enter it', 'Entering a discount code', 'easy-digital-downloads' ); ?></a>
 			</div>
 			<div id="edd-discount-code-wrap" class="edd-cart-adjustment">
@@ -316,7 +316,7 @@ function themedd_edd_payment_mode_select() {
 	$page_URL = edd_get_current_page_url();
 	$chosen_gateway = edd_get_chosen_gateway();
 	?>
-	<div id="edd_payment_mode_select_wrap" class="p-3 p-sm-4 bg-light mb-3 mb-sm-5">
+	<div id="edd_payment_mode_select_wrap" class="mb-3 mb-sm-5">
 		<?php do_action('edd_payment_mode_top'); ?>
 		<?php if( edd_is_ajax_disabled() ) { ?>
 		<form id="edd_payment_mode" action="<?php echo $page_URL; ?>" method="GET">
@@ -374,73 +374,6 @@ add_action( 'edd_payment_mode_select', 'themedd_edd_payment_mode_select' );
 
 
 /**
- * Show Payment Icons by getting all the accepted icons from the EDD Settings
- * then outputting the icons.
- *
- * @since 1.0
- * @return void
-*/
-function themedd_edd_show_payment_icons() {
-
-	if( edd_show_gateways() && did_action( 'edd_payment_mode_top' ) ) {
-		return;
-	}
-
-	$payment_methods = edd_get_option( 'accepted_cards', array() );
-
-	if( empty( $payment_methods ) ) {
-		return;
-	}
-
-	echo '<div class="edd-payment-icons mb-2 mb-sm-5">';
-
-	foreach( $payment_methods as $key => $card ) {
-
-		if( edd_string_is_image_url( $key ) ) {
-
-			echo '<img class="payment-icon" src="' . esc_url( $key ) . '"/>';
-
-		} else {
-
-			$card = strtolower( str_replace( ' ', '', $card ) );
-
-			if( has_filter( 'edd_accepted_payment_' . $card . '_image' ) ) {
-
-				$image = apply_filters( 'edd_accepted_payment_' . $card . '_image', '' );
-
-			} else {
-
-				$image = edd_locate_template( 'images' . DIRECTORY_SEPARATOR . 'icons' . DIRECTORY_SEPARATOR . $card . '.png', false );
-
-				// Replaces backslashes with forward slashes for Windows systems
-				$plugin_dir  = wp_normalize_path( WP_PLUGIN_DIR );
-				$content_dir = wp_normalize_path( WP_CONTENT_DIR );
-				$image       = wp_normalize_path( $image );
-
-				$image = str_replace( $plugin_dir, WP_PLUGIN_URL, $image );
-				$image = str_replace( $content_dir, WP_CONTENT_URL, $image );
-
-			}
-
-			if( edd_is_ssl_enforced() || is_ssl() ) {
-
-				$image = edd_enforced_ssl_asset_filter( $image );
-
-			}
-
-			echo '<img class="payment-icon" src="' . esc_url( $image ) . '"/>';
-		}
-
-	}
-
-	echo '</div>';
-}
-remove_action( 'edd_payment_mode_top', 'edd_show_payment_icons' );
-remove_action( 'edd_checkout_form_top', 'edd_show_payment_icons' );
-add_action( 'edd_payment_mode_top', 'themedd_edd_show_payment_icons' );
-add_action( 'edd_checkout_form_top', 'themedd_edd_show_payment_icons' );
-
-/**
  * Shows the final purchase total at the bottom of the checkout page
  *
  * @since 1.5
@@ -468,7 +401,7 @@ function themedd_edd_get_cc_form() {
 
 	<?php do_action( 'edd_before_cc_fields' ); ?>
 
-	<fieldset id="edd_cc_fields" class="edd-do-validate p-3 p-sm-4 bg-light mb-3 mb-sm-5">
+	<fieldset id="edd_cc_fields" class="edd-do-validate mb-3 mb-sm-5">
 		<legend><?php _e( 'Credit Card Info', 'easy-digital-downloads' ); ?></legend>
 		<?php if( is_ssl() ) : ?>
 			<div id="edd_secure_site_wrapper">
@@ -578,7 +511,7 @@ function themedd_edds_credit_card_form( $echo = true ) {
 
 	<?php do_action( 'edd_before_cc_fields' ); ?>
 
-	<fieldset id="edd_cc_fields" class="edd-do-validate p-3 p-sm-4 bg-light mb-3 mb-sm-5">
+	<fieldset id="edd_cc_fields" class="edd-do-validate mb-3 mb-sm-5">
 		<legend><?php _e( 'Credit Card Info', 'edds' ); ?></legend>
 		<?php if( is_ssl() ) : ?>
 			<div id="edd_secure_site_wrapper">
