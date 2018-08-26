@@ -13,11 +13,11 @@
 		color: $navbar-toggler-icon-color;
 	}
 
-	// Sets to button color by default.
-	.navbar-toggler-text {
-		color: $navbar-toggler-text-color;
-	}
+}
 
+// Sets to button color by default.
+.navbar-toggler-text {
+	color: $navbar-toggler-text-color;
 }
 
 // Removes the dependency on the .navbar-light and .navbar-dark classes.
