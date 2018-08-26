@@ -101,16 +101,16 @@ add_action( 'themedd_footer', 'themedd_footer' );
  */
 function themedd_copyright() {
 
-	$copyright_classes = array( 'copyright-notice' );
+	$classes = array( 'site-info' );
 
 	if ( has_nav_menu( 'social' ) ) {
-		$copyright_classes[] = 'order-md-1';
+		$classes[] = 'order-md-1';
 	} else {
 		// Center the copyright when there is no social menu.
-		$copyright_classes[] = 'text-md-center';
+		$classes[] = 'text-md-center';
 	}
 
-	return apply_filters( 'themedd_copyright', '<div class="' . themedd_output_classes( $copyright_classes ) . '"><p class="mb-0">' . sprintf( __( '&copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p></div>', $copyright_classes );
+	return apply_filters( 'themedd_copyright', '<div class="' . themedd_output_classes( $classes ) . '"><p class="mb-0">' . sprintf( __( '&copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p></div>', $classes );
 }
 
 /**
