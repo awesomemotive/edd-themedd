@@ -7535,6 +7535,9 @@ span.card-type.amex {
 #edd-amazon-address-box {
   margin-bottom: 2rem; }
 
+.edd-payment-icons .payment-icon {
+  margin-right: 0.5rem; }
+
 .nav-cart {
   color: rgba(0, 0, 0, 0.5); }
   .nav-cart:hover {
