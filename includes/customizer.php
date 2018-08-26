@@ -1228,259 +1228,254 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		if ( ! apply_filters( 'themedd_customize_color_options', true ) ) {
 			return;
 		}
+	
+		$styles = array();
+
+		/**
+		 * General
+		 */
+		// Link color.
+		$color = themedd_customize_get_color( 'link_color' );
+		if ( $color ) {
+			$styles[] = 'a { color:' . $color . '; }';
+		}
+
+		// Link hover color.
+		$color = themedd_customize_get_color( 'link_hover_color' );
+		if ( $color ) {
+			$styles[] = 'a:hover { color:' . $color . '; }';
+		}
+
+		// Button background color.
+		$color = themedd_customize_get_color( 'button_background_color' );
+		if ( $color ) {
+			$styles[] = '.btn-primary { background-color:' . $color . '; border-color:' . $color . '; }';
+		}
+
+		// Button background hover color.
+		$color = themedd_customize_get_color( 'button_background_hover_color' );
+		if ( $color ) {
+			$styles[] = '.btn-primary:hover { background-color:' . $color . '; border-color:' . $color . '; }';
+		}
+
+		// Button text color.
+		$color = themedd_customize_get_color( 'button_text_color' );
+		if ( $color ) {
+			$styles[] = '.btn-primary, .btn-primary:hover { color:' . $color . '; }';
+		}
+
+		/**
+		 * Header
+		 */
 		
-		$colors = get_theme_mod( 'colors' );
+		// Tagline color.
+		$color = themedd_customize_get_color( 'tagline_color' );
+		if ( $color ) {
+			$styles[] = '.site-description { color:' . $color . '; }';
+		}
 
-		if ( ! empty( $colors ) ) : ?>
-			<style id="themedd-custom-css" type="text/css">
-			<?php
+		// Header background color.
+		$color = themedd_customize_get_color( 'header_background_color' );
+		if ( $color ) {
+			$styles[] = '#masthead { background-color:' . $color . '; }';
+		}
 
-			/**
-			 * General
-			 */
-			// Link color.
-			$color = themedd_customize_get_color( 'link_color' );
-			if ( $color ) {
-				echo 'a { color:' . $color . '; }';
-			}
+		// Primary menu background color.
+		$color = themedd_customize_get_color( 'menu_primary_background_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary { background-color:' . $color . '; }';
+		}
 
-			// Link hover color.
-			$color = themedd_customize_get_color( 'link_hover_color' );
-			if ( $color ) {
-				echo 'a:hover { color:' . $color . '; }';
-			}
+		// Primary menu link color.
+		$color = themedd_customize_get_color( 'menu_primary_link_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .nav-link { color:' . $color . '; }';
+		}
+		
+		// Primary menu link hover color.
+		$color = themedd_customize_get_color( 'menu_primary_link_hover_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .nav-link:hover, #navbar-primary .navbar-nav .nav-link:focus { color:' . $color . '; }';
+		}
 
-			// Button background color.
-			$color = themedd_customize_get_color( 'button_background_color' );
-			if ( $color ) {
-				echo '.btn-primary { background-color:' . $color . '; border-color:' . $color . '; }';
-			}
+		// Primary menu link active color.
+		$color = themedd_customize_get_color( 'menu_primary_link_active_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .active > .nav-link { color:' . $color . '; }';
+		}
 
-			// Button background hover color.
-			$color = themedd_customize_get_color( 'button_background_hover_color' );
-			if ( $color ) {
-				echo '.btn-primary:hover { background-color:' . $color . '; border-color:' . $color . '; }';
-			}
+		// Primary menu link background hover color.
+		$color = themedd_customize_get_color( 'menu_primary_link_background_hover_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .nav-item:hover { background-color:' . $color . '; }';
+		}
 
-			// Button text color.
-			$color = themedd_customize_get_color( 'button_text_color' );
-			if ( $color ) {
-				echo '.btn-primary, .btn-primary:hover { color:' . $color . '; }';
-			}
+		// Primary menu link background active color.
+		$color = themedd_customize_get_color( 'menu_primary_link_background_active_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .nav-item.active { background-color:' . $color . '; }';
+		}
 
-			/**
-			 * Header
-			 */
-			
-			// Tagline color.
-			$color = themedd_customize_get_color( 'tagline_color' );
-			if ( $color ) {
-				echo '.site-description { color:' . $color . '; }';
-			}
+		// Primary sub-menu link color.
+		$color = themedd_customize_get_color( 'menu_primary_sub_link_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .dropdown-item { color:' . $color . '; }';
+		}
 
-			// Header background color.
-			$color = themedd_customize_get_color( 'header_background_color' );
-			if ( $color ) {
-				echo '#masthead { background-color:' . $color . '; }';
-			}
+		// Primary sub-menu link hover color.
+		$color = themedd_customize_get_color( 'menu_primary_sub_link_hover_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .dropdown-item:hover { color:' . $color . '; }';
+		}
 
-			// Primary menu background color.
-			$color = themedd_customize_get_color( 'menu_primary_background_color' );
-			if ( $color ) {
-				echo '#navbar-primary { background-color:' . $color . '; }';
-			}
+		// Primary sub-menu link active color.
+		$color = themedd_customize_get_color( 'menu_primary_sub_link_active_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { color:' . $color . '; }';
+		}
 
-			// Primary menu link color.
-			$color = themedd_customize_get_color( 'menu_primary_link_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .nav-link { color:' . $color . '; }';
-			}
-			
-			// Primary menu link hover color.
-			$color = themedd_customize_get_color( 'menu_primary_link_hover_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .nav-link:hover, #navbar-primary .navbar-nav .nav-link:focus { color:' . $color . '; }';
-			}
+		// Primary sub-menu background color.
+		$color = themedd_customize_get_color( 'menu_primary_sub_background_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .dropdown-menu { background-color:' . $color . '; border-color:' . $color . '; }';
+		}
 
-			// Primary menu link active color.
-			$color = themedd_customize_get_color( 'menu_primary_link_active_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .active > .nav-link { color:' . $color . '; }';
-			}
+		// Primary sub-menu background hover color.
+		$color = themedd_customize_get_color( 'menu_primary_sub_background_hover_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .dropdown-item:hover { background-color:' . $color . '; }';
+		}
 
-			// Primary menu link background hover color.
-			$color = themedd_customize_get_color( 'menu_primary_link_background_hover_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .nav-item:hover { background-color:' . $color . '; }';
-			}
+		// Primary sub-menu background active color.
+		$color = themedd_customize_get_color( 'menu_primary_sub_background_active_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { background-color:' . $color . '; }';
+		}
 
-			// Primary menu link background active color.
-			$color = themedd_customize_get_color( 'menu_primary_link_background_active_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .nav-item.active { background-color:' . $color . '; }';
-			}
+		// Secondary menu link color.
+		$color = themedd_customize_get_color( 'menu_secondary_link_color' );
+		if ( $color ) {
+			$styles[] = '#nav-secondary .navbar-nav .nav-link { color:' . $color . '; }';
+		}
 
-			// Primary sub-menu link color.
-			$color = themedd_customize_get_color( 'menu_primary_sub_link_color' );
-			if ( $color ) {
-				echo '#navbar-primary .dropdown-item { color:' . $color . '; }';
-			}
+		// Secondary menu link hover color.
+		$color = themedd_customize_get_color( 'menu_secondary_link_hover_color' );
+		if ( $color ) {
+			$styles[] = '#nav-secondary .navbar-nav .nav-link:hover { color:' . $color . '; }';
+		}
 
-			// Primary sub-menu link hover color.
-			$color = themedd_customize_get_color( 'menu_primary_sub_link_hover_color' );
-			if ( $color ) {
-				echo '#navbar-primary .dropdown-item:hover { color:' . $color . '; }';
-			}
+		// Header search background color.
+		$color = themedd_customize_get_color( 'header_search_background_color' );
+		if ( $color ) {
+			$styles[] = '.navbar .search-field, .navbar .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
+			$styles[] = '.navbar .search-form .form-control:focus { background-color:' . $color . '; }';
+		}
 
-			// Primary sub-menu link active color.
-			$color = themedd_customize_get_color( 'menu_primary_sub_link_active_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { color:' . $color . '; }';
-			}
+		// Header search text color.
+		$color = themedd_customize_get_color( 'header_search_text_color' );
+		if ( $color ) {
+			$styles[] = '.navbar .search-form .form-control { color:' . $color . '; }';
+		}
 
-			// Primary sub-menu background color.
-			$color = themedd_customize_get_color( 'menu_primary_sub_background_color' );
-			if ( $color ) {
-				echo '#navbar-primary .dropdown-menu { background-color:' . $color . '; border-color:' . $color . '; }';
-			}
+		// Header search icon color.
+		$color = themedd_customize_get_color( 'header_search_icon_color' );
+		if ( $color ) {
+			$styles[] = '.navbar .icon-search { color:' . $color . '; }';
+		}
 
-			// Primary sub-menu background hover color.
-			$color = themedd_customize_get_color( 'menu_primary_sub_background_hover_color' );
-			if ( $color ) {
-				echo '#navbar-primary .dropdown-item:hover { background-color:' . $color . '; }';
-			}
+		/**
+		 * Mobile menu
+		 */
 
-			// Primary sub-menu background active color.
-			$color = themedd_customize_get_color( 'menu_primary_sub_background_active_color' );
-			if ( $color ) {
-				echo '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { background-color:' . $color . '; }';
-			}
+		// Mobile menu button background color.
+		$color = themedd_customize_get_color( 'menu_mobile_button_background_color' );
+		if ( $color ) {
+			$styles[] = '.navbar-toggler { background:' . $color . '; border-color: ' . $color . '; }';
+		}
+		
+		// Mobile cart icon color.
+		$color = themedd_customize_get_color( 'mobile_cart_icon_color' );
+		if ( $color ) {
+			$styles[] = '#nav-mobile .nav-cart-icon .icon { color:' . $color . '; }';
+		}
 
-			// Secondary menu link color.
-			$color = themedd_customize_get_color( 'menu_secondary_link_color' );
-			if ( $color ) {
-				echo '#nav-secondary .navbar-nav .nav-link { color:' . $color . '; }';
-			}
+		// Mobile menu button text (and icon) color.
+		$color = themedd_customize_get_color( 'menu_mobile_button_text_color' );
+		if ( $color ) {
+			$styles[] = '.navbar-toggler-text { color:' . $color . '; }' . '.navbar-toggler .icon { color:' . $color . '; }';
+		}
 
-			// Secondary menu link hover color.
-			$color = themedd_customize_get_color( 'menu_secondary_link_hover_color' );
-			if ( $color ) {
-				echo '#nav-secondary .navbar-nav .nav-link:hover { color:' . $color . '; }';
-			}
+		// Mobile menu background color.
+		$color = themedd_customize_get_color( 'menu_mobile_background_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-mobile { background:' .  $color . '; }';
+		}
 
-			// Header search background color.
-			$color = themedd_customize_get_color( 'header_search_background_color' );
-			if ( $color ) {
-				echo '.navbar .search-field, .navbar .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
-				echo '.navbar .search-form .form-control:focus { background-color:' . $color . '; }';
-			}
+		// Mobile menu link color.
+		$color = themedd_customize_get_color( 'menu_mobile_link_color' );
+		if ( $color ) {
+			$styles[] = '#navbar-mobile .nav-link, #navbar-mobile .nav-cart { color:' . $color . '; }';
+		}
 
-			// Header search text color.
-			$color = themedd_customize_get_color( 'header_search_text_color' );
-			if ( $color ) {
-				echo '.navbar .search-form .form-control { color:' . $color . '; }';
-			}
+		// Mobile search background color.
+		$color = themedd_customize_get_color( 'menu_mobile_search_background_color' );
+		if ( $color ) {
+			$styles[] = '#nav-mobile .search-field, #nav-mobile .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
+		}
 
-			// Header search icon color.
-			$color = themedd_customize_get_color( 'header_search_icon_color' );
-			if ( $color ) {
-				echo '.navbar .icon-search { color:' . $color . '; }';
-			}
+		// Mobile search text color.
+		$color = themedd_customize_get_color( 'menu_mobile_search_text_color' );
+		if ( $color ) {
+			$styles[] = '#nav-mobile .search-field { color:' . $color . '; }';
+		}
 
-			/**
-			 * Mobile menu
-			 */
+		// Mobile search icon color. 
+		$color = themedd_customize_get_color( 'menu_mobile_search_icon_color' );
+		if ( $color ) {
+			$styles[] = '#nav-mobile .icon-search { color:' . $color . '; }';
+		}
 
-			// Mobile menu button background color.
-			$color = themedd_customize_get_color( 'menu_mobile_button_background_color' );
-			if ( $color ) {
-				echo '.navbar-toggler { background:' . $color . '; border-color: ' . $color . '; }';
-			}
-			
-			// Mobile cart icon color.
-			$color = themedd_customize_get_color( 'mobile_cart_icon_color' );
-			if ( $color ) {
-				echo '#nav-mobile .nav-cart-icon .icon { color:' . $color . '; }';
-			}
+		/**
+		 * Footer
+		 */
+		// Footer background color.
+		$color = themedd_customize_get_color( 'footer_background_color' );
+		if ( $color ) {
+			$styles[] = '.site-footer { background-color:' . $color . '; }';
+		}
 
-			// Mobile menu button text (and icon) color.
-			$color = themedd_customize_get_color( 'menu_mobile_button_text_color' );
-	 		if ( $color ) {
-	 			echo '.navbar-toggler-text { color:' . $color . '; }' . '.navbar-toggler .icon { color:' . $color . '; }';
-			}
+		// Footer text color.
+		$color = themedd_customize_get_color( 'footer_text_color' );
+		if ( $color ) {
+			$styles[] = '.site-footer { color:' . $color . '; }';
+		}
 
-			// Mobile menu background color.
-			$color = themedd_customize_get_color( 'menu_mobile_background_color' );
-			if ( $color ) {
-	 			echo '#navbar-mobile { background:' .  $color . '; }';
-	 		}
+		// Footer link color.
+		$color = themedd_customize_get_color( 'footer_link_color' );
+		if ( $color ) {
+			$styles[] = '.site-footer a { color:' . $color . '; }';
+		}
 
-			// Mobile menu link color.
-			$color = themedd_customize_get_color( 'menu_mobile_link_color' );
-			if ( $color ) {
-				echo '#navbar-mobile .nav-link, #navbar-mobile .nav-cart { color:' . $color . '; }';
-			}
+		// Footer link hover color.
+		$color = themedd_customize_get_color( 'footer_link_hover_color' );
+		if ( $color ) {
+			$styles[] = '.site-footer a:hover { color:' . $color . '; }';
+		}
 
-			// Mobile search background color.
-			$color = themedd_customize_get_color( 'menu_mobile_search_background_color' );
-			if ( $color ) {
-				echo '#nav-mobile .search-field, #nav-mobile .btn-search { background-color:' . $color . '; border-color:' . $color . '; }';
-			}
+		// Footer heading color.
+		$color = themedd_customize_get_color( 'footer_heading_color' );
+		if ( $color ) {
+			$styles[] = '.site-footer h1, .site-footer h2, .site-footer h3 { color:' . $color . '; }';
+		}
 
-			// Mobile search text color.
-			$color = themedd_customize_get_color( 'menu_mobile_search_text_color' );
-			if ( $color ) {
-				echo '#nav-mobile .search-field { color:' . $color . '; }';
-			}
+		// Footer site info color.
+		$color = themedd_customize_get_color( 'footer_site_info_color' );
+		if ( $color ) {
+			$styles[] = '.site-footer .site-info { color:' . $color . '; }';
+		}
 
-			// Mobile search icon color. 
-			$color = themedd_customize_get_color( 'menu_mobile_search_icon_color' );
-			if ( $color ) {
-				echo '#nav-mobile .icon-search { color:' . $color . '; }';
-			}
-			
-			/**
-			 * Footer
-			 */
-			// Footer background color.
-			$color = themedd_customize_get_color( 'footer_background_color' );
-			if ( $color ) {
-				echo '.site-footer { background-color:' . $color . '; }';
-			}
-
-			// Footer text color.
-			$color = themedd_customize_get_color( 'footer_text_color' );
-			if ( $color ) {
-				echo '.site-footer { color:' . $color . '; }';
-			}
-
-			// Footer link color.
-			$color = themedd_customize_get_color( 'footer_link_color' );
-			if ( $color ) {
-				echo '.site-footer a { color:' . $color . '; }';
-			}
-
-			// Footer link hover color.
-			$color = themedd_customize_get_color( 'footer_link_hover_color' );
-			if ( $color ) {
-				echo '.site-footer a:hover { color:' . $color . '; }';
-			}
-
-			// Footer heading color.
-			$color = themedd_customize_get_color( 'footer_heading_color' );
-			if ( $color ) {
-				echo '.site-footer h1, .site-footer h2, .site-footer h3 { color:' . $color . '; }';
-			}
-
-			// Footer site info color.
-			$color = themedd_customize_get_color( 'footer_site_info_color' );
-			if ( $color ) {
-				echo '.site-footer .site-info { color:' . $color . '; }';
-			}
-
-			
-			?>
-		</style>
+		if ( ! empty( $styles ) ) : ?>
+			<style id="themedd-custom-css" type="text/css"><?php foreach ( $styles as $style ) { echo $style; } ?></style>
 		<?php endif; ?>
 
 	<?php }
