@@ -217,7 +217,7 @@ final class Themedd_EDD_Nav_Cart {
 		$cart_link = $args['cart_link'];
 		
 		// Add nav cart classes.
-		$args['nav_cart_classes'][] = 'ml-3 nav-cart d-flex align-items-center';
+		$args['nav_cart_classes'][] = 'nav-cart d-flex align-items-center';
 
 		// Add quantity and total classes.
 		$args['nav_cart_quantity_and_total_classes'][] = 'nav-cart-quantity-and-total align-self-center';
