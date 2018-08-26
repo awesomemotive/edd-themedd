@@ -31,7 +31,7 @@ function themedd_site_header() {
 
 	// Set up default container classes.
 	$container_classes = array( 'container py-3 justify-content-center' );
-	
+
 	// Centers .site-branding when Distraction Free checkout is enabled, otherwise left aligns it.
 	$container_classes[] = themedd_edd_is_distraction_free_checkout() ? 'text-center' : 'justify-content-' . $breakpoint . '-start';
 	?>
@@ -45,7 +45,7 @@ function themedd_site_header() {
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-mobile">
 					<?php echo themedd_header_search( array( 'form_classes' => array( 'py-2 pt-3' ) ) ); ?>
-					<?php echo themedd_nav_cart( array( 'classes' => array( 'py-2' ) ) ); ?>
+					<?php echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'py-2' ) ) ); ?>
 					<?php echo themedd_mobile_menu(); ?>
 				</nav>
 			</div>
@@ -59,7 +59,7 @@ function themedd_site_header() {
 				<?php if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
 				<nav id="nav-secondary" class="navbar-collapse collapse justify-content-end">
 					<?php echo themedd_secondary_navigation( array( 'menu_classes' => array( 'navbar-right' ) ) ); ?>
-					<?php if ( 'secondary_menu' === $cart_position ) { echo themedd_nav_cart( array( 'classes' => array( 'ml-lg-3' ) ) ); } ?>
+					<?php if ( 'secondary_menu' === $cart_position ) { echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'ml-lg-3' ) ) ); } ?>
 					<?php echo themedd_header_search( array( 'form_classes' => array( 'ml-3' ) ) ); ?>
 				<?php endif; ?>
 
@@ -71,7 +71,7 @@ function themedd_site_header() {
 			<div class="container">
 				<nav class="navbar-collapse collapse" id="nav-primary">
 					<?php echo themedd_primary_navigation( array( 'menu_classes' => array( 'navbar-left' ) ) ); ?>
-					<?php if ( 'primary_menu' === $cart_position ) { echo themedd_nav_cart( array( 'classes' => array( 'ml-auto' ) ) ); } ?>
+					<?php if ( 'primary_menu' === $cart_position ) { echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'ml-auto' ) ) ); } ?>
 				</nav>
 			</div>
 		</div>
