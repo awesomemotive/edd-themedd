@@ -63,7 +63,24 @@ span.card-type.amex {
 
 // Payment icons.
 .edd-payment-icons {
+	margin-bottom: 1.5rem;
+
 	.payment-icon {
 		margin-right: 0.5rem;
+	}
+}
+
+// EDD Stripe overrides.
+#edd_purchase_form #edd_secure_site_wrapper {
+	padding: 0;
+	font-weight: normal;
+	clear: both;
+	margin-bottom: 1.5rem;
+	display: flex;
+	align-items: center;
+
+	.padlock {
+		margin-right: 0.5rem;
+		align-self: flex-start;
 	}
 }
