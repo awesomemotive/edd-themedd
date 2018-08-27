@@ -137,7 +137,7 @@ function themedd_edd_default_cc_address_fields() {
 	$customer['address'] = apply_filters( 'edd_checkout_billing_details_address', $customer['address'], $customer );
 
 	ob_start(); ?>
-	<fieldset id="edd_cc_address" class="cc-address">
+	<fieldset id="edd_cc_address" class="cc-address mb-3 mb-sm-5">
 		<legend><?php _e( 'Billing Details', 'easy-digital-downloads' ); ?></legend>
 		<?php do_action( 'edd_cc_billing_top' ); ?>
 
@@ -381,7 +381,7 @@ add_action( 'edd_payment_mode_select', 'themedd_edd_payment_mode_select' );
  */
 function themedd_edd_checkout_final_total() {
 	?>
-	<div id="edd_final_total_wrap" class="h2 text-center mb-3 mb-sm-5">
+	<div id="edd_final_total_wrap" class="h5 text-center mb-4">
 		<?php _e( 'Purchase Total:', 'easy-digital-downloads' ); ?>
 		<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_total(); ?>"><?php edd_cart_total(); ?></span>
 	</div>
@@ -565,7 +565,7 @@ function themedd_edd_stripe_new_card_form() {
 		<div class="d-flex justify-content-between">
 			<label for="card_number" class="edd-label">
 				<?php _e( 'Card Number', 'edds' ); ?>
-				<span class="edd-required-indicator">*</span>
+				<span class="required">*</span>
 			</label>
 			<span class="card-type"></span>
 		</div>	
@@ -576,7 +576,7 @@ function themedd_edd_stripe_new_card_form() {
 	<div class="form-group" id="edd-card-cvc-wrap">
 		<label for="card_cvc" class="edd-label">
 			<?php _e( 'CVC', 'edds' ); ?>
-			<span class="edd-required-indicator">*</span>
+			<span class="required">*</span>
 		</label>
 		<input type="tel" pattern="[0-9]{3,4}" size="4" id="card_cvc" class="card-cvc edd-input required form-control" placeholder="<?php _e( 'Security code', 'edds' ); ?>" autocomplete="cc-csc" />
 		<small class="edd-description form-text text-muted" id="edd-last-description"><?php esc_html_e( 'The 3 digit (back) or 4 digit (front) value on your card.', 'edds' ); ?></small>
@@ -585,7 +585,7 @@ function themedd_edd_stripe_new_card_form() {
 	<div class="form-group" id="edd-card-name-wrap">
 		<label for="card_name" class="edd-label">
 			<?php _e( 'Name on the Card', 'edds' ); ?>
-			<span class="edd-required-indicator">*</span>
+			<span class="required">*</span>
 		</label>
 		<input type="text" id="card_name" class="card-name edd-input required form-control" placeholder="<?php _e( 'Card name', 'edds' ); ?>" autocomplete="cc-name" />
 		<small class="edd-description form-text text-muted" id="edd-last-description"><?php esc_html_e( 'The name printed on the front of your credit card.', 'edds' ); ?></small>
