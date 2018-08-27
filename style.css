@@ -1354,7 +1354,7 @@ pre {
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: #f8f9fa;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0;
@@ -1367,7 +1367,7 @@ pre {
     border: 0; }
   .form-control:focus {
     color: #495057;
-    background-color: #fff;
+    background-color: #f8f9fa;
     border-color: #accdec;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(68, 143, 213, 0.25); }
@@ -1389,7 +1389,7 @@ pre {
 
 select.form-control:focus::-ms-value {
   color: #495057;
-  background-color: #fff; }
+  background-color: #f8f9fa; }
 
 .form-control-file,
 .form-control-range {
@@ -2568,7 +2568,7 @@ input[type="button"].btn-block {
   line-height: 1.5;
   color: #495057;
   vertical-align: middle;
-  background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+  background: #f8f9fa url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
   background-size: 8px 10px;
   border: 1px solid #ced4da;
   border-radius: 0;
@@ -2581,7 +2581,7 @@ input[type="button"].btn-block {
     box-shadow: 0 0 0 0.2rem rgba(172, 205, 236, 0.5); }
     .custom-select:focus::-ms-value {
       color: #495057;
-      background-color: #fff; }
+      background-color: #f8f9fa; }
   .custom-select[multiple], .custom-select[size]:not([size="1"]) {
     height: auto;
     padding-right: 0.75rem;
@@ -2638,7 +2638,7 @@ input[type="button"].btn-block {
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: #f8f9fa;
   border: 1px solid #ced4da; }
   .custom-file-label::after {
     position: absolute;
@@ -7102,7 +7102,8 @@ body {
 
 #content {
   -ms-flex: 1 0 auto;
-      flex: 1 0 auto; }
+      flex: 1 0 auto;
+  padding-bottom: 5rem; }
 
 #page {
   background-color: #fff;
@@ -7191,11 +7192,11 @@ body {
 
 .search-field,
 .btn-search {
-  background-color: #f5f5f5;
-  border-color: #f5f5f5; }
+  background-color: #f8f9fa;
+  border-color: #f8f9fa; }
 
 .search-form .form-control:focus {
-  background: #f5f5f5; }
+  background: #f8f9fa; }
 
 span.required {
   color: #dc3545; }
@@ -7535,8 +7536,24 @@ span.card-type.amex {
 #edd-amazon-address-box {
   margin-bottom: 2rem; }
 
-.edd-payment-icons .payment-icon {
-  margin-right: 0.5rem; }
+.edd-payment-icons {
+  margin-bottom: 1.5rem; }
+  .edd-payment-icons .payment-icon {
+    margin-right: 0.5rem; }
+
+#edd_purchase_form #edd_secure_site_wrapper {
+  padding: 0;
+  font-weight: normal;
+  clear: both;
+  margin-bottom: 1.5rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+  #edd_purchase_form #edd_secure_site_wrapper .padlock {
+    margin-right: 0.5rem;
+    -ms-flex-item-align: start;
+        align-self: flex-start; }
 
 .nav-cart {
   color: rgba(0, 0, 0, 0.5); }
