@@ -65,11 +65,10 @@ function themedd_footer() {
 
 	$container_classes = array( 'container py-4' );
 
-	if ( has_nav_menu( 'social' ) ) {
+	if ( has_nav_menu( 'social' ) && ! themedd_edd_is_distraction_free_checkout() ) {
 		$container_classes[] = 'd-md-flex justify-content-md-between align-items-center';
 		$copyright_classes[] = 'order-md-1';
 	}
-
 	?>
 	<section class="footer-bottom">
 		<div class="<?php echo themedd_output_classes( $container_classes ); ?>">
@@ -79,7 +78,7 @@ function themedd_footer() {
 			 *
 			 * @since 1.1
 			 */
-			if ( has_nav_menu( 'social' ) ) {
+			if ( has_nav_menu( 'social' ) && ! themedd_edd_is_distraction_free_checkout() ) {	
 				echo themedd_social_links_menu( array( 'theme_location' => 'social', 'classes' => array( 'order-md-2 mb-3 mb-md-0' ) ) );
 			}
 
@@ -103,11 +102,11 @@ function themedd_copyright() {
 
 	$classes = array( 'site-info' );
 
-	if ( has_nav_menu( 'social' ) ) {
+	if ( has_nav_menu( 'social' ) && ! themedd_edd_is_distraction_free_checkout() ) {
 		$classes[] = 'order-md-1';
 	} else {
 		// Center the copyright when there is no social menu.
-		$classes[] = 'text-md-center';
+		$classes[] = 'text-center';
 	}
 
 	return apply_filters( 'themedd_copyright', '<div class="' . themedd_output_classes( $classes ) . '"><p class="mb-0">' . sprintf( __( '&copy; %s %s', 'themedd' ), date( 'Y' ), get_bloginfo( 'name' ) ) . '</p></div>', $classes );
