@@ -1501,7 +1501,7 @@ function themedd_customize_get_color( $control = '' ) {
 	 * These are the colors saved to the theme_mods_{theme} options row.
 	 */
 	$colors = get_theme_mod( 'colors' );
-
+	
 	/**
 	 * Get the default colors array.
 	 * These default colors are used by the customizer when a color is not set,
@@ -1520,7 +1520,7 @@ function themedd_customize_get_color( $control = '' ) {
 		// Color is being overridden.
 		$color = $color_overrides[$control];
 	} else {
-		if ( ! empty( $colors[$control] && $colors[$control] !== $color_defaults[$control] ) ) {
+		if ( ! empty( $colors[$control] ) && $colors[$control] !== $color_defaults[$control] ) {
 			// Color must be set and must not be the same as the color in the $defaults array.
 			$color = $colors[$control];
 		} else {
