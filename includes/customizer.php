@@ -1249,19 +1249,19 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		// Button background color.
 		$color = themedd_customize_get_color( 'button_background_color' );
 		if ( $color ) {
-			$styles[] = '.btn-primary { background-color:' . $color . '; border-color:' . $color . '; }';
+			$styles[] = '.btn-primary, .edd-submit { background-color:' . $color . '; border-color:' . $color . '; }';
 		}
 
 		// Button background hover color.
 		$color = themedd_customize_get_color( 'button_background_hover_color' );
 		if ( $color ) {
-			$styles[] = '.btn-primary:hover { background-color:' . $color . '; border-color:' . $color . '; }';
+			$styles[] = '.btn-primary:hover, .edd-submit:hover { background-color:' . $color . '; border-color:' . $color . '; }';
 		}
 
 		// Button text color.
 		$color = themedd_customize_get_color( 'button_text_color' );
 		if ( $color ) {
-			$styles[] = '.btn-primary, .btn-primary:hover { color:' . $color . '; }';
+			$styles[] = '.btn-primary, .btn-primary:hover, .edd-submit, .edd-submit:hover { color:' . $color . '; }';
 		}
 
 		/**
