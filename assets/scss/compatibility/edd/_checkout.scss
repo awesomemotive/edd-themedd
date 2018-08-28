@@ -79,8 +79,78 @@ span.card-type.amex {
 	display: flex;
 	align-items: center;
 
-	.padlock {
+	.padlock,
+	.edd-icon-lock {
 		margin-right: 0.5rem;
 		align-self: flex-start;
 	}
 }
+
+// Custom checkout styling.
+
+.edd-description {
+	font-size: 0.875rem;
+	font-weight: 400;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.edd-select-small {
+	width: auto;
+}
+
+#edd_purchase_form { 
+	label {
+		margin-bottom: 0;
+	}
+
+	fieldset p {
+		margin-bottom: 1.5rem;
+	}
+
+	.edd-label {
+		font-weight: 500;
+	}
+}
+
+#edd_final_total_wrap {
+	text-align: center;
+}
+
+#edd-payment-mode-wrap {
+	margin-bottom: 1.5rem;
+	
+	label {
+		display: block;
+		clear: both; // Required for the first label after the legend.
+	}
+
+	.edd-gateway {
+		margin-right: 0.5rem;
+	}
+}
+
+.edd-required-indicator {
+	color: $required-color;
+}
+
+.exp-divider {
+	margin: 0 0.5rem;
+}
+
+.edd-apply-discount {
+	margin-left: 1rem;
+}
+
+.edd-discount-loader {
+	margin-top: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+	#edd-payment-mode-wrap label {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+}
+
+
