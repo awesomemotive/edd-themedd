@@ -133,11 +133,11 @@ fieldset.fes-submit {
 #fes-vendor-store-link {
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: #d9edf7;
-  border-color: #cbe3ef;
-  color: #31708f; }
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460; }
   #fes-vendor-store-link p {
-    color: #31708f; }
+    color: #0c5460; }
 
 .fes-vendor-comment-respond-form table:last-child {
   border: none;
@@ -154,13 +154,13 @@ fieldset.fes-submit {
   font-size: 0.875rem; }
   .fes-purchase-badge.fes-purchase-badge-purchased {
     display: inline-block;
-    color: #3c763d;
-    background: #dff0d8;
+    color: #155724;
+    background: #d4edda;
     padding: 0.5rem 1rem; }
   .fes-purchase-badge.fes-purchase-badge-not-purchased {
     display: inline-block;
-    color: #a94442;
-    background: #f2dede;
+    color: #721c24;
+    background: #f8d7da;
     padding: 0.5rem 1rem; }
 
 .fes-comment-author-name {
@@ -231,7 +231,7 @@ fieldset.fes-submit {
   .fes-fields .fes-avatar-image-upload a.close,
   .fes-fields .fes-feat-image-upload a.close {
     background: #000;
-    color: #a94442;
+    color: #721c24;
     display: none;
     font-size: 4rem;
     height: 100%;
