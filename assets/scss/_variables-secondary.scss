@@ -47,6 +47,33 @@ $cart-link-hover-color: rgba($black, .7);
 // Dropdown.
 $dropdown-font-size: 0.875rem !default;
 
+// Post navigation.
+$post-navigation-meta-nav-color: rgba($black, .5);
+
+// Notices/errors.
+$alert-background-color: #fdfdd5;
+$alert-text-color: #787878;
+
+// Alert - error.
+$alert-error-background-color: #f8d7da;
+$alert-error-border-color: #f5c6cb;
+$alert-error-text-color: #721c24;
+
+// Alert - Success.
+$alert-success-text-color: #155724;
+$alert-success-background-color: #d4edda;
+$alert-success-border-color: #c3e6cb;
+
+// Alert - Info.
+$alert-info-text-color: #0c5460;
+$alert-info-background-color: #d1ecf1;
+$alert-info-border-color: #bee5eb;
+
+// Alert - Warn.
+$alert-warn-text-color: #856404;
+$alert-warn-background-color: #fff3cd;
+$alert-warn-border-color: #ffeeba;
+
 // Pre v1.1 variables (to review for v1.1)
 $primary-color: #448FD5;
 $light-grey: #f5f5f5;
@@ -64,27 +91,3 @@ $account-tab-link-color: $body-text-color;
 $account-tab-link-hover-color: $primary-color;
 $account-tab-link-active-color: $primary-color;
 $account-tab-active-color: $primary-color;
-
-// Notices/errors.
-$alert-background-color: #fdfdd5;
-$alert-text-color: #787878;
-
-// Alert - error.
-$alert-error-background-color: #f2dede;
-$alert-error-border-color: #ebccd1;
-$alert-error-text-color: #a94442;
-
-// Alert - Success.
-$alert-success-text-color: #3c763d;
-$alert-success-background-color: #dff0d8;
-$alert-success-border-color: #d6e9c6;
-
-// Alert - Info.
-$alert-info-text-color: #31708f;
-$alert-info-background-color: #d9edf7;
-$alert-info-border-color: #cbe3ef;
-
-// Alert - Warn.
-$alert-warn-text-color: #8a6d3b;
-$alert-warn-background-color: #fcf8e3;
-$alert-warn-border-color: #faebcc;
