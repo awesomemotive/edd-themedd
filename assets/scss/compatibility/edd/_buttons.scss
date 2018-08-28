@@ -1,0 +1,6 @@
+// Buttons.
+
+// Creates a new button variant for EDD's buttons.
+.edd-submit {
+	@include button-variant( #448fd5, #448fd5 );
+}
