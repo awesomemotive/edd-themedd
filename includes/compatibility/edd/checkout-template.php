@@ -38,7 +38,7 @@ function themedd_edd_discount_field() {
 				<span class="edd-description"><?php _e( 'Enter a coupon code if you have one.', 'easy-digital-downloads' ); ?></span>
 				<div class="edd-discount-code-field-wrap input-group">
 					<input class="edd-input form-control" type="text" id="edd-discount" name="edd-discount" placeholder="<?php _e( 'Enter discount', 'easy-digital-downloads' ); ?>"/>
-					<input type="submit" class="edd-apply-discount edd-submit btn btn-primary <?php echo $color . ' ' . $style; ?>" value="<?php echo _x( 'Apply', 'Apply discount at checkout', 'easy-digital-downloads' ); ?>" />
+					<input type="submit" class="edd-apply-discount edd-submit <?php echo $color . ' ' . $style; ?>" value="<?php echo _x( 'Apply', 'Apply discount at checkout', 'easy-digital-downloads' ); ?>" />
 				</div>
 				
 				<span class="edd-discount-loader edd-loading" id="edd-discount-loader" style="display:none;"></span>
