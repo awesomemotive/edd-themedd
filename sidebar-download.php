@@ -37,7 +37,7 @@ $download_options = themedd_edd_download_details_options();
 		 */
 		if ( themedd_edd_show_download_author() ) : ?>
 
-		<section class="widget downloadAuthor">
+		<section class="widget download-author">
 
 			<?php
 			/**
@@ -48,7 +48,7 @@ $download_options = themedd_edd_download_details_options();
 
 			if ( true === $author_options['avatar'] ) : ?>
 
-				<div class="downloadAuthor-avatar">
+				<div class="download-author-avatar">
 				<?php if ( $vendor_url ) : ?>
 					<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, $author_options['avatar_size'], '', get_the_author_meta( 'display_name' ) ); ?></a>
 				<?php else : ?>
@@ -81,9 +81,9 @@ $download_options = themedd_edd_download_details_options();
 			 */
 			if ( true === $author_options['name'] ) : ?>
 
-				<li class="downloadAuthor-author">
-					<span class="downloadAuthor-name"><?php _e( 'Author:', 'themedd' ); ?></span>
-					<span class="downloadAuthor-value">
+				<li class="download-author-author">
+					<span class="download-author-name"><?php _e( 'Author:', 'themedd' ); ?></span>
+					<span class="download-author-value">
 						<?php if ( themedd_is_edd_fes_active() ) : ?>
 							<a class="vendor-url" href="<?php echo $vendor_url; ?>">
 								<?php echo $user->display_name; ?>
@@ -101,9 +101,9 @@ $download_options = themedd_edd_download_details_options();
 			 */
 			if ( true === $author_options['signup_date'] ) : ?>
 
-				<li class="downloadAuthor-authorSignupDate">
-					<span class="downloadAuthor-name"><?php _e( 'Author since:', 'themedd' ); ?></span>
-					<span class="downloadAuthor-value"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ); ?></span>
+				<li class="download-author-author-signup-date">
+					<span class="download-author-name"><?php _e( 'Author since:', 'themedd' ); ?></span>
+					<span class="download-author-value"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ); ?></span>
 				</li>
 			<?php endif; ?>
 
@@ -115,9 +115,9 @@ $download_options = themedd_edd_download_details_options();
 
 			if ( ! empty( $website ) && true === $author_options['website'] ) : ?>
 
-			<li class="downloadAuthor-website">
-				<span class="downloadAuthor-name"><?php _e( 'Website:', 'themedd' ); ?></span>
-				<span class="downloadAuthor-value"><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener"><?php echo esc_url( $website ); ?></a></span>
+			<li class="download-author-website">
+				<span class="download-author-name"><?php _e( 'Website:', 'themedd' ); ?></span>
+				<span class="download-author-value"><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener"><?php echo esc_url( $website ); ?></a></span>
 			</li>
 			<?php endif; ?>
 
@@ -137,7 +137,7 @@ $download_options = themedd_edd_download_details_options();
 		 */
 		if ( themedd_edd_show_download_details() ) : ?>
 
-		<section class="widget downloadDetails">
+		<section class="widget download-details">
 
 			<?php
 			/**
@@ -156,9 +156,9 @@ $download_options = themedd_edd_download_details_options();
 				 * Date published.
 				 */
 				if ( true === $download_options['date_published'] ) : ?>
-				<li class="downloadDetails-datePublished">
-					<span class="downloadDetails-name"><?php _e( 'Published:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo themedd_edd_download_date_published(); ?></span>
+				<li class="download-details-date-published">
+					<span class="download-details-name"><?php _e( 'Published:', 'themedd' ); ?></span>
+					<span class="download-details-value"><?php echo themedd_edd_download_date_published(); ?></span>
 				</li>
 				<?php endif; ?>
 
@@ -169,9 +169,9 @@ $download_options = themedd_edd_download_details_options();
 				if ( true === $download_options['sale_count'] ) :
 					$sales = edd_get_download_sales_stats( $post->ID );
 				?>
-				<li class="downloadDetails-sales">
-					<span class="downloadDetails-name"><?php _e( 'Sales:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $sales; ?></span>
+				<li class="download-details-sales">
+					<span class="download-details-name"><?php _e( 'Sales:', 'themedd' ); ?></span>
+					<span class="download-details-value"><?php echo $sales; ?></span>
 				</li>
 				<?php endif; ?>
 
@@ -184,9 +184,9 @@ $download_options = themedd_edd_download_details_options();
 					$version = themedd_edd_download_version( $post->ID );
 
 					if ( $version ) : ?>
-					<li class="downloadDetails-version">
-						<span class="downloadDetails-name"><?php _e( 'Version:', 'themedd' ); ?></span>
-						<span class="downloadDetails-value"><?php echo $version; ?></span>
+					<li class="download-details-version">
+						<span class="download-details-name"><?php _e( 'Version:', 'themedd' ); ?></span>
+						<span class="download-details-value"><?php echo $version; ?></span>
 					</li>
 					<?php endif; ?>
 				<?php endif; ?>
@@ -200,9 +200,9 @@ $download_options = themedd_edd_download_details_options();
 					$categories = themedd_edd_download_categories( $post->ID );
 
 					if ( $categories ) : ?>
-					<li class="downloadDetails-categories">
-						<span class="downloadDetails-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
-						<span class="downloadDetails-value"><?php echo $categories; ?></span>
+					<li class="download-details-categories">
+						<span class="download-details-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
+						<span class="download-details-value"><?php echo $categories; ?></span>
 					</li>
 					<?php endif; ?>
 				<?php endif; ?>
@@ -216,9 +216,9 @@ $download_options = themedd_edd_download_details_options();
 					$tags = themedd_edd_download_tags( $post->ID );
 
 					if ( $tags ) : ?>
-					<li class="downloadDetails-tags">
-						<span class="downloadDetails-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
-						<span class="downloadDetails-value"><?php echo $tags; ?></span>
+					<li class="download-details-tags">
+						<span class="download-details-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
+						<span class="download-details-value"><?php echo $tags; ?></span>
 					</li>
 					<?php endif; ?>
 				<?php endif; ?>
