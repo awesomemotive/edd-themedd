@@ -475,7 +475,14 @@ add_filter( 'edd_purchase_form_quantity_input', 'themedd_edd_purchase_form_quant
  * @since 1.1
  */
 function themedd_edd_empty_cart_message() {
+
+	$classes = array( 'edd_empty_cart' );
+
+	if ( in_array( 'no-sidebar', get_body_class() ) ) {
+		$classes[] = 'text-center';
+	}
+
 	// Center the empty cart message.
-	return '<div class="edd_empty_cart text-center">' . __( 'Your cart is empty.', 'themedd' ) . '</div>';
+	return '<div class="' . themedd_output_classes( $classes ) . '">' . __( 'Your cart is empty.', 'themedd' ) . '</div>';
 }
 add_filter( 'edd_empty_cart_message', 'themedd_edd_empty_cart_message' );
