@@ -24,7 +24,7 @@ class Themedd_Download_Details extends WP_Widget {
 			'Themedd' . ': ' . sprintf( __( '%s Details', 'themedd' ), edd_get_label_singular() ),
 			array(
 			'description' => sprintf( __( 'Display the %s details such as date published and number of sales.', 'themedd' ), strtolower( edd_get_label_singular() ) ),
-			'classname'   => 'downloadDetails'
+			'classname'   => 'download-details'
 			)
 		);
 
@@ -77,9 +77,9 @@ class Themedd_Download_Details extends WP_Widget {
 			 */
 			if ( true === $options['date_published'] ) :
 			?>
-				<li class="downloadDetails-datePublished">
-					<span class="downloadDetails-name"><?php _e( 'Published:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo themedd_edd_download_date_published(); ?></span>
+				<li class="download-details-date-published">
+					<span class="download-details-name"><?php _e( 'Published:', 'themedd' ); ?></span>
+					<span class="download-details-value"><?php echo themedd_edd_download_date_published(); ?></span>
 				</li>
 			<?php endif; ?>
 
@@ -90,9 +90,9 @@ class Themedd_Download_Details extends WP_Widget {
 			if ( true === $options['sale_count'] ) :
 				$sales = edd_get_download_sales_stats( $post->ID );
 			?>
-				<li class="downloadDetails-sales">
-					<span class="downloadDetails-name"><?php _e( 'Sales:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $sales; ?></span>
+				<li class="download-details-sales">
+					<span class="download-details-name"><?php _e( 'Sales:', 'themedd' ); ?></span>
+					<span class="download-details-value"><?php echo $sales; ?></span>
 				</li>
 			<?php endif; ?>
 
@@ -105,9 +105,9 @@ class Themedd_Download_Details extends WP_Widget {
 				$version = themedd_edd_download_version( $post->ID );
 
 				if ( $version ) : ?>
-				<li class="downloadDetails-version">
-					<span class="downloadDetails-name"><?php _e( 'Version:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $version; ?></span>
+				<li class="download-details-version">
+					<span class="download-details-name"><?php _e( 'Version:', 'themedd' ); ?></span>
+					<span class="download-details-value"><?php echo $version; ?></span>
 				</li>
 				<?php endif; ?>
 			<?php endif; ?>
@@ -121,9 +121,9 @@ class Themedd_Download_Details extends WP_Widget {
 				$categories = themedd_edd_download_categories( $post->ID );
 
 				if ( $categories ) : ?>
-					<li class="downloadDetails-categories">
-						<span class="downloadDetails-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
-						<span class="downloadDetails-value"><?php echo $categories; ?></span>
+					<li class="download-details-categories">
+						<span class="download-details-name"><?php _e( 'Categories:', 'themedd' ); ?></span>
+						<span class="download-details-value"><?php echo $categories; ?></span>
 					</li>
 				<?php endif; ?>
 
@@ -138,9 +138,9 @@ class Themedd_Download_Details extends WP_Widget {
 				$tags = themedd_edd_download_tags( $post->ID );
 
 				if ( $tags ) : ?>
-				<li class="downloadDetails-tags">
-					<span class="downloadDetails-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
-					<span class="downloadDetails-value"><?php echo $tags; ?></span>
+				<li class="download-details-tags">
+					<span class="download-details-name"><?php _e( 'Tags:', 'themedd' ); ?></span>
+					<span class="download-details-value"><?php echo $tags; ?></span>
 				</li>
 				<?php endif; ?>
 
