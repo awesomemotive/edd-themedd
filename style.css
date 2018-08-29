@@ -7384,73 +7384,6 @@ button:not(.navbar-toggler):hover .icon {
   color: rgba(0, 0, 0, 0.9); }
 
 .edd-submit {
-  color: #fff;
-  background-color: #448fd5;
-  border-color: #448fd5; }
-  .edd-submit:hover {
-    color: #fff;
-    background-color: #2d7cc6;
-    border-color: #2a76bc; }
-  .edd-submit:focus, .edd-submit.focus {
-    box-shadow: 0 0 0 0.2rem rgba(68, 143, 213, 0.5); }
-  .edd-submit.disabled, .edd-submit:disabled {
-    color: #fff;
-    background-color: #448fd5;
-    border-color: #448fd5; }
-  .edd-submit:not(:disabled):not(.disabled):active, .edd-submit:not(:disabled):not(.disabled).active, .show > .edd-submit.dropdown-toggle {
-    color: #fff;
-    background-color: #2a76bc;
-    border-color: #286fb1; }
-    .edd-submit:not(:disabled):not(.disabled):active:focus, .edd-submit:not(:disabled):not(.disabled).active:focus, .show > .edd-submit.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(68, 143, 213, 0.5); }
-
-.edd-item-quantity {
-  width: 4rem; }
-
-.edd_price_options ul {
-  list-style-type: none;
-  padding-left: 0; }
-.edd_price_options li {
-  display: -ms-flexbox;
-  display: flex; }
-
-.edd_download,
-.edd_download_inner {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-
-.edd_download {
-  position: relative;
-  min-width: 0;
-  word-wrap: break-word; }
-
-.edd_download_inner {
-  height: 100%; }
-
-.edd-download-meta-author-avatar img {
-  display: block;
-  border-radius: 100%; }
-
-.edd-download-meta-author-avatar + .edd-download-meta-author-name {
-  margin-left: 0.5rem; }
-
-.edd-download-meta-author-name {
-  font-size: 0.875rem; }
-
-.edd_download_title a {
-  color: #495057;
-  font-size: 1.2rem;
-  display: block; }
-  .edd_download_title a:hover {
-    color: #000;
-    text-decoration: none; }
-
-#edd_download_pagination {
-  width: 100%; }
-
-.edd-submit {
   width: auto; }
 
 .edd-cart-ajax-alert {
@@ -7536,11 +7469,26 @@ a.edd-add-to-cart .edd-add-to-cart-label,
 .edd-discount-loader.edd-loading {
   opacity: 1; }
 
-.widget_edd_product_details .edd_price {
-  font-size: 1.5rem; }
-
-.single-download #main {
-  max-width: 720px; }
+.edd-submit {
+  color: #fff;
+  background-color: #448fd5;
+  border-color: #448fd5; }
+  .edd-submit:hover {
+    color: #fff;
+    background-color: #2d7cc6;
+    border-color: #2a76bc; }
+  .edd-submit:focus, .edd-submit.focus {
+    box-shadow: 0 0 0 0.2rem rgba(68, 143, 213, 0.5); }
+  .edd-submit.disabled, .edd-submit:disabled {
+    color: #fff;
+    background-color: #448fd5;
+    border-color: #448fd5; }
+  .edd-submit:not(:disabled):not(.disabled):active, .edd-submit:not(:disabled):not(.disabled).active, .show > .edd-submit.dropdown-toggle {
+    color: #fff;
+    background-color: #2a76bc;
+    border-color: #286fb1; }
+    .edd-submit:not(:disabled):not(.disabled):active:focus, .edd-submit:not(:disabled):not(.disabled).active:focus, .show > .edd-submit.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(68, 143, 213, 0.5); }
 
 .edd_form legend {
   float: left; }
@@ -7649,6 +7597,52 @@ span.card-type.amex {
   #edd-payment-mode-wrap label {
     display: inline-block;
     margin-right: 1rem; } }
+.edd-item-quantity {
+  width: 4rem; }
+
+.edd_price_options ul {
+  list-style-type: none;
+  padding-left: 0; }
+.edd_price_options li {
+  display: -ms-flexbox;
+  display: flex; }
+
+.edd_download,
+.edd_download_inner {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+
+.edd_download {
+  position: relative;
+  min-width: 0;
+  word-wrap: break-word; }
+
+.edd_download_inner {
+  height: 100%; }
+
+.edd-download-meta-author-avatar img {
+  display: block;
+  border-radius: 100%; }
+
+.edd-download-meta-author-avatar + .edd-download-meta-author-name {
+  margin-left: 0.5rem; }
+
+.edd-download-meta-author-name {
+  font-size: 0.875rem; }
+
+.edd_download_title a {
+  color: #495057;
+  font-size: 1.2rem;
+  display: block; }
+  .edd_download_title a:hover {
+    color: #000;
+    text-decoration: none; }
+
+#edd_download_pagination {
+  width: 100%; }
+
 .nav-cart {
   color: rgba(0, 0, 0, 0.5); }
   .nav-cart:hover {
@@ -7712,3 +7706,9 @@ p.edd_error {
   border-color: #ffeeba; }
   .edd-alert-warn p, .edd-alert-warn a {
     color: #856404; }
+
+.widget_edd_product_details .edd_price {
+  font-size: 1.5rem; }
+
+.single-download #main {
+  max-width: 720px; }
