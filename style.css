@@ -1691,7 +1691,7 @@ pre {
   text-align: center;
   white-space: nowrap;
   background-color: #e9ecef;
-  border: 1px solid #ced4da; }
+  border: 1px solid #dee2e6; }
   .input-group-text input[type="radio"],
   .input-group-text input[type="checkbox"] {
     margin-top: 0; }
@@ -5995,7 +5995,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #495057;
   background-color: #f8f9fa;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #dee2e6;
   border-radius: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
@@ -6875,7 +6875,7 @@ input[type="button"].btn-block {
   vertical-align: middle;
   background: #f8f9fa url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
   background-size: 8px 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #dee2e6;
   border-radius: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -6950,7 +6950,7 @@ input[type="button"].btn-block {
   line-height: 1.5;
   color: #495057;
   background-color: #f8f9fa;
-  border: 1px solid #ced4da; }
+  border: 1px solid #dee2e6; }
   .custom-file-label::after {
     position: absolute;
     top: 0;
@@ -6964,7 +6964,7 @@ input[type="button"].btn-block {
     color: #495057;
     content: "Browse";
     background-color: #e9ecef;
-    border-left: 1px solid #ced4da; }
+    border-left: 1px solid #dee2e6; }
 
 .custom-range {
   width: 100%;
@@ -7635,7 +7635,7 @@ span.card-type.amex {
   font-size: 0.875rem; }
 
 .edd_download_title a {
-  color: #495057;
+  color: #343a40;
   font-size: 1.2rem;
   display: block; }
   .edd_download_title a:hover {
