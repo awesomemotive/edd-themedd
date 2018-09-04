@@ -7161,6 +7161,15 @@ body {
   .layout-full-width #page {
     max-width: inherit; }
 
+@media (min-width: 992px) {
+  .container > #primary {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%; }
+
+  .container > #secondary {
+    -ms-flex: 1 1 0;
+        flex: 1 1 0;
+    min-width: 0; } }
 .screen-reader-text {
   position: absolute;
   width: 1px;
@@ -7311,6 +7320,9 @@ figure.wp-caption {
     .site-footer a:hover {
       color: #343a40; }
 
+.site-info {
+  font-size: 0.875rem; }
+
 .dropdown-menu {
   font-size: 0.875rem; }
 
@@ -7385,9 +7397,6 @@ figure.wp-caption {
 button:not(.navbar-toggler):hover .icon {
   color: rgba(0, 0, 0, 0.9); }
 
-.edd-submit {
-  width: auto; }
-
 .edd-cart-ajax-alert {
   display: none; }
 
@@ -7403,9 +7412,6 @@ button:not(.navbar-toggler):hover .icon {
 .edd_purchase_submit_wrapper a.edd-add-to-cart.edd-has-js {
   display: inline-block; }
 
-@media (min-width: 992px) {
-  .single-download .widget_edd_product_details .button {
-    width: 100%; } }
 .edd-add-to-cart .edd-add-to-cart-label {
   opacity: 1; }
 
@@ -7565,12 +7571,12 @@ span.card-type.amex {
 .edd-select-small {
   width: auto; }
 
-#edd_purchase_form label {
-  margin-bottom: 0; }
 #edd_purchase_form fieldset p {
   margin-bottom: 1.5rem; }
 #edd_purchase_form .edd-label {
   font-weight: 500; }
+#edd_purchase_form .edd-label + .edd-description {
+  margin-top: -0.5rem; }
 
 #edd_final_total_wrap {
   text-align: center; }
@@ -7712,6 +7718,3 @@ p.edd_error {
 .widget_edd_product_details .edd_price {
   font-size: 1.1rem;
   color: #495057; }
-
-.single-download #main {
-  max-width: 720px; }
