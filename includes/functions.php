@@ -244,7 +244,7 @@ function themedd_layout_full_width() {
 	$theme_options     = get_theme_mod( 'theme_options' );
 	$layout_full_width = isset( $theme_options['layout_full_width'] ) && true === $theme_options['layout_full_width'] ? true : false;
 
-	return $layout_full_width;
+	return apply_filters( 'themedd_layout_full_width', $layout_full_width );
 }
 
 /**
