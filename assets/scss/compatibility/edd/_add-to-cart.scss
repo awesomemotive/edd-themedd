@@ -1,7 +1,3 @@
-.edd-submit {
-    width: auto; // Required for buttons on EDD's download grid.
-}
-
 // Kill the add to cart message.
 .edd-cart-ajax-alert {
     display: none;
@@ -21,21 +17,6 @@
 
 .edd_purchase_submit_wrapper a.edd-add-to-cart.edd-has-js {
 	display: inline-block;
-}
-
-@include media-breakpoint-up(lg) {
-
-	// Make any buttons in the product details widget 100% wide on the single download page.
-	// This includes:
-	//
-	// 1. The purchase button
-	// 2. The go to checkout button
-	// 3. The purchase button when JS is disabled
-	// 4. Other buttons such as the voting button from EDD Coming Soon
-	.single-download .widget_edd_product_details .button {
-		width: 100%;
-	}
-
 }
 
 .edd-add-to-cart .edd-add-to-cart-label {
