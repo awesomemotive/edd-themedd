@@ -65,17 +65,27 @@ final class Themedd_Search {
 	}
 
 	/**
-	 * 
 	 * Search form shown in header
 	 * 
 	 * @since 1.1
 	 */
-	public function search_form( $args = array() ) {
+	public function header_search_form( $args = array() ) {
 
 		// Return if header search is not enabled.
 		if ( ! ( true === $this->show_header_search() ) ) {
 			return false;
 		}
+
+		return $this->search_form( $args );
+
+	}
+
+	/**
+	 * Search form 
+	 * 
+	 * @since 1.1
+	 */
+	public function search_form( $args = array() ) {
 
 		if ( themedd_edd_is_distraction_free_checkout() ) {
 			return false;

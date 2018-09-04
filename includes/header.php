@@ -304,7 +304,7 @@ function themedd_nav_cart( $args = array() ) {
  * @since 1.1
  */
 function themedd_header_search( $args = array() ) {
-	return themedd_load_search()->search_form( $args );
+	return themedd_load_search()->header_search_form( $args );
 }
 
 /**
