@@ -167,9 +167,9 @@ function themedd_wrapper_classes() {
 function themedd_primary_classes() {
 
 	$classes = array();
-
-	if ( themedd_has_sidebar() ) {
-		$classes = array( 'col-12 col-lg-8' );
+	
+	if ( 'sidebar-content' === themedd_content_sidebar_layout() ) {
+		$classes[] = 'order-2';
 	}
 
 	$classes = apply_filters( 'themedd_primary_classes', $classes );
@@ -187,8 +187,14 @@ function themedd_primary_classes() {
  */
 function themedd_secondary_classes() {
 
-	$classes   = array();
-	$classes[] = 'col-12 col-lg-4';
+	$classes = array();
+
+	if ( 'content-sidebar' === themedd_content_sidebar_layout() ) {
+		$classes[] = 'ml-lg-10';
+	} elseif ( 'sidebar-content' === themedd_content_sidebar_layout() ) {
+		$classes[] = 'mr-lg-10';
+		$classes[] = 'order-1';
+	}
 
 	$classes = apply_filters( 'themedd_secondary_classes', $classes );
 
@@ -217,6 +223,17 @@ function themedd_has_sidebar() {
 
 	return false;
 
+}
+
+/**
+ * Determines the page layout when a sidebar exists.
+ * Possible values: content-sidebar | sidebar-content
+ *
+ * @since 1.1
+ */
+function themedd_content_sidebar_layout() {
+	$layout = 'content-sidebar';
+	return apply_filters( 'themedd_content_sidebar_layout', $layout );
 }
 
 /**
