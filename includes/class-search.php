@@ -109,12 +109,16 @@ final class Themedd_Search {
 		?>
 
 		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo themedd_output_classes( $args['form_classes'] ); ?>">
+			
+		<?php if ( $args['search_button'] ) : ?>
 			<div class="input-group">
-				<label for="<?php echo $unique_id; ?>">
+		<?php endif; ?>
+
+				<label for="<?php echo $unique_id; ?>" class="sr-only">
 					<?php
 					$search_label = true === self::restrict_header_search() ? _x( 'Search products:', 'label', 'themedd' ) : _x( 'Search for:', 'label', 'themedd' );
 					?>
-					<span class="sr-only"><?php echo $search_label; ?></span>
+					<span><?php echo $search_label; ?></span>
 				</label>	
 				
 				<input type="search" id="<?php echo $unique_id; ?>" class="<?php echo themedd_output_classes( $args['input_classes'] ); ?>" placeholder="<?php echo $args['placeholder']; ?>" value="<?php echo get_search_query(); ?>" name="s" />
@@ -130,8 +134,9 @@ final class Themedd_Search {
 				if ( true === self::restrict_header_search() ) : ?>
 				<input type="hidden" name="post_type" value="download" />
 				<?php endif; ?>
-
+		<?php if ( $args['search_button'] ) : ?>
 			</div>
+		<?php endif; ?>
 		</form>
 	
 		<?php
