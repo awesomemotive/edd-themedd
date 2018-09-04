@@ -12,30 +12,18 @@ themedd_header(
 		'header_classes' => array( 'py-5', 'py-lg-10', 'text-center' ),
 	) 
 );
-
 ?>
-
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
-	<?php if ( themedd_has_sidebar() ) : ?>
-	<div class="row justify-content-center">
-	<?php endif; ?>
-
-		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-			<main id="main" class="site-main" role="main">
-				<section class="error-404 not-found">
-					<div class="content-wrapper">
-						<?php get_search_form(); ?>
-					</div>
-				</section>
-			</main>
-		</div>
-
-		<?php themedd_get_sidebar(); ?>
-
-	<?php if ( themedd_has_sidebar() ) : ?>	
+	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
+		<main id="main" class="site-main" role="main">
+			<section class="error-404 not-found">
+				<div class="content-wrapper">
+					<?php get_search_form(); ?>
+				</div>
+			</section>
+		</main>
 	</div>
-	<?php endif; ?>
-
+	<?php themedd_get_sidebar(); ?>
 </div>
 
 <?php get_footer(); ?>
