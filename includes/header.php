@@ -317,7 +317,7 @@ function themedd_site_branding() {
 	$classes = array( 'site-title', 'mb-0', 'h1' );
 	?>
 
-	<div class="site-branding">
+	<div class="site-branding<?php if ( ! display_header_text() ) { echo ' sr-only'; } ?>">
 
 		<?php do_action( 'themedd_site_branding_start' ); ?>
 
