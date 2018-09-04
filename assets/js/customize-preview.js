@@ -406,9 +406,7 @@
 	wp.customize('colors[cart_icon_color]', function( value ) {
 
 		value.bind(function( to ) {
-			jQuery('.navCart-icon')
-				.not('.navCart-mobile .navCart-icon')
-				.css('fill', to ? to : defaults.cart_icon_color );
+			jQuery('#nav-primary .icon-cart').css('color', to ? to : defaults.cart_icon_color );
 		});
 
 	});
