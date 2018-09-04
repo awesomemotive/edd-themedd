@@ -46,7 +46,6 @@ function themedd_custom_header() {
 		'width'            => 1480, // Recommended width.
 		'flex-height'      => true,
 		'height'           => 280, // Recommended height.
-		'wp-head-callback' => 'themedd_header_style',
 	) ) );
 
 }
@@ -74,11 +73,11 @@ function themedd_customize_color_defaults() {
 	$defaults = array(
 		'background_color'                          => $white,
 		'header_background_color'                   => $white,
-		'header_textcolor'                          => $dark_grey,
+		'header_textcolor'                          => $dark_grey, // Used for the site_title_color default
 		'header_search_background_color'            => $light_grey,
 		'header_search_text_color'                  => $body,
 		'header_search_icon_color'                  => $body,
-		'site_title_color'                          => $dark_grey,
+		'site_title_color'                          => '#' . get_header_textcolor(), // The actual color of the site title.
 		'menu_primary_sub_background_hover_color'   => '',
 		'menu_primary_sub_background_color'         => $dark_grey,
 		'link_color'                                => $primary,
@@ -120,53 +119,6 @@ function themedd_customize_color_defaults() {
 
 }
 
-if ( ! function_exists( 'themedd_header_style' ) ) :
-/**
- * Styles the header text displayed on the site.
- *
- * Create your own themedd_header_style() function to override in a child theme.
- *
- * @since Themedd 1.0.0
- *
- * @see themedd_custom_header().
- */
-function themedd_header_style() {
-
-	// Get the header text color.
-	$text_color = get_header_textcolor();
-
-	// Get the default colors to compare against.
-	$defaults = themedd_customize_color_defaults();
-
-	// If no custom color for text is set, let's bail.
-	if ( display_header_text() && $text_color === get_theme_support( 'custom-header', 'default-text-color' ) ) {
-		return;
-	}
-
-	?>
-
-	<style type="text/css" id="themedd-header-css">
-	<?php
-		// Has the text been hidden?
-		if ( ! display_header_text() ) :
-	?>
-	.site-branding .site-title,
-	.site-description {
-		clip: rect(1px, 1px, 1px, 1px);
-		position: absolute;
-	}
-	<?php
-		// If the user has set a custom color for the text, use that.
-		elseif ( $text_color != get_theme_support( 'custom-header', 'default-text-color' ) && ( '#' . $text_color !== $defaults['header_textcolor'] ) ) :
-	?>
-		#masthead .site-title a, #masthead .site-title a:hover { color: #<?php echo esc_attr( $text_color ); ?>; }
-	<?php endif; ?>
-	</style>
-
-	<?php
-}
-endif;
-
 /**
  * Bind JS handlers to instantly live-preview changes.
  *
@@ -180,7 +132,6 @@ function themedd_customize_preview_js() {
 	wp_enqueue_style( 'themedd-customize-preview', get_theme_file_uri( '/assets/css/customize-preview.css' ), array(), THEMEDD_VERSION );
 }
 add_action( 'customize_preview_init', 'themedd_customize_preview_js' );
-
 
 /**
  * Adds postMessage support for site title and description for the Customizer.
@@ -1230,6 +1181,13 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		}
 	
 		$styles = array();
+		
+		// Site title color
+		$color = themedd_customize_get_color( 'site_title_color' );
+
+		if ( $color && display_header_text() ) {
+			$styles[] = '#masthead .navbar-brand, #masthead .navbar-brand:hover { color:' . $color . '; }';
+		}
 
 		/**
 		 * General
@@ -1289,67 +1247,67 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		// Primary menu link color.
 		$color = themedd_customize_get_color( 'menu_primary_link_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .nav-link { color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .nav-link { color:' . $color . '; }';
 		}
 		
 		// Primary menu link hover color.
 		$color = themedd_customize_get_color( 'menu_primary_link_hover_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .nav-link:hover, #navbar-primary .navbar-nav .nav-link:focus { color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .nav-link:hover, #navbar-primary .navbar-nav .nav-link:focus { color:' . $color . '; }';
 		}
 
 		// Primary menu link active color.
 		$color = themedd_customize_get_color( 'menu_primary_link_active_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .active > .nav-link { color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .active > .nav-link { color:' . $color . '; }';
 		}
 
 		// Primary menu link background hover color.
 		$color = themedd_customize_get_color( 'menu_primary_link_background_hover_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .nav-item:hover { background-color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .nav-item:hover { background-color:' . $color . '; }';
 		}
 
 		// Primary menu link background active color.
 		$color = themedd_customize_get_color( 'menu_primary_link_background_active_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .nav-item.active { background-color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .nav-item.active { background-color:' . $color . '; }';
 		}
 
 		// Primary sub-menu link color.
 		$color = themedd_customize_get_color( 'menu_primary_sub_link_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .dropdown-item { color:' . $color . '; }';
+			$styles[] = '#nav-primary .dropdown-item { color:' . $color . '; }';
 		}
 
 		// Primary sub-menu link hover color.
 		$color = themedd_customize_get_color( 'menu_primary_sub_link_hover_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .dropdown-item:hover { color:' . $color . '; }';
+			$styles[] = '#nav-primary .dropdown-item:hover { color:' . $color . '; }';
 		}
 
 		// Primary sub-menu link active color.
 		$color = themedd_customize_get_color( 'menu_primary_sub_link_active_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .nav-item.active > .dropdown-item { color:' . $color . '; }';
 		}
 
 		// Primary sub-menu background color.
 		$color = themedd_customize_get_color( 'menu_primary_sub_background_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .dropdown-menu { background-color:' . $color . '; border-color:' . $color . '; }';
+			$styles[] = '#nav-primary .dropdown-menu { background-color:' . $color . '; border-color:' . $color . '; }';
 		}
 
 		// Primary sub-menu background hover color.
 		$color = themedd_customize_get_color( 'menu_primary_sub_background_hover_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .dropdown-item:hover { background-color:' . $color . '; }';
+			$styles[] = '#nav-primary .dropdown-item:hover { background-color:' . $color . '; }';
 		}
 
 		// Primary sub-menu background active color.
 		$color = themedd_customize_get_color( 'menu_primary_sub_background_active_color' );
 		if ( $color ) {
-			$styles[] = '#navbar-primary .navbar-nav .nav-item.active > .dropdown-item { background-color:' . $color . '; }';
+			$styles[] = '#nav-primary .navbar-nav .nav-item.active > .dropdown-item { background-color:' . $color . '; }';
 		}
 
 		// Secondary menu link color.
@@ -1381,6 +1339,12 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		$color = themedd_customize_get_color( 'header_search_icon_color' );
 		if ( $color ) {
 			$styles[] = '.navbar .icon-search { color:' . $color . '; }';
+		}
+
+		// Cart icon color.
+		$color = themedd_customize_get_color( 'cart_icon_color' );
+		if ( $color ) {
+			$styles[] = '#nav-primary .icon-cart { color:' . $color . '; }';
 		}
 
 		/**
@@ -1501,7 +1465,7 @@ function themedd_customize_get_color( $control = '' ) {
 	 * These are the colors saved to the theme_mods_{theme} options row.
 	 */
 	$colors = get_theme_mod( 'colors' );
-	
+
 	/**
 	 * Get the default colors array.
 	 * These default colors are used by the customizer when a color is not set,
@@ -1523,6 +1487,9 @@ function themedd_customize_get_color( $control = '' ) {
 		if ( ! empty( $colors[$control] ) && $colors[$control] !== $color_defaults[$control] ) {
 			// Color must be set and must not be the same as the color in the $defaults array.
 			$color = $colors[$control];
+		} elseif ( 'site_title_color' === $control ) {
+			// Special condition for the site title color.
+			$color = '#' . get_header_textcolor();
 		} else {
 			$color = false;
 		}
