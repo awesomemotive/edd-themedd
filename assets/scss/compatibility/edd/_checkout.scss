@@ -100,9 +100,6 @@ span.card-type.amex {
 }
 
 #edd_purchase_form { 
-	label {
-		margin-bottom: 0;
-	}
 
 	fieldset p {
 		margin-bottom: 1.5rem;
@@ -110,6 +107,10 @@ span.card-type.amex {
 
 	.edd-label {
 		font-weight: 500;
+	}
+
+	.edd-label + .edd-description {
+		margin-top: -0.5rem;
 	}
 }
 
