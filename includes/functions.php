@@ -149,6 +149,7 @@ function themedd_wrapper_classes() {
 
 	if ( themedd_has_sidebar() ) {
 		$classes[] = 'container';
+		$classes[] = 'd-lg-flex flex-wrap';
 	} elseif( ! themedd_has_sidebar() ) {
 		$classes[] = 'container-fluid';
 	}
