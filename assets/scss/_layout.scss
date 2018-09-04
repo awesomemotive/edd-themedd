@@ -27,3 +27,17 @@ body {
 		max-width: inherit;
 	}
 }
+
+
+@include media-breakpoint-up(lg) {
+
+	.container > #primary {
+		flex-basis: 60%;
+	}
+
+	.container > #secondary {
+		flex: 1 1 0;
+		min-width: 0;
+	}
+
+}
