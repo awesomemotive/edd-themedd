@@ -67,22 +67,3 @@ function themedd_preview() {
 	}
 }
 add_action( 'template_redirect', 'themedd_preview' );
-
-/**
- * Filter the settings from EDD's "Styles" tab (pre EDD v3.0)
- *
- * @since 1.0
- * @param array $settings The "Styles" tab settings array
- */
-function themedd_edd_settings_styles( $settings ) {
-	// Remove "Style Settings" heading.
-	unset( $settings['main']['style_settings'] );
-
-	// Remove "Disable Styles" option. Styling is already disabled and controlled via Themedd.
-	unset( $settings['main']['disable_styles'] );
-
-	// Remove "Default Button Color" option since Themedd controls all button styling
-	unset( $settings['main']['checkout_color'] );
-
-	return $settings;
-}
