@@ -7198,9 +7198,6 @@ img {
     padding: 0.75rem;
     vertical-align: top;
     border: 1px solid #dee2e6; }
-  .entry-content table thead th,
-  .entry-content table thead td {
-    border-bottom-width: 2px; }
   .entry-content table thead th {
     vertical-align: bottom; }
   .entry-content table tbody + tbody {
