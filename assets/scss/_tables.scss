@@ -16,13 +16,6 @@
 	  border: $table-border-width solid $table-border-color;
 	}
 
-	thead {
-		th,
-		td {
-			border-bottom-width: (2 * $table-border-width);
-		}
-	}
-
 	thead th {
 	  vertical-align: bottom;
 	}
