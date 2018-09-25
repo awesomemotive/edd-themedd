@@ -14,7 +14,7 @@ function themedd_skip_link() {
 	</a>
 <?php
 }
-add_action( 'themedd_site_header', 'themedd_skip_link' );
+add_action( 'themedd_site_header', 'themedd_skip_link', 10 );
 
 /**
  * Load the header section onto the themedd_site_header hook found in /header.php.
@@ -80,7 +80,7 @@ function themedd_site_header() {
 	</header>
 <?php
 }
-add_action( 'themedd_site_header', 'themedd_site_header' );
+add_action( 'themedd_site_header', 'themedd_site_header', 20 );
 
 /**
  * Navbar toggler.
@@ -379,7 +379,7 @@ function themedd_header_image() {
     </div>
 <?php endif;
 }
-add_action( 'themedd_site_header', 'themedd_header_image' );
+add_action( 'themedd_site_header', 'themedd_header_image', 30 );
 
 /**
  * Themedd custom logo.
