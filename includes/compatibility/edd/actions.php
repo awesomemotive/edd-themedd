@@ -50,7 +50,10 @@ add_action( 'themedd_edd_download_info', 'themedd_edd_purchase_link', 20, 1 );
  *
  * @since 1.0.0
  */
-remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
+function themedd_edd_scripts() {
+	wp_dequeue_style( 'edd-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'themedd_edd_scripts' );
 
 /**
  * Remove the purchase link at the bottom of the single download page.
