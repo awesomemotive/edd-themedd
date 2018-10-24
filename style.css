@@ -7602,6 +7602,9 @@ span.card-type.amex {
   #edd-payment-mode-wrap label {
     display: inline-block;
     margin-right: 1rem; } }
+.edd_price {
+  color: #6c757d; }
+
 .edd-item-quantity {
   width: 4rem; }
 
@@ -7713,5 +7716,4 @@ p.edd_error {
     color: #856404; }
 
 .widget_edd_product_details .edd_price {
-  font-size: 1.1rem;
-  color: #495057; }
+  font-size: 1.1rem; }
