@@ -215,7 +215,9 @@ function themedd_has_sidebar() {
 			! apply_filters( 'themedd_show_sidebar', true ) ||
 			is_page_template( 'page-templates/full-width.php' ) ||
 			is_page_template( 'page-templates/slim.php' ) ||
-			is_search() && Themedd_Search::is_product_search_results()
+			is_search() && Themedd_Search::is_product_search_results() ||
+			is_tax( 'download_category' ) || 
+			is_tax( 'download_tag' )
 		)
 	) {
 		return true;
