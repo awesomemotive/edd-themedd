@@ -261,7 +261,6 @@ function themedd_social_links_icons() {
 		'dribbble.com'    => 'dribbble',
 		'facebook.com'    => 'facebook',
 		'flickr.com'       => 'flickr',
-		'plus.google.com' => 'google-plus',
 		'github.com'      => 'github',
 		'instagram.com'   => 'instagram',
 		'linkedin.com'    => 'linkedin',
