@@ -176,8 +176,7 @@ function themedd_mobile_menu_theme_location() {
 		$theme_location = false;
 	}
 	
-	return $theme_location;
-
+	return apply_filters( 'themedd_mobile_menu_theme_location', $theme_location );
 }
 
 /**
