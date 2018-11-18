@@ -1,7 +1,5 @@
 jQuery(document).ready(function($) {
 
-	$('body').addClass('js');
-
 	/**
 	 * EDD cart information in the header
 	 */
