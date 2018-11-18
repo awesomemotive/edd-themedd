@@ -85,7 +85,6 @@ module.exports = function(grunt) {
 
 		// watch our project for changes
 		watch: {
-
 			// JS
 			js: {
 				files: ['assets/js/src/**/*.js'],
@@ -96,7 +95,6 @@ module.exports = function(grunt) {
 				files: 'assets/scss/**/*.scss',
 				tasks: ['sass', 'autoprefixer:main']
 			},
-
 		}
 	});
 
