@@ -309,3 +309,15 @@ function themedd_navbar_toggler_defaults( $args = array() ) {
 function themedd_menu_breakpoint() {
 	return apply_filters( 'themedd_menu_breakpoint', 'md' );
 }
+
+/**
+ * Handles JavaScript detection.
+ *
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ *
+ * @since 1.1
+ */
+function themedd_javascript_detection() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'themedd_javascript_detection', 0 );
