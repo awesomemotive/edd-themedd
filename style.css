@@ -6013,10 +6013,6 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #accdec;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(68, 143, 213, 0.25); }
-  .edd-input::-webkit-input-placeholder,
-  .form-control::-webkit-input-placeholder {
-    color: #6c757d;
-    opacity: 1; }
   .edd-input::-moz-placeholder,
   .form-control::-moz-placeholder {
     color: #6c757d;
