@@ -4,9 +4,9 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 
-	    pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON('package.json'),
 
-	    // concat
+		// concat
 		concat: {
 			main: {
 				options: {
@@ -27,20 +27,20 @@ module.exports = function(grunt) {
 				],
 				dest: 'assets/js/vendors/bootstrap/bootstrap.js'
 			},
-	    },
+		},
 
 		// uglify
-	    uglify: {
-	        options: {
+		uglify: {
+			options: {
 				mangle: false
-	        },
-	        js: {
-	            files: {
+			},
+			js: {
+				files: {
 					'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.js'],
 					'assets/js/vendors/bootstrap/bootstrap.min.js': ['assets/js/vendors/bootstrap/bootstrap.js']
-	    		}
-	        }
-	    },
+				}
+			}
+		},
 
 		sass: {
 			default: {
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
 			},
 		},
 
-	    // watch our project for changes
+		// watch our project for changes
 		watch: {
 
 			// JS
@@ -93,8 +93,8 @@ module.exports = function(grunt) {
 			},
 
 			css: {
-                files: 'assets/scss/**/*.scss',
-                tasks: ['sass', 'autoprefixer:main']
+				files: 'assets/scss/**/*.scss',
+				tasks: ['sass', 'autoprefixer:main']
 			},
 
 		}
