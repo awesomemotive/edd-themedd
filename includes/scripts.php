@@ -27,6 +27,8 @@ function themedd_scripts() {
 
 	wp_enqueue_script( 'themedd-js', get_theme_file_uri( '/assets/js/themedd' . $suffix . '.js' ), array( 'jquery' ), THEMEDD_VERSION, true );
 
+	wp_enqueue_script( 'themedd-bootstrap', get_theme_file_uri( '/assets/js/vendors/bootstrap/bootstrap' . $suffix . '.js' ), array( 'jquery' ), THEMEDD_VERSION, true );
+
 	$navbar_toggler_defaults = themedd_navbar_toggler_defaults();
 
 	$scripts = array(
