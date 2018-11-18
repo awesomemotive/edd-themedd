@@ -14,7 +14,19 @@ module.exports = function(grunt) {
 				},
 				src: ['assets/js/src/**/*.js'],
 				dest: 'assets/js/<%= pkg.name %>.js'
-			}
+			},
+			bootstrap: {
+				options: {
+					separator: ';'
+				},
+				src: [
+					'node_modules/popper.js/dist/umd/popper.js',
+					'node_modules/bootstrap/js/dist/util.js',
+					'node_modules/bootstrap/js/dist/dropdown.js',
+					'node_modules/bootstrap/js/dist/collapse.js',
+				],
+				dest: 'assets/js/vendors/bootstrap/bootstrap.js'
+			},
 	    },
 
 		// uglify
@@ -24,7 +36,8 @@ module.exports = function(grunt) {
 	        },
 	        js: {
 	            files: {
-	                'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.js']
+					'assets/js/<%= pkg.name %>.min.js': ['assets/js/<%= pkg.name %>.js'],
+					'assets/js/vendors/bootstrap/bootstrap.min.js': ['assets/js/vendors/bootstrap/bootstrap.js']
 	    		}
 	        }
 	    },
