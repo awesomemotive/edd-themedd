@@ -40,6 +40,10 @@ function themedd_include_svg_icons() {
 				<path d="M19.071,6.343L17.657,4.929L4.929,17.657L6.343,19.071L19.071,6.343Z" />
 			</symbol>
 
+			<symbol id="icon-arrow-down" viewBox="0 0 24 24">
+				<path d="M21.638,7.982C21.638,8.15 21.574,8.298 21.445,8.427L12.444,17.428C12.314,17.557 12.166,17.622 11.999,17.622C11.832,17.622 11.683,17.557 11.554,17.428L2.553,8.427C2.424,8.298 2.359,8.15 2.359,7.982C2.359,7.815 2.424,7.667 2.553,7.538L3.519,6.572C3.648,6.443 3.796,6.378 3.964,6.378C4.131,6.378 4.279,6.443 4.408,6.572L12,14.164L19.592,6.572C19.721,6.443 19.869,6.378 20.036,6.378C20.204,6.378 20.352,6.443 20.481,6.572L21.447,7.538C21.576,7.667 21.641,7.815 21.641,7.982L21.638,7.982Z"/>
+			</symbol>
+			
 			<symbol id="icon-link" viewBox="0 0 24 24">
 				<rect x="0" y="0" width="24" height="24" style="fill:none;"/>	
 				<path d="M14.474,10.232L13.768,9.526C12.208,7.966 9.67,7.964 8.11,9.525L3.513,14.122C1.953,15.682 1.953,18.219 3.513,19.779L4.22,20.485C4.976,21.242 5.98,21.658 7.049,21.658C8.117,21.658 9.121,21.241 9.876,20.486L12.049,18.315C12.44,17.924 12.44,17.291 12.049,16.901C11.658,16.509 11.026,16.509 10.635,16.901L8.462,19.071C7.707,19.827 6.391,19.828 5.634,19.071L4.927,18.365C4.148,17.584 4.148,16.316 4.927,15.536L9.524,10.94C10.28,10.184 11.597,10.184 12.352,10.94L13.059,11.647C13.45,12.038 14.082,12.038 14.473,11.647C14.864,11.256 14.864,10.623 14.474,10.232Z" />
@@ -290,3 +294,25 @@ function themedd_social_links_icons() {
 	 */
 	return apply_filters( 'themedd_social_links_icons', $social_links_icons );
 }
+
+/**
+ * Add dropdown icon if menu item has children.
+ *
+ * @param  string  $title The menu item's title.
+ * @param  WP_Post $item  The current menu item.
+ * @param  array   $args  An array of wp_nav_menu() arguments.
+ * @param  int     $depth Depth of menu item. Used for padding.
+ * @return string  $title The menu item's title with dropdown icon.
+ */
+function themedd_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+	if ( 'primary' === $args->theme_location ) {
+		foreach ( $item->classes as $value ) {
+			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
+				$title = $title . themedd_get_svg( array( 'icon' => 'arrow-down', 'size' => '12', 'svg_classes' => array( 'ml-1' ) ) );
+			}
+		}
+	}
+
+	return $title;
+}
+add_filter( 'nav_menu_item_title', 'themedd_dropdown_icon_to_menu_link', 10, 4 );
