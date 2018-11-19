@@ -2,3 +2,7 @@
 .dropdown-menu {
 	font-size: $dropdown-font-size;
 }
+
+.dropdown-toggle:hover .icon {
+	color: $navbar-hover-color;
+}
