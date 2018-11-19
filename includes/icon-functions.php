@@ -294,3 +294,25 @@ function themedd_social_links_icons() {
 	 */
 	return apply_filters( 'themedd_social_links_icons', $social_links_icons );
 }
+
+/**
+ * Add dropdown icon if menu item has children.
+ *
+ * @param  string  $title The menu item's title.
+ * @param  WP_Post $item  The current menu item.
+ * @param  array   $args  An array of wp_nav_menu() arguments.
+ * @param  int     $depth Depth of menu item. Used for padding.
+ * @return string  $title The menu item's title with dropdown icon.
+ */
+function themedd_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
+	if ( 'primary' === $args->theme_location ) {
+		foreach ( $item->classes as $value ) {
+			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
+				$title = $title . themedd_get_svg( array( 'icon' => 'arrow-down', 'size' => '12', 'svg_classes' => array( 'ml-1' ) ) );
+			}
+		}
+	}
+
+	return $title;
+}
+add_filter( 'nav_menu_item_title', 'themedd_dropdown_icon_to_menu_link', 10, 4 );
