@@ -11,8 +11,10 @@ $author_options = themedd_edd_download_author_options();
 // Get the download options.
 $download_options = themedd_edd_download_details_options();
 
+$secondary_classes = ! empty( themedd_secondary_classes() ) ? ' class="' . themedd_secondary_classes() . '"' : '';
+
 ?>
-<div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
+<div id="secondary"<?php echo $secondary_classes; ?>>
 
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
