@@ -42,7 +42,7 @@ function themedd_edd_price( $download_id = 0 ) {
 		$price = edd_price( $download_id, false );
 	}
 
-	return $price;
+	return apply_filters( 'themedd_edd_price', $price, $download_id );
 
 }
 
