@@ -305,10 +305,23 @@ function themedd_social_links_icons() {
  * @return string  $title The menu item's title with dropdown icon.
  */
 function themedd_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	if ( 'primary' === $args->theme_location ) {
+
+	$location = $args->theme_location;
+
+	switch ( $location ) {
+		case 'secondary':
+			$icon_size = 10;
+			break;
+
+		default:
+			$icon_size = 12;
+			break;
+	}
+
+	if ( 'primary' === $location || 'mobile' === $location || 'secondary' === $location ) {
 		foreach ( $item->classes as $value ) {
-			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . themedd_get_svg( array( 'icon' => 'arrow-down', 'size' => '12', 'svg_classes' => array( 'ml-1' ) ) );
+			if ( 0 === $depth && 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
+				$title = $title . themedd_get_svg( array( 'icon' => 'arrow-down', 'size' => $icon_size, 'svg_classes' => array( 'ml-2' ) ) );
 			}
 		}
 	}
