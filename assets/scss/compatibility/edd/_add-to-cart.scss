@@ -51,7 +51,6 @@
 	margin: -0.75rem 0 0 -0.75rem;
 }
 
-
 .edd-discount-loader.edd-loading,
 .edd-loading-ajax.edd-loading {
 	border-top-color: rgba(0, 0, 0, 0.2);
@@ -61,11 +60,15 @@
 }
 
 // The loading icon for the purchase button at checkout.
-#edd-purchase-button-wrap .edd-loading-ajax.edd-loading {
-	position: absolute;
-	right: 1rem;
-	top: 50%;
-	margin-top: -0.75rem;
+#edd-purchase-button-wrap {
+	position: relative;
+
+	.edd-loading-ajax.edd-loading {
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		margin-top: -0.75rem;
+	}
 }
 
 // White spinner.
