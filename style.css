@@ -7239,12 +7239,6 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
-.post-navigation .meta-nav {
-  color: rgba(0, 0, 0, 0.5); }
-
-figure.wp-caption {
-  max-width: 100%; }
-
 .site-footer {
   background: #fff; }
   .site-footer a {
