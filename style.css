@@ -7380,11 +7380,13 @@ button:not(.navbar-toggler):hover .icon {
   border-bottom-color: rgba(0, 0, 0, 0.2);
   border-left-color: #000; }
 
-#edd-purchase-button-wrap .edd-loading-ajax.edd-loading {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  margin-top: -0.75rem; }
+#edd-purchase-button-wrap {
+  position: relative; }
+  #edd-purchase-button-wrap .edd-loading-ajax.edd-loading {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: -0.75rem; }
 
 #edd-purchase-button-wrap .edd-loading-ajax.edd-loading,
 .edd-stripe-submit-update .edd-loading-ajax.edd-loading {
