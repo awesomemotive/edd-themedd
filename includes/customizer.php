@@ -1212,7 +1212,10 @@ function themedd_customize_register( $wp_customize ) {
 	));
 
 }
-add_action( 'customize_register', 'themedd_customize_register' );
+// check EDD is load before adding Customizer controls
+if( class_exists( 'EDD' ) ) {
+	add_action( 'customize_register', 'themedd_customize_register' );
+}
 
 /**
  * Output styling to <head>
