@@ -57,6 +57,7 @@ require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'compatibility.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-search.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'icon-functions.php' );
 require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-wp-bootstrap-navwalker.php' );
+require_once( trailingslashit( THEMEDD_INCLUDES_DIR ) . 'class-themedd-walker-comment.php' );
 
 /**
  * Admin page
