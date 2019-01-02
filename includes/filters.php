@@ -168,3 +168,16 @@ function themedd_navigation_markup_template( $template, $class ) {
 	return ob_get_clean();
 }
 add_filter( 'navigation_markup_template', 'themedd_navigation_markup_template', 10, 2 );
+
+/**
+ * Filter the edit comment link.
+ * 
+ * @since 1.1
+ */
+function themedd_edit_comment_link( $link, $comment_id, $text ) {
+	$comment = get_comment();
+	$link = '<a class="comment-edit-link small" href="' . esc_url( get_edit_comment_link( $comment ) ) . '">' . $text . '</a>';
+
+	return $link;
+}
+add_filter( 'edit_comment_link', 'themedd_edit_comment_link', 10, 3 );
