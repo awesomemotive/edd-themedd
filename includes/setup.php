@@ -118,6 +118,13 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 		 */
 		add_theme_support( 'align-wide' );
 
+		/**
+		 * Add support for responsive embedded content.
+		 *
+		 * @since 1.1
+		 */
+		add_theme_support( 'responsive-embeds' );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
