@@ -327,9 +327,9 @@ function themedd_site_branding() {
 		?>
 		<<?php echo $tag; ?> class="<?php echo themedd_output_classes( $classes ); ?>">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand mr-0">
-				<?php //do_action( 'themedd_site_branding_site_title_before' ); ?>
+				<?php do_action( 'themedd_site_branding_site_title_before' ); ?>
 				<span><?php bloginfo( 'name' ); ?></span>
-				<?php //do_action( 'themedd_site_branding_site_title_after' ); ?>
+				<?php do_action( 'themedd_site_branding_site_title_after' ); ?>
 			</a>
 		</<?php echo $tag; ?>>
 
