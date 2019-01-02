@@ -135,3 +135,36 @@ function themedd_comment_form_default_fields( $fields ) {
 
 }
 add_filter( 'comment_form_default_fields', 'themedd_comment_form_default_fields' );
+
+/**
+ * Filter the navigation markup template.
+ * 
+ * @since 1.1
+ */
+function themedd_navigation_markup_template( $template, $class ) {
+
+	$css_classes = array( 'nav-links d-flex justify-content-between' );
+
+	switch ( $class ) {
+		case 'comment-navigation':
+			$css_classes[] = 'py-4';
+			break;
+		
+		default:
+			$css_classes[] = '';
+			break;
+	}
+
+	ob_start();
+	?>
+
+	<nav class="navigation %1$s" role="navigation">
+		<h2 class="screen-reader-text">%2$s</h2>
+		<div class="<?php echo themedd_output_classes( $css_classes ); ?>">%3$s</div>
+	</nav>
+
+<?php
+
+	return ob_get_clean();
+}
+add_filter( 'navigation_markup_template', 'themedd_navigation_markup_template', 10, 2 );
