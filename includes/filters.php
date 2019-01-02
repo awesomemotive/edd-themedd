@@ -88,8 +88,22 @@ function themedd_comment_form_defaults( $defaults ) {
 	// Add the .form-control class to the comment field.
 	$defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment" class="form-control form-control-lg" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p>';
 
+	// Adjust height of comment form.
+	$comment_field = $defaults['comment_field'];
+	$defaults['comment_field'] = preg_replace( '/rows="\d+"/', 'rows="5"', $comment_field );
+	
 	// Add additional class names to the submit button.
 	$defaults['class_submit'] .= ' btn btn-primary btn-lg';
+
+	// Remove <small> and </small>.
+	$defaults['cancel_reply_before'] = null; 
+	$defaults['cancel_reply_after'] = null;
+
+	// Add various classes to the reply title.
+	$defaults['title_reply_before'] = '<h3 id="reply-title" class="comment-reply-title h4 my-5 d-flex justify-content-between">';
+
+	// Remove bottom margin from submit <p> tag
+	$defaults['submit_field'] = '<p class="form-submit mb-0">%1$s %2$s</p>';
 
 	return $defaults;
 
