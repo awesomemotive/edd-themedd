@@ -61,35 +61,40 @@ function themedd_time_link() {
 }
 endif;
 
+if ( ! function_exists( 'themedd_comment_form' ) ) :
+
+	function themedd_comment_form( $order ) {
+		if ( true === $order || strtolower( $order ) === strtolower( get_option( 'comment_order', 'asc' ) ) ) {
+
+			comment_form(
+				array(
+					'logged_in_as' => null,
+				)
+			);
+		}
+	}
+endif;
+
 /**
 * Display navigation to next/previous comments when applicable.
 *
 * @since 1.0.0
 */
 if ( ! function_exists( 'themedd_comment_nav' ) ) :
-function themedd_comment_nav() {
-	// Are there comments to navigate through?
-	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
-	?>
-	<nav class="navigation comment-navigation" role="navigation">
-		<h2 class="sr-only"><?php esc_html_e( 'Comment navigation', 'themedd' ); ?></h2>
-		<div class="nav-links">
-			<?php
-				if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'themedd' ) ) ) {
-					printf( '<div class="nav-previous">%s</div>', $prev_link );
-				}
+	function themedd_comment_nav() {
 
-				if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'themedd' ) ) ) {
-					printf( '<div class="nav-next">%s</div>', $next_link );
-				}
-			?>
-		</div>
-	</nav>
-	<?php
+		$prev_icon     = themedd_get_svg( array( 'icon' => 'chevron-left', 'size' => 24 ) );
+		$next_icon     = themedd_get_svg( array( 'icon' => 'chevron-right', 'size' => 24 ) );
+		$comments_text = __( 'Comments', 'themedd' );
+
+		the_comments_navigation(
+			array(
+				'prev_text' => sprintf( '%s <span class="nav-prev-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span>', $prev_icon, __( 'Previous', 'themedd' ), __( 'Comments', 'themedd' ) ),
+				'next_text' => sprintf( '<span class="nav-next-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span> %s', __( 'Next', 'themedd' ), __( 'Comments', 'themedd' ), $next_icon ),
+			)
+		);
+	}
 	endif;
-}
-endif;
-
 
 if ( ! function_exists( 'themedd_entry_footer' ) ) :
 /**
