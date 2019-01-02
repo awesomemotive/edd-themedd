@@ -12,7 +12,6 @@ themedd_header( array( 'posted_on' => true ) );
 <div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
 	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 		<main id="main" class="site-main" role="main">
-
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -26,14 +25,14 @@ themedd_header( array( 'posted_on' => true ) );
 			}
 
 			if ( is_singular( 'attachment' ) ) {
-				echo '<div class="container">';
+				echo '<div class="content-wrapper">';
 				// Parent post navigation.
 				the_post_navigation( array(
-					'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'themedd' ),
+					'prev_text' => _x( '<span class="meta-nav">Published in</span> <span class="post-title">%title</span>', 'Parent post link', 'themedd' ),
 				) );
 				echo '</div>';
 			} elseif ( is_singular( 'post' ) ) {
-				echo '<div class="container content-wrapper">';
+				echo '<div class="content-wrapper py-4">';
 
 				// Previous/next post navigation.
 				the_post_navigation( array(
