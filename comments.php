@@ -15,24 +15,29 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-
-<div id="comments" class="comments-area">
-
+<div id="comments" class="comments-area content-wrapper py-5">
 	<?php if ( have_comments() ) : ?>
+
 		<h2 class="comments-title">
 			<?php
 				printf( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'themedd' ),
 					number_format_i18n( get_comments_number() ), get_the_title() );
 			?>
 		</h2>
-
-		<?php themedd_comment_nav(); ?>
+	
+		<?php
+		// Show comment form at top if showing newest comments at the top.
+		if ( comments_open() ) {
+			themedd_comment_form( 'desc' );
+		}
+		?>
 
 		<ol class="comment-list">
 			<?php
 				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
+					'walker'      => new Themedd_Walker_Comment(),
+					'style'       => 'ol',
+					'short_ping'  => true,
 					'avatar_size' => 56,
 				) );
 			?>
@@ -40,15 +45,22 @@ if ( post_password_required() ) {
 
 		<?php themedd_comment_nav(); ?>
 
-	<?php endif; // Check for have_comments(). ?>
+		<?php
+		// Show comment form at bottom if showing newest comments at the bottom.
+		if ( comments_open() && 'asc' === strtolower( get_option( 'comment_order', 'asc' ) ) ) : 
+			themedd_comment_form( 'asc' );
+		endif;
+		
+		if ( ! comments_open() ) : ?>
+			<p class="no-comments">
+				<?php esc_html_e( 'Comments are closed.', 'themedd' ); ?>
+			</p>
+		<?php endif;
+	
+	else :
 
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'themedd' ); ?></p>
-	<?php endif; ?>
+		// Show comment form when there are no comments
+		themedd_comment_form( true );
 
-	<?php comment_form(); ?>
-
+	endif; // if have_comments(); ?>
 </div>
