@@ -157,7 +157,7 @@ function themedd_edit_link() {
 			__( 'Edit<span class="sr-only"> "%s"</span>', 'themedd' ),
 			get_the_title()
 		),
-		'<span class="edit-link">',
+		'<span class="edit-link mt-4 d-block">',
 		'</span>'
 	);
 
