@@ -54,12 +54,13 @@ $cart-link-hover-color: rgba($black, .7);
 // Dropdown.
 $dropdown-font-size: 0.875rem !default;
 
-// Post navigation.
-$post-navigation-meta-nav-color: rgba($black, .5);
-
 // Notices/errors.
 $alert-background-color: #fdfdd5;
 $alert-text-color: #787878;
+
+// Blog
+$post-author-bage-background-color: theme-color("primary");
+$post-navigation-meta-nav-color: rgba($black, .5);
 
 // Alert - error.
 $alert-error-background-color: #f8d7da;
