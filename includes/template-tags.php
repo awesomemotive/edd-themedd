@@ -114,22 +114,22 @@ function themedd_entry_footer() {
 	// We don't want to output .entry-footer if it will be empty, so make sure its not.
 	if ( ( ( themedd_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
 
-		echo '<footer class="entry-footer">';
+		echo '<footer class="entry-footer content-wrapper py-4 text-muted small">';
 
 			if ( 'post' === get_post_type() ) {
 				if ( ( $categories_list && themedd_categorized_blog() ) || $tags_list ) {
-					echo '<span class="cat-tags-links">';
+					echo '<div class="cat-tags-links">';
 
 						// Make sure there's more than one category before displaying.
 						if ( $categories_list && themedd_categorized_blog() ) {
-							echo '<span class="cat-links">' . __( 'Categories: ', 'themedd' ) . $categories_list . '</span>';
+							echo '<div class="cat-links">' . __( 'Categories: ', 'themedd' ) . $categories_list . '</div>';
 						}
 
 						if ( $tags_list ) {
-							echo '<span class="tags-links">' . __( 'Tags: ', 'themedd' ) . $tags_list . '</span>';
+							echo '<div class="tags-links">' . __( 'Tags: ', 'themedd' ) . $tags_list . '</div>';
 						}
 
-					echo '</span>';
+					echo '</div>';
 				}
 			}
 
