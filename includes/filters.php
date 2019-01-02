@@ -181,3 +181,17 @@ function themedd_edit_comment_link( $link, $comment_id, $text ) {
 	return $link;
 }
 add_filter( 'edit_comment_link', 'themedd_edit_comment_link', 10, 3 );
+
+/**
+ * Filter the HTML content for cancel comment reply link.
+ * 
+ * @since 1.1
+ */
+function themedd_cancel_comment_reply_link( $formatted_link, $link, $text ) {
+	$style = isset( $_GET['replytocom'] ) ? '' : ' style="display:none;"';
+
+	$formatted_link = '<a rel="nofollow" class="mb-0 align-self-end" id="cancel-comment-reply-link" href="' . $link . '"' . $style . '>' . $text . '</a>';
+
+	return $formatted_link;
+}
+add_filter( 'cancel_comment_reply_link', 'themedd_cancel_comment_reply_link', 10, 3 );
