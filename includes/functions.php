@@ -321,3 +321,20 @@ function themedd_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 add_action( 'wp_head', 'themedd_javascript_detection', 0 );
+
+/**
+ * Returns true if comment is by author of the post.
+ *
+ * @since 1.1
+ */
+function themedd_is_comment_by_post_author( $comment = null ) {
+	if ( is_object( $comment ) && $comment->user_id > 0 ) {
+		$user = get_userdata( $comment->user_id );
+		$post = get_post( $comment->comment_post_ID );
+		
+		if ( ! empty( $user ) && ! empty( $post ) ) {
+			return $comment->user_id === $post->post_author;
+		}
+	}
+	return false;
+}
