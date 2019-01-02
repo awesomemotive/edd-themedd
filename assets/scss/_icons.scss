@@ -8,3 +8,11 @@
 button:not(.navbar-toggler):hover .icon {
 	color: $icon-hover-color;
 }
+
+.icon-chevron-left {
+	margin: 0 0 0 -0.5rem;
+}
+
+.icon-chevron-right {
+	margin: 0 -0.5rem 0 0;
+}

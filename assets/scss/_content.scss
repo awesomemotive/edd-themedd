@@ -1,5 +1,13 @@
 // Content
 
+.entry-content a {
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -9,16 +17,16 @@
 	margin-bottom: 2rem;
 }
 
-.wp-block-embed.is-type-video iframe {
-	width: 100%;
-}
-
 .entry-content.content-wrapper {
 	> ul:not(.wp-block-gallery) {
 		padding-left: 2rem;
 		width: 100%;
 	}
 
+	.wp-block-gallery {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 
 .wp-block-gallery {
@@ -26,13 +34,6 @@
 	margin-right: 0;
 }
 
-.entry-content.content-wrapper {
-
-	.wp-block-gallery {
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
-	}
-}
 
 .no-sidebar:not(.page-template-slim):not(.page-template-full-width) .content-wrapper > .alignfull {
 	padding-left: 0;
@@ -62,6 +63,11 @@
 		}
 
 		> .alignwide {
+
+			&.wp-block-cover {
+				max-width: calc(100% - 30px);
+			}
+
 			&.wp-block-cover-image {
 				max-width: 1170px; // Cover images have the padding included so needs to be accounted for.
 			}
@@ -76,6 +82,7 @@
 
 	figure.alignfull {
 		width: 100%;
+		max-width: none;
 	
 		img {
 			width: 100%;
@@ -95,20 +102,43 @@
 
 }
 
+@include media-breakpoint-up(sm) {
+	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
+		max-width: 540px - $grid-gutter-width;
+	}
+}
+
+
+@include media-breakpoint-up(md) {
+	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
+		max-width: 720px - $grid-gutter-width;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
+		max-width: 960px - $grid-gutter-width;
+	}
+}
+
 @include media-breakpoint-up(xl) {
 
 	.no-sidebar:not(.page-template) .content-wrapper > .alignfull {
 		max-width: 100%;
 	}
 
-	.no-sidebar .content-wrapper > *,
-	.no-sidebar #comments {
+	.no-sidebar .content-wrapper > *
+	{
 		max-width: 750px;
-	} 
+	}
 
 	.page-template-full-width.no-sidebar .content-wrapper > *,	
 	.no-sidebar .content-wrapper > .alignwide {
 		max-width: 1200px;
+	}
+
+	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
+		max-width: 1200px - $grid-gutter-width;
 	}
 
 }
