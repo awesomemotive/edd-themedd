@@ -8076,11 +8076,6 @@ input[type="button"].btn-block {
     .custom-select {
       transition: none; } }
 
-.entry-content a {
-  text-decoration: underline; }
-  .entry-content a:hover {
-    text-decoration: none; }
-
 .updated:not(.published) {
   display: none; }
 

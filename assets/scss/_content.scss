@@ -1,13 +1,5 @@
 // Content
 
-.entry-content a {
-	text-decoration: underline;
-
-	&:hover {
-		text-decoration: none;
-	}
-}
-
 .updated:not(.published) {
 	display: none;
 }
