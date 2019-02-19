@@ -1,8 +1,35 @@
 .widget ul {
 	list-style-type: none;
 	padding-left: 0;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
-.widget {
-	margin-bottom: 1rem;
+.widget-title {
+	margin-bottom: 0.5rem;
+}
+
+.widget + .widget {
+	// Space out widgets if more than 1 widget exists in a column.
+	margin-top: 2rem;
+}
+
+#wp-calendar {
+	margin-bottom: 0;
+	text-align: center;
+
+	td,
+	th {
+		padding: 2%;
+	}
+
+	#prev {
+		text-align: left;
+	}
+
+	#next {
+		text-align: right;
+	}
 }

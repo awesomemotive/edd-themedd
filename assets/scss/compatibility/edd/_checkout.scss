@@ -2,6 +2,27 @@
 	float: left; // Neccessary to position the legend inside the fieldset and have that padding affect it.
 }
 
+// Cart saving button.
+.edd-cart-saving-button.edd-submit {
+	// Style as link.
+	color: #007bff;
+	font-size: 1rem;
+	padding: 0;
+	font-weight: 400;
+
+	&:hover {
+		color: #0056b3;
+		text-decoration: underline;
+	}
+}
+
+// Centers the content when the cart is empty (/checkout)
+// Centers the "Your cart is empty." text and "Restore Previous Cart." link.
+.edd-empty-cart #edd_checkout_wrap {
+	text-align: center;
+}
+
+
 // Card type.
 // Shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method.
 span.card-type {
@@ -99,7 +120,7 @@ span.card-type.amex {
 	width: auto;
 }
 
-#edd_purchase_form { 
+#edd_purchase_form {
 
 	fieldset p {
 		margin-bottom: 1.5rem;
@@ -120,7 +141,7 @@ span.card-type.amex {
 
 #edd-payment-mode-wrap {
 	margin-bottom: 1.5rem;
-	
+
 	label {
 		display: block;
 		clear: both; // Required for the first label after the legend.
@@ -154,4 +175,8 @@ span.card-type.amex {
 	}
 }
 
-
+@include media-breakpoint-up(md) {
+	.edd-checkout-distraction-free .site-header {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,17 +1,17 @@
 {
   "name": "themedd",
-  "browserslist": "last 1 versions",
   "devDependencies": {
     "grunt": "latest",
-    "grunt-autoprefixer": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-postcss": "^0.9.0",
     "matchdep": "^2.0.0"
   },
   "dependencies": {
-    "bootstrap": "^4.2.1",
-    "popper.js": "^1.14.6"
+    "autoprefixer": "^9.4.7",
+    "bootstrap": "^4.3.0",
+    "popper.js": "^1.14.7"
   }
 }

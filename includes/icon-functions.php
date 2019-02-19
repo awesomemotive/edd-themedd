@@ -6,14 +6,14 @@
 
 /**
  * Add SVG definitions to the footer.
- * 
+ *
  * @since 1.1
  */
 function themedd_include_svg_icons() {
 	?>
 	<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<defs>
-	
+
 			<symbol id="icon-cart" viewBox="0 0 24 24">
 				<path fill="none" d="M0 0h24v24H0z"/>
 				<path d="M5.1.5c.536 0 1 .37 1.12.89l1.122 4.86H22.35c.355 0 .688.163.906.442.217.28.295.644.21.986l-2.3 9.2c-.128.513-.588.872-1.116.872H8.55c-.536 0-1-.37-1.12-.89L4.185 2.8H.5V.5h4.6z" fill-rule="nonzero"/>
@@ -28,7 +28,7 @@ function themedd_include_svg_icons() {
 			<symbol id="icon-checked" viewBox="0 0 24 24">
 				<path d="M9,16.17L4.83,12L3.41,13.41L9,19L21,7L19.59,5.59L9,16.17Z"/>
 			</symbol>
-			
+
 			<symbol id="icon-email" viewBox="0 0 24 24">
 				<rect x="0" y="0" width="24" height="24" style="fill:none;"/>
 				<path d="M11.114,14.556C11.599,15.04 12.397,15.04 12.882,14.556L22.568,4.87C22.662,4.776 22.715,4.649 22.715,4.516C22.715,4.269 22.532,4.057 22.287,4.021C22.192,4.007 22.096,4 22,4L2,4C1.903,4 1.807,4.007 1.711,4.021C1.466,4.057 1.283,4.269 1.283,4.516C1.283,4.649 1.336,4.776 1.43,4.87L11.114,14.556Z" />
@@ -57,9 +57,9 @@ function themedd_include_svg_icons() {
 				<path fill="none" d="M0 0h24v24H0V0z"/>
 				<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
 			</symbol>
-			
+
 			<symbol id="icon-link" viewBox="0 0 24 24">
-				<rect x="0" y="0" width="24" height="24" style="fill:none;"/>	
+				<rect x="0" y="0" width="24" height="24" style="fill:none;"/>
 				<path d="M14.474,10.232L13.768,9.526C12.208,7.966 9.67,7.964 8.11,9.525L3.513,14.122C1.953,15.682 1.953,18.219 3.513,19.779L4.22,20.485C4.976,21.242 5.98,21.658 7.049,21.658C8.117,21.658 9.121,21.241 9.876,20.486L12.049,18.315C12.44,17.924 12.44,17.291 12.049,16.901C11.658,16.509 11.026,16.509 10.635,16.901L8.462,19.071C7.707,19.827 6.391,19.828 5.634,19.071L4.927,18.365C4.148,17.584 4.148,16.316 4.927,15.536L9.524,10.94C10.28,10.184 11.597,10.184 12.352,10.94L13.059,11.647C13.45,12.038 14.082,12.038 14.473,11.647C14.864,11.256 14.864,10.623 14.474,10.232Z" />
 				<path d="M20.486,4.221L19.779,3.515C19.023,2.758 18.019,2.342 16.95,2.342C15.882,2.342 14.878,2.76 14.123,3.514L12.135,5.5C11.744,5.891 11.744,6.524 12.135,6.914C12.526,7.306 13.158,7.306 13.549,6.914L15.537,4.93C16.292,4.174 17.608,4.173 18.365,4.93L19.072,5.636C19.851,6.416 19.851,7.685 19.072,8.465L14.475,13.061C13.719,13.817 12.402,13.817 11.647,13.061C11.256,12.67 10.623,12.67 10.233,13.061C9.842,13.452 9.841,14.084 10.232,14.475C11.792,16.037 14.33,16.037 15.889,14.476L20.486,9.879C22.046,8.319 22.046,5.781 20.486,4.221Z" />
 			</symbol>
@@ -128,7 +128,7 @@ add_action( 'wp_footer', 'themedd_include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
- * 
+ *
  * @since 1.1
  *
  * @param array $args {
@@ -195,7 +195,7 @@ function themedd_get_svg( $args = array() ) {
 	}
 
 	// Begin SVG markup.
-	$svg = '<svg width="'.esc_attr( $args['size'] ).'" height="'.esc_attr( $args['size'] ).'" class="'. themedd_output_classes( $args['svg_classes'] ).'"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg width="'.esc_attr( $args['size'] ).'" height="'.esc_attr( $args['size'] ).'" class="'. themedd_classes( array( 'classes' => $args['svg_classes'], 'echo' => false ) ) .'"' . $aria_hidden . $aria_labelledby . ' role="img">';
 
 	// Display the title.
 	if ( $args['title'] ) {
@@ -230,7 +230,7 @@ function themedd_get_svg( $args = array() ) {
  * Display SVG icons in social links menu.
  *
  * @since 1.1
- * 
+ *
  * @param  string  $item_output The menu item output.
  * @param  WP_Post $item        Menu item object.
  * @param  int     $depth       Depth of the menu.

@@ -57,7 +57,7 @@ class Themedd {
 			);
 
 		}
-		
+
 		$sidebar_args = apply_filters( 'themedd_sidebar_args', $sidebar_args );
 
 		foreach ( $sidebar_args as $sidebar => $args ) {
@@ -65,7 +65,7 @@ class Themedd {
 			$widget_tags = array(
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title h5">',
+				'before_title'  => '<h2 class="widget-title">',
 				'after_title'   => '</h2>'
 			);
 

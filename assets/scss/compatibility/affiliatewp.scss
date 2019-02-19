@@ -7,6 +7,123 @@
 @import '../variables';
 @import '../variables-secondary';
 
+.affwp-login-register,
+#affwp-affiliate-dashboard {
+	display: grid;
+}
+
+// Register and login forms.
+.affwp-login-register {
+
+	grid-row-gap: 1.5rem;
+	grid-column-gap: 10vw;
+
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		'register'
+		'login';
+
+	> :nth-child(1) {
+		grid-area: register;
+	}
+
+	> :nth-child(2) {
+		grid-area: login;
+	}
+
+}
+
+// Affiliate Dashboard.
+#affwp-affiliate-dashboard {
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		'nav'
+		'content';
+	grid-column-gap: 4rem;
+	grid-row-gap: 2rem;
+
+	.account-nav {
+		grid-area: nav;
+	}
+
+	.account-content {
+		grid-area: content;
+	}
+}
+
+#affwp-affiliate-dashboard-tabs {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.affwp-affiliate-dashboard-tab {
+	&.active {
+		font-weight: bold;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+
+	.affwp-login-register {
+		grid-template-columns: 2fr 1fr;
+		grid-template-areas: 'register login';
+	}
+
+	#affwp-affiliate-dashboard {
+		grid-template-columns: 1fr 4fr;
+		grid-template-areas: 'nav content';
+	}
+
+}
+
+
+
+// Responsive table styling for mobile resolutions
+.affwp-table-responsive td:before {
+	content: attr(data-th) ":\00a0";
+	font-weight: bold;
+}
+
+.affwp-table-responsive td:before {
+	display: none;
+}
+
+@media (max-width: 767px) {
+
+	#affwp-affiliate-dashboard-campaign-stats .affwp-table-responsive td.affwp-table-no-data {
+		display: block;
+	}
+
+	#affwp-affiliate-dashboard-visits .affwp-table-responsive td.affwp-table-no-data:before,
+	#affwp-affiliate-dashboard-payouts .affwp-table-responsive td.affwp-table-no-data:before,
+	#affwp-affiliate-dashboard-referrals .affwp-table-responsive td.affwp-table-no-data:before {
+		display: none;
+	}
+
+	.affwp-table-responsive td:last-child {
+		margin-bottom: 20px;
+	}
+
+	.affwp-table-responsive td:first-child {
+		background-color: #fafafa;
+	}
+
+	.affwp-table-responsive td:before {
+		display: inline-block;
+	}
+
+	.affwp-table-responsive th {
+		display: none;
+	}
+
+	.affwp-table-responsive td {
+		display: flex;
+		justify-content: space-between;
+	}
+
+}
+
 
 #affwp-affiliate-dashboard-referral-counts,
 #affwp-affiliate-dashboard-earnings-stats {
@@ -73,20 +190,16 @@
 
 .affwp-errors {
 	padding: 1rem;
-//	background: $alert-error-background-color;
 	margin: 0 0 1rem 0;
 }
 
 .affwp-notice {
 	padding: 1rem;
 	margin: 0 0 1rem 0;
-//	background: $alert-background-color;
-//	color: $alert-text-color;
 }
 
 p.affwp-error {
 	margin: 0 0 0.25rem 0;
-//	color: $alert-error-text-color;
 }
 
 p.affwp-error:last-of-type {

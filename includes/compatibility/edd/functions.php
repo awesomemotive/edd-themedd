@@ -20,11 +20,11 @@ function themedd_edd_price_enhancements() {
  * Get a download's price.
  * Will either output "Free", "From $5.00" (lowest variable price), or "$5.00".
  *
- * @param int $download_id The download to get the price for. 
+ * @param int $download_id The download to get the price for.
  * @since 1.0.0
  */
 function themedd_edd_price( $download_id = 0 ) {
-	
+
 	// Return early if price enhancements has been disabled.
 	if ( false === themedd_edd_price_enhancements() ) {
 		return;
@@ -80,9 +80,9 @@ if ( ! function_exists( 'themedd_edd_download_nav' ) ) :
 		?>
 
 		<?php if ( ! empty( $pagination ) ) : ?>
-		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation">
-			<ul class="pagination justify-content-center mt-5">
-				<?php foreach ( $pagination as $page ) : 
+		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation mb-10">
+			<ul class="pagination justify-content-center">
+				<?php foreach ( $pagination as $page ) :
 					$page = str_replace( 'page-numbers', 'page-link', $page );
 					$active = strpos( $page, 'current' ) !== false ? ' active' : '';
 				?>
@@ -134,11 +134,106 @@ function themedd_edd_fes_vendor_contact_form() {
  *
  * @since 1.0.3
  *
- * @return string $post_type_archive_title 
+ * @return string $post_type_archive_title
  */
  function themedd_edd_post_type_archive_title() {
 	$edd_theme_options       = get_theme_mod( 'easy_digital_downloads' );
 	$post_type_archive_title = isset( $edd_theme_options['post_type_archive_title'] ) ? $edd_theme_options['post_type_archive_title'] : '';
 
 	return apply_filters( 'themedd_edd_post_type_archive_title', $post_type_archive_title );
+}
+
+
+/**
+ * Determine if there is a product image.
+ *
+ * @since 1.1
+ */
+function themedd_edd_has_product_image( $download_id = 0 ) {
+
+	$download_id = ! empty( $download_id ) ? $download_id : ''; // has_post_thumbnail will check the current post if no ID is passed
+
+	if ( has_post_thumbnail( $download_id ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Determines the classes of the buttons.
+ *
+ * @since 1.1
+ */
+function themedd_edd_button_classes() {
+	$classes = array( 'btn', 'btn-primary', 'btn-lg' );
+
+	if ( is_singular( 'download' ) ) {
+		// Larger buttons on single download pages.
+		$classes[] = 'btn-lg';
+	}
+
+	return $classes;
+}
+
+/**
+ * Product title.
+ *
+ * @since 1.1
+ */
+function themedd_edd_product_title( $download_id = 0 ) {
+	$download_id = ! empty( $download_id ) ? $download_id : get_the_ID();
+	do_action( 'themedd_edd_product_title_before' );
+?>
+	<h1 class="product-title mb-1 mb-lg-1"><?php echo get_the_title( $download_id ); ?></h1>
+<?php
+	do_action( 'themedd_edd_product_title_after' );
+}
+
+/**
+ * Product price.
+ *
+ * @since 1.1
+ */
+function themedd_edd_product_price( $args = array() ) {
+	$download_id = ! empty( $args['download_id'] ) ? $args['download_id'] : get_the_ID();
+
+	$classes = ! empty( $args['classes'] ) ? $args['classes'] : array();
+	$classes[] = 'product-price';
+
+	do_action( 'themedd_edd_product_price_before' );
+?>
+	<div<?php themedd_classes( array( 'classes' => $classes ) ); ?>>
+		<?php echo themedd_edd_price( $download_id ); ?>
+	</div>
+	<?php
+	do_action( 'themedd_edd_product_price_after' );
+}
+
+/**
+ * Download purchase link.
+ *
+ * @since 1.1
+ */
+function themedd_edd_purchase_link( $args = array() ) {
+
+	$download_id = ! empty( $args['download_id'] ) ? $args['download_id'] : get_the_ID();
+
+	if ( get_post_meta( $download_id, '_edd_hide_purchase_link', true ) ) {
+		return; // Do not show if auto output is disabled
+	}
+
+	// Get the current button classes.
+	$classes = themedd_edd_button_classes();
+
+	// Add a new class
+	$classes[] = ! empty( $args['classes'] ) ? implode( ' ' , $args['classes'] ) : '';
+
+	do_action( 'themedd_edd_product_purchase_link_before' );
+	?>
+	<div class="product-purchase-link">
+		<?php echo edd_get_purchase_link( array( 'download_id' => $download_id, 'class' => themedd_classes( array( 'classes' => $classes, 'echo' => false ) ) ) ); ?>
+	</div>
+<?php
+	do_action( 'themedd_edd_product_purchase_link_after' );
 }

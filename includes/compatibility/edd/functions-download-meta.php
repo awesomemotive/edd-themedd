@@ -88,7 +88,7 @@ function themedd_edd_download_meta_options() {
  * @since 1.0.3
  */
 function themedd_edd_load_download_meta() {
-	
+
 	// Return early if download meta has been disabled.
 	if ( ! apply_filters( 'themedd_edd_download_meta', true, get_the_ID() ) ) {
 		return;
@@ -144,7 +144,7 @@ function themedd_edd_download_meta_before_title() {
 
 	themedd_edd_display_download_meta( array( 'position' => $position ) );
 }
-	
+
 /**
  * Display the download meta
  *
@@ -185,7 +185,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 
 	// Classes.
 	$classes = array( 'edd-download-meta', 'd-sm-flex', 'align-items-sm-center', 'justify-content-sm-between' );
-	
+
 	if ( 'after_title' === $args['position'] || 'before_title' === $args['position'] ) {
 		$classes[] = 'mb-3';
 	}
@@ -204,7 +204,7 @@ function themedd_edd_display_download_meta( $args = array() ) {
 	ob_start();
 	?>
 
-	<div class="<?php echo implode( ' ', array_filter( $classes ) ); ?>">
+	<div<?php themedd_classes( array( 'classes' => $classes ) ); ?>>
 
 		<?php do_action( 'themedd_edd_download_meta_start' ); ?>
 

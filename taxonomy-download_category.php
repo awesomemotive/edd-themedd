@@ -4,9 +4,13 @@
  */
 get_header();
 
-themedd_header( array( 'title' => single_term_title( '', false ), 'subtitle' => term_description( '', 'download_category' ) ) );
+themedd_header( array(
+	'title'    => single_term_title( '', false ),
+	'subtitle' => term_description(),
+));
+
 ?>
-<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
+<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 	<main id="main" class="site-main" role="main">
 		<div class="entry-content content-wrapper">
 		<?php if ( have_posts() ) : ?>

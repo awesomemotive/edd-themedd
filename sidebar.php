@@ -4,10 +4,12 @@
  *
  * @since 1.0.0
  */
+
+$classes = themedd_secondary_classes() ? 'class="' . themedd_secondary_classes() . '"' : '';
 ?>
 
 <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-<div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
+<div id="secondary" <?php echo $classes; ?>>
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
 		<?php do_action( 'themedd_primary_sidebar_start' ); ?>

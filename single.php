@@ -4,19 +4,15 @@
  */
 
 get_header();
-themedd_header( array( 'posted_on' => true ) ); 
+
+do_action( 'themedd_single_start' );
 ?>
-
-<?php do_action( 'themedd_single_start' ); ?>
-
-<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
-	<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-		<main id="main" class="site-main" role="main">
+<?php themedd_header( array( 'posted_on' => true ) ); ?>
+<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
+	<main id="main" class="site-main" role="main">
 		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+			while ( have_posts() ) : the_post();
 
-			// Include the single post content template.
 			get_template_part( 'template-parts/content', 'single' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
@@ -47,14 +43,9 @@ themedd_header( array( 'posted_on' => true ) );
 				echo '</div>';
 			}
 
-			// End of the loop.
-		endwhile;
+			endwhile;
 		?>
-
-		</main>
-	</div>
-
-	<?php themedd_get_sidebar(); ?>
+	</main>
 </div>
-
+<?php themedd_get_sidebar(); ?>
 <?php get_footer(); ?>

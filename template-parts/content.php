@@ -3,32 +3,31 @@
  * The template part for displaying content
  */
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'mb-5', 'mb-lg-10', 'content-wrapper' ) ); ?>>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'mb-5' ); ?>>
-	
-	<?php 
-		themedd_header( 
+	<?php
+		themedd_header(
 			array(
 				'heading_size'    => 'h2',
 				'posted_on'       => true,
 				'heading_classes' => array( 'entry-title' ),
 				'permalink'       => esc_url( get_permalink() ),
-				'header_classes'  => themedd_has_sidebar() ? array( 'entry-header', 'mb-3' ) : array( 'entry-header', 'py-5', 'py-lg-10' )
-			) 
-		); 
+				'header_classes'  => array( 'text-center', 'mb-5' )
+			)
+		);
 	?>
 
-	<?php themedd_post_thumbnail(); ?>
+	<?php themedd_post_thumbnail( array( 'classes' => array( 'alignwide' ) ) ); ?>
 
 	<?php if ( is_search() || is_archive() || themedd_display_excerpts() ) : ?>
 
-		<div class="entry-summary content-wrapper">
+		<div class="entry-summary">
 			<?php the_excerpt(); ?>
 		</div>
 
 	<?php else : ?>
 
-		<div class="entry-content content-wrapper">
+		<div class="entry-content">
 			<?php
 				/* translators: %s: Name of current post */
 				the_content( sprintf(

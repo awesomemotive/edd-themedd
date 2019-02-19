@@ -1,3 +1,76 @@
+// Remove underline on button blocks.
 .entry-content .wp-block-button__link {
 	text-decoration: none;
- }
+}
+
+.wp-block-image.alignfull img,
+.wp-block-image.alignwide img {
+	width: 100%;
+}
+
+// Block seperator.
+// Sets the width to auto to fix horizontal scrollbars at mobile device widths.
+.entry-content .wp-block-separator {
+	width: auto;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+// Override floated items.
+.wp-block-image .alignleft {
+	margin: 0 1.5rem 1.5rem 0;
+}
+
+.wp-block-image .alignright {
+	margin: 0 0 1.5rem 1.5rem;
+}
+
+// Temp.
+// For EDD downloads that are using old editor.
+.alignleft {
+	float: left;
+	margin: 0 1.5rem 1.5rem 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 1.5rem 1.5rem;
+}
+
+@include media-breakpoint-down(sm) {
+
+	// Reset float and margin for sm breakpoint and below.
+	.alignleft,
+	.alignright,
+	.wp-block-image .alignleft,
+	.wp-block-image .alignright {
+		float: none;
+		display: block;
+	}
+
+	.alignleft,
+	.wp-block-image .alignleft {
+		margin-right: 0;
+	}
+
+	.alignright,
+	.wp-block-image .alignright {
+		margin-left: 0;
+	}
+
+}
+
+@include media-breakpoint-up(md) {
+	.wp-block-image.alignwide,
+	.wp-block-image.alignfull {
+		margin-top: 2rem;
+	}
+
+	// Adjust margins on images.
+	.wp-block-image,
+	.wp-block-cover-image,
+	.wp-block-cover {
+		margin-bottom: 2rem;
+	}
+
+}

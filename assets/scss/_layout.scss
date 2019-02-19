@@ -9,7 +9,6 @@ body {
 
 #content {
 	flex: 1 0 auto;
-	padding-bottom: 5rem;
 }
 
 #page {
@@ -28,16 +27,20 @@ body {
 	}
 }
 
+.site-content > header {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	margin-bottom: 2.25rem;
 
-@include media-breakpoint-up(lg) {
-
-	.container > #primary {
-		flex-basis: 60%;
+	h1 {
+		margin-bottom: 0;
 	}
+}
 
-	.container > #secondary {
-		flex: 1 1 0;
-		min-width: 0;
+@include media-breakpoint-up(xl) {
+
+	#primary-sidebar > * {
+		padding: 0;
 	}
 
 }

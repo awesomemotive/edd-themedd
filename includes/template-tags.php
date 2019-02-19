@@ -227,32 +227,33 @@ function themedd_post_thumbnail( $args = array() ) {
 
 	$defaults = apply_filters( 'themedd_post_thumbnail_defaults',
 		array(
-			'classes' => array( 'post-thumbnail', 'mb-3', 'mb-lg-5' ),
+			'classes' => array(),
 			'size'    => 'themedd-featured-image',
 		)
 	);
 
-	if ( ! is_singular() ) {
-		$defaults['classes'][] = 'd-block';
-	}
-
 	$args = wp_parse_args( $args, $defaults );
+
+	// Classes.
+	$classes = $args['classes'];
+	$classes[] = 'post-thumbnail mb-5';
+
+	if ( ! is_singular() ) {
+		$classes[] = 'd-block';
+	}
 
 	// Create the post thumbnail.
 	$post_thumbnail = get_the_post_thumbnail( get_the_ID(), $args['size'] );
 
-	// Classes.
-	$classes = $args['classes'];
-
 	if ( is_singular() ) : ?>
 
-	<div class="<?php echo themedd_output_classes( $classes ); ?>">
+	<div<?php themedd_classes( array( 'classes' => $classes ) ); ?>">
 		<?php echo $post_thumbnail; ?>
 	</div>
 
 	<?php else : ?>
 
-	<a class="<?php echo themedd_output_classes( $classes ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true">
+	<a<?php themedd_classes( array( 'classes' => $classes ) ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true">
 		<?php echo $post_thumbnail; ?>
 	</a>
 
@@ -264,15 +265,30 @@ function themedd_post_thumbnail( $args = array() ) {
  *
  * @since 1.1
  */
-function themedd_output_classes( $classes = array() ) {
+function themedd_classes( $args = array() ) {
 
-	if ( ! empty( $classes ) ) {
-		
-		if ( is_array( $classes ) ) {
-			$classes = implode( ' ', array_filter( $classes ) );
+	$classes = isset( $args['classes'] ) ? $args['classes'] : array();
+	$context = ! empty( $args['context'] ) ? $args['context'] : '';
+	$echo    = isset( $args['echo'] ) && false === $args['echo'] ? false : true;
+
+	if ( is_array( $classes ) ) {
+
+		$classes = apply_filters( 'themedd_classes', $classes, $context );
+		$classes = implode( ' ', array_filter( array_unique( $classes ) ) );
+
+		if ( ! empty( $classes ) ) {
+
+			if ( false === $echo ) {
+				// Return a string of classes, separated by a space.
+				return $classes;
+
+			} else {
+				// Echo the class attribute with the included class names.
+				echo ' class="' . $classes . '"';
+			}
+
 		}
 
-		return $classes;
 	}
 
 	return false;
@@ -299,20 +315,11 @@ function themedd_header( $args = array() ) {
 		'posted_on'       => false,
 		'permalink'       => ! empty( $args['permalink'] ) ? $args['permalink'] : '',
 		'heading_size'    => ! empty( $args['heading_size'] ) ? $args['heading_size'] : 'h1',
-		'header_classes'  => array( 'py-5', 'py-lg-10' ),
-		'row_classes'     => array( 'row', 'justify-content-center', 'text-center' ),
-		'column_classes'  => array( 'col-12', 'col-md-10' ),
-		'heading_classes' => array( get_post_type() . '-title' ),
+		'header_classes'  => array( 'text-center'),
+		'heading_classes' => array(),
 	);
-
 	$args = wp_parse_args( $args, $defaults );
 	$args = apply_filters( 'themedd_header_args', $args );
-
-	// Classes.
-	$header_classes  = ! empty( $args['header_classes'] ) ? $args['header_classes'] : array();
-	$row_classes     = ! empty( $args['row_classes'] ) ? $args['row_classes'] : array();
-	$column_classes  = ! empty( $args['column_classes'] ) ? $args['column_classes'] : array();
-	$heading_classes = ! empty( $args['heading_classes'] ) ? $args['heading_classes'] : array();
 
 	// Title.
 	$title = $args['title'];
@@ -332,49 +339,24 @@ function themedd_header( $args = array() ) {
 	$heading_size = $args['heading_size'];
 
 	?>
-
-	<?php if ( themedd_has_sidebar() && ! is_singular() ) : ?>
-
-	<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
-		<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
-		<?php
-			if ( $permalink ) {
-				echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
-			} else {
-				echo $title;
-			}
-		?>
-		</<?php echo $heading_size; ?>>
-		<?php if ( $subtitle ) : ?>
-		<span class="lead"><?php echo $subtitle; ?></span>
-		<?php endif; ?>
-	</header>
-
-	<?php else : ?>
-	
-	<header class="<?php echo themedd_output_classes( $header_classes ); ?>">
+	<header<?php themedd_classes( array( 'classes' => $args['header_classes'], 'context' => 'header_header' ) ); ?>>
 		<div class="container">
-			<div class="<?php echo themedd_output_classes( $row_classes ); ?>">
-				<div class="<?php echo themedd_output_classes( $column_classes ); ?>">
-					<?php if ( $args['posted_on'] ) { echo themedd_posted_on(); } ?>
-					
-					<<?php echo $heading_size; ?> class="<?php echo themedd_output_classes( $heading_classes ); ?>">
-					<?php
-						if ( $permalink ) {
-							echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
-						} else {
-							echo $title;
-						}
-					?>
-					</<?php echo $heading_size; ?>>
-					<?php if ( $subtitle ) : ?>
-					<span class="lead"><?php echo $subtitle; ?></span>
-					<?php endif; ?>
-				</div>	
-			</div>	
+			<?php if ( $args['posted_on'] ) { echo themedd_posted_on(); } ?>
+			<<?php echo $heading_size; ?> <?php themedd_classes( array( 'classes' => $args['heading_classes'], 'context' => 'header_heading' ) ); ?>>
+			<?php
+				if ( $permalink ) {
+					echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
+				} else {
+					echo $title;
+				}
+			?>
+			</<?php echo $heading_size; ?>>
+			<?php if ( $subtitle ) : ?>
+			<span class="lead"><?php echo $subtitle; ?></span>
+			<?php endif; ?>
 		</div>
 	</header>
-	<?php endif;
+<?php
 }
 
 if ( ! function_exists( 'themedd_paging_nav' ) ) :

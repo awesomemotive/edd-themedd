@@ -1,0 +1,40 @@
+.product-meta {
+	margin-bottom: 0;
+
+	dt {
+		font-weight: 400;
+	}
+
+	dd {
+		margin: 0;
+	}
+
+	dd + dt {
+		margin-top: 1rem;
+	}
+
+}
+
+@include media-breakpoint-up(sm) {
+
+	@supports( display: grid ) {
+		.product-meta {
+			display: grid;
+			grid-template-columns: 10rem 1fr;
+
+			dd {
+				grid-column: 2;
+			}
+
+			dt {
+				margin-right: 1rem;
+			}
+
+			dd + dt,
+			dd + dt + dd {
+				margin-top: 0.5rem;
+			}
+
+		}
+	}
+}

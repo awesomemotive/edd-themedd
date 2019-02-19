@@ -1,51 +1,6 @@
 <?php
 
 /**
- * Adds themedd_edd_price() and themedd_edd_purchase_link() to the download details widget.
- *
- * @since 1.0.0
- */
-function themedd_edd_download_details_widget( $instance, $download_id ) {
-	do_action( 'themedd_edd_download_info', $download_id );
-}
-add_action( 'edd_product_details_widget_before_purchase_button', 'themedd_edd_download_details_widget', 10, 2 );
-
-/**
- * Single download purchase price.
- *
- * @since 1.1
- */
-function themedd_edd_single_download_price( $download_id ) {
-
-	if ( ! is_singular( 'download' ) ) {
-		return;
-	}
-
-	?>
-	<div class="mb-3">
-	<?php echo themedd_edd_price( $download_id ); ?>
-	</div>
-	<?php
-}
-add_action( 'themedd_edd_download_info', 'themedd_edd_single_download_price', 10, 1 );
-
-/**
- * Download purchase link.
- *
- * @since 1.0.0
- */
-function themedd_edd_purchase_link( $download_id ) {
-
-	if ( get_post_meta( $download_id, '_edd_hide_purchase_link', true ) ) {
-		return; // Do not show if auto output is disabled
-	}
-
-	echo edd_get_purchase_link();
-
-}
-add_action( 'themedd_edd_download_info', 'themedd_edd_purchase_link', 20, 1 );
-
-/**
  * Remove and deactivate all styling included with EDD
  *
  * @since 1.0.0
@@ -64,10 +19,10 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
 /**
  * Alter EDD download loops.
- * 
+ *
  * Affects:
- * 
- * archive-download.php, 
+ *
+ * archive-download.php,
  * taxonomy-download-category.php
  * taxonomy-download-category.php
  *
@@ -76,7 +31,6 @@ remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
  *
  * @return void
  */
-
 function themedd_edd_pre_get_posts( $query ) {
 
 	// Get the download grid options.
@@ -141,7 +95,7 @@ function themedd_edd_pre_get_posts( $query ) {
 		if ( 'meta_value_num' === $orderby ) {
 			$query->set( 'meta_key', 'edd_price' );
 		}
-		
+
 		// Set the orderby.
 		$query->set( 'orderby', $orderby );
 
@@ -165,30 +119,14 @@ function themedd_edd_set_distraction_free_checkout() {
 	 */
 	if ( edd_is_checkout() && themedd_edd_distraction_free_checkout() && edd_get_cart_contents() ) {
 
-		// Remove page header.
+		// Remove header.
 		add_filter( 'themedd_header', '__return_false' );
-
-		// Remove the primary navigation.
-		remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
-
-		// Remove the primary navigation if moved to the themedd_site_header_wrap hook.
-		remove_action( 'themedd_site_header_wrap', 'themedd_primary_menu' );
-
-		// Remove the mobile menu.
-		remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
-
-		// Remove the secondary menu.
-		remove_action( 'themedd_site_branding_end', 'themedd_secondary_menu' );
 
 		// Remove the footer.
 		remove_action( 'themedd_footer', 'themedd_footer_widgets' );
 
-		// Remove the sidebar.
-		add_filter( 'themedd_show_sidebar', '__return_false' );
-
 		// Remove the custom header (if set)
-		remove_action( 'themedd_header', 'themedd_header_image' );
-
+		remove_action( 'themedd_site_header', 'themedd_header_image', 30 );
 	}
 
 }
@@ -200,7 +138,7 @@ add_action( 'template_redirect', 'themedd_edd_set_distraction_free_checkout' );
  * @since  1.1
  */
 function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() ) {
-	
+
 	if ( empty( $query ) ) {
 		return;
 	}
@@ -232,9 +170,9 @@ function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() )
 		}
 
 		if ( ! empty( $pagination ) ) : ?>
-		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation">
-			<ul class="pagination justify-content-center mt-5">
-				<?php foreach ( $pagination as $page ) : 
+		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation mb-10">
+			<ul class="pagination justify-content-center">
+				<?php foreach ( $pagination as $page ) :
 					$page = str_replace( 'page-numbers', 'page-link', $page );
 					$active = strpos( $page, 'current' ) !== false ? ' active' : '';
 				?>
@@ -248,3 +186,16 @@ function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() )
 }
 remove_action( 'edd_downloads_list_after', 'edd_downloads_pagination', 10, 3 );
 add_action( 'edd_downloads_list_after', 'themedd_edd_downloads_pagination', 10, 3 );
+
+/**
+ * Removes "... Continue reading" from the download grid.
+ *
+ * @since 1.1
+ */
+function themedd_edd_remove_excerpt_more() {
+	add_filter( 'excerpt_more', '__return_false' );
+}
+add_action( 'edd_downloads_list_before', 'themedd_edd_remove_excerpt_more' );
+
+// Remove the filter on any page that uses download-grid.php.
+add_action( 'edd_download_before', 'themedd_edd_remove_excerpt_more' );

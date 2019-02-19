@@ -1,0 +1,15 @@
+#nav-secondary {
+	grid-row: 1;
+	grid-column: 2;
+	grid-auto-flow: column; // This forces #menu-secondary, .nav-cart and .search-form into columns.
+	grid-column-gap: 2rem;
+	align-items: center;
+	justify-content: end;
+	justify-self: end;
+
+	.nav-link {
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
+	}
+
+}

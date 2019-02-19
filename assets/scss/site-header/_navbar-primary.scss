@@ -1,0 +1,10 @@
+#menu-primary {
+	margin-left: -1rem;
+	margin-right: -1rem;
+}
+
+@include media-breakpoint-up(md) {
+	#navbar-primary {
+		grid-column: 1 / -1;
+	}
+}

@@ -4,6 +4,7 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
+
 // Site title
 .site-title {
 	font-size: inherit;
@@ -14,15 +15,29 @@ body {
 .site-description {
 	font-size: 1.2rem;
 	margin-bottom: 0;
-	color: $gray-500;
+	color: $gray-600;
 }
 
 // Reduce the size of the secondary navigation.
 #nav-secondary {
-	font-size: $nav-secondary-font-size;
+//	font-size: $nav-secondary-font-size;
 }
 
 // Force the dropdown menu to inherit the font-size from the secondary menu
 #nav-secondary .dropdown-menu {
 	font-size: inherit;
+}
+
+// Widgets.
+.widget {
+	font-size: 0.875rem;
+}
+
+.widget-title {
+	font-size: $font-size-base;
+}
+
+// Footer.
+.site-info {
+	font-size: 0.875rem;
 }

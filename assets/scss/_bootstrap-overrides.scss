@@ -3,12 +3,19 @@
 // Navbar brand.
 $navbar-brand-font-size: 2rem;
 
-// Container max widths.
+$grid-breakpoints: (
+	xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1200px // previously 1140px
+	sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
 );
 
 // Spacers.
@@ -27,10 +34,20 @@ $enable-rounded: false;
 // Disable caret icon.
 $enable-caret: false;
 
+// Enable responsive font sizes
+$enable-responsive-font-sizes: true;
+
 // Theme colors
 $theme-colors: (
-  "primary": #448fd5
+  "primary": #007bff
 );
+
+$headings-margin-bottom: 1rem !default;
+$h1-font-size: 2.25rem !default;
+
+$navbar-nav-link-padding-x: 1rem;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
 
 // Change padding of dropdown items.
 $dropdown-item-padding-x: 1rem;
@@ -42,8 +59,8 @@ $dropdown-bg: $dark-grey;
 $dropdown-link-color: $medium-grey;
 $dropdown-link-hover-color: #fff;
 $dropdown-link-hover-bg: $dark-grey;
-$dropdown-link-active-color: #fff; // Previously $component-active-color
-$dropdown-link-active-bg: #000; // Previously $component-active-bg
+$dropdown-link-active-color: #fff;
+$dropdown-link-active-bg: #000;
 $dropdown-border-color: $dropdown-bg;
 
 // Navbar toggler
@@ -70,3 +87,12 @@ $btn-padding-y-lg: 0.78125rem;
 $btn-padding-x: 1rem;
 $btn-padding-x-sm: 0.75rem;
 $btn-padding-x-lg: 1.5rem;
+
+// Paragraphs
+$paragraph-margin-bottom: 1.5rem;
+
+// Nav links.
+$nav-link-padding-y: .75rem;
+
+// Body
+$body-color: #374b61;

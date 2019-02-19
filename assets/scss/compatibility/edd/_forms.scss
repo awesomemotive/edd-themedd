@@ -1,0 +1,4 @@
+// Extend the .form-control class to include .edd-input.
+.edd-input {
+	@extend .form-control;
+}

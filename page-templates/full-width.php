@@ -6,36 +6,27 @@
 get_header();
 themedd_header();
 ?>
+<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
+	<main id="main" class="site-main" role="main">
+	<?php
+	do_action( 'themedd_main_start' );
 
-<section>
-	<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
-		<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-			<main id="main" class="site-main" role="main">
+	// Start the loop.
+	while ( have_posts() ) : the_post();
 
-			<?php
-			do_action( 'themedd_main_start' );
+		// Include the page content template.
+		get_template_part( 'template-parts/content', 'page' );
 
-			// Start the loop.
-			while ( have_posts() ) : the_post();
+		// If comments are open or we have at least one comment, load up the comment template.
+		if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		}
 
-				// Include the page content template.
-				get_template_part( 'template-parts/content', 'page' );
+	endwhile;
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
-
-			endwhile;
-
-			do_action( 'themedd_main_end' );
-			?>
-
-			</main>
-		</div>
-	</div>
-
-</section>
-
+	do_action( 'themedd_main_end' );
+	?>
+	</main>
+</div>
 <?php
 get_footer();

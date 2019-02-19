@@ -31,7 +31,7 @@ final class Themedd_Search {
 	 * @since 1.0.3
 	 * @static var array $instance
 	 * @return The one true Themedd_Search
-	 */    
+	 */
 	public static function instance() {
 
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Themedd_Search ) ) {
@@ -61,12 +61,11 @@ final class Themedd_Search {
 	 * @return void
 	 */
 	private function hooks() {
-		add_filter( 'themedd_show_sidebar', array( $this, 'hide_sidebar' ) );
 	}
 
 	/**
 	 * Search form shown in header
-	 * 
+	 *
 	 * @since 1.1
 	 */
 	public function header_search_form( $args = array() ) {
@@ -81,8 +80,8 @@ final class Themedd_Search {
 	}
 
 	/**
-	 * Search form 
-	 * 
+	 * Search form
+	 *
 	 * @since 1.1
 	 */
 	public function search_form( $args = array() ) {
@@ -90,26 +89,27 @@ final class Themedd_Search {
 		if ( themedd_edd_is_distraction_free_checkout() ) {
 			return false;
 		}
-		
+
 		$defaults = array(
-			'form_classes' => array(),
+			'form_classes'  => array(),
 			'input_classes' => array(),
-			'placeholder' => true === self::restrict_header_search() ? apply_filters( 'themedd_search_products_text', esc_attr_x( 'Search products', 'placeholder', 'themedd' ) ) : apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) ),
+			'placeholder'   => true === self::restrict_header_search() ? apply_filters( 'themedd_search_products_text', esc_attr_x( 'Search products', 'placeholder', 'themedd' ) ) : apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'placeholder', 'themedd' ) ),
 			'search_button' => true ? apply_filters( 'themedd_show_search_button', true ) : false
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
 		$args['form_classes'][] = 'search-form';
-		$args['input_classes'][] = 'search-field form-control';
+		$args['input_classes'][] = 'search-field';
+		$args['input_classes'][] = 'form-control';
 
 		$unique_id = esc_attr( uniqid( 'search-form-' ) );
 
 		ob_start();
 		?>
 
-		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="<?php echo themedd_output_classes( $args['form_classes'] ); ?>">
-			
+		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>"<?php themedd_classes( array( 'classes' => $args['form_classes'], 'context' => 'search_form_classes' ) ); ?>>
+
 		<?php if ( $args['search_button'] ) : ?>
 			<div class="input-group">
 		<?php endif; ?>
@@ -119,9 +119,9 @@ final class Themedd_Search {
 					$search_label = true === self::restrict_header_search() ? _x( 'Search products:', 'label', 'themedd' ) : _x( 'Search for:', 'label', 'themedd' );
 					?>
 					<span><?php echo $search_label; ?></span>
-				</label>	
-				
-				<input type="search" id="<?php echo $unique_id; ?>" class="<?php echo themedd_output_classes( $args['input_classes'] ); ?>" placeholder="<?php echo $args['placeholder']; ?>" value="<?php echo get_search_query(); ?>" name="s" />
+				</label>
+
+				<input type="search" id="<?php echo $unique_id; ?>"<?php themedd_classes( array( 'classes' => $args['input_classes'], 'context' => 'search_input_classes' ) ); ?> placeholder="<?php echo $args['placeholder']; ?>" value="<?php echo get_search_query(); ?>" name="s" />
 
 				<?php if ( $args['search_button'] ) : ?>
 				<div class="input-group-append">
@@ -129,7 +129,7 @@ final class Themedd_Search {
 				</div>
 				<?php endif; ?>
 
-				<?php 
+				<?php
 				// Only search downloads.
 				if ( true === self::restrict_header_search() ) : ?>
 				<input type="hidden" name="post_type" value="download" />
@@ -138,38 +138,20 @@ final class Themedd_Search {
 			</div>
 		<?php endif; ?>
 		</form>
-	
+
 		<?php
 		return ob_get_clean();
-	}
-
-	/**
-	 * Hide the sidebar on the search results page, if downloads are being displayed.
-	 *
-	 * @param boolean $return Whether to hide the sidebar or not.
-	 * @since 1.0.3
-	 * 
-	 * @return boolean $return Whether to hide the sidebar or not.
-	 */
-	public function hide_sidebar( $return ) {
-
-		if ( themedd_is_edd_active() && self::is_product_search_results() ) {
-			$return = false;
-		}
-
-		return $return;
-
 	}
 
 	/**
 	 * Determine if we're searching products (downloads) only.
 	 *
 	 * @since 1.0.3
-	 * 
+	 *
 	 * @return boolean $return True if searching products, false otherwise.
 	 */
 	public static function is_product_search_results() {
-		
+
 		$return = false;
 
 		if ( isset( $_GET['post_type'] ) && 'download' === $_GET['post_type'] ) {
@@ -183,11 +165,11 @@ final class Themedd_Search {
 	 * The search icon displayed all search forms.
 	 *
 	 * @since 1.0.3
-	 * 
+	 *
 	 * @return string $content The HTML of the SVG
 	 */
 	public static function search_icon() {
-		return themedd_get_svg( apply_filters( 'themedd_search_icon', array( 'icon' => 'search', 'size' => '16', 'svg_classes' => array( 'align-middle' ) ) ) );
+		return themedd_get_svg( apply_filters( 'themedd_search_icon', array( 'icon' => 'search', 'size' => '16', 'svg_classes' => array( 'd-flex' ) ) ) );
 	}
 
 	/**
@@ -198,7 +180,7 @@ final class Themedd_Search {
 	 * @return boolean $show_header_search True if the header search is enabled, false otherwise.
 	 */
 	public function show_header_search() {
-		
+
 		$theme_options      = get_theme_mod( 'theme_options' );
 		$show_header_search = isset( $theme_options['header_search'] ) && true === $theme_options['header_search'] ? true : false;
 
@@ -209,7 +191,7 @@ final class Themedd_Search {
 		 * @since 1.0.3
 		 */
 		return apply_filters( 'themedd_show_header_search', $show_header_search );
-		
+
 	}
 
 	/**
@@ -221,7 +203,7 @@ final class Themedd_Search {
 	 * @return boolean $restrict_header_search True if restrict header search is enabled, false otherwise.
 	 */
 	public static function restrict_header_search() {
-		
+
 		$edd_theme_options      = get_theme_mod( 'easy_digital_downloads' );
 		$restrict_header_search = isset( $edd_theme_options['restrict_header_search'] ) && true === $edd_theme_options['restrict_header_search'] ? true : false;
 
@@ -239,9 +221,9 @@ final class Themedd_Search {
 
 /**
  * The main function responsible for returning the one true Themedd_Search instance to functions everywhere.
- * 
+ *
  * Use this function like you would a global variable, except without needing to declare the global.
- * 
+ *
  * Example: <?php $themedd_search = themedd_search(); ?>
  *
  * @since 1.0.3

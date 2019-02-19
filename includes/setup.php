@@ -35,7 +35,7 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		// This theme styles the visual editor to resemble the theme style.
-		add_editor_style( 'css/editor-style.css' );
+		add_editor_style( 'assets/css/style-editor.css' );
 
 		 /*
 	 	 * Enable support for Post Thumbnails on posts and pages.
@@ -46,7 +46,7 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 
 		/*
 		 * Standard image.
-		 * 
+		 *
 		 * Used by:
 		 * Single download images in Easy Digital Downloads.
 		 * Images that are shown in single columns.
@@ -55,7 +55,7 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 
 		/*
 		 * Featured image.
-		 * 
+		 *
 		 * Used by:
 		 * Images made full width by the Gutenberg "Full width" control.
 		 * Featured images on pages and posts.
@@ -65,7 +65,7 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 
 		/*
 		 * Featured image @ 2x resolution.
-		 * 
+		 *
 		 * Used by:
 		 * Retina displays when viewing the themedd-featured-image image size.
 		 */
@@ -125,6 +125,13 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 		 */
 		add_theme_support( 'responsive-embeds' );
 
+		/**
+		 * Add support for editor styles.
+		 *
+		 * @since 1.1
+		 */
+		add_theme_support( 'editor-styles' );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'themedd_setup' );
@@ -144,10 +151,10 @@ add_action( 'after_setup_theme', 'themedd_content_width', 0 );
 /**
  * Filters the maximum image width to be included in a ‘srcset’ attribute.
  * This increases the max width to 2880 (from the default of 1600) so we can
- * properly serve images to retina displays based on the featured image size. 
- * 
+ * properly serve images to retina displays based on the featured image size.
+ *
  * @since 1.1
- * 
+ *
  * @param int $max_width The maximum image width to be included in the 'srcset'. Default '1600'.
  * @param array $size_array Array of width and height values in pixels (in that order).
  */

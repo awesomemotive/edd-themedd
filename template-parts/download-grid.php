@@ -6,7 +6,7 @@ $download_grid_options = themedd_edd_download_grid_options();
 
 	<div class="edd_download_inner">
 
-		<?php 
+		<?php
 			if ( true === $download_grid_options['thumbnails'] ) {
 				edd_get_template_part( 'shortcode', 'content-image' );
 				do_action( 'edd_download_after_thumbnail' );

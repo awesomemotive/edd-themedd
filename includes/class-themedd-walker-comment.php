@@ -62,12 +62,13 @@ class Themedd_Walker_Comment extends Walker_Comment {
 
 					// Avatar.
 					$avatar = get_avatar( $comment, $args['avatar_size'], '', get_the_author_meta( 'display_name' ), array( 'class' => $avatar_classes ) );
-					
+
 					$post_author_badge_classes = array( 'post-author-badge' );
 					$post_author_badge_classes[] = ! $has_avatars ? 'ml-2' : '';
 
 					// Post author badge.
-					$post_author_badge = themedd_is_comment_by_post_author( $comment ) ? sprintf( '<span class="' . themedd_output_classes( $post_author_badge_classes ) . '" aria-hidden="true">%s</span>', themedd_get_svg( array( 'icon' => 'checked', 'size' => 16 ) ) ) : '';
+					$post_author_badge = themedd_is_comment_by_post_author( $comment ) ?
+					sprintf( '<span class="' . themedd_classes( array( 'classes' => $post_author_badge_classes, 'echo' => false ) ) . '" aria-hidden="true">%s</span>', themedd_get_svg( array( 'icon' => 'checked', 'size' => 16 ) ) ) : '';
 
 					// Append the post author badfe to the avatar.
 					$avatar = $avatar . $post_author_badge;
@@ -132,7 +133,7 @@ class Themedd_Walker_Comment extends Walker_Comment {
 						</div>
 
 					</article>
-					
+
 					<?php
 					comment_reply_link(
 						array_merge(

@@ -18,5 +18,5 @@
 		?>
 		<?php do_action( 'themedd_entry_content_end' ); ?>
 	</div>
-	<?php do_action( 'themedd_entry_article_end' ); ?>	
+	<?php do_action( 'themedd_entry_article_end' ); ?>
 </article>

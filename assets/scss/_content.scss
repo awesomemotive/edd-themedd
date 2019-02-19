@@ -1,136 +1,157 @@
-// Content
-
+// Hide the updated date in the title.
 .updated:not(.published) {
 	display: none;
 }
 
-.alignfull,
-.alignwide {
-	margin-bottom: 2rem;
+.content-wrapper > * {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+
+	// The use of !important here is to ensure everything is centered.
+	// There could be another block used with a left or right margin specified.
+	margin-right: auto !important;
+	margin-left: auto !important;
+
+	@include make-container-max-widths();
 }
 
-.entry-content.content-wrapper {
-	> ul:not(.wp-block-gallery) {
-		padding-left: 2rem;
-		width: 100%;
+// Consider renaming this for re-use. E.g. .content-max-width
+.author-info,
+.navigation {
+	@include make-container();
+	max-width: map-get( $container-max-widths, "md" );
+}
+
+// Force the content on the full width template to be the xl container width.
+.page-template-full-width .content-wrapper > * {
+	max-width: map-get($container-max-widths, "xl");
+}
+
+// Adjust the max width for the cover block.
+.content-wrapper .wp-block-cover {
+	max-width: calc( #{map-get($container-max-widths, "md")} - #{$grid-gutter-width} );
+
+	&.alignwide {
+		max-width: calc( #{map-get($container-max-widths, "xl")} - #{$grid-gutter-width} );
 	}
-
-	.wp-block-gallery {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
 }
 
-.wp-block-gallery {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-
-.no-sidebar:not(.page-template-slim):not(.page-template-full-width) .content-wrapper > .alignfull {
+.content-wrapper .alignfull {
+	// Remove left and right padding on anything full-width.
 	padding-left: 0;
 	padding-right: 0;
+	// Reset max-width for full-width items.
+	max-width: none;
 }
 
-.no-sidebar {
-
-	.content-wrapper {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-
-		> * {
-			padding-left: ($grid-gutter-width / 2);
-			padding-right: ($grid-gutter-width / 2);
-			width: 100%;
-		}
-
-		.wp-block-separator {
-			width: auto;
-		}
-
-		.edd_downloads_list {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		> .alignwide {
-
-			&.wp-block-cover {
-				max-width: calc(100% - 30px);
-			}
-
-			&.wp-block-cover-image {
-				max-width: 1170px; // Cover images have the padding included so needs to be accounted for.
-			}
-		}
-
-	}
-
-	.container-fluid {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	figure.alignfull {
-		width: 100%;
-		max-width: none;
-	
-		img {
-			width: 100%;
-		}
-		
-	}
-
-	.wp-block-embed {
-		width: 100%;
-	}
-
-	@if $enable-grid-classes {
-		.content-wrapper > * {
-			@include make-container-max-widths();
-		}
-	}
-
-}
-
-@include media-breakpoint-up(sm) {
-	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
-		max-width: 540px - $grid-gutter-width;
-	}
+// Only target first-level <ul>'s.
+.content-wrapper > ul:not(.wp-block-gallery) {
+	padding-left: 2rem;
+	width: 100%;
+	line-height: 2;
 }
 
 
-@include media-breakpoint-up(md) {
-	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
-		max-width: 720px - $grid-gutter-width;
-	}
+.content-wrapper .alignwide:not(.edd_downloads_list) {
+	max-width: map-get( $container-max-widths, "xl" );
 }
 
 @include media-breakpoint-up(lg) {
-	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
-		max-width: 960px - $grid-gutter-width;
+	// Forces content to have a max-width of 720px for readability.
+	.content-wrapper > *:not(.edd_downloads_list) {
+		max-width: map-get( $container-max-widths, "md" );
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	#primary-sidebar {
+		@include make-container();
+		@include make-container-max-widths();
 	}
 }
 
 @include media-breakpoint-up(xl) {
 
-	.no-sidebar:not(.page-template) .content-wrapper > .alignfull {
-		max-width: 100%;
+	.has-sidebar .site-content {
+		@include make-container();
+		@include make-container-max-widths();
 	}
 
-	.no-sidebar .content-wrapper > *
-	{
-		max-width: 750px;
-	}
+	.has-sidebar {
 
-	.page-template-full-width.no-sidebar .content-wrapper > *,	
-	.no-sidebar .content-wrapper > .alignwide {
-		max-width: 1200px;
-	}
+		.content-wrapper > *,
+		.author-info,
+		.navigation {
+			padding-left: 0;
+			padding-right: 0;
+		}
 
-	.no-sidebar .content-wrapper > .alignwide.wp-block-cover {
-		max-width: 1200px - $grid-gutter-width;
+		.site-content,
+		.site-content > header {
+			display: grid;
+			grid-template-columns:
+				minmax(auto, 1fr) // content
+				minmax(auto, 21rem); // sidebar
+			grid-column-gap: 5rem;
+		}
+
+		.site-content {
+			grid-template-areas:
+				'header header'
+				'primary secondary';
+			grid-auto-rows: min-content;
+		}
+
+		// Sidebar-content layout
+		&.layout-sidebar-content {
+
+			.site-content,
+			.site-content > header {
+				grid-template-columns:
+					minmax(auto, 21rem) // sidebar
+					minmax(auto, 1fr); // content
+			}
+
+			.site-content {
+				grid-template-areas:
+				'header header'
+				'secondary primary';
+			}
+
+			.site-content header > * {
+				grid-column: 2 / span 1;
+			}
+
+		}
+
+		.site-content {
+
+			// The first <header> element.
+			> header {
+				grid-area: header;
+
+				> * {
+					grid-column: 1 / span 1;
+				}
+			}
+
+			#primary {
+				grid-area: primary;
+			}
+
+			#secondary {
+				grid-area: secondary;
+			}
+
+		}
+
+		// Any item with .alignwide will stretch to fill the available space.
+		.content-wrapper .alignwide:not(.edd_downloads_list) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 	}
 
 }

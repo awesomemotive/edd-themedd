@@ -1,6 +1,9 @@
 // Buttons.
 
-// Creates a new button variant for EDD's buttons.
 .edd-submit {
-	@include button-variant( $edd-button-color, $edd-button-color );
+	@extend .btn;
+
+	&.btn-primary {
+		text-transform: uppercase;
+	}
 }

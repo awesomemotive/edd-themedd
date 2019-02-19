@@ -15,7 +15,7 @@ function themedd_edd_download_author_options( $args = array() ) {
 		'name'        => true,
 		'signup_date' => true,
 		'website'     => true,
-		'title'       => ''
+		'title'       => __( 'Author details', 'themedd' ),
 	) );
 
 	// Merge any args passed in from the widget with the defaults.
@@ -70,3 +70,108 @@ function themedd_edd_has_download_author( $options = array() ) {
 	return false;
 
 }
+
+/**
+ * Output the product author.
+ *
+ * @since 1.1
+ */
+function themedd_download_author( $post ) {
+
+	// Get the author options.
+	$author_options = themedd_edd_download_author_options();
+
+	/**
+	 * Show the Author Details
+	 */
+	if ( themedd_edd_show_download_author() ) : ?>
+	<section class="widget product-author">
+		<?php
+		/**
+		 * Author avatar
+		 */
+		$user       = new WP_User( $post->post_author );
+		$vendor_url = themedd_is_edd_fes_active() ? (new Themedd_EDD_Frontend_Submissions)->author_url( get_the_author_meta( 'ID', $post->post_author ) ) : '';
+
+		if ( true === $author_options['avatar'] ) : ?>
+
+			<div class="product-author-avatar mb-3">
+			<?php if ( $vendor_url ) : ?>
+				<a href="<?php echo $vendor_url; ?>"><?php echo get_avatar( $user->ID, $author_options['avatar_size'], '', get_the_author_meta( 'display_name' ), array( 'class' => 'rounded-circle' ) ); ?></a>
+			<?php else : ?>
+				<?php echo get_avatar( $user->ID, $author_options['avatar_size'], '', get_the_author_meta( 'display_name' ), array( 'class' => 'rounded-circle' ) ); ?>
+			<?php endif; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		/**
+		 * Author's store name.
+		 */
+		if ( true === $author_options['store_name'] ) :
+			$store_name = get_the_author_meta( 'name_of_store', $post->post_author );
+		?>
+
+			<?php if ( themedd_is_edd_fes_active() && ! empty( $store_name ) ) : ?>
+			<h2 class="widget-title"><?php echo $store_name; ?></h2>
+			<?php endif; ?>
+
+		<?php endif; ?>
+
+		<?php
+		$title = $author_options['title'];
+		if ( $title ) : ?>
+		<h2 class="widget-title"><?php echo $title; ?></h2>
+		<?php endif; ?>
+
+		<dl class="product-meta">
+
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_start', $author_options ); ?>
+
+		<?php
+		/**
+		 * Author name.
+		 */
+		if ( true === $author_options['name'] ) : ?>
+
+			<dt><?php _e( 'Author', 'themedd' ); ?></dt>
+			<dd>
+				<?php if ( themedd_is_edd_fes_active() ) : ?>
+					<a class="vendor-url" href="<?php echo $vendor_url; ?>">
+						<?php echo $user->display_name; ?>
+					</a>
+				<?php else : ?>
+					<?php echo $user->display_name; ?>
+				<?php endif; ?>
+			</dd>
+		<?php endif; ?>
+
+		<?php
+		/**
+		 * Author signup date.
+		 */
+		if ( true === $author_options['signup_date'] ) : ?>
+			<dt><?php _e( 'Author since', 'themedd' ); ?></dt>
+			<dd><?php echo date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ); ?></dd>
+		<?php endif; ?>
+
+		<?php
+		/**
+		 * Author website.
+		 */
+		$website = get_the_author_meta( 'user_url', $post->post_author );
+
+		if ( ! empty( $website ) && true === $author_options['website'] ) : ?>
+
+		<dt><?php _e( 'Website', 'themedd' ); ?></dt>
+		<dd class="product-author-value"><a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener"><?php echo esc_url( $website ); ?></a></dd>
+		<?php endif; ?>
+
+		<?php do_action( 'themedd_edd_sidebar_download_author_list_end', $author_options ); ?>
+
+		</dl>
+
+	</section>
+	<?php endif;
+}
+add_action( 'themedd_edd_sidebar_download', 'themedd_download_author', 20, 1 );

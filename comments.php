@@ -15,7 +15,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="comments" class="comments-area content-wrapper py-5">
+<div id="comments" class="content-wrapper comments-area py-5">
 	<?php if ( have_comments() ) : ?>
 
 		<h2 class="comments-title">
@@ -24,7 +24,7 @@ if ( post_password_required() ) {
 					number_format_i18n( get_comments_number() ), get_the_title() );
 			?>
 		</h2>
-	
+
 		<?php
 		// Show comment form at top if showing newest comments at the top.
 		if ( comments_open() ) {
@@ -47,16 +47,16 @@ if ( post_password_required() ) {
 
 		<?php
 		// Show comment form at bottom if showing newest comments at the bottom.
-		if ( comments_open() && 'asc' === strtolower( get_option( 'comment_order', 'asc' ) ) ) : 
+		if ( comments_open() && 'asc' === strtolower( get_option( 'comment_order', 'asc' ) ) ) :
 			themedd_comment_form( 'asc' );
 		endif;
-		
+
 		if ( ! comments_open() ) : ?>
 			<p class="no-comments">
 				<?php esc_html_e( 'Comments are closed.', 'themedd' ); ?>
 			</p>
 		<?php endif;
-	
+
 	else :
 
 		// Show comment form when there are no comments

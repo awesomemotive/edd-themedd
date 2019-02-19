@@ -30,9 +30,6 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 	// [downloads] shortcode is being used
 	if ( ! empty( $atts ) ) {
 
-		// Add downloads class.
-		$classes[] = 'edd_download_columns_' . $atts['columns'];
-
 		$has_price   = $atts['price'] == 'yes' ? true : false;
 		$has_excerpt = $atts['excerpt'] == 'yes' ? true : false;
 		$buy_button  = $atts['buy_button'] == 'yes' ? true : false;
@@ -75,12 +72,12 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 	$classes[] = true === $buy_button ? 'has-buy-button' : 'no-buy-button';
 	$classes[] = true === $thumbnails ? 'has-thumbnails' : 'no-thumbnails';
 
-	$classes[] = 'row';
+	$classes[] = 'mb-10';
 
 	// Add has-download-meta class.
 	$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
 
-	$classes = implode( ' ', array_filter( $classes ) );
+	$classes = implode( ' ', array_filter( array_unique( $classes ) ) );
 
 	return $classes;
 }
@@ -89,27 +86,27 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
  * Download grid options.
  *
  * Used by all download grids:
- * 
+ *
  * via the [downloads] shortcode
  * archive-download.php
  * taxonomy-download_category.php
  * taxonomy-download_tag.php
  *
  * @since 1.0.0
- * 
+ *
  * @param array $atts Attributes from [downloads] shortcode (if passed in).
- * 
+ *
  * @return array $options Download grid options
  */
 function themedd_edd_download_grid_options( $atts = array() ) {
 
 	/**
 	 * Do some homekeeping on the [downloads] shortcode.
-	 * 
+	 *
 	 * Converts the various "yes", "no, "true" etc into a format that the $options array uses.
 	 */
 	if ( ! empty( $atts ) ) {
-		
+
 		// Buy button.
 		if ( isset( $atts['buy_button'] ) && 'yes' === $atts['buy_button'] ) {
 			$atts['buy_button'] = true;
@@ -157,9 +154,9 @@ function themedd_edd_download_grid_options( $atts = array() ) {
 	);
 
 	// Set alignment to "wide" for various pages.
-	if ( 
-		is_post_type_archive( 'download' ) || 
-		is_tax( 'download_category' ) || 
+	if (
+		is_post_type_archive( 'download' ) ||
+		is_tax( 'download_category' ) ||
 		is_tax( 'download_tag' ) ||
 		is_search()
 	) {
@@ -191,7 +188,7 @@ function themedd_edd_download_grid_options( $atts = array() ) {
  */
 function themedd_edd_download_footer( $atts = array() ) {
 
-	$defaults = apply_filters( 'themedd_edd_download_footer_defaults', 
+	$defaults = apply_filters( 'themedd_edd_download_footer_defaults',
 		array(
 			'footer_classes' => array( 'mt-auto' )
 		)
@@ -211,7 +208,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 	 * Show the download footer.
 	 *
 	 * The download footer will be shown if one of the following is true:
-	 * 
+	 *
 	 * - The price is shown.
 	 * - The buy button is shown.
 	 * - The download meta is loaded into the download footer.
@@ -222,10 +219,10 @@ function themedd_edd_download_footer( $atts = array() ) {
 		true === $download_grid_options['price']                                     ||
 		true === apply_filters( 'themedd_edd_download_footer', false, $download_id ) ||
 		'after' === themedd_edd_download_meta_position()
-	) : 
+	) :
 	?>
 
-	<div class="<?php echo themedd_output_classes( $atts['footer_classes'] ); ?>">
+	<div<?php themedd_classes( array( 'classes' => $atts['footer_classes'] ) ); ?>>
 		<?php
 
 		/**
@@ -233,7 +230,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 		 *
 		 * @since 1.0.2
 		 * @since 1.0.3 Added $download_id
-		 * 
+		 *
 		 * @param int $download_id The ID of the download.
 		 */
 		do_action( 'themedd_edd_download_footer_start', $download_id );
@@ -258,7 +255,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 		 *
 		 * @since 1.0.2
 		 * @since 1.0.3 Added $download_id
-		 * 
+		 *
 		 * @param int $download_id The ID of the download.
 		 */
 		do_action( 'themedd_edd_download_footer_end', $download_id );

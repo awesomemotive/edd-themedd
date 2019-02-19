@@ -47,7 +47,6 @@ module.exports = function(grunt) {
 				files: {
 					'style.css' : 'assets/scss/style.scss',
 					'assets/css/affiliatewp.css': 'assets/scss/compatibility/affiliatewp.scss',
-					'assets/css/edd-points-and-rewards.css': 'assets/scss/compatibility/edd-points-and-rewards.scss',
 					'assets/css/edd-reviews.css': 'assets/scss/compatibility/edd-reviews.scss',
 					'assets/css/edd-fes.css': 'assets/scss/compatibility/edd-fes.scss',
 				}
@@ -58,29 +57,34 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'style.min.css' : 'assets/scss/style.scss',
-					'assets/css/edd-points-and-rewards.min.css': 'assets/scss/compatibility/edd-points-and-rewards.scss',
+					'assets/css/affiliatewp.min.css': 'assets/scss/compatibility/affiliatewp.scss',
 					'assets/css/edd-reviews.min.css': 'assets/scss/compatibility/edd-reviews.scss',
 					'assets/css/edd-fes.min.css': 'assets/scss/compatibility/edd-fes.scss',
 				}
 			},
 		},
 
-		// Autoprefixer
-		autoprefixer: {
-			main: {
-				files:{
-					'style.css': 'style.css',
-					'style.min.css': 'style.min.css',
-					'assets/css/affiliatewp.css': 'assets/css/affiliatewp.css',
-					'assets/css/affiliatewp.min.css': 'assets/css/affiliatewp.min.css',
-					'assets/css/edd-fes.css': 'assets/css/edd-fes.css',
-					'assets/css/edd-fes.min.css': 'assets/css/edd-fes.min.css',
-					"assets/css/edd-reviews.css": 'assets/css/edd-reviews.css',
-					"assets/css/edd-reviews.min.css": 'assets/css/edd-reviews.min.css',
-					'assets/css/edd-points-and-rewards.css': 'assets/css/edd-points-and-rewards.css',
-					'assets/css/edd-points-and-rewards.min.css': 'assets/css/edd-points-and-rewards.min.css'
-				},
+		postcss: {
+			options: {
+				map: true, // inline sourcemaps
+
+				processors: [
+					require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+				]
 			},
+			dist: {
+				src: [
+					'style.css',
+					'style.min.css',
+					'assets/css/affiliatewp.css',
+					'assets/css/affiliatewp.min.css',
+					'assets/css/edd-fes.css',
+					'assets/css/edd-fes.min.css',
+					'assets/css/edd-reviews.css',
+					'assets/css/edd-reviews.min.css'
+
+				]
+			}
 		},
 
 		// watch our project for changes
@@ -93,7 +97,7 @@ module.exports = function(grunt) {
 
 			css: {
 				files: 'assets/scss/**/*.scss',
-				tasks: ['sass', 'autoprefixer:main']
+				tasks: ['sass', 'postcss']
 			},
 		}
 	});
@@ -101,6 +105,6 @@ module.exports = function(grunt) {
 	// Saves having to declare each dependency
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer' ]);
+	grunt.registerTask('default', ['concat', 'uglify', 'sass', 'postcss' ]);
 
 };

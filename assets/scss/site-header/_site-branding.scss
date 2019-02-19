@@ -1,0 +1,7 @@
+.site-branding {
+
+	@include media-breakpoint-up(md) {
+		grid-column: 1 / span 1;
+	}
+
+}

@@ -6,8 +6,8 @@
  */
 function themedd_body_classes( $classes ) {
 
-	if ( ! themedd_has_sidebar() ) {
-		$classes[] = 'no-sidebar';
+	if ( true === themedd_has_sidebar() ) {
+		$classes[] = 'has-sidebar';
 	}
 
 	return $classes;
@@ -49,54 +49,35 @@ function themedd_excerpt_more( $link ) {
 		return $link;
 	}
 
-	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+	$link = sprintf( '<p class="link-more mb-0"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		sprintf( __( 'Continue reading<span class="sr-only"> "%s"</span>', 'themedd' ), get_the_title( get_the_ID() ) )
 	);
+
 	return ' &hellip; ' . $link;
 }
 add_filter( 'excerpt_more', 'themedd_excerpt_more' );
 endif;
 
 /**
- * Add a spacing utility class to top-level anchor links
- * 
- * @since 1.1
- */
-function themedd_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
-
-	if ( ! isset( $atts['class'] ) ) {
-		return $atts;
-	}
-
-	// Only apply class to top-level menu links
-	if ( isset( $atts['class'] ) && 'dropdown-item' !== $atts['class'] && is_object( $args ) && 'primary' === $args->theme_location ) {
-		$atts['class'] .= ' px-lg-3';
-	}
-
-	return $atts;
-}
-add_filter( 'nav_menu_link_attributes', 'themedd_nav_menu_link_attributes', 10, 4 );
-
-/**
  * Modify the comment form defaults
- * 
+ *
  * @since 1.1
  */
 function themedd_comment_form_defaults( $defaults ) {
-	
+
 	// Add the .form-control class to the comment field.
 	$defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment" class="form-control form-control-lg" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p>';
 
 	// Adjust height of comment form.
 	$comment_field = $defaults['comment_field'];
 	$defaults['comment_field'] = preg_replace( '/rows="\d+"/', 'rows="5"', $comment_field );
-	
+
 	// Add additional class names to the submit button.
 	$defaults['class_submit'] .= ' btn btn-primary btn-lg';
 
 	// Remove <small> and </small>.
-	$defaults['cancel_reply_before'] = null; 
+	$defaults['cancel_reply_before'] = null;
 	$defaults['cancel_reply_after'] = null;
 
 	// Add various classes to the reply title.
@@ -112,7 +93,7 @@ add_filter( 'comment_form_defaults', 'themedd_comment_form_defaults' );
 
 /**
  * Modify the comment form defaults fields
- * 
+ *
  * @since 1.1
  */
 function themedd_comment_form_default_fields( $fields ) {
@@ -138,7 +119,7 @@ add_filter( 'comment_form_default_fields', 'themedd_comment_form_default_fields'
 
 /**
  * Filter the navigation markup template.
- * 
+ *
  * @since 1.1
  */
 function themedd_navigation_markup_template( $template, $class ) {
@@ -149,7 +130,7 @@ function themedd_navigation_markup_template( $template, $class ) {
 		case 'comment-navigation':
 			$css_classes[] = 'py-4';
 			break;
-		
+
 		default:
 			$css_classes[] = '';
 			break;
@@ -160,7 +141,7 @@ function themedd_navigation_markup_template( $template, $class ) {
 
 	<nav class="navigation %1$s" role="navigation">
 		<h2 class="screen-reader-text">%2$s</h2>
-		<div class="<?php echo themedd_output_classes( $css_classes ); ?>">%3$s</div>
+		<div<?php themedd_classes( array( 'classes' => $css_classes ) ); ?>>%3$s</div>
 	</nav>
 
 <?php
@@ -171,7 +152,7 @@ add_filter( 'navigation_markup_template', 'themedd_navigation_markup_template', 
 
 /**
  * Filter the edit comment link.
- * 
+ *
  * @since 1.1
  */
 function themedd_edit_comment_link( $link, $comment_id, $text ) {
@@ -184,7 +165,7 @@ add_filter( 'edit_comment_link', 'themedd_edit_comment_link', 10, 3 );
 
 /**
  * Filter the HTML content for cancel comment reply link.
- * 
+ *
  * @since 1.1
  */
 function themedd_cancel_comment_reply_link( $formatted_link, $link, $text ) {

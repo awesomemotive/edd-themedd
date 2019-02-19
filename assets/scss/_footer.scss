@@ -1,16 +1,49 @@
-.site-footer {
-	background: $footer-bg;
-
-	a {
-		color: $nav-footer-link-color;
-		
-		&:hover {
-			color: $nav-footer-link-hover-color;
-		}
+@supports( display: grid ) {
+	.footer-widgets > .container {
+		display: grid;
+		grid-column-gap: 4rem;
+		grid-row-gap: 2rem;
+		grid-template-columns: 1fr;
 	}
-
 }
 
-.site-info {
-	font-size: 0.875rem;
+@include media-breakpoint-down(md) {
+	.footer-widgets {
+		.footer-widget {
+			max-width: 720px;
+			margin: 0 auto;
+			width: 100%;
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+
+	.footer-widgets > .container {
+		// Switches to 12 column grid.
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	// Map each footer widget to the correct grid column(s) area.
+	// The number of columns is determined by the themedd_footer_widget_regions filter.
+	.columns-1 .footer-widget {	grid-column: span 6; }
+
+	.columns-2 {
+		.footer-widget-1 { grid-column: 1 / span 6; }
+		.footer-widget-2 { grid-column: 7 / span 6; }
+	}
+
+	.columns-3 {
+		.footer-widget-1 { grid-column: 1 / span 4; }
+		.footer-widget-2 { grid-column: 5 / span 4; }
+		.footer-widget-3 { grid-column: 9 / span 4; }
+	}
+
+	.columns-4 {
+		.footer-widget-1 { grid-column: 1 / span 3; }
+		.footer-widget-2 { grid-column: 4 / span 3; }
+		.footer-widget-3 { grid-column: 7 / span 3; }
+		.footer-widget-4 { grid-column: 10 / span 3; }
+	}
+
 }

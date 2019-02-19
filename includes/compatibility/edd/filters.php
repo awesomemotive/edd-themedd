@@ -7,13 +7,44 @@
  * @since 1.0.0
  */
 function themedd_edd_download_details_widget_purchase_button( $purchase_link, $download_id ) {
-
 	if ( themedd_edd_price_enhancements() ) {
 		return '';
 	}
-
 }
 add_filter( 'edd_product_details_widget_purchase_button', 'themedd_edd_download_details_widget_purchase_button', 10, 2 );
+
+/**
+ * Remove the download title from the download details widget.
+ * It's added back (with consistent formatting) via themedd_edd_product_details_widget_download_title()
+ *
+ * @since 1.1
+ */
+function themedd_edd_product_details_widget_disable_download_title( $title, $download_id ) {
+	return '';
+}
+add_filter( 'edd_product_details_widget_download_title', 'themedd_edd_product_details_widget_disable_download_title', 10, 2 );
+
+/**
+ * Output the download title to the Download Details widget, via the
+ * edd_product_details_widget_before_title action hook.
+ *
+ * @since 1.1
+ */
+function themedd_edd_product_details_widget_download_title( $instance, $download_id ) {
+
+	if ( $instance['download_title'] ) {
+		echo themedd_edd_single_product_info( array(
+			'download_id' => $download_id,
+			'classes' => array( 'mb-4', 'mt-lg-3' ) // Since the widgets drop into the footer they don't need centering classes.
+		) );
+	}
+
+	if ( $instance['purchase_button'] ) {
+		echo themedd_edd_purchase_link( array( 'download_id' => $download_id ) );
+	}
+
+}
+add_action( 'edd_product_details_widget_before_title', 'themedd_edd_product_details_widget_download_title', 10, 2 );
 
 /**
  * Filter the settings from EDD's "Styles" tab (pre EDD v3.0)
@@ -73,10 +104,8 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 
 	$classes = explode( ' ', $defaults['class'] );
 
-	// Make the button larger on single download page.
-	if ( is_singular( 'download' ) ) {
-		$classes[] = 'btn-lg';
-	}
+	// Add any additional button classes.
+	$classes[] = implode( ' ', themedd_edd_button_classes() );
 
 	$defaults['class'] = implode( ' ', $classes );
 
@@ -90,16 +119,16 @@ add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' )
  *
  * @since 1.0.0 Filtered the price
  * @since 1.0.3 Filtered other attributes
- * 
+ *
  * @param array  $out       The output array of shortcode attributes.
  * @param array  $pairs     The supported attributes and their defaults.
  * @param array  $atts      The user defined shortcode attributes.
  * @param string $shortcode The shortcode name.
- * 
+ *
  * @return array $out       The output array of shortcode attributes.
  */
 function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode ) {
-	
+
 	/**
 	 * Get the download grid options.
 	 */
@@ -107,7 +136,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 
 	/**
 	 * Filter the pagination.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	if ( false === $download_grid_options['pagination'] ) {
@@ -118,28 +147,28 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 
 	/**
 	 * Sets the number of download columns shown.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['columns'] = $download_grid_options['columns'];
 
 	/**
 	 * Sets the number of downloads shown.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['number'] = $download_grid_options['number'];
 
 	/**
 	 * Sets the "order".
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['order'] = $download_grid_options['order'];
 
 	/**
 	 * Sets the "orderby"
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['orderby'] = $download_grid_options['orderby'];
@@ -152,18 +181,18 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	if ( ! isset( $atts['price'] ) && false !== $download_grid_options['price'] ) {
 		$out['price'] = 'yes';
 	}
-	
+
 	/**
-	 * Adds an "align" shortcode attribute
-	 * 
+	 * Adds an "width" shortcode attribute.
+	 *
 	 * @since 1.1
 	 */
-	if ( isset( $atts['align'] ) ) {
-		if ( 'wide' === $atts['align'] ) {
+	if ( isset( $atts['width'] ) ) {
+		if ( 'wide' === $atts['width'] ) {
 			$out['align'] = 'wide';
 		}
-	
-		if ( 'full' === $atts['align'] ) {
+
+		if ( 'full' === $atts['width'] ) {
 			$out['align'] = 'full';
 		}
 	}
@@ -193,7 +222,7 @@ function themedd_edd_checkout_button_purchase() {
 	ob_start();
 ?>
 	<div id="edd-purchase-button-wrap">
-		<input type="submit" class="edd-submit btn-lg btn-block" id="edd-purchase-button" name="edd-purchase" value="<?php echo $label; ?>" />
+		<input type="submit" class="edd-submit btn btn-primary btn-lg btn-block" id="edd-purchase-button" name="edd-purchase" value="<?php echo $label; ?>" />
 	</div>
 <?php
 	return ob_get_clean();
@@ -221,6 +250,9 @@ function themedd_edd_body_classes( $classes ) {
 		$classes[] = 'edd-empty-cart';
 	}
 
+	if ( 'sidebar-content' === themedd_content_sidebar_layout() ) {
+		$classes[] = 'layout-sidebar-content';
+	}
 
 	return $classes;
 
@@ -276,7 +308,7 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 
 		}
 	}
-	
+
 	// Change classes based on column count.
 	$options = themedd_edd_download_grid_options();
 
@@ -288,37 +320,13 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 		$columns = $options['columns'];
 	}
 
-	// Columns.
-	if ( $columns ) {
-		
-		switch ( $columns ) {
+	$themedd_classes = apply_filters( 'themedd_edd_download_classes', $themedd_classes, $download_id );
 
-			case 1:
-				$themedd_classes['column_classes'] = 'col-12';
-				break;
-	
-			case 2:
-				$themedd_classes['column_classes'] = 'col-12 col-lg-6';
-				break;
-	
-			case 3:
-				$themedd_classes['column_classes'] = 'col-12 col-lg-4';
-				break;
-	
-			case 4:
-				$themedd_classes['column_classes'] = 'col-12 col-md-6 col-xl-3';
-				break;	
-
-		}
-
+	if ( ! empty( $themedd_classes ) ) {
+		return $class .= ' ' . themedd_classes( array( 'classes' => $themedd_classes, 'echo' => false ) );
 	}
 
-	// Margin.
-	$themedd_classes['margin'] = 'mb-7';
-
-	// Return the original $class string with our new classes appended to the end.
-	return $class .= ' ' . themedd_output_classes( apply_filters( 'themedd_edd_download_classes', $themedd_classes ) );
-
+	return $class;
 }
 add_filter( 'edd_download_class', 'themedd_edd_download_class', 10, 4 );
 
@@ -379,7 +387,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					}
 
 					do_action( 'edd_download_before_title' );
-					
+
 					if ( true === $download_grid_options['title'] ) {
 						edd_get_template_part( 'shortcode', 'content-title' );
 					}
@@ -389,12 +397,12 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					if ( true === $download_grid_options['excerpt'] && true !== $download_grid_options['full_content'] ) {
 						// Show the excerpt.
 						edd_get_template_part( 'shortcode', 'content-excerpt' );
-		
+
 						do_action( 'edd_download_after_content' );
 					} elseif ( true === $download_grid_options['full_content'] ) {
 						// Show the full content.
 						edd_get_template_part( 'shortcode', 'content-full' );
-						
+
 						do_action( 'edd_download_after_content' );
 					}
 
@@ -491,14 +499,9 @@ add_filter( 'edd_purchase_form_quantity_input', 'themedd_edd_purchase_form_quant
  * @since 1.1
  */
 function themedd_edd_empty_cart_message() {
+	$classes = themedd_classes( array( 'classes' => array( 'edd-empty-cart-message' ), 'echo' => false, 'context' => 'empty_cart_message' ) );
+	$classes = $classes ? ' class="' . $classes . '"' : '';
 
-	$classes = array( 'edd_empty_cart' );
-
-	if ( in_array( 'no-sidebar', get_body_class() ) ) {
-		$classes[] = 'text-center';
-	}
-
-	// Center the empty cart message.
-	return '<div class="' . themedd_output_classes( $classes ) . '">' . __( 'Your cart is empty.', 'themedd' ) . '</div>';
+	return '<p' . $classes . '>' . __( 'Your cart is empty.', 'themedd' ) . '</p>';
 }
 add_filter( 'edd_empty_cart_message', 'themedd_edd_empty_cart_message' );

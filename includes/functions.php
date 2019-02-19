@@ -130,8 +130,7 @@ function themedd_is_subtitles_active() {
  */
 function themedd_get_sidebar( $sidebar = '' ) {
 
-	// Disable all sidebars.
-	if ( ! apply_filters( 'themedd_show_sidebar', true ) ) {
+	if ( false === themedd_has_sidebar() && ! is_singular( 'download' ) ) {
 		return false;
 	}
 
@@ -139,24 +138,20 @@ function themedd_get_sidebar( $sidebar = '' ) {
 }
 
 /**
- * Controls the CSS classes applied to the main wrappers.
+ * Determines if the current page has a sidebar.
  *
- * @since 1.0.0
+ * This function is used by themedd_body_classes() to add a "has-sidebar" body class.
+ * @since 1.1
  */
-function themedd_wrapper_classes() {
+function themedd_has_sidebar() {
 
-	$classes = array();
+	$has_sidebar = false;
 
-	if ( themedd_has_sidebar() ) {
-		$classes[] = 'container';
-		$classes[] = 'd-lg-flex flex-wrap';
-	} elseif( ! themedd_has_sidebar() ) {
-		$classes[] = 'container-fluid';
+	if ( is_active_sidebar( 'sidebar-1' ) && ! is_page() && ! is_singular( 'download' ) && ! is_post_type_archive( 'download' ) ) {
+		$has_sidebar = true;
 	}
 
-	// Allow filtering of the wrapper classes.
-	return apply_filters( 'themedd_wrapper_classes', $classes );
-
+	return apply_filters( 'themedd_has_sidebar', $has_sidebar );
 }
 
 /**
@@ -167,11 +162,6 @@ function themedd_wrapper_classes() {
 function themedd_primary_classes() {
 
 	$classes = array();
-	
-	if ( 'sidebar-content' === themedd_content_sidebar_layout() ) {
-		$classes[] = 'order-2';
-	}
-
 	$classes = apply_filters( 'themedd_primary_classes', $classes );
 
 	if ( $classes ) {
@@ -188,43 +178,11 @@ function themedd_primary_classes() {
 function themedd_secondary_classes() {
 
 	$classes = array();
-
-	if ( 'content-sidebar' === themedd_content_sidebar_layout() ) {
-		$classes[] = 'ml-lg-10';
-	} elseif ( 'sidebar-content' === themedd_content_sidebar_layout() ) {
-		$classes[] = 'mr-lg-10';
-		$classes[] = 'order-1';
-	}
-
 	$classes = apply_filters( 'themedd_secondary_classes', $classes );
 
-	if ( $classes ) {
+	if ( ! empty( $classes ) ) {
 		return implode( ' ', $classes );
 	}
-}
-
-/**
- * Determines if the current page has a sidebar.
- *
- * @since 1.1
- */
-function themedd_has_sidebar() {
-
-	if ( ! ( 
-			! is_active_sidebar( 'sidebar-1' ) && ! is_singular( 'download' ) ||
-			! apply_filters( 'themedd_show_sidebar', true ) ||
-			is_page_template( 'page-templates/full-width.php' ) ||
-			is_page_template( 'page-templates/slim.php' ) ||
-			is_search() && Themedd_Search::is_product_search_results() ||
-			is_tax( 'download_category' ) || 
-			is_tax( 'download_tag' )
-		)
-	) {
-		return true;
-	}
-
-	return false;
-
 }
 
 /**
@@ -302,7 +260,7 @@ function themedd_navbar_toggler_defaults( $args = array() ) {
 /**
  * Set the breakpoint at which the mobile menu is hidden, and the primary navigation is shown.
  * Possible values: sm | md (default) | lg | xl
- * 
+ *
  * @since 1.1
  * @return string Breakpoint to hide mobile menu.
  */
@@ -331,7 +289,7 @@ function themedd_is_comment_by_post_author( $comment = null ) {
 	if ( is_object( $comment ) && $comment->user_id > 0 ) {
 		$user = get_userdata( $comment->user_id );
 		$post = get_post( $comment->comment_post_ID );
-		
+
 		if ( ! empty( $user ) && ! empty( $post ) ) {
 			return $comment->user_id === $post->post_author;
 		}

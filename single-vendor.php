@@ -6,34 +6,26 @@
 get_header();
 themedd_header();
 ?>
+<div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
+	<main id="main" class="site-main" role="main">
+	<?php
+	// Start the loop.
+	while ( have_posts() ) : the_post();
 
-<div class="<?php echo themedd_output_classes( themedd_wrapper_classes() ); ?>">
+		// Include the page content template.
+		get_template_part( 'template-parts/content', 'page' );
 
-    <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
-    	<main id="main" class="site-main" role="main">
-
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
-
-			// Include the page content template.
-			get_template_part( 'template-parts/content', 'page' );
-
-		// End of the loop.
-		endwhile;
-		?>
-
-		</main>
-
-    </div>
-
-    <?php
-	// Only load the single vendor sidebar if a vendor exists.
-	if ( fes_get_vendor() ) {
-		themedd_get_sidebar( 'single-vendor' );
-	}
+	// End of the loop.
+	endwhile;
 	?>
-
+	</main>
 </div>
+
+<?php
+// Only load the single vendor sidebar if a vendor exists.
+if ( fes_get_vendor() ) {
+	themedd_get_sidebar( 'single-vendor' );
+}
+?>
 
 <?php get_footer(); ?>

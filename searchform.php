@@ -8,7 +8,7 @@ $search_text = apply_filters( 'themedd_search_text', esc_attr_x( 'Search', 'plac
 
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<div class="input-group">
-		<label for="<?php echo $unique_id; ?>"><span class="sr-only"><?php echo _x( 'Search for:', 'label', 'themedd' ); ?></span></label>	
+		<label for="<?php echo $unique_id; ?>"><span class="sr-only"><?php echo _x( 'Search for:', 'label', 'themedd' ); ?></span></label>
 		<input type="search" id="<?php echo $unique_id; ?>" class="search-field form-control" placeholder="<?php echo $search_text; ?>" value="<?php echo get_search_query(); ?>" name="s" />
 
 		<?php if ( apply_filters( 'themedd_show_search_button', true ) ) : ?>

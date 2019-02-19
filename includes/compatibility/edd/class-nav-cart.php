@@ -28,9 +28,9 @@ final class Themedd_EDD_Nav_Cart {
 	 *
 	 * @since 1.0.3
 	 * @static var array $instance
-	 * 
+	 *
 	 * @return The one true Themedd_EDD_Nav_Cart
-	 */    
+	 */
 	public static function instance() {
 
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Themedd_EDD_Nav_Cart ) ) {
@@ -67,7 +67,7 @@ final class Themedd_EDD_Nav_Cart {
 	 * Make the total quantity blank when no items exist in the cart.
 	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return $total_quantity string
 	 */
 	public function set_cart_quantity( $total_quantity, $cart ) {
@@ -85,7 +85,7 @@ final class Themedd_EDD_Nav_Cart {
 	 * Possible options are secondary_menu | primary_menu
 	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return string $position The position of the cart.
 	 */
 	public function cart_position() {
@@ -103,10 +103,10 @@ final class Themedd_EDD_Nav_Cart {
 	 * @return boolean $show_cart True if cart is enabled, false otherwise.
 	 */
 	public static function show_cart() {
-		
+
 		$show_cart = false;
 
-		// There is a cart when there is at least a cart icon, or an option selected (which isn't "none") for the cart options. 
+		// There is a cart when there is at least a cart icon, or an option selected (which isn't "none") for the cart options.
 		if ( self::show_cart_icon() || 'none' !== self::cart_option() ) {
 			$show_cart = true;
 		}
@@ -132,7 +132,7 @@ final class Themedd_EDD_Nav_Cart {
 
 		$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
 		$show_cart_icon = isset( $edd_theme_options['cart_icon'] ) && true === $edd_theme_options['cart_icon'] ? true : false;
-		
+
 		/**
 		 * Set to "true" if no options exist in theme mods array.
 		 * This is because the option is enabled by default in the customizer.
@@ -145,7 +145,7 @@ final class Themedd_EDD_Nav_Cart {
 		 * Whether the cart icon is shown.
 		 *
 		 * @param boolean $show_cart_icon True if cart is enabled, false otherwise.
-		 * 
+		 *
 		 * @since 1.0.3
 		 */
 		return apply_filters( 'themedd_edd_show_cart_icon', $show_cart_icon );
@@ -163,7 +163,7 @@ final class Themedd_EDD_Nav_Cart {
 
 		$edd_theme_options = get_theme_mod( 'easy_digital_downloads' );
 		$cart_option       = isset( $edd_theme_options['cart_options'] ) ? $edd_theme_options['cart_options'] : 'all';
-		
+
 		/**
 		 * Filter the cart option.
 		 *
@@ -215,7 +215,7 @@ final class Themedd_EDD_Nav_Cart {
 
 		// Cart link.
 		$cart_link = $args['cart_link'];
-		
+
 		// Add nav cart classes.
 		$args['nav_cart_classes'][] = 'nav-cart d-flex align-items-center';
 
@@ -225,7 +225,7 @@ final class Themedd_EDD_Nav_Cart {
 		// Cart option.
 		$cart_option = $args['cart_option'];
 		?>
-		<a class="<?php echo themedd_output_classes( $args['nav_cart_classes'] ); ?>" href="<?php echo $cart_link; ?>">
+		<a<?php themedd_classes( array( 'classes' => $args['nav_cart_classes'] ) ); ?> href="<?php echo $cart_link; ?>">
 			<?php
 			// Cart icon.
 			echo $this->cart_icon();
@@ -237,7 +237,7 @@ final class Themedd_EDD_Nav_Cart {
 
 			// Cart quantity and total.
 			if ( 'none' !== $cart_option ) {
-				echo '<span class="' . themedd_output_classes( $args['nav_cart_quantity_and_total_classes'] ) . '">';
+				echo '<span class="' . themedd_classes( array( 'classes' => $args['nav_cart_quantity_and_total_classes'], 'echo' => false ) ) . '">';
 
 				if ( 'all' === $cart_option || 'item_quantity' === $cart_option ) {
 					echo self::cart_quantity();
@@ -265,11 +265,11 @@ final class Themedd_EDD_Nav_Cart {
 	 * The cart icon.
 	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return string $html The HTML of the nav cart icon.
 	 */
 	public function cart_icon() {
-		
+
 		if ( ! self::show_cart_icon() ) {
 			return;
 		}
@@ -296,7 +296,7 @@ final class Themedd_EDD_Nav_Cart {
 	 * @return string Cart quantity.
 	 */
 	public static function cart_quantity() {
-		
+
 		// Cart quantity.
 		$count = edd_get_cart_quantity();
 
@@ -339,8 +339,8 @@ final class Themedd_EDD_Nav_Cart {
 	 * @return array $cart_quantity_text Cart quantity singular and plural name
 	 */
 	public static function cart_quantity_text() {
-		
-		$cart_quantity_text = apply_filters( 'themedd_edd_cart_quantity_text', 
+
+		$cart_quantity_text = apply_filters( 'themedd_edd_cart_quantity_text',
 			array(
 				'singular' => __( 'item', 'themedd' ),
 				'plural'   => __( 'items', 'themedd' )
@@ -360,7 +360,7 @@ final class Themedd_EDD_Nav_Cart {
 	 */
 	public static function cart_total( $args ) {
 
-		if ( 'all' === $args['cart_option'] ) {	
+		if ( 'all' === $args['cart_option'] ) {
 			$sep = apply_filters( 'themedd_edd_cart_total_separator', '-' );
 			$sep = '<span class="nav-cart-total-separator"> ' . $sep . ' </span>';
 		} else {
@@ -376,9 +376,9 @@ final class Themedd_EDD_Nav_Cart {
 
 /**
   * The main function responsible for returning the one true Themedd_EDD_Nav_Cart instance to functions everywhere.
-  * 
+  *
   * Use this function like you would a global variable, except without needing to declare the global.
-  * 
+  *
   * Example: <?php $themedd_edd_nav_cart = themedd_edd_nav_cart(); ?>
   *
   * @since 1.0.3

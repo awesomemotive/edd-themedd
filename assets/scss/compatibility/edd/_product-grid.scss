@@ -1,0 +1,141 @@
+.edd_download .edd_price {
+	color: $edd-price-color;
+}
+
+.edd-item-quantity {
+	width: 4rem;
+}
+
+// Download grid - price options.
+.edd_price_options {
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	li {
+		display: flex; // Fixes alignment issues at smaller widths.
+	}
+}
+
+// A downloads list always has padding when full width,
+// except when the page has a sidebar.
+.edd_downloads_list.alignfull {
+	padding-left: 3rem;
+	padding-right: 3rem;
+
+
+	@include media-breakpoint-up(lg) {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
+
+	// If there's a sidebar, remove the padding
+	.has-sidebar & {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.edd_download,
+.edd_download_inner {
+	display: flex;
+	flex-direction: column;
+}
+
+.edd_download {
+	position: relative;
+	min-width: 0;
+	word-wrap: break-word;
+}
+
+.edd_download_inner {
+	height: 100%;
+}
+
+.edd-download-meta-author-avatar img {
+	display: block;
+	border-radius: 100%;
+}
+
+.edd-download-meta-author-avatar + .edd-download-meta-author-name {
+	margin-left: 0.5rem;
+}
+
+.edd-download-meta-author-name {
+	font-size: 0.875rem;
+}
+
+// Download grid - download title.
+.edd_download_title a {
+	color: $edd-product-title-color;
+	font-size: $edd-product-title-font-size;
+	display: block;
+
+	&:hover {
+		color: $edd-product-title-hover-color;
+		text-decoration: none;
+	}
+}
+
+// For backwards compatibility. Prior to EDD 2.9.7 the download pagination was
+// included within the download grid. The following forces the pagination to clear
+// the other downloads.
+#edd_download_pagination {
+	width: 100%;
+}
+
+// CSS Grid
+.content-wrapper .edd_downloads_list {
+	display: grid;
+	grid-gap: 4rem; // Temporary until EDD Blocks' selector is less specific.
+}
+
+// Auto columns.
+.edd_download_columns_auto {
+	grid-template-columns: repeat( auto-fit, minmax( 300px, 1fr ) );
+}
+
+@include media-breakpoint-up(md) {
+
+	.edd_downloads_list {
+		&.edd_download_columns_3,
+		&.edd_download_columns_4,
+		&.edd_download_columns_5,
+		&.edd_download_columns_6 {
+			grid-template-columns: repeat( 2, 1fr );
+		}
+	}
+
+}
+
+@include media-breakpoint-up(lg) {
+
+	.edd_downloads_list {
+		&.edd_download_columns_1 {
+			grid-template-columns: 1fr;
+		}
+
+		&.edd_download_columns_2 {
+			grid-template-columns: repeat( 2, 1fr );
+		}
+
+		&.edd_download_columns_3 {
+			grid-template-columns: repeat( 3, 1fr );
+		}
+
+		&.edd_download_columns_4 {
+			grid-template-columns: repeat( 4, 1fr );
+		}
+
+		&.edd_download_columns_5 {
+			grid-template-columns: repeat( 5, 1fr );
+		}
+
+		&.edd_download_columns_6 {
+			grid-template-columns: repeat( 6, 1fr );
+		}
+	}
+
+}

@@ -1,0 +1,109 @@
+.single-download {
+
+	.product-title {
+		@include font-size($edd-single-product-title-font-size);
+	}
+
+	.product-price {
+		@include font-size($edd-single-product-price-font-size);
+	}
+
+	// Variable pricing.
+	.edd_price_options {
+		margin-bottom: 1rem;
+	}
+
+	article.edd-download {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+
+		#product-sidebar .widget {
+			margin-bottom: 2rem;
+		}
+
+	}
+
+	// Tweak the buttons
+	.product-purchase-link {
+
+		@mixin button-width {
+			// Selects both versions of the button (with JS and without JS) + the go to checkout button.
+			.edd-has-js,
+			.edd-no-js,
+			.edd_go_to_checkout {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		@include media-breakpoint-down(xs) {
+			@include button-width;
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include button-width;
+		}
+	}
+
+}
+
+
+@include media-breakpoint-up(lg) {
+
+	.single-download {
+
+		article.edd-download {
+			display: grid;
+			grid-template-columns:
+				minmax(auto, 1fr)
+				minmax(auto, 21rem);
+			grid-column-gap: 5rem;
+
+			grid-template-areas:
+				'header header2'
+				'primary purchase'
+				'primary secondary';
+
+			grid-auto-rows: min-content;
+
+			// header, purchase, everything else.
+			grid-template-rows: auto auto 1fr;
+
+			.product-header {
+				grid-area: header;
+			}
+
+			.product-purchase {
+				grid-area: purchase;
+			}
+
+			.product-content {
+				grid-area: primary;
+			}
+
+			#product-sidebar {
+				grid-area: secondary;
+			}
+
+			#product-sidebar .widget {
+				margin-bottom: 4rem;
+			}
+		}
+
+		// Layout - sidebar / content
+		&.layout-sidebar-content article.edd-download {
+
+			grid-template-columns:
+				minmax(auto, 21rem)
+				minmax(auto, 1fr);
+
+
+			grid-template-areas:
+				'header2 header'
+				'purchase primary'
+				'secondary primary';
+		}
+
+	}
+
+}
