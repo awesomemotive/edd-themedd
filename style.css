@@ -8343,7 +8343,7 @@ li.custom-control {
   border: 0; }
 
 .custom-logo-link {
-  display: block; }
+  display: inline-block; }
 
 img {
   max-width: 100%;
