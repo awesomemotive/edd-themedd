@@ -247,7 +247,7 @@ function themedd_post_thumbnail( $args = array() ) {
 
 	if ( is_singular() ) : ?>
 
-	<div<?php themedd_classes( array( 'classes' => $classes ) ); ?>">
+	<div<?php themedd_classes( array( 'classes' => $classes ) ); ?>>
 		<?php echo $post_thumbnail; ?>
 	</div>
 
