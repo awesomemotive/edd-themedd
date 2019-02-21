@@ -2588,7 +2588,7 @@ return Popper;
 })));
 //# sourceMappingURL=popper.js.map
 ;/*!
-  * Bootstrap util.js v4.3.0 (https://getbootstrap.com/)
+  * Bootstrap util.js v4.3.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -2602,7 +2602,7 @@ return Popper;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.0): util.js
+   * Bootstrap (v4.3.1): util.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -2760,7 +2760,7 @@ return Popper;
 }));
 //# sourceMappingURL=util.js.map
 ;/*!
-  * Bootstrap dropdown.js v4.3.0 (https://getbootstrap.com/)
+  * Bootstrap dropdown.js v4.3.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -2831,7 +2831,7 @@ return Popper;
    */
 
   var NAME = 'dropdown';
-  var VERSION = '4.3.0';
+  var VERSION = '4.3.1';
   var DATA_KEY = 'bs.dropdown';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -3355,7 +3355,7 @@ return Popper;
 }));
 //# sourceMappingURL=dropdown.js.map
 ;/*!
-  * Bootstrap collapse.js v4.3.0 (https://getbootstrap.com/)
+  * Bootstrap collapse.js v4.3.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -3425,7 +3425,7 @@ return Popper;
    */
 
   var NAME = 'collapse';
-  var VERSION = '4.3.0';
+  var VERSION = '4.3.1';
   var DATA_KEY = 'bs.collapse';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
