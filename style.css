@@ -7972,7 +7972,7 @@ li.custom-control {
   .wp-block-cover-image,
   .wp-block-cover {
     margin-bottom: 2rem; } }
-.btn.btn-primary, .btn-primary.edd-submit {
+.btn, .edd-submit {
   text-transform: uppercase; }
 
 .custom-control {
@@ -9239,9 +9239,6 @@ a.edd-add-to-cart .edd-add-to-cart-label,
 .edd-add-to-cart[data-edd-loading] .edd-loading,
 .edd-discount-loader.edd-loading {
   opacity: 1; }
-
-.edd-submit.btn-primary {
-  text-transform: uppercase; }
 
 .edd_form legend {
   float: left; }
