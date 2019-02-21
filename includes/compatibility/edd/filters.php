@@ -97,6 +97,10 @@ function themedd_edd_purchase_link_defaults( $defaults ) {
 	// Remove button class.
 	$defaults['color'] = '';
 
+	// Set the default checkout button text to "Checkout Now".
+	$checkout_button_text = edd_get_option( 'checkout_button_text' );
+	$defaults['checkout'] = ! empty( $checkout_button_text ) ? $checkout_button_text : _x( 'Checkout Now', 'text shown on the Add to Cart Button when the product is already in the cart', 'themedd' );
+
 	// Remove the price from the purchase button
 	if ( themedd_edd_price_enhancements() ) {
 		$defaults['price'] = (bool) false;
