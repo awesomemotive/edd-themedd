@@ -39,14 +39,11 @@
       color: #448FD5; }
 
   .fes-vendor-dashboard-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     overflow: hidden; }
 
   .fes-vendor-menu {
-    -ms-flex-preferred-size: 16.667%;
-        flex-basis: 16.667%;
+    flex-basis: 16.667%;
     max-width: 16.667%; }
 
   .fes-vendor-dashboard {
@@ -54,8 +51,7 @@
     border-left: none;
     min-height: 50rem;
     padding: 2rem;
-    -ms-flex-preferred-size: 83.333%;
-        flex-basis: 83.333%;
+    flex-basis: 83.333%;
     max-width: 83.333%; }
 
   .fes-vendor-menu ul a {
@@ -240,18 +236,12 @@ fieldset.fes-submit {
     position: absolute;
     left: 0;
     top: 0;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     cursor: pointer; }
   .fes-fields .fes-avatar-image-upload:hover a.close,
   .fes-fields .fes-feat-image-upload:hover a.close {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex; }
 
 .fes-fields .fes-feat-image-upload {
@@ -262,27 +252,19 @@ fieldset.fes-submit {
 
 @media (min-width: 768px) {
   .fes-login-registration-combo {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    justify-content: space-between; }
     .fes-login-registration-combo form {
       padding: 2rem;
       border: 2px solid #f4f4f4;
       background: #fcfcfc; }
 
   .fes-login-registration-combo > div + div {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
     width: 48%; }
 
   .fes-login-registration-combo > div {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
     width: 48%; } }
 @media (min-width: 1200px) {
   .fes-login-registration-combo > div + div {

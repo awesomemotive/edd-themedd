@@ -68,12 +68,8 @@
     display: none; }
 
   .affwp-table-responsive td {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; } }
+    justify-content: space-between; } }
 #affwp-affiliate-dashboard-referral-counts,
 #affwp-affiliate-dashboard-earnings-stats {
   margin-bottom: 2rem; }
