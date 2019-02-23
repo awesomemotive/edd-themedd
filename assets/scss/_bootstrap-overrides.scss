@@ -44,8 +44,10 @@ $theme-colors: (
   "primary": #007bff
 );
 
+// Headings
 $headings-margin-bottom: 1rem !default;
 $h1-font-size: 2.25rem !default;
+$headings-color: $gray-900;
 
 $navbar-nav-link-padding-x: 1rem;
 $navbar-padding-y: 0;
