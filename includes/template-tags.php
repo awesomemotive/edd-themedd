@@ -22,7 +22,7 @@ function themedd_posted_on( $show_author = true ) {
 	);
 
 	?>
-	<div class="entry-meta text-muted">
+	<div<?php themedd_classes( array( 'classes' => array( 'entry-meta' ), 'context' => 'entry_meta' ) ); ?>>
 		<span class="posted-on"><?php echo themedd_time_link(); ?></span>
 		<?php if ( $show_author ) : ?>
 		<span class="byline"><?php echo $byline; ?></span>
