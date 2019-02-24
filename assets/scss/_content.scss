@@ -139,7 +139,6 @@
 
 }
 
-
 .content-wrapper .alignwide:not(.edd_downloads_list) {
 	max-width: map-get( $container-max-widths, "xl" );
 }
@@ -149,7 +148,7 @@
 	max-width: calc( #{map-get($container-max-widths, "xl")} - #{$grid-gutter-width} );
 }
 
-.content-wrapper .alignfull {
+.content-wrapper .alignfull:not(.edd_downloads_list) {
 	// Remove left and right padding on anything full-width.
 	padding-left: 0;
 	padding-right: 0;

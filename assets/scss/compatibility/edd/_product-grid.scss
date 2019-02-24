@@ -19,22 +19,31 @@
 	}
 }
 
-// A downloads list always has padding when full width,
-// except when the page has a sidebar.
-.edd_downloads_list.alignfull {
-	padding-left: 3rem;
-	padding-right: 3rem;
+.content-wrapper {
+	.edd_downloads_list {
+		display: grid;
+		grid-gap: 4rem; // Temporary until EDD Blocks' selector is less specific.
 
+		// A download grid' width is only altered at the xl breakpoint.
+		@include media-breakpoint-up(xl) {
 
-	@include media-breakpoint-up(lg) {
-		padding-left: 5rem;
-		padding-right: 5rem;
-	}
+			// Set the max-width for a default grid.
+			max-width: map-get( $container-max-widths, "lg" ); // 960px
 
-	// If there's a sidebar, remove the padding
-	.has-sidebar & {
-		padding-left: 0;
-		padding-right: 0;
+			// Set the max-width for a grid that has a wide width.
+			&.alignwide {
+				max-width: map-get( $container-max-widths, "xl" ); // 1140px
+			}
+
+			// Remove the max-width for a grid that's full width.
+			&.alignfull {
+				max-width: none;
+				padding-left: 4rem;
+				padding-right: 4rem;
+			}
+
+		}
+
 	}
 }
 
@@ -84,12 +93,6 @@
 // the other downloads.
 #edd_download_pagination {
 	width: 100%;
-}
-
-// CSS Grid
-.content-wrapper .edd_downloads_list {
-	display: grid;
-	grid-gap: 4rem; // Temporary until EDD Blocks' selector is less specific.
 }
 
 // Auto columns.

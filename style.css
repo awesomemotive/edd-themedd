@@ -7849,16 +7849,11 @@ body {
 
 .content-wrapper .wp-block-cover {
   max-width: calc( 720px - 30px ); }
-  .content-wrapper .wp-block-cover.alignwide {
-    max-width: calc( 1140px - 30px ); }
 
 .content-wrapper > ul:not(.wp-block-gallery) {
   padding-left: 2rem;
   width: 100%;
   line-height: 2; }
-
-.content-wrapper .alignwide:not(.edd_downloads_list) {
-  max-width: 1140px; }
 
 @media (min-width: 992px) {
   .content-wrapper > *:not(.edd_downloads_list) {
@@ -7936,7 +7931,13 @@ body {
   .has-sidebar .content-wrapper .alignwide:not(.edd_downloads_list) {
     padding-left: 0;
     padding-right: 0; } }
-.content-wrapper .alignfull {
+.content-wrapper .alignwide:not(.edd_downloads_list) {
+  max-width: 1140px; }
+
+.content-wrapper .wp-block-cover.alignwide {
+  max-width: calc( 1140px - 30px ); }
+
+.content-wrapper .alignfull:not(.edd_downloads_list) {
   padding-left: 0;
   padding-right: 0;
   max-width: none; }
@@ -8547,16 +8548,18 @@ p.edd_error {
 .edd_price_options li {
   display: flex; }
 
-.edd_downloads_list.alignfull {
-  padding-left: 3rem;
-  padding-right: 3rem; }
-  @media (min-width: 992px) {
-    .edd_downloads_list.alignfull {
-      padding-left: 5rem;
-      padding-right: 5rem; } }
-  .has-sidebar .edd_downloads_list.alignfull {
-    padding-left: 0;
-    padding-right: 0; }
+.content-wrapper .edd_downloads_list {
+  display: grid;
+  grid-gap: 4rem; }
+  @media (min-width: 1200px) {
+    .content-wrapper .edd_downloads_list {
+      max-width: 960px; }
+      .content-wrapper .edd_downloads_list.alignwide {
+        max-width: 1140px; }
+      .content-wrapper .edd_downloads_list.alignfull {
+        max-width: none;
+        padding-left: 4rem;
+        padding-right: 4rem; } }
 
 .edd_download,
 .edd_download_inner {
@@ -8591,10 +8594,6 @@ p.edd_error {
 
 #edd_download_pagination {
   width: 100%; }
-
-.content-wrapper .edd_downloads_list {
-  display: grid;
-  grid-gap: 4rem; }
 
 .edd_download_columns_auto {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
