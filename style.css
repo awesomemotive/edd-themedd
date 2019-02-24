@@ -7158,56 +7158,6 @@ li.custom-control {
       margin-top: 0.0625rem;
       display: inline-block; }
 
-.entry-content .wp-block-button__link {
-  text-decoration: none; }
-
-.wp-block-image.alignfull img,
-.wp-block-image.alignwide img {
-  width: 100%; }
-
-.entry-content .wp-block-separator {
-  width: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem; }
-
-.wp-block-image .alignleft {
-  margin: 0 1.5rem 1.5rem 0; }
-
-.wp-block-image .alignright {
-  margin: 0 0 1.5rem 1.5rem; }
-
-.alignleft {
-  float: left;
-  margin: 0 1.5rem 1.5rem 0; }
-
-.alignright {
-  float: right;
-  margin: 0 0 1.5rem 1.5rem; }
-
-@media (max-width: 767.98px) {
-  .alignleft,
-  .alignright,
-  .wp-block-image .alignleft,
-  .wp-block-image .alignright {
-    float: none;
-    display: block; }
-
-  .alignleft,
-  .wp-block-image .alignleft {
-    margin-right: 0; }
-
-  .alignright,
-  .wp-block-image .alignright {
-    margin-left: 0; } }
-@media (min-width: 768px) {
-  .wp-block-image.alignwide,
-  .wp-block-image.alignfull {
-    margin-top: 2rem; }
-
-  .wp-block-image,
-  .wp-block-cover-image,
-  .wp-block-cover {
-    margin-bottom: 2rem; } }
 .btn, .edd-submit {
   text-transform: uppercase; }
 
@@ -7564,7 +7514,7 @@ img {
 #wp-calendar,
 .entry-content table {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border: 1px solid #dee2e6; }
   #wp-calendar th,
   #wp-calendar td,
@@ -7656,6 +7606,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; }
 
+.entry-content {
+  font-size: 1.125rem; }
+
 .site-title {
   font-size: inherit;
   line-height: inherit; }
@@ -7693,6 +7646,9 @@ body {
 
 .comment-wrap {
   flex: 1; }
+
+.entry-title a {
+  color: #212529; }
 
 @supports (display: grid) {
   .footer-widgets > .container {
@@ -7896,11 +7852,6 @@ body {
   .content-wrapper .wp-block-cover.alignwide {
     max-width: calc( 1140px - 30px ); }
 
-.content-wrapper .alignfull {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: none; }
-
 .content-wrapper > ul:not(.wp-block-gallery) {
   padding-left: 2rem;
   width: 100%;
@@ -7985,6 +7936,61 @@ body {
   .has-sidebar .content-wrapper .alignwide:not(.edd_downloads_list) {
     padding-left: 0;
     padding-right: 0; } }
+.content-wrapper .alignfull {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none; }
+
+.entry-content .wp-block-button__link {
+  text-decoration: none; }
+
+.wp-block-image.alignfull img,
+.wp-block-image.alignwide img {
+  width: 100%; }
+
+.entry-content .wp-block-separator {
+  width: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+
+.wp-block-image .alignleft {
+  margin: 0 1.5rem 1.5rem 0; }
+
+.wp-block-image .alignright {
+  margin: 0 0 1.5rem 1.5rem; }
+
+.alignleft {
+  float: left;
+  margin: 0 1.5rem 1.5rem 0; }
+
+.alignright {
+  float: right;
+  margin: 0 0 1.5rem 1.5rem; }
+
+@media (max-width: 767.98px) {
+  .alignleft,
+  .alignright,
+  .wp-block-image .alignleft,
+  .wp-block-image .alignright {
+    float: none;
+    display: block; }
+
+  .alignleft,
+  .wp-block-image .alignleft {
+    margin-right: 0; }
+
+  .alignright,
+  .wp-block-image .alignright {
+    margin-left: 0; } }
+@media (min-width: 768px) {
+  .wp-block-image.alignwide,
+  .wp-block-image.alignfull {
+    margin-top: 2rem; }
+
+  .wp-block-image,
+  .wp-block-cover-image,
+  .wp-block-cover {
+    margin-bottom: 2rem; } }
 @media (min-width: 768px) {
   @supports (display: grid) {
     .site-header {
