@@ -7606,9 +7606,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; }
 
-.entry-content {
-  font-size: 1.125rem; }
-
 .site-title {
   font-size: inherit;
   line-height: inherit; }
@@ -7852,8 +7849,9 @@ body {
 
 .content-wrapper > ul:not(.wp-block-gallery) {
   padding-left: 2rem;
-  width: 100%;
-  line-height: 2; }
+  width: 100%; }
+  .content-wrapper > ul:not(.wp-block-gallery) li {
+    margin-bottom: 1.5rem; }
 
 @media (min-width: 992px) {
   .content-wrapper > *:not(.edd_downloads_list) {

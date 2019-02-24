@@ -14,10 +14,10 @@ $navbar-toggler-border-color: $navbar-toggler-bg !default;
 $navbar-toggler-text-color: #fff !default;
 
 // Navbar.
-$navbar-color:  rgba($black, .5);
-$navbar-active-color: rgba($black, .9);
-$navbar-hover-color: rgba($black, .7);
-$navbar-disabled-color: rgba($black, .3);
+$navbar-color:  rgba($black, .5) !default;
+$navbar-active-color: rgba($black, .9) !default;
+$navbar-hover-color: rgba($black, .7) !default;
+$navbar-disabled-color: rgba($black, .3) !default;
 
 // Footer.
 $nav-footer-link-color: $gray-600;

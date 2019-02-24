@@ -4,10 +4,6 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-.entry-content {
-	@include font-size(1.125rem);
-}
-
 // Site title
 .site-title {
 	font-size: inherit;
