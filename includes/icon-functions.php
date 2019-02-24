@@ -194,8 +194,21 @@ function themedd_get_svg( $args = array() ) {
 		}
 	}
 
+	// Determine the size.
+	$size = $args['size'];
+
+	if ( is_array( $size ) ) {
+		// An array of width and height was passed.
+		$width = esc_attr( $size[0] );
+		$height = esc_attr( $size[1] );
+	} else {
+		$width = esc_attr( $size );
+		$height = esc_attr( $size );
+	}
+
+
 	// Begin SVG markup.
-	$svg = '<svg width="'.esc_attr( $args['size'] ).'" height="'.esc_attr( $args['size'] ).'" class="'. themedd_classes( array( 'classes' => $args['svg_classes'], 'echo' => false ) ) .'"' . $aria_hidden . $aria_labelledby . ' role="img">';
+	$svg = '<svg width="' . $width . '" height="' . $height . '" class="'. themedd_classes( array( 'classes' => $args['svg_classes'], 'echo' => false ) ) .'"' . $aria_hidden . $aria_labelledby . ' role="img">';
 
 	// Display the title.
 	if ( $args['title'] ) {
