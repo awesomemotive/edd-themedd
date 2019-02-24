@@ -345,7 +345,7 @@ function themedd_header( $args = array() ) {
 			<<?php echo $heading_size; ?> <?php themedd_classes( array( 'classes' => $args['heading_classes'], 'context' => 'header_heading' ) ); ?>>
 			<?php
 				if ( $permalink ) {
-					echo '<a href="' . $permalink . '" class="text-body">' . $title . '</a>';
+					echo '<a href="' . $permalink . '">' . $title . '</a>';
 				} else {
 					echo $title;
 				}
