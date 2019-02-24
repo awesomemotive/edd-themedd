@@ -7,3 +7,10 @@
 .comment-wrap {
 	flex: 1;
 }
+
+.entry-title {
+	// Headings on blog page.
+	a {
+		color: $gray-900;
+	}
+}

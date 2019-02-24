@@ -5,7 +5,7 @@
 #wp-calendar,
 .entry-content table {
 	width: 100%;
-	margin-bottom: $spacer;
+	margin-bottom: 1.5rem;
 	background-color: $table-bg; // Reset for nesting within parents with `background-color`.
 	border: $table-border-width solid $table-border-color;
 

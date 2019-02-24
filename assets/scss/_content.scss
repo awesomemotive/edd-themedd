@@ -31,18 +31,6 @@
 // Adjust the max width for the cover block.
 .content-wrapper .wp-block-cover {
 	max-width: calc( #{map-get($container-max-widths, "md")} - #{$grid-gutter-width} );
-
-	&.alignwide {
-		max-width: calc( #{map-get($container-max-widths, "xl")} - #{$grid-gutter-width} );
-	}
-}
-
-.content-wrapper .alignfull {
-	// Remove left and right padding on anything full-width.
-	padding-left: 0;
-	padding-right: 0;
-	// Reset max-width for full-width items.
-	max-width: none;
 }
 
 // Only target first-level <ul>'s.
@@ -50,11 +38,6 @@
 	padding-left: 2rem;
 	width: 100%;
 	line-height: 2;
-}
-
-
-.content-wrapper .alignwide:not(.edd_downloads_list) {
-	max-width: map-get( $container-max-widths, "xl" );
 }
 
 @include media-breakpoint-up(lg) {
@@ -154,4 +137,22 @@
 
 	}
 
+}
+
+
+.content-wrapper .alignwide:not(.edd_downloads_list) {
+	max-width: map-get( $container-max-widths, "xl" );
+}
+
+// Adjust the max width for the cover block.
+.content-wrapper .wp-block-cover.alignwide {
+	max-width: calc( #{map-get($container-max-widths, "xl")} - #{$grid-gutter-width} );
+}
+
+.content-wrapper .alignfull {
+	// Remove left and right padding on anything full-width.
+	padding-left: 0;
+	padding-right: 0;
+	// Reset max-width for full-width items.
+	max-width: none;
 }
