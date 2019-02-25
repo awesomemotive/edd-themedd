@@ -99,10 +99,10 @@ if ( ! function_exists( 'themedd_setup' ) ) :
 		 * @since 1.0.0
 		 */
 		add_theme_support( 'custom-logo', array(
-			'width'       => 250,
+			'width'       => 200,
 			'height'      => 50,
-			'flex-height' => true,
-			'flex-width'  => true
+			'flex-height' => false,
+			'flex-width'  => false
 		) );
 
 		// This theme uses its own gallery styles.
