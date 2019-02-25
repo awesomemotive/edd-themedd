@@ -222,7 +222,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 	) :
 	?>
 
-	<div<?php themedd_classes( array( 'classes' => $atts['footer_classes'] ) ); ?>>
+	<div<?php themedd_classes( array( 'classes' => $atts['footer_classes'], 'context' => 'download_footer' ) ); ?>>
 		<?php
 
 		/**
