@@ -6,6 +6,7 @@
 
 	.product-price {
 		@include font-size($edd-single-product-price-font-size);
+		font-weight: $edd-single-product-price-font-weight;
 	}
 
 	// Variable pricing.
