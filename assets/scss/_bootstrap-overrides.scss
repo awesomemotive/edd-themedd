@@ -1,10 +1,16 @@
 // Bootstrap overrides.
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
+
+$theme-colors: (
+  "primary": hsla( 211, 91, 47, 1 )
+);
+
+// Body.
+$body-color: #374b61;
 
 // Navbar brand.
 $navbar-brand-font-size: 2rem;
 
+// Grid breakpoints.
 $grid-breakpoints: (
 	xs: 0,
     sm: 576px,
@@ -13,6 +19,7 @@ $grid-breakpoints: (
     xl: 1200px
 );
 
+// Container max widths.
 $container-max-widths: (
 	sm: 540px,
     md: 720px,
@@ -31,33 +38,27 @@ $spacers: (
 	10: ($spacer * 4.5 ), // 4.5rem
 );
 
+// Disable rounded corners.
 $enable-rounded: false;
 
 // Disable caret icon.
 $enable-caret: false;
 
-// Enable responsive font sizes
+// Enable responsive font sizes.
 $enable-responsive-font-sizes: true;
 
-// Theme colors
-$theme-colors: (
-  "primary": #007bff
-);
-
 // Headings
-$h1-font-size: 2.25rem !default;
-$headings-color: $gray-900;
+$headings-color: #212529; // $gray-900
 
 $navbar-nav-link-padding-x: 1rem;
 $navbar-padding-y: 0;
 $navbar-padding-x: 0;
 
-// Change padding of dropdown items.
+// Dropdown items.
 $dropdown-item-padding-x: 1rem;
 
 // Dropdowns.
 $dropdown-spacer: 0;
-
 $dropdown-bg: $dark-grey;
 $dropdown-link-color: $medium-grey;
 $dropdown-link-hover-color: #fff;
@@ -66,7 +67,7 @@ $dropdown-link-active-color: #fff;
 $dropdown-link-active-bg: #000;
 $dropdown-border-color: $dropdown-bg;
 
-// Navbar toggler
+// Navbar toggler.
 $navbar-toggler-font-size: 1rem;
 $navbar-light-toggler-icon-bg: none;
 $navbar-dark-toggler-icon-bg: none;
@@ -80,22 +81,23 @@ $input-bg: #f8f9fa; // $gray-100;
 $input-border-color: #dee2e6; // $gray-300;
 
 // Buttons.
-$btn-font-weight: bold !default;
-$btn-font-size: 0.75rem !default;
-$btn-font-size-sm: 0.6875rem !default;
-$btn-font-size-lg: 0.875rem !default;
-$btn-padding-y: 0.5625rem !default;
-$btn-padding-y-sm: 0.390625rem !default;
-$btn-padding-y-lg: 0.78125rem !default;
-$btn-padding-x: 1rem !default;
-$btn-padding-x-sm: 0.75rem !default;
-$btn-padding-x-lg: 1.5rem !default;
+$btn-font-weight: bold;
+$btn-font-size: 0.75rem;
+$btn-font-size-sm: 0.6875rem;
+$btn-padding-x: 1rem;
+$btn-padding-y: 0.5625rem;
+
+// Small buttons.
+$btn-padding-y-sm: 0.390625rem;
+$btn-padding-x-sm: 0.75rem;
+
+// Large buttons.
+$btn-font-size-lg: 1rem;
+$btn-padding-y-lg: 0.6875rem;
+$btn-padding-x-lg: 1.5rem;
 
 // Paragraphs
 $paragraph-margin-bottom: 1.5rem;
 
 // Nav links.
 $nav-link-padding-y: .75rem;
-
-// Body
-$body-color: #374b61;

@@ -14,7 +14,7 @@ $navbar-toggler-border-color: $navbar-toggler-bg !default;
 $navbar-toggler-text-color: #fff !default;
 
 // Navbar.
-$navbar-color:  rgba($black, .5) !default;
+$navbar-color:  rgba($black, .6) !default;
 $navbar-active-color: rgba($black, .9) !default;
 $navbar-hover-color: rgba($black, .7) !default;
 $navbar-disabled-color: rgba($black, .3) !default;
@@ -50,13 +50,13 @@ $edd-single-product-price-font-weight: 600;
 $edd-product-title-hover-color: #000;
 $edd-price-color: $gray-600 !default;
 //$edd-add-to-cart-background-color: #18e663 !default;
-$edd-add-to-cart-background-color: #10c151 !default;
+$edd-add-to-cart-background-color: $primary !default;
 
 $edd-add-to-cart-border-color: $edd-add-to-cart-background-color !default;
 
-// Nav cart
+// Nav cart.
 $cart-color: #fff;
-$cart-link-color: rgba($black, .5);
+$cart-link-color: rgba($black, .6);
 $cart-link-hover-color: rgba($black, .7);
 
 // Dropdown.
@@ -68,7 +68,7 @@ $alert-text-color: #787878;
 
 // Blog
 $post-author-bage-background-color: theme-color("primary");
-$post-navigation-meta-nav-color: rgba($black, .5);
+$post-navigation-meta-nav-color: rgba($black, .6);
 
 // Alert - error.
 $alert-error-background-color: #f8d7da;
