@@ -62,7 +62,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #374b61;
+  color: rgba(0, 0, 0, 0.87);
   text-align: left;
   background-color: #fff; }
 
@@ -1298,7 +1298,7 @@ select.form-control:focus::-ms-value, select.edd-input:focus::-ms-value {
   padding-bottom: 0.375rem;
   margin-bottom: 0;
   line-height: 1.5;
-  color: #374b61;
+  color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0; }
@@ -1597,7 +1597,7 @@ textarea.form-control, textarea.edd-input {
 .btn, .edd-submit {
   display: inline-block;
   font-weight: bold;
-  color: #374b61;
+  color: rgba(0, 0, 0, 0.87);
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -1615,7 +1615,7 @@ textarea.form-control, textarea.edd-input {
     .btn, .edd-submit {
       transition: none; } }
   .btn:hover, .edd-submit:hover {
-    color: #374b61;
+    color: rgba(0, 0, 0, 0.87);
     text-decoration: none; }
   .btn:focus, .edd-submit:focus, .btn.focus, .focus.edd-submit {
     outline: 0;
@@ -2025,7 +2025,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0 0 0;
   font-size: 1rem;
-  color: #374b61;
+  color: rgba(0, 0, 0, 0.87);
   text-align: left;
   list-style: none;
   background-color: #222;
@@ -7028,7 +7028,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #121416 !important; }
 
 .text-body {
-  color: #374b61 !important; }
+  color: rgba(0, 0, 0, 0.87) !important; }
 
 .text-muted {
   color: #6c757d !important; }
@@ -8634,7 +8634,7 @@ p.edd_error {
 @media (min-width: 992px) {
   .single-download article.edd-download {
     display: grid;
-    grid-template-columns: minmax(auto, 1fr) minmax(auto, 21rem);
+    grid-template-columns: minmax(0, 1fr) minmax(auto, 21rem);
     grid-column-gap: 5rem;
     grid-template-areas: 'header header2' 'primary purchase' 'primary secondary';
     grid-auto-rows: -webkit-min-content;
@@ -8651,7 +8651,7 @@ p.edd_error {
     .single-download article.edd-download #product-sidebar .widget {
       margin-bottom: 4rem; }
   .single-download.layout-sidebar-content article.edd-download {
-    grid-template-columns: minmax(auto, 21rem) minmax(auto, 1fr);
+    grid-template-columns: minmax(auto, 21rem) minmax(0, 1fr);
     grid-template-areas: 'header2 header' 'purchase primary' 'secondary primary'; } }
 .product-meta {
   margin-bottom: 0; }
