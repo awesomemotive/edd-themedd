@@ -200,8 +200,8 @@ function themedd_edd_download_footer( $atts = array() ) {
 
 	$defaults = apply_filters( 'themedd_edd_download_footer_defaults',
 		array(
-			'footer_classes' => array( 'mt-auto' )
-		)
+			'footer_classes' => array()
+		), $atts
 	);
 
 	$atts = wp_parse_args( $atts, $defaults );
