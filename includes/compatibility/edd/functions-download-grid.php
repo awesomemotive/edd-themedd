@@ -233,7 +233,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 		 *
 		 * @param int $download_id The ID of the download.
 		 */
-		do_action( 'themedd_edd_download_footer_start', $download_id );
+		do_action( 'themedd_edd_download_footer_start', $download_id, $download_grid_options );
 
 		/**
 		 * Show the price.
@@ -258,7 +258,7 @@ function themedd_edd_download_footer( $atts = array() ) {
 		 *
 		 * @param int $download_id The ID of the download.
 		 */
-		do_action( 'themedd_edd_download_footer_end', $download_id );
+		do_action( 'themedd_edd_download_footer_end', $download_id, $download_grid_options );
 
 		?>
 	</div>
