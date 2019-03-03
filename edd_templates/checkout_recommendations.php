@@ -32,7 +32,7 @@ $count      = (int) edd_get_option( 'edd_rp_suggestion_count', 3 );
 							<?php do_action( 'edd_rp_item_before' ); ?>
 
 							<?php if ( current_theme_supports( 'post-thumbnails' ) && has_post_thumbnail( get_the_ID() ) ) :?>
-								<div class="edd_download_image">
+								<div class="edd-download-image">
 									<a href="<?php the_permalink(); ?>">
 									<?php echo get_the_post_thumbnail( get_the_ID() ); ?>
 									</a>
