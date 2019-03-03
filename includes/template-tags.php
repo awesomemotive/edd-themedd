@@ -271,27 +271,30 @@ function themedd_classes( $args = array() ) {
 	$context = ! empty( $args['context'] ) ? $args['context'] : '';
 	$echo    = isset( $args['echo'] ) && false === $args['echo'] ? false : true;
 
+	// Allow the classes to be filtered.
+	$classes = apply_filters( 'themedd_classes', $classes, $context );
+
+	if ( empty( $classes ) ) {
+		return false;
+	}
+
+	// If working with an array, implode it into a string classes.
 	if ( is_array( $classes ) ) {
-
-		$classes = apply_filters( 'themedd_classes', $classes, $context );
 		$classes = implode( ' ', array_filter( array_unique( $classes ) ) );
+	}
 
-		if ( ! empty( $classes ) ) {
+	if ( false === $echo ) {
 
-			if ( false === $echo ) {
-				// Return a string of classes, separated by a space.
-				return $classes;
+		// Returns a string of classes, separated by a space.
+		return $classes;
 
-			} else {
-				// Echo the class attribute with the included class names.
-				echo ' class="' . $classes . '"';
-			}
+	} else {
 
-		}
+		// Echo the class attribute with the included class names.
+		echo ' class="' . $classes . '"';
 
 	}
 
-	return false;
 }
 
 /**
