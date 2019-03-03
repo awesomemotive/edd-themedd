@@ -1,5 +1,13 @@
+.edd-download-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
 .edd_download .edd_price {
-	color: $edd-price-color;
+	color: $edd-product-price-color;
+	font-weight: $edd-product-price-font-weight;
+	font-size: $edd-product-price-font-size;
 }
 
 .edd-item-quantity {
@@ -63,6 +71,11 @@
 	height: 100%;
 }
 
+// Download image.
+.edd-download-image {
+	margin-bottom: 1rem;
+}
+
 .edd-download-meta-author-avatar img {
 	display: block;
 	border-radius: 100%;
@@ -80,12 +93,22 @@
 .edd_download_title a {
 	color: $edd-product-title-color;
 	font-size: $edd-product-title-font-size;
+	font-weight: $edd-product-title-font-weight;
 	display: block;
 
 	&:hover {
 		color: $edd-product-title-hover-color;
 		text-decoration: none;
 	}
+}
+
+// Download footer.
+.edd-download-footer {
+	margin-top: auto;
+}
+
+.edd_download_buy_button {
+	margin-top: 1rem;
 }
 
 // For backwards compatibility. Prior to EDD 2.9.7 the download pagination was
