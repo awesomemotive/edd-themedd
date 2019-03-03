@@ -14,7 +14,7 @@ themedd_header( array(
 	<main id="main" class="site-main" role="main">
 		<div class="entry-content content-wrapper">
 		<?php if ( have_posts() ) : ?>
-			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
+			<div<?php themedd_classes( array( 'classes' => themedd_edd_downloads_list_wrapper_classes() ) ); ?>>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/download-grid' ); ?>
 			<?php endwhile; ?>

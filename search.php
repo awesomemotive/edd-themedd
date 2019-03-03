@@ -26,7 +26,7 @@ themedd_header(
 
 			<?php if ( themedd_is_edd_active() && Themedd_Search::is_product_search_results() ) : ?>
 
-			<div class="<?php echo themedd_edd_downloads_list_wrapper_classes(); ?>">
+			<div<?php themedd_classes( array( 'classes' => themedd_edd_downloads_list_wrapper_classes() ) ); ?>>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'template-parts/download-grid' ); ?>
 				<?php endwhile; ?>
