@@ -13,7 +13,7 @@ $download_grid_options = themedd_edd_download_grid_options();
 			}
 		?>
 
-		<div class="edd-download-body">
+		<div class="edd-download-content">
 		<?php
 		do_action( 'edd_download_before' );
 
@@ -36,12 +36,12 @@ $download_grid_options = themedd_edd_download_grid_options();
 			do_action( 'edd_download_after_content' );
 		}
 		?>
-		</div>
 
 		<?php
 			themedd_edd_download_footer();
 			do_action( 'edd_download_after' );
 		?>
+		</div>
 
 	</div>
 </div>

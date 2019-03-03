@@ -17,7 +17,7 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 
 <div class="<?php echo esc_attr( apply_filters( 'edd_download_class', 'edd_download', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>" id="edd_download_<?php the_ID(); ?>">
 	<div class="<?php echo esc_attr( apply_filters( 'edd_download_inner_class', 'edd_download_inner', get_the_ID(), $edd_download_shortcode_item_atts, $edd_download_shortcode_item_i ) ); ?>">
-	
+
 	<?php
 		if ( true === $download_grid_options['thumbnails'] ) {
 			edd_get_template_part( 'shortcode', 'content-image' );
@@ -25,7 +25,7 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 		}
 	?>
 
-		<div class="edd-download-body">
+		<div class="edd-download-content">
 
 		<?php
 			do_action( 'edd_download_before' );
@@ -40,7 +40,7 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 			}
 
 			do_action( 'edd_download_after_title' );
-			
+
 			if ( true === $download_grid_options['excerpt'] && true !== $download_grid_options['full_content'] ) {
 				// Show the excerpt.
 				edd_get_template_part( 'shortcode', 'content-excerpt' );
@@ -49,18 +49,19 @@ $download_grid_options = themedd_edd_download_grid_options( $edd_download_shortc
 			} elseif ( true === $download_grid_options['full_content'] ) {
 				// Show the full content.
 				edd_get_template_part( 'shortcode', 'content-full' );
-				
+
 				do_action( 'edd_download_after_content' );
 			}
 
 		?>
-		</div>
 
 		<?php
 			themedd_edd_download_footer( $edd_download_shortcode_item_atts );
 			do_action( 'edd_download_after' );
 		?>
 
+		</div>
+
 	</div>
-		
+
 </div>
