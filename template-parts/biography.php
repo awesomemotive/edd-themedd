@@ -7,7 +7,6 @@ $has_avatars           = get_option( 'show_avatars' );
 $author_info_classes   = array( 'author-info', 'py-3', 'my-5' );
 $author_info_classes[] = $has_avatars ? 'd-md-flex' : '';
 ?>
-
 <div<?php themedd_classes( array( 'classes' => $author_info_classes ) ); ?>>
 	<?php if ( $has_avatars ) : ?>
 	<div class="author-avatar mb-3 mb-md-0 mr-md-4">
