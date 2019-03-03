@@ -14,18 +14,26 @@
  *
  * @since 1.0.0
  *
- * @param string $wrapper_class The class passed in from the [downloads] shortcode
- * @param array $atts The shortcode args passed in from the [downloads] shortcode
+ * @param array $args
  *
- * @return string $classes The classes to be added
+ * @return array $classes The classes to be added
  */
-function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts = array() ) {
+function themedd_edd_downloads_list_wrapper_classes( $args = array() ) {
+
+	$defaults = array(
+		'atts'    => array(),
+		'classes' => array()
+	);
+
+	$args = wp_parse_args( $args, $defaults );
 
 	// Get the download grid options.
 	$options = themedd_edd_download_grid_options();
 
+	$atts = $args['atts'];
+
 	// Set up default $classes array.
-	$classes = array( $wrapper_class );
+	$classes = $args['classes'];
 
 	// [downloads] shortcode is being used
 	if ( ! empty( $atts ) ) {
@@ -36,6 +44,8 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 		$thumbnails  = $atts['thumbnails'] == 'true' ? true : false;
 
 		$align_class = isset( $atts['align'] ) && ! empty( $atts['align'] ) ? $atts['align'] : '';
+
+		$classes[] = 'edd_download_columns_' . $atts['columns'];
 
 	} else {
 		/**
@@ -49,13 +59,13 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 		// The [downloads] shortcode already has the following class applied so only add it for archive-download.php, taxonomy-download_category.php and taxonomy-download_tag.php.
 		$classes[] = 'edd_downloads_list';
 
-		// Add downloads class.
-		$classes[] = 'edd_download_columns_' . $options['columns'];
-
 		$has_price   = true === $options['price'] ? true : false;
 		$has_excerpt = true === $options['excerpt'] ? true : false;
 		$buy_button  = true === $options['buy_button'] ? true : false;
 		$thumbnails  = true === $options['thumbnails'] ? true : false;
+
+		// Add columns class. This is already defined by the shortcode but we need to add it again to make it available.
+		$classes[] = 'edd_download_columns_' . $options['columns'];
 
 	}
 
@@ -77,9 +87,9 @@ function themedd_edd_downloads_list_wrapper_classes( $wrapper_class = '', $atts 
 	// Add has-download-meta class.
 	$classes[] = themedd_edd_has_download_meta() ? 'has-download-meta' : '';
 
-	$classes = implode( ' ', array_filter( array_unique( $classes ) ) );
+	$classes = array_values( array_filter( array_unique( $classes ) ) );
 
-	return $classes;
+	return apply_filters( 'themedd_edd_downloads_list_wrapper_classes', $classes );
 }
 
 /**
