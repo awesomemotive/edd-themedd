@@ -8522,8 +8522,15 @@ p.edd_error {
   .edd-alert-warn p, .edd-alert-warn a {
     color: #856404; }
 
+.edd-download-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
 .edd_download .edd_price {
-  color: #6c757d; }
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 600;
+  font-size: 1.1875rem; }
 
 .edd-item-quantity {
   width: 4rem; }
@@ -8560,6 +8567,9 @@ p.edd_error {
 .edd_download_inner {
   height: 100%; }
 
+.edd-download-image {
+  margin-bottom: 1rem; }
+
 .edd-download-meta-author-avatar img {
   display: block;
   border-radius: 100%; }
@@ -8572,11 +8582,18 @@ p.edd_error {
 
 .edd_download_title a {
   color: #343a40;
-  font-size: 1.2rem;
+  font-size: 1.375rem;
+  font-weight: 600;
   display: block; }
   .edd_download_title a:hover {
     color: #000;
     text-decoration: none; }
+
+.edd-download-footer {
+  margin-top: auto; }
+
+.edd_download_buy_button {
+  margin-top: 1rem; }
 
 #edd_download_pagination {
   width: 100%; }
@@ -8607,7 +8624,8 @@ p.edd_error {
       font-size: calc(1.35rem + 1.2vw) ; } }
 .single-download .product-price {
   font-size: 1.5rem;
-  font-weight: 600; }
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.87); }
   @media (max-width: 1200px) {
     .single-download .product-price {
       font-size: calc(1.275rem + 0.3vw) ; } }
