@@ -275,10 +275,13 @@ function themedd_edd_downloads_list_wrapper_class( $classes, $atts ) {
 	// Explode the $classes into an array to make it easier to work with.
 	$classes = explode( ' ', $classes );
 
-	$classes[] = themedd_edd_downloads_list_wrapper_classes( '', $atts );
+	$wrapper_classes = themedd_edd_downloads_list_wrapper_classes( array( 'atts' => $atts ) );
 
-	// Implode back into class names.
-	return implode( ' ', $classes );
+	// Merge our new classes back with EDD's classes
+	$classes = array_merge( $classes, $wrapper_classes );
+
+	// Return all classes as a string, making sure there are no duplicates
+	return implode( ' ', array_filter( array_unique( $classes ) ) );
 
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'themedd_edd_downloads_list_wrapper_class', 10, 2 );
