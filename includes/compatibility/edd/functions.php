@@ -166,12 +166,7 @@ function themedd_edd_has_product_image( $download_id = 0 ) {
  * @since 1.1
  */
 function themedd_edd_button_classes() {
-	$classes = array( 'btn', 'btn-primary', 'btn-lg' );
-
-	if ( is_singular( 'download' ) ) {
-		// Larger buttons on single download pages.
-		$classes[] = 'btn-lg';
-	}
+	$classes = array( 'btn', 'btn-purchase', 'btn-lg' );
 
 	return $classes;
 }

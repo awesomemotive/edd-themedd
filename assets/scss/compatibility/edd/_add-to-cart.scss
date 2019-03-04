@@ -8,18 +8,6 @@
 	position: relative;
 }
 
-// Generate a new button variant for purchase buttons.
-.product-purchase .btn {
-	$background: $edd-add-to-cart-background-color;
-	$border: $background;
-	$hover-background: darken( $background, 5% );
-	$hover-border: $hover-background;
-	$active-background: darken($background, 10%);
-	$active-border: darken($border, 12.5%);
-
-	@include button-variant( $background, $border, $hover-background, $hover-border, $active-background, $active-border );
-}
-
 .edd_purchase_submit_wrapper a.edd-add-to-cart {
 	text-decoration: none;
 	display: none;

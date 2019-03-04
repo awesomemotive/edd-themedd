@@ -1,5 +1,22 @@
 // Buttons.
 
+// Extend the .btn class.
 .edd-submit {
 	@extend .btn;
+}
+
+// Generate a new button variant for product purchase buttons.
+//
+// 1. Purchase buttons in product grids
+// 2. Purchase buttons on single product pages
+// 3. Purchase button at checkout
+.btn-purchase {
+	$background: $edd-purchase-button-background-color;
+	$border: $background;
+	$hover-background: $edd-purchase-button-background-hover-color;
+	$hover-border: $hover-background;
+	$active-background: darken( $background, 10% );
+	$active-border: darken( $border, 12.5% );
+
+	@include button-variant( $background, $border, $hover-background, $hover-border, $active-background, $active-border );
 }
