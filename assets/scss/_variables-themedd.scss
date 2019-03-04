@@ -48,7 +48,7 @@ $edd-purchase-button-background-color: $primary !default;
 $edd-purchase-button-background-hover-color: darken( $edd-purchase-button-background-color, 5% ) !default;
 
 // Easy Digital Downloads - Product grid.
-$edd-product-title-color: $gray-800;
+$edd-product-title-color: $gray-800 !default;
 $edd-product-title-font-size: 1.375rem !default;
 $edd-product-title-font-weight: 600 !default;
 
@@ -59,8 +59,8 @@ $edd-product-price-font-size: 1.1875rem !default;
 // Easy Digital Downloads - Single product.
 $edd-single-product-title-font-size: 2.25rem !default;
 $edd-single-product-price-font-size: 1.5rem !default;
-$edd-single-product-price-font-weight: 600;
-$edd-single-product-price-color: $edd-product-price-color;
+$edd-single-product-price-font-weight: 600 !default;
+$edd-single-product-price-color: $body-color !default;
 
 // Nav cart.
 $cart-color: #fff;
