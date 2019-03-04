@@ -1,7 +1,7 @@
 // Bootstrap overrides.
 
 $theme-colors: (
-  "primary": hsla( 211, 91, 47, 1 )
+	"primary": hsla( 211, 91, 47, 1 )
 );
 
 // Body.
@@ -13,18 +13,18 @@ $navbar-brand-font-size: 2rem;
 // Grid breakpoints.
 $grid-breakpoints: (
 	xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
 );
 
 // Container max widths.
 $container-max-widths: (
 	sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1140px
+	md: 720px,
+	lg: 960px,
+	xl: 1140px
 );
 
 // Spacers.

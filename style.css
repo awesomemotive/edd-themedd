@@ -8230,27 +8230,6 @@ body {
 .edd_purchase_submit_wrapper {
   position: relative; }
 
-.product-purchase .btn, .product-purchase .edd-submit {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff; }
-  .product-purchase .btn:hover, .product-purchase .edd-submit:hover {
-    color: #fff;
-    background-color: #006fe6;
-    border-color: #006fe6; }
-  .product-purchase .btn:focus, .product-purchase .edd-submit:focus, .product-purchase .btn.focus, .product-purchase .focus.edd-submit {
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
-  .product-purchase .btn.disabled, .product-purchase .disabled.edd-submit, .product-purchase .btn:disabled, .product-purchase .edd-submit:disabled {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff; }
-  .product-purchase .btn:not(:disabled):not(.disabled):active, .product-purchase .edd-submit:not(:disabled):not(.disabled):active, .product-purchase .btn:not(:disabled):not(.disabled).active, .product-purchase .edd-submit:not(:disabled):not(.disabled).active, .show > .product-purchase .btn.dropdown-toggle, .show > .product-purchase .dropdown-toggle.edd-submit {
-    color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf; }
-    .product-purchase .btn:not(:disabled):not(.disabled):active:focus, .product-purchase .edd-submit:not(:disabled):not(.disabled):active:focus, .product-purchase .btn:not(:disabled):not(.disabled).active:focus, .product-purchase .edd-submit:not(:disabled):not(.disabled).active:focus, .show > .product-purchase .btn.dropdown-toggle:focus, .show > .product-purchase .dropdown-toggle.edd-submit:focus {
-      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
-
 .edd_purchase_submit_wrapper a.edd-add-to-cart {
   text-decoration: none;
   display: none;
@@ -8339,6 +8318,27 @@ a.edd-add-to-cart .edd-add-to-cart-label,
 .edd-discount-loader.edd-loading {
   opacity: 1; }
 
+.btn-purchase {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff; }
+  .btn-purchase:hover {
+    color: #fff;
+    background-color: #006fe6;
+    border-color: #006fe6; }
+  .btn-purchase:focus, .btn-purchase.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+  .btn-purchase.disabled, .btn-purchase:disabled {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff; }
+  .btn-purchase:not(:disabled):not(.disabled):active, .btn-purchase:not(:disabled):not(.disabled).active, .show > .btn-purchase.dropdown-toggle {
+    color: #fff;
+    background-color: #0062cc;
+    border-color: #005cbf; }
+    .btn-purchase:not(:disabled):not(.disabled):active:focus, .btn-purchase:not(:disabled):not(.disabled).active:focus, .show > .btn-purchase.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+
 .edd_form legend {
   float: left; }
 
@@ -8346,7 +8346,8 @@ a.edd-add-to-cart .edd-add-to-cart-label,
   color: #007bff;
   font-size: 1rem;
   padding: 0;
-  font-weight: 400; }
+  font-weight: 400;
+  text-transform: inherit; }
   .edd-cart-saving-button.edd-submit:hover {
     color: #0056b3;
     text-decoration: underline; }
