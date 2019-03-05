@@ -143,7 +143,6 @@ function themedd_edd_fes_vendor_contact_form() {
 	return apply_filters( 'themedd_edd_post_type_archive_title', $post_type_archive_title );
 }
 
-
 /**
  * Determine if there is a product image.
  *
@@ -176,13 +175,60 @@ function themedd_edd_button_classes() {
  *
  * @since 1.1
  */
-function themedd_edd_product_title( $download_id = 0 ) {
-	$download_id = ! empty( $download_id ) ? $download_id : get_the_ID();
+function themedd_edd_product_title( $args = array() ) {
+
+	$defaults = array(
+		'classes' => array( 'product-title mb-1' ),
+		'url'    => ''
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// Get the download ID.
+	$download_id = ! empty( $args['download_id'] ) ? $args['download_id'] : get_the_ID();
+
+	// Get classes
+	$classes = ! empty( $args['classes'] ) ? $args['classes'] : array();
+
+	$url = ! empty( $args['url'] ) ? $args['url'] : '';
+
 	do_action( 'themedd_edd_product_title_before' );
 ?>
-	<h1 class="product-title mb-1 mb-lg-1"><?php echo get_the_title( $download_id ); ?></h1>
+	<h1<?php themedd_classes( array( 'classes' => $classes ) ); ?>>
+		<?php if ( $url ) : ?><a href="<?php echo esc_url( $url ); ?>"><?php endif; ?>
+		<?php echo get_the_title( $download_id ); ?>
+		<?php if ( $url ) : ?></a><?php endif; ?>
+	</h1>
 <?php
 	do_action( 'themedd_edd_product_title_after' );
+}
+
+/**
+ * Product image.
+ *
+ * @since 1.1
+ */
+function themedd_edd_product_image( $args = array() ) {
+
+	$defaults = array(
+		'size'    => 'themedd-standard-image',
+		'url'     => ''
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$download_id = ! empty( $args['download_id'] ) ? $args['download_id'] : get_the_ID();
+	$size        = ! empty( $args['size'] ) ? $args['size'] : '';
+	$url         = ! empty( $args['url'] ) ? $args['url'] : '';
+
+	if ( $url ) : ?>
+	<a class="d-block" href="<?php echo esc_url( $url ); ?>">
+	<?php endif;
+	echo get_the_post_thumbnail( $download_id, $size );
+
+	if ( $url ) : ?>
+	</a>
+	<?php endif;
 }
 
 /**
@@ -191,14 +237,24 @@ function themedd_edd_product_title( $download_id = 0 ) {
  * @since 1.1
  */
 function themedd_edd_product_price( $args = array() ) {
-	$download_id = ! empty( $args['download_id'] ) ? $args['download_id'] : get_the_ID();
 
-	$classes = ! empty( $args['classes'] ) ? $args['classes'] : array();
+	$defaults = array();
+	$args = wp_parse_args( $args, $defaults );
+
+	$download_id = ! empty( $args['download_id'] ) ? $args['download_id'] : get_the_ID();
+	$classes = $args['classes'];
+
+	if ( is_string( $classes ) ) {
+		// Turn the classes into an array if it's passed as a string.
+		$classes = explode( ' ', $classes );
+	}
+
+	// Add a .product-price class.
 	$classes[] = 'product-price';
 
 	do_action( 'themedd_edd_product_price_before' );
 ?>
-	<div<?php themedd_classes( array( 'classes' => $classes ) ); ?>>
+	<div<?php themedd_classes( array( 'classes' => $classes, 'context' => 'product_price' ) ); ?>>
 		<?php echo themedd_edd_price( $download_id ); ?>
 	</div>
 	<?php
