@@ -74,7 +74,7 @@ function themedd_comment_form_defaults( $defaults ) {
 	$defaults['comment_field'] = preg_replace( '/rows="\d+"/', 'rows="5"', $comment_field );
 
 	// Add additional class names to the submit button.
-	$defaults['class_submit'] .= ' btn btn-primary btn-lg';
+	$defaults['class_submit'] .= ' btn btn-secondary btn-lg';
 
 	// Remove <small> and </small>.
 	$defaults['cancel_reply_before'] = null;
