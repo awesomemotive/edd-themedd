@@ -18,7 +18,7 @@ function themedd_posted_on( $show_author = true ) {
 	$byline = sprintf(
 		/* translators: %s: post author */
 		__( 'by %s', 'themedd' ),
-		'<span class="author vcard"><a class="text-muted url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
 	);
 
 	?>
@@ -56,7 +56,7 @@ function themedd_time_link() {
 	return sprintf(
 		/* translators: %s: post date */
 		__( '<span class="sr-only">Posted on</span> %s', 'themedd' ),
-		'<a class="text-muted" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 }
 endif;
@@ -114,7 +114,7 @@ function themedd_entry_footer() {
 	// We don't want to output .entry-footer if it will be empty, so make sure its not.
 	if ( ( ( themedd_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
 
-		echo '<footer class="entry-footer content-wrapper py-4 text-muted small">';
+		echo '<footer class="entry-footer content-wrapper py-4 small">';
 
 			if ( 'post' === get_post_type() ) {
 				if ( ( $categories_list && themedd_categorized_blog() ) || $tags_list ) {
