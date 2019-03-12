@@ -36,63 +36,64 @@ function themedd_site_header() {
 	echo themedd_navbar_toggler();
 	?>
 
-	<header id="masthead"<?php themedd_classes( array( 'classes' => array( 'site-header py-3 py-lg-4 container' ), 'context' => 'site_header' ) ); ?> role="banner">
+	<header id="masthead"<?php themedd_classes( array( 'classes' => array( 'site-header py-3 py-lg-4' ), 'context' => 'site_header' ) ); ?> role="banner">
 
-	<?php
-		/**
-		 * Navbar mobile (#navbar-mobile)
-		 * This contains the header search, nav cart, and mobile menu.
-		 */
-		?>
-		<div id="navbar-mobile" class="navbar px-0 px-<?php echo $breakpoint; ?>-3 py-0 d-<?php echo $breakpoint; ?>-none">
-			<nav class="navbar-collapse collapse" id="nav-mobile">
-				<?php echo themedd_header_search( array( 'form_classes' => array( 'mb-2' ) ) ); ?>
-				<?php echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'py-2' ) ) ); ?>
-				<?php echo themedd_mobile_menu(); ?>
-			</nav>
-		</div>
-
+		<div class="container">
 		<?php
-		/**
-		 * Site branding (div.site-branding).
-		 * This contains the site title and site description.
-		 */
-		echo themedd_site_branding();
-		?>
+			/**
+			 * Navbar mobile (#navbar-mobile)
+			 * This contains the header search, nav cart, and mobile menu.
+			 */
+			?>
+			<div id="navbar-mobile" class="navbar px-0 px-<?php echo $breakpoint; ?>-3 py-0 d-<?php echo $breakpoint; ?>-none">
+				<nav class="navbar-collapse collapse" id="nav-mobile">
+					<?php echo themedd_header_search( array( 'form_classes' => array( 'mb-2' ) ) ); ?>
+					<?php echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'py-2' ) ) ); ?>
+					<?php echo themedd_mobile_menu(); ?>
+				</nav>
+			</div>
 
-		<?php
-		/**
-		 * Primary navigation (#navbar-primary)
-		 */
-		if ( themedd_primary_navigation() ) : ?>
-		<div id="navbar-primary" class="navbar navbar-expand-<?php echo $breakpoint; ?>">
-			<nav class="navbar-collapse collapse" id="nav-primary">
-				<?php echo themedd_primary_navigation(); ?>
+			<?php
+			/**
+			 * Site branding (div.site-branding).
+			 * This contains the site title and site description.
+			 */
+			echo themedd_site_branding();
+			?>
+
+			<?php
+			/**
+			 * Primary navigation (#navbar-primary)
+			 */
+			if ( themedd_primary_navigation() ) : ?>
+			<div id="navbar-primary" class="navbar navbar-expand-<?php echo $breakpoint; ?>">
+				<nav class="navbar-collapse collapse" id="nav-primary">
+					<?php echo themedd_primary_navigation(); ?>
+					<?php
+						if ( 'primary_menu' === $cart_position ) {
+							echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'ml-auto' ) ) );
+						}
+					?>
+				</nav>
+			</div>
+			<?php endif; ?>
+
+			<?php
+			/**
+			 * Secondary navigation (#nav-secondary)
+			 */
+			if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
+			<nav id="nav-secondary"<?php themedd_classes( array( 'classes' => array( 'd-none', 'd-md-grid' ), 'context' => 'nav_secondary' ) ); ?>>
+				<?php echo themedd_secondary_navigation(); ?>
 				<?php
-					if ( 'primary_menu' === $cart_position ) {
-						echo themedd_nav_cart( array( 'nav_cart_classes' => array( 'ml-auto' ) ) );
+					if ( 'secondary_menu' === $cart_position ) {
+						echo themedd_nav_cart();
 					}
 				?>
+				<?php echo themedd_header_search(); ?>
 			</nav>
+			<?php endif; ?>
 		</div>
-		<?php endif; ?>
-
-		<?php
-		/**
-		 * Secondary navigation (#nav-secondary)
-		 */
-		if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
-		<nav id="nav-secondary"<?php themedd_classes( array( 'classes' => array( 'd-none', 'd-md-grid' ), 'context' => 'nav_secondary' ) ); ?>>
-			<?php echo themedd_secondary_navigation(); ?>
-			<?php
-				if ( 'secondary_menu' === $cart_position ) {
-					echo themedd_nav_cart();
-				}
-			?>
-			<?php echo themedd_header_search(); ?>
-		</nav>
-		<?php endif; ?>
-
 	</header>
 <?php
 }
