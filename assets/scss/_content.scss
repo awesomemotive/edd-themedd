@@ -37,10 +37,6 @@
 .content-wrapper > ul:not(.wp-block-gallery) {
 	padding-left: 2rem;
 	width: 100%;
-
-	li {
-		margin-bottom: 1.5rem;
-	}
 }
 
 @include media-breakpoint-up(lg) {

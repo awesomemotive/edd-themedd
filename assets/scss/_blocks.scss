@@ -61,16 +61,17 @@
 }
 
 @include media-breakpoint-up(md) {
-	.wp-block-image.alignwide,
-	.wp-block-image.alignfull {
-		margin-top: 2rem;
-	}
 
 	// Adjust margins on images.
 	.wp-block-image,
 	.wp-block-cover-image,
 	.wp-block-cover {
-		margin-bottom: 2rem;
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+	}
+
+	.entry-content *:first-child {
+		margin-top: 0;
 	}
 
 }
