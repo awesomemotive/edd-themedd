@@ -62,7 +62,9 @@
 
 @include media-breakpoint-up(md) {
 
-	// Adjust margins on images.
+	// Adjust margins.
+	.wp-block-embed,
+	.wp-block-gallery,
 	.wp-block-image,
 	.wp-block-cover-image,
 	.wp-block-cover {
