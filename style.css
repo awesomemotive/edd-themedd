@@ -7635,6 +7635,9 @@ body {
 .entry-title a {
   color: #212529; }
 
+.entry-meta a {
+  color: inherit; }
+
 @supports (display: grid) {
   .footer-widgets > .container {
     display: grid;
@@ -7838,8 +7841,6 @@ body {
 .content-wrapper > ul:not(.wp-block-gallery) {
   padding-left: 2rem;
   width: 100%; }
-  .content-wrapper > ul:not(.wp-block-gallery) li {
-    margin-bottom: 1.5rem; }
 
 @media (min-width: 992px) {
   .content-wrapper > *:not(.edd_downloads_list) {
@@ -7970,14 +7971,14 @@ body {
   .wp-block-image .alignright {
     margin-left: 0; } }
 @media (min-width: 768px) {
-  .wp-block-image.alignwide,
-  .wp-block-image.alignfull {
-    margin-top: 2rem; }
-
   .wp-block-image,
   .wp-block-cover-image,
   .wp-block-cover {
-    margin-bottom: 2rem; } }
+    margin-top: 4rem;
+    margin-bottom: 4rem; }
+
+  .entry-content *:first-child {
+    margin-top: 0; } }
 @media (min-width: 768px) {
   @supports (display: grid) {
     .site-header {
