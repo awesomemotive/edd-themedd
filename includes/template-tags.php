@@ -236,7 +236,7 @@ function themedd_post_thumbnail( $args = array() ) {
 
 	// Classes.
 	$classes = $args['classes'];
-	$classes[] = 'post-thumbnail mb-5';
+	$classes[] = 'post-thumbnail mb-9';
 
 	if ( ! is_singular() ) {
 		$classes[] = 'd-block';
