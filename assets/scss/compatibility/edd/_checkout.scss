@@ -26,32 +26,22 @@
 
 // Card type.
 // Shown at EDD checkout when CC is selected and also by EDD recurring when updating the payment method.
+
+
 span.card-type {
-	width: 43px;
-	height: 32px;
-	background-size: 43px 32px !important;
-	top: -0.25rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	&.off {
+		display: none;
+	}
+}
+
+// Contains the card type SVG icons.
+#edd_checkout_form_wrap label {
 	position: relative;
-}
-
-span.card-type.off {
-	display: none;
-}
-
-span.card-type.visa {
-	background: url(assets/images/icons/visa.gif) no-repeat;
-}
-
-span.card-type.mastercard {
-	background: url(assets/images/icons/mastercard.gif) no-repeat;
-}
-
-span.card-type.discover {
-	background: url(assets/images/icons/discover.gif) no-repeat;
-}
-
-span.card-type.amex {
-	background: url(assets/images/icons/americanexpress.gif) no-repeat;
+	width: 100%;
 }
 
 // Amazon Payments.
