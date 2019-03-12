@@ -7638,6 +7638,9 @@ body {
 .entry-meta a {
   color: inherit; }
 
+.site-footer {
+  margin-top: 5rem; }
+
 @supports (display: grid) {
   .footer-widgets > .container {
     display: grid;
@@ -7971,6 +7974,8 @@ body {
   .wp-block-image .alignright {
     margin-left: 0; } }
 @media (min-width: 768px) {
+  .wp-block-embed,
+  .wp-block-gallery,
   .wp-block-image,
   .wp-block-cover-image,
   .wp-block-cover {
