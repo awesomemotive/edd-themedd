@@ -177,7 +177,7 @@ span.card-type.amex {
 }
 
 @include media-breakpoint-up(md) {
-	.edd-checkout-distraction-free .site-header {
+	.edd-checkout-distraction-free .site-header > .container {
 		grid-template-columns: 1fr;
 	}
 }

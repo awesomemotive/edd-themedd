@@ -37,7 +37,6 @@ function themedd_site_header() {
 	?>
 
 	<header id="masthead"<?php themedd_classes( array( 'classes' => array( 'site-header py-3 py-lg-4' ), 'context' => 'site_header' ) ); ?> role="banner">
-
 		<div class="container">
 		<?php
 			/**
