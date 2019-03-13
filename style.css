@@ -8372,6 +8372,11 @@ span.card-type {
   position: relative;
   width: 100%; }
 
+#edd_checkout_form_wrap input.edd-input.card-number.valid {
+  background-image: url(assets/images/tick.png);
+  background-repeat: no-repeat;
+  background-position: 98% 50%; }
+
 .edd-amazon-profile-wrapper {
   font-size: 1rem; }
 
