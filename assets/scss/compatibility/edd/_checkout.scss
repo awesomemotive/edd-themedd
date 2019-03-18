@@ -105,8 +105,8 @@ span.card-type {
 // Custom checkout styling.
 
 .edd-description {
-	font-size: 0.875rem;
-	font-weight: 400;
+	font-size: $edd-checkout-field-description-font-size;
+	font-weight: $edd-checkout-field-description-font-weight;
 	display: block;
 	margin-bottom: 0.5rem;
 }
@@ -122,7 +122,7 @@ span.card-type {
 	}
 
 	.edd-label {
-		font-weight: 500;
+		font-weight: $edd-checkout-field-label-font-weight;
 	}
 
 	.edd-label + .edd-description {
