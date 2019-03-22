@@ -7,7 +7,7 @@ get_header();
 
 do_action( 'themedd_single_start' );
 ?>
-<?php themedd_header( array( 'posted_on' => true ) ); ?>
+<?php themedd_header( array( 'posted_on' => true, 'header_classes' => 'post-header text-center' ) ); ?>
 <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 	<main id="main" class="site-main" role="main">
 		<?php
