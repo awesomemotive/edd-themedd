@@ -264,11 +264,11 @@ function themedd_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Get supported social icons.
 	$social_icons = themedd_social_links_icons();
 
-	// Change SVG icon inside social links menu if there is supported URL.
+	// Change SVG icon inside social links menu if there is a supported URL.
 	if ( 'social-links' === $args->container_class ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
-				$item_output = str_replace( $args->link_after, '</span>' . themedd_get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
+				$item_output = str_replace( $args->link_after, '</span>' . ' ' . themedd_get_svg( array( 'icon' => esc_attr( $value ), 'size' => themedd_social_links_icon_size() ) ), $item_output );
 			}
 		}
 	}
@@ -276,6 +276,16 @@ function themedd_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'themedd_nav_menu_social_icons', 10, 4 );
+
+/**
+ * The default size for social icons.
+ * Defaults to the SVG icon size.
+ *
+ * @since 1.1
+ */
+function themedd_social_links_icon_size() {
+	return apply_filters( 'themedd_social_links_icon_size', themedd_svg_icon_size() );
+}
 
 /**
  * Add padding utility classes to the list items.
