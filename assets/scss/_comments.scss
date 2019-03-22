@@ -20,7 +20,7 @@
 	background: $post-author-bage-background-color;
 
 	.icon {
-		color: #fff;
+		color: $post-author-badge-icon-color;
 	}
 }
 
@@ -49,6 +49,10 @@
 #cancel-comment-reply-link,
 .comment-reply-link:hover {
 	text-decoration: none;
+}
+
+.comment-author-avatar {
+	position: relative;
 }
 
 .comment .comment-author .fn a {

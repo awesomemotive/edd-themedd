@@ -4,8 +4,8 @@
 	color: $icon-color;
 }
 
-.icon:hover,
-button:not(.navbar-toggler):hover .icon {
+button:not(.navbar-toggler):hover .icon,
+a:hover .icon {
 	color: $icon-hover-color;
 }
 

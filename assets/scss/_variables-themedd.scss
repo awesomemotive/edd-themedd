@@ -4,8 +4,8 @@
 $nav-secondary-font-size: $font-size-base * 0.875 !default;
 
 // Icons.
-$icon-color: $gray-600;
-$icon-hover-color: rgba($black, .9);
+$icon-color: $gray-600 !default;
+$icon-hover-color: rgba($black, .9) !default;
 
 // Navbar toggler.
 $navbar-toggler-icon-color: #fff !default;
@@ -63,9 +63,9 @@ $edd-single-product-price-font-weight: 600 !default;
 $edd-single-product-price-color: $body-color !default;
 
 // Nav cart.
-$cart-color: #fff;
-$cart-link-color: rgba($black, .6);
-$cart-link-hover-color: rgba($black, .7);
+$cart-color: #fff !default;
+$cart-link-color: rgba($black, .6) !default;
+$cart-link-hover-color: rgba($black, .7) !default;
 
 // Dropdown.
 $dropdown-font-size: 0.875rem !default;
@@ -75,8 +75,9 @@ $alert-background-color: #fdfdd5;
 $alert-text-color: #787878;
 
 // Blog
-$post-author-bage-background-color: theme-color("primary");
-$post-navigation-meta-nav-color: rgba($black, .6);
+$post-author-bage-background-color: theme-color("primary") !default;
+$post-author-badge-icon-color: #fff !default;
+$post-navigation-meta-nav-color: rgba($black, .6) !default;
 
 // Alert - error.
 $alert-error-background-color: #f8d7da;
