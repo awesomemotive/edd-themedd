@@ -3,7 +3,7 @@
  * Template tags
  */
 
-if ( ! function_exists( 'themedd_posted_on' ) ) :
+
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
@@ -33,7 +33,7 @@ function themedd_posted_on( $show_author = true ) {
 	return ob_get_clean();
 
 }
-endif;
+
 
 if ( ! function_exists( 'themedd_time_link' ) ) :
 /**
