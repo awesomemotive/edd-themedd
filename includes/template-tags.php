@@ -316,6 +316,7 @@ function themedd_header( $args = array() ) {
 		'subtitle'        => ! empty( $args['subtitle'] ) ? $args['subtitle'] : '',
 		'title'           => ! empty( $args['title'] ) ? $args['title'] : get_the_title(),
 		'posted_on'       => false,
+		'show_author'     => true,
 		'permalink'       => ! empty( $args['permalink'] ) ? $args['permalink'] : '',
 		'heading_size'    => ! empty( $args['heading_size'] ) ? $args['heading_size'] : 'h1',
 		'header_classes'  => array( 'text-center'),
@@ -344,7 +345,7 @@ function themedd_header( $args = array() ) {
 	?>
 	<header<?php themedd_classes( array( 'classes' => $args['header_classes'], 'context' => 'header_header' ) ); ?>>
 		<div class="container">
-			<?php if ( $args['posted_on'] ) { echo themedd_posted_on(); } ?>
+			<?php if ( $args['posted_on'] ) { echo themedd_posted_on( $args['show_author'] ); } ?>
 			<<?php echo $heading_size; ?> <?php themedd_classes( array( 'classes' => $args['heading_classes'], 'context' => 'header_heading' ) ); ?>>
 			<?php
 				if ( $permalink ) {
