@@ -1,6 +1,20 @@
 <?php
 
 /**
+ * Display the footer.
+ *
+ * @since 1.1
+ */
+function themedd_footer() {
+	?>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<?php do_action( 'themedd_footer' ); ?>
+	</footer>
+	<?php
+}
+add_action( 'themedd_content_after', 'themedd_footer' );
+
+/**
  * Display the footer widgets
  *
  * @since 1.0.0
@@ -56,11 +70,11 @@ function themedd_footer_widgets() {
 add_action( 'themedd_footer', 'themedd_footer_widgets' );
 
 /**
- * Themedd footer.
+ * Themedd footer bottom.
  *
  * @since 1.1
  */
-function themedd_footer() {
+function themedd_footer_bottom() {
 
 	$container_classes = array( 'py-4' );
 
@@ -90,7 +104,7 @@ function themedd_footer() {
 	</section>
 	<?php
 }
-add_action( 'themedd_footer', 'themedd_footer' );
+add_action( 'themedd_footer', 'themedd_footer_bottom' );
 
 /**
  * Copyright notice.

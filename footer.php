@@ -10,10 +10,6 @@
 
 	<?php do_action( 'themedd_content_after' ); ?>
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<?php do_action( 'themedd_footer' ); ?>
-	</footer>
-
 </div>
 
 <?php wp_footer(); ?>
