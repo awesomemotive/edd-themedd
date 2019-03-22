@@ -167,12 +167,15 @@ function themedd_get_svg( $args = array() ) {
 		'title'       => '',
 		'desc'        => '',
 		'fallback'    => false,
-		'size'        => '24',
+		'size'        => ! empty( $args['size'] ) ? $args['size'] : themedd_svg_icon_size(),
 		'svg_classes' => array()
 	);
 
 	// Parse args.
 	$args = wp_parse_args( $args, $defaults );
+
+	// Determine the size.
+	$size = $args['size'];
 
 	$args['svg_classes'][] = 'icon icon-' . esc_attr( $args['icon'] );
 
@@ -202,9 +205,6 @@ function themedd_get_svg( $args = array() ) {
 			$aria_labelledby = ' aria-labelledby="title-' . $unique_id . ' desc-' . $unique_id . '"';
 		}
 	}
-
-	// Determine the size.
-	$size = $args['size'];
 
 	if ( is_array( $size ) ) {
 		// An array of width and height was passed.
