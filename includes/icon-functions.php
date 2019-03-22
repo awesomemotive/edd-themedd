@@ -127,6 +127,15 @@ function themedd_include_svg_icons() {
 add_action( 'wp_footer', 'themedd_include_svg_icons', 9999 );
 
 /**
+ * The default size for SVGs.
+ *
+ * @since 1.1
+ */
+function themedd_svg_icon_size() {
+	return 24;
+}
+
+/**
  * Return SVG markup.
  *
  * @since 1.1
