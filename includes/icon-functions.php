@@ -297,6 +297,7 @@ add_filter( 'nav_menu_css_class', 'themedd_nav_menu_css_class', 10, 4 );
  * Returns an array of supported social links (URL and icon name).
  *
  * @since 1.1
+ *
  * @return array $social_links_icons
  */
 function themedd_social_links_icons() {
@@ -306,7 +307,7 @@ function themedd_social_links_icons() {
 		'codepen.io'      => 'codepen',
 		'dribbble.com'    => 'dribbble',
 		'facebook.com'    => 'facebook',
-		'flickr.com'       => 'flickr',
+		'flickr.com'      => 'flickr',
 		'github.com'      => 'github',
 		'instagram.com'   => 'instagram',
 		'linkedin.com'    => 'linkedin',
