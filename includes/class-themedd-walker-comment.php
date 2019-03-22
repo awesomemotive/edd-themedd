@@ -79,7 +79,7 @@ class Themedd_Walker_Comment extends Walker_Comment {
 						if ( empty( $comment_author_url ) ) {
 							echo $avatar;
 						} else {
-							printf( '<a href="%s" rel="external nofollow" class="url comment-author-avatar mr-3 position-relative">', $comment_author_url );
+							printf( '<a href="%s" rel="external nofollow" class="url comment-author-avatar mr-3">', $comment_author_url );
 							echo $avatar;
 							echo '</a>';
 						}
