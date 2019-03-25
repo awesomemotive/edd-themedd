@@ -83,6 +83,9 @@
 
 // Post navigation / Comments navigation.
 .nav-links {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 2rem;
 
 	a {
 		text-decoration: none;
@@ -93,9 +96,14 @@
 		color: $gray-600;
 	}
 
-	.nav-next a {
-		text-align: right;
+	.nav-next {
+		grid-column: 2;
+
+		a {
+			text-align: right;
+		}
 	}
+
 }
 
 // Comments navigation.
