@@ -10,6 +10,7 @@
 }
 
 // Post author badge.
+// This will show a badge when the person who wrote the post comments.
 .post-author-badge {
 	border-radius: 100%;
 	display: flex;
@@ -51,8 +52,19 @@
 	text-decoration: none;
 }
 
+// The comment author's avatar.
 .comment-author-avatar {
 	position: relative;
+	margin-right: 1rem;
+
+	a {
+		display: block;
+	}
+
+	// Prevents the icon from changing color on hover as per $icon-hover-color.
+	a:hover .icon {
+		color: $post-author-badge-icon-color;
+	}
 }
 
 .comment .comment-author .fn a {
