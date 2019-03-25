@@ -287,7 +287,7 @@ function themedd_header( $args = array() ) {
 		'show_author'     => true,
 		'permalink'       => ! empty( $args['permalink'] ) ? $args['permalink'] : '',
 		'heading_size'    => ! empty( $args['heading_size'] ) ? $args['heading_size'] : 'h1',
-		'header_classes'  => array( 'text-center'),
+		'header_classes'  => array(),
 		'heading_classes' => array(),
 	);
 	$args = wp_parse_args( $args, $defaults );
@@ -295,6 +295,20 @@ function themedd_header( $args = array() ) {
 
 	// Title.
 	$title = $args['title'];
+
+	$header_classes  = $args['header_classes'];
+	$heading_classes = $args['heading_classes'];
+
+	// Convert any strings into an array.
+	if ( is_string( $header_classes ) ) {
+		$header_classes = explode( ' ', $header_classes );
+		$header_classes = array_filter( array_unique( $header_classes ) );
+	}
+
+	if ( is_string( $heading_classes ) ) {
+		$heading_classes = explode( ' ', $heading_classes );
+		$heading_classes = array_filter( array_unique( $heading_classes ) );
+	}
 
 	// Subtitle.
 	$subtitle = $args['subtitle'];
@@ -309,25 +323,28 @@ function themedd_header( $args = array() ) {
 
 	// Heading size.
 	$heading_size = $args['heading_size'];
-
 	?>
-	<header<?php themedd_classes( array( 'classes' => $args['header_classes'], 'context' => 'header_header' ) ); ?>>
+	<header<?php themedd_classes( array( 'classes' => $header_classes, 'context' => 'header_header' ) ); ?>>
+		<?php do_action( 'themedd_header_start', $args ); ?>
 		<div class="container">
-			<?php if ( $args['posted_on'] ) { echo themedd_posted_on( $args['show_author'] ); } ?>
-			<<?php echo $heading_size; ?> <?php themedd_classes( array( 'classes' => $args['heading_classes'], 'context' => 'header_heading' ) ); ?>>
-			<?php
-				if ( $permalink ) {
-					echo '<a href="' . $permalink . '">' . $title . '</a>';
-				} else {
-					echo $title;
-				}
-			?>
-			</<?php echo $heading_size; ?>>
-			<?php if ( $subtitle ) : ?>
-			<span class="lead"><?php echo $subtitle; ?></span>
-			<?php endif; ?>
+			<?php do_action( 'themedd_header_container_start', $args ); ?>
+				<<?php echo $heading_size; ?> <?php themedd_classes( array( 'classes' => $heading_classes, 'context' => 'header_heading' ) ); ?>>
+				<?php
+					if ( $permalink ) {
+						echo '<a href="' . $permalink . '">' . $title . '</a>';
+					} else {
+						echo $title;
+					}
+				?>
+				</<?php echo $heading_size; ?>>
+				<?php if ( $subtitle ) : ?>
+				<span class="lead"><?php echo $subtitle; ?></span>
+				<?php endif; ?>
+			<?php do_action( 'themedd_header_container_end', $args ); ?>
 		</div>
+		<?php do_action( 'themedd_header_end', $args ); ?>
 	</header>
+	<?php do_action( 'themedd_header_after', $args ); ?>
 <?php
 }
 
