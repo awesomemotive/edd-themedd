@@ -42,7 +42,7 @@
 @include media-breakpoint-up(lg) {
 	// Forces content to have a max-width of 720px for readability.
 	.content-wrapper > *:not(.edd_downloads_list) {
-		max-width: map-get( $container-max-widths, "md" );
+		max-width: calc( #{map-get( $container-max-widths, "md" )} + #{$grid-gutter-width} );
 	}
 }
 
