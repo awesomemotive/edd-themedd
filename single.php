@@ -7,7 +7,14 @@ get_header();
 
 do_action( 'themedd_single_start' );
 ?>
-<?php themedd_header( array( 'posted_on' => true, 'header_classes' => 'post-header text-center' ) ); ?>
+<?php
+themedd_header(
+	array(
+		'posted_on' => true,
+		'header_classes' => array( 'entry-header', 'text-sm-center' )
+	)
+);
+?>
 <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 	<main id="main" class="site-main" role="main">
 		<?php
@@ -21,14 +28,14 @@ do_action( 'themedd_single_start' );
 			}
 
 			if ( is_singular( 'attachment' ) ) {
-				echo '<div class="content-wrapper">';
+				echo '<div class="container py-4">';
 				// Parent post navigation.
 				the_post_navigation( array(
 					'prev_text' => _x( '<span class="meta-nav">Published in</span> <span class="post-title">%title</span>', 'Parent post link', 'themedd' ),
 				) );
 				echo '</div>';
 			} elseif ( is_singular( 'post' ) ) {
-				echo '<div class="content-wrapper py-4">';
+				echo '<div class="container py-4">';
 
 				// Previous/next post navigation.
 				the_post_navigation( array(
