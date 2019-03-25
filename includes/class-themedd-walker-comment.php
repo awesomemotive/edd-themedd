@@ -54,14 +54,6 @@ class Themedd_Walker_Comment extends Walker_Comment {
 				<?php
 					$comment_author_link = get_comment_author_link( $comment );
 					$comment_author_url  = get_comment_author_url( $comment );
-					$comment_author      = get_comment_author( $comment );
-
-					// Avatar classes.
-					$avatar_classes = empty( $comment_author_url ) ? ' mr-3' : '';
-					$avatar_classes .= ' rounded-circle';
-
-					// Avatar.
-					$avatar = get_avatar( $comment, $args['avatar_size'], '', get_the_author_meta( 'display_name' ), array( 'class' => $avatar_classes ) );
 
 					$post_author_badge_classes = array( 'post-author-badge' );
 					$post_author_badge_classes[] = ! $has_avatars ? 'ml-2' : '';
@@ -70,22 +62,27 @@ class Themedd_Walker_Comment extends Walker_Comment {
 					$post_author_badge = themedd_is_comment_by_post_author( $comment ) ?
 					sprintf( '<span class="' . themedd_classes( array( 'classes' => $post_author_badge_classes, 'echo' => false ) ) . '" aria-hidden="true">%s</span>', themedd_get_svg( array( 'icon' => 'checked', 'size' => 16 ) ) ) : '';
 
-					// Append the post author badfe to the avatar.
-					$avatar = $avatar . $post_author_badge;
+					// Avatar classes.
+					$avatar_classes = 'rounded-circle';
+
+					// Avatar with post author badge (if applicable).
+					$avatar = get_avatar( $comment, $args['avatar_size'], '', get_the_author_meta( 'display_name' ), array( 'class' => $avatar_classes ) ) . $post_author_badge;
 				?>
 
+				<div class="comment-author-avatar">
 				<?php
 					if ( 0 != $args['avatar_size'] && $has_avatars ) {
 						if ( empty( $comment_author_url ) ) {
 							echo $avatar;
 						} else {
-							printf( '<a href="%s" rel="external nofollow" class="url comment-author-avatar mr-3">', $comment_author_url );
+							printf( '<a href="%s" rel="external nofollow" class="url">', $comment_author_url );
 							echo $avatar;
 							echo '</a>';
 						}
 
 					}
 				?>
+				</div>
 
 				<div class="comment-wrap">
 					<article id="div-comment-<?php comment_ID(); ?>" class="comment-body mb-3">
@@ -104,7 +101,7 @@ class Themedd_Walker_Comment extends Walker_Comment {
 											),
 										)
 									),
-									'<span class="fn h5 d-flex mb-0">' . get_comment_author_link( $comment ) . $show_post_author_badge . '</span>'
+									'<span class="fn h5 d-flex mb-0">' . $comment_author_link . $show_post_author_badge . '</span>'
 								);
 
 								?>
