@@ -118,16 +118,16 @@ function themedd_entry_footer() {
 	$tags_list = get_the_tag_list( '', $separate_meta );
 
 	// We don't want to output .entry-footer if it will be empty, so make sure its not.
-	if ( ( ( themedd_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
+	if ( ( ( $categories_list ) || $tags_list ) || get_edit_post_link() ) {
 
 		echo '<footer class="entry-footer content-wrapper py-4 small">';
 
 			if ( 'post' === get_post_type() ) {
-				if ( ( $categories_list && themedd_categorized_blog() ) || $tags_list ) {
+				if ( ( $categories_list ) || $tags_list ) {
 					echo '<div class="cat-tags-links">';
 
 						// Make sure there's more than one category before displaying.
-						if ( $categories_list && themedd_categorized_blog() ) {
+						if ( $categories_list ) {
 							echo '<div class="cat-links">' . __( 'Categories: ', 'themedd' ) . $categories_list . '</div>';
 						}
 
@@ -168,44 +168,6 @@ function themedd_edit_link() {
 	);
 
 	return $link;
-}
-endif;
-
-/**
- * Determine whether blog/site has more than one category.
- *
- * @since 1.0.0
- *
- * @return bool True if there is more than one category, false otherwise.
- */
-if ( ! function_exists( 'themedd_categorized_blog' ) ) :
-function themedd_categorized_blog() {
-
-	if ( false === ( $all_the_cool_cats = get_transient( 'themedd_categories' ) ) ) {
-
-		// Create an array of all the categories that are attached to posts.
-		$all_the_cool_cats = get_categories( array(
-			'fields'     => 'ids',
-
-			// We only need to know if there is more than one category.
-			'number'     => 2,
-		) );
-
-		// Count the number of categories that are attached to the posts.
-		$all_the_cool_cats = count( $all_the_cool_cats );
-
-		set_transient( 'themedd_categories', $all_the_cool_cats );
-
-	}
-
-	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so themedd_categorized_blog should return true.
-		return true;
-	} else {
-		// This blog has only 1 category so themedd_categorized_blog should return false.
-		return false;
-	}
-
 }
 endif;
 
