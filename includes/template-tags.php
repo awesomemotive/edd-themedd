@@ -8,32 +8,38 @@
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function themedd_posted_on( $show_author = true ) {
-
-	$post_author_id   = get_post_field( 'post_author', get_the_ID() );
-	$post_author_name = get_the_author_meta( 'display_name', $post_author_id );
-
 	ob_start();
-
-	// Get the author name; wrap it in a link.
-	$byline = sprintf(
-		/* translators: %s: post author */
-		__( 'by %s', 'themedd' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ) . '">' . $post_author_name . '</a></span>'
-	);
-
 	?>
 	<div<?php themedd_classes( array( 'classes' => array( 'entry-meta' ), 'context' => 'entry_meta' ) ); ?>>
 		<span class="posted-on"><?php echo themedd_time_link(); ?></span>
 		<?php if ( $show_author ) : ?>
-		<span class="byline"><?php echo $byline; ?></span>
+		<span class="byline"><?php _e( 'by', 'themedd' ); ?> <?php themedd_posted_by(); ?></span>
 		<?php endif; ?>
 	</div>
 
 	<?php
 	return ob_get_clean();
-
 }
 
+if ( ! function_exists( 'themedd_posted_by' ) ) :
+	/**
+	 * Prints HTML with meta information about the post's author.
+	 */
+	function themedd_posted_by() {
+
+		// Allows us to retrieve the author's name outside of the loop.
+		$post_author_id   = get_post_field( 'post_author', get_the_ID() );
+		$post_author_name = get_the_author_meta( 'display_name', $post_author_id );
+		$post_author_url  = get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) );
+
+		printf(
+			/* translators: 1: post author, only visible to screen readers. 2: author link. */
+			'<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+			esc_url( $post_author_url ),
+			esc_html( $post_author_name )
+		);
+	}
+endif;
 
 if ( ! function_exists( 'themedd_time_link' ) ) :
 /**
