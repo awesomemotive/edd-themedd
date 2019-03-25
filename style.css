@@ -7495,6 +7495,16 @@ li.custom-control {
 .custom-logo-link {
   display: inline-block; }
 
+code {
+  display: block;
+  overflow-x: auto;
+  padding: 2rem;
+  background: #e9ecef; }
+
+pre,
+code {
+  margin-bottom: 1.5rem; }
+
 img {
   max-width: 100%;
   height: auto; }
@@ -7635,8 +7645,10 @@ body {
 .entry-title a {
   color: #212529; }
 
-.entry-meta a {
-  color: inherit; }
+.entry-meta {
+  margin-top: 0.5rem; }
+  .entry-meta a {
+    color: inherit; }
 
 .site-footer {
   margin-top: 5rem; }
@@ -7754,7 +7766,12 @@ a:hover .icon {
   text-decoration: none; }
 
 .comment-author-avatar {
-  position: relative; }
+  position: relative;
+  margin-right: 1rem; }
+  .comment-author-avatar a {
+    display: block; }
+  .comment-author-avatar a:hover .icon {
+    color: #fff; }
 
 .comment .comment-author .fn a {
   color: inherit; }
@@ -7767,13 +7784,19 @@ a:hover .icon {
 #reply-title {
   line-height: 1; }
 
-.nav-links a {
-  text-decoration: none;
-  display: block; }
-.nav-links .meta-nav {
-  color: #6c757d; }
-.nav-links .nav-next a {
-  text-align: right; }
+.nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem; }
+  .nav-links a {
+    text-decoration: none;
+    display: block; }
+  .nav-links .meta-nav {
+    color: #6c757d; }
+  .nav-links .nav-next {
+    grid-column: 2; }
+    .nav-links .nav-next a {
+      text-align: right; }
 
 .comment-navigation .nav-next {
   margin-left: auto; }
@@ -7829,14 +7852,13 @@ body {
     .content-wrapper > * {
       max-width: 1140px; } }
 
-.author-info,
-.navigation {
+.author-info {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 720px; }
+  max-width: calc( 720px + 30px ); }
 
 .page-template-full-width .content-wrapper > * {
   max-width: 1140px; }
@@ -7848,9 +7870,12 @@ body {
   padding-left: 2rem;
   width: 100%; }
 
+@media (min-width: 768px) {
+  .entry-content > :first-child {
+    margin-top: 0; } }
 @media (min-width: 992px) {
   .content-wrapper > *:not(.edd_downloads_list) {
-    max-width: 720px; } }
+    max-width: calc( 720px + 30px ); } }
 @media (max-width: 1199.98px) {
   #primary-sidebar {
     width: 100%;
@@ -7985,8 +8010,8 @@ body {
     margin-top: 4rem;
     margin-bottom: 4rem; }
 
-  .entry-content *:first-child {
-    margin-top: 0; } }
+  .wp-block-code.alignwide code {
+    margin-top: 1.5rem; } }
 @media (min-width: 768px) {
   @supports (display: grid) {
     .site-header > .container {
