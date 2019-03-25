@@ -325,7 +325,7 @@ function themedd_header_search( $args = array() ) {
  */
 function themedd_site_branding( $args = array() ) {
 	$defaults = array(
-		'classes' => array( 'text-center' )
+		'classes' => array( 'text-sm-center' )
 	);
 
 	$args = wp_parse_args( $args, $defaults );
