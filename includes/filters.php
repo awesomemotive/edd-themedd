@@ -36,28 +36,23 @@ function themedd_customizer_body_classes( $classes ) {
 add_filter( 'body_class', 'themedd_customizer_body_classes' );
 
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with ... and a 'Continue reading' link.
+ * Replaces "[...]" (appended to automatically generated excerpts) with "..."
  *
  * @since 1.0.0
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 if ( ! function_exists( 'themedd_excerpt_more' ) ) :
-function themedd_excerpt_more( $link ) {
+	function themedd_excerpt_more( $link ) {
 
-	if ( is_admin() ) {
-		return $link;
+		if ( is_admin() ) {
+			return $link;
+		}
+
+		return ' &hellip;';
 	}
-
-	$link = sprintf( '<p class="link-more mb-0"><a href="%1$s" class="more-link">%2$s</a></p>',
-		esc_url( get_permalink( get_the_ID() ) ),
-		sprintf( __( 'Continue reading<span class="sr-only"> "%s"</span>', 'themedd' ), get_the_title( get_the_ID() ) )
-	);
-
-	return ' &hellip; ' . $link;
-}
-add_filter( 'excerpt_more', 'themedd_excerpt_more' );
-endif;
+	add_filter( 'excerpt_more', 'themedd_excerpt_more' );
+	endif;
 
 /**
  * Modify the comment form defaults
