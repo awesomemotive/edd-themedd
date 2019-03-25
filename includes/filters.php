@@ -119,7 +119,7 @@ add_filter( 'comment_form_default_fields', 'themedd_comment_form_default_fields'
  */
 function themedd_navigation_markup_template( $template, $class ) {
 
-	$css_classes = array( 'nav-links d-flex justify-content-between' );
+	$css_classes = array( 'nav-links' );
 
 	switch ( $class ) {
 		case 'comment-navigation':
