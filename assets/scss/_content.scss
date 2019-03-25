@@ -38,6 +38,13 @@
 	width: 100%;
 }
 
+@include media-breakpoint-up(md) {
+	// Makes sure the very first block never has any top margin.
+	.entry-content > :first-child {
+		margin-top: 0;
+	}
+}
+
 @include media-breakpoint-up(lg) {
 	// Forces content to have a max-width of 720px for readability.
 	.content-wrapper > *:not(.edd_downloads_list) {

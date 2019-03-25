@@ -11,3 +11,16 @@
 .custom-logo-link {
 	display: inline-block;
 }
+
+// Code blocks.
+code {
+	display: block;
+	overflow-x: auto;
+	padding: 2rem;
+	background: $gray-200;
+}
+
+pre,
+code {
+	margin-bottom: 1.5rem;
+}
