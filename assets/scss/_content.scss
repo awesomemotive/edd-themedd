@@ -16,11 +16,10 @@
 	@include make-container-max-widths();
 }
 
-// Consider renaming this for re-use. E.g. .content-max-width
-.author-info,
-.navigation {
+// Author info.
+.author-info {
 	@include make-container();
-	max-width: map-get( $container-max-widths, "md" );
+	max-width: calc( #{map-get( $container-max-widths, "md" )} + #{$grid-gutter-width} );
 }
 
 // Force the content on the full width template to be the xl container width.
