@@ -350,7 +350,7 @@ function themedd_paging_nav() {
 		)
 	);
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
+	<nav class="container navigation paging-navigation" role="navigation">
 
 		<h1 class="sr-only"><?php _e( 'Posts navigation', 'themedd' ); ?></h1>
 
