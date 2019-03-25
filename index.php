@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The main template file.
  */
 
 get_header();
@@ -8,7 +8,8 @@ get_header();
 if ( ! is_front_page() ) {
 	themedd_header(
 		array(
-			'title' => get_the_title( get_option( 'page_for_posts', true ) ),
+			'title'          => get_the_title( get_option( 'page_for_posts', true ) ),
+			'header_classes' => array( 'page-header', 'text-sm-center' ),
 		)
 	);
 }
