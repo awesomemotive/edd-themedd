@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 ?>
-<div id="product-sidebar" class="widget-area" role="complementary">
+<div id="product-sidebar" class="widget-area">
 	<?php
 	do_action( 'themedd_edd_sidebar_download_start' );
 
