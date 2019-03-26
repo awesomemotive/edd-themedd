@@ -15,6 +15,7 @@ themedd_header(
 	array(
 		'title'    => $page_title,
 		'subtitle' => sprintf( __( 'You searched for "%s"', 'themedd' ), get_search_query() ),
+		'header_classes' => array( 'page-header', 'text-sm-center' ),
 	)
 );
 ?>
