@@ -6,7 +6,7 @@
 
 	<?php do_action( 'themedd_content_end' ); ?>
 
-	</div>
+</section>
 
 	<?php do_action( 'themedd_content_after' ); ?>
 

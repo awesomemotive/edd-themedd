@@ -21,6 +21,6 @@
 
 	<?php do_action( 'themedd_site_header' ); ?>
 
-	<div id="content" class="site-content">
+	<section id="content" class="site-content">
 
 	<?php do_action( 'themedd_content_start' ); ?>
