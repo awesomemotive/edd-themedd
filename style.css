@@ -7712,12 +7712,14 @@ body {
   padding-right: 0 !important; }
 
 .icon {
+  --icon-color: #6c757d;
+  --icon-hover-color: rgba(0, 0, 0, 0.9);
   fill: currentColor;
-  color: #6c757d; }
+  color: var(--icon-color); }
 
 button:not(.navbar-toggler):hover .icon,
 a:hover .icon {
-  color: rgba(0, 0, 0, 0.9); }
+  color: var(--icon-hover-color); }
 
 .icon-chevron-left {
   margin: 0 0 0 -0.5rem; }
