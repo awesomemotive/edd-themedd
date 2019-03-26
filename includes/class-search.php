@@ -103,8 +103,6 @@ final class Themedd_Search {
 		$args['input_classes'][] = 'search-field';
 		$args['input_classes'][] = 'form-control';
 
-		$unique_id = esc_attr( uniqid( 'search-form-' ) );
-
 		ob_start();
 		?>
 
@@ -114,14 +112,7 @@ final class Themedd_Search {
 			<div class="input-group">
 		<?php endif; ?>
 
-				<label for="<?php echo $unique_id; ?>" class="sr-only">
-					<?php
-					$search_label = true === self::restrict_header_search() ? _x( 'Search products:', 'label', 'themedd' ) : _x( 'Search for:', 'label', 'themedd' );
-					?>
-					<span><?php echo $search_label; ?></span>
-				</label>
-
-				<input type="search" id="<?php echo $unique_id; ?>"<?php themedd_classes( array( 'classes' => $args['input_classes'], 'context' => 'search_input_classes' ) ); ?> placeholder="<?php echo $args['placeholder']; ?>" value="<?php echo get_search_query(); ?>" name="s" />
+				<input type="search" <?php themedd_classes( array( 'classes' => $args['input_classes'], 'context' => 'search_input_classes' ) ); ?> placeholder="<?php echo $args['placeholder']; ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="Search" />
 
 				<?php if ( $args['search_button'] ) : ?>
 				<div class="input-group-append">
