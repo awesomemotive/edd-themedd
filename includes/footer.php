@@ -154,7 +154,7 @@ function themedd_social_links_menu( $args = array() ) {
 
 	$args['classes'][] = 'social-navigation';
 	?>
-	<nav<?php themedd_classes( array( 'classes' => $args['classes'] ) ); ?> role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'themedd' ); ?>">
+	<nav<?php themedd_classes( array( 'classes' => $args['classes'] ) ); ?> aria-label="<?php esc_attr_e( 'Social Links Menu', 'themedd' ); ?>">
 		<?php if ( ! empty( $args['text_before'] ) ) : ?>
 		<span class="mr-md-2 mb-2 mb-md-0"><?php echo $args['text_before']; ?></span>
 		<?php endif; ?>
