@@ -66,7 +66,7 @@ function themedd_site_header() {
 			 */
 			if ( themedd_primary_navigation() ) : ?>
 			<div id="navbar-primary" class="navbar navbar-expand-<?php echo $breakpoint; ?>">
-				<nav class="navbar-collapse collapse" id="nav-primary">
+				<nav class="navbar-collapse collapse" id="nav-primary" aria-label="Primary Menu">
 					<?php echo themedd_primary_navigation(); ?>
 					<?php
 						if ( 'primary_menu' === $cart_position ) {
@@ -82,7 +82,7 @@ function themedd_site_header() {
 			 * Secondary navigation (#nav-secondary)
 			 */
 			if ( themedd_nav_cart() || themedd_secondary_navigation() || themedd_header_search() ) : ?>
-			<nav id="nav-secondary"<?php themedd_classes( array( 'classes' => array( 'd-none', 'd-md-grid' ), 'context' => 'nav_secondary' ) ); ?>>
+			<nav id="nav-secondary"<?php themedd_classes( array( 'classes' => array( 'd-none', 'd-md-grid' ), 'context' => 'nav_secondary' ) ); ?> aria-label="Secondary Menu">
 				<?php echo themedd_secondary_navigation(); ?>
 				<?php
 					if ( 'secondary_menu' === $cart_position ) {
