@@ -4,7 +4,11 @@
  */
 
 get_header();
-themedd_header();
+themedd_header(
+	array(
+		'header_classes' => array( 'page-header', 'text-sm-center' ),
+	)
+);
 ?>
 <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 	<main id="main" class="site-main" role="main">
