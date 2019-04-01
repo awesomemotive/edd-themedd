@@ -1,12 +1,16 @@
 
 .icon {
+	--icon-color: #{$icon-color};
+	--icon-hover-color: #{$icon-hover-color};
+
 	fill: currentColor;
-	color: $icon-color;
+	color: var(--icon-color);
 }
 
+// Set the hover color of any .icon inside a <button> (except the navbar toggler) or <a>
 button:not(.navbar-toggler):hover .icon,
 a:hover .icon {
-	color: $icon-hover-color;
+	color: var(--icon-hover-color);
 }
 
 .icon-chevron-left {
