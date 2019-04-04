@@ -10,8 +10,7 @@ do_action( 'themedd_single_start' );
 <?php
 themedd_header(
 	array(
-		'posted_on' => true,
-		'header_classes' => array( 'entry-header', 'text-sm-center' )
+		'posted_on' => true
 	)
 );
 ?>

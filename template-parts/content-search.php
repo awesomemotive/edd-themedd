@@ -4,22 +4,17 @@
  *
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'mb-5', 'mb-lg-10', 'content-wrapper' ) ); ?>>
-	<?php
-		themedd_header(
-			array(
-				'heading_size'    => 'h2',
-				'posted_on'       => true,
-				'heading_classes' => array( 'entry-title' ),
-				'permalink'       => esc_url( get_permalink() ),
-				'header_classes'  => array( 'text-center', 'mb-5' )
-			)
-		);
-	?>
-
+<article id="post-<?php the_ID(); ?>" <?php post_class( themedd_classes( array( 'classes' => array( 'mb-5', 'mb-lg-10' ), 'echo' => false ) ) ); ?>>
 	<?php themedd_post_thumbnail(); ?>
-
-	<div class="entry-summary">
+	<header class="entry-header content-wrapper mb-3">
+		<h2 class="entry-title">
+			<a href="<?php echo esc_url( get_permalink() ); ?>">
+				<?php echo get_the_title(); ?>
+			</a>
+		</h2>
+		<?php echo themedd_posted_on(); ?>
+	</header>
+	<div class="entry-summary content-wrapper">
 		<?php the_excerpt(); ?>
 	</div>
 </article>

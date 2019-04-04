@@ -44,7 +44,7 @@ add_action( 'themedd_entry_article_end', 'themedd_show_author_biography' );
 function themedd_more_link() {
 	?>
 	<p class="more-link">
-		<a href="<?php echo esc_url( get_permalink() ); ?>"><?php printf( __( 'Continue reading<span class="sr-only"> "%s"</span>', 'themedd' ), get_the_title( get_the_ID() ) ); ?></a>
+		<a href="<?php echo esc_url( get_permalink() ); ?>"><?php printf( __( 'Read now<span class="sr-only"> "%s"</span>', 'themedd' ), get_the_title( get_the_ID() ) ); ?></a>
 	</p>
 <?php
 }

@@ -27,16 +27,6 @@ body {
 	}
 }
 
-.site-content > header {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-	margin-bottom: 2.25rem;
-
-	h1 {
-		margin-bottom: 0;
-	}
-}
-
 @include media-breakpoint-up(xl) {
 
 	#primary-sidebar > * {

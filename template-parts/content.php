@@ -3,35 +3,29 @@
  * The template part for displaying content
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'mb-5', 'mb-lg-10' ) ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( themedd_classes( array( 'classes' => array( 'mb-5', 'mb-lg-10' ), 'echo' => false ) ) ); ?>>
 
-	<?php
-		themedd_header(
-			array(
-				'heading_size'    => 'h2',
-				'posted_on'       => true,
-				'heading_classes' => array( 'entry-title' ),
-				'permalink'       => esc_url( get_permalink() ),
-				'header_classes'  => array( 'entry-header', 'mb-3', 'content-wrapper' )
-			)
-		);
-	?>
+	<?php themedd_post_thumbnail( array( 'classes' => array( 'mb-4' ) ) ); ?>
 
-	<?php themedd_post_thumbnail( array( 'classes' => array( 'alignwide' ) ) ); ?>
+	<header class="entry-header content-wrapper mb-3">
+		<h2 class="entry-title">
+			<a href="<?php echo esc_url( get_permalink() ); ?>">
+				<?php echo get_the_title(); ?>
+			</a>
+		</h2>
+		<?php echo themedd_posted_on(); ?>
+	</header>
 
 	<?php if ( is_search() || is_archive() || themedd_display_excerpts() ) : ?>
 
-		<div class="entry-summary">
-			<div class="content-wrapper">
-				<?php the_excerpt(); ?>
-				<?php do_action( 'themedd_entry_summary_end' ); ?>
-			</div>
+		<div class="entry-summary content-wrapper">
+			<?php the_excerpt(); ?>
+			<?php do_action( 'themedd_entry_summary_end' ); ?>
 		</div>
 
 	<?php else : ?>
 
-		<div class="entry-content">
-			<div class="content-wrapper">
+		<div class="entry-content content-wrapper">
 			<?php
 				/* translators: %s: Name of current post */
 				the_content( sprintf(
@@ -48,7 +42,6 @@
 					'separator'   => '<span class="sr-only">, </span>',
 				) );
 			?>
-			</div>
 		</div>
 	<?php endif; ?>
 

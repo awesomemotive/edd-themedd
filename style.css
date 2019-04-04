@@ -7822,13 +7822,6 @@ body {
   .layout-full-width #page {
     max-width: inherit; }
 
-.site-content > header {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  margin-bottom: 2.25rem; }
-  .site-content > header h1 {
-    margin-bottom: 0; }
-
 @media (min-width: 1200px) {
   #primary-sidebar > * {
     padding: 0; } }
@@ -7868,7 +7861,8 @@ body {
 .content-wrapper .wp-block-cover {
   max-width: calc( 720px - 30px ); }
 
-.content-wrapper > ul:not(.wp-block-gallery) {
+.entry-content.content-wrapper > ul:not(.wp-block-gallery),
+.entry-content.content-wrapper > ol:not(.wp-block-gallery) {
   padding-left: 2rem;
   width: 100%; }
 

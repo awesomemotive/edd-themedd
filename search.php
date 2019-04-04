@@ -15,24 +15,24 @@ themedd_header(
 	array(
 		'title'    => $page_title,
 		'subtitle' => sprintf( __( 'You searched for "%s"', 'themedd' ), get_search_query() ),
-		'header_classes' => array( 'page-header', 'text-sm-center' ),
 	)
 );
 ?>
 
 <div id="primary" class="content-area<?php echo themedd_primary_classes(); ?>">
 	<main id="main" class="site-main" role="main">
-		<div class="entry-content content-wrapper">
+
 		<?php if ( have_posts() ) : ?>
 
 			<?php if ( themedd_is_edd_active() && Themedd_Search::is_product_search_results() ) : ?>
 
-			<div<?php themedd_classes( array( 'classes' => themedd_edd_downloads_list_wrapper_classes() ) ); ?>>
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/download-grid' ); ?>
-				<?php endwhile; ?>
+			<div class="entry-content content-wrapper">
+				<div<?php themedd_classes( array( 'classes' => themedd_edd_downloads_list_wrapper_classes() ) ); ?>>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'template-parts/download-grid' ); ?>
+					<?php endwhile; ?>
+				</div>
 			</div>
-
 			<?php themedd_edd_download_nav(); ?>
 
 			<?php else : ?>
@@ -60,7 +60,6 @@ themedd_header(
 			get_template_part( 'template-parts/content', 'none' );
 		endif;
 		?>
-		</div>
 	</main>
 </div>
 

@@ -33,7 +33,8 @@
 }
 
 // Only target first-level <ul>'s.
-.content-wrapper > ul:not(.wp-block-gallery) {
+.entry-content.content-wrapper > ul:not(.wp-block-gallery),
+.entry-content.content-wrapper > ol:not(.wp-block-gallery) {
 	padding-left: 2rem;
 	width: 100%;
 }

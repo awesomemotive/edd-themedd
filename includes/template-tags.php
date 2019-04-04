@@ -204,11 +204,12 @@ function themedd_post_thumbnail( $args = array() ) {
 
 	// Classes.
 	$classes = $args['classes'];
-	$classes[] = 'post-thumbnail mb-9';
 
-	if ( ! is_singular() ) {
-		$classes[] = 'd-block';
+	if ( is_string( $classes ) ) {
+		$classes = explode( ' ', $classes );
 	}
+
+	$classes[] = 'post-thumbnail';
 
 	// Create the post thumbnail.
 	$post_thumbnail = get_the_post_thumbnail( get_the_ID(), $args['size'] );
@@ -221,9 +222,11 @@ function themedd_post_thumbnail( $args = array() ) {
 
 	<?php else : ?>
 
-	<a<?php themedd_classes( array( 'classes' => $classes ) ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php echo $post_thumbnail; ?>
-	</a>
+	<figure class="post-thumbnail content-wrapper mb-5">
+		<a class="d-block" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php echo $post_thumbnail; ?>
+		</a>
+	</figure>
 
 	<?php endif;
 }
@@ -287,8 +290,8 @@ function themedd_header( $args = array() ) {
 		'show_author'     => true,
 		'permalink'       => ! empty( $args['permalink'] ) ? $args['permalink'] : '',
 		'heading_size'    => ! empty( $args['heading_size'] ) ? $args['heading_size'] : 'h1',
-		'header_classes'  => array(),
-		'heading_classes' => array(),
+		'header_classes'  => array( 'text-sm-center', 'py-4', 'mb-4', 'py-md-7', 'mb-md-6' ),
+		'heading_classes' => array( 'mb-0' ),
 	);
 	$args = wp_parse_args( $args, $defaults );
 	$args = apply_filters( 'themedd_header_args', $args );
@@ -308,6 +311,14 @@ function themedd_header( $args = array() ) {
 	if ( is_string( $heading_classes ) ) {
 		$heading_classes = explode( ' ', $heading_classes );
 		$heading_classes = array_filter( array_unique( $heading_classes ) );
+	}
+
+	if ( is_singular( 'page' ) || is_search() || is_home() || is_404() || is_archive() ) {
+		$header_classes[] = 'page-header';
+	}
+
+	if ( is_singular( 'post' ) ) {
+		$header_classes[] = 'entry-header';
 	}
 
 	// Subtitle.
@@ -367,7 +378,7 @@ function themedd_paging_nav() {
 		)
 	);
 	?>
-	<nav class="container navigation paging-navigation" role="navigation">
+	<nav class="navigation paging-navigation content-wrapper" role="navigation">
 
 		<h1 class="sr-only"><?php _e( 'Posts navigation', 'themedd' ); ?></h1>
 

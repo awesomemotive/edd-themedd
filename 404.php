@@ -9,7 +9,6 @@ themedd_header(
 	array(
 		'title'          => __( 'Oops! That page can&rsquo;t be found.', 'themedd' ),
 		'subtitle'       => __( 'It looks like nothing was found at this location. Maybe try a search?', 'themedd' ),
-		'header_classes' => array( 'page-header', 'text-sm-center' ),
 	)
 );
 ?>
