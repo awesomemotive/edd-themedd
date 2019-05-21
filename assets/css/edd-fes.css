@@ -262,6 +262,7 @@ fieldset.fes-submit {
     -ms-flex-preferred-size: 83.333%;
         flex-basis: 83.333%;
     max-width: 83.333%;
+    overflow-x: auto;
   }
   .fes-vendor-menu ul a {
     display: block;
