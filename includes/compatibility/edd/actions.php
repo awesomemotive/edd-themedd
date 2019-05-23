@@ -207,8 +207,6 @@ function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() )
 
 	if ( filter_var( $atts['pagination'], FILTER_VALIDATE_BOOLEAN ) ) :
 
-		$pagination = false;
-
 		if ( is_single() ) {
 			$pagination = paginate_links( apply_filters( 'edd_download_pagination_args', array(
 				'base'    => get_permalink() . '%#%',
@@ -231,11 +229,11 @@ function themedd_edd_downloads_pagination( $atts, $downloads, $query = array() )
 			), $atts, $downloads, $query ) );
 		}
 
-		if ( ! empty( $pagination ) ) : ?>
+		if ( ( is_object( $pagination ) || is_array( $pagination ) ) && ! empty( $pagination ) ) : ?>
 		<nav aria-label="<?php _e( 'Product navigation', 'themedd' ); ?>" class="navigation">
 			<ul class="pagination justify-content-center mt-5">
 				<?php foreach ( $pagination as $page ) : 
-					$page = str_replace( 'page-numbers', 'page-link', $page );
+					$page   = str_replace( 'page-numbers', 'page-link', $page );
 					$active = strpos( $page, 'current' ) !== false ? ' active' : '';
 				?>
 					<li class="page-item<?php echo $active; ?>"><?php echo $page; ?></li>
