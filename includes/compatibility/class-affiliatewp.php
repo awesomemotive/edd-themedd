@@ -120,7 +120,13 @@ class Themedd_AffiliateWP {
 	    } elseif ( is_user_logged_in() && affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && true === self::show_registration() ) {
 
 			echo '<div class="box">';
-			affiliate_wp()->templates->get_template_part( 'register' );
+
+			if ( function_exists( 'affwp_afgf_get_registration_form_id' ) && affwp_afgf_get_registration_form_id() ) {
+				gravity_form( affwp_afgf_get_registration_form_id() );
+			} else {
+				affiliate_wp()->templates->get_template_part( 'register' );
+			}
+
 			echo '</div>';
 
 	    } else {
@@ -144,8 +150,15 @@ class Themedd_AffiliateWP {
 	        if ( affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && true === self::show_registration() ) {
 
 	            echo '<div class="col-xs-12 col-sm-8">';
-	            echo '<div class="box">';
-				affiliate_wp()->templates->get_template_part( 'register' );
+				echo '<div class="box">';
+
+				if ( function_exists( 'affwp_afgf_get_registration_form_id' ) && affwp_afgf_get_registration_form_id() ) {
+					gravity_form( affwp_afgf_get_registration_form_id() );
+				} else {
+					affiliate_wp()->templates->get_template_part( 'register' );
+				}
+
+
 	            echo '</div>';
 	            echo '</div>';
 	        }
@@ -189,17 +202,17 @@ class Themedd_AffiliateWP {
 		}
 
 		// Apply a "slim" class when the user is logged in, affiliate registration is allowed, and the registration form can be shown.
-		if ( 
-			is_user_logged_in() && 
-			affiliate_wp()->settings->get( 'allow_affiliate_registration' ) && 
-			true === self::show_registration() && 
-			! ( affwp_is_active_affiliate() && affwp_is_affiliate() ) 
+		if (
+			is_user_logged_in() &&
+			affiliate_wp()->settings->get( 'allow_affiliate_registration' ) &&
+			true === self::show_registration() &&
+			! ( affwp_is_active_affiliate() && affwp_is_affiliate() )
 		) {
 			$classes[] = 'slim';
 		}
 
 		return $classes;
-		
+
 	}
 
 	/**
