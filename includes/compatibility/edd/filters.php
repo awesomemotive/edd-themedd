@@ -23,11 +23,15 @@ add_filter( 'edd_product_details_widget_purchase_button', 'themedd_edd_download_
  */
 function themedd_edd_settings_styles( $settings ) {
 
+	// Remove "Style Settings" heading.
+	unset( $settings['main']['style_settings'] );
+
 	// Remove "Disable Styles" option. Styling is already disabled and controlled via Themedd.
 	unset( $settings['main']['disable_styles'] );
 
 	// Remove "Default Button Color" option since Themedd controls all button styling
 	unset( $settings['button_text']['checkout_color'] );
+	unset( $settings['main']['checkout_color'] );
 
 	// Remove the button style selector.
 	unset( $settings['button_text']['button_style'] );
@@ -35,6 +39,19 @@ function themedd_edd_settings_styles( $settings ) {
 	return $settings;
 }
 add_filter( 'edd_settings_misc', 'themedd_edd_settings_styles' );
+
+add_action( 'admin_menu', 'themedd_filter_edd_settings' );
+/**
+ * For EDD 2.x, use the `edd_settings_styles` filter to remove style settings.
+ *
+ * @return void
+ */
+function themedd_filter_edd_settings() {
+	if ( version_compare( '2.10.999', EDD_VERSION, '>' ) ) {
+		return;
+	}
+	add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
+}
 
 /**
  * Filter the purchase link defaults
