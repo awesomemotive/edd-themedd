@@ -40,16 +40,12 @@ function themedd_edd_settings_styles( $settings ) {
 }
 add_filter( 'edd_settings_misc', 'themedd_edd_settings_styles' );
 
-add_action( 'admin_menu', 'themedd_filter_edd_settings' );
 /**
  * For EDD 2.x, use the `edd_settings_styles` filter to remove style settings.
  *
  * @return void
  */
-function themedd_filter_edd_settings() {
-	if ( version_compare( '2.10.999', EDD_VERSION, '>' ) ) {
-		return;
-	}
+if ( defined( 'EDD_VERSION' ) && version_compare( '2.10.999', EDD_VERSION, '>' ) ) {
 	add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
 }
 
