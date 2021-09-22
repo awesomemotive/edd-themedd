@@ -107,6 +107,8 @@ function themedd_footer_widget_column_classes( $widget_columns ) {
 		case 1:
 			$classes = 'col-xs-12 col-sm-6';
 			break;
+		default:
+       			$classes = '';
 
 	}
 
