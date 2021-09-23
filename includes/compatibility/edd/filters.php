@@ -30,11 +30,24 @@ function themedd_edd_settings_styles( $settings ) {
 	unset( $settings['main']['disable_styles'] );
 
 	// Remove "Default Button Color" option since Themedd controls all button styling
+	unset( $settings['button_text']['checkout_color'] );
 	unset( $settings['main']['checkout_color'] );
+
+	// Remove the button style selector.
+	unset( $settings['button_text']['button_style'] );
 
 	return $settings;
 }
-add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
+add_filter( 'edd_settings_misc', 'themedd_edd_settings_styles' );
+
+/**
+ * For EDD 2.x, use the `edd_settings_styles` filter to remove style settings.
+ *
+ * @return void
+ */
+if ( ! function_exists( 'edd_get_orders' ) ) {
+	add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
+}
 
 /**
  * Filter the purchase link defaults
@@ -61,16 +74,16 @@ add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' )
  *
  * @since 1.0.0 Filtered the price
  * @since 1.0.3 Filtered other attributes
- * 
+ *
  * @param array  $out       The output array of shortcode attributes.
  * @param array  $pairs     The supported attributes and their defaults.
  * @param array  $atts      The user defined shortcode attributes.
  * @param string $shortcode The shortcode name.
- * 
+ *
  * @return array $out       The output array of shortcode attributes.
  */
 function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode ) {
-	
+
 	/**
 	 * Get the download grid options.
 	 */
@@ -78,7 +91,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 
 	/**
 	 * Filter the pagination.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	if ( false === $download_grid_options['pagination'] ) {
@@ -89,28 +102,28 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 
 	/**
 	 * Sets the number of download columns shown.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['columns'] = $download_grid_options['columns'];
 
 	/**
 	 * Sets the number of downloads shown.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['number'] = $download_grid_options['number'];
 
 	/**
 	 * Sets the "order".
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['order'] = $download_grid_options['order'];
 
 	/**
 	 * Sets the "orderby"
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['orderby'] = $download_grid_options['orderby'];
@@ -123,7 +136,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	if ( ! isset( $atts['price'] ) && false !== $download_grid_options['price'] ) {
 		$out['price'] = 'yes';
 	}
-	
+
 	return $out;
 
 }
@@ -209,7 +222,7 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 		case 'after':
 			$classes[] = 'eddDownloadMeta-after';
 			break;
-					
+
 	}
 
 	// Implode the $classes array and return it as a string.
@@ -274,7 +287,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					}
 
 					do_action( 'edd_download_before_title' );
-					
+
 					if ( true === $download_grid_options['title'] ) {
 						edd_get_template_part( 'shortcode', 'content-title' );
 					}
@@ -284,12 +297,12 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					if ( true === $download_grid_options['excerpt'] && true !== $download_grid_options['full_content'] ) {
 						// Show the excerpt.
 						edd_get_template_part( 'shortcode', 'content-excerpt' );
-		
+
 						do_action( 'edd_download_after_content' );
 					} elseif ( true === $download_grid_options['full_content'] ) {
 						// Show the full content.
 						edd_get_template_part( 'shortcode', 'content-full' );
-						
+
 						do_action( 'edd_download_after_content' );
 					}
 
