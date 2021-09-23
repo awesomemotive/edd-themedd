@@ -19,7 +19,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
  * @since 1.0.0
 */
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.0.7' );
+	define( 'THEMEDD_VERSION', '1.0.8' );
 }
 
 if ( ! defined( 'THEMEDD_AUTHOR' ) ) {

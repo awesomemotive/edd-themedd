@@ -1,30 +1,42 @@
-# <!=Copyright (C) 2018 Easy Digital Downloads
-# This file is distributed under the GNU General Public License.=!>
+# Copyright (C) 2021 Easy Digital Downloads
+# This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Themedd 1.0.5\n"
-"Report-Msgid-Bugs-To: https://easydigitaldownloads.com\n"
-"POT-Creation-Date: 2018-01-09 10:02:25+00:00\n"
+"Project-Id-Version: Themedd 1.0.8\n"
+"Report-Msgid-Bugs-To: https://easydigitaldownloads.com/support\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Easy Digital Downloads\n"
-"Language-Team: Easy Digital Downloads\n"
-"Language: en_US\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Bookmarks: \n"
-"X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.1\n"
+"POT-Creation-Date: 2021-09-23T12:29:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: themedd\n"
 
-#: 404.php:7 includes/template-tags.php:253
+#. Theme Name of the theme
+msgid "Themedd"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://themedd.com"
+msgstr ""
+
+#. Description of the theme
+msgid "Themedd is a simple and extensible WordPress theme that provides a solid integration with Easy Digital Downloads and its extensions. It's the perfect theme to sell your digital products."
+msgstr ""
+
+#. Author of the theme
+#: includes/customizer.php:702
+msgid "Easy Digital Downloads"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://easydigitaldownloads.com"
+msgstr ""
+
+#: 404.php:7
+#: includes/template-tags.php:253
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
@@ -52,6 +64,13 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
+#: comments.php:24
+msgctxt "comments title"
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
+
 #: comments.php:49
 msgid "Comments are closed."
 msgstr ""
@@ -69,27 +88,26 @@ msgstr ""
 msgid "Users who purchased %s, also purchased:"
 msgstr ""
 
-#: edd_templates/shortcode-content-price.php:10
-#: includes/compatibility/edd/actions.php:26
-msgid "Free"
-msgstr ""
-
-#: edd_templates/shortcode-content-price.php:22
-#: includes/compatibility/edd/actions.php:28
-#. translators: Variable price start
-msgid "From"
-msgstr ""
-
-#: edd_templates/widget-cart-item.php:6
-#: includes/compatibility/edd/class-points-and-rewards.php:154
-msgid "Remove"
-msgstr ""
-
-#: includes/back-compat.php:39 includes/back-compat.php:51
+#: includes/back-compat.php:39
+#: includes/back-compat.php:51
 #: includes/back-compat.php:66
-msgid ""
-"Themedd requires at least WordPress version 4.7. You are running version "
-"%s. Please upgrade and try again."
+msgid "Themedd requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr ""
+
+#: includes/class-search.php:128
+msgctxt "placeholder"
+msgid "Search products"
+msgstr ""
+
+#: includes/class-search.php:132
+msgctxt "label"
+msgid "Search products:"
+msgstr ""
+
+#: includes/class-search.php:137
+#: searchform.php:16
+msgctxt "submit button"
+msgid "Search"
 msgstr ""
 
 #: includes/class-themedd.php:28
@@ -116,12 +134,20 @@ msgstr ""
 msgid "Add widgets here to appear in footer %d."
 msgstr ""
 
-#: includes/compatibility/edd/class-cross-sell-upsell.php:93
-#: includes/compatibility/edd/class-cross-sell-upsell.php:107
+#: includes/compatibility/edd/actions.php:26
+msgid "Free"
+msgstr ""
+
+#: includes/compatibility/edd/actions.php:28
+msgid "From"
+msgstr ""
+
+#: includes/compatibility/edd/class-cross-sell-upsell.php:92
+#: includes/compatibility/edd/class-cross-sell-upsell.php:106
 msgid "Add to cart"
 msgstr ""
 
-#: includes/compatibility/edd/class-cross-sell-upsell.php:104
+#: includes/compatibility/edd/class-cross-sell-upsell.php:103
 msgid "Added to cart"
 msgstr ""
 
@@ -143,6 +169,10 @@ msgstr ""
 
 #: includes/compatibility/edd/class-points-and-rewards.php:153
 msgid "Remove %s Discount"
+msgstr ""
+
+#: includes/compatibility/edd/class-points-and-rewards.php:154
+msgid "Remove"
 msgstr ""
 
 #: includes/compatibility/edd/class-widget-download-author.php:22
@@ -461,9 +491,7 @@ msgid "Restrict Header Search"
 msgstr ""
 
 #: includes/customizer.php:720
-msgid ""
-"If enabled, the header search will only search %s. Requires the \"Header "
-"Search\" option from Theme Options to be enabled."
+msgid "If enabled, the header search will only search %s. Requires the \"Header Search\" option from Theme Options to be enabled."
 msgstr ""
 
 #: includes/customizer.php:731
@@ -471,10 +499,7 @@ msgid "Distraction Free Checkout"
 msgstr ""
 
 #: includes/customizer.php:735
-msgid ""
-"Header menus, footer widgets and sidebars will all be removed from "
-"checkout, allowing customers to complete their purchase with no "
-"distractions."
+msgid "Header menus, footer widgets and sidebars will all be removed from checkout, allowing customers to complete their purchase with no distractions."
 msgstr ""
 
 #: includes/customizer.php:749
@@ -494,9 +519,7 @@ msgid "Item Quantity and Cart Total"
 msgstr ""
 
 #: includes/customizer.php:786
-msgid ""
-"Display either the item quantity or cart total, both the item quantity and "
-"cart total, or nothing at all."
+msgid "Display either the item quantity or cart total, both the item quantity and cart total, or nothing at all."
 msgstr ""
 
 #: includes/customizer.php:807
@@ -516,9 +539,7 @@ msgid "Full Width Layout"
 msgstr ""
 
 #: includes/customizer.php:834
-msgid ""
-"Display a full width layout. This will be noticeable once colors have been "
-"configured."
+msgid "Display a full width layout. This will be noticeable once colors have been configured."
 msgstr ""
 
 #: includes/customizer.php:849
@@ -733,13 +754,13 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: includes/template-tags.php:18
 #. translators: %s: post author
+#: includes/template-tags.php:18
 msgid "by %s"
 msgstr ""
 
-#: includes/template-tags.php:52
 #. translators: %s: post date
+#: includes/template-tags.php:52
 msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
 msgstr ""
 
@@ -755,8 +776,8 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: includes/template-tags.php:95
 #. translators: used between list items, there is a space after the comma
+#: includes/template-tags.php:95
 msgid ", "
 msgstr ""
 
@@ -768,8 +789,8 @@ msgstr ""
 msgid "Tags: "
 msgstr ""
 
-#: includes/template-tags.php:146
 #. translators: %s: Name of current post
+#: includes/template-tags.php:146
 msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
@@ -794,10 +815,7 @@ msgid "Activate Your %s License Key"
 msgstr ""
 
 #: includes/updater/theme-updater-admin.php:149
-msgid ""
-"Your license key grants you access to theme updates and support. If your "
-"license key is deactivated or expired, your theme will work properly but "
-"you will not receive automatic updates."
+msgid "Your license key grants you access to theme updates and support. If your license key is deactivated or expired, your theme will work properly but you will not receive automatic updates."
 msgstr ""
 
 #: includes/updater/theme-updater-admin.php:152
@@ -817,13 +835,16 @@ msgid "Click the new \"Activate License\" button."
 msgstr ""
 
 #: includes/updater/theme-updater-admin.php:157
-msgid ""
-"You're done! The status of your license displays below the License Key "
-"field."
+msgid "You're done! The status of your license displays below the License Key field."
 msgstr ""
 
 #: includes/updater/theme-updater-admin.php:183
 msgid "Save License Key Changes"
+msgstr ""
+
+#: includes/updater/theme-updater.php:29
+msgctxt "part of the WordPress dashboard Themedd menu title"
+msgid " License"
 msgstr ""
 
 #: includes/updater/theme-updater.php:30
@@ -846,7 +867,8 @@ msgstr ""
 msgid "Activate License"
 msgstr ""
 
-#: includes/updater/theme-updater.php:35 includes/updater/theme-updater.php:48
+#: includes/updater/theme-updater.php:35
+#: includes/updater/theme-updater.php:48
 msgid "License status is unknown."
 msgstr ""
 
@@ -899,16 +921,19 @@ msgid "Site is inactive."
 msgstr ""
 
 #: includes/updater/theme-updater.php:49
-msgid ""
-"Updating this theme will lose any customizations you have made. 'Cancel' to "
-"stop, 'OK' to update."
+msgid "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update."
 msgstr ""
 
 #: includes/updater/theme-updater.php:50
-msgid ""
-"<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" "
-"class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a "
-"href=\"%5$s\"%6$s>update now</a>."
+msgid "<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full Width"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Slim"
 msgstr ""
 
 #: search.php:9
@@ -923,8 +948,23 @@ msgstr ""
 msgid "You searched for \"%s\""
 msgstr ""
 
+#: searchform.php:6
+msgctxt "placeholder"
+msgid "Search"
+msgstr ""
+
+#: searchform.php:11
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
 #: sidebar-single-vendor.php:61
 msgid "Visit website"
+msgstr ""
+
+#: single.php:31
+msgctxt "Parent post link"
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%title</span>"
 msgstr ""
 
 #: single.php:36
@@ -952,91 +992,29 @@ msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: template-parts/content-none.php:14
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
 #: template-parts/content-none.php:19
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:19 template-parts/content-single.php:23
+#: template-parts/content-page.php:19
+#: template-parts/content-single.php:23
 #: template-parts/content.php:33
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-search.php:28 template-parts/content-search.php:43
 #. translators: %s: Name of current post
+#: template-parts/content-search.php:28
+#: template-parts/content-search.php:43
 msgid "Edit %s"
 msgstr ""
 
 #: template-parts/content.php:28
-#. translators: %s: Name of current post
 msgid "Continue reading %s"
 msgstr ""
 
 #: template-parts/content.php:37
 msgid "Page"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"Themedd is a simple and extensible WordPress theme that provides a solid "
-"integration with Easy Digital Downloads and its extensions. It's the "
-"perfect theme to sell your digital products."
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Full Width"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Slim"
-msgstr ""
-
-#: comments.php:24
-msgctxt "comments title"
-msgid "One comment"
-msgid_plural "%1$s comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/class-search.php:128
-msgctxt "placeholder"
-msgid "Search products"
-msgstr ""
-
-#: searchform.php:6
-msgctxt "placeholder"
-msgid "Search"
-msgstr ""
-
-#: includes/class-search.php:132
-msgctxt "label"
-msgid "Search products:"
-msgstr ""
-
-#: searchform.php:11
-msgctxt "label"
-msgid "Search for:"
-msgstr ""
-
-#: includes/class-search.php:137 searchform.php:16
-msgctxt "submit button"
-msgid "Search"
-msgstr ""
-
-#: includes/updater/theme-updater.php:29
-msgctxt "part of the WordPress dashboard Themedd menu title"
-msgid " License"
-msgstr ""
-
-#: single.php:31
-msgctxt "Parent post link"
-msgid ""
-"<span class=\"meta-nav\">Published in</span><span "
-"class=\"post-title\">%title</span>"
 msgstr ""
