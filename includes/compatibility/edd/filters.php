@@ -45,7 +45,7 @@ add_filter( 'edd_settings_misc', 'themedd_edd_settings_styles' );
  *
  * @return void
  */
-if ( defined( 'EDD_VERSION' ) && version_compare( '2.10.999', EDD_VERSION, '>' ) ) {
+if ( ! function_exists( 'edd_get_orders' ) ) {
 	add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
 }
 
