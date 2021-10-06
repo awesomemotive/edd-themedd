@@ -1,17 +1,28 @@
 {
-  "name": "themedd",
-  "browserslist": "last 1 versions",
-  "devDependencies": {
-    "grunt": "latest",
-    "grunt-autoprefixer": "latest",
-    "grunt-contrib-concat": "latest",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest",
-    "matchdep": "^2.0.0"
-  },
-  "dependencies": {
-    "bootstrap": "^4.2.1",
-    "popper.js": "^1.14.6"
-  }
+	"name": "themedd",
+	"title": "Themedd",
+	"version": "1.0.8",
+	"description": "Themedd is a simple and extensible WordPress theme that provides a solid integration with Easy Digital Downloads and its extensions. It's the perfect theme to sell your digital products.",
+	"author": "Easy Digital Downloads",
+	"theme_uri": "https://themedd.com",
+	"author_uri": "https://easydigitaldownloads.com",
+	"text_domain": "themedd",
+	"browserslist": "last 1 versions",
+	"devDependencies": {
+		"grunt": "latest",
+		"grunt-autoprefixer": "latest",
+		"grunt-contrib-concat": "latest",
+		"grunt-contrib-sass": "^1.0.0",
+		"grunt-contrib-uglify": "latest",
+		"grunt-contrib-watch": "latest",
+		"grunt-banner": "^0.6.0",
+		"grunt-contrib-less": "^3.0.0",
+		"grunt-svgmin": "^6.0.1",
+		"grunt-svgstore": "^2.0.0",
+		"matchdep": "^2.0.0"
+	},
+	"dependencies": {
+		"bootstrap": "4.2.1",
+		"popper.js": "^1.14.6"
+	}
 }

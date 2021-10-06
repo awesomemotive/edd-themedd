@@ -29,12 +29,11 @@
 @media (min-width: 1200px) {
   .edd-points-checkout-message,
   .edd-points-redeem-points-wrap {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: justify;
-        justify-content: space-between;
-    -ms-flex-align: center;
-        align-items: center; }
+    justify-content: space-between;
+    align-items: center; }
     .edd-points-checkout-message p,
     .edd-points-redeem-points-wrap p {
       margin-bottom: 0; } }
+
+/*# sourceMappingURL=edd-points-and-rewards.css.map */
