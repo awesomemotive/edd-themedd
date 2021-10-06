@@ -39,13 +39,11 @@
       color: #448FD5; }
 
   .fes-vendor-dashboard-wrap {
-    display: -ms-flexbox;
     display: flex;
     overflow: hidden; }
 
   .fes-vendor-menu {
-    -ms-flex-preferred-size: 16.667%;
-        flex-basis: 16.667%;
+    flex-basis: 16.667%;
     max-width: 16.667%; }
 
   .fes-vendor-dashboard {
@@ -53,8 +51,7 @@
     border-left: none;
     min-height: 50rem;
     padding: 2rem;
-    -ms-flex-preferred-size: 83.333%;
-        flex-basis: 83.333%;
+    flex-basis: 83.333%;
     max-width: 83.333%; }
 
   .fes-vendor-menu ul a {
@@ -239,15 +236,12 @@ fieldset.fes-submit {
     position: absolute;
     left: 0;
     top: 0;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     cursor: pointer; }
   .fes-fields .fes-avatar-image-upload:hover a.close,
   .fes-fields .fes-feat-image-upload:hover a.close {
-    display: -ms-flexbox;
     display: flex; }
 
 .fes-fields .fes-feat-image-upload {
@@ -258,23 +252,19 @@ fieldset.fes-submit {
 
 @media (min-width: 768px) {
   .fes-login-registration-combo {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: justify;
-        justify-content: space-between; }
+    justify-content: space-between; }
     .fes-login-registration-combo form {
       padding: 2rem;
       border: 2px solid #f4f4f4;
       background: #fcfcfc; }
 
   .fes-login-registration-combo > div + div {
-    -ms-flex-order: 1;
-        order: 1;
+    order: 1;
     width: 48%; }
 
   .fes-login-registration-combo > div {
-    -ms-flex-order: 2;
-        order: 2;
+    order: 2;
     width: 48%; } }
 @media (min-width: 1200px) {
   .fes-login-registration-combo > div + div {
@@ -282,3 +272,5 @@ fieldset.fes-submit {
 
   .fes-login-registration-combo > div {
     width: 30%; } }
+
+/*# sourceMappingURL=edd-fes.css.map */

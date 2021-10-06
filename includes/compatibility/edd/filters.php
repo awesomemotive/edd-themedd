@@ -29,31 +29,23 @@ function themedd_edd_settings_styles( $settings ) {
 	unset( $settings['main']['disable_styles'] );
 
 	// Remove "Default Button Color" option since Themedd controls all button styling
+	unset( $settings['button_text']['checkout_color'] );
 	unset( $settings['main']['checkout_color'] );
 
+	// Remove the button style selector.
+	unset( $settings['button_text']['button_style'] );
+
 	return $settings;
 }
+add_filter( 'edd_settings_misc', 'themedd_edd_settings_styles' );
 
 /**
- * Filter EDD's "Misc" tab settings.
+ * For EDD 2.x, use the `edd_settings_styles` filter to remove style settings.
  *
- * @since 1.1
- * @param array $settings
+ * @return void
  */
-function themedd_edd_settings_misc( $settings ) {
-	// Remove "Disable Styles" option from the "General" section. Styling is already disabled and controlled via Themedd.
-	unset( $settings['main']['disable_styles'] );
-
-	// Remove "Default Button Color" option from the "Purchase Buttons" section. Themedd controls all button styling.
-	unset( $settings['button_text']['checkout_color'] );
-
-	return $settings;
-}
-
-if ( version_compare( EDD_VERSION, '3.0', '<' ) ) {
+if ( ! function_exists( 'edd_get_orders' ) ) {
 	add_filter( 'edd_settings_styles', 'themedd_edd_settings_styles' );
-} else {
-	add_filter( 'edd_settings_misc', 'themedd_edd_settings_misc' );
 }
 
 /**
@@ -90,16 +82,16 @@ add_filter( 'edd_purchase_link_defaults', 'themedd_edd_purchase_link_defaults' )
  *
  * @since 1.0.0 Filtered the price
  * @since 1.0.3 Filtered other attributes
- * 
+ *
  * @param array  $out       The output array of shortcode attributes.
  * @param array  $pairs     The supported attributes and their defaults.
  * @param array  $atts      The user defined shortcode attributes.
  * @param string $shortcode The shortcode name.
- * 
+ *
  * @return array $out       The output array of shortcode attributes.
  */
 function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode ) {
-	
+
 	/**
 	 * Get the download grid options.
 	 */
@@ -107,7 +99,7 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 
 	/**
 	 * Filter the pagination.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	if ( false === $download_grid_options['pagination'] ) {
@@ -118,28 +110,28 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 
 	/**
 	 * Sets the number of download columns shown.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['columns'] = $download_grid_options['columns'];
 
 	/**
 	 * Sets the number of downloads shown.
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['number'] = $download_grid_options['number'];
 
 	/**
 	 * Sets the "order".
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['order'] = $download_grid_options['order'];
 
 	/**
 	 * Sets the "orderby"
-	 * 
+	 *
 	 * @since 1.0.3
 	 */
 	$out['orderby'] = $download_grid_options['orderby'];
@@ -152,17 +144,17 @@ function themedd_edd_shortcode_atts_downloads( $out, $pairs, $atts, $shortcode )
 	if ( ! isset( $atts['price'] ) && false !== $download_grid_options['price'] ) {
 		$out['price'] = 'yes';
 	}
-	
+
 	/**
 	 * Adds an "align" shortcode attribute
-	 * 
+	 *
 	 * @since 1.1
 	 */
 	if ( isset( $atts['align'] ) ) {
 		if ( 'wide' === $atts['align'] ) {
 			$out['align'] = 'wide';
 		}
-	
+
 		if ( 'full' === $atts['align'] ) {
 			$out['align'] = 'full';
 		}
@@ -276,7 +268,7 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 
 		}
 	}
-	
+
 	// Change classes based on column count.
 	$options = themedd_edd_download_grid_options();
 
@@ -290,24 +282,24 @@ function themedd_edd_download_class( $class, $download_id, $atts, $i ) {
 
 	// Columns.
 	if ( $columns ) {
-		
+
 		switch ( $columns ) {
 
 			case 1:
 				$themedd_classes['column_classes'] = 'col-12';
 				break;
-	
+
 			case 2:
 				$themedd_classes['column_classes'] = 'col-12 col-lg-6';
 				break;
-	
+
 			case 3:
 				$themedd_classes['column_classes'] = 'col-12 col-lg-4';
 				break;
-	
+
 			case 4:
 				$themedd_classes['column_classes'] = 'col-12 col-md-6 col-xl-3';
-				break;	
+				break;
 
 		}
 
@@ -379,7 +371,7 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					}
 
 					do_action( 'edd_download_before_title' );
-					
+
 					if ( true === $download_grid_options['title'] ) {
 						edd_get_template_part( 'shortcode', 'content-title' );
 					}
@@ -389,12 +381,12 @@ function themedd_edd_downloads_shortcode( $display, $atts, $buy_button, $columns
 					if ( true === $download_grid_options['excerpt'] && true !== $download_grid_options['full_content'] ) {
 						// Show the excerpt.
 						edd_get_template_part( 'shortcode', 'content-excerpt' );
-		
+
 						do_action( 'edd_download_after_content' );
 					} elseif ( true === $download_grid_options['full_content'] ) {
 						// Show the full content.
 						edd_get_template_part( 'shortcode', 'content-full' );
-						
+
 						do_action( 'edd_download_after_content' );
 					}
 
