@@ -1244,6 +1244,8 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 		if ( ! empty( $colors ) ) : ?>
 			<style id="themedd-custom-css" type="text/css">
 			<?php
+		
+			do_action( 'themedd_colors_output_customizer_styling_before', $colors );
 
 			// Tagline color.
 			if ( isset( $colors['tagline_color'] ) ) {
@@ -1455,6 +1457,8 @@ if ( ! function_exists( 'themedd_colors_output_customizer_styling' ) ) :
 			if ( isset( $colors['footer_site_info_color'] ) ) {
 				echo '.site-info { color:' . $colors['footer_site_info_color'] . '; }';
 			}
+		
+			do_action( 'themedd_colors_output_customizer_styling_after', $colors );
 
 			?>
 		</style>
