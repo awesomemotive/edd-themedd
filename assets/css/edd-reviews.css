@@ -11,10 +11,8 @@
   display: block;
 }
 .edd-counter-container {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   padding: 0.25rem 0;
 }
 .edd_reviews_breakdown .edd-counter-back {

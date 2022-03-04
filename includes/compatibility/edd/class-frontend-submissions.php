@@ -8,6 +8,7 @@ class Themedd_EDD_Frontend_Submissions {
 	public function __construct() {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
+		add_filter( 'fes_custom_css_updated', '__return_true' );
 		add_action( 'template_redirect', array( $this, 'remove_body_classes' ) );
 
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
