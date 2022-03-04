@@ -40,7 +40,9 @@
 	}
 
 	a {
-		display: block;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
 		font-size: 1rem;
 		color: @account-tab-link-color;
     }
@@ -49,6 +51,89 @@
 		color: @account-tab-link-hover-color;
 	}
 
+}
+
+div.fes-form .fes-el .fes-fields .fes-action-button {
+	background: @light-grey;
+	border: 1px solid @medium-grey;
+	border-radius: 4px;
+	color: @account-tab-link-color;
+	padding: 0;
+	width: 2rem;
+	height: 2rem;
+
+	&:hover,
+	&:focus {
+		background: @account-tab-link-color;
+		color: @light-grey;
+	}
+}
+
+div.fes-form .fes-el .fes-fields .fes-url-choose-row,
+div.fes-form .fes-el .fes-fields .fes-delete-row {
+	width: unset !important;
+}
+
+div.fes-fields,
+div.fes-label {
+	clear: both;
+}
+
+.fes-single-variation .fes-url-group {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex: 1 0 auto;
+	flex-wrap: wrap;
+}
+
+.fes-url-group .fes-url-row {
+	flex: 1 0 auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+label.fes-file-column,
+.fes-multiple-additional-fields {
+	flex-basis: 100%;
+}
+
+.fes-form .fes-variations-list-multiple .fes-single-variation {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 8px;
+	margin-bottom: 0;
+	border-top: 1px solid @medium-grey;
+	padding: 1em 0;
+}
+
+.fes-multiple-pricing-actions {
+	padding-top: 1em;
+	border-top: 1px solid @medium-grey;
+}
+
+.fes-multiple-additional-fields .edd-form-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: flex-end;
+}
+
+.fes-multiple-additional-fields .edd-form-row__column .edd-form-group__control {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+}
+
+.fes-multiple-additional-fields .edd-form-row__column .edd-form-group__control--is-inline {
+	display: inline-flex;
+	align-items: flex-end;
+}
+
+.fes-form .fes-el.multi_repeat .fes-fields td.fes-repeat-field:last-of-type {
+	min-width: 90px;
 }
 
 .media-mixin(@break) when (@break = @screen-sm-min) {
