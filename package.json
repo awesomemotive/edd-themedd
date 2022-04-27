@@ -9,7 +9,7 @@
   "text_domain": "themedd",
   "browserslist": "last 1 versions",
   "devDependencies": {
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.2",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-banner": "^0.6.0",
     "grunt-contrib-concat": "^1.0.1",
